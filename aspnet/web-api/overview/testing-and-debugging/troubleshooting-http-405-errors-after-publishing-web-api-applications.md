@@ -9,11 +9,11 @@ ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
 ms.openlocfilehash: 1b47f1ade3619cfd010260352f6a96985ab3598b
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445710"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555021"
 ---
 # <a name="troubleshoot-web-api2-apps-that-work-in-visual-studio-and-fail-on-a-production-iis-server"></a>Rozwiązywanie problemów z aplikacjami sieci Web API2 działających w programie Visual Studio i niepowodzeniem na produkcyjnym serwerze usług IIS
 
@@ -23,23 +23,23 @@ ms.locfileid: "73445710"
 > 
 > 
 > - [Internet Information Services (IIS)](https://www.iis.net/) (wersja 7 lub nowsza)
-> - [Interfejs Web API](../../index.md) 
+> - [Interfejs API sieci Web](../../index.md) 
 
 Aplikacje interfejsu API sieci Web zwykle używają kilku czasowników HTTP: GET, POST, PUT, DELETE i czasami poprawek. W takim przypadku deweloperzy mogą działać w sytuacjach, w których te zlecenia są implementowane przez inny moduł usług IIS na serwerze produkcyjnym usług IIS, który prowadzi do sytuacji, w której kontroler internetowego interfejsu API działa prawidłowo w programie Visual Studio lub na serwerze deweloperskim. Po wdrożeniu na produkcyjnym serwerze usług IIS Zwróć błąd HTTP 405.
 
 ## <a name="what-causes-http-405-errors"></a>Co powoduje błędy HTTP 405
 
-Pierwszy krok w kierunku uczenia się, jak rozwiązywać problemy z błędami HTTP 405, to zrozumienie, co faktycznie oznacza błąd HTTP 405. Podstawowym dokumentem regulującym protokół HTTP jest [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt), który definiuje kod stanu HTTP 405 jako ***metodę niedozwolony***, a dodatkowo opisuje ten kod stanu jako sytuację, w której &quot;metoda określona w wierszu żądania nie jest dozwolona dla zasób identyfikowany przez identyfikator URI żądania.&quot; innymi słowy, czasownik HTTP jest niedozwolony dla określonego adresu URL, którego żądał klient HTTP.
+Pierwszy krok w kierunku uczenia się, jak rozwiązywać problemy z błędami HTTP 405, to zrozumienie, co faktycznie oznacza błąd HTTP 405. Podstawowym dokumentem Prezesów dla protokołu HTTP jest [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt), który definiuje kod stanu HTTP 405 jako ***metodę niedozwolony***, a dodatkowo opisuje ten kod stanu jako sytuację, w której &quot;metoda określona w wierszu żądania nie jest dozwolona dla zasobu identyfikowanego przez identyfikator URI żądania.&quot; innymi słowy, czasownik HTTP jest niedozwolony dla określonego adresu URL, którego żądał klient HTTP.
 
 Poniżej przedstawiono kilka najbardziej używanych metod HTTP, zgodnie z definicją w dokumencie RFC 2616, RFC 4918 i RFC 5789:
 
 | Metoda HTTP | Opis |
 | --- | --- |
-| **Pobierz** | Ta metoda służy do pobierania danych z identyfikatora URI i prawdopodobnie najczęściej używana metoda HTTP. |
+| **GET** | Ta metoda służy do pobierania danych z identyfikatora URI i prawdopodobnie najczęściej używana metoda HTTP. |
 | **MTP** | Ta metoda jest podobnie jak Metoda GET, z tą różnicą, że nie pobiera danych z identyfikatora URI żądania — po prostu Pobiera stan HTTP. |
-| **POUBOJOWEGO** | Ta metoda jest zwykle używana do wysyłania nowych danych do identyfikatora URI. WPIS jest często używany do przesyłania danych formularza. |
-| **Ubrani** | Ta metoda jest zwykle używana do wysyłania danych pierwotnych do identyfikatora URI; Parametr PUT jest często używany do przesyłania danych JSON lub XML do aplikacji interfejsu API sieci Web. |
-| **USUNIĘTY** | Ta metoda służy do usuwania danych z identyfikatora URI. |
+| **POST** | Ta metoda jest zwykle używana do wysyłania nowych danych do identyfikatora URI. WPIS jest często używany do przesyłania danych formularza. |
+| **PUT** | Ta metoda jest zwykle używana do wysyłania danych pierwotnych do identyfikatora URI; Parametr PUT jest często używany do przesyłania danych JSON lub XML do aplikacji interfejsu API sieci Web. |
+| **DELETE** | Ta metoda służy do usuwania danych z identyfikatora URI. |
 | **Opcje** | Ta metoda jest zwykle używana do pobierania listy metod HTTP, które są obsługiwane przez identyfikator URI. |
 | **KOPIUJ PRZENIESIENIE** | Te dwie metody są używane z protokołem WebDAV, a ich celem nie jest wyjaśnienie. |
 | **MKCOL** | Ta metoda jest używana w połączeniu z protokołem WebDAV i służy do tworzenia kolekcji (np. katalogu) o określonym identyfikatorze URI. |
@@ -69,7 +69,7 @@ W tym przykładzie klient HTTP wysłał prawidłowe żądanie JSON do adresu URL
 
 ## <a name="resolve-http-405-errors"></a>Rozwiązywanie błędów HTTP 405
 
-Istnieje kilka powodów, dla których może nie być dozwolone określone zlecenie HTTP, ale istnieje jeden główny scenariusz, który jest wiodącą przyczyną tego błędu w usługach IIS: wiele programów obsługi jest zdefiniowanych dla tego samego czasownika/metody, a jeden z programów obsługi blokuje oczekiwaną procedurę obsługi z przetwarzanie żądania. W wyniku wyjaśnienia program IIS przetwarza od początku do ostatniego na podstawie wpisów programu obsługi zamówień w plikach *ApplicationHost. config* i *Web. config* , gdzie pierwsza zgodna kombinacja ścieżki, czasowników, zasobów itp., będzie używana do obsługi żądanie.
+Istnieje kilka powodów, dla których może nie być dozwolone określone zlecenie HTTP, ale istnieje jeden główny scenariusz, który jest wiodącą przyczyną tego błędu w usługach IIS: wiele programów obsługi jest zdefiniowanych dla tego samego czasownika/metody, a jeden z programów obsługi blokuje oczekiwaną procedurę obsługi przetwarzania żądania. W wyniku wyjaśnienia program IIS przetwarza od początku do ostatniego na podstawie wpisów programu obsługi zamówień w plikach *ApplicationHost. config* i *Web. config* , gdzie pierwsza zgodna kombinacja ścieżki, zlecenia, zasobu itp. zostanie użyta do obsłużenia żądania.
 
 Poniższy przykład to fragment z pliku *ApplicationHost. config* dla serwera IIS, który ZWRÓCIŁ błąd HTTP 405 podczas używania metody PUT do przesyłania danych do aplikacji internetowego interfejsu API. Na tym fragmencie są zdefiniowane kilka obsługi protokołu HTTP, a każdy program obsługi ma inny zestaw metod HTTP, dla których jest skonfigurowany — ostatni wpis na liście to procedura obsługi zawartości statycznej, która jest domyślnym programem obsługi, który jest używany po innych procedurach obsługi Chanc e aby przejrzeć żądanie:
 

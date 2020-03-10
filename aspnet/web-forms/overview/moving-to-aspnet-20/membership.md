@@ -1,90 +1,90 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/membership
-title: Członkostwo | Dokumentacja firmy Microsoft
+title: Członkostwo | Microsoft Docs
 author: microsoft
-description: Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób incorp...
+description: Członkostwo ASP.NET kompiluje się na powodzeniu modelu uwierzytelniania formularzy z ASP.NET 1. x. Uwierzytelnianie za pomocą formularzy ASP.NET zapewnia wygodny sposób incorp...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
 ms.openlocfilehash: da6fc205bd852a818d65425586cec38fdb08d310
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131053"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642157"
 ---
 # <a name="membership"></a>Członkostwo
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób uwzględnienie formularz logowania w aplikacji ASP.NET i weryfikowania użytkowników przed bazę danych lub w innym magazynie danych.
+> Członkostwo ASP.NET kompiluje się na powodzeniu modelu uwierzytelniania formularzy z ASP.NET 1. x. Uwierzytelnianie za pomocą formularzy ASP.NET to wygodny sposób dołączania formularza logowania do aplikacji ASP.NET i weryfikowania użytkowników w bazie danych lub innym magazynie danych.
 
-Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób uwzględnienie formularz logowania w aplikacji ASP.NET i weryfikowania użytkowników przed bazę danych lub w innym magazynie danych. Elementy członkowskie klasy uwierzytelniania formularzy umożliwiają obsługę plików cookie uwierzytelniania, sprawdź, czy są dostępne prawidłowe nazwy logowania, logowania użytkownika w poziomie itp. Implementowanie uwierzytelniania formularzy w aplikacji ASP.NET 1.x mogą jednak wymagać ilość kodu.
+Członkostwo ASP.NET kompiluje się na powodzeniu modelu uwierzytelniania formularzy z ASP.NET 1. x. Uwierzytelnianie za pomocą formularzy ASP.NET to wygodny sposób dołączania formularza logowania do aplikacji ASP.NET i weryfikowania użytkowników w bazie danych lub innym magazynie danych. Członkowie klasy FormsAuthentication mogą obsługiwać pliki cookie na potrzeby uwierzytelniania, sprawdzać poprawność logowania, wylogować użytkownika itp. Jednak zaimplementowanie uwierzytelniania formularzy w aplikacji ASP.NET 1. x może wymagać godziwej ilości kodu.
 
-Członkostwo w programie ASP.NET 2.0 jest główne zawodowego za pośrednictwem za pomocą uwierzytelniania formularzy, które samodzielnie. (Członkostwo jest najlepszy w taki sposób, w połączeniu z uwierzytelniania formularzy, ale za pomocą uwierzytelniania formularzy nie jest to wymagane). Jak szybko zobaczysz, służy członkostwa ASP.NET i kontrolek logowania programu ASP.NET 2.0 do implementowania systemu członkostwa zaawansowanego bez konieczności pisania większej ilości kodu w ogóle.
+Członkostwo w ASP.NET 2,0 jest głównym przenoszonem za pośrednictwem samego uwierzytelniania formularzy. (Członkostwo jest najbardziej niezawodne w połączeniu z uwierzytelnianiem formularzy, ale używanie uwierzytelniania formularzy nie jest wymagane). Jak zobaczysz, możesz użyć członkostwa ASP.NET i kontrolek logowania w ASP.NET 2,0 do wdrożenia zaawansowanego systemu członkostwa bez konieczności pisania wielu kodów.
 
-## <a name="implementing-membership-in-aspnet-20"></a>Implementowanie członkostwa w programie ASP.NET 2.0
+## <a name="implementing-membership-in-aspnet-20"></a>Implementowanie członkostwa w ASP.NET 2,0
 
-Członkostwo jest implementowany przez następujące cztery kroki. Należy pamiętać o tym, istnieje wiele podrzędnych kroków, które są zaangażowane oraz opcjonalnym, który może być również implementowana. Te kroki są przeznaczone do zilustrowania szerszej perspektywie konfigurowania członkostwa.
+Członkostwo jest implementowane przez wykonanie czterech kroków. Należy pamiętać, że istnieje wiele podkroków, które są używane, a także opcjonalna konfiguracja, która może być również zaimplementowana. Te kroki są przeznaczone do zilustrowania dużego obrazu konfigurowania członkostwa.
 
-1. Tworzenie bazy danych członkostwa (Jeśli program SQL Server jest używany jako magazyn członkostwa).
-2. Określ opcje członkostwa w plikach konfiguracji aplikacji. (Członkostwa jest włączona domyślnie).
-3. Określanie typu magazynu członkostwa, którego chcesz użyć. Opcje to: 
+1. Utwórz bazę danych członkostwa (Jeśli SQL Server jest używana jako magazyn członkostwa).
+2. Określ opcje członkostwa w plikach konfiguracji aplikacji. (Członkostwo jest domyślnie włączone).
+3. Określ typ magazynu członkostwa, którego chcesz użyć. Opcje to: 
 
-    - Microsoft SQL Server (w wersji 7.0 lub nowszy)
-    - Active Directory Store
-    - Niestandardowego dostawcy członkostwa
-4. Skonfiguruj aplikację uwierzytelniania formularzy programu ASP.NET. Jeszcze raz członkostwa jest przeznaczona do korzystać z uwierzytelniania formularzy, ale za pomocą uwierzytelniania formularzy nie jest wymagane.
-5. Zdefiniuj kontami użytkowników w ramach członkostwa i konfigurowania ról, jeśli to konieczne.
+    - Microsoft SQL Server (wersja 7,0 lub nowsza)
+    - Magazyn Active Directory
+    - Niestandardowy dostawca członkostwa
+4. Skonfiguruj aplikację do uwierzytelniania formularzy ASP.NET. Po ponownym włączeniu członkostwo jest przeznaczone do skorzystania z uwierzytelniania formularzy, ale używanie uwierzytelniania formularzy nie jest wymagane.
+5. Zdefiniuj konta użytkowników dla członkostwa i skonfiguruj role w razie potrzeby.
 
 ## <a name="creating-the-membership-database"></a>Tworzenie bazy danych członkostwa
 
-Jeśli używasz programu SQL Server 7.0 lub później, jako magazyn członkostwa, można użyć aspnet\_narzędzie regsql (dostępne najłatwiej z programu Visual Studio .NET 2005 wiersza polecenia) do konfiguracji bazy danych. Aspnet\_regsql narzędzie może służyć jako narzędzie wiersza polecenia lub przy użyciu Kreatora graficznego interfejsu użytkownika. Metoda Kreator jest najprostszym sposobem skonfigurowania bazy danych. Aby uzyskać dostęp do kreatora, po prostu uruchom następujące polecenie:
+W przypadku korzystania z SQL Server 7,0 lub nowszego jako magazynu członkostwa można skonfigurować bazę danych za pomocą narzędzia regsql języka ASPNET\_(dostępnego najłatwiej w wierszu polecenia programu Visual Studio .NET 2005). Narzędzia regsql ASPNET\_można użyć jako narzędzia wiersza polecenia lub Kreatora graficznego interfejsu użytkownika. Metoda kreatora jest najprostszym sposobem skonfigurowania bazy danych. Aby uzyskać dostęp do kreatora, wystarczy uruchomić następujące polecenie:
 
 `aspnet_regsql W`
 
-Po uruchomieniu tego polecenia, zostanie wyświetlona przy użyciu Kreatora instalacji serwera SQL programu ASP.NET jak pokazano poniżej.
+Po uruchomieniu tego polecenia zostanie wyświetlony Kreator instalacji SQL Server ASP.NET, jak pokazano poniżej.
 
 ![](membership/_static/image1.jpg)
 
-**Rysunek 1.**
+**Rysunek 1**
 
-Kreator instalacji serwera SQL platformy ASP.NET tworzy witrynę sieci Web w wystąpieniu, które są określone w kreatorze. Jednak ASP.NET użyje parametry połączenia w pliku machine.config nawiązywania połączenia z bazą danych. Domyślnie wskaże te parametry połączenia do wystąpienia programu SQL Server 2005, dlatego jeśli używasz wystąpienia programu SQL Server 2000 lub SQL Server 7.0, należy zmodyfikować parametry połączenia w pliku machine.config. Te parametry połączenia można znaleźć tutaj:
+Kreator instalacji SQL Server ASP.NET tworzy witrynę sieci Web w wystąpieniu określonym w kreatorze. Jednak ASP.NET będzie używać parametrów połączenia w pliku Machine. config do łączenia się z bazą danych. Domyślnie te parametry połączenia wskazują na wystąpienie SQL Server 2005, więc jeśli używasz wystąpienia SQL Server 2000 lub SQL Server 7,0, musisz zmodyfikować parametry połączenia w pliku Machine. config. Te parametry połączenia można znaleźć tutaj:
 
 [!code-xml[Main](membership/samples/sample1.xml)]
 
-Niestety Jeśli nie zmodyfikujesz parametry połączenia programu ASP.NET nie zapewni opisem błędu. Nadal będzie po prostu zaczną zgłaszać skargi powiedzenie, że nie utworzono bazy danych. W przypadku powyższych zmodyfikowano I parametry połączenia, aby wskazywał Moje lokalne wystąpienie programu SQL Server 2000.
+Niestety, jeśli nie zmodyfikujesz parametrów połączenia, ASP.NET nie będzie zawierać opisowego błędu. W dalszym ciągu będzie można tylko powiedzieć, że baza danych nie została utworzona. W powyższym przypadku zmodyfikowano parametry połączenia tak, aby wskazywały na moje lokalne wystąpienie SQL Server 2000.
 
-## <a name="specifying-configuration-and-adding-users-and-roles"></a>Określanie konfiguracji i dodawanie użytkowników i ról
+## <a name="specifying-configuration-and-adding-users-and-roles"></a>Określanie konfiguracji i Dodawanie użytkowników i ról
 
-Następnym etapem konfigurowania członkostwa jest dodawanie informacji niezbędnych do pliku web.config aplikacji. W programie ASP.NET: 1.x, modyfikując plik web.config czasami trudno było ze względu na użycie lowerCamelCase i braku Intellisense. Visual Studio .NET w wersji 2005 sprawia, że zadanie jest znacznie łatwiejsze za pomocą funkcji Intellisense dla plików konfiguracyjnych, ale ASP.NET 2.0 pójść o krok dalej, zapewniając interfejs sieci Web dla edycję plików konfiguracyjnych.
+Następnym krokiem w konfigurowaniu członkostwa jest dodanie niezbędnych informacji do pliku Web. config aplikacji. W ASP.NET 1. x Modyfikowanie pliku Web. config było czasami trudne z powodu użycia lowerCamelCase i braku funkcji IntelliSense. Program Visual Studio .NET 2005 ułatwia zadanie przy użyciu funkcji IntelliSense dla plików konfiguracyjnych, ale ASP.NET 2,0 prowadzi jeszcze jeden krok, dostarczając interfejs sieci Web do edytowania plików konfiguracji.
 
-Interfejs sieci Web można uruchomić, klikając przycisk Konfiguracja platformy ASP.NET na pasku narzędzi Eksploratora rozwiązań, jak pokazano poniżej. Można również uruchomić interfejs sieci Web za pomocą okienka wyskakujące, które są wyświetlane, gdy są wstawiane kontrolek logowania.
+Interfejs sieci Web można uruchomić, klikając przycisk Konfiguracja ASP.NET na pasku narzędzi Eksplorator rozwiązań, jak pokazano poniżej. Możesz również uruchomić interfejs sieci Web za pośrednictwem wyskakujących okienek, które są wyświetlane po wstawieniu kontrolek logowania.
 
 ![](membership/_static/image2.jpg)
 
 **Rysunek 2**
 
-Spowoduje to uruchomienie narzędzie Administratorskie witryny sieci Web ASP.NET, pokazano poniżej. Administrowanie witryną sieci Web platformy ASP.NET to interfejs cztery karty, która ułatwia zarządzanie ustawieniami aplikacji. Dostępne są następujące karty:
+Spowoduje to uruchomienie narzędzia administrowania witryną sieci Web ASP.NET poniżej. Administrowanie witryną sieci Web ASP.NET jest interfejsem zawierającym cztery karty, który ułatwia zarządzanie ustawieniami aplikacji. Dostępne są następujące karty:
 
-- **Strona główna**
-- **Zabezpieczenia** użytkowników, ról i dostępu.
-- **Aplikacja** konfigurowania ustawień aplikacji.
-- **Dostawca** Konfiguracja i testowanie aplikacji dostawcy członkostwa.
+- **Mowa**
+- **Zabezpieczenia** Konfigurowanie użytkowników, ról i dostępu.
+- **Aplikacja** Skonfiguruj ustawienia aplikacji.
+- **Dostawca** Skonfiguruj i przetestuj dostawcę członkostwa aplikacji.
 
-Narzędzie Administratorskie witryny sieci Web pozwala łatwo utworzyć nowych użytkowników, tworzenie nowych ról, a także do zarządzania użytkownikami i rolami. Ta możliwość nie jest dostępne w interfejsie Windows. Interfejs Windows pozwala łatwo definiować ustawienia autoryzacji i dodawanie, usuwanie i zarządzać dostawcami, funkcje, które nie znajdują się w narzędzia do administrowania witryną sieci Web.
+Narzędzie do administrowania witryną sieci Web pozwala łatwo tworzyć nowych użytkowników, tworzyć nowe role oraz zarządzać użytkownikami i rolami. Ta możliwość nie jest dostępna w interfejsie systemu Windows. Interfejs systemu Windows umożliwia łatwe definiowanie ustawień autoryzacji oraz dodawanie, usuwanie i zarządzanie dostawcami, możliwości, które nie są dostępne w narzędziu do administrowania witryną sieci Web.
 
-Aby uruchomić interfejs Windows, otwórz przystawkę Internetowe usługi informacyjne, kliknij prawym przyciskiem myszy w swojej aplikacji i wybierz polecenie Właściwości. Kliknij kartę programu ASP.NET, a następnie kliknij przycisk Edytuj konfigurację. (Aplikacji musi być uruchomiona w ramach programu ASP.NET 2.0 dla przycisku edycji konfiguracji do włączenia. Można skonfigurować verze technologie ASP.NET w oknie dialogowym aplikacji ASP.NET.) Zostanie wyświetlone okno dialogowe Ustawienia konfiguracji programu ASP.NET, jak pokazano poniżej.
+Aby uruchomić interfejs systemu Windows, Otwórz przystawkę Internet Information Services, kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie Właściwości. Kliknij kartę ASP.NET, a następnie kliknij przycisk Edytuj konfigurację. (Aby przycisk Edytuj konfigurację został włączony, aplikacja musi działać w ramach ASP.NET 2,0). Możesz również skonfigurować wersję ASP.NET w oknie dialogowym ASP.NET. Zostanie wyświetlone okno dialogowe Ustawienia konfiguracji ASP.NET, jak pokazano poniżej.
 
 ![](membership/_static/image3.jpg)
 
-**Rysunek 3.**
+**Rysunek 3**
 
-Na karcie Ogólne parametry połączenia i ustawienia aplikacji są wymienione. Wszystkie ustawienia kursywą są zdefiniowane w pliku konfiguracji nadrzędnej (w pliku machine.config lub web.config na wyższym poziomie), a ustawienia nie kursywą pochodzą z pliku konfiguracji aplikacji. Jeśli ustawienie zostanie dodany, usunąć lub edytować na poziomie aplikacji ASP.NET będzie dodać, usunąć lub zmodyfikować ustawienia w pliku web.config poziomy aplikacji zamiast usuwania ustawienia z pliku konfiguracji, z którego jest dziedziczona.
+Na karcie Ogólne są wyświetlane parametry połączeń i ustawienia aplikacji. Wszystkie ustawienia w kursywie są zdefiniowane w pliku konfiguracji nadrzędnej (plik Machine. config lub Web. config na wyższym poziomie), a ustawienia, które nie są kursywą, pochodzą z pliku konfiguracyjnego aplikacji. Jeśli ustawienie zostanie dodane, usunięte lub edytowane na poziomie aplikacji, ASP.NET doda, usunie lub zmodyfikuje ustawienie na poziomach aplikacji Web. config, zamiast usuwać ustawienia z pliku konfiguracji, z którego jest dziedziczona.
 
-Poniżej pokazano kartę uwierzytelnianie. Jest to, gdy skonfigurujesz ustawienia członkostwa. Tworzy ustawienia uwierzytelniania, dostawców członkostwa i dostawców ról można skonfigurować w tym miejscu.
+Poniżej pokazano kartę Uwierzytelnianie. W tym miejscu zostaną skonfigurowane ustawienia członkostwa. Ustawienia uwierzytelniania formularzy, dostawcy członkostwa i dostawcy ról można skonfigurować w tym miejscu.
 
 ![](membership/_static/image4.jpg)
 
@@ -92,167 +92,167 @@ Poniżej pokazano kartę uwierzytelnianie. Jest to, gdy skonfigurujesz ustawieni
 
 ## <a name="implementing-membership-in-your-application"></a>Implementowanie członkostwa w aplikacji
 
-Najprostszy sposób implementowania członkostwa ASP.NET w wersji 2.0 w aplikacji jest użycie podana kontroli logowania. Ta metoda umożliwia Implementowanie podstawowe informacje dotyczące członkostwa programu ASP.NET 2.0 bez pisania kodu w ogóle.
+Najprostszym sposobem implementacji członkostwa w programie ASP.NET 2,0 w aplikacji jest użycie dostarczonych kontrolek logowania. Ta metoda pozwala zaimplementować podstawowe informacje o członkostwie w programie ASP.NET 2,0 bez konieczności pisania kodu.
 
-Następujące elementy sterujące logowania są dostępne w programie ASP.NET 2.0:
+W programie ASP.NET 2,0 są dostępne następujące kontrolki logowania:
 
-## <a name="login-control"></a>Kontrolka Login
+## <a name="login-control"></a>Kontrola logowania
 
-Kontrolka Login udostępnia interfejs dla kogoś zalogować się do systemu członkostwa. Udostępnia przycisk logowania i pole tekstowe nazwy użytkownika i hasła. Wiele innych typowych funkcji np. łącze do zarejestrowania dla osób, które nie zostały jeszcze wykonane, dzięki czemu pole wyboru, która umożliwia użytkownikom automatyczne logowanie przy następnych wizytach, łącza do monitu o hasło itp. Wszystkie funkcje kontroli logowania są możliwe do dostosowania przy użyciu właściwości formantu.
+Kontrolka logowania udostępnia interfejs, który ktoś może zalogować się do systemu członkostwa. Udostępnia ona pole tekstowe username i Password oraz przycisk Zaloguj. Wiele innych popularnych funkcji, takich jak link do rejestracji dla osób, które nie zostały jeszcze wykonane, pole wyboru, które umożliwia użytkownikowi automatyczne zalogowanie się do kolejnych wizyt, link do przypomnienia o haśle itd. Wszystkie funkcje kontrolki logowania można dostosować za pomocą właściwości kontrolki.
 
-W programie ASP.NET: 1.x, deweloperzy musieli napisać ilość kodu w celu wyszukiwania, korzystając z uwierzytelniania formularzy. Za pomocą członkostwa programu ASP.NET 2.0 można sprawdzić poprawność użytkowników bez pisania kodu w ogóle. Program ASP.NET automatycznie wykona wyszukiwania użytkownika. (Jeśli używasz kontrolki logowania bez użycia członkostwa ASP.NET, możesz użyć **OnAuthenticate** metody do weryfikacji użytkownika.)
+W ASP.NET 1. x deweloperzy musieli napisać godziwą ilość kodu do przeprowadzenia wyszukiwania podczas korzystania z uwierzytelniania formularzy. Członkostwo w systemie ASP.NET 2,0 umożliwia Weryfikowanie użytkowników bez konieczności pisania kodu. ASP.NET będzie automatycznie wykonywać wyszukiwanie użytkownika. (Jeśli używasz kontrolki logowania bez członkostwa w ASP.NET, możesz użyć metody **OnAuthenticate** do zweryfikowania użytkownika).
 
-## <a name="loginview-control"></a>Kontrolki widoku logowania
+## <a name="loginview-control"></a>Widoku logowania — formant
 
-Kontrolki widoku logowania jest formant z szablonem, który zawiera dwa szablony domyślne; AnonymousTemplate i LoggedInTemplate. Szablon, który jest wyświetlany jest określany przez Określa, czy użytkownik jest zalogowany do systemu członkostwa. Ten formant zazwyczaj służy do wyświetlania kontrolki logowania, gdy użytkownik nie ma jeszcze zalogowany i kontrolki stanu logowania i/lub innych kontrolek logowania, gdy użytkownik jest zalogowany. Jeśli używasz zarządzania rolami w aplikacji programu ASP.NET, kontrolki widoku logowania można wyświetlić określonego szablonu na podstawie ról użytkowników. (Więcej na platformie ASP.NET Zarządzanie rolami zostały omówione później.)
+Formant widoku logowania jest formantem z szablonem, który domyślnie udostępnia dwa szablony; AnonymousTemplate i LoggedInTemplate. Wyświetlany szablon jest określany na podstawie tego, czy użytkownik jest zalogowany w systemie członkostwa. Ten formant jest zazwyczaj używany do wyświetlania kontrolki logowania, gdy użytkownik nie zalogował się jeszcze i stanu logowania kontrolki i/lub innych kontrolek logowania, gdy użytkownik zalogował się. Jeśli używasz zarządzania rolami w aplikacji ASP.NET, kontrolka widoku logowania może wyświetlać określony szablon na podstawie roli użytkownika. (Więcej informacji na temat zarządzania rolami ASP.NET zostanie omówione później).
 
-## <a name="passwordrecovery-control"></a>Kontrolka PasswordRecovery
+## <a name="passwordrecovery-control"></a>PasswordRecovery — formant
 
-PasswordRecovery temu użytkownicy będą otrzymywać wiadomości e-mail przy użyciu bieżącego hasła lub zresetować swoje hasło. Zwykły tekst i zaszyfrowane hasła można odzyskać, a pocztą e-mail do użytkowników. Jeśli hasło jest mieszany, nie można odzyskać. Zamiast tego użytkownik będzie musiał przeprowadzić resetowanie hasła.
+Kontrolka PasswordRecovery umożliwia użytkownikom otrzymywanie wiadomości e-mail przy użyciu bieżącego hasła lub Resetowanie hasła. Wyczyść tekst i zaszyfrowane hasła mogą być odzyskiwane i wysyłane pocztą e-mail do użytkowników. Jeśli hasło jest skrótem, nie można go odzyskać. Zamiast tego użytkownik będzie musiał wykonać Resetowanie hasła.
 
-## <a name="loginstatus-control"></a>Kontrolki stanu logowania
+## <a name="loginstatus-control"></a>Stanu logowania — formant
 
-Kontrolki stanu logowania jest używany do wyświetlania wskaźnik logowania dla użytkowników, którzy nie są rejestrowane w i wskaźnik wylogowania dla użytkowników, którzy są aktualnie zalogowany. Właściwość Request.IsAuthenticated jest używana ustalenie, który wskaźnik do wyświetlenia. Wskaźnik wyświetlany przez kontrolkę stanu logowania mogą być tekstem (wdrożone za pośrednictwem **LoginText** i **LogoutText** właściwości) lub obrazów (wdrożone za pośrednictwem **LoginImageUrl**i **LogoutImageUrl** właściwości.)
+Formant stanu logowania służy do wyświetlania wskaźnika logowania dla użytkowników, którzy nie są zalogowani, oraz wskaźnika wylogowania do użytkowników, którzy są obecnie zalogowani. Właściwość Request. isauthenticates służy do określania, który wskaźnik ma być wyświetlany. Wskaźnik wyświetlany przez kontrolkę stanu logowania może być tekstem (implementowanym za pomocą właściwości **LoginText** i **LogoutText** ) lub obrazów (implementowanych za pośrednictwem właściwości **LoginImageUrl** i **LogoutImageUrl** ).
 
-Gdy użytkownik zaloguje za pomocą kontrolki stanu logowania, użytkownik jest przekierowywany do adresu URL określonego przez **LogoutPageUrl** właściwości. Jeśli ta właściwość nie jest ustawiona, są odświeżane bieżącej strony. Ponieważ lokacji prawdopodobnie jest chroniony przez uwierzytelnianie formularzy, odświeżanie w bieżącej stronie spowoduje przekierowanie użytkownika do strony logowania dla witryny.
+Gdy użytkownik loguje się za pośrednictwem formantu stanu logowania, zostaje przekierowany do adresu URL określonego przez właściwość **LogoutPageUrl** . Jeśli ta właściwość nie jest ustawiona, bieżąca strona zostanie odświeżona. Ponieważ lokacja jest prawdopodobnie chroniona przez uwierzytelnianie formularzy, odświeżenie bieżącej strony przekieruje użytkownika na stronę logowania do witryny.
 
-## <a name="loginname-control"></a>Kontrolki nazwy logowania
+## <a name="loginname-control"></a>LoginName — formant
 
-Kontrolki nazwy logowania jest wyświetlana nazwa użytkownika zalogowanego obecnie do witryny.
+Kontrolka LoginName wyświetla nazwę użytkownika, który jest aktualnie zalogowany do witryny.
 
-## <a name="createuserwizard-control"></a>Kontrolka CreateUserWizard
+## <a name="createuserwizard-control"></a>Formancie CreateUserWizard — formant
 
-Kontrolka CreateUserWizard zapewnia użytkownikom wygodny sposób rejestrowania w systemie członkostwa. Możesz dodać kroki (zaimplementowane jako zbiór WizardSteps) za pośrednictwem interfejsu, pokazano poniżej.
+Kontrolka formancie CreateUserWizard zapewnia użytkownikom wygodny sposób rejestracji w systemie członkostwa. Możesz dodać kroki (zaimplementowane jako kolekcja elementów WizardStep) za pośrednictwem interfejsu pokazanego poniżej.
 
 ![](membership/_static/image5.jpg)
 
 **Rysunek 5**
 
-CreateUserWizard jest oparte na szablonach formant, który pochodzi od klasy kreatora i zawiera następujące szablony:
+Formancie CreateUserWizard to formant z szablonem, który pochodzi od klasy kreatora i zawiera następujące szablony:
 
-- **HeaderTemplate** ten szablon określa wygląd nagłówka kreatora.
-- **SidebarTemplate** ten szablon określa wygląd paska bocznego w kreatorze.
-- **StartNavigationTemplate** tej kontrolki szablonu wygląd nawigacji są kreatora na etapie rozpoczęcia.
-- **StepNavigationTemplate** ten szablon określa wygląd obszar nawigacji nie w kroku rozpoczęcia lub zakończenia.
-- **FinishNavigationTemplate** ten szablon określa wygląd obszar nawigacji, gdy w kroku kończenie.
+- **HeaderTemplate** Ten szablon kontroluje wygląd nagłówka kreatora.
+- **Element SideBarTemplate** Ten szablon steruje wyglądem paska bocznego kreatora.
+- **StartNavigationTemplate** Ten szablon steruje wyglądem okienka nawigacji w kroku Rozpocznij.
+- **StepNavigationTemplate** Ten szablon steruje wyglądem obszaru nawigacji, gdy nie znajduje się w kroku początkowym lub końcowym.
+- **FinishNavigationTemplate** Ten szablon steruje wyglądem obszaru nawigacji w kroku zakończenia.
 
-Ponadto dla każdego kroku dodasz do kreatora ASP.NET spowoduje utworzenie szablonu niestandardowego, który zawiera zarówno ContentTemplate, jak i CustomNavigationTemplate dla tego kroku. Aby uzyskać szczegółowe informacje o dostosowywaniu CreateUserWizard zobacz dokumentację VS.NET 2005:
+Ponadto dla każdego kroku, który można dodać do kreatora, ASP.NET utworzy szablon niestandardowy zawierający zarówno ContentTemplate, jak i CustomNavigationTemplate dla tego kroku. Aby uzyskać szczegółowe informacje na temat dostosowywania formancie CreateUserWizard, zobacz dokumentację dotyczącą VS.NET 2005:
 
 ## <a name="changepassword-control"></a>Kontrolka ChangePassword
 
-Kontrolka ChangePassword umożliwia użytkownikom zmianę swojego hasła. Jeśli właściwość nazwy użytkownika ma wartość true, (jest to wartość false, domyślnie), użytkownik może zmienić swoje hasło, gdy nie są rejestrowane. Jeśli użytkownik *jest* jest zalogowany i właściwości nazwy użytkownika jest spełniony, użytkownik będzie mógł zmienić hasło innego użytkownika, który nie jest rejestrowana w zapewnienie wiedzieli, identyfikator użytkownika, ten użytkownik.
+Kontrolka ChangePassword umożliwia użytkownikom zmianę hasła. Jeśli właściwość DisplayUserName ma wartość true (domyślnie ma wartość false), użytkownik może zmienić swoje hasło, gdy nie są zalogowani. Jeśli użytkownik *jest* już zalogowany i Właściwość DisplayUserName ma wartość true, użytkownik będzie mógł zmienić hasło innego użytkownika, który nie jest zalogowany, podając identyfikator użytkownika tego użytkownika.
 
-Należy pamiętać o tym, jeśli chcesz, aby użytkownicy mogli zmieniać hasła bez konieczności zalogowania, konieczne będzie upewnij się, że strona, na którym jest wyświetlany formantu ChangePassword zezwala na dostęp anonimowy. Oczywiście użytkownicy będą musieli podać swoje stare hasło, aby zmienić swoje hasło.
+Należy pamiętać, że jeśli chcesz, aby użytkownicy mogli zmieniać hasła bez konieczności logowania, musisz upewnić się, że strona, na której jest wyświetlany formant ChangePassword, zezwala na dostęp anonimowy. Aby zmienić hasło, użytkownicy będą musieli podać stare hasło.
 
 ## <a name="role-management"></a>Zarządzanie rolami
 
-Zarządzanie rolami umożliwia przypisywanie użytkowników do określonej roli, a następnie ograniczyć dostęp do niektórych plików lub folderów na podstawie tej roli. Zarządzanie rolami również zapewnia interfejs API, dzięki czemu można programowo określić ktoś roli lub określić wszyscy użytkownicy w określonej roli i reagować odpowiednio.
+Zarządzanie rolami pozwala przypisywać użytkowników do określonej roli, a następnie ograniczyć dostęp do określonych plików lub folderów na podstawie tej roli. Zarządzanie rolami udostępnia również interfejs API, dzięki czemu można programowo określić rolę kogoś lub określić wszystkich użytkowników w określonej roli i odpowiednio odpowiedzieć.
 
-Zarządzanie rolami nie jest wymagane członkostwo ASP.NET nie jest to wymagane, aby można było używać Zarządzanie rolami członkostwo w grupie. Jednak dwa stanowią uzupełnienie sobą dobrze i jest prawdopodobne, że deweloperzy będą ich używać w połączeniu ze sobą.
+Zarządzanie rolami nie jest wymagane w członkostwie ASP.NET ani nie jest wymagane, aby można było korzystać z zarządzania rolami. Jednak te dwa uzupełniają wszystkie inne dobrze i prawdopodobnie deweloperzy będą ich używać wspólnie ze sobą.
 
-Aby włączyć zarządzanie rolami w aplikacji, wprowadź następującą zmianę w pliku web.config:
+Aby włączyć zarządzanie rolami w aplikacji, wprowadź następujące zmiany w pliku Web. config:
 
 [!code-xml[Main](membership/samples/sample2.xml)]
 
-Gdy **cacheRolesInCookie** atrybut jest ustawiony na wartość true, ASP.NET buforuje członkostwo w roli użytkowników w pliku cookie na komputerze klienckim. Dzięki temu roli wyszukiwania bez wywołania do elementu RoleProvider. Korzystając z tego atrybutu, deweloperzy są zachęcani do upewnij się, że **cookieProtection** atrybut jest ustawiony na wszystkie. (Jest to ustawienie domyślne). Gwarantuje to, że dane pliku cookie są szyfrowane i pomaga zapewnić, że zawartość plików cookie nie zostały zmienione. Role można dodać za pomocą narzędzia do administrowania witryną sieci Web. Umożliwia on łatwe Definiowanie ról, skonfiguruj dostęp do części witryny na podstawie tych ról i przypisywania użytkowników do ról.
+Gdy atrybut **CacheRolesInCookie** ma wartość true, ASP.NET buforuje członkostwo roli użytkowników w pliku cookie na kliencie. Dzięki temu można wyszukiwać role bez wywoływania do RoleProvider. W przypadku korzystania z tego atrybutu zachęca się deweloperów do zapewnienia, że atrybut **CookieProtection** jest ustawiony na wartość ALL. (Jest to ustawienie domyślne). Dzięki temu dane plików cookie są szyfrowane i pomagają upewnić się, że zawartość plików cookie nie została zmieniona. Role można dodawać przy użyciu narzędzia do administrowania witryną sieci Web. Pozwala to łatwo definiować role, konfigurować dostęp do części witryny na podstawie tych ról i przypisywać użytkowników do ról.
 
 ![](membership/_static/image6.jpg)
 
 **Rysunek 6.**
 
-Jak wspomniano powyżej, można dodać nowe role po prostu wprowadź nazwę roli, a następnie klikając polecenie Dodaj rolę. Istniejące role mogą zarządzane lub usunięty przez kliknąć odpowiednie łącze na liście istniejące role.
+Jak pokazano powyżej, nowe role można dodać, wprowadzając po prostu nazwę roli, a następnie klikając pozycję Dodaj rolę. Istniejące role można zarządzać lub usuwać, klikając odpowiednie łącze na liście istniejących ról.
 
-Podczas zarządzania roli można dodać lub usunąć użytkowników, jak pokazano poniżej.
+Podczas zarządzania rolą można dodawać i usuwać użytkowników, jak pokazano poniżej.
 
 ![](membership/_static/image7.jpg)
 
 **Rysunek 7**
 
-Zaznaczając pole wyboru jest w roli użytkownika, można łatwo dodać użytkownika do określonej roli. ASP.NET automatycznie zaktualizuje bazę danych członkostwa odpowiednie pozycje. Należy również skonfigurować reguły dostępu do aplikacji. Deweloperzy 1.x ASP.NET zaczynasz temu za pośrednictwem &lt;autoryzacji&gt; elementu w pliku web.config, a ta opcja jest nadal dostępny w programie ASP.NET 2.0. Jednak łatwiej zarządzać dostępem reguł za pomocą witryny sieci Web administracji narzędzia jak pokazano poniżej.
+Zaznaczając pole wyboru użytkownik jest w roli, można łatwo dodać użytkownika do określonej roli. Program ASP.NET automatycznie zaktualizuje swoją bazę danych członkostwa przy użyciu odpowiednich wpisów. Należy również skonfigurować reguły dostępu dla aplikacji. ASP.NET 1. x deweloperzy są zaznajomieni z tą metodą za pośrednictwem elementu&gt; autoryzacji &lt;w pliku Web. config, a ta opcja jest nadal dostępna w ASP.NET 2,0. Można jednak ułatwić zarządzanie regułami dostępu za pomocą narzędzia administrowania witryną sieci Web, jak pokazano poniżej.
 
 ![](membership/_static/image8.jpg)
 
-**Rysunek 8**
+**Rysunek 8.**
 
-W takim przypadku zostanie wyróżniona folderu administracji (jego trudno będą widoczne, ponieważ narzędzie wyróżnia ją w kolorze szarym światła) i roli Administratorzy przyznano dostęp. Wszyscy pozostali użytkownicy są odrzucane. Możesz kliknąć ikonę głównego, wybierz regułę, a następnie użyć przycisków Przenieś w górę i Przenieś w dół, aby uzgodnić zasady. Podobnie jak w przypadku platformy ASP.NET &lt;autoryzacji&gt; elementu reguły są przetwarzane w kolejności, w jakiej są wyświetlane. Oznacza to jeśli kolejność reguł na powyższym zrzucie zostały cofnięte, nikt będzie mieć dostęp do folderu administracji ponieważ pierwszą regułę, która napotyka ASP.NET będzie regułę, która nie zezwala na wszystkich użytkowników do folderu.
+W takim przypadku folder administracyjny zostanie wyróżniony (trudno jest zobaczyć, ponieważ narzędzie podświetli je w kolorze szarym), a rola Administratorzy uzyska dostęp. Wszyscy inni użytkownicy są odrzucani. Możesz kliknąć ikonę nagłówka, aby wybrać regułę, a następnie użyć przycisków Przenieś w górę i Przenieś w dół, aby rozmieścić reguły. Podobnie jak w przypadku elementu ASP.NET &lt;Authorization&gt;, reguły są przetwarzane w kolejności, w jakiej są wyświetlane. Innymi słowy, jeśli porządek reguł w powyższym powrocie został cofnięty, nikt nie będzie miał dostępu do folderu administracyjnego, ponieważ pierwsza reguła, którą ASP.NET napotka, będzie regułą, która odmówi wszystkim do tego folderu.
 
-Program ASP.NET 2.0 dodaje plik web.config do folderu, dla którego określasz reguły dostępu. Reguły dostępu można edytować za pomocą pliku konfiguracji lub przy użyciu narzędzia do administrowania witryną sieci Web. Innymi słowy narzędzie Administratorskie witryny sieci Web jest po prostu interfejs, za pomocą którego można edytować plik konfiguracji w środowisku przyjazny dla użytkownika.
+ASP.NET 2,0 dodaje plik Web. config do folderu, dla którego określisz regułę dostępu. Reguły dostępu można edytować za pomocą pliku konfiguracji lub narzędzia do administrowania witryną sieci Web. Innymi słowy narzędzie do administrowania witryną sieci Web jest po prostu interfejsem, za pomocą którego plik konfiguracji można edytować w środowisku przyjaznym dla użytkownika.
 
-## <a name="using-roles-in-code"></a>Przy użyciu ról w kodzie
+## <a name="using-roles-in-code"></a>Korzystanie z ról w kodzie
 
-Interfejs API do zarządzania rolami nie zmienił się od wersji 1.x. **IsInRole** metoda jest używana do określenia, czy użytkownik ma określoną rolę.
+Interfejs API zarządzania rolami nie został zmieniony od wersji 1. x. Metoda **IsInRole** służy do określenia, czy użytkownik należy do określonej roli.
 
 [!code-csharp[Main](membership/samples/sample3.cs)]
 
-ASP.NET również tworzy wystąpienie RolePrincipal jako członek bieżącego kontekstu. Obiekt RolePrincipal może służyć do uzyskania wszystkich ról, do których należy użytkownik w następujący sposób:
+ASP.NET tworzy również wystąpienie RolePrincipal jako element członkowski bieżącego kontekstu. Obiekt RolePrincipal może służyć do uzyskania wszystkich ról, do których należy użytkownik:
 
 [!code-csharp[Main](membership/samples/sample4.cs)]
 
-## <a name="using-rolegroups-with-the-loginview-control"></a>Kolekci RoleGroups przy użyciu kontrolki widoku logowania
+## <a name="using-rolegroups-with-the-loginview-control"></a>Używanie RoleGroups z kontrolką widoku logowania
 
-Teraz, gdy masz zrozumienia zarządzania rolami i członkostwa, umożliwia krótko omówiono, jak kontrolki widoku logowania korzysta z tej funkcji w programie ASP.NET 2.0. Jak już wspomniano kontrolki widoku logowania jest formant z szablonem, który zawiera dwa szablony domyślne; AnonymousTemplate i LoggedInTemplate. W widoku logowania zadania, które okno dialogowe jest link (poniżej) umożliwiający upravit kolekci RoleGroups.
+Teraz, gdy masz już świadomość zarządzania rolami i członkostwem, możesz omówić krótko, w jaki sposób formant widoku logowania wykorzystuje tę możliwość w ASP.NET 2,0. Jak wspomniano wcześniej, formant widoku logowania jest formantem z szablonem, który domyślnie zawiera dwa szablony; AnonymousTemplate i LoggedInTemplate. W oknie dialogowym zadania widoku logowania jest link (przedstawiony poniżej), który umożliwia edytowanie RoleGroups.
 
 ![](membership/_static/image9.jpg)
 
-**Rysunek 9**
+**Rysunek 9.**
 
-Każdy obiekt RoleGroup zawiera tablicę ciągów, który definiuje role, których dotyczy RoleGroup. Aby dodać nowe RoleGroup kontrolki widoku logowania, kliknij link Edytuj RoleGroups. Na powyższej ilustracji widać, że po dodaniu nowego RoleGroup dla administratorów. Wybierając ten RoleGroup (RoleGroup[0]) z listy rozwijanej widoki, można skonfigurować szablon, który będzie wyświetlany tylko członkowie roli administratora. Na poniższej ilustracji I zostały dodane nowe RoleGroup, która ma zastosowanie do elementów członkowskich w roli Sprzedaż i rola dystrybucji. Spowoduje to dodanie drugiego RoleGroup widoków listy rozwijanej w oknie dialogowym zadania widoku logowania i nic dodane do szablonu, którego będzie widoczny przez dowolnego użytkownika w sprzedaży lub dystrybucji roli.
+Każdy obiekt grupy ról zawiera tablicę ciągów, które definiują role, do których odnosi się ta rola. Aby dodać nową rolę do kontrolki widoku logowania, kliknij łącze Edytuj RoleGroups. Na powyższym obrazie można zobaczyć, że dodano nową rolę grupy dla administratorów. Wybierając tę rolę (rolę [0]) z listy rozwijanej widoki, można skonfigurować szablon, który będzie wyświetlany tylko dla członków roli Administratorzy. Na poniższej ilustracji dodano nową rolę grupy, która jest stosowana do członków roli sprzedaż i rola dystrybucji. Spowoduje to dodanie drugiego elementu role do listy rozwijanej widoki w oknie dialogowym zadania widoku logowania, a wszystkie elementy dodane do tego szablonu będą widoczne dla każdego użytkownika w roli sprzedaż lub dystrybucja.
 
 ![](membership/_static/image10.jpg)
 
-**Na rysunku nr 10**
+**Rysunek 10**
 
 ## <a name="overriding-the-existing-membership-provider"></a>Zastępowanie istniejącego dostawcy członkostwa
 
-Istnieje kilka sposobów rozszerzyć funkcjonalność członkostwa ASP.NET. Po pierwsze oczywiście można zmienić istniejących funkcji klasy SqlMembershipProvider z niego dziedziczącego i przesłanianie jej metody. Na przykład jeśli chcesz zaimplementować swoje własne funkcje, podczas tworzenia użytkowników można utworzyć własne klasy, która dziedziczy SqlMembershipProvider w następujący sposób:
+Istnieje kilka sposobów, aby zwiększyć funkcjonalność członkostwa ASP.NET. Najpierw można oczywiście zmienić istniejące funkcje klasy SqlMembershipProvider przez dziedziczenie z niej i zastępowanie jej metod. Na przykład jeśli chcesz zaimplementować własne funkcje podczas tworzenia użytkowników, możesz utworzyć własną klasę, która dziedziczy z SqlMembershipProvider w następujący sposób:
 
 [!code-csharp[Main](membership/samples/sample5.cs)]
 
-Jeśli z drugiej strony, użytkownik chce utworzyć własnego dostawcę (na przykład przechowywać informacje o członkostwie w bazie danych programu Access), można utworzyć własnego dostawcę.
+Jeśli z drugiej strony chcesz utworzyć własnego dostawcę (aby przechowywać informacje o członkostwie w bazie danych programu Access, na przykład), możesz utworzyć własnego dostawcę.
 
-## <a name="creating-your-own-membership-provider"></a>Tworzenie dostawcy członkostwa
+## <a name="creating-your-own-membership-provider"></a>Tworzenie własnego dostawcy członkostwa
 
-Do utworzenia własnego dostawcy członkostwa, należy najpierw utworzyć klasę, która dziedziczy z klasy MembershipProvider. Jeśli używasz VB.NET, Visual Studio 2005 doda wycinków dla wszystkich metod, które chcesz zmienić. Jeśli używasz języka C#, jego maksymalnie można dodać wycinki.
+Aby utworzyć własnego dostawcę członkostwa, należy najpierw utworzyć klasę, która dziedziczy z klasy MembershipProvider. Jeśli używasz programu VB.NET, program Visual Studio 2005 doda procedury pośredniczące dla wszystkich metod, które należy przesłonić. Jeśli używasz C#programu, możesz dodać te odcinki.
 
-Należy zastąpić następujące czynności:
+Należy przesłonić następujące elementy:
 
 - Właściwość ApplicationName
 - Funkcja ChangePassword
-- ChangePasswordQuestionAndAnswer — funkcja
-- Tworzenie użytkownika — funkcja
-- DeleteUser — funkcja
-- EnablePasswordReset właściwości
+- ChangePasswordQuestionAndAnswer, funkcja
+- Funkcja myFunction
+- DeleteUser, funkcja
+- Właściwość EnablePasswordReset
 - Właściwość EnablePasswordRetrieval
-- FindUsersByEmail — funkcja
-- FindUsersByName — funkcja
-- GetAllUsers — funkcja
-- GetNumberOfUsersOnline function
+- FindUsersByEmail, funkcja
+- FindUsersByName, funkcja
+- GetAllUsers, funkcja
+- GetNumberOfUsersOnline, funkcja
 - GetPassword — funkcja
-- GetUser — funkcja
-- GetUserNameByEmail — funkcja
+- GetUser, funkcja
+- GetUserNameByEmail, funkcja
 - Właściwość MaxInvalidPasswordAttempts
-- MinRequiredNonAlphanumericCharacters property
-- Wartość MinRequiredPasswordLength właściwości
+- Właściwość MinRequiredNonAlphanumericCharacters
+- Właściwość MinRequiredPasswordLength
 - Właściwość PasswordAttemptWindow
 - Właściwość PasswordFormat
 - Właściwość PasswordStrengthRegularExpression
-- RequiresQuestionAndAnswer właściwości
-- RequiresUniqueEmail właściwości
-- ResetPassword — funkcja
-- Odblokuj użytkownika — funkcja
-- UpdateUser — funkcja
-- Funkcja ValidateUser
+- Właściwość RequiresQuestionAndAnswer
+- Właściwość RequiresUniqueEmail
+- ResetPassword, funkcja
+- Odblokuj funkcję użytkownika
+- UpdateUser, funkcja
+- ValidateUser, funkcja
 
-Thats dość listy do zaimplementowania dewelopera języka C#. Może się okazać je łatwiej tworzyć klasy w VB.NET bez implementacji, a następnie użyj odblaskowego .NET lub podobnego narzędzia, aby przekonwertować kod w języku C#.
+Która całkiem listę do wdrożenia jako C# Deweloper. Łatwiej jest utworzyć klasę w VB.NET bez żadnej implementacji, a następnie użyć reflektora platformy .NET lub podobnego narzędzia do konwersji kodu na C#.
 
-Parametry połączenia i inne właściwości, należy ustawić wartości domyślne metody inicjowania. (Metoda inicjowania uruchamiane, gdy dostawca jest ładowany w czasie wykonywania.) Drugi parametr do metody inicjowania typu System.Collections.Specialized.NameValueCollection i jest odwołaniem do &lt;Dodaj&gt; element, który jest skojarzony z niestandardowego dostawcy w pliku web.config. Ten wpis wygląda podobnie do poniższego:
+Parametry połączenia i inne właściwości powinny być ustawione na ich wartości domyślne w metodzie Initialize. (Metoda Initialize jest wyzwalana, gdy dostawca jest ładowany w czasie wykonywania). Drugi parametr metody Initialize jest typu System. Collections. wyspecjalizowany. NameValueCollection i jest odwołaniem do &lt;Dodaj&gt; elementu, który jest skojarzony z dostawcą niestandardowym w pliku Web. config. Ten wpis wygląda następująco:
 
 [!code-xml[Main](membership/samples/sample6.xml)]
 
-Oto przykład metody inicjowania.
+Oto przykład metody Initialize.
 
 [!code-csharp[Main](membership/samples/sample7.cs)]
 
-W celu potwierdzenia tożsamości użytkownika, gdy przesyła formularz logowania, należy użyć metody ValidateUser. Ta metoda jest uruchamiana, gdy użytkownik kliknie przycisk Zaloguj się w kontrolce logowania. Umieści Twoje kod, który obsługuje wyszukiwanie użytkowników w przypadku tej metody.
+Aby zweryfikować użytkownika podczas przesyłania formularza logowania, należy użyć metody ValidateUser. Ta metoda jest wyzwalana, gdy użytkownik kliknie przycisk Zaloguj w kontrolce logowania. Zostanie umieszczony kod, który wykonuje wyszukiwanie użytkownika w tej metodzie.
 
-Jak widać, pisanie własnego dostawcy członkostwa jest trudne i umożliwia rozszerzenie to zaawansowane funkcje platformy ASP.NET w wersji 2.0.
+Jak widać, pisanie własnego dostawcy członkostwa nie jest trudne i pozwala na rozbudowanie tej zaawansowanej funkcjonalności ASP.NET 2,0.

@@ -9,11 +9,11 @@ ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
 ms.openlocfilehash: cab9acb1ffd75cca87f6c575a6abdd000235828e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635679"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640533"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX
 
@@ -61,7 +61,7 @@ Metoda Login () rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| Uż | Wymagany. Nazwa użytkownika do uwierzytelnienia. |
+| userName | Wymagany. Nazwa użytkownika do uwierzytelnienia. |
 | hasło | Opcjonalne (Domyślnie wartość null). Hasło użytkownika. |
 | IsPersistent | Opcjonalne (wartość domyślna to false). Czy plik cookie uwierzytelniania użytkownika powinien być utrwalany między sesjami. W przypadku wartości false użytkownik będzie wylogowywał się, gdy przeglądarka zostanie zamknięta lub sesja wygaśnie. |
 | redirectUrl | Opcjonalne (Domyślnie wartość null). Adres URL, pod który ma zostać przekierowany przeglądarka po pomyślnym uwierzytelnieniu. Jeśli ten parametr ma wartość null lub jest pustym ciągiem, nie ma żadnego przekierowania. |
@@ -143,7 +143,7 @@ Odwołanie do funkcji określone przez tę właściwość powinna mieć następu
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| wynika | Ten parametr będzie zawsze `null`; jest on zarezerwowany do użytku w przyszłości. |
+| wynik | Ten parametr będzie zawsze `null`; jest on zarezerwowany do użytku w przyszłości. |
 | userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji logowania. |
 | MethodName | Nazwa metody wywołującej. |
 

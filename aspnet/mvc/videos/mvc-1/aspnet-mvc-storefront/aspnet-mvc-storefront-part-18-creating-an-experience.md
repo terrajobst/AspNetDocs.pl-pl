@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
-title: 'ASP.NET MVC Storefront — część 18: Tworzenie środowiska | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC — część 18: Tworzenie środowiska | Microsoft Docs'
 author: robconery
-description: W tym odcinku pracuję ściąganie wszystkie elementy są ze sobą w celu utworzenia, spójne "środowisko" dobierana Technical Preview.
+description: W tym odcinku podzielę wszystkie części techniczne, aby utworzyć spójny element "Experience" dla klientów.
 ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 1636464e-900e-4926-bd5a-88adb5315ff9
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
 msc.type: video
 ms.openlocfilehash: 00390fe4b618f09a0b3f8bfbff513827a504626c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411777"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537850"
 ---
-# <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC Storefront — część 18: Tworzenie środowiska
+# <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC — część 18: Tworzenie środowiska
 
-przez [Rob Conery](https://github.com/robconery)
+według [stożka robu](https://github.com/robconery)
 
-W tym odcinku pracuję ściąganie wszystkie elementy są ze sobą w celu utworzenia, spójne "środowisko" dobierana Technical Preview.
+W tym odcinku podzielę wszystkie części techniczne, aby utworzyć spójne "środowisko" dla klientów.
 
-[&#9654;Obejrzyj film wideo (minuty 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-18-creating-an-experience)
+[&#9654;Obejrzyj wideo (21 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-18-creating-an-experience)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)

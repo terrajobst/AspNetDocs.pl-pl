@@ -9,11 +9,11 @@ ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
 ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519300"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641471"
 ---
 # <a name="shopping-cart"></a>Koszyk
 
@@ -56,11 +56,11 @@ Wcześniej w tej serii samouczków został zdefiniowany schemat dla kategorii i 
 1. Kliknij prawym przyciskiem myszy folder *modele* i wybierz polecenie **Dodaj** -&gt; **nowy element**. 
 
     ![Koszyk — nowy element](shopping-cart/_static/image1.png)
-2. **Dodaj nowy element** zostanie wyświetlone okno dialogowe. Wybierz pozycję **kod**, a następnie wybierz pozycję **Klasa**. 
+2. Zostanie wyświetlone okno dialogowe **Dodaj nowy element** . Wybierz pozycję **kod**, a następnie wybierz pozycję **Klasa**. 
 
     ![Koszyk — okno dialogowe Dodawanie nowego elementu](shopping-cart/_static/image2.png)
 3. Nadaj tej nowej klasie nazwę *CartItem.cs*.
-4. Kliknij przycisk **Dodaj**.  
+4. Kliknij pozycję **Add** (Dodaj).  
    Nowy plik klasy zostanie wyświetlony w edytorze.
 5. Zastąp domyślny kod następującym kodem:   
 
@@ -130,7 +130,7 @@ Jak wspomniano wcześniej, utworzysz stronę przetwarzania o nazwie *AddToCart. 
 #### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć funkcję dodawania do koszyka:
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **WingtipToys**, kliknij polecenie **Dodaj** -&gt; **nowy element**.  
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
 2. Dodawanie standardowej nowej strony (formularz sieci Web) do aplikacji o nazwie *AddToCart. aspx*. 
 
     ![Koszyk — Dodaj formularz sieci Web](shopping-cart/_static/image4.png)
@@ -148,7 +148,7 @@ Jak wspomniano wcześniej, `ID` użytkownika służy do identyfikowania produkt�
 Na stronie *ShoppingCart. aspx* zostaną wyświetlone produkty dodane przez użytkownika do koszyka zakupów. Umożliwia także dodawanie, usuwanie i aktualizowanie elementów w koszyku.
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **WingtipToys**, a następnie kliknij pozycję **Dodaj** -&gt; **nowy element**.  
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
 2. Dodaj nową stronę (formularz sieci Web), która zawiera stronę wzorcową, wybierając **formularz sieci Web przy użyciu strony wzorcowej**. Nadaj nowej stronie nazwę *ShoppingCart. aspx*.
 3. Wybierz pozycję **site. Master** , aby dołączyć stronę wzorcową do nowo utworzonej strony *. aspx* .
 4. Na stronie *ShoppingCart. aspx* Zastąp istniejący znacznik następującym znacznikiem:   
@@ -196,7 +196,7 @@ Uruchom aplikację, aby dowiedzieć się, jak dodać produkty do koszyka.
 4. Wyświetl dodatkowe produkty, wybierając **płaszczyzny** z menu nawigacji kategorii.
 5. Kliknij link **Dodaj do koszyka** obok pierwszego wymienionego produktu.  
  Zostanie wyświetlona strona *ShoppingCart. aspx* z dodatkowym elementem.
-6. Zamknij przeglądarkę.
+6. Zamknij okno przeglądarki.
 
 ### <a name="calculating-and-displaying-the-order-total"></a>Obliczanie i wyświetlanie sumy zamówienia
 
@@ -319,5 +319,5 @@ Aby zrozumieć, jak opisana funkcja działa w prawdziwej aplikacji biznesowej, m
 [ASP.NET Session State Overview](https://msdn.microsoft.com/library/ms178581.aspx)
 
 > [!div class="step-by-step"]
-> [Poprzedni](display_data_items_and_details.md)
-> [Następny](checkout-and-payment-with-paypal.md)
+> [Poprzednie](display_data_items_and_details.md)
+> [dalej](checkout-and-payment-with-paypal.md)

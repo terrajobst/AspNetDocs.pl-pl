@@ -1,259 +1,259 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
-title: Część 3. Widoki i modele widoków | Dokumentacja firmy Microsoft
+title: 'Część 3: widoki i modele widoków | Microsoft Docs'
 author: jongalloway
-description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 3 obejmuje, widoki i modele widoków.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 3 obejmuje widoki i modele widoków.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: 3fcfc816cde22c697a78bab2c9ea7ace1bf68501
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129677"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559809"
 ---
-# <a name="part-3-views-and-viewmodels"></a>Część 3. widoki i modele widoków
+# <a name="part-3-views-and-viewmodels"></a>Część 3. Widoki i modele widoków
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
+> Sklep MVC Music jest aplikacją samouczka, która wprowadza i objaśnia krok po kroku, jak używać ASP.NET MVC i Visual Studio do programowania w sieci Web.  
 >   
-> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> Sklep MVC Music jest lekkim przykładowym wdrożeniem magazynu, który sprzedaje Albumy muzyczne w trybie online i implementuje podstawowe funkcje administracyjne, logowania użytkownika i koszyka.  
 >   
-> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 3 obejmuje, widoki i modele widoków.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 3 obejmuje widoki i modele widoków.
 
-Do tej pory firma Microsoft została właśnie zostało zwracanie ciągi z akcji kontrolera. Jest to dobre rozwiązanie sposób poznać działanie kontrolerów, ale to, że nie będzie sposób tworzenia aplikacji sieci web rzeczywistych. Firma Microsoft zamierza mają lepszy sposób generują kod HTML do przeglądarki, odwiedź naszą witrynę — jeden w którym firma Microsoft może korzystać z plików szablonu można łatwo dostosować zawartość HTML przesyła z powrotem. To dokładnie wykonaj widoków.
+Do tej pory właśnie zwracamy ciągi z akcji kontrolera. Jest to świetny sposób, aby poznać sposób działania kontrolerów, ale nie jest to, w jaki sposób chcesz utworzyć rzeczywistą aplikację sieci Web. Chcemy ulepszyć generowanie kodu HTML z powrotem do przeglądarek odwiedzających naszą witrynę — jeden tam, gdzie możemy używać plików szablonów, aby łatwiej dostosować zawartość HTML. To dokładnie, które widoki robią.
 
 ## <a name="adding-a-view-template"></a>Dodawanie szablonu widoku
 
-Aby użyć szablonu widoku, firma Microsoft będzie zmienić metodę indeksu HomeController zwracać element ActionResult i jego zwracają View(), takich jak poniżej:
+Aby użyć szablonu widoku, zmienimy metodę indeksu HomeController, aby zwracała ActionResult, i będzie mieć widok zwracany (), podobny do poniższego:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample1.cs)]
 
-Powyższych zmian wskazuje na to, a nie zwrócił ciągu, chcemy zamiast tego użyj "View", aby wygenerować ponownie wynik.
+Powyższa zmiana wskazuje, że zamiast zwrócić ciąg, chcemy użyć "widoku" do wygenerowania wyniku z powrotem.
 
-Teraz dodamy odpowiedni szablon widoku nasze projektu. W tym celu firma Microsoft będzie umieść kursor tekstu w metodzie akcji indeksu, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję "Dodaj widok". Zostanie wyświetlone okno dialogowe dodawania widoku:
+Teraz dodamy odpowiedni szablon widoku do projektu. Aby to zrobić, ustaw kursor tekstu w metodzie akcji indeksu, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję "Dodaj widok". Spowoduje to wyświetlenie okna dialogowego Dodawanie widoku:
 
-![](mvc-music-store-part-3/_static/image1.jpg)![](mvc-music-store-part-3/_static/image1.png)
+![](mvc-music-store-part-3/_static/image1.jpg) ![](mvc-music-store-part-3/_static/image1.png)
 
-Okno dialogowe "Dodaj widok" pozwala szybko i łatwo wygenerować plik szablonu widoku. Domyślnie "Dodaj widok" okno dialogowe wstępnie wypełnia nazwę Wyświetl szablon do tworzenia, tak aby była zgodna z metody akcji, która będzie go używać. Ponieważ użyliśmy menu kontekstowego "Dodaj widok" w ramach metody akcji indeks() naszych HomeController, okno dialogowe "View Dodaj" powyżej ma "Index" jako nazwy widoku wstępnie wypełnione domyślnie. Nie potrzebujemy zmienić dowolne z opcjami w tym oknie dialogowym, więc kliknij przycisk Dodaj.
+Okno dialogowe "Dodawanie widoku" pozwala nam szybko i łatwo generować pliki szablonów widoków. Domyślnie okno dialogowe "Dodaj widok" wstępnie wypełnia nazwę szablonu widoku do utworzenia, aby była zgodna z metodą akcji, która będzie go używać. Ze względu na to, że użyto menu kontekstowego "Dodaj widok" w metodzie akcji index () naszego HomeController, w oknie dialogowym "Dodaj widok" powyżej znajduje się wartość "index" (nazwa widoku jest wstępnie wypełniona). Nie trzeba zmieniać żadnych opcji w tym oknie dialogowym, dlatego kliknij przycisk Dodaj.
 
-Gdy firma Microsoft kliknij przycisk Dodaj, Visual Web Developer utworzy nowy Index.cshtml, Wyświetl szablon dla nas w katalogu \Views\Home tworzenia folderu, jeśli jeszcze nie istnieje.
+Po kliknięciu przycisku Dodaj, Visual Web Developer utworzy nowy szablon widoku index. cshtml dla nas w katalogu \Views\Home, tworząc folder, jeśli jeszcze nie istnieje.
 
 ![](mvc-music-store-part-3/_static/image2.png)
 
-Nazwy i lokalizacji folderu pliku "Index.cshtml" ważne jest i jest zgodna z konwencjami nazewnictwa platformy ASP.NET MVC domyślne. Nazwa katalogu, \Views\Home, odpowiada kontroler - o nazwie HomeController. Nazwa szablonu widoku indeksu, pasuje do metody akcji kontrolera, które będą wyświetlane w widoku.
+Nazwa i lokalizacja pliku "index. cshtml" są ważne i są zgodne z domyślnymi konwencjami nazewnictwa MVC ASP.NET. Nazwa katalogu, \Views\Home, pasuje do kontrolera o nazwie HomeController. Nazwa szablonu widoku, indeks, dopasowuje metodę akcji kontrolera, która będzie wyświetlać widok.
 
-ASP.NET MVC pozwala uniknąć konieczności jawnego określania nazwy lub lokalizacji szablonu widoku, gdy używamy tę konwencję nazewnictwa w celu zwrócenia widoku. Renderowanie zostanie domyślnie przeprowadzone szablon widoku \Views\Home\Index.cshtml podczas pisania kodu, takich jak poniżej w ramach naszych HomeController:
+ASP.NET MVC umożliwia nam uniknięcie jawnego określenia nazwy lub lokalizacji szablonu widoku, gdy używamy tej konwencji nazewnictwa do zwrócenia widoku. Domyślnie renderuje szablon widoku \Views\Home\Index.cshtml, gdy piszesz kod podobny do poniższego w naszym HomeController:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample2.cs)]
 
-Visual Web Developer utworzony i otwarty "Index.cshtml" Wyświetl szablon, po możemy kliknięto przycisk "Dodaj" w oknie dialogowym "Dodaj widok". Poniżej przedstawiono zawartość Index.cshtml.
+Visual Web Developer utworzył i otworzył szablon widoku "index. cshtml" po kliknięciu przycisku "Dodaj" w oknie dialogowym "Dodawanie widoku". Zawartość index. cshtml pokazano poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample3.cshtml)]
 
-Ten widok jest przy użyciu składni Razor, który jest bardziej zwięzłe niż aparat widoku formularzy sieci Web, które są używane w formularzach sieci Web platformy ASP.NET i wcześniejszych wersjach programu ASP.NET MVC. Aparat widoku w formularzach sieci Web jest nadal dostępny w programie ASP.NET MVC 3, ale wielu programistów uważa, aparat widoku Razor bardzo dobrze pasuje rozwoju platformy ASP.NET MVC.
+Ten widok używa składnia Razor, który jest bardziej zwięzły niż aparat widoku formularzy sieci Web używany w ASP.NET Web Forms i poprzednich wersjach ASP.NET MVC. Aparat widoku formularzy sieci Web jest nadal dostępny w ASP.NET MVC 3, ale wielu deweloperów stwierdzi, że aparat widoku Razor dopasowuje ASP.NET rozwój MVC.
 
-Pierwsze trzy wiersze Ustaw tytuł strony, przy użyciu ViewBag.Title. Firma Microsoft będzie wyglądać jak to działa bardziej szczegółowo wkrótce, ale najpierw Przyjrzyjmy aktualizacji tekst nagłówka tekst i wyświetlić stronę. Aktualizacja &lt;h2&gt; tagu "ten to Home Page" powiedzieć, jak pokazano poniżej.
+Pierwsze trzy wiersze ustawiają tytuł strony przy użyciu ViewBag. title. Wkrótce sprawdzimy, jak to działa bardziej szczegółowo, ale najpierw zaktualizujemy tekst nagłówka tekstu i wyświetli stronę. Zaktualizuj tag &lt;H2&gt;, aby powiedzieć "to jest Strona główna", jak pokazano poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample4.cshtml)]
 
-Uruchamianie aplikacji pokazuje, że nasz nowy tekst jest widoczna na stronie głównej.
+Uruchomienie aplikacji pokazuje, że nowy tekst jest widoczny na stronie głównej.
 
 ![](mvc-music-store-part-3/_static/image3.png)
 
-## <a name="using-a-layout-for-common-site-elements"></a>Przy użyciu układu dla wspólnych elementów witryny
+## <a name="using-a-layout-for-common-site-elements"></a>Korzystanie z układu dla wspólnych elementów lokacji
 
-Większość witryn sieci Web mają zawartość, która jest współużytkowana przez wiele stron: nawigacji stopkach stron, obrazów logo, odwołania do arkusza stylów, itp. Aparat widoku Razor sprawia, że jest to łatwa w zarządzaniu przy użyciu strony o nazwie \_Layout.cshtml, który został automatycznie utworzony dla nas znajdujące się w folderze/widoków/Shared.
+Większość witryn sieci Web ma zawartość, która jest udostępniana między wieloma stronami: nawigowanie, stopki, obrazy logo, odwołania arkusza stylów itp. Aparat widoku Razor ułatwia zarządzanie przy użyciu strony o nazwie \_Layout. cshtml, która została automatycznie utworzona dla nas w folderze/Views/Shared.
 
 ![](mvc-music-store-part-3/_static/image4.png)
 
-Kliknij dwukrotnie ten folder, aby wyświetlić jego zawartość, poniżej.
+Kliknij dwukrotnie ten folder, aby wyświetlić zawartość, która jest pokazana poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample5.cshtml)]
 
-Zawartość z naszych pojedyncze widoki, które będą wyświetlane przez @RenderBodypolecenia () oraz typowe zawartość, która ma znajdować się poza, można dodać do \_Layout.cshtml znaczników. Chcemy, aby nasze Store utworów muzycznych MVC aby wspólnej nagłówek wraz z łączami do naszej strony głównej i Store obszaru na wszystkich stronach w witrynie, dlatego dodamy, szablon bezpośrednio powyżej @RenderBodyinstrukcji ().
+Zawartość z poszczególnych widoków zostanie wyświetlona przy użyciu polecenia @RenderBody(), a każda Wspólna zawartość, która ma być wyświetlana poza programem, można dodać do znacznika \_Layout. cshtml. Chcemy, aby nasz sklep MVC Music miał wspólny nagłówek z linkami do naszej strony głównej i obszaru przechowywania na wszystkich stronach w witrynie, dlatego dodamy go do szablonu bezpośrednio powyżej tej instrukcji @RenderBody().
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample6.cshtml)]
 
 ## <a name="updating-the-stylesheet"></a>Aktualizowanie arkusza stylów
 
-Szablonu pusty projekt zawiera bardzo usprawnione pliku CSS, która zawiera tylko style, które umożliwia wyświetlenie komunikatów dotyczących sprawdzania poprawności. Nasze projektanta udostępnił niektóre dodatkowe CSS i obrazów do definiowania wygląd i działanie dla naszej witrynie, dlatego dodamy te teraz.
+Szablon pustego projektu zawiera bardzo uproszczony plik CSS, który zawiera tylko style używane do wyświetlania komunikatów sprawdzania poprawności. Nasz Projektant udostępnił kilka dodatkowych arkuszy CSS i obrazów, aby zdefiniować wygląd i działanie naszej witryny, dlatego dodamy je teraz.
 
-Zaktualizowany plik CSS i obrazów, które są uwzględnione w zawartości katalogu Assets.zip MvcMusicStore, który znajduje się w temacie [MVC — muzyka-Store](https://github.com/evilDave/MVC-Music-Store). Utworzymy wybierz obie z nich w Eksploratorze Windows i upuścić je do folderu zawartości Nasze rozwiązanie programu Visual Web Developer, jak pokazano poniżej:
+Zaktualizowany plik i obrazy CSS są zawarte w katalogu zawartości MvcMusicStore-Assets. zip, który jest dostępny w [sklepie MVC-Music-Store](https://github.com/evilDave/MVC-Music-Store). Będziemy wybierać obydwie te elementy w Eksploratorze Windows i upuszczać je do folderu zawartości naszego rozwiązania w programie Visual Web Developer, jak pokazano poniżej:
 
 ![](mvc-music-store-part-3/_static/image5.png)
 
-Zostanie wyświetlony monit o potwierdzenie, czy chcesz zastąpić istniejący plik Site.css. Kliknij przycisk Tak.
+Zostanie wyświetlony monit o potwierdzenie, czy chcesz zastąpić istniejący plik. css. kliknij przycisk Tak.
 
 ![](mvc-music-store-part-3/_static/image6.png)
 
-Folder zawartości Twojej aplikacji będą wyświetlane w następujący sposób:
+Folder zawartości aplikacji będzie teraz wyświetlany w następujący sposób:
 
 ![](mvc-music-store-part-3/_static/image7.png)
 
-Teraz możemy uruchomić aplikację i zobacz, jak wyglądają nasze zmiany na stronie głównej.
+Teraz Uruchommy aplikację i zobacz, w jaki sposób zmiany wyglądają na stronie głównej.
 
 ![](mvc-music-store-part-3/_static/image8.png)
 
-- Podsumujmy, co zostało zmienione: Metody akcji indeksu HomeController znaleziono i wyświetlane \Views\Home\Index.cshtmlView szablonu, mimo że naszego kodu o nazwie "View() zwrotu", ponieważ szablon widoku, a następnie standardowej konwencji nazewnictwa.
-- Strona główna wyświetla prosty komunikat powitalny, który jest zdefiniowany w szablonie widoku \Views\Home\Index.cshtml.
-- Strona główna używa naszej \_Layout.cshtml szablonu, a zatem komunikat powitalny znajduje się w układzie standardowej witrynie HTML.
+- Zapoznaj się z informacjami o zmianach: odnaleziono metodę akcji indeksu HomeController i Wyświetlono szablon \Views\Home\Index.cshtmlView, mimo że nasz kod nosi nazwę "return View ()", ponieważ nasz szablon widoku przestrzega standardowej konwencji nazewnictwa.
+- Na stronie głównej jest wyświetlany prosty komunikat powitalny, który jest zdefiniowany w szablonie widoku \Views\Home\Index.cshtml.
+- Strona główna używa szablonu \_Layout. cshtml, dlatego Komunikat powitalny jest zawarty w układzie HTML witryny standardowej.
 
-## <a name="using-a-model-to-pass-information-to-our-view"></a>Przy użyciu modelu do przekazywania informacji do naszych widoku
+## <a name="using-a-model-to-pass-information-to-our-view"></a>Używanie modelu do przekazywania informacji do naszego widoku
 
-Wyświetl szablon, który po prostu wyświetla zapisane na stałe HTML nie będzie bardzo interesujące, witryny sieci web. Aby utworzyć dynamiczne witryny sieci web, będzie zamiast tego chcemy do przekazywania informacji z naszych akcji kontrolera do naszych szablonów widoku.
+Szablon widoku, który po prostu wyświetla kod HTML stałe, nie może utworzyć bardzo interesującej witryny sieci Web. Aby utworzyć dynamiczną witrynę sieci Web, należy przekazać informacje z naszych akcji kontrolera do naszych szablonów widoków.
 
-Wzorzec Model-View-Controller termin, który Model, który odwołuje się do obiektów, zawierające dane w aplikacji. Często obiekty modelu odnoszą się do tabel w bazie danych, ale nie muszą oni.
+W wzorcu Model-View-Controller pojęcie model odnosi się do obiektów, które reprezentują dane w aplikacji. Często obiekty modelu są zgodne z tabelami w bazie danych, ale nie muszą.
 
-Metody akcji kontrolera, które zwracają element ActionResult, można przekazać obiekt modelu widoku. Dzięki temu kontroler na klarownie spakowanie wszystkie informacje niezbędne do generowania odpowiedzi, a następnie przekazał tych informacji do szablonu widoku na potrzeby generowania odpowiednich odpowiedzi HTML. Jest to łatwiej zrozumieć, obserwując go w działaniu, więc zaczynajmy.
+Metody akcji kontrolera, które zwracają ActionResult, mogą przekazać obiekt modelu do widoku. Dzięki temu kontroler może oczyścić wszystkie informacje potrzebne do wygenerowania odpowiedzi, a następnie przekazać te informacje do szablonu widoku, który zostanie użyty do wygenerowania odpowiedniej odpowiedzi HTML. Jest to najłatwiej zrozumieć, wyświetlając go w działaniu, więc zacznijmy.
 
-Najpierw utworzymy niektóre klasy modelu do reprezentowania gatunki i albumów w naszym Sklepie. Zacznijmy od utworzenia klasy gatunku. Kliknij prawym przyciskiem myszy folder "Modele" w obrębie projektu, wybierz opcję "Dodaj klasę" i nazwij plik "Genre.cs".
+Najpierw utworzysz klasy modelu, aby reprezentować gatunek i albumy w naszym sklepie. Zacznijmy od utworzenia klasy gatunku. Kliknij prawym przyciskiem myszy folder "models" w projekcie, wybierz opcję "Dodaj klasę" i Nazwij plik "Genre.cs".
 
 ![](mvc-music-store-part-3/_static/image2.jpg)
 
 ![](mvc-music-store-part-3/_static/image9.png)
 
-Następnie dodaj publicznego ciągu nazwy właściwości do klasy, która została utworzona:
+Następnie Dodaj publiczną właściwość nazwy ciągu do klasy, która została utworzona:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample7.cs)]
 
-*Uwaga: W przypadku, gdy zastanawiasz się, {Pobierz; Ustaw;} osiągnął notacji użytkowania C#na automatycznie implementowane właściwości funkcji. To daje nam korzyści wynikające z właściwością bez konieczności NAS zadeklarować pole zapasowe.*
+*Uwaga: na wypadek zastanawiasz się, że w notacji {get; set;} jest C#używana funkcja właściwości, która została zaimplementowana. Daje to nam zalety właściwości bez konieczności deklarowania pola zapasowego.*
 
-Następnie wykonaj te same kroki, aby utworzyć klasę albumu (o nazwie Album.cs), która ma tytuł i właściwości gatunku:
+Następnie wykonaj te same kroki, aby utworzyć klasę albumu (o nazwie Album.cs), która ma tytuł i Właściwość gatunku:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample8.cs)]
 
-Teraz możemy zmodyfikować StoreController używać widoków, wyświetlające informacji dynamicznych z nasz Model. Jeśli — dla celów demonstracyjnych teraz — firma Microsoft o nazwie naszych albumów na podstawie Identyfikatora żądania, firma Microsoft można wyświetlić te informacje, tak jak w poniższym widoku.
+Teraz możemy zmodyfikować StoreController tak, aby korzystał z widoków, które wyświetlają dynamiczne informacje z naszego modelu. Jeśli — dla celów demonstracyjnych już teraz — nazywamy Twoje albumy na podstawie identyfikatora żądania, możemy wyświetlić te informacje jak w poniższym widoku.
 
 ![](mvc-music-store-part-3/_static/image10.png)
 
-Zaczniemy, zmieniając akcji Store Details, aby pokazywała informacje dotyczące jednego albumu. Dodaj instrukcję "using" na początku **StoreControllers** klasy, aby uwzględnić przestrzeń nazw MvcMusicStore.Models, dzięki czemu nie trzeba wpisać MvcMusicStore.Models.Album za każdym razem, gdy chcemy użyć klasy albumu. Sekcja "dyrektywy Using" tej klasy powinien teraz wyglądać jak poniżej.
+Zaczniemy od zmiany akcji szczegóły sklepu, aby wyświetlić informacje o pojedynczym albumie. Dodaj instrukcję "Using" na początku klasy **StoreControllers** , aby uwzględnić przestrzeń nazw MvcMusicStore. Models, więc nie trzeba wpisywać MvcMusicStore. models. album za każdym razem, gdy chcemy użyć klasy albumu. Sekcja "usings" tej klasy powinna teraz wyglądać następująco.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample9.cs)]
 
-Następnie zaktualizujemy szczegóły akcji kontrolera, aby funkcja zwraca element ActionResult, a nie w ciągu, ile My mieliśmy metodą indeksu HomeController.
+Następnie zaktualizujemy akcję kontrolera szczegółów w taki sposób, aby zwracała ActionResult zamiast ciągu, podobnie jak w przypadku metody indeksu HomeController.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample10.cs)]
 
-Teraz możemy zmodyfikować logiki, aby zwrócić obiekt albumu do widoku. W dalszej części tego samouczka firma Microsoft będzie można pobierania danych z bazy danych — ale dla obecnie firma Microsoft użyje "fikcyjny dane" Aby rozpocząć pracę.
+Teraz możemy zmodyfikować logikę, aby zwracała obiekt albumu do widoku. W dalszej części tego samouczka będziemy pobierać dane z bazy danych, ale w celu rozpoczęcia pracy będziemy używać "fikcyjnych danych".
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample11.cs)]
 
-*Uwaga: Jeśli znasz C#, może założyć, że za pomocą var oznacza, że nasza zmienna album z późnym wiązaniem. Nie jest prawidłowe — kompilator języka C# używa wnioskowanie typów w oparciu o co możemy przypisanie do zmiennej w celu określenia tej album jest typu albumu i kompilowanie zmiennej lokalnej albumu jako typu fotograficzne, dzięki czemu możemy sprawdzanie w czasie kompilacji i Edytor kodu programu Visual Studio Pomoc techniczna.*
+*Uwaga: Jeśli nie masz doświadczenia w programie C#, możesz założyć, że użycie funkcji VAR oznacza, że nasza zmienna albumu jest opóźniona. To nie jest poprawne — C# kompilator używa wnioskowania typu na podstawie tego, co przypiszemy do zmiennej, aby określić, że album jest typu albumu i kompiluje lokalną zmienną albumu jako typ albumu, dzięki czemu będziemy mogli sprawdzać czas kompilacji i obsługiwać Edytor kodu programu Visual Studio.*
 
-Teraz Utwórz szablon widoku, który używa naszej albumu do generowania odpowiedzi HTML. Zanim do tego należy skompilować projekt, aby poinformować okno dialogowe dodawania widoku o nasze nowo utworzonej klasie albumu. Można tworzyć projekt, wybierając Debug⇨Build MvcMusicStore elementu menu (jako dodatkowe ćwiczenie można Użyj skrótu Ctrl-Shift-B do skompilowania projektu).
+Teraz utworzysz szablon widoku, który używa naszego albumu do wygenerowania odpowiedzi HTML. Przed wykonaniem tej czynności musimy skompilować projekt, aby okno dialogowe Dodawanie widoku wie o naszej nowo utworzonej klasie albumu. Można skompilować projekt, wybierając element menu Debuguj ⇨ kompilację MvcMusicStore (Aby uzyskać dodatkowe środki, można użyć skrótu Ctrl-Shift-B do skompilowania projektu).
 
 ![](mvc-music-store-part-3/_static/image11.png)
 
-Skoro już skonfigurowaliśmy naszych klasy pomocnicze jesteśmy gotowi do tworzenia szablonu widoku. Kliknij prawym przyciskiem myszy wewnątrz metody szczegółowe informacje, a następnie wybierz pozycję "Dodaj widok..." z menu kontekstowego.
+Teraz, po skonfigurowaniu naszych klas pomocniczych, jesteśmy gotowi do skompilowania naszego szablonu widoku. Kliknij prawym przyciskiem myszy w ramach metody szczegóły i wybierz pozycję "Dodaj widok..." z menu kontekstowego.
 
 ![](mvc-music-store-part-3/_static/image12.png)
 
-Zamierzamy utworzyć nowy szablon widoku jak zrobiliśmy przed z HomeController. Ponieważ tworzymy z StoreController go zostanie domyślnie wygenerowany plik \Views\Store\Index.cshtml.
+Utworzymy nowy szablon widoku, taki jak wcześniej z HomeController. Ponieważ tworzymy ją z StoreController, zostanie ona domyślnie wygenerowana w pliku \Views\Store\Index.cshtml.
 
-W przeciwieństwie do wcześniej, użyjemy zaznacz pole wyboru "Utwórz silnie typizowanego" widoku. Następnie użyjemy wybierz nasze klasę "Albumu" w ciągu "Widok danych class" listy downlist. Spowoduje to okno dialogowe "Dodaj widok", aby utworzyć szablon widoku, który oczekuje, że albumu obiektów, które zostaną przekazane do go do użycia.
+W przeciwieństwie do wcześniej sprawdzimy pole wyboru "Utwórz silnie wpisaną" widok. Następnie wybieramy naszą klasę "album" w menu rozwijanym "Wyświetl dane" klasy "downlist". Spowoduje to wyświetlenie okna dialogowego "Dodawanie widoku" w celu utworzenia szablonu widoku, który oczekuje, że obiekt albumu zostanie przesłany do niego do użycia.
 
 ![](mvc-music-store-part-3/_static/image13.png)
 
-Po kliknięciu przycisku "Dodaj" nasze \Views\Store\Details.cshtml Wyświetl szablon zostanie utworzony, zawierający poniższy kod.
+Po kliknięciu przycisku "Dodaj" zostanie utworzony szablon widoku \Views\Store\Details.cshtml zawierający poniższy kod.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample12.cshtml)]
 
-Zwróć uwagę, pierwszego wiersza, co oznacza, że ten widok jest silnie typizowaną do klasy Nasze albumu. Aparat widoku Razor rozumie, że go został przekazany obiekt albumu, firma Microsoft można łatwo uzyskiwać dostęp do właściwości modelu oraz nawet korzystać z zalet technologii IntelliSense w edytorze programu Visual Web Developer.
+Zwróć uwagę na pierwszy wiersz, który wskazuje, że ten widok jest silnie wpisana do naszej klasy albumu. Aparat widoku Razor rozumie, że został przekazano obiekt albumu, dzięki czemu możemy łatwo uzyskać dostęp do właściwości modelu i nawet korzystać z funkcji IntelliSense w edytorze Visual Web Developer.
 
-Aktualizacja &lt;h2&gt; tag, aby wyświetlała właściwości Title fotograficzne, modyfikując ten wiersz, aby wyglądają następująco.
+Zaktualizuj tag &lt;H2&gt; tak, aby wyświetlał Właściwość tytuł albumu, modyfikując ten wiersz tak, aby pojawił się w następujący sposób.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample13.cshtml)]
 
-Należy zauważyć, że funkcja IntelliSense jest wyzwalany w przypadku Podaj okres, po @Model — słowo kluczowe, wyświetlanie właściwości i metody, które obsługuje klasa albumu.
+Zauważ, że funkcja IntelliSense jest wyzwalana po wprowadzeniu kropki po słowie kluczowym @Model, pokazując właściwości i metody obsługiwane przez klasę albumu.
 
-Załóżmy teraz ponownego uruchomienia naszych projektu i skorzystaj z 5-Store/szczegóły adresu URL. Zobaczymy Szczegóły albumu podobnie jak poniżej.
+Teraz ponownie uruchom nasz projekt i przejdź do adresu URL/Store/Details/5. Zobaczymy szczegółowe informacje o albumie, jak pokazano poniżej.
 
 ![](mvc-music-store-part-3/_static/image14.png)
 
-Teraz wprowadzimy podobne aktualizacji dla metody akcji przeglądania Store. Zaktualizuj metodę, tak aby zwracało poprawnie element ActionResult, a następnie zmodyfikuj logikę metody, więc tworzy nowy obiekt gatunku i zwraca go do widoku.
+Teraz wprowadzimy podobną aktualizację metody operacji przeglądania sklepu. Zaktualizuj metodę, tak aby zwracała ActionResult, i zmodyfikuj logikę metody, aby tworzyła nowy obiekt gatunku i zwracał go do widoku.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample14.cs)]
 
-Kliknij prawym przyciskiem myszy w metodzie przeglądania i wybierz pozycję "Dodaj widok..." z menu kontekstowego, Dodaj widok, który jest silnie typizowane Dodaj silnie typizowaną do klasy gatunku.
+Kliknij prawym przyciskiem myszy w metodzie Przeglądaj i wybierz pozycję "Dodaj widok..." z menu kontekstowego Dodaj widok, który jest silnie określony, Dodaj silnie wpisanej klasy gatunku.
 
 ![](mvc-music-store-part-3/_static/image15.png)
 
-Aktualizacja &lt;h2&gt; elementu w widoku kodu (w /Views/Store/Browse.cshtml) do wyświetlania informacji gatunku.
+Zaktualizuj element &lt;H2&gt; w kodzie widoku (w/Views/Store/Browse.cshtml), aby wyświetlić informacje o gatunku.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample15.cshtml)]
 
-Teraz możemy ponownie uruchomić projekcie i przejdź do/Store/przeglądania? Gatunku = Disco adres URL. Firma Microsoft zostanie wyświetlona strona przeglądania, wyświetlana, jak poniżej.
+Teraz ponownie uruchom nasz projekt i przejdź do/Store/Browse? Gatunek = adres URL Disco. Zobaczysz stronę przeglądania, która wygląda jak poniżej.
 
 ![](mvc-music-store-part-3/_static/image16.png)
 
-Na koniec upewnijmy się nieco bardziej skomplikowaną aktualizacji **Store indeksu** metody akcji i widok, aby wyświetlić listę wszystkich gatunki w naszym Sklepie. Możemy to zrobić za pomocą listy gatunki jako naszych obiektu modelu, a nie tylko jednego rodzaju.
+Na koniec Przyjrzyjmy nieco bardziej skomplikowaną aktualizację do metody akcji **indeksu magazynu** i widoku, aby wyświetlić listę wszystkich gatunków w naszym sklepie. Zajmiemy się tym, korzystając z listy gatunków jako obiektu modelu, a nie tylko jednego gatunku.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample16.cs)]
 
-Kliknij prawym przyciskiem myszy w metodzie akcji indeksu Store i wybierz pozycję Dodaj widok, wybierz gatunku jako klasa modelu, a następnie naciśnij przycisk Dodaj.
+Kliknij prawym przyciskiem myszy metodę akcji indeks magazynu i wybierz opcję Dodaj widok jako poprzednio, wybierz gatunek jako klasę modelu i naciśnij przycisk Dodaj.
 
 ![](mvc-music-store-part-3/_static/image17.png)
 
-Pierwsze zmienimy @model deklaracji, aby wskazać, czy widok będzie oczekiwano gatunku kilka obiektów zamiast tylko jeden. Zmiana w pierwszym wierszu /Store/Index.cshtml do odczytu w następujący sposób:
+Najpierw zmienimy deklarację @model, aby wskazać, że widok będzie oczekiwać kilku obiektów gatunku, a nie tylko jednego. Zmień pierwszy wiersz/Store/Index.cshtml w następujący sposób:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample17.cshtml)]
 
-Oznacza to, że będzie on pracować z obiektu modelu, który może zawierać kilka obiektów gatunku aparatu widoku Razor. Firma Microsoft korzysta z elementu IEnumerable&lt;gatunku&gt; zamiast listy&lt;gatunku&gt; ponieważ jest bardziej ogólnym, może zmienić później naszych typ modelu do dowolnego typu obiektu, który obsługuje interfejsu IEnumerable.
+Oznacza to, że aparat widoku Razor będzie pracował z obiektem modelu, który może zawierać kilka obiektów gatunku. Używamy gatunku IEnumerable&lt;&gt;, a nie listy&lt;&gt; gatunku, ponieważ jest to bardziej ogólny, dzięki czemu możemy zmienić nasz Typ modelu później na dowolny typ obiektu, który obsługuje interfejs IEnumerable.
 
-Następnie firma Microsoft będzie pętli gatunku obiekty w modelu, jak pokazano w poniższym kodzie ukończone.
+Następnie będziemy przepętlać przez obiekty gatunku w modelu, jak pokazano w poniższym kodzie widoku poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample18.cshtml)]
 
-Zwróć uwagę, że mamy już pełną obsługą technologii IntelliSense możemy wprowadź ten kod tak, że gdy wpiszesz "@Model." widzimy, wszystkie metody i właściwości obsługiwanych przez elementu IEnumerable typu gatunku.
+Zwróć uwagę, że firma Microsoft zapewnia pełną obsługę technologii IntelliSense, ponieważ wprowadzamy ten kod, więc w przypadku wpisania "@Model". zobaczymy wszystkie metody i właściwości obsługiwane przez interfejs IEnumerable typu gatunek.
 
 ![](mvc-music-store-part-3/_static/image18.png)
 
-W ramach naszych pętlę "foreach" Visual Web Developer wie, że każdy element jest typu gatunku, więc widzimy technologii IntelliSense dla każdego typu gatunku.
+W naszej pętli "foreach" Visual Web Developer wie, że każdy element jest typu gatunek, więc dla każdego typu gatunku widzimy funkcję IntelliSense.
 
 ![](mvc-music-store-part-3/_static/image19.png)
 
-Następnie funkcja tworzenia szkieletu zbadane obiektu gatunku i określić, że będzie mieć właściwości Name, więc w pętli i zapisuje je w. Generuje on również linki Edytuj, szczegóły i Delete do poszczególnych elementów. Firma Microsoft będzie zalet, w dalszej części nasz Menedżer magazynu, ale teraz chcemy mieć zamiast prostej listy.
+Następnie funkcja tworzenia szkieletów bada obiekt gatunku i stwierdził, że każdy z nich będzie miał Właściwość Name, dlatego pętle i zapisuje je. Generuje również linki Edytuj, szczegóły i Usuń do każdego pojedynczego elementu. Będziemy korzystać z tej usługi później w naszym Menedżerze sklepu, ale teraz będziemy mieć prostą listę.
 
-Gdy firma Microsoft może uruchomić aplikację, a następnie przejdź do/Store, zobaczymy, liczby i lista gatunki jest wyświetlana.
+Gdy uruchomimy aplikację i przejdziesz do/Store, zobaczymy, że jest wyświetlana zarówno liczba, jak i Lista gatunków.
 
 ![](mvc-music-store-part-3/_static/image20.png)
 
-## <a name="adding-links-between-pages"></a>Dodawanie łączy między stronami
+## <a name="adding-links-between-pages"></a>Dodawanie linków między stronami
 
-Adresu URL/Store obecnie zawierającego gatunki Wyświetla nazwy gatunku, po prostu jako zwykły tekst. Wybierzmy tak, aby zamiast zwykłego tekstu mamy zamiast tego gatunku nazwy link na odpowiedni adres URL Store/przeglądania, tak aby kliknięcie określonego rodzaju utworów muzycznych, takie jak "Najdywania" spowoduje przejście do/Store/przeglądania? gatunku = Najdywania adres URL. Firma Microsoft można zaktualizować szablon widoku \Views\Store\Index.cshtml te linki przy użyciu kodu takie jak poniżej danych wyjściowych **(nie należy umieszczać w — teraz zamierzamy je poprawić)**:
+Nasz adres URL/Store, który zawiera listę gatunku, w postaci zwykłego tekstu. Zmieńmy to w taki sposób, aby zamiast zwykłego tekstu zamiast tego był miał połączenie z odpowiednim adresem URL/Store/Browse, dzięki czemu kliknięcie gatunku muzycznego, takiego jak "Disco", spowoduje przejście do adresu URL/Store/Browse? gatunek = Disco. Możemy zaktualizować nasz szablon widoku \Views\Store\Index.cshtml, aby wyprowadził te linki przy użyciu kodu, takiego jak poniżej **(nie należy wpisywać tego polecenia w trakcie działania)** :
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample19.html)]
 
-To działa, ale może prowadzić do problemów później, ponieważ opiera się na ciąg zapisane na stałe. Na przykład jeśli chcemy Zmień nazwę kontrolera, czy musimy przeszukiwać naszego kodu szuka łączy, które muszą zostać zaktualizowane.
+To działa, ale może prowadzić do późniejszego problemu, ponieważ opiera się on na ciągu stałe. Na przykład jeśli chcemy zmienić nazwę kontrolera, musimy przeszukać nasz kod szukający linków, które wymagają aktualizacji.
 
-Alternatywne podejście, które możemy użyć jest korzystanie z zalet metodę pomocnika kodu HTML. Platforma ASP.NET MVC zawiera metody pomocnika kodu HTML, które są dostępne z naszego kodu szablonu widoku do wykonywania różnych zadań, tak jak to. Metoda pomocnika Html.ActionLink() jest szczególnie przydatne i ułatwia tworzenie HTML &lt;&gt; łączy i dba o irytujące szczegóły, takie jak zagwarantowanie, że ścieżki URL są poprawnie zakodowane w adresie URL.
+Alternatywną metodą, której można użyć, jest skorzystanie z metody pomocnika HTML. ASP.NET MVC zawiera metody pomocników HTML, które są dostępne w naszym kodzie szablonu widoku do wykonywania różnych typowych zadań w podobny sposób. Metoda pomocnika html. ActionLink () jest szczególnie przydatna i ułatwia tworzenie kodu HTML &lt;&gt; linków i bierze pod uwagę irytujące szczegóły, takie jak upewnienie się, że ścieżki URL są poprawnie zakodowane w adresie URL.
 
-Html.ActionLink() ma kilka przeciążeń różnych, aby umożliwić określenie tylu informacji potrzebnych dla łącza. W najprostszym przypadku podasz, po prostu tekst łącza, a także metoda akcji nastąpić przejście po kliknięciu hiperlinku na komputerze klienckim. Na przykład można przejść do "/ Store /" Metoda indeks() na stronie szczegółów Store tekstem link "Przejdź do Store Index" przy użyciu następującego wywołania:
+Plik HTML. ActionLink () ma kilka różnych przeciążeń, aby można było określić tyle informacji, ile potrzebujesz w przypadku linków. W najprostszym przypadku należy podać tylko tekst łącza i metodę akcji, aby przejść do po kliknięciu hiperlinku na kliencie. Można na przykład połączyć się z metodą "/Store/" index () na stronie szczegółów sklepu z tekstem linku "przejdź do indeksu magazynu" przy użyciu następującego wywołania:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample20.cshtml)]
 
-*Uwaga: W tym przypadku nie należy określać nazwy kontrolera, ponieważ możemy po prostu ustanawiania innej akcji w obrębie tego samego kontrolera, który jest renderowanie bieżący widok.*
+*Uwaga: w tym przypadku nie musimy określić nazwy kontrolera, ponieważ po prostu łączysz się z inną akcją w ramach tego samego kontrolera, który renderuje bieżący widok.*
 
-Nasze łącza do strony Przegląd należy przekazać parametr, jednak dlatego użyjemy innego przeciążenia metody Html.ActionLink, która przyjmuje trzy parametry:
+Nasze linki do strony przeglądania muszą przekazać parametr, mimo że będziemy używać innego przeciążenia metody html. ActionLink, która przyjmuje trzy parametry:
 
-- 1. Tekst łącza, co spowoduje wyświetlenie nazwy gatunku
+- 1. Tekst łącza, który będzie wyświetlał nazwę gatunku
 - 2. Nazwa akcji kontrolera (Przeglądaj)
-- 3. Wartości parametrów trasy, określając nazwę (gatunku) i wartości (nazwa gatunku)
+- 3. Wartości parametrów trasy, określające zarówno nazwę (gatunek), jak i wartość (nazwę gatunku)
 
-Umieszczanie, że wszystko ze sobą, Oto jak będziemy pisać tych łączy do widoku indeksu Store:
+W tym celu należy napisać wszystkie te linki do widoku indeksu magazynu:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample21.cshtml)]
 
-Teraz możemy ponownie uruchom naszych projektów i uzyskać dostępu do adresu URL /Store/ firma Microsoft zostanie wyświetlona lista gatunki. Każdego gatunku jest hiperłącze — po kliknięciu potrwa nam naszym/Store/przeglądania? gatunku =*[gatunek]* adresu URL.
+Teraz po ponownym uruchomieniu projektu i otrzymaniu dostępu do adresu URL/Store/zostanie wyświetlona lista gatunku. Każdy gatunek jest hiperłączem — po jego kliknięciu zajmiemy nas/Store/Browse? gatunek = *[Gatunek]* URL.
 
 ![](mvc-music-store-part-3/_static/image3.jpg)
 
-Kod HTML dla listy gatunku wygląda następująco:
+KOD HTML dla listy gatunek wygląda następująco:
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 

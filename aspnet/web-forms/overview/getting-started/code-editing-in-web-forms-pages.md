@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
-title: Edytowanie kodu ASP.NET Web Forms w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
+title: Edytowanie kodu ASP.NET formularzy sieci Web w Visual Studio 2013 | Microsoft Docs
 author: Erikre
 description: ''
 ms.author: riande
@@ -9,173 +9,173 @@ ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 3473ad476fbbebc58e12586334b4600f57cf17ed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134238"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632749"
 ---
 # <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-Na wielu stronach formularz sieci Web ASP.NET piszesz kod w języku Visual Basic, C# lub innego języka. Edytor kodu w programie Visual Studio może pomóc szybko Pisz kod, a jednocześnie pomaga uniknąć błędów. Ponadto Edytor umożliwia sposobów zmniejszyć ilość pracy, które należy wykonać w celu utworzenia kodu wielokrotnego użytku.
+Wiele stron formularza sieci Web ASP.NET umożliwia pisanie kodu w Visual Basic, C#lub w innym języku. Edytor kodu w programie Visual Studio może pomóc szybko napisać kod, jednocześnie pomagając uniknąć błędów. Ponadto edytor zapewnia sposoby tworzenia kodu wielokrotnego użytku w celu zmniejszenia ilości pracy, którą należy wykonać.
 
-W tym instruktażu pokazano różne funkcje edytora kodu Visual Studio.
+W tym instruktażu przedstawiono różne funkcje edytora kodu programu Visual Studio.
 
-Z tego instruktażu dowiesz się jak:
+W tym instruktażu dowiesz się, jak:
 
-- Poprawianie błędów kodowania w tekście.
+- Poprawiaj błędy kodowania wbudowanego.
 - Refaktoryzacja i zmiana nazwy kodu.
-- Zmiana nazwy zmiennych i obiektów.
-- Wstawianie wstawek kodu.
+- Zmień nazwę zmiennych i obiektów.
+- Wstaw fragmenty kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik, potrzebne są:
+Aby ukończyć ten Instruktaż, potrzebne są:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework jest instalowana automatycznie. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) lub [Microsoft Visual Studio Express 2013 dla sieci Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework jest instalowana automatycznie. 
 
     > [!NOTE] 
     > 
-    > Microsoft Visual Studio 2013 i Microsoft Visual Studio Express 2013 for Web będzie często określane jako programu Visual Studio w całej tej serii samouczków.  
+    > Microsoft Visual Studio 2013 i Microsoft Visual Studio Express 2013 dla sieci Web często są określane jako Visual Studio w całej tej serii samouczków.  
     >   
-    > Jeśli używasz programu Visual Studio, tym przewodniku przyjęto założenie, że wybrana **programowania dla sieci Web** zbiór ustawień podczas pierwszego uruchomienia programu Visual Studio. Aby uzyskać więcej informacji, zobacz [jak: Wybierz ustawienia środowiska programowania dla sieci Web](https://msdn.microsoft.com/library/ff521558.aspx).
+    > W przypadku korzystania z programu Visual Studio w tym przewodniku przyjęto założenie, że wybrano kolekcję **Web Development** dla ustawień przy pierwszym uruchomieniu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [How to: SELECT Web Development Environment Settings](https://msdn.microsoft.com/library/ff521558.aspx).
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Tworzenie projektu aplikacji sieci Web i strony
 
 <a id="sectionToggle0"></a>
 
-W tej części instruktażu spowoduje utworzenie projektu aplikacji sieci Web i Dodaj nową stronę do niego.
+W tej części przewodnika utworzysz projekt aplikacji sieci Web i dodasz do niego nową stronę.
 
 ### <a name="to-create-a-web-application-project"></a>Aby utworzyć projekt aplikacji sieci Web
 
-1. Otwórz program Microsoft Visual Studio.
-2. Na **pliku** menu, wybierz opcję **nowy projekt**.  
-    ![Menu Plik](code-editing-in-web-forms-pages/_static/image1.png)
+1. Otwórz Microsoft Visual Studio.
+2. W menu **plik** wybierz pozycję **Nowy projekt**.  
+    ![menu plik](code-editing-in-web-forms-pages/_static/image1.png)
 
-    **Nowy projekt** pojawi się okno dialogowe.
-3. Wybierz **szablony**  - &gt; **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie.
-4. Wybierz **aplikacji sieci Web ASP.NET** szablonu w środkowej kolumnie.
-5. Nazwij swój projekt ***BasicWebApp*** i kliknij przycisk **OK** przycisku.   
-![Okno dialogowe Nowy projekt](code-editing-in-web-forms-pages/_static/image2.png)
-6. Następnie wybierz pozycję **formularzy sieci Web** szablon i kliknij przycisk **OK** przycisk, aby utworzyć projekt.  
-![Okno dialogowe Nowy projekt ASP.NET](code-editing-in-web-forms-pages/_static/image3.png)  
+    Zostanie wyświetlone okno dialogowe **Nowy projekt**.
+3. Wybierz kolejno pozycje **Szablony** -&gt;  **C# Visual** -&gt; szablon **sieci Web** po lewej stronie.
+4. Wybierz szablon **aplikacji sieci Web ASP.NET** w środkowej kolumnie.
+5. Nazwij projekt ***BasicWebApp*** i kliknij przycisk **OK** .   
+okno dialogowe ![nowego projektu](code-editing-in-web-forms-pages/_static/image2.png)
+6. Następnie wybierz szablon **formularze sieci Web** i kliknij przycisk **OK** , aby utworzyć projekt.  
+okno dialogowe ![nowego projektu ASP.NET](code-editing-in-web-forms-pages/_static/image3.png)  
 
-    Program Visual Studio tworzy nowy projekt, który zawiera funkcje wstępnie utworzone na podstawie szablonu formularzy sieci Web.
+    Program Visual Studio tworzy nowy projekt, który zawiera wstępnie utworzoną funkcję opartą na szablonie formularzy sieci Web.
 
-## <a name="creating-a-new-aspnet-web-forms-page"></a>Tworzenie nowej strony formularzy sieci Web platformy ASP.NET
+## <a name="creating-a-new-aspnet-web-forms-page"></a>Tworzenie nowej strony formularzy sieci Web ASP.NET
 
-Podczas tworzenia nowej aplikacji formularzy sieci Web, za pomocą **aplikacji sieci Web ASP.NET** szablon projektu Visual Studio dodaje strony ASP.NET (strony formularzy sieci Web) o nazwie *Default.aspx*, jak również jako kilka innych plików i foldery. Możesz użyć *Default.aspx* strony jako stronę główną dla aplikacji sieci Web. Jednak w tym przewodniku utworzysz i pracować z nowej strony.
+Podczas tworzenia nowej aplikacji formularzy sieci Web przy użyciu szablonu projektu **aplikacji sieci web ASP.NET** program Visual Studio dodaje stronę ASP.NET (stronę Web Forms) o nazwie *default. aspx*, a także kilka innych plików i folderów. Możesz użyć domyślnej strony *. aspx* jako strony głównej aplikacji sieci Web. Jednak w tym instruktażu utworzysz nową stronę i zaczniesz korzystać z niej.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Aby dodać stronę do aplikacji sieci Web
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web (w tym samouczku Nazwa aplikacji jest **BasicWebSite**), a następnie kliknij przycisk **Dodaj**  - &gt; **Nowy element**.   
-**Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie. Następnie wybierz **formularz sieci Web** ze środka listy i nadaj mu nazwę *FirstWebPage.aspx*.   
-    ![Dodaj nowy element, okno dialogowe](code-editing-in-web-forms-pages/_static/image4.png)
-3. Kliknij przycisk **Dodaj** można dodać strony formularzy sieci Web do projektu.  
- Visual Studio tworzy nową stronę i otwiera go.
-4. Następnie można ustawić tej nowej strony jako stronę startową domyślne. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nową stronę o nazwie *FirstWebPage.aspx* i wybierz **Ustaw jako stronę startową**. Podczas następnego uruchomienia tej aplikacji, aby przetestować nasze postępy automatycznie zobaczą tej nowej strony w przeglądarce.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web (w tym samouczku nazwa aplikacji to **BasicWebSite**), a następnie kliknij pozycję **Dodaj** -&gt; **nowy element**.   
+Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Wybierz grupę szablonów **sieci Web** **Visual C#**  -&gt; po lewej stronie. Następnie wybierz pozycję **formularz sieci Web** z listy Środkowej i nadaj jej nazwę *FirstWebPage. aspx*.   
+    ![okno dialogowe Dodawanie nowego elementu](code-editing-in-web-forms-pages/_static/image4.png)
+3. Kliknij przycisk **Dodaj** , aby dodać stronę formularzy sieci Web do projektu.  
+ Program Visual Studio tworzy nową stronę i otwiera ją.
+4. Następnie ustaw tę nową stronę jako domyślną stronę startową. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy nową stronę o nazwie *FirstWebPage. aspx* i wybierz pozycję **Ustaw jako stronę startową**. Przy następnym uruchomieniu tej aplikacji w celu przetestowania postępu ta nowa strona zostanie automatycznie wyświetlona w przeglądarce.
 
-## <a name="correcting-inline-coding-errors"></a>Poprawianie wbudowane błędy kodowania
+## <a name="correcting-inline-coding-errors"></a>Poprawianie błędów kodowania wbudowanego
 
-Edytor kodu w programie Visual Studio pomaga uniknąć błędów, jak napisać kod, a jeśli utworzono błąd, Edytor kodu umożliwia użytkownikom do naprawienia błędu. W tej części instruktażu pisania wiersza kodu, które ilustrują funkcje korekcji błędów w edytorze.
+Edytor kodu w programie Visual Studio pomaga uniknąć błędów podczas pisania kodu, a jeśli wystąpi błąd, Edytor kodu pomoże Ci poprawić błąd. W tej części przewodnika napiszesz wiersz kodu, który ilustruje funkcje korekcji błędów w edytorze.
 
-### <a name="to-correct-simple-coding-errors-in-visual-studio"></a>Aby poprawić proste błędów kodowania w programie Visual Studio
+### <a name="to-correct-simple-coding-errors-in-visual-studio"></a>Aby poprawić proste błędy kodowania w programie Visual Studio
 
-1. W **projektowania** wyświetlić, kliknij dwukrotnie pustą stronę, aby utworzyć program obsługi **obciążenia** zdarzeń dla strony.   
-   Używasz programu obsługi zdarzeń tylko jako miejsce do napisania kodu.
-2. Wewnątrz procedury obsługi, wpisz następujący wiersz, który zawiera błąd i naciśnij klawisz **ENTER**:
+1. W widoku **projekt** kliknij dwukrotnie pustą stronę, aby utworzyć procedurę obsługi dla zdarzenia **ładowania** dla strony.   
+   Używasz programu obsługi zdarzeń tylko jako miejsca do pisania kodu.
+2. Wewnątrz procedury obsługi wpisz następujący wiersz, który zawiera błąd, i naciśnij klawisz **Enter**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
-   Po naciśnięciu klawisza **ENTER**, Edytor kodu umieszcza zielonego i czerwonego podkreśleń (często wywołać &quot;falista&quot; wierszy) w ramach obszarów kodu, które mają problemy z. Ostrzeżenie wskazuje, zielonym podkreśleniem. Czerwoną linią wskazuje na błąd, który należy rozwiązać. 
+   Po naciśnięciu klawisza **Enter**Edytor kodu umieści zieloną i czerwoną podkreślenie (często wywołując &quot;falistej&quot; linie) w obszarze kodu, który ma problemy. Zielona podkreślenie wskazuje na ostrzeżenie. Czerwona podkreślenie wskazuje błąd, który należy naprawić. 
 
-    Umieść wskaźnik myszy nad `myStr` Aby wyświetlić etykietkę narzędzia, która informuje o ostrzeżenia. Ponadto wskaźnik myszy nad czerwonym podkreśleniem, aby wyświetlić komunikat o błędzie.
+    Przytrzymaj wskaźnik myszy nad `myStr`, aby wyświetlić etykietkę narzędzia informującą o ostrzeżeniu. Ponadto przytrzymaj wskaźnik myszy nad czerwonym podkreśleniem, aby wyświetlić komunikat o błędzie.
 
-    Na poniższej ilustracji przedstawiono kod za pomocą podkreślenia.
+    Na poniższej ilustracji przedstawiono kod z podkreśleniami.
 
-    ![Tekst powitania w widoku Projekt](code-editing-in-web-forms-pages/_static/image5.png "tekst powitania w widoku projektu")  
-   Należy naprawić błąd, dodając je średnikiem `;` do końca wiersza. Ostrzeżenie po prostu powiadamia użytkownika, które nie zostały użyte `myStr` jeszcze zmiennej.  
+    ![Tekst powitalny w widok Projekt](code-editing-in-web-forms-pages/_static/image5.png "Tekst powitalny w widok Projekt")  
+   Błąd należy naprawić, dodając średnik `;` na końcu wiersza. Ostrzeżenie po prostu powiadamia, że zmienna `myStr` nie została jeszcze użyta.  
 
     > [!NOTE] 
     > 
-    > Możesz wyświetlić bieżący kod formatowania ustawień w programie Visual Studio, wybierając **narzędzia**  - &gt; **opcje**  - &gt; **czcionek i Kolory**.
+    > Bieżące ustawienia formatowania kodu w programie Visual Studio można wyświetlić, wybierając pozycję **narzędzia** -**opcje** &gt; -&gt; **czcionki i kolory**.
 
 ## <a name="refactoring-and-renaming"></a>Refaktoryzacja i zmiana nazwy
 
-Refaktoryzacja jest metodologia oprogramowania, która obejmuje restrukturyzacji swój kod, aby ułatwić do zrozumienia i utrzymania, zachowując przy tym swoje funkcje. Prostym przykładem może być napisać kod w obsłudze zdarzeń można pobrać danych z bazy danych. Podczas opracowywania strona odnajdywania, trzeba uzyskać dostęp do danych z kilku różnych procedur obsługi. W związku z tym Refaktoryzacja kodu strony, tworząc metody dostępu do danych na stronie, a następnie wstawianie wywołania metody w programów obsługi.
+Refaktoryzacja jest metodologią oprogramowania, która polega na restrukturyzacji kodu w celu ułatwienia jego zrozumienia i utrzymania, przy jednoczesnym zachowaniu jego funkcjonalności. Prostym przykładem może być napisanie kodu w programie obsługi zdarzeń w celu pobrania danych z bazy danych. Podczas tworzenia strony Odkryj, że musisz uzyskać dostęp do danych z kilku różnych programów obsługi. W związku z tym można Refaktoryzacja kodu strony przez utworzenie metody dostępu do danych na stronie i wstawianie wywołań do metody w programach obsługi.
 
-Edytor kodu zawiera narzędzia, które ułatwiają wykonywanie różnych zadań refaktoryzacji. W tym instruktażu będą działać z dwóch technik refaktoryzacji: zmiana nazwy zmiennych i wyodrębniania metody. Inne opcje refaktoryzacji obejmują hermetyzowania pola, podwyższanie poziomu zmiennych lokalnych do parametrów metod i zarządzania parametrów metody. Dostępność te opcje refaktoryzacji, zależy od lokalizacji w kodzie.
+Edytor kodu zawiera narzędzia ułatwiające wykonywanie różnych zadań refaktoryzacji. W tym instruktażu będziesz korzystać z dwóch technik refaktoryzacji: zmiana nazw zmiennych i wyodrębnianie metod. Inne opcje refaktoryzacji obejmują Hermetyzowanie pól, promowanie zmiennych lokalnych do parametrów metody i zarządzanie parametrami metod. Dostępność tych opcji refaktoryzacji zależy od lokalizacji w kodzie.
 
 ### <a name="refactoring-code"></a>Refaktoryzacja kodu
 
-Typowy scenariusz refaktoryzacji jest utworzenie (extract) metody z kodu, który znajduje się wewnątrz innego elementu członkowskiego, takie jak metody. Zmniejsza rozmiar oryginalny element członkowski i sprawia, że wyodrębnione kodu wielokrotnego użytku.
+Typowym scenariuszem refaktoryzacji jest utworzenie (wyodrębnienie) metody z kodu, który znajduje się wewnątrz innego elementu członkowskiego, na przykład metody. Pozwala to zmniejszyć rozmiar oryginalnego elementu członkowskiego i sprawia, że wyodrębniony kod wielokrotnego użytku.
 
-W tej części instruktażu będą pisania prostego kodu, a następnie Wyodrębnij metodę z niego. Refaktoryzacja jest obsługiwana dla języka C#, więc będzie można utworzyć stronę, która używa języka C# jako języka programowania.
+W tej części przewodnika napiszesz prosty kod, a następnie wyodrębnimy metodę z niej. Refaktoryzacja jest obsługiwana dla C#programu, dlatego utworzysz stronę używaną C# jako język programowania.
 
-### <a name="to-extract-a-method-in-a-c-page"></a>Aby wyodrębnić metody na stronie C#
+### <a name="to-extract-a-method-in-a-c-page"></a>Aby wyodrębnić metodę na C# stronie
 
-1. Przełącz się do **projektowania** widoku.
-2. W **przybornika**, z **standardowa** kartę, przeciągnij [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontroli na stronę.
-3. Kliknij dwukrotnie **przycisk** formantu, aby utworzyć procedury obsługi dla jego [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) zdarzenia, a następnie dodaj następujący wyróżniony kod:
+1. Przejdź do widoku **projektu** .
+2. W **przyborniku**, na karcie **Standardowy** przeciągnij kontrolkę [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) na stronę.
+3. Kliknij dwukrotnie formant **przycisku** , aby utworzyć procedurę obsługi dla zdarzenia [kliknięcia](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) , a następnie Dodaj następujący wyróżniony kod:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
-   Ten kod tworzy **ArrayList** , używa pętli, aby załadować do niej wartości, a następnie używa innej pętli, aby wyświetlić zawartość **ArrayList** obiektu.
-4. Naciśnij klawisz **kombinację klawiszy CTRL + F5** uruchomienia strony, a następnie kliknij przycisk **przycisk** aby upewnić się, że są widoczne następujące wyniki:   
+   Kod tworzy obiekt **ArrayList** , używa pętli do załadowania do wartości, a następnie używa innej pętli do wyświetlania zawartości obiektu **ArrayList** .
+4. Naciśnij **kombinację klawiszy CTRL + F5** , aby uruchomić stronę, a następnie kliknij **przycisk** , aby upewnić się, że zobaczysz następujące dane wyjściowe:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]
-5. Powrót do edytora kodu, a następnie wybierz następujące wiersze, w obsłudze zdarzeń.   
+5. Wróć do edytora kodu, a następnie wybierz następujące wiersze w programie obsługi zdarzeń.   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample4.html)]
-6. Kliknij prawym przyciskiem myszy zaznaczenie, kliknij przycisk **Refaktoryzuj**, a następnie wybierz **Wyodrębnij metodę**. 
+6. Kliknij prawym przyciskiem myszy zaznaczenie, kliknij pozycję **Refaktoryzacja**, a następnie wybierz polecenie **Wyodrębnij metodę**. 
 
-    **Wyodrębnij metodę** pojawi się okno dialogowe.
-7. W **nową nazwę metody** wpisz **DisplayArray**, a następnie kliknij przycisk **OK**. 
+    Zostanie wyświetlone okno dialogowe **Wyodrębnij metodę** .
+7. W polu **Nazwa nowej metody** wpisz **DisplayArray**, a następnie kliknij przycisk **OK**. 
 
-    Edytor kodu tworzy nową metodę o nazwie `DisplayArray`i umieszcza wywołanie do nowej metody w **kliknij** program obsługi, gdzie pierwotnie pętli.
+    Edytor kodu tworzy nową metodę o nazwie `DisplayArray`i umieszcza wywołanie nowej metody w obsłudze **kliknięcia** , w której pętla była pierwotnie.
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample5.cs?highlight=12)]
-8. Naciśnij klawisz **kombinację klawiszy CTRL + F5** ponownie uruchomić stronę, a następnie kliknij przycisk **przycisk**.
+8. Naciśnij **kombinację klawiszy CTRL + F5** , aby ponownie uruchomić stronę, a następnie kliknij **przycisk**.
 
-    Strona działa tak samo, tak jak poprzednio. `DisplayArray` Metody mogą być teraz wywołania z dowolnego miejsca w klasie strony.
+    Strona działa tak samo jak wcześniej. Metoda `DisplayArray` może teraz wywołać z dowolnego miejsca w klasie Page.
 
-## <a name="renaming-variables"></a>Zmiana nazwy zmiennych
+## <a name="renaming-variables"></a>Zmiana nazw zmiennych
 
-Podczas pracy z zmienne, a także obiekty, można zmienić ich nazwy, po istnieją już odwołania w kodzie. Jednak zmiana nazwy zmiennych i obiektów może spowodować kod, aby przerwać Jeśli pominiesz, zmiana nazwy jedno z odwołań. W związku z tym służy refaktoryzacji do wykonania, zmiana nazwy.
+Gdy pracujesz z zmiennymi, a także obiektami, możesz chcieć zmienić ich nazwy, gdy już istnieją odwołania do kodu. Jednak zmiana nazw zmiennych i obiektów może spowodować przerwanie kodu, jeśli pominięto zmianę nazwy jednego z odwołań. W związku z tym można użyć refaktoryzacji do przeprowadzenia zmiany nazwy.
 
-### <a name="to-use-refactoring-to-rename-a-variable"></a>Na potrzeby Refaktoryzacja zmiany nazwy zmiennej
+### <a name="to-use-refactoring-to-rename-a-variable"></a>Aby użyć refaktoryzacji do zmiany nazwy zmiennej
 
-1. W **kliknij** procedura obsługi zdarzeń, znajdź następujący wiersz:
+1. W programie obsługi zdarzeń **kliknij** następujący wiersz:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
-2. Kliknij prawym przyciskiem myszy nazwę zmiennej `alist`, wybierz **Refaktoryzuj**, a następnie wybierz **Zmień nazwę**.
+2. Kliknij prawym przyciskiem myszy nazwę zmiennej `alist`, wybierz pozycję **Refaktoryzacja**, a następnie wybierz polecenie **Zmień nazwę**.
 
-    **Zmień nazwę** pojawi się okno dialogowe.
-3. W **nową nazwę** wpisz **ArrayList1** i upewnij się, że **podgląd zmian odwołania** pole wyboru zostało zaznaczone. Następnie kliknij przycisk **OK**.
+    Zostanie wyświetlone okno dialogowe **zmiana nazwy** .
+3. W polu **Nowa nazwa** wpisz **ArrayList1** i upewnij się, że zaznaczone jest pole wyboru **zmiany odwołania w wersji zapoznawczej** . Następnie kliknij przycisk **OK**.
 
-    **Podgląd zmian** okno dialogowe pojawia się i wyświetla drzewa, która zawiera wszystkie odwołania do zmiennej, która jest zmieniana.
-4. Kliknij przycisk **Zastosuj** zamknąć **podgląd zmian** okno dialogowe.
+    Zostanie wyświetlone okno dialogowe **Podgląd zmian** i zostanie wyświetlone drzewo zawierające wszystkie odwołania do zmiennej, której nazwa jest zmieniana.
+4. Kliknij przycisk **Zastosuj** , aby zamknąć okno dialogowe **Podgląd zmian** .
 
-    Zmienne, które odwołują się do wystąpienia, które wybrano są zmieniane. Zauważ, że zmienna `alist` w następującym wierszu nie została zmieniona.
+    Nazwy zmiennych odwołujących się w odniesieniu do wybranego wystąpienia są zmieniane. Należy jednak pamiętać, że nie zmieniono nazwy zmiennej `alist` w następującym wierszu.
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample7.cs)]
 
-    Zmienna `alist` w danym wierszu nie została zmieniona, ponieważ nie reprezentuje tę samą wartość jak zmienna `alist` którego nazwa została zmieniona. Zmienna `alist` w `DisplayArray` deklaracja jest zmienną lokalną dla tej metody. Obrazuje to, że za pomocą refaktoryzacji można zmienić nazwy zmiennych różni się od po prostu wykonywania działań Znajdź i Zamień w edytorze; Refaktoryzacja zmiany nazw zmienne przy zachowaniu wiedzy o semantykę zmiennej, która pracuje się z.
+    Nie można zmienić nazwy zmiennej `alist` w tym wierszu, ponieważ nie reprezentuje ona takiej samej wartości jak zmienna, `alist` której nazwa została zmieniona. Zmienna `alist` w deklaracji `DisplayArray` jest zmienną lokalną dla tej metody. Ilustruje to, że używanie refaktoryzacji do zmiany nazwy zmiennych jest inne niż wykonywanie akcji znajdowania i zamieniania w edytorze; Refaktoryzacja zmienia nazwy zmiennych ze wiedzą semantyki zmiennej, z którą pracuje.
 
 ## <a name="inserting-snippets"></a>Wstawianie fragmentów kodu
 
-Ponieważ istnieje wiele zadań kodowania, które deweloperzy formularzy sieci Web często muszą wykonywać, Edytor kodu zawiera bibliotekę fragmentów kodu lub bloki kodu przedpisanych. Te fragmenty kodu można wstawić do strony.
+Ponieważ istnieje wiele zadań związanych z kodowaniem, których deweloperzy formularzy sieci Web często potrzebują do wykonania, Edytor kodu udostępnia bibliotekę fragmentów kodu lub bloków przedpisanych kod. Możesz wstawić te fragmenty kodu do strony.
 
-Każdy język, którego używasz w programie Visual Studio ma niewielkie różnice w taki sposób, wstawki kodu. Aby dowiedzieć się, jak wstawianie fragmentów kodu, zobacz [fragmenty kodu IntelliSense w języku Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx). Aby dowiedzieć się, jak wstawianie fragmentów kodu w języku Visual C#, zobacz [Visual C# — wstawki](https://msdn.microsoft.com/library/z41h7fat.aspx).
+Każdy język, który jest używany w programie Visual Studio, ma niewielkie różnice w sposobie wstawiania fragmentów kodu. Aby uzyskać informacje na temat wstawiania wstawek, zobacz [Visual Basic fragmenty kodu IntelliSense](https://msdn.microsoft.com/library/18yz4be4.aspx). Aby uzyskać informacje na temat wstawiania wstawek w C#wizualizacji, zobacz [fragmenty kodu wizualnego C# ](https://msdn.microsoft.com/library/z41h7fat.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku ma ilustruje podstawowe funkcje edytora kodu programu Visual Studio 2010 do poprawiania błędów w kodzie, Refaktoryzacja kodu, zmiana nazwy zmiennych i wstawianie fragmentów kodu do kodu. Dodatkowe funkcje w edytorze ułatwia rozwój aplikacji jest łatwe i szybkie. Na przykład możesz chcieć:
+W tym instruktażu przedstawiono podstawowe funkcje edytora kodu programu Visual Studio 2010 na potrzeby poprawiania błędów w kodzie, refaktoryzacji kodu, zmieniania nazw zmiennych i wstawiania fragmentów kodu do kodu. Dodatkowe funkcje w edytorze umożliwiają szybkie i łatwe tworzenie aplikacji. Na przykład możesz chcieć:
 
-- Dowiedz się więcej na temat funkcji IntelliSense, takich jak modyfikowanie Opcje IntelliSense, zarządzanie fragmenty kodu i wyszukiwanie wstawek kodu w trybie online. Aby uzyskać więcej informacji, zobacz [za pomocą funkcji IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
-- Dowiedz się, jak utworzyć własne fragmenty kodu. Aby uzyskać więcej informacji, zobacz [tworzyć i za pomocą fragmenty kodu IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
-- Dowiedz się więcej na temat funkcji specyficznych dla języka Visual Basic fragmenty kodu IntelliSense, takie jak dostosowywanie fragmenty kodu i rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [fragmenty kodu IntelliSense w języku Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx)
-- Dowiedz się więcej na temat języka C# — określonych funkcji IntelliSense, takie jak Refaktoryzacja i fragmentów kodu. Aby uzyskać więcej informacji, zobacz [Visual C# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).
+- Dowiedz się więcej o funkcjach IntelliSense, takich jak modyfikowanie opcji IntelliSense, zarządzanie fragmentami kodu i wyszukiwanie fragmentów kodu w trybie online. Aby uzyskać więcej informacji, zobacz [Korzystanie z funkcji IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
+- Dowiedz się, jak tworzyć własne fragmenty kodu. Aby uzyskać więcej informacji, zobacz [Tworzenie i używanie fragmentów kodu IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
+- Dowiedz się więcej na temat funkcji specyficznych dla Visual Basic fragmentów kodu IntelliSense, takich jak Dostosowywanie wstawek i rozwiązywanie problemów. Aby uzyskać więcej informacji, zobacz [Visual Basic fragmenty kodu IntelliSense](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- Dowiedz się więcej C#o funkcjach IntelliSense, takich jak Refaktoryzacja i fragmenty kodu. Aby uzyskać więcej informacji, [Zobacz C# Visual IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).

@@ -9,11 +9,11 @@ ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
 ms.openlocfilehash: e798cb83cfb97db63fef6dc38c8f62804461d01b
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456858"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78617328"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa błędów przejściowych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
@@ -80,7 +80,7 @@ W [następnym rozdziale](distributed-caching.md)zawarto informacje na temat popr
 
 ## <a name="resources"></a>Zasoby
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 Dokumentacja
 

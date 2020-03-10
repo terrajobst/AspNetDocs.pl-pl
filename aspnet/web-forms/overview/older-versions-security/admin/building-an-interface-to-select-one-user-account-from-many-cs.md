@@ -9,11 +9,11 @@ ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8057cfbcd33c74376076363bc27940cebd522c08
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575999"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642535"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)
 
@@ -241,4 +241,4 @@ Scott Mitchell, autor wielu książek ASP/ASP. NET Books i założyciel of 4Guys
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Alicja Maziarz. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](recovering-and-changing-passwords-cs.md)
+> [Dalej](recovering-and-changing-passwords-cs.md)

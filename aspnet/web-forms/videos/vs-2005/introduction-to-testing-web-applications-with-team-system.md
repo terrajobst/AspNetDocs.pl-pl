@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-testing-web-applications-with-team-system
-title: Wprowadzenie do testowania aplikacji internetowych w programie Team System | Dokumentacja firmy Microsoft
+title: Wprowadzenie do testowania aplikacji sieci Web za pomocą programu Team System | Microsoft Docs
 author: rick-anderson
-description: W tym filmie pokazano zobaczymy, jak zautomatyzować testowanie aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania sieci web.
+description: W tym filmie wideo zobaczymy, jak zautomatyzować testowanie aplikacji sieci Web za pomocą funkcji testowania sieci Web w programie Visual Studio Team System.
 ms.author: riande
 ms.date: 02/09/2007
 ms.assetid: 0924e7ff-b148-4a3e-bfaf-6f866ca13495
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-testing-web-applications-with-team-system
 msc.type: video
 ms.openlocfilehash: 6dac810a2bcef49807d2c9eb605e50a15f742449
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394483"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78527217"
 ---
-# <a name="introduction-to-testing-web-applications-with-team-system"></a>Wprowadzenie do testowania aplikacji internetowych w programie Team System
+# <a name="introduction-to-testing-web-applications-with-team-system"></a>Wprowadzenie do testowania aplikacji sieci Web za pomocą programu Team System
 
-przez Eric Lee
+Autor Eric Lewandowski
 
-W tym filmie pokazano zobaczymy, jak zautomatyzować testowanie aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania sieci web.
+W tym filmie wideo zobaczymy, jak zautomatyzować testowanie aplikacji sieci Web za pomocą funkcji testowania sieci Web w programie Visual Studio Team System.
 
-[&#9654;Obejrzyj film wideo (9 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-testing-web-applications-with-team-system)
+[&#9654;Obejrzyj wideo (9 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-testing-web-applications-with-team-system)
 
 > [!div class="step-by-step"]
 > [Poprzednie](introduction-to-unit-testing-with-team-system.md)

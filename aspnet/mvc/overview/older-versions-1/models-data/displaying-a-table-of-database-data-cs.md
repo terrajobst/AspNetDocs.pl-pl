@@ -9,11 +9,11 @@ ms.assetid: d6e758b6-6571-484d-a132-34ee6c47747a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3c908d030076fc8400190ef3cf1672632ac1ed6b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589471"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543142"
 ---
 # <a name="displaying-a-table-of-database-data-c"></a>Wyświetlanie tabeli danych bazy danych (C#)
 
@@ -33,10 +33,10 @@ Będziemy wyświetlać zestaw rekordów z tabeli bazy danych filmów. Tabela baz
 
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
-| #C1 | int | Fałsz |
-| Tytuł | Nvarchar (200) | Fałsz |
-| General | NVarchar (50) | Fałsz |
-| DateReleased | DataGodzina | Fałsz |
+| Identyfikator | int | Fałsz |
+| Tytuł | Nvarchar(200) | Fałsz |
+| Dyrektor ds. | NVarchar (50) | Fałsz |
+| DateReleased | DateTime | Fałsz |
 
 Aby przedstawić tabelę filmów w aplikacji ASP.NET MVC, musimy utworzyć klasę modelu. W tym samouczku użyjemy Entity Framework firmy Microsoft do tworzenia naszych klas modelu.
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby uruchomić Kreatora Entity Data Model:
 Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator Entity Data Model (patrz rysunek 1). Wykonaj następujące kroki, aby zakończyć działanie kreatora:
 
 1. W kroku **Wybierz zawartość modelu** wybierz opcję **Generuj z bazy danych** .
-2. W kroku **Wybierz połączenie danych** Użyj połączenia danych *MoviesDB. mdf* oraz nazwy *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **dalej** .
+2. W kroku **Wybierz połączenie danych** Użyj połączenia danych *MoviesDB. mdf* oraz nazwy *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **Dalej**.
 3. W kroku **Wybierz obiekty bazy danych** rozwiń węzeł tabele, a następnie wybierz tabelę filmy. Wprowadź *modele* przestrzeni nazw i kliknij przycisk **Zakończ** .
 
 [![tworzenia klas LINQ to SQL](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
@@ -92,7 +92,7 @@ Musimy zmodyfikować akcję index () uwidocznioną przez kontroler filmu, aby zw
 
 Na liście 1 Klasa MoviesDBEntities jest używana do reprezentowania bazy danych MoviesDB. Aby użyć tej klasy, należy zaimportować przestrzeń nazw MvcApplication1. models w następujący sposób:
 
-Korzystanie z MvcApplication1. models;
+using MvcApplication1.Models;
 
 Jednostki wyrażenia *. MovieSet. ToList — ()* zwraca zestaw wszystkich filmów z tabeli bazy danych filmów.
 

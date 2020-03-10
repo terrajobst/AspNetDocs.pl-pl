@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/getting-started/index
-title: Wprowadzenie do wzorca ASP.NET Web Forms | Dokumentacja firmy Microsoft
+title: Wprowadzenie z formularzami sieci Web ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Dowiedz się więcej o ASP.NET sieci Web Forms formularzy sieci Web ASP.NET umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej i hund...
+description: Dowiedz się więcej na temat formularzy sieci Web w programie ASP.NET Web Forms ASP.NET umożliwia tworzenie dynamicznych witryn sieci Web przy użyciu modelu typu "przeciągnij i upuść" sterowanego zdarzeniami. Powierzchnia projektowa i Hund...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: f645d3b1-1092-43c6-a28a-074b413924b4
 msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: d76e65ae807b1da97d07199e7f0fce21fbf14af6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133434"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632721"
 ---
-# <a name="getting-started-with-aspnet-web-forms"></a>Wprowadzenie do wzorca ASP.NET Web Forms
+# <a name="getting-started-with-aspnet-web-forms"></a>Wprowadzenie z formularzami sieci Web ASP.NET
 
-> Model formularzy sieci Web i sposobu tworzenia strony i formanty.
+> Model formularzy sieci Web oraz sposób tworzenia stron i używania kontrolek.
 
 - [Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013](getting-started-with-aspnet-45-web-forms/index.md)
 

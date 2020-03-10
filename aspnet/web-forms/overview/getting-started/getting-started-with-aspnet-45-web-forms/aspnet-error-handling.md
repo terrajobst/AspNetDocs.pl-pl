@@ -9,11 +9,11 @@ ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 9514142ca50b33470a3f4c033e4f8e319a9ee09b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636468"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566683"
 ---
 # <a name="aspnet-error-handling"></a>Obsługa błędów platformy ASP.NET
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku zmodyfikujesz przykładową aplikację Wingtip zabawki w celu uwzględnienia obsługi błędów i rejestrowania błędów. Obsługa błędów umożliwi aplikacji bezpieczne obsłudze błędów i wyświetlenie komunikatów o błędach. Rejestrowanie błędów pozwoli znaleźć i naprawić błędy, które wystąpiły. Ten samouczek jest oparty na poprzednim samouczku "Routing adresów URL" i jest częścią serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak dodać globalną obsługę błędów do konfiguracji aplikacji.
 - Jak dodać obsługę błędów na poziomie aplikacji, strony i kodu.
@@ -116,7 +116,7 @@ W przykładowej aplikacji Wingtip zabawki zostanie użyta jedna strona do wyświ
 1. Kliknij prawym przyciskiem myszy nazwę projektu (**zabawki Wingtip**) w **Eksplorator rozwiązań** a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**.   
    Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
 2. Wybierz grupę szablonów **sieci Web** **Visual C#**  -&gt; po lewej stronie. Z listy środkowej wybierz pozycję **formularz sieci Web ze stroną wzorcową**i nadaj jej nazwę **ErrorPage. aspx**.
-3. Kliknij przycisk **Dodaj**.
+3. Kliknij pozycję **Add** (Dodaj).
 4. Wybierz plik *site. Master* jako stronę wzorcową, a następnie wybierz przycisk **OK**.
 5. Zastąp istniejący znacznik następującym:   
 
@@ -334,7 +334,7 @@ Chcę podziękowanie następujące osoby, które złożyły znaczące wkłady w 
 - [Alberto Poblacion, MVP &amp; MCT, Hiszpania](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen, Holandia](http://blog.alexthissen.nl/) (twitter: [@alexthissen](http://twitter.com/alexthissen))
 - [Andre Tournier, USA](http://andret503.wordpress.com/)
-- Apurvę Joshi, Microsoft
+- Apurva Joshi, Microsoft
 - [Bojan Vrhovnik, Słowenia](http://twitter.com/bvrhovnik)
 - [Bruno Sonnino, Brazylia](http://msmvps.com/blogs/bsonnino) (twitter: [@bsonnino](http://twitter.com/bsonnino))
 - [Carlos dos Santos, Brazylia](http://www.carloscds.net/)
@@ -359,4 +359,4 @@ Chcę podziękowanie następujące osoby, które złożyły znaczące wkłady w 
   Tłumaczenie programu Visual Studio 2012: [Iniciando com ASP.NET Web Forms 4,5-Parte 1-Introdução e Visão geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
 > [!div class="step-by-step"]
-> [Ubiegł](url-routing.md)
+> [Wstecz](url-routing.md)

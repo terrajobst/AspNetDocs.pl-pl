@@ -1,335 +1,335 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: Wprowadzenie do składnika ASP.NET Web Pages — wyświetlanie danych | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — wyświetlanie danych | Microsoft Docs
 author: Rick-Anderson
-description: W tym samouczku dowiesz się, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane z bazy danych na stronie, gdy używasz stron ASP.NET Web Pages (Razor). Przyjęto założenie, y...
+description: W tym samouczku pokazano, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane bazy danych na stronie w przypadku używania stron sieci Web ASP.NET (Razor). Zakłada, że y...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
 ms.openlocfilehash: 9e665ca8dd064c23a8b8bd3593014969d0c3da48
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525222"
 ---
-# <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
+# <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do stron sieci Web ASP.NET — wyświetlanie danych
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku dowiesz się, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane z bazy danych na stronie, gdy używasz stron ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii za pośrednictwem [wprowadzenie do programowania programu ASP.NET Web Pages](../introducing-razor-syntax-c.md).
+> W tym samouczku pokazano, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane bazy danych na stronie w przypadku używania stron sieci Web ASP.NET (Razor). Przyjęto założenie, że seria została zakończona przez [wprowadzenie do programowania stron sieci Web ASP.NET](../introducing-razor-syntax-c.md).
 > 
 > Zawartość:
 > 
-> - Jak używać narzędzi programu WebMatrix do tworzenia bazy danych i tabel bazy danych.
-> - Jak używać narzędzi programu WebMatrix, aby dodać dane do bazy danych.
-> - Jak wyświetlić dane z bazy danych na stronie.
-> - Sposób uruchamiania poleceń SQL w składniku ASP.NET Web Pages.
-> - Jak dostosować `WebGrid` pomocnika, aby zmienić sposób wyświetlania danych i dodać stronicowanie i sortowanie.
+> - Jak używać narzędzi WebMatrix do tworzenia bazy danych i tabel bazy danych.
+> - Jak dodać dane do bazy danych przy użyciu narzędzi WebMatrix.
+> - Jak wyświetlać dane z bazy danych na stronie.
+> - Jak uruchamiać polecenia SQL na stronach sieci Web ASP.NET.
+> - Jak dostosować pomocnika `WebGrid`, aby zmienić wyświetlanie danych i dodać stronicowanie i sortowanie.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - Narzędzia graficzne bazy danych programu WebMatrix.
-> - `WebGrid` Pomocnik.
+> - Narzędzia WebMatrix Database.
+> - pomocnik `WebGrid`.
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-W poprzednim samouczku zostały wprowadzone do stron ASP.NET Web Pages (*.cshtml* plików), podstawowe informacje o składni Razor i Pomocnicy. W tym samouczku będziesz Rozpocznij tworzenie aplikacji rzeczywisty sieci web, którego będziesz używać w pozostałej części tej serii. Aplikacja jest aplikacji proste filmów, która umożliwia wyświetlanie, dodawanie, zmienianie i usuwanie informacje na temat filmów.
+W poprzednim samouczku wprowadzono do ASP.NET stron sieci Web (pliki *. cshtml* ), do podstaw składnia Razor i do pomocników. W tym samouczku rozpocznie się tworzenie rzeczywistej aplikacji sieci Web, która będzie używana w pozostałej części serii. Aplikacja to prosta aplikacja filmowa, która umożliwia wyświetlanie, Dodawanie, zmienianie i usuwanie informacji o filmach.
 
-Po zakończeniu korzystania z tego samouczka, będzie można wyświetlić listę filmu, która wygląda podobnie do tej strony:
+Gdy skończysz korzystać z tego samouczka, zobaczysz listę filmów, która wygląda podobnie do tej strony:
 
-![Wyświetlanie WebGrid, która obejmuje parametry równa nazwy klas CSS](displaying-data/_static/image1.png)
+![Wyświetlacz WebGrid zawierający parametry ustawione na nazwy klas CSS](displaying-data/_static/image1.png)
 
-Jednak aby rozpocząć, należy utworzyć bazę danych.
+Aby rozpocząć, musisz utworzyć bazę danych.
 
-## <a name="a-very-brief-introduction-to-databases"></a>Bardzo krótkie wprowadzenie do bazy danych
+## <a name="a-very-brief-introduction-to-databases"></a>Krótkie wprowadzenie do baz danych
 
-W tym samouczku będzie udostępniać tylko briefest wprowadzenie do bazy danych. Jeśli masz doświadczenie w bazie danych, możesz pominąć tę sekcję krótki.
+W tym samouczku przedstawiono tylko krótkie wprowadzenie do baz danych. W przypadku korzystania z bazy danych można pominąć tę krótką sekcję.
 
-Baza danych zawiera co najmniej jednej tabeli, które zawierają informacje &mdash; na przykład tabele dla klientów, zamówień i dostawców lub dla studentów, nauczycieli, klasy i klas. Strukturalnie tabeli bazy danych jest jak arkusz kalkulacyjny. Wyobraź sobie książki adresowej typowy. Dla każdego wpisu w książce adresowej (oznacza to, że dla każdej osoby nawiązującej) ma kilka rodzajów informacji, takich jak imię, nazwisko, adres, adres e-mail i numer telefonu.
+Baza danych zawiera co najmniej jedną tabelę zawierającą informacje &mdash; na przykład tabele dla klientów, zamówień i dostawców lub dla studentów, nauczycieli, klas i kategorii. Strukturalnie tabela bazy danych jest jak arkusz kalkulacyjny. Wyobraź sobie typową książkę adresową. Dla każdego wpisu w książce adresowej (czyli dla każdej osoby) masz kilka informacji, takich jak imię, nazwisko, adres, adres e-mail i numer telefonu.
 
 ![Przykładowa tabela bazy danych jako prosta siatka](displaying-data/_static/image2.png)
 
-(Wiersze są czasami określane jako *rekordów*, i kolumny są czasami określane jako *pola*.)
+(Wiersze są czasami określane jako *rekordy*, a kolumny są czasami określane jako *pola*).
 
-W przypadku większości tabel bazy danych Tabela musi mieć kolumnę zawierającą unikatową wartość, na przykład numer klienta, numer konta i tak dalej. Ta wartość jest znana jako tabela *klucz podstawowy*, i używa ich do identyfikacji każdego wiersza w tabeli. W tym przykładzie kolumna Identyfikator jest kluczem podstawowym książki adresowej w poprzednim przykładzie.
+W przypadku większości tabel bazy danych tabela musi mieć kolumnę, która zawiera unikatową wartość, na przykład numer klienta, numer konta itd. Ta wartość jest określana jako *klucz podstawowy*tabeli i służy do identyfikowania każdego wiersza w tabeli. W przykładzie kolumna ID jest kluczem podstawowym dla książki adresowej pokazanej w poprzednim przykładzie.
 
-Większość zadań, co zrobić w aplikacji sieci web składa się z odczytywania informacji z bazy danych i wyświetlanie go na stronie. Zostanie również często zbierać dane od użytkowników i dodać go do bazy danych lub zmodyfikujesz rekordy, które znajdują się już w bazie danych. (Omówimy wszystkie te operacje, w tym zestawie samouczków.)
+Większość pracy wykonywanych w aplikacjach sieci Web polega na odczytywaniu informacji z bazy danych i wyświetlaniu jej na stronie. Często są również zbierane informacje od użytkowników i dodawane do bazy danych programu. można też modyfikować rekordy, które znajdują się już w bazie danych programu. (Wszystkie te operacje zostaną omówione w ramach tego zestawu samouczków).
 
-Praca bazy danych może być teraz znacznie skomplikowane i wymagać specjalistyczną wiedzę. Dla tego zestawu samouczków masz jednak zapoznać się tylko podstawowymi pojęciami, które zostaną wszystkie wyjaśnione zgodnie z rzeczywistym.
+Baza danych może być kompleksowo złożona i może wymagać specjalistycznej wiedzy. Na potrzeby tego samouczka należy zrozumieć tylko podstawowe koncepcje, które zostaną wyjaśnione po przejściu.
 
 ## <a name="creating-a-database"></a>Tworzenie bazy danych
 
-Program WebMatrix zawiera narzędzia, które ułatwiają tworzenie bazy danych i tworzenie tabel w bazie danych. (Struktury bazy danych jest określany jako bazy danych *schematu*.) Dla tego zestawu samouczków, utworzysz bazę danych, która zawiera tylko jedną tabelę &mdash; filmów.
+Program WebMatrix zawiera narzędzia, które ułatwiają tworzenie bazy danych i tworzenie tabel w bazie danych programu. (Struktura bazy danych jest określana jako *schemat*bazy danych). Dla tego zestawu samouczków utworzysz bazę danych zawierającą tylko jedną tabelę w &mdash; filmach.
 
-Otwórz program WebMatrix, jeśli jeszcze tego nie zrobiłeś, a następnie otwórz witrynę WebPagesMovies, który został utworzony w poprzednim samouczku.
+Otwórz program WebMatrix, jeśli jeszcze tego nie zrobiono, a następnie otwórz witrynę WebPagesMovies utworzoną w poprzednim samouczku.
 
-W okienku po lewej stronie kliknij **bazy danych** obszaru roboczego.
+W lewym okienku kliknij obszar roboczy **baza danych** .
 
-![Karty Obszar roboczy bazy danych programu WebMatrix](displaying-data/_static/image3.png)
+![Karta obszaru roboczego bazy danych WebMatrix](displaying-data/_static/image3.png)
 
-Zmiany wstążki, aby wyświetlić zadania związane z bazy danych. Na wstążce kliknij **nową bazę danych**.
+Wstążka zmienia się w celu wyświetlenia zadań związanych z bazą danych. Na wstążce kliknij pozycję **Nowa baza danych**.
 
-![Nowa baza danych przycisk na wstążce programu WebMatrix](displaying-data/_static/image4.png)
+![Przycisk "Nowa baza danych" na Wstążce WebMatrix](displaying-data/_static/image4.png)
 
-Program WebMatrix tworzy bazę danych programu SQL Server CE ( *.sdf* pliku), ma taką samą nazwę jako lokacji &mdash; *WebPagesMovies.sdf*. (Nie zrobi to w tym miejscu, ale można zmienić nazwę pliku do żadnego elementu lubisz, tak długo, jak przedstawiono w nim *.sdf* rozszerzenia.)
+WebMatrix tworzy bazę danych SQL Server CE (plik *. sdf* ) o takiej samej nazwie, co witryna &mdash; *WebPagesMovies. sdf*. (W tym miejscu nie można wykonać tej czynności, ale można zmienić nazwę pliku na dowolną zawartość, o ile ma rozszerzenie *. sdf* ).
 
 ## <a name="creating-a-table"></a>Tworzenie tabeli
 
-Na wstążce kliknij **nową tabelę**. Program WebMatrix zostanie otwarty projektant tabel w nowej karcie. (Jeśli opcja Nowa tabela jest niedostępna, upewnij się, że nowa baza danych jest wybrane w widoku drzewa po lewej stronie.)
+Na wstążce kliknij pozycję **Nowa tabela**. WebMatrix otwiera projektanta tabel na nowej karcie. (Jeśli opcja Nowa tabela jest niedostępna, upewnij się, że nowa baza danych została wybrana w widoku drzewa po lewej stronie).
 
-!["Nowa tabela" przycisk na wstążce programu WebMatrix](displaying-data/_static/image5.png)
+![Przycisk "Nowa tabela" na Wstążce WebMatrix](displaying-data/_static/image5.png)
 
-W polu tekstowym u góry (gdzie znak wodny mówi "Wprowadź nazwę tabeli") wprowadź "Filmy".
+W polu tekstowym u góry (w którym znajduje się znak wodny "Wprowadź nazwę tabeli"), wprowadź "filmy".
 
-![Wprowadź nazwę tabeli w projektancie bazy danych programu WebMatrix](displaying-data/_static/image6.png)
+![Wprowadzanie nazwy tabeli w projektancie bazy danych WebMatrix](displaying-data/_static/image6.png)
 
-Określa poszczególnych kolumn, które się w okienku poniżej nazwy tabeli. Aby uzyskać *filmy* tabeli w tym samouczku utworzysz tylko kilka kolumn: *Identyfikator*, *tytuł*, *gatunku*, i *roku*.
+W okienku pod nazwą tabeli można definiować poszczególne kolumny. W przypadku tabeli *filmów* w tym samouczku utworzysz tylko kilka kolumn: *Identyfikator*, *tytuł*, *gatunek*i *rok*.
 
-W **nazwa** wprowadź "ID". Wprowadź wartość w tym miejscu aktywuje wszystkich kontrolek dla nowej kolumny.
+W polu **Nazwa** wprowadź wartość "ID". Wprowadzenie wartości w tym miejscu aktywuje wszystkie kontrolki dla nowej kolumny.
 
-Kartę **— typ danych** i wybierz polecenie **int**. Ta wartość określa, że kolumna Identyfikatora będzie zawierać danych liczb całkowitych (liczba).
-
-> [!NOTE]
-> Nie będzie nazywamy je jakąkolwiek więcej informacji znajdziesz tutaj (znacznie), ale standardowa gestów klawiatury Windows można użyć do nawigacji w tej siatce. Na przykład ustawić tabulator między polami, można po prostu zacznij pisać, aby wybrać element na liście i tak dalej.
-
-Karta ostatnie **wartości domyślnej** pole (oznacza to, pozostaw to pole puste). Kartę **jest kluczem podstawowym** pole wyboru, a następnie wybierz ją. Ta opcja nakazuje bazy danych *identyfikator* kolumna będzie zawierać dane, który identyfikuje poszczególne wiersze. (Czyli każdy wiersz będą mieć unikatową wartość w kolumnie identyfikator, która umożliwia znalezienie tego wiersza.)
-
-Wybierz **tożsamości jest** opcji. Ta opcja nakazuje bazy danych, czy należy automatycznie wygenerować kolejny numer kolejny dla każdego nowego wiersza. ( **Tożsamości jest** opcji działa tylko wtedy, gdy wybrano również **jest kluczem podstawowym** opcję.)
-
-Kliknij następny wiersz siatki, lub naciśnij klawisz Tab dwa razy, aby zakończyć bieżący wiersz. Albo gestu zapisuje bieżący wiersz i rozpoczyna się kolejny. Należy zauważyć, że **wartości domyślnej** kolumny jest teraz wyświetlany komunikat **Null**. (Wartość null jest wartością domyślną dla wartości domyślnej, więc do speak).
-
-Po zakończeniu, definiując nowe **identyfikator** kolumny, Projektant będzie wyglądać na tej ilustracji:
-
-![Projektant baz danych programu WebMatrix po zdefiniowaniu kolumny Identyfikatora dla tabeli filmy](displaying-data/_static/image7.png)
-
-Aby utworzyć w następnej kolumnie, kliknij pole w **nazwa** kolumny. Wprowadź "Title" dla kolumny, a następnie wybierz **nvarchar** dla **— typ danych** wartość. Część "var" **nvarchar** bazy danych informuje, że dane dla tej kolumny będzie ciąg, którego rozmiar może się różnić między rekordami. (Prefiks "n" reprezentuje "national", co oznacza, że pole może zawierać dane znaków dla dowolnego alfabetu lub systemie pisma — oznacza to pole zawiera dane Unicode.)
-
-Po wybraniu **nvarchar**, pojawi się okno innego, za pomocą której można wprowadzić maksymalną długość pola. Wprowadź 50, przy założeniu, że bez tytułu film, w tym samouczku będziesz pracować będzie więcej niż 50 znaków.
-
-Pomiń **wartości domyślnej** i wyczyść **Zezwalaj na wartości null** opcji. Nie ma bazy danych do Zezwalaj na filmy wprowadzane do bazy danych, które nie mają tytuł.
-
-Gdy ukończysz pracę i przejdź do następnego wiersza projektanta wygląda na tej ilustracji:
-
-![Projektant baz danych programu WebMatrix po zdefiniowaniu kolumny Title dla tabeli filmy](displaying-data/_static/image8.png)
-
-Powtórz te kroki, aby utworzyć kolumnę o nazwie "Rodzaju", z wyjątkiem długości, ustaw ją po prostu 30.
-
-Utwórz inną kolumnę o nazwie "Roku." Typ danych wybierz **nchar** (nie **nvarchar**) i ustawić długość na 4. W roku możesz zacząć korzystać 4-cyfrowy numer, takich jak "1995" lub "2010", dzięki czemu nie wymagają kolumny o zmiennym rozmiarze.
-
-Oto jak wygląda gotowego projektu:
-
-![Projektant baz danych programu WebMatrix po wszystkich pól zdefiniowanych dla tabeli filmy](displaying-data/_static/image9.png)
-
-Naciśnij klawisze Ctrl + S, lub kliknij przycisk **Zapisz** przycisku paska narzędzi Szybki dostęp. Zamknięcie karty, aby zamknąć projektanta bazy danych.
-
-## <a name="adding-some-example-data"></a>Dodawanie niektóre przykładowe dane
-
-W dalszej części tej serii samouczków utworzysz strony, w którym możesz wprowadzić nowe filmy w formularzu. Teraz jednak możesz dodać niektóre przykładowe dane, które następnie można wyświetlić na stronie.
-
-W **bazy danych** obszaru roboczego w programie WebMatrix, zwróć uwagę, że istnieje drzewa, która pokazuje *.sdf* pliku została utworzona wcześniej. Otwórz węzeł nowej *.sdf* pliku, a następnie otwórz **tabel** węzła.
-
-![Obszar roboczy bazy danych programu WebMatrix, przy użyciu drzewa, otwarty do tabeli filmy](displaying-data/_static/image10.png)
-
-Kliknij prawym przyciskiem myszy **filmy** węzeł, a następnie wybierz **danych**. Program WebMatrix otwiera siatki, w którym możesz wprowadzić dane dla *filmy* tabeli:
-
-![Siatka zapisu bazy danych w programie WebMatrix (pusty)](displaying-data/_static/image11.png)
-
-Kliknij przycisk **tytuł** kolumny i wpisz "Podczas Harry spełnione Zosi". Przenieś do **gatunku** kolumny (możesz użyć klawisza Tab) i wprowadź "Sceny miłosne Komedia". Przenieś do **roku** kolumny i wpisz "1989":
-
-![Siatka zapisu bazy danych w programie WebMatrix z jednego rekordu](displaying-data/_static/image12.png)
-
-Naciśnij klawisz Enter i programu WebMatrix zapisuje ten nowy film. Należy zauważyć, że **identyfikator** kolumna została wypełniona.
-
-![Siatka wpis bazy danych w programie WebMatrix z jednego rekordu i automatycznie wygenerowany identyfikator](displaying-data/_static/image13.png)
-
-Wprowadź inny film (na przykład "stała się za pomocą wiatru", "Dramat", "1939"). W kolumnie identyfikator jest wprowadzone ponownie:
-
-![Siatka zapisu bazy danych w programie WebMatrix z dwa rekordy i identyfikatorów generowanych automatycznie](displaying-data/_static/image14.png)
-
-Wprowadź trzeci filmu (na przykład "Ghostbusters", "Dokument"). Jako eksperyment, pozostaw **roku** kolumny blank, a następnie naciśnij klawisz Enter. Ponieważ użytkownik niezaznaczoną **Zezwalaj na wartości null** opcji i baza danych zawiera błąd:
-
-![Błąd 'Nieprawidłowe dane' wyświetlane, gdy wartości wymaganej kolumny jest puste](displaying-data/_static/image15.png)
-
-Kliknij przycisk **OK** Przejdź wstecz i naprawić zapisu (jest 1984 roku "Ghostbusters".) i naciśnij klawisz Enter.
-
-Wypełnij kilka filmów, dopóki nie uzyskasz 8, lub tak. (Wprowadzanie 8 sprawia, że łatwiej pracować z stronicowania później. Ale jeśli jest zbyt wiele, należy wprowadzić kilka teraz). Rzeczywiste dane, nie ma znaczenia.
-
-![Siatka zapisu bazy danych w programie WebMatrix z albo rekordów](displaying-data/_static/image16.png)
-
-Po wprowadzeniu wszystkich filmów bez żadnych błędów, identyfikator wartości są sekwencyjne. Podjęto próbę zapisania rekordu niekompletne filmu, numery identyfikatorów może być sekwencyjne. Jeśli tak, to zignorować. Liczby nie mają żadnego znaczenia nieprzerwaną pracę, a jedyną czynnością, które są ważne jest, że są one unikatowe w *filmy* tabeli.
-
-Zamknij kartę zawierającą projektanta bazy danych.
-
-Teraz możesz wyłączyć wyświetlanie tych danych na stronie sieci web.
-
-## <a name="displaying-data-in-a-page-by-using-the-webgrid-helper"></a>Wyświetlanie danych na stronie sieci przy użyciu Pomocnika WebGrid
-
-Aby wyświetlić dane na stronie sieci, możesz zacząć korzystać `WebGrid` pomocnika. Tego pomocnika generuje wyświetlaną w siatce lub na tabeli (wiersze i kolumny). Jak można zauważyć, będzie możliwe dopracować siatka z formatowania i inne funkcje.
-
-Aby uruchomić siatki, musisz napisać kilka wierszy kodu. Te wiersze kilka będzie służyć jako rodzaju wzorzec prawie cały dostęp do danych, jak w tym samouczku.
+Tab na listę **Typ danych** i wybierz **int**. Ta wartość określa, że kolumna identyfikatora będzie zawierać dane całkowite (liczbowe).
 
 > [!NOTE]
-> Masz naprawdę wiele opcji do wyświetlania danych na stronie; `WebGrid` pomocy jest tylko jeden. Wybraliśmy ją na potrzeby tego samouczka, ponieważ jest najprostszym sposobem wyświetlania danych i jest jest elastyczny. W zestawie następnego samouczka pojawi się, jak używać więcej "manual" nowy sposób pracy z danymi na stronie, co daje więcej bezpośrednią kontrolę nad sposób wyświetlania danych.
+> Nie wywołajemy go więcej (wiele), ale możesz użyć standardowych gestów klawiatury systemu Windows, aby przejść do tej siatki. Na przykład można nawiązać tabulację między polami, po prostu zacznij pisać, aby wybrać element na liście i tak dalej.
 
-W okienku po lewej stronie w programie WebMatrix, kliknij przycisk **pliki** obszaru roboczego.
+Tab poza polem **wartości domyślnej** (to oznacza, pozostaw puste). Na karcie **klucz podstawowy** pole wyboru i wybierz ją. Ta opcja instruuje bazę danych, że kolumna *Identyfikator* będzie zawierać dane, które identyfikują poszczególne wiersze. (Oznacza to, że każdy wiersz będzie miał unikatową wartość w kolumnie ID, która może być używana do znajdowania tego wiersza).
 
-Nowe utworzona baza danych znajduje się w *aplikacji\_danych* folderu. Jeśli folder już nie istnieje, program WebMatrix utworzony dla nowej bazy danych. (Folder może występować Jeśli wcześniej została zainstalowana pomocników.)
+Wybierz opcję **tożsamość** . Ta opcja instruuje bazę danych, że powinna automatycznie generować następny numer sekwencyjny dla każdego nowego wiersza. (Opcja **jest tożsamość** działa tylko wtedy, gdy wybrano również opcję " **jest kluczem podstawowym** ").
 
-W widoku drzewa wybierz katalog główny witryny sieci Web. Musisz wybrać katalog główny witryny sieci Web; w przeciwnym razie nowy plik może być dodana do aplikacji\_folderu danych.
+Kliknij w następnym wierszu siatki lub dwukrotnie naciśnij klawisz Tab, aby zakończyć bieżący wiersz. Każdy gest zapisuje bieżący wiersz i uruchamia kolejny. Zwróć uwagę, że kolumna **wartość domyślna** ma teraz **wartość null**. (Wartość domyślna to wartość domyślna, dlatego należy mówić).
 
-Na wstążce kliknij **New**. W **wybierz typ pliku** wybierz **CSHTML**.
+Po zakończeniu definiowania nowej kolumny **identyfikatora** Projektant będzie wyglądać podobnie do poniższej ilustracji:
 
-W **nazwa** pola, określ nazwę nowej strony "Movies.cshtml":
+![Projektant baz danych WebMatrix po zdefiniowaniu kolumny ID dla tabeli filmów](displaying-data/_static/image7.png)
 
-![Okno dialogowe "Wybierz typ pliku" przedstawiający stronę "Filmy"](displaying-data/_static/image17.png)
+Aby utworzyć następną kolumnę, kliknij w polu w kolumnie **Nazwa** . Wprowadź "title" dla kolumny, a następnie wybierz pozycję **nvarchar** dla wartości **Typ danych** . Część "var" elementu **nvarchar** instruuje bazę danych, że dane dla tej kolumny będą ciągiem, którego rozmiar może się różnić od rekordu do rekordu. (Prefiks "n" reprezentuje "National", co oznacza, że pole może zawierać dane znakowe dla każdego systemu alfabetu lub pisania — to znaczy, że pole przechowuje dane Unicode).
 
-Kliknij przycisk **OK** przycisku. Program WebMatrix zostanie otwarty nowy plik niektóre szkielet zawartych. Najpierw przedstawiono tworzenie kodu, aby pobrać dane z bazy danych. Następnie dodasz kod znaczników do strony, aby faktycznie wyświetlić dane.
+Po wybraniu opcji **nvarchar**, pojawi się inne pole, w którym można wprowadzić maksymalną długość pola. Wprowadź 50, w założeniu, że żaden tytuł filmu, z którym będziesz korzystać z tego samouczka, będzie dłuższy niż 50 znaków.
 
-### <a name="writing-the-data-query-code"></a>Pisanie kodu zapytania danych
+Pomiń **wartość domyślną** i usuń zaznaczenie opcji **Zezwalaj na wartości null** . Nie chcesz, aby baza danych zezwalała na wprowadzanie jakichkolwiek filmów do bazy danych, która nie ma tytułu.
 
-W górnej części strony między `@{` i `}` znaków, wprowadź następujący kod. (Upewnij się, wprowadź ten kod między otwierające i zamykające nawiasy klamrowe).
+Gdy skończysz i przejdziesz do następnego wiersza, Projektant wygląda jak na poniższej ilustracji:
+
+![Projektant baz danych WebMatrix po zdefiniowaniu kolumny title dla tabeli filmów](displaying-data/_static/image8.png)
+
+Powtórz te kroki, aby utworzyć kolumnę o nazwie "gatunek" z wyjątkiem długości, ustaw ją na wartość zaledwie 30.
+
+Utwórz kolejną kolumnę o nazwie "Year". Dla typu danych wybierz opcję **nchar** (nie **nvarchar**) i Ustaw długość na 4. Na rok jest używana 4-cyfrowa liczba, taka jak "1995" lub "2010", więc nie jest wymagana kolumna o zmiennym rozmiarze.
+
+Oto, jak wygląda gotowy projekt:
+
+![Projektant baz danych WebMatrix po zdefiniowaniu wszystkich pól dla tabeli filmów](displaying-data/_static/image9.png)
+
+Naciśnij klawisze CTRL + S lub kliknij przycisk **Zapisz** na pasku narzędzi Szybki dostęp. Zamknij projektanta baz danych, zamykając kartę.
+
+## <a name="adding-some-example-data"></a>Dodawanie przykładowych danych
+
+W dalszej części tej serii samouczków utworzysz stronę umożliwiającą wprowadzanie nowych filmów w formularzu. Na razie można jednak dodać przykładowe dane, które można następnie wyświetlić na stronie.
+
+W obszarze roboczym **baza danych** w programie WebMatrix Zwróć uwagę, że istnieje drzewo pokazujące utworzony wcześniej plik *. sdf* . Otwórz węzeł dla nowego pliku *. sdf* , a następnie otwórz węzeł **tabele** .
+
+![Obszar roboczy bazy danych WebMatrix z otwartym drzewem w tabeli filmów](displaying-data/_static/image10.png)
+
+Kliknij prawym przyciskiem myszy węzeł **filmy** , a następnie wybierz polecenie **dane**. WebMatrix otwiera siatkę, w której można wprowadzać dane dla tabeli *filmów* :
+
+![Siatka wejścia bazy danych w programie WebMatrix (pusta)](displaying-data/_static/image11.png)
+
+Kliknij kolumnę **tytuł** i wprowadź wartość "Kiedy Harry MET Sally". Przejdź do kolumny **gatunek** (możesz użyć klawisza Tab) i wprowadź ciąg "Romantic komedia". Przejdź do kolumny **Year** i wprowadź wartość "1989":
+
+![Siatka wejścia bazy danych w programie WebMatrix z jednym rekordem](displaying-data/_static/image12.png)
+
+Naciśnij klawisz ENTER, a Program WebMatrix zapisuje nowy film. Zwróć uwagę, że kolumna **ID** została wypełniona.
+
+![Siatka wejścia bazy danych w programie WebMatrix z jednym rekordem i automatycznie generowanym IDENTYFIKATORem](displaying-data/_static/image13.png)
+
+Wprowadź inny film (na przykład "znikł z wiatrem", "dramat", "1939"). Kolumna Identyfikator jest wypełniana ponownie:
+
+![Siatka wejścia bazy danych w programie WebMatrix z dwoma rekordami i automatycznie generowanymi identyfikatorami](displaying-data/_static/image14.png)
+
+Wprowadź trzeci film (na przykład "Ghostbusters", "komedia"). W ramach eksperymentu pozostaw pustą kolumnę **Year** , a następnie naciśnij klawisz ENTER. Ponieważ wyznaczono opcję **Zezwalaj na wartości null** , w bazie danych zostanie wyświetlony komunikat o błędzie:
+
+![Wyświetlany jest błąd "nieprawidłowe dane", jeśli wymagana wartość kolumny pozostaje pusta](displaying-data/_static/image15.png)
+
+Kliknij przycisk **OK** , aby wrócić i naprawić wpis (rok dla "Ghostbusters" to 1984), a następnie naciśnij klawisz ENTER.
+
+Wypełnij kilka filmów do momentu, gdy nie masz 8 lub tak. (Wprowadzenie 8 ułatwia pracę z stronicowaniem później. Ale jeśli jest to zbyt wiele, wprowadź tylko kilka. Rzeczywiste dane nie są istotne.
+
+![Siatka wejścia bazy danych w programie WebMatrix z dowolnego rekordu](displaying-data/_static/image16.png)
+
+Jeśli wprowadzono wszystkie filmy bez błędów, wartości identyfikatorów są sekwencyjne. Jeśli podjęto próbę zapisania niekompletnego rekordu filmu, numery IDENTYFIKACYJNe mogą nie być sekwencyjne. Jeśli tak, to jest dobry. Liczby nie mają własnych znaczenia i jedyną istotną kwestią jest to, że są one unikatowe w tabeli *filmów* .
+
+Zamknij kartę, która zawiera projektanta baz danych.
+
+Teraz można włączyć wyświetlanie tych danych na stronie sieci Web.
+
+## <a name="displaying-data-in-a-page-by-using-the-webgrid-helper"></a>Wyświetlanie danych na stronie przy użyciu pomocnika WebGrid
+
+Aby wyświetlić dane na stronie, użyj pomocnika `WebGrid`. Ten pomocnik tworzy ekran w siatce lub tabeli (wiersze i kolumny). Jak widać, będziesz mieć możliwość dostosowania siatki z formatowaniem i innymi funkcjami.
+
+Aby uruchomić siatkę, należy napisać kilka wierszy kodu. Te kilka wierszy będzie działać jako rodzaj wzorca dla niemal wszystkich danych, które można wykonać w tym samouczku.
+
+> [!NOTE]
+> Istnieje wiele opcji wyświetlania danych na stronie; pomocnik `WebGrid` jest tylko jeden. Wybieramy go dla tego samouczka, ponieważ jest to najprostszy sposób na wyświetlanie danych i ponieważ jest on rozsądnie elastyczny. W następnym zestawie samouczków zobaczysz, jak używać bardziej "ręcznego" sposobu pracy z danymi na stronie, co zapewnia większą kontrolę nad sposobem wyświetlania danych.
+
+W lewym okienku w programie WebMatrix kliknij obszar roboczy **pliki** .
+
+Utworzona nowa baza danych znajduje się w folderze *danych\_aplikacji* . Jeśli folder nie istnieje, WebMatrix utworzył go dla nowej bazy danych. (Folder mógł istnieć, jeśli wcześniej zainstalowano pomocników).
+
+W widoku drzewa wybierz katalog główny witryny sieci Web. Musisz wybrać katalog główny witryny sieci Web; w przeciwnym razie nowy plik może zostać dodany do folderu danych\_aplikacji.
+
+Na wstążce kliknij pozycję **Nowy**. W polu **Wybierz typ pliku** wybierz pozycję **cshtml**.
+
+W polu **Nazwa** wpisz nową stronę "filmy. cshtml":
+
+![Okno dialogowe "Wybieranie typu pliku" pokazujące stronę "filmy"](displaying-data/_static/image17.png)
+
+Kliknij przycisk **OK**. W programie WebMatrix zostanie otwarty nowy plik z niektórymi elementami szkieletu. Najpierw napiszesz kod, aby pobrać dane z bazy danych. Następnie dodasz znaczniki do strony, aby faktycznie wyświetlały dane.
+
+### <a name="writing-the-data-query-code"></a>Pisanie kodu zapytania o dane
+
+W górnej części strony między znakami `@{` i `}` wprowadź następujący kod. (Upewnij się, że wprowadzasz ten kod między otwierającym i zamykającym nawiasem klamrowym).
 
 [!code-csharp[Main](displaying-data/samples/sample1.cs)]
 
-Pierwszy wiersz spowoduje otwarcie bazy danych, który został utworzony wcześniej, który jest zawsze pierwszym krokiem przed wykonaniem coś z bazą danych. Poinformuj `Database.Open` nazwę metody bazy danych, aby otworzyć. Należy zauważyć, że nie uwzględniają *.sdf* w nazwie. `Open` Metoda zakłada, że szuka *.sdf* pliku (oznacza to, że *WebPagesMovies.sdf*) oraz że *.sdf* plik znajduje się w *aplikacji\_ Dane* folderu. (Wcześniej mogliśmy zauważyć że *aplikacji\_danych* folder jest zarezerwowany; ten scenariusz jest jednym z miejsc, w którym ASP.NET sprawia, że założeń o tej nazwie.)
+Pierwszy wiersz otwiera utworzoną wcześniej bazę danych, która jest zawsze pierwszym krokiem przed wykonaniem operacji w bazie danych. Poznasz nazwę metody `Database.Open` bazy danych do otwarcia. Zwróć uwagę, że w nazwie nie jest uwzględniony *. sdf.* Metoda `Open` zakłada, że szuka pliku *. sdf* (czyli *WebPagesMovies. sdf*) i że plik *. sdf* znajduje się w folderze *\_danych aplikacji* . (Wcześniej zauważono, że folder *danych\_aplikacji* jest zarezerwowany. ten scenariusz jest jednym z miejsc, w których ASP.NET tworzy założeń o tej nazwie.)
 
-Gdy baza danych jest otwarta, odwołanie do niej są umieszczane w zmiennej o nazwie `db`. (Które mogą być nazwane niczego.) `db` Zmienna jest jak użytkownik będzie pozostać interakcji z bazą danych.
+Gdy baza danych zostanie otwarta, odwołanie do niej jest umieszczane w zmiennej o nazwie `db`. (Może to być nazwane wszystko). Zmienna `db` to sposób, w jaki będziesz kończyć pracę z bazą danych.
 
-Drugi wiersz faktycznie pobiera dane bazy danych przy użyciu `Query` metody. Zwróć uwagę, jak działa ten kod: `db` zmienna odwołuje się do otwartej bazy danych, a następnie wywołuje `Query` metody, używając `db` zmiennej (`db.Query`).
+Drugi wiersz w rzeczywistości pobiera dane bazy danych za pomocą metody `Query`. Zwróć uwagę, jak działa ten kod: zmienna `db` ma odwołanie do otwartej bazy danych i wywołujemy metodę `Query` przy użyciu zmiennej `db` (`db.Query`).
 
-Samo zapytanie jest SQL `Select` instrukcji. (Aby trochę informacji uzupełniających na temat programu SQL, zobacz objaśnienia w dalszej części). W instrukcji `Movies` Określa tabelę, aby wykonać zapytanie. `*` Znak Określa, że zapytanie powinno zwrócić wszystkie kolumny z tabeli. (Można podać również listę kolumn pojedynczo, oddzielonych przecinkami.)
+Sama kwerenda jest instrukcją SQL `Select`. (Aby uzyskać informacje na temat programu SQL Server w niewielkim stopniu, zobacz wyjaśnienie później). W instrukcji `Movies` identyfikuje tabelę do zapytania. Znak `*` określa, że zapytanie powinno zwrócić wszystkie kolumny z tabeli. (Można również wystawić pojedyncze kolumny, oddzielone przecinkami).
 
-Wyniki zapytania, ewentualnie są zwracane i udostępniona w `selectedData` zmiennej. Ponownie zmiennej może być nazwane niczego.
+Wyniki zapytania, jeśli istnieją, są zwracane i udostępniane w zmiennej `selectedData`. Ponownie zmienna może mieć nazwę wszystko.
 
-Na koniec trzeci wiersz informuje ASP.NET, czy chcesz użyć instancji `WebGrid` pomocnika. Możesz utworzyć (*wystąpienia*) obiekt pomocnika za pomocą `new` — słowo kluczowe i przekaż go wyników zapytania za pomocą `selectedData` zmiennej. Nowy `WebGrid` obiektu wraz z wynikami zapytania bazy danych są udostępniane w `grid` zmiennej. Należy wynik za chwilę, aby faktycznie wyświetlić dane na stronie.
+Na koniec trzeci wiersz informuje ASP.NET o konieczności użycia wystąpienia pomocnika `WebGrid`. Można utworzyć (utworzyć*wystąpienie*) obiekt pomocnika za pomocą słowa kluczowego `new` i przekazać go do wyników zapytania za pomocą zmiennej `selectedData`. Nowy obiekt `WebGrid`, wraz z wynikami zapytania bazy danych, jest udostępniany w zmiennej `grid`. Konieczne będzie chwilowe wyświetlenie danych na stronie.
 
-Na tym etapie bazy danych został otwarty, trafiła do Ciebie dane chcesz i przygotowaniu `WebGrid` pomocnika z tymi danymi. Następnie jest utworzenie znaczników na stronie.
+Na tym etapie baza danych została otwarta i masz wybrane dane i przygotowano pomocnika `WebGrid` z tymi danymi. Następnie należy utworzyć adiustację na stronie.
 
 > [!TIP] 
 > 
-> **Język Structured Query Language (SQL)**
+> **Structured Query Language (SQL)**
 > 
-> SQL jest językiem, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia umożliwiające pobieranie danych i zaktualizować go i umożliwiające tworzenie, modyfikowanie i zarządzanie danymi w tabelach bazy danych. SQL różni się od języka programowania (takich jak C#). Przy użyciu języka SQL Poinformuj bazy danych należy, i jest zadanie bazy danych, aby dowiedzieć się, jak można pobrać dane lub wykonać zadanie. Poniżej przedstawiono przykłady niektórych poleceń SQL oraz ich działania:
+> SQL to język, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia, które umożliwiają pobieranie danych i aktualizowanie ich oraz pozwalające tworzyć, modyfikować i zarządzać danymi w tabelach bazy danych. Język SQL różni się od języka programowania (na C#przykład). Dzięki programowi SQL możesz poinformowanie bazy danych o tym, co chcesz zrobić, i jest to zadanie bazy danych, aby ustalić, jak pobrać dane lub wykonać zadanie. Oto przykłady niektórych poleceń SQL i ich działania:
 > 
 > `Select * From Movies`
 > 
 > `SELECT ID, Name, Price FROM Product WHERE Price > 10.00 ORDER BY Name`
 > 
-> Pierwszy `Select` instrukcji pobiera wszystkie kolumny (określony przez `*`) z *filmy* tabeli.
+> Pierwsza instrukcja `Select` pobiera wszystkie kolumny (określone przez `*`) z tabeli *filmów* .
 > 
-> Drugi `Select` instrukcji pobiera kolumny Identyfikatora, nazwy i ceny z rekordów *produktu* tabeli, w której wartość kolumny Cena jest więcej niż 10. Polecenie zwraca wyniki w kolejności alfabetycznej na podstawie wartości w kolumnie Nazwa. Jeśli żadne rekordy nie odpowiadają kryteria ceny, polecenie zwraca pusty zestaw.
+> Druga instrukcja `Select` Pobiera kolumny ID, Name i Price z rekordów w tabeli *Product* , których wartość kolumny cena jest większa niż 10. Polecenie zwraca wyniki w kolejności alfabetycznej na podstawie wartości kolumny Name. Jeśli żadne rekordy nie pasują do kryteriów cen, polecenie zwraca pusty zestaw.
 > 
 > `INSERT INTO Product (Name, Description, Price) VALUES ('Croissant', 'A flaky delight', 1.99)`
 > 
-> To polecenie Wstawia nowy rekord do *produktu* tabeli, ustawienie nazwy kolumny "Croissant" Opis kolumny do "A niestabilne wzbudzanie" oraz ceny 1,99.
+> To polecenie wstawia nowy rekord do tabeli *Product* , ustawiając dla kolumny Name wartość "croissant", kolumnę Description na wartość "płatne" i cenę do 1,99.
 > 
-> Należy zauważyć, że określając one wartości nieliczbowe wartość jest ujęta w znaki pojedynczego cudzysłowu (nie znaki cudzysłowu, tak jak w języku C#). Użyjesz tych znaków cudzysłowu wokół wartości tekstowe lub daty, ale nie w całym liczb.
+> Należy zauważyć, że podczas określania wartości innej niż numeryczna wartość jest ujęta w znaki pojedynczego cudzysłowu (nie podwójne cudzysłowy, jak w C#przypadku). Te znaki cudzysłowu są używane wokół wartości tekstowych lub dat, ale nie liczby.
 > 
 > `DELETE FROM Product WHERE ExpirationDate < '01/01/2008'`
 > 
-> To polecenie usuwa rekordy w *produktu* tabeli, którego kolumna Data wygaśnięcia jest wcześniejsza niż 1 stycznia 2008. (Polecenia założono, że *produktu* tabela ma kolumnę, oczywiście.) W tym miejscu podano daty w formacie MM/DD/RRRR, ale powinny być wprowadzane w formacie, który jest używany dla ustawień regionalnych.
+> To polecenie usuwa rekordy z tabeli *Product* , której kolumna daty wygaśnięcia jest wcześniejsza niż 1 stycznia 2008. (Polecenie zakłada, że tabela *produktów* ma taką kolumnę, oczywiście). Data jest wprowadzana w formacie MM/DD/RRRR, ale należy ją wprowadzić w formacie używanym dla ustawień regionalnych.
 > 
-> `Insert` i `Delete` polecenia nie zwracają zestaw wyników. Zamiast tego zwracają liczbę, która informuje, jak wiele rekordów wpłynęła na polecenie.
+> Polecenia `Insert` i `Delete` nie zwracają zestawów wyników. Zamiast tego zwraca liczbę, która informuje o liczbie rekordów, na które miało wpływ polecenie.
 > 
-> W przypadku niektórych z tych operacji (takich jak wstawianie i usuwanie rekordów) proces, który żąda operacji musi mieć odpowiednie uprawnienia w bazie danych. To dlatego produkcyjnych baz danych, często musisz podać nazwę użytkownika i hasło, po nawiązaniu połączenia z bazą danych.
+> W przypadku niektórych z tych operacji (takich jak wstawianie i usuwanie rekordów) proces żądający operacji musi mieć odpowiednie uprawnienia w bazie danych. Dlatego w przypadku produkcyjnych baz danych często konieczne jest podanie nazwy użytkownika i hasła podczas łączenia się z bazą danych.
 > 
-> Istnieją dziesiątek poleceń SQL, ale wszystkie one wykonać wzorca, takich jak polecenia widocznej w tym miejscu. Można użyć poleceń SQL do tworzenia tabel bazy danych, liczby rekordów w tabeli, Oblicz ceny i wykonuje wiele więcej operacji.
+> Istnieją dziesiątki poleceń SQL, ale wszystkie są zgodne ze wzorcem, takim jak polecenia widoczne w tym miejscu. Za pomocą poleceń SQL można tworzyć tabele baz danych, liczyć liczbę rekordów w tabeli, obliczać ceny i wykonywać wiele innych operacji.
 
-### <a name="adding-markup-to-display-the-data"></a>Dodawanie znaczników do wyświetlania danych
+### <a name="adding-markup-to-display-the-data"></a>Dodawanie znaczników w celu wyświetlenia danych
 
-Wewnątrz `<head>` elementu, zawartość zestawu `<title>` elementu "Filmy":
+Wewnątrz elementu `<head>` Ustaw zawartość elementu `<title>` na "filmy":
 
 [!code-html[Main](displaying-data/samples/sample2.html?highlight=3)]
 
-Wewnątrz `<body>` elementu strony, Dodaj następujący kod:
+Wewnątrz elementu `<body>` strony Dodaj następujące elementy:
 
 [!code-html[Main](displaying-data/samples/sample3.html)]
 
-To wszystko. `grid` Zmienna jest wartość utworzona podczas tworzenia `WebGrid` obiektu w kodzie wcześniej.
+Gotowe. Zmienna `grid` jest wartością utworzoną podczas tworzenia obiektu `WebGrid` w kodzie wcześniejszym.
 
-W widoku drzewa w programie WebMatrix, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Uruchom w przeglądarce**. Zostanie wyświetlony podobny do tej strony:
+W widoku drzewa WebMatrix kliknij prawym przyciskiem myszy stronę i wybierz polecenie **Uruchom w przeglądarce**. Zobaczysz coś podobnej do tej strony:
 
-![Domyślne dane wyjściowe pomocnika WebGrid z tabeli filmy](displaying-data/_static/image18.png)
+![Domyślne dane wyjściowe pomocnika WebGrid z tabeli filmów](displaying-data/_static/image18.png)
 
-Kliknij link do nagłówka kolumny, aby sortować według tej kolumny. Możliwość sortować, klikając nagłówek jest funkcją, która jest wbudowana w **WebGrid** pomocnika.
+Kliknij link nagłówka kolumny, aby posortować według tej kolumny. Można sortować według kliknięcia nagłówka jest funkcją wbudowaną pomocnika **WebGrid** .
 
-`GetHtml` Metody, jak sugeruje nazwa, generuje kod znaczników, który wyświetla dane. Domyślnie `GetHtml` metoda generuje HTML `<table>` elementu. (Jeśli chcesz, możesz sprawdzić renderowania, analizując źródło strony w przeglądarce.)
+Metoda `GetHtml`, która sugeruje jego nazwę, generuje znacznik, który wyświetla dane. Domyślnie metoda `GetHtml` generuje element HTML `<table>`. (Jeśli chcesz, możesz sprawdzić renderowanie, przeglądając Źródło strony w przeglądarce).
 
 ## <a name="modifying-the-look-of-the-grid"></a>Modyfikowanie wyglądu siatki
 
-Za pomocą `WebGrid` pomocnika, takie jak właśnie zrobił jest łatwe, ale wynikowy ekranu to zwykły. `WebGrid` Pomocnika udostępnia szeroką gamę opcji umożliwiające możesz kontrolować sposób wyświetlania danych. Istnieją zbyt dużo, aby zapoznać się w tym samouczku, ale w tej sekcji zostanie dają pogląd, niektórych z tych opcji. Kilka dodatkowych opcji zostały omówione w kolejnych samouczkach w tej serii.
+Korzystanie z pomocnika `WebGrid`, podobnie jak wiesz, jest proste, ale wyświetlane wyniki są zwykłe. Pomocnik `WebGrid` ma wszystkie opcje, które umożliwiają kontrolowanie sposobu wyświetlania danych. W tym samouczku jest zbyt wiele, aby eksplorować ten samouczek, ale ta sekcja zawiera pomysł dotyczący niektórych z tych opcji. Kilka dodatkowych opcji zostanie uwzględnionych w kolejnych samouczkach w tej serii.
 
-### <a name="specifying-individual-columns-to-display"></a>Określenie poszczególnych kolumn do wyświetlenia
+### <a name="specifying-individual-columns-to-display"></a>Określanie pojedynczych kolumn do wyświetlenia
 
-Aby rozpocząć, można określić, czy chcesz wyświetlić tylko określone kolumny. Domyślnie, zgodnie z wyświetlonymi wcześniej na siatce są wyświetlane wszystkie cztery kolumny z *filmy* tabeli.
+Aby rozpocząć, można określić, że mają być wyświetlane tylko niektóre kolumny. Domyślnie, jak widać, Siatka pokazuje wszystkie cztery kolumny z tabeli *filmów* .
 
-W *Movies.cshtml* pliku, Zastąp `@grid.GetHtml()` kod znaczników, który właśnie został dodany następującym kodem:
+W pliku *Films. cshtml* Zastąp znacznik `@grid.GetHtml()`, który właśnie został dodany:
 
 [!code-css[Main](displaying-data/samples/sample4.css)]
 
-Sprawdzić pomocnika, które kolumny mają być wyświetlane, obejmują `columns` parametr `GetHtml` metody i przekazać w zbiorze kolumn. W tej kolekcji należy określić każdej kolumny do uwzględnienia. Należy określić pojedynczej kolumny do wyświetlenia, umieszczając `grid.Column` obiektu, a następnie przekazać nazwę kolumny danych, które chcesz. (Te kolumny muszą być zawarte w wynikach kwerendy SQL — `WebGrid` pomocnika nie może wyświetlić kolumn, które nie zostały zwrócone przez zapytanie.)
+Aby poinformować pomocnika, które kolumny mają być wyświetlane, należy podać parametr `columns` dla metody `GetHtml` i przekazać kolekcję kolumn. W kolekcji należy określić każdą kolumnę do uwzględnienia. Należy określić pojedynczą kolumnę, która ma być wyświetlana przez uwzględnienie obiektu `grid.Column` i przekazać nazwę wybranej kolumny danych. (Te kolumny muszą być zawarte w wynikach zapytania SQL — pomocnik `WebGrid` nie może wyświetlić kolumn, które nie zostały zwrócone przez zapytanie.)
 
-Uruchom *Movies.cshtml* strony w przeglądarce, ponownie i tym razem pojawi się ekran podobny do następującego (należy zauważyć, że żadna kolumna ID jest wyświetlany):
+Uruchom ponownie stronę *filmy. cshtml* w przeglądarce, a tym razem wyświetli ekran podobny do następującego (Zauważ, że nie jest wyświetlana żadna kolumna identyfikatora):
 
-![Wyświetlanie WebGrid przedstawiający tylko zaznaczonych kolumn](displaying-data/_static/image19.png)
+![Wyświetlanie siatki w sieci WebGrid pokazujące tylko wybrane kolumny](displaying-data/_static/image19.png)
 
-### <a name="changing-the-look-of-the-grid"></a>Zmienianie wyglądu siatki
+### <a name="changing-the-look-of-the-grid"></a>Zmiana wyglądu siatki
 
-Istnieje kilka więcej opcji wyświetlania kolumn, niektóre z nich zostaną przedstawione w kolejnych samouczkach w tym zestawie. Obecnie w tej sekcji przedstawiono sposoby stylizować siatki jako całości.
+Istnieje całkiem kilka dodatkowych opcji wyświetlania kolumn, a niektóre z nich zostaną omówione w kolejnych samouczkach w tym zestawie. W tej sekcji opisano sposób, w jaki można stylować siatkę jako całość.
 
-Wewnątrz `<head>` części strony, bezpośrednio przed zamykającym `</head>` tag, Dodaj następujący kod `<style>` elementu:
+Wewnątrz sekcji `<head>` strony tuż przed tagiem zamykającym `</head>` Dodaj następujący element `<style>`:
 
 [!code-css[Main](displaying-data/samples/sample5.css)]
 
-Ten kod znaczników CSS definiuje klasy o nazwie `grid`, `head`i tak dalej. Możesz również umieścić te definicje styl w osobnym *.css* pliku i łączem do strony. (W rzeczywistości, należy to zrobić później w tym zestawie samouczków.) Jednak aby umożliwić ich łatwe w tym samouczku, są one w tej samej stronie, który wyświetla dane.
+Ten znacznik CSS definiuje klasy o nazwie `grid`, `head`i tak dalej. Można również umieścić te definicje stylów w osobnym pliku *CSS* i połączyć go ze stroną. (W rzeczywistości wykonasz tę czynność w dalszej części tego samouczka). Jednak aby ułatwić Ci ten samouczek, znajdują się one na tej samej stronie, na której są wyświetlane dane.
 
-Teraz możesz dostawać `WebGrid` pomocnika do użycia w ramach tych zajęć stylu. Pomocnik ma wiele właściwości (na przykład `tableStyle`) tylko w tym celu — przypisać nazwy klasy stylów CSS do nich i że nazwa klasy jest renderowana jako część znaczników, który jest renderowany przez pomocnika.
+Teraz możesz uzyskać pomocnika `WebGrid`, aby używać tych klas stylów. Pomocnik ma wiele właściwości (na przykład `tableStyle`) tylko w tym celu — przypisujesz do nich nazwę klasy stylu CSS, a nazwa klasy jest renderowana jako część znaczników, które są renderowane przez pomocnika.
 
-Zmiana `grid.GetHtml` znaczników, tak że wygląda podobnie do tego kodu:
+Zmień znacznik `grid.GetHtml` tak, aby wyglądał teraz tak, jak w tym kodzie:
 
 [!code-css[Main](displaying-data/samples/sample6.css)]
 
-Co nowego w tym miejscu jest, że dodano `tableStyle`, `headerStyle`, i `alternatingRowStyle` parametry `GetHtml` metody. Te parametry zostały ustawione do nazw stylów CSS, które dodałeś przed chwilą.
+Nowością jest dodanie `tableStyle`, `headerStyle`i `alternatingRowStyle` parametrów do metody `GetHtml`. Te parametry zostały ustawione na nazwy stylów CSS, które zostały dodane do momentu temu.
 
-Uruchom stronę i tym razem zostanie wyświetlony siatki, która wygląda znacznie mniej zwykły niż przed:
+Uruchom stronę, a w tym momencie zobaczysz siatkę, która wygląda mniej więcej tak, jak wcześniej:
 
-![Wyświetlanie WebGrid, która obejmuje parametry równa nazwy klas CSS](displaying-data/_static/image20.png)
+![Wyświetlacz WebGrid zawierający parametry ustawione na nazwy klas CSS](displaying-data/_static/image20.png)
 
-Aby zobaczyć, co `GetHtml` generowane metody, można sprawdzić źródło strony w przeglądarce. Firma Microsoft nie będzie przejdź do szczegółów w tym miejscu, ale istotną kwestią jest to, że, określając parametry, takie jak `tableStyle`, spowodowane siatki, które mają być Generowanie tagi HTML, jak pokazano poniżej:
+Aby zobaczyć, jak Wygenerowano metodę `GetHtml`, możesz przyjrzeć się źródłu strony w przeglądarce. Nie będziemy tutaj podawać szczegółów, ale ważnym punktem jest to, że przez określenie parametrów takich jak `tableStyle`, Siatka generuje Tagi HTML w następujący sposób:
 
 `<table class="grid">`
 
-`<table>` Miał znacznik `class` atrybut dodawanych do niego, który odwołuje się do jednej reguły CSS, które wcześniej dodałeś. Ten kod przedstawia podstawowy wzorzec &mdash; różne parametry dla `GetHtml` metody pozwalają możesz odwołanie CSS klasy, aby z nich metoda generuje następnie wraz z kodu znaczników. Co zrobisz z klas CSS zależy od użytkownika.
+Tag `<table>` ma dodany atrybut `class`, który odwołuje się do jednej z wcześniej dodanych reguł CSS. Ten kod przedstawia podstawowy wzorzec &mdash; różne parametry metody `GetHtml` umożliwiają odwoływanie się do klas CSS, które następnie generują metody wraz ze znacznikiem. Co robisz z klasami CSS.
 
 ## <a name="adding-paging"></a>Dodawanie stronicowania
 
-Jako ostatnie zadanie w ramach tego samouczka dodasz stronicowania do siatki. W tej chwili, to żaden problem do wyświetlenia wszystkich filmów na raz. Ale jeśli dodano setki filmów wyświetlania strony będzie długo.
+Jako ostatnie zadanie dla tego samouczka dodasz stronicowanie do siatki. Teraz nie ma problemu, aby wyświetlić wszystkie filmy jednocześnie. Ale jeśli dodano setki filmów, wyświetlenie strony będzie długie.
 
-W kodzie strony Zmień wiersz, który tworzy `WebGrid` obiektu z następującym kodem:
+W kodzie strony Zmień wiersz, który tworzy obiekt `WebGrid`, na następujący kod:
 
 [!code-csharp[Main](displaying-data/samples/sample7.cs)]
 
-Jedyną różnicą między przed jest, że dodano `rowsPerPage` parametr, który jest ustawiony na 3.
+Jedyną różnicą od przed jest dodanie parametru `rowsPerPage`, który jest ustawiony na 3.
 
-Uruchom stronę. Siatka wyświetla 3 wiersze w czasie oraz łączy nawigacji, które umożliwiają przeglądanie filmów w bazie danych:
+Uruchom stronę. Siatka wyświetla 3 wiersze jednocześnie oraz linki nawigacyjne, które umożliwiają przechodzenie do stron w bazie danych:
 
-![Wyświetlanie WebGrid za pomocą stronicowania](displaying-data/_static/image21.png)
+![Wyświetlanie siatki WebGrid z stronicowaniem](displaying-data/_static/image21.png)
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-W następnym samouczku dowiesz się, jak pobrać dane wejściowe użytkownika w postaci za pomocą kodu Razor i C#. Dodasz pole wyszukiwania do strony filmy, aby mógł znaleźć filmów według tytułu lub gatunku.
+W następnym samouczku dowiesz się, jak używać składni Razor i C# Code do uzyskiwania danych wejściowych użytkownika w formularzu. Dodasz pole wyszukiwania do strony filmy, aby można było znaleźć filmy według tytułu lub gatunku.
 
-## <a name="complete-listing-for-movies-page"></a>Kompletna lista strony filmy
+## <a name="complete-listing-for-movies-page"></a>Pełna lista dla filmów
 
 [!code-cshtml[Main](displaying-data/samples/sample8.cshtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 
 > [!div class="step-by-step"]
 > [Poprzednie](intro-to-web-pages-programming.md)

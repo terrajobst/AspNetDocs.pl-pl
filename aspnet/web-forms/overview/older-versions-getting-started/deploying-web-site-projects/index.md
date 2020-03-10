@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/index
-title: Wdrażanie projektów witryn internetowych w programie Visual Studio 2008 i starszych | Dokumentacja firmy Microsoft
+title: Wdrażanie projektów witryn sieci Web w programie Visual Studio 2008 i starszych | Microsoft Docs
 author: rick-anderson
-description: Aplikacje sieci web platformy ASP.NET zwykle nie mają utworzony i testowane w lokalne Środowisko deweloperskie i muszą zostać wdrożone do o środowisku produkcyjnym...
+description: Aplikacje sieci Web ASP.NET są zwykle zaprojektowane, tworzone i testowane w lokalnym środowisku programistycznym i muszą zostać wdrożone w środowisku produkcyjnym o...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 6f72bde8-f2f1-4e4a-94e5-494c3c153c14
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects
 msc.type: chapter
 ms.openlocfilehash: 43c2397ef4ccc5eacb2ff4c5d04f62b9c8c481b7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134423"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78524060"
 ---
 # <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Wdrażanie projektów witryn internetowych w programie Visual Studio 2008 lub starszym
 
-> Aplikacji sieci web ASP.NET są zazwyczaj zaprojektowane, tworzone i testowane w lokalnym środowisku programowania i konieczności można wdrożyć w środowisku produkcyjnym, gdy wszystko będzie gotowe do wydania. W tej serii samouczków opisano proces wdrażania.
+> Aplikacje sieci Web ASP.NET są zwykle zaprojektowane, tworzone i testowane w lokalnym środowisku programistycznym i muszą zostać wdrożone w środowisku produkcyjnym, gdy będzie gotowe do wydania. Ta seria samouczków zawiera szczegółowe informacje o procesie wdrażania.
 
 - [Opcje hostingu platformy ASP.NET (C#)](asp-net-hosting-options-cs.md)
 - [Określanie, które pliki muszą zostać wdrożone (C#)](determining-what-files-need-to-be-deployed-cs.md)

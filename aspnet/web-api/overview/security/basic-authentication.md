@@ -1,83 +1,83 @@
 ---
 uid: web-api/overview/security/basic-authentication
-title: Uwierzytelnianie podstawowe w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Uwierzytelnianie podstawowe w interfejsie API sieci Web ASP.NET | Microsoft Docs
 author: MikeWasson
-description: W tym artykule opisano, w interfejsie API sieci Web platformy ASP.NET przy użyciu uwierzytelniania podstawowego.
+description: Opisuje używanie uwierzytelniania podstawowego w interfejsie Web API ASP.NET.
 ms.author: riande
 ms.date: 10/02/2014
 ms.assetid: 41423767-0021-47c3-9e53-0021b457c39f
 msc.legacyurl: /web-api/overview/security/basic-authentication
 msc.type: authoredcontent
 ms.openlocfilehash: 1470bd4b5abd5199b9a5105973b053812d643351
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59412557"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555728"
 ---
-# <a name="basic-authentication-in-aspnet-web-api"></a>Uwierzytelnianie podstawowe we wzorcu ASP.NET Web API
+# <a name="basic-authentication-in-aspnet-web-api"></a>Uwierzytelnianie podstawowe w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-Uwierzytelnianie podstawowe jest zdefiniowany w [RFC 2617, uwierzytelnianie HTTP: Podstawowe i szyfrowane uwierzytelniania dostępu do](http://www.ietf.org/rfc/rfc2617.txt).
+Uwierzytelnianie podstawowe jest zdefiniowane w [dokumencie RFC 2617, uwierzytelnianie http: uwierzytelnianie Basic i szyfrowanie dostępu szyfrowanego](http://www.ietf.org/rfc/rfc2617.txt).
 
 Wady
 
 - Poświadczenia użytkownika są wysyłane w żądaniu.
-- Poświadczenia są wysyłane jako zwykły tekst.
-- Poświadczenia są wysyłane z każdym żądaniem.
-- Sposób logowania, z wyjątkiem poprzez zakończenie sesji przeglądarki.
-- Narażone na fałszerstwo żądania międzywitrynowego (CSRF); wymaga anti-CSRF miar bez ograniczeń.
+- Poświadczenia są wysyłane w postaci zwykłego tekstu.
+- Poświadczenia są wysyłane przy użyciu każdego żądania.
+- Nie ma możliwości wylogowania, z wyjątkiem zakończenia sesji przeglądarki.
+- Podatne na fałszerstwo żądania między lokacjami (CSRF); wymaga środków antyCSRFowych.
 
 Zalety
 
-- Standardy internetowe.
-- Obsługiwane przez wszystkie popularne przeglądarki.
-- Protokół stosunkowo proste.
+- Internet Standard.
+- Obsługiwane przez wszystkie główne przeglądarki.
+- Stosunkowo prosty protokół.
 
 Uwierzytelnianie podstawowe działa w następujący sposób:
 
-1. Jeśli żądanie wymaga uwierzytelnienia, serwer zwraca wartość 401 (bez autoryzacji). Odpowiedź zawiera nagłówka WWW-Authenticate, wskazujący, że serwer obsługuje uwierzytelnianie podstawowe.
-2. Klient wysyła kolejne żądanie przy użyciu poświadczeń klienta w nagłówku autoryzacji. Poświadczenia są sformatowane jako ciąg "Nazwa: hasło", algorytmem Base64. Poświadczenia nie są szyfrowane.
+1. Jeśli żądanie wymaga uwierzytelnienia, serwer zwraca 401 (bez autoryzacji). Odpowiedź zawiera nagłówek WWW-Authenticate wskazujący, że serwer obsługuje uwierzytelnianie podstawowe.
+2. Klient wysyła kolejne żądanie z poświadczeniami klienta w nagłówku autoryzacji. Poświadczenia są formatowane jako ciąg "Name: Password", kodowane algorytmem Base64. Poświadczenia nie są szyfrowane.
 
-Uwierzytelnianie podstawowe jest wykonywane w kontekście parametru "realm." Serwer zawiera nazwę obszaru nagłówka WWW-Authenticate. Poświadczenia użytkownika są prawidłowe w ramach tego obszaru. Dokładny zakres obszaru jest definiowany przez serwer. Na przykład można zdefiniować kilka obszarów w kolejności do partycji zasobów.
+Uwierzytelnianie podstawowe jest wykonywane w kontekście "obszar". Serwer zawiera nazwę obszaru w nagłówku WWW-Authenticate. Poświadczenia użytkownika są prawidłowe w tym obszarze. Dokładny zakres obszaru jest definiowany przez serwer. Na przykład można zdefiniować kilka obszarów, aby podzielić zasoby na partycje.
 
 ![](basic-authentication/_static/image1.png)
 
-Ponieważ poświadczenia są wysyłane niezaszyfrowane, uwierzytelnianie podstawowe jest tylko bezpieczne za pośrednictwem protokołu HTTPS. Zobacz [Praca z protokołem SSL w składniku Web API](working-with-ssl-in-web-api.md).
+Ponieważ poświadczenia są wysyłane jako nieszyfrowane, uwierzytelnianie podstawowe jest zabezpieczane tylko za pośrednictwem protokołu HTTPS. Zobacz [Praca z protokołem SSL w internetowym interfejsie API](working-with-ssl-in-web-api.md).
 
-Uwierzytelnianie podstawowe jest również narażone na ataki CSRF. Po użytkownik wprowadza poświadczenia, przeglądarka automatycznie wysyła je dla kolejnych żądań do tej samej domeny, na czas trwania sesji. W tym wysyłanie żądań AJAX. Zobacz [zapobieganie atakom na fałszerstwo żądania Międzywitrynowego (CSRF)](preventing-cross-site-request-forgery-csrf-attacks.md).
+Uwierzytelnianie podstawowe jest również podatne na ataki CSRF. Po wprowadzeniu poświadczeń przez użytkownika przeglądarka automatycznie wysyła je na kolejne żądania do tej samej domeny, na czas trwania sesji. Obejmuje to żądania AJAX. Zapoznaj się z artykułem [zapobieganie atakom CSRFym między witrynami](preventing-cross-site-request-forgery-csrf-attacks.md).
 
-## <a name="basic-authentication-with-iis"></a>Uwierzytelnianie podstawowe w usługach IIS
+## <a name="basic-authentication-with-iis"></a>Uwierzytelnianie podstawowe przy użyciu usług IIS
 
-Usługi IIS obsługuje uwierzytelnianie podstawowe, ale istnieje Ostrzeżenie: Użytkownik jest uwierzytelniany względem poświadczeń Windows. Oznacza to, że użytkownik musi mieć konto w domenie serwera. Dla witryny sieci web publicznego zazwyczaj chcesz uwierzytelniać dostawcy członkostwa platformy ASP.NET.
+Usługi IIS obsługują uwierzytelnianie podstawowe, ale istnieje zastrzeżenie: użytkownik jest uwierzytelniany przy użyciu poświadczeń systemu Windows. Oznacza to, że użytkownik musi mieć konto w domenie serwera. W przypadku publicznej witryny sieci Web zwykle jest wymagane uwierzytelnienie względem dostawcy członkostwa ASP.NET.
 
-Aby włączyć uwierzytelnianie podstawowe, za pomocą usług IIS, ustaw tryb uwierzytelniania "Windows" w pliku Web.config projektu programu ASP.NET:
+Aby włączyć uwierzytelnianie podstawowe przy użyciu usług IIS, ustaw tryb uwierzytelniania na "Windows" w pliku Web. config projektu ASP.NET:
 
 [!code-xml[Main](basic-authentication/samples/sample1.xml)]
 
-W tym trybie usług IIS przy użyciu poświadczeń Windows do uwierzytelniania. Ponadto należy włączyć uwierzytelnianie podstawowe w usługach IIS. W Menedżerze usług IIS, przejdź do widoku funkcji, wybierz opcję Uwierzytelnianie i włączyć uwierzytelnianie podstawowe.
+W tym trybie usługi IIS uwierzytelniają się przy użyciu poświadczeń systemu Windows. Ponadto należy włączyć uwierzytelnianie podstawowe w usługach IIS. W Menedżerze usług IIS przejdź do opcji Widok funkcji, wybierz pozycję Uwierzytelnianie i Włącz uwierzytelnianie podstawowe.
 
 ![](basic-authentication/_static/image2.png)
 
-W projekcie interfejsu API sieci Web Dodaj `[Authorize]` atrybutu dla wszystkich działań kontrolera, które wymagają uwierzytelniania.
+W projekcie interfejsu API sieci Web Dodaj atrybut `[Authorize]` dla wszystkich akcji kontrolera, które wymagają uwierzytelniania.
 
-Klient uwierzytelnia, ustawiając nagłówek autoryzacji w żądaniu. Klientów w przeglądarkach, które automatycznie wykonać ten krok. Klienci nonbrowser należy ustawić nagłówek.
+Klient uwierzytelnia się za pomocą ustawienia nagłówka autoryzacji w żądaniu. Klienci przeglądarki wykonują ten krok automatycznie. Klienci niebędący przeglądarką muszą ustawić nagłówek.
 
-## <a name="basic-authentication-with-custom-membership"></a>Uwierzytelnianie podstawowe z członkostwem niestandardowe
+## <a name="basic-authentication-with-custom-membership"></a>Uwierzytelnianie podstawowe z członkostwem niestandardowym
 
-Jak wspomniano wcześniej, uwierzytelnianie podstawowe, wbudowanych usług IIS przy użyciu poświadczeń Windows. Oznacza to, że należy utworzyć konta dla użytkowników na serwerze hostingu. Jednak dla aplikacji internetowych, konta użytkowników są zazwyczaj przechowywane w zewnętrznej bazie danych.
+Jak wspomniano, uwierzytelnianie podstawowe wbudowane w usługi IIS używa poświadczeń systemu Windows. Oznacza to, że należy utworzyć konta dla użytkowników na serwerze hostingu. Jednak w przypadku aplikacji internetowej konta użytkowników są zwykle przechowywane w zewnętrznej bazie danych.
 
-Poniższy kod, w jaki sposób moduł HTTP, który wykonuje uwierzytelnianie podstawowe. Możesz łatwo podłączyć dostawcy członkostwa platformy ASP.NET, zastępując `CheckPassword` metody, która jest metodą fikcyjnego z rolą w tym przykładzie.
+Poniższy kod, jak moduł HTTP wykonujący uwierzytelnianie podstawowe. Możesz łatwo podłączyć dostawcę członkostwa ASP.NET, zastępując metodę `CheckPassword`, która jest metodą fikcyjną w tym przykładzie.
 
-W sieci Web API 2, należy rozważyć pisania [filtr uwierzytelniania](authentication-filters.md) lub [oprogramowania pośredniczącego OWIN](../../../aspnet/overview/owin-and-katana/index.md), zamiast moduł protokołu HTTP.
+W przypadku interfejsu Web API 2 należy rozważyć zapisanie [filtru uwierzytelniania](authentication-filters.md) lub [oprogramowania pośredniczącego Owin](../../../aspnet/overview/owin-and-katana/index.md)zamiast modułu http.
 
 [!code-csharp[Main](basic-authentication/samples/sample2.cs)]
 
-Aby włączyć moduł HTTP, Dodaj następujący element do pliku web.config w **system.webServer** sekcji:
+Aby włączyć moduł HTTP, Dodaj następujący plik do pliku Web. config w sekcji **System. WebServer** :
 
 [!code-xml[Main](basic-authentication/samples/sample3.xml?highlight=4)]
 
-Zastąp "YourAssemblyName" Nazwa zestawu (z wykluczeniem rozszerzenie "dll").
+Zastąp ciąg "YourAssemblyName" nazwą zestawu (bez rozszerzenia "dll").
 
-Należy wyłączyć inne schematy uwierzytelniania, takich jak uwierzytelniania formularzy lub Windows
+Należy wyłączyć inne schematy uwierzytelniania, takie jak formularze lub uwierzytelnianie systemu Windows.

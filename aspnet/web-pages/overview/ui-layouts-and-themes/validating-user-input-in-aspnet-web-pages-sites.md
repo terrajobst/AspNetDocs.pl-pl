@@ -1,81 +1,81 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
-title: Walidacja danych wejściowych użytkownika we wzorcu ASP.NET Web Pages witryny (Razor) | Dokumentacja firmy Microsoft
+title: Sprawdzanie poprawności danych wejściowych użytkownika w witrynach ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym artykule omówiono sposób sprawdzania poprawności informacji można uzyskać od użytkowników &mdash; oznacza to, się upewnić, że użytkownicy wprowadzają prawidłowe informacje w formacie HTML formularzy w programie sz jako...
+description: W tym artykule omówiono sposób sprawdzania poprawności informacji uzyskanych od użytkowników &mdash; to, aby upewnić się, że użytkownicy wprowadzają prawidłowe informacje w formularzach HTML w formie jako...
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
 ms.openlocfilehash: e6f8e1051d09d11f1756bfada44a73ba7c2a1db2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108595"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563505"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Sprawdzanie poprawności danych wejściowych użytkownika w witrynach ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule omówiono sposób sprawdzania poprawności informacji można uzyskać od użytkowników &mdash; czyli się upewnić, że użytkownicy wprowadzają prawidłowe informacje w formacie HTML formularzy w witrynie ASP.NET Web Pages (Razor).
+> W tym artykule omówiono sposób sprawdzania poprawności informacji uzyskanych od użytkowników &mdash; to, aby upewnić się, że użytkownicy wprowadzają prawidłowe informacje w formularzach HTML w witrynie ASP.NET Web Pages (Razor).
 > 
 > Zawartość:
 > 
-> - Jak sprawdzić, czy użytkownik dane wejściowe podane przez kryteria weryfikacji zdefiniowanych przez użytkownika.
-> - Jak ustalić, czy zostały pomyślnie sprawdzone wszystkie testy sprawdzania poprawności.
-> - Jak wyświetlić błędy sprawdzania poprawności (i jak sformatować je).
-> - Jak sprawdzić poprawność danych, które nie pochodzi bezpośrednio od użytkowników.
+> - Sprawdzanie, czy dane wejściowe użytkownika odpowiadają zdefiniowanym kryteriom walidacji.
+> - Jak ustalić, czy wszystkie testy weryfikacyjne zostały zakończone pomyślnie.
+> - Jak wyświetlić błędy walidacji (i sposób formatowania).
+> - Sprawdzanie poprawności danych, które nie pochodzą bezpośrednio od użytkowników.
 > 
-> Poniżej przedstawiono ASP.NET programowania pojęciami opisanymi w artykule:
+> Są to koncepcje programowania ASP.NET wprowadzone w artykule:
 > 
-> - `Validation` Pomocnika.
-> - `Html.ValidationSummary` i `Html.ValidationMessage` metody.
+> - Pomocnik `Validation`.
+> - Metody `Html.ValidationSummary` i `Html.ValidationMessage`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
 Ten artykuł zawiera następujące sekcje:
 
-- [Omówienie sprawdzania poprawności danych wejściowych użytkownika](#Overview_of_User_Input_Validation)
-- [Walidacja danych wejściowych użytkownika](#Validating_User_Input)
-- [Dodawanie walidacji po stronie klienta](#Adding_Client-Side_Validation)
-- [Błędy sprawdzania poprawności formatowania](#Formatting_Validation_Errors)
-- [Sprawdzanie poprawności danych, które nie pochodzi bezpośrednio od użytkowników](#Validating_Data_That_Doesnt_Come_Directly_from_Users)
+- [Przegląd weryfikacji danych wejściowych użytkownika](#Overview_of_User_Input_Validation)
+- [Sprawdzanie poprawności danych wejściowych użytkownika](#Validating_User_Input)
+- [Dodawanie weryfikacji po stronie klienta](#Adding_Client-Side_Validation)
+- [Błędy walidacji formatowania](#Formatting_Validation_Errors)
+- [Sprawdzanie poprawności danych, które nie pochodzą bezpośrednio od użytkowników](#Validating_Data_That_Doesnt_Come_Directly_from_Users)
 
 <a id="Overview_of_User_Input_Validation"></a>
-## <a name="overview-of-user-input-validation"></a>Omówienie sprawdzania poprawności danych wejściowych użytkownika
+## <a name="overview-of-user-input-validation"></a>Przegląd weryfikacji danych wejściowych użytkownika
 
-Jeśli Poproś użytkowników o podanie informacji na stronie — na przykład w formie — jest ważne upewnić się, że wartości, które użytkownik podał są prawidłowe. Na przykład nie chcesz do przetwarzania formularza, brak jest krytycznych informacji.
+Jeśli podasz użytkownikowi monit o wprowadzenie informacji na stronie — na przykład w formularzu — ważne jest, aby upewnić się, że wprowadzane wartości są prawidłowe. Na przykład nie chcesz przetworzyć formularza, który nie zawiera krytycznych informacji.
 
-Podczas wprowadzania wartości do formularza HTML, wartości, które użytkownik podał są ciągami. W wielu przypadkach wartości, potrzebne są niektóre inne typy danych, takich jak liczby całkowite lub daty. W związku z tym również należy upewnić się, że wartości, które użytkownicy wprowadzają może zostać prawidłowo skonwertowany do formatu odpowiedni typ danych.
+Gdy użytkownicy wprowadzają wartości do formularza HTML, wprowadzane przez nie wartości są ciągami. W wielu przypadkach potrzebne wartości to inne typy danych, takie jak liczby całkowite lub daty. W związku z tym należy również upewnić się, że wartości wprowadzane przez użytkowników mogą być prawidłowo konwertowane na odpowiednie typy danych.
 
-Można również zainstalować pewne ograniczenia na podstawie wartości. Nawet wtedy, gdy użytkownicy poprawnie wprowadź liczbę całkowitą, na przykład, konieczne może być upewnij się, że wartość mieści się w pewnym zakresie.
+Mogą być również określone ograniczenia dotyczące wartości. Nawet jeśli użytkownicy poprawnie wprowadzają liczbę całkowitą, na przykład może być konieczne upewnienie się, że wartość znajduje się w określonym zakresie.
 
-![Błędy sprawdzania poprawności, które używają klasy stylów CSS](validating-user-input-in-aspnet-web-pages-sites/_static/image1.png)
+![Błędy walidacji korzystające z klas stylów CSS](validating-user-input-in-aspnet-web-pages-sites/_static/image1.png)
 
 > [!NOTE] 
 > 
-> **Ważne** sprawdzanie poprawności danych wejściowych użytkownika jest również ważne dla bezpieczeństwa. Ograniczenie wartości, które użytkownicy mogą wprowadzać w formularzach, można zmniejszyć prawdopodobieństwo, że ktoś wprowadź wartość, która może naruszyć bezpieczeństwo witryny sieci.
+> **Ważne** Sprawdzanie poprawności danych wejściowych użytkownika jest również ważne dla bezpieczeństwa. Po ograniczeniu wartości, które użytkownicy mogą wprowadzać w formularzach, zmniejszasz prawdopodobieństwo, że ktoś może wprowadzić wartość, która może naruszyć bezpieczeństwo witryny.
 
 <a id="Validating_User_Input"></a>
-## <a name="validating-user-input"></a>Walidacja danych wejściowych użytkownika
+## <a name="validating-user-input"></a>Sprawdzanie poprawności danych wejściowych użytkownika
 
-W programie ASP.NET Web Pages 2 można użyć `Validator` element pomocniczy służący do danych wejściowych użytkownika. Podstawowe podejście jest wykonanie następujących czynności:
+W witrynie ASP.NET Web Pages 2 można używać pomocnika `Validator` do testowania danych wejściowych użytkownika. Podstawowym podejściem jest wykonanie następujących czynności:
 
-1. Określ, której dane wejściowe elementów (pola), którą chcesz zweryfikować.
+1. Ustal, które elementy wejściowe (pola) chcesz zweryfikować.
 
-    Zazwyczaj Sprawdź poprawność wartości w `<input>` elementów w formularzu. Jednak jest dobrą praktyką Aby sprawdzić poprawność wszystkich danych wejściowych, nawet w danych wejściowych, która pochodzi z elementu ograniczone, takich jak `<select>` listy. Pomaga to upewnij się, że użytkownicy nie obejścia formantów na stronie i przesyłania formularza.
-2. W kodzie strony dodać sprawdzanie poprawności poszczególnych dla każdego elementu wejściowego przy użyciu metody `Validation` pomocnika.
+    Zwykle sprawdzane są wartości w `<input>` elementów w formularzu. Jednak dobrym sposobem jest zweryfikowanie wszystkich danych wejściowych, nawet danych wejściowych pochodzących z ograniczonego elementu, takich jak lista `<select>`. Pozwala to upewnić się, że użytkownicy nie pomijają formantów na stronie i przesyłają formularz.
+2. W kodzie strony Dodaj indywidualne sprawdzanie poprawności dla każdego elementu wejściowego przy użyciu metod pomocnika `Validation`.
 
-    Aby sprawdzić, czy wymagane pola, użyj `Validation.RequireField(field, [error message])` (dla poszczególnych pól) lub `Validation.RequireFields(field1, field2, ...))` (Aby uzyskać listę pól). W przypadku innych typów weryfikacji, użyj `Validation.Add(field, ValidationType)`. Aby uzyskać `ValidationType`, możesz użyć tych opcji:
+    Aby sprawdzić wymagane pola, użyj `Validation.RequireField(field, [error message])` (dla pojedynczego pola) lub `Validation.RequireFields(field1, field2, ...))` (dla listy pól). W przypadku innych typów walidacji należy użyć `Validation.Add(field, ValidationType)`. Aby uzyskać `ValidationType`, można użyć następujących opcji:
 
     `Validator.DateTime ([error message])`  
    `Validator.Decimal([error message])`  
@@ -87,43 +87,43 @@ W programie ASP.NET Web Pages 2 można użyć `Validator` element pomocniczy sł
    `Validator.Required([error message])`  
    `Validator.StringLength(length)`  
    `Validator.Url([error message])`
-3. Po przesłaniu strony należy sprawdzić, czy Weryfikacja został przekazany, sprawdzając `Validation.IsValid`:
+3. Gdy strona zostanie przesłana, sprawdź, czy sprawdzanie poprawności zakończyło się pomyślnie, sprawdzając `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
 
-    Jeśli występują błędy sprawdzania poprawności, możesz pominąć strony normalnego przetwarzania. Na przykład jeśli strona ma na celu aktualizowanie bazy danych, nie zrobisz, dopóki nie zostały naprawione wszystkie błędy weryfikacji.
-4. Jeśli występują błędy sprawdzania poprawności, wyświetlić komunikaty o błędach w znaczniku strony przy użyciu `Html.ValidationSummary` lub `Html.ValidationMessage`, lub obu.
+    Jeśli wystąpią jakieś błędy sprawdzania poprawności, można pominąć normalne przetwarzanie strony. Na przykład, jeśli celem strony jest zaktualizowanie bazy danych, nie należy tego robić, dopóki nie zostaną naprawione wszystkie błędy walidacji.
+4. Jeśli występują błędy walidacji, Wyświetl komunikaty o błędach w znacznikach strony przy użyciu `Html.ValidationSummary` lub `Html.ValidationMessage`lub obu tych elementów.
 
-Strona, która ilustruje te kroki można znaleźć w poniższym przykładzie.
+Poniższy przykład przedstawia stronę, która ilustruje te kroki.
 
 [!code-cshtml[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample2.cshtml)]
 
-Aby zobaczyć, jak działa sprawdzania poprawności, uruchom na tej stronie, a następnie celowo popełnione. Na przykład, w tym miejscu wygląda strony Jeśli zapomnisz o wprowadzenie nazwy kurs, po wprowadzeniu, a jeśli wprowadzasz nieprawidłowa data:
+Aby zobaczyć, jak działa Walidacja, uruchom tę stronę i świadomie wypełniania błędów. Na przykład poniżej przedstawiono, jak wygląda strona, jeśli zapomnisz wprowadzić nazwę kursu, jeśli wprowadzisz i wprowadzisz nieprawidłową datę:
 
-![Błędy sprawdzania poprawności na renderowanej stronie](validating-user-input-in-aspnet-web-pages-sites/_static/image2.png)
+![Błędy walidacji na renderowanej stronie](validating-user-input-in-aspnet-web-pages-sites/_static/image2.png)
 
 <a id="Adding_Client-Side_Validation"></a>
-## <a name="adding-client-side-validation"></a>Dodawanie walidacji po stronie klienta
+## <a name="adding-client-side-validation"></a>Dodawanie weryfikacji po stronie klienta
 
-Domyślnie dane wejściowe użytkownika sprawdzania poprawności po użytkowników przedstawia stronę — oznacza to, sprawdzanie poprawności jest wykonywane w kodzie serwera. Wadą tego podejścia jest to, że użytkownicy nie wiedzą one wprowadzone błąd aż po ich Prześlij na stronie. Jeśli formularz jest długie lub zbyt złożone, raportowanie błędów tylko wtedy, gdy strona jest przekazywana może być niewygodne do użytkownika.
+Domyślnie dane wejściowe użytkownika są sprawdzane po przesłaniu strony przez użytkowników — to znaczy, że sprawdzanie poprawności jest wykonywane w kodzie serwera. Wadą tego podejścia jest to, że użytkownicy nie wiedzą, że wystąpił błąd do momentu przesłania strony. Jeśli formularz jest długi lub złożony, raportowanie błędów tylko po przesłaniu strony może być niewygodny dla użytkownika.
 
-Możesz dodać obsługę przeprowadzania weryfikacji w skrypt po stronie klienta. W takiej sytuacji sprawdzanie poprawności jest wykonywane, gdy użytkownik pracuje w przeglądarce. Na przykład załóżmy, że możesz określić, czy wartość powinna być liczbą całkowitą. Jeśli użytkownik wprowadza wartość nie jest liczbą całkowitą, zgłaszany jest błąd, zaraz po użytkownik opuści pole wprowadzania. Użytkownicy natychmiast otrzymać opinię, która jest wygodne w przypadku ich. Walidacja oparta na klienta również pozwala zmniejszyć liczbę prób użytkownik musi przesłać formularz, aby rozwiązać wiele błędów.
+Możesz dodać obsługę, aby przeprowadzić walidację w skrypcie klienta. W takim przypadku sprawdzanie poprawności jest wykonywane, gdy użytkownicy pracują w przeglądarce. Załóżmy na przykład, że określisz, że wartość powinna być liczbą całkowitą. Jeśli użytkownik wprowadzi wartość niebędącą liczbą całkowitą, zostanie zgłoszony błąd zaraz po opuszczeniu pola entry przez użytkownika. Użytkownicy uzyskują natychmiastowe Opinie, które są dla nich wygodne. Walidacja oparta na kliencie może również zmniejszyć liczbę przypadków, w których użytkownik musi przesłać formularz, aby skorygować wiele błędów.
 
 > [!NOTE]
-> Nawet w przypadku używania weryfikacji po stronie klienta jest zawsze również przeprowadzana Walidacja w kodzie serwera. Wykonywanie sprawdzania poprawności w kodzie serwera jest miarą zabezpieczeń, w przypadku, gdy użytkownicy pominąć weryfikacji opartą na kliencie.
+> Nawet w przypadku korzystania z walidacji po stronie klienta sprawdzanie poprawności jest zawsze wykonywane również w kodzie serwera. Wykonanie walidacji w kodzie serwera jest środkiem bezpieczeństwa, w przypadku gdy użytkownicy omijają weryfikację opartą na kliencie.
 
 1. Zarejestruj następujące biblioteki JavaScript na stronie:  
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
-   Są dwa bibliotek obciążana z sieci dostarczania zawartości (CDN), dzięki czemu masz zawsze mieć je na komputerze lub serwerze. Jednak musi mieć kopię lokalną *jquery.validate.unobtrusive.js*. Jeśli nie już pracujesz za pomocą szablonu programu WebMatrix (takich jak **witryny początkowej** ) zawierającej biblioteki, utworzyć witrynę stron sieci Web, która opiera się na **witryny początkowej**. Następnie skopiuj *js* pliku do bieżącej lokacji.
-2. W znaczniku dla każdego elementu, który jest sprawdzanie poprawności, należy dodać wywołanie `Validation.For(field)`. Ta metoda generuje atrybuty, które są używane przez weryfikację po stronie klienta. (Zamiast emitowania rzeczywisty kod JavaScript, metoda emituje atrybutów, takich jak `data-val-...`. Te atrybuty obsługuje sprawdzanie poprawności dyskretnego kodu klienta, która używa technologii jQuery, które wykonają tę pracę).
+   Dwie biblioteki są ładowane z usługi Content Delivery Network (CDN), dzięki czemu nie trzeba mieć ich na komputerze lub serwerze. Wymagana jest jednak lokalna kopia *platformy jQuery. Sprawdź poprawność*. Jeśli nie pracujesz jeszcze z szablonem WebMatrix (na przykład **lokacją startową** ) zawierającym bibliotekę, Utwórz witrynę strony sieci Web opartą na **witrynie Starter**. Następnie skopiuj plik *js* do bieżącej lokacji.
+2. W znaczniku dla każdego elementu, który jest weryfikowany, Dodaj wywołanie do `Validation.For(field)`. Ta metoda emituje atrybuty, które są używane przez weryfikację po stronie klienta. (Zamiast emitowania rzeczywistego kodu JavaScript metoda emituje atrybuty, takie jak `data-val-...`. Te atrybuty obsługują niezauważalną weryfikację klienta, która korzysta z technologii jQuery do wykonania pracy.
 
-Następująca strona przedstawiono sposób dodawania funkcji weryfikacji klienta, jak w przykładzie przedstawionym wcześniej.
+Na poniższej stronie pokazano, jak dodać funkcje sprawdzania poprawności klienta do pokazanego wcześniej przykładu.
 
 [!code-cshtml[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample4.cshtml?highlight=35-39,51,61,71)]
 
-Sprawdzanie poprawności nie wszystkie uruchomienia na kliencie. W szczególności weryfikacji typu danych (liczba całkowita, daty i tak dalej) nie działają na komputerze klienckim. Następujące testy pracować na kliencie i serwerze:
+Nie wszystkie sprawdzenia poprawności są uruchamiane na kliencie. W szczególności Walidacja typu danych (liczba całkowita, Data i tak dalej) nie jest uruchamiana na kliencie. Następujące sprawdzenia działają zarówno na kliencie, jak i na serwerze:
 
 - `Required`
 - `Range(minValue, maxValue)`
@@ -131,63 +131,63 @@ Sprawdzanie poprawności nie wszystkie uruchomienia na kliencie. W szczególnoś
 - `Regex(pattern)`
 - `EqualsTo(otherField)`
 
-W tym przykładzie test na prawidłową datę nie będą działać w kodzie klienta. Jednak test zostanie wykonany w kodzie serwera.
+W tym przykładzie test dla prawidłowej daty nie będzie działał w kodzie klienta. Jednak test zostanie wykonany w kodzie serwera.
 
 <a id="Formatting_Validation_Errors"></a>
-## <a name="formatting-validation-errors"></a>Błędy sprawdzania poprawności formatowania
+## <a name="formatting-validation-errors"></a>Błędy walidacji formatowania
 
-Można kontrolować sposób wyświetlania błędów sprawdzania poprawności, definiując klas CSS, które mają następujące nazwy zarezerwowane:
+Można kontrolować sposób wyświetlania błędów sprawdzania poprawności, definiując klasy CSS, które mają następujące zastrzeżone nazwy:
 
-- `field-validation-error`. Definiuje dane wyjściowe `Html.ValidationMessage` metody, gdy go jest wyświetlany błąd.
-- `field-validation-valid`. Definiuje dane wyjściowe `Html.ValidationMessage` metody, gdy nie ma błędów.
-- `input-validation-error`. Definiuje sposób `<input>` elementy są renderowane po wystąpieniu błędu. (Na przykład, można użyć tej klasy, aby ustawić kolor tła &lt;wejściowych&gt; elementu na inny kolor, jeśli jego wartość jest nieprawidłowa.) Ta klasa CSS jest używana tylko podczas weryfikacji klienta (w programie ASP.NET Web Pages 2).
-- `input-validation-valid`. Definiuje wygląd elementów `<input>` elementów, gdy nie ma błędów.
-- `validation-summary-errors`. Definiuje dane wyjściowe `Html.ValidationSummary` metoda Wyświetla listę błędów.
-- `validation-summary-valid`. Definiuje dane wyjściowe `Html.ValidationSummary` metody, gdy nie ma błędów.
+- `field-validation-error`. Definiuje dane wyjściowe metody `Html.ValidationMessage`, gdy jest wyświetlany błąd.
+- `field-validation-valid`. Definiuje dane wyjściowe metody `Html.ValidationMessage` w przypadku braku błędu.
+- `input-validation-error`. Definiuje, w jaki sposób elementy `<input>` są renderowane w przypadku wystąpienia błędu. (Na przykład można użyć tej klasy, aby ustawić kolor tła &lt;wejściowego&gt; elementu na inny kolor, jeśli jego wartość jest nieprawidłowa.) Ta klasa CSS jest używana tylko podczas weryfikacji klienta (w ASP.NET Web Pages 2).
+- `input-validation-valid`. Definiuje wygląd elementów `<input>` w przypadku braku błędu.
+- `validation-summary-errors`. Definiuje dane wyjściowe metody `Html.ValidationSummary`, która wyświetla listę błędów.
+- `validation-summary-valid`. Definiuje dane wyjściowe metody `Html.ValidationSummary` w przypadku braku błędu.
 
-Następujące `<style>` bloku przedstawiono zasady dotyczące warunków błędów.
+Poniższy `<style>` bloku pokazuje reguły dotyczące warunków błędu.
 
 [!code-css[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample5.css)]
 
-Jeśli dodasz tego bloku stylu w przykładzie strony z we wcześniejszej części tego artykułu, wyświetlania błędów będzie wyglądać podobnie do poniższej ilustracji:
+Jeśli ten blok stylu zostanie uwzględniony na przykładowych stronach z wcześniejszego artykułu, zostanie wyświetlony komunikat o błędzie podobny do poniższego:
 
-![Błędy sprawdzania poprawności, które używają klasy stylów CSS](validating-user-input-in-aspnet-web-pages-sites/_static/image3.png)
+![Błędy walidacji korzystające z klas stylów CSS](validating-user-input-in-aspnet-web-pages-sites/_static/image3.png)
 
 > [!NOTE]
-> Jeśli nie używasz Sprawdzanie poprawności klienta w programie ASP.NET Web Pages 2, arkusze CSS klasy dla `<input>` elementów (`input-validation-error` i `input-validation-valid` nie ma żadnego efektu.
+> Jeśli weryfikacja klienta nie jest używana w programie ASP.NET Web Pages 2, klasy CSS dla elementów `<input>` (`input-validation-error` i `input-validation-valid` nie mają żadnego efektu.
 
 ### <a name="static-and-dynamic-error-display"></a>Wyświetlanie błędów statycznych i dynamicznych
 
-Reguły CSS są dostępne w parach, takich jak `validation-summary-errors` i `validation-summary-valid`. Te pary pozwalają zdefiniować zasady dla obu warunków: warunek błędu i warunek "normal" (bez błędów). Jest ważne dowiedzieć się, że zawsze renderowania kodu znaczników dla wyświetlania błędów, nawet, jeśli nie ma żadnych błędów. Na przykład, jeśli strona ma `Html.ValidationSummary` metody w znaczniku, źródło strony będzie zawierać następujące znaczniki nawet wtedy, gdy strona jest wykonywana po raz pierwszy:
+Reguły CSS są dostępne w parach, takich jak `validation-summary-errors` i `validation-summary-valid`. Te pary umożliwiają definiowanie reguł dla obu warunków: warunku błędu i warunku "normal" (bez błędu). Ważne jest, aby zrozumieć, że znaczniki wyświetlania błędów są zawsze renderowane, nawet jeśli nie ma błędów. Na przykład jeśli strona ma metodę `Html.ValidationSummary` w znaczniku, Źródło strony będzie zawierać następujące znaczniki, nawet gdy strona jest żądana po raz pierwszy:
 
 `<div class="validation-summary-valid" data-valmsg-summary="true"><ul></ul></div>`
 
-Innymi słowy `Html.ValidationSummary` metody zawsze powoduje wyświetlenie `<div>` elementu i listy, nawet jeśli lista błędów jest pusty. Podobnie `Html.ValidationMessage` metody zawsze powoduje wyświetlenie `<span>` elementu jako symbolu zastępczego dla poszczególnych pól błąd, nawet jeśli nie ma błędów.
+Innymi słowy, Metoda `Html.ValidationSummary` zawsze renderuje element `<div>` i listę, nawet jeśli lista błędów jest pusta. Podobnie Metoda `Html.ValidationMessage` zawsze renderuje element `<span>` jako symbol zastępczy dla pojedynczego błędu pola, nawet jeśli nie ma błędu.
 
-W niektórych sytuacjach, wyświetlając komunikat o błędzie może spowodować, że strona ułożenia i może spowodować, że elementy na stronie, aby poruszać się. Reguły CSS, które kończą się na `-valid` pozwalają zdefiniować układ, które mogą pomóc uniknąć tego problemu. Na przykład można zdefiniować `field-validation-error` i `field-validation-valid` zarówno mają takie same stałe rozmiar. W ten sposób obszaru wyświetlania pola jest statyczna i nie ulegnie zmianie przepływem strony, jeśli jest wyświetlany komunikat o błędzie.
+W niektórych sytuacjach wyświetlenie komunikatu o błędzie może spowodować zmianę przepływu strony i spowodować, że elementy na stronie mogą się poruszać. Reguły CSS, które kończą się w `-valid` umożliwiają zdefiniowanie układu, który może pomóc uniknąć tego problemu. Na przykład można zdefiniować `field-validation-error` i `field-validation-valid` do obu mają ten sam stały rozmiar. Dzięki temu obszar wyświetlania pola jest statyczny i nie zmienia przepływu strony, jeśli zostanie wyświetlony komunikat o błędzie.
 
 <a id="Validating_Data_That_Doesnt_Come_Directly_from_Users"></a>
-## <a name="validating-data-that-doesnt-come-directly-from-users"></a>Sprawdzanie poprawności danych, które nie pochodzi bezpośrednio od użytkowników
+## <a name="validating-data-that-doesnt-come-directly-from-users"></a>Sprawdzanie poprawności danych, które nie pochodzą bezpośrednio od użytkowników
 
-Czasami trzeba sprawdzić informacje, które nie pochodzą bezpośrednio z formularza HTML. Typowym przykładem jest strona, której wartością jest przekazywany w ciągu zapytania, jak w poniższym przykładzie:
+Czasami musisz sprawdzić poprawność informacji, które nie pochodzą bezpośrednio z formularza HTML. Typowy przykład to strona, w której wartość jest przenoszona w ciągu zapytania, jak w poniższym przykładzie:
 
 `http://server/myapp/EditClassInformation?classid=1022`
 
-W tym przypadku chcesz upewnij się, że wartość, która jest przekazywana do strony (tutaj, 1022 dla wartości `classid`) jest nieprawidłowy. Nie można używać bezpośrednio `Validation` element pomocniczy służący do wykonywania tej weryfikacji. Jednak można użyć innych funkcji systemu sprawdzania poprawności, takich jak możliwość wyświetlania komunikatów o błędach weryfikacji.
+W tym przypadku chcesz upewnić się, że wartość, która jest przenoszona na stronę (tutaj, 1022 dla wartości `classid`) jest prawidłowa. Nie można bezpośrednio użyć pomocnika `Validation` do przeprowadzenia tej walidacji. Można jednak użyć innych funkcji systemu sprawdzania poprawności, takich jak możliwość wyświetlania komunikatów o błędach walidacji.
 
 > [!NOTE] 
 > 
-> **Ważne** zawsze sprawdzają poprawność wartości, które można uzyskać z *wszelkie* źródła, takiego jak wartości pola formularza, wartości ciągu zapytania i wartości pliku cookie. To proste, użytkownicy będą mogli zmieniać te wartości (np. do złośliwych celów). Dlatego należy sprawdzić te wartości w celu ochrony aplikacji.
+> **Ważne** Zawsze sprawdzaj poprawność wartości pobieranych z *dowolnego* źródła, w tym wartości pól formularza, wartości ciągu zapytania i wartości plików cookie. Można łatwo zmienić te wartości (na przykład w przypadku złośliwych celów). Dlatego należy sprawdzić te wartości w celu ochrony aplikacji.
 
-Poniższy przykład pokazuje, jak może zweryfikować wartości, który jest przekazywany w ciągu zapytania. Kod sprawdza, czy wartość nie jest pusty i że jest liczbą całkowitą.
+Poniższy przykład pokazuje, jak można sprawdzić poprawność wartości, która została przekazana w ciągu zapytania. Kod sprawdza, czy wartość nie jest pusta i czy jest liczbą całkowitą.
 
 [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample6.cs)]
 
-Należy zauważyć, że test jest wykonywane, gdy żądanie jest przesłanie formularza (`if(!IsPost)`). Ten test przejdzie przy pierwszym żądaniu strony, ale nie, gdy żądanie jest przesyłania formularza.
+Należy zauważyć, że test jest wykonywany, gdy żądanie nie jest przesłanym formularzem (`if(!IsPost)`). Ten test zostałby przekazany po raz pierwszy, gdy żądanie strony jest wymagane, ale nie w przypadku przesłania formularza.
 
-Aby wyświetlić ten błąd, można dodać błąd do listy błędów sprawdzania poprawności, wywołując `Validation.AddFormError("message")`. Jeśli strona zawiera wywołanie `Html.ValidationSummary` metody, błąd jest wyświetlany, podobnie jak błąd sprawdzania poprawności danych wejściowych użytkownika.
+Aby wyświetlić ten błąd, można dodać błąd do listy błędów walidacji, wywołując `Validation.AddFormError("message")`. Jeśli strona zawiera wywołanie metody `Html.ValidationSummary`, błąd jest wyświetlany w tym miejscu, podobnie jak w przypadku błędu walidacji danych wejściowych przez użytkownika.
 
 <a id="AdditionalResources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Praca z formularzami HTML w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202892)
+[Praca z formularzami HTML w witrynach stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkID=202892)

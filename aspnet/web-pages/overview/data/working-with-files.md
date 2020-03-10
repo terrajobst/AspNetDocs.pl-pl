@@ -1,257 +1,257 @@
 ---
 uid: web-pages/overview/data/working-with-files
-title: Praca z plikami w witrynie ASP.NET Web Pages (Razor) | Dokumentacja firmy Microsoft
+title: Praca z plikami w witrynie ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym rozdziale wyjaśniono, jak do odczytu, zapisu, dołączania, usuwania i przekazywania plików.
+description: W tym rozdziale wyjaśniono, jak odczytywać, zapisywać, dołączać, usuwać i ładować pliki.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 684c47a8a8480dc040e5144144577c94c35d39e5
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67411186"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642367"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Praca z plikami w witrynie ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule wyjaśniono, jak do odczytu, zapisu, dołączania, usuwania i przekazywanie plików w witrynie ASP.NET Web Pages (Razor).
+> W tym artykule opisano sposób odczytywania, zapisywania, dołączania, usuwania i przekazywania plików w witrynie ASP.NET Web Pages (Razor).
 > 
 > > [!NOTE]
-> > Jeśli chcesz przekazywać obrazy i manipulować nimi (na przykład przerzucić lub zmieniać ich rozmiar), zobacz [Praca z obrazami w witrynie ASP.NET Web Pages](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
+> > Jeśli chcesz przekazać obrazy i manipulować nimi (na przykład przerzucić lub zmienić ich rozmiar), zobacz [Praca z obrazami w witrynie ASP.NET Web Pages](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
 > 
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
-> - Jak utworzyć plik tekstowy i zapisanie w nim danych.
+> - Jak utworzyć plik tekstowy i zapisać w nim dane.
 > - Jak dołączyć dane do istniejącego pliku.
-> - Jak odczytać plik i wyświetlić z niego.
+> - Jak odczytać plik i wyświetlić go.
 > - Jak usunąć pliki z witryny sieci Web.
-> - Jak umożliwić użytkownikom przekazywanie jednego lub wielu plików.
+> - Jak umożliwić użytkownikom przekazywanie jednego pliku lub wielu plików.
 > 
-> Poniżej przedstawiono funkcje wprowadzone w artykule programowania programu ASP.NET:
+> Są to funkcje programowania ASP.NET wprowadzone w artykule:
 > 
-> - `File` Obiektu, który umożliwia zarządzanie plikami.
-> - `FileUpload` Pomocnika.
-> - `Path` Obiektu, który udostępnia metody, które pozwala manipulować ścieżkę i nazwy plików.
+> - Obiekt `File`, który zapewnia sposób zarządzania plikami.
+> - Pomocnik `FileUpload`.
+> - Obiekt `Path`, który dostarcza metody, które umożliwiają manipulowanie ścieżkami i nazwami plików.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
+> - ASP.NET strony sieci Web (Razor) 2
 > - WebMatrix 2
 >   
 > 
-> W tym samouczku współpracuje również z programu WebMatrix 3.
+> Ten samouczek współpracuje również z programem WebMatrix 3.
 
 <a id="Creating_a_Text_File"></a>
-## <a name="creating-a-text-file-and-writing-data-to-it"></a>Tworzenie pliku tekstowego i zapisywania danych
+## <a name="creating-a-text-file-and-writing-data-to-it"></a>Tworzenie pliku tekstowego i zapisywanie w nim danych
 
-Oprócz używania bazy danych w witrynie sieci Web, mogą pracować z plikami. Na przykład może używać plików tekstowych jako prosty sposób przechowywania danych dla tej witryny. (Plik tekstowy, który jest używany do przechowywania danych jest czasami nazywane *pliku prostego*.) Pliki tekstowe mogą być w różnych formatach, na przykład *.txt*, *.xml*, lub *CSV* (wartości rozdzielane przecinkami).
+Oprócz korzystania z bazy danych w witrynie sieci Web, możesz współpracować z plikami. Można na przykład używać plików tekstowych jako prostego sposobu przechowywania danych dla witryny. (Plik tekstowy, który jest używany do przechowywania danych, jest czasami nazywany *plikiem prostym*). Pliki tekstowe mogą znajdować się w różnych formatach, takich jak *txt*, *XML*lub *CSV* (wartości rozdzielane przecinkami).
 
-Jeśli chcesz przechowywać dane w pliku tekstowym, możesz użyć `File.WriteAllText` metodę, aby określić plik, aby utworzyć i zapisanie w nim dane. W tej procedurze utworzysz strony, który zawiera prosty formularz z trzema `input` elementów (pól Imię, nazwisko i adres e-mail) i **przesyłania** przycisku. Gdy użytkownik przesyła formularz, będzie przechowywać dane wejściowe użytkownika w pliku tekstowym.
+Jeśli chcesz przechowywać dane w pliku tekstowym, możesz użyć metody `File.WriteAllText`, aby określić plik do utworzenia oraz dane, które mają być w nim zapisane. W tej procedurze utworzysz stronę zawierającą prosty formularz z trzema `input` elementami (imię, nazwisko i adres e-mail) i przycisk **Prześlij** . Po przesłaniu formularza użytkownik będzie przechowywał dane wejściowe użytkownika w pliku tekstowym.
 
-1. Utwórz nowy folder o nazwie *aplikacji\_danych*, jeśli nie już istnieje.
-2. W katalogu głównym witryny sieci Web, Utwórz nowy plik o nazwie *UserData.cshtml*.
-3. Zastąp istniejącą zawartość następujących czynności: 
+1. Utwórz nowy folder o nazwie *App\_Data*, jeśli jeszcze nie istnieje.
+2. W katalogu głównym witryny sieci Web Utwórz nowy plik o nazwie *UserData. cshtml*.
+3. Zastąp istniejącą zawartość następującym: 
 
     [!code-cshtml[Main](working-with-files/samples/sample1.cshtml)]
 
-    Kod znaczników HTML tworzy formularz z pól tekstowych trzy. W kodzie, należy użyć `IsPost` właściwości w celu określenia, czy strony zostały przesłane, przed rozpoczęciem przetwarzania.
+    Znacznik HTML tworzy formularz z trzema polami tekstowymi. W kodzie można użyć właściwości `IsPost`, aby określić, czy strona została przesłana przed rozpoczęciem przetwarzania.
 
-    Pierwsze zadanie jest pobrać dane wejściowe użytkownika i przypisz je do zmiennych. Kod następnie łączy wartości zmiennych oddzielne w jeden ciąg rozdzielonych przecinkami, który następnie jest przechowywany w innej zmiennej. Należy zauważyć, że przecinka jako separatora jest ciągiem zawarte w znaki cudzysłowu (","), ponieważ przecinek dosłownie osadzasz w dużych ciąg, który tworzysz. Na końcu danych, które mają zostać połączone, możesz dodać `Environment.NewLine`. Spowoduje to dodanie podział wiersza (znak nowego wiersza). Tworzysz przy użyciu wszystkich to połączenie jest ciągiem, który wygląda w następujący sposób:
+    Pierwsze zadanie polega na uzyskaniu danych wejściowych użytkownika i przypisaniu go do zmiennych. Następnie kod łączy wartości oddzielnych zmiennych w jeden ciąg rozdzielany przecinkami, który jest następnie przechowywany w innej zmiennej. Należy zauważyć, że separator przecinka jest ciągiem zawartym w cudzysłowie (","), ponieważ jest to dosłownie osadzenie przecinka w ciągu, który tworzysz. Na końcu połączonych danych należy dodać `Environment.NewLine`. Spowoduje to dodanie podziału wiersza (znaku nowego wiersza). To, co tworzysz przy użyciu wszystkich takich złączek, jest ciągiem, który wygląda następująco:
 
     [!code-css[Main](working-with-files/samples/sample2.css)]
 
-    (Przy użyciu niewidocznej podziału wiersza na końcu.)
+    (Z niewidocznym podziałem wiersza na końcu).
 
-    Następnie Utwórz zmienną (`dataFile`) zawierający lokalizację i nazwę pliku do przechowywania danych. Ustawianie lokalizacji wymaga pewnych specjalnej obsługi. W witrynach sieci Web, jest złym zwyczajem się w kodzie do ścieżki bezwzględnej, jak *C:\Folder\File.txt* dla plików na serwerze sieci web. Jeśli witryna sieci Web zostanie przeniesiony, ścieżka bezwzględna będą nieprawidłowe. Ponadto hostowanej witryny (a nie na swoim komputerze) należy zwykle nawet prawidłowej ścieżki jest nieznana podczas pisania kodu.
+    Następnie utworzysz zmienną (`dataFile`), która zawiera lokalizację i nazwę pliku, w którym będą przechowywane dane. Ustawienie lokalizacji wymaga szczególnej obsługi. W witrynach sieci Web jest to niewłaściwe rozwiązanie do odwoływania się w kodzie do ścieżek bezwzględnych, takich jak *C:\Folder\File.txt* dla plików na serwerze sieci Web. Jeśli witryna sieci Web jest przenoszona, ścieżka bezwzględna będzie niewłaściwa. Ponadto w przypadku witryny hostowanej (w przeciwieństwie do komputera) zazwyczaj nie wiadomo, co jest poprawna ścieżka podczas pisania kodu.
 
-    Jednak czasami (np. teraz do zapisywania pliku) należy pełną ścieżkę. Rozwiązaniem jest użycie `MapPath` metody `Server` obiektu. Spowoduje to zwrócenie pełnej ścieżki do witryny sieci Web. Aby pobrać ścieżkę do katalogu głównego witryny sieci Web, użytkownik zostanie `~` — operator (do represen lokacji użytkownika wirtualnego katalogu głównego) do `MapPath`. (Można również przekazać nazwę podfolderu, takich jak *~/App\_danych /* , aby pobrać ścieżkę do tego podfolderu.) Można następnie łączyć ze sobą dodatkowe informacje na zwraca niezależnie od metody, aby można było utworzyć pełną ścieżkę. W tym przykładzie należy dodać nazwę pliku. (Możesz dowiedzieć się więcej o tym, jak pracować z ścieżek plików i folderów w [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    Jednak czasami (podobnie jak w przypadku pisania pliku) potrzebna jest kompletna ścieżka. Rozwiązaniem jest użycie metody `MapPath` obiektu `Server`. Spowoduje to zwrócenie pełnej ścieżki do witryny sieci Web. Aby uzyskać ścieżkę do katalogu głównego witryny sieci Web, użytkownik może korzystać z operatora `~` (w celu represen wirtualnego katalogu głównego witryny) `MapPath`. (Można również przekazać do niego nazwę podfolderu, na przykład *~/App\_Data/* , aby uzyskać ścieżkę dla tego podfolderu). Następnie można połączyć dodatkowe informacje z dowolną metodą zwracaną w celu utworzenia pełnej ścieżki. W tym przykładzie należy dodać nazwę pliku. (Więcej informacji na temat sposobu pracy z ścieżkami plików i folderów można znaleźć w artykule [wprowadzenie do programowania ASP.NET stron sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths)).
 
-    Plik jest zapisywany w *aplikacji\_danych* folderu. Ten folder jest na platformie ASP.NET, który jest używany do przechowywania plików danych, zgodnie z opisem w folderze specjalnym [wprowadzenie do pracy z bazą danych w witrynach stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=195209).
+    Plik jest zapisywany w folderze *danych\_aplikacji* . Ten folder jest specjalnym folderem w ASP.NET, który jest używany do przechowywania plików danych, zgodnie z opisem w artykule [wprowadzenie do pracy z bazą danych w witrynach sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=195209).
 
-    `WriteAllText` Metody `File` obiekt zapisuje dane do pliku. Ta metoda przyjmuje dwa parametry: Nazwa (ze ścieżką) pliku do zapisu i rzeczywistego dane do zapisania. Należy zauważyć, że nazwa pierwszego parametru ma `@` znak jako prefiksu. To informuje program ASP.NET, że udostępniasz verbatim literał ciągu znaków i znaków, takich jak "/" nie mogą być traktowane w specjalny sposób. (Aby uzyskać więcej informacji, zobacz [wprowadzenie do platformy ASP.NET sieci Web programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    Metoda `WriteAllText` obiektu `File` zapisuje dane do pliku. Ta metoda przyjmuje dwa parametry: Nazwa (ścieżka) pliku do zapisu i rzeczywiste dane do zapisu. Należy zauważyć, że nazwa pierwszego parametru ma `@` znak jako prefiks. Oznacza to, że ASP.NET, że podajesz Verbatim literał ciągu i że znaki takie jak "/" nie powinny być interpretowane w specjalny sposób. (Aby uzyskać więcej informacji, zobacz [wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths)).
 
     > [!NOTE]
-    > W kolejności, w kodzie zapisać plik w *aplikacji\_danych* folderu, aplikacja musi odczytu i zapisu uprawnienia do tego folderu. Na komputerze deweloperskim to nie jest zazwyczaj problem. Jednak podczas publikowania witryny dostawcy hostingu serwera sieci web, konieczne może być jawnie ustawić te uprawnienia. Jeśli możesz uruchomić ten kod na serwerze dostawcy hostingu i występują błędy, skontaktuj się z dostawcy hostingu, aby dowiedzieć się, jak ustawić te uprawnienia.
+    > Aby kod zapisywał pliki w folderze *danych\_aplikacji* , aplikacja musi mieć uprawnienia do odczytu i zapisu dla tego folderu. Na komputerze deweloperskim zwykle nie jest to problem. Jednak po opublikowaniu lokacji programu na serwerze sieci Web dostawcy hostingu może być konieczne jawne ustawienie tych uprawnień. Jeśli ten kod jest uruchamiany na serwerze dostawcy hostingu i pojawia się błąd, należy skontaktować się z dostawcą hostingu, aby dowiedzieć się, jak ustawić te uprawnienia.
 
 - Uruchom stronę w przeglądarce. 
 
     ![](working-with-files/_static/image1.jpg)
-- Wprowadź wartości w polach, a następnie kliknij przycisk **przesyłania**.
-- Zamknij przeglądarkę.
-- Wróć do projektu, a następnie Odśwież widok.
-- Otwórz *data.txt* pliku. Dane, przesłanych w formularzu znajdują się w pliku. 
+- Wprowadź wartości w polach, a następnie kliknij przycisk **Prześlij**.
+- Zamknij okno przeglądarki.
+- Wróć do projektu i Odśwież widok.
+- Otwórz plik *Data. txt* . Dane przesłane w formularzu są w pliku. 
 
-    ![[image]](working-with-files/_static/image2.jpg)
-- Zamknij *data.txt* pliku.
+    ![Image](working-with-files/_static/image2.jpg)
+- Zamknij plik *Data. txt* .
 
 <a id="Appending_Data"></a>
 ## <a name="appending-data-to-an-existing-file"></a>Dołączanie danych do istniejącego pliku
 
-W poprzednim przykładzie użyto `WriteAllText` utworzyć plik tekstowy, który ma stało się w niej tylko jednego elementu danych. Jeśli ponownie wywołaj metodę i przekazać go taką samą nazwę, istniejący plik jest całkowicie zastąpiony. Jednak po utworzeniu pliku często chcesz dodać nowe dane do końca pliku. Możesz zrobić, przy użyciu `AppendAllText` metody `File` obiektu.
+W poprzednim przykładzie użyto `WriteAllText`, aby utworzyć plik tekstowy, który ma tylko jedną część danych. Jeśli wywołasz metodę ponownie i przekażesz ją do tej samej nazwy pliku, istniejący plik zostanie całkowicie nadpisany. Jednak po utworzeniu pliku często należy dodać nowe dane na końcu pliku. Można to zrobić za pomocą metody `AppendAllText` obiektu `File`.
 
-1. W witrynie sieci Web, należy utworzyć kopię *UserData.cshtml* pliku i nazwę kopii *UserDataMultiple.cshtml*.
-2. Zastąp blok kodu, przed otwarciem `<!DOCTYPE html>` tag z następującym fragmencie kodu: 
+1. W witrynie sieci Web Utwórz kopię pliku *UserData. cshtml* i nadaj jej nazwę copy *UserDataMultiple. cshtml*.
+2. Zastąp blok kodu przed otwierającym tagiem `<!DOCTYPE html>` i następującym blokiem kodu: 
 
     [!code-cshtml[Main](working-with-files/samples/sample3.cshtml)]
 
-    Ten kod zawiera jedną zmianę w poprzednim przykładzie. Zamiast używania `WriteAllText`, używa ona `the AppendAllText` metody. Metody są podobne, z tą różnicą, że `AppendAllText` dodaje dane na końcu pliku. Podobnie jak w przypadku `WriteAllText`, `AppendAllText` tworzy plik jeśli jeszcze nie istnieje.
+    Ten kod zawiera jedną zmianę z poprzedniego przykładu. Zamiast używać `WriteAllText`, używa metody `the AppendAllText`. Metody są podobne, z tą różnicą, że `AppendAllText` dodaje dane na końcu pliku. Podobnie jak w przypadku `WriteAllText`, `AppendAllText` tworzy plik, jeśli jeszcze nie istnieje.
 3. Uruchom stronę w przeglądarce.
-4. Wprowadź wartości w polach, a następnie kliknij przycisk **przesyłania**.
-5. Dodawanie większej ilości danych i ponownie Prześlij formularz.
-6. Wróć do projektu, kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij **Odśwież**.
-7. Otwórz *data.txt* pliku. Zawiera teraz nowe dane, które wprowadziłeś. 
+4. Wprowadź wartości dla pól, a następnie kliknij przycisk **Prześlij**.
+5. Dodaj więcej danych i ponownie prześlij formularz.
+6. Wróć do projektu, kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij polecenie **Odśwież**.
+7. Otwórz plik *Data. txt* . Teraz zawiera nowe dane, które zostały wprowadzone. 
 
-    ![[image]](working-with-files/_static/image3.jpg)
+    ![Image](working-with-files/_static/image3.jpg)
 
 <a id="Reading_and_Displaying_Data"></a>
 ## <a name="reading-and-displaying-data-from-a-file"></a>Odczytywanie i wyświetlanie danych z pliku
 
-Nawet wtedy, gdy nie ma potrzeby zapisywania danych do pliku tekstowego, należy prawdopodobnie czasami odczytywać dane z jednego. Aby to zrobić, należy ponownie użyć `File` obiektu. Możesz użyć `File` obiektu do odczytania indywidualnie każdy wiersz (rozdzielonych przez podziały wiersza) lub do odczytania pojedynczych elementów niezależnie od tego, w jaki sposób są oddzielone.
+Nawet jeśli nie musisz pisać danych do pliku tekstowego, prawdopodobnie czasami trzeba będzie odczytywać dane z jednego z nich. Aby to zrobić, możesz ponownie użyć obiektu `File`. Można użyć obiektu `File`, aby odczytać każdy wiersz pojedynczo (rozdzielony podziałem wierszy) lub odczytać poszczególne elementy niezależnie od tego, jak są oddzielone.
 
-Ta procedura pokazuje, jak odczytywać i wyświetlić dane, który został utworzony w poprzednim przykładzie.
+Ta procedura pokazuje, jak odczytywać i wyświetlać dane, które zostały utworzone w poprzednim przykładzie.
 
-1. W katalogu głównym witryny sieci Web, Utwórz nowy plik o nazwie *DisplayData.cshtml*.
-2. Zastąp istniejącą zawartość następujących czynności: 
+1. W katalogu głównym witryny sieci Web Utwórz nowy plik o nazwie *DisplayData. cshtml*.
+2. Zastąp istniejącą zawartość następującym: 
 
     [!code-cshtml[Main](working-with-files/samples/sample4.cshtml)]
 
-    Kod, który rozpoczyna się od odczytu pliku, który został utworzony w poprzednim przykładzie w zmiennej o nazwie `userData`, za pomocą wywołanie tej metody:
+    Kod rozpocznie się, odczytując plik, który został utworzony w poprzednim przykładzie do zmiennej o nazwie `userData`, przy użyciu tego wywołania metody:
 
     [!code-css[Main](working-with-files/samples/sample5.css)]
 
-    Kod w tym celu znajduje się wewnątrz `if` instrukcji. Jeśli chcesz odczytać plik jest dobry pomysł, aby użyć `File.Exists` metodę, aby najpierw sprawdzić, czy plik jest dostępny. Kod sprawdza również, czy plik jest pusty.
+    Kod, aby to zrobić, znajduje się w instrukcji `if`. Jeśli chcesz odczytać plik, dobrym pomysłem jest użycie metody `File.Exists`, aby określić, czy plik jest dostępny. Kod sprawdza również, czy plik jest pusty.
 
-    Treść strony zawiera dwa `foreach` w pętli, jeden zagnieżdżone wewnątrz innych. Zewnętrzny `foreach` pętla przechodzi jeden wiersz jednocześnie z pliku danych. W tym przypadku wiersze są definiowane przez podziały wierszy w pliku &#8212; każdy element danych jest w osobnym wierszu. Zewnętrzna Pętla tworzy nowy element (`<li>` elementu) wewnątrz listy uporządkowanej (`<ol>` elementu).
+    Treść strony zawiera dwie `foreach` pętle, jeden zagnieżdżony w drugim. Pętla zewnętrzna `foreach` pobiera jeden wiersz jednocześnie z pliku danych. W takim przypadku linie są definiowane przez podziały wierszy w pliku &#8212; , który jest, każdy element danych znajduje się w osobnym wierszu. Pętla zewnętrzna tworzy nowy element (`<li>` element) wewnątrz listy uporządkowanej (`<ol>` elementu).
 
-    Wewnętrzną pętlę dzieli każdy wiersz danych na elementy (pola), za pomocą przecinka jako ogranicznik. (Na podstawie poprzedniego przykładu, oznacza to, że każdy wiersz zawiera trzy pola &#8212; imię, nazwisko i adres e-mail, każda jest oddzielona przecinkiem.) Tworzy również wewnętrzną pętlę `<ul>` listy i wyświetla listę jednego elementu dla każdego pola w wierszu danych.
+    Pętla wewnętrzna dzieli każdy wiersz danych na elementy (pola) przy użyciu przecinka jako ogranicznika. (Na podstawie poprzedniego przykładu oznacza to, że każdy wiersz zawiera trzy pola &#8212; imię, nazwisko i adres e-mail, z których każda jest oddzielona przecinkami). Pętla wewnętrzna tworzy również listę `<ul>` i wyświetla jeden element listy dla każdego pola w wierszu danych.
 
-    Kod ilustruje sposób użycia dwa typy danych, tablicy i `char` typu danych. Tablica jest wymagana, ponieważ `File.ReadAllLines` metoda zwraca dane jako tabelę. `char` Typ danych jest wymagany, ponieważ `Split` metoda zwraca `array` w której każdy element jest typu `char`. (Aby uzyskać informacje na temat tablic, zobacz [wprowadzenie do platformy ASP.NET sieci Web programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
-3. Uruchom stronę w przeglądarce. Dane, wprowadzonych w poprzednich przykładach są wyświetlane. 
+    Kod ilustruje sposób używania dwóch typów danych, tablicy i typu danych `char`. Tablica jest wymagana, ponieważ metoda `File.ReadAllLines` zwraca dane jako tablicę. Typ danych `char` jest wymagany, ponieważ metoda `Split` zwraca `array`, w którym każdy element jest typu `char`. (Aby uzyskać informacje na temat tablic, zobacz [wprowadzenie do programowania w sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects)).
+3. Uruchom stronę w przeglądarce. Zostaną wyświetlone dane wprowadzone dla poprzednich przykładów. 
 
-    ![[image]](working-with-files/_static/image4.jpg)
+    ![Image](working-with-files/_static/image4.jpg)
 
 > [!TIP] 
 > 
 > **Wyświetlanie danych z pliku rozdzielanego przecinkami programu Microsoft Excel**
 > 
-> Można użyć programu Microsoft Excel, można zapisać danych zawartych w arkuszu kalkulacyjnym jako pliku rozdzielanego przecinkami (*CSV* pliku). Po wykonaniu, plik jest zapisywany w postaci zwykłego tekstu, a nie w formacie programu Excel. Każdy wiersz w arkuszu kalkulacyjnym jest rozdzielonych przez podziały wiersza w pliku tekstowym, a każdy element danych jest oddzielona przecinkiem. Kod przedstawiony w poprzednim przykładzie służy do odczytu z pliku rozdzielanego przecinkami programu Excel po prostu zmieniając nazwę pliku danych w kodzie.
+> Możesz użyć programu Microsoft Excel, aby zapisać dane zawarte w arkuszu kalkulacyjnym jako plik rozdzielany przecinkami (plik*CSV* ). Gdy to zrobisz, plik zostanie zapisany w postaci zwykłego tekstu, a nie w formacie programu Excel. Każdy wiersz w arkuszu kalkulacyjnym jest oddzielony podziałem wiersza w pliku tekstowym, a każdy element danych jest rozdzielony przecinkami. Możesz użyć kodu pokazanego w poprzednim przykładzie, aby odczytać plik rozdzielany przecinkami programu Excel, zmieniając nazwę pliku danych w kodzie.
 
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>Usuwanie plików
 
-Aby usunąć pliki z witryny sieci Web, można użyć `File.Delete` metody. Za pomocą poniższej procedury zezwolić użytkownikom na usuwanie obrazu ( *.jpg* plik) z *obrazów* folderu, jeśli znają nazwę pliku.
+Aby usunąć pliki z witryny sieci Web, można użyć metody `File.Delete`. Ta procedura pokazuje, jak zezwolić użytkownikom na usuwanie obrazu (pliku*jpg* ) z folderu *obrazy* , jeśli zna nazwę pliku.
 
 > [!NOTE] 
 > 
-> **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
+> **Ważne** W produkcyjnej witrynie sieci Web zwykle ogranicza się, kto może wprowadzać zmiany w danych. Informacje o sposobie konfigurowania członkostwa i sposobach autoryzacji użytkowników do wykonywania zadań w witrynie można znaleźć w temacie [Dodawanie zabezpieczeń i członkostwa do witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-1. W witrynie sieci Web, utwórz podfolder o nazwie *obrazów*.
-2. Kopiuj co najmniej jeden *.jpg* pliki do *obrazów* folderu.
-3. W katalogu głównym witryny sieci Web, Utwórz nowy plik o nazwie *FileDelete.cshtml*.
-4. Zastąp istniejącą zawartość następujących czynności: 
+1. W witrynie sieci Web utwórz podfolder o nazwie *obrazy*.
+2. Skopiuj jeden lub więcej plików *. jpg* do folderu *obrazy* .
+3. W folderze głównym witryny sieci Web Utwórz nowy plik o nazwie *operacja filedelete. cshtml*.
+4. Zastąp istniejącą zawartość następującym: 
 
     [!code-cshtml[Main](working-with-files/samples/sample6.cshtml)]
 
-    Ta strona zawiera formularza, w którym użytkownik może wprowadzić nazwę pliku obrazu. Użytkownik nie podał *.jpg* rozszerzenia nazwy pliku; ograniczając nazwę pliku, tak, możesz uzyskać pomoc uniemożliwia użytkownikom usuwanie dowolnych plików w witrynie.
+    Ta strona zawiera formularz, w którym użytkownicy mogą wprowadzić nazwę pliku obrazu. Nie wprowadzają one rozszerzenia nazwy pliku *. jpg* ; ograniczając nazwę pliku w ten sposób, uniemożliwiasz użytkownikom usuwanie dowolnych plików w witrynie.
 
-    Kod odczytuje nazwę pliku, że użytkownik wprowadził i następnie tworzy pełną ścieżkę. Aby utworzyć ścieżkę, kod używa bieżącej ścieżki witryny sieci Web (zwrócone przez `Server.MapPath` metoda), *obrazów* nazwę folderu, nazwę, która użytkownik udostępnił i ".jpg" jako ciąg literału.
+    Kod odczytuje nazwę pliku wprowadzoną przez użytkownika, a następnie konstruuje kompletną ścieżkę. Aby można było utworzyć ścieżkę, kod używa bieżącej ścieżki witryny sieci Web (w sposób zwrócony przez metodę `Server.MapPath`), nazwy folderu *obrazów* , nazwy podanej przez użytkownika i ". jpg" jako ciągu literału.
 
-    Można usunąć pliku, kod wywołuje `File.Delete` metody przekazanie jej pełną ścieżkę, która po prostu skonstruowany. Na końcu znaczników kod wyświetla komunikat potwierdzający, że plik został usunięty.
+    Aby usunąć plik, kod wywołuje metodę `File.Delete`, przekazując ją pełną ścieżkę, która właśnie została skonstruowana. Na końcu znacznika kod wyświetla komunikat potwierdzający, że plik został usunięty.
 5. Uruchom stronę w przeglądarce. 
 
-    ![[image]](working-with-files/_static/image5.jpg)
-6. Wprowadź nazwę pliku do usunięcia, a następnie kliknij przycisk **przesyłania**. Jeśli plik został usunięty, nazwa pliku jest wyświetlane w dolnej części strony.
+    ![Image](working-with-files/_static/image5.jpg)
+6. Wprowadź nazwę pliku do usunięcia, a następnie kliknij przycisk **Prześlij**. Jeśli plik został usunięty, nazwa pliku zostanie wyświetlona w dolnej części strony.
 
 <a id="Letting_Users_Upload_a_File"></a>
-## <a name="letting-users-upload-a-file"></a>Dzięki czemu użytkownicy przekazywania pliku
+## <a name="letting-users-upload-a-file"></a>Zezwalanie użytkownikom na przekazywanie pliku
 
-`FileUpload` Pomocnika umożliwia użytkownikom przekazywanie plików do witryny sieci Web. Poniższa procedura pokazuje, jak umożliwić użytkownikom przekazać jeden plik.
+Pomocnik `FileUpload` umożliwia użytkownikom przekazywanie plików do witryny sieci Web. W poniższej procedurze pokazano, jak umożliwić użytkownikom przekazywanie pojedynczego pliku.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli użytkownik nie został dodany wcześniej.
-2. W *aplikacji\_danych* folderu, Utwórz nowy folder i nadaj mu nazwę *UploadedFiles*.
-3. W katalogu głównym, Utwórz nowy plik o nazwie *FileUpload.cshtml*.
-4. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj bibliotekę pomocników sieci Web ASP.NET do witryny internetowej zgodnie z opisem w temacie [Instalowanie pomocników w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli nie została ona wcześniej dodana.
+2. W folderze *dane\_aplikacji* Utwórz nowy folder i nadaj mu nazwę *UploadedFiles*.
+3. W katalogu głównym Utwórz nowy plik o nazwie *FileUpload. cshtml*.
+4. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](working-with-files/samples/sample7.cshtml)]
 
-    Korzysta z części treści strony `FileUpload` element pomocniczy służący do tworzenia okno przekazywania i przyciski, które znasz prawdopodobnie:
+    Część treści strony używa pomocnika `FileUpload` do utworzenia pola przekazywania i przycisków, które są prawdopodobnie znane:
 
-    ![[image]](working-with-files/_static/image6.jpg)
+    ![Image](working-with-files/_static/image6.jpg)
 
-    Właściwości, które można ustawić dla `FileUpload` pomocnika określić, czy pojedyncze pole, aby uzyskać plik do przekazania i mają przycisk Prześlij, aby przeczytać **przekazywanie**. (Należy dodać więcej pól w dalszej części tego artykułu.)
+    Właściwości ustawione dla pomocnika `FileUpload` określają, że chcesz, aby plik został przekazany do jednego pola, i że chcesz, aby przycisk przesyłania przeczytał **przekazywanie**. (W dalszej części artykułu dodasz więcej pól).
 
-    Kiedy użytkownik kliknie **przekazywanie**, kod w górnej części strony pobiera plik i zapisuje go. `Request` Obiekt, który umożliwia zwykle pobierają wartości z pól formularza również ma `Files` tablicę, która zawiera plik (lub pliki) zostały przekazane. Możesz uzyskać pojedyncze pliki z określonych pozycji w tablicy &#8212; na przykład, aby uzyskać pierwszy przekazany plik, możesz pobrać `Request.Files[0]`, aby uzyskać drugi plik otrzymasz `Request.Files[1]`i tak dalej. (Należy pamiętać, że w programowaniu zliczanie zwykle zaczyna się od zera).
+    Gdy użytkownik kliknie przycisk **Przekaż**, kod w górnej części strony pobiera plik i zapisuje go. Obiekt `Request`, który zwykle jest używany do pobierania wartości z pól formularza, ma również tablicę `Files`, która zawiera plik (lub pliki), które zostały przekazane. Możesz pobrać pojedyncze pliki z określonych pozycji w tablicy &#8212; na przykład, aby uzyskać pierwszy przekazany plik, uzyskasz `Request.Files[0]`, aby uzyskać drugi plik, uzyskasz `Request.Files[1]`i tak dalej. (Pamiętaj, że w programowaniu funkcja liczenia zwykle zaczyna się od zera).
 
-    Po pobraniu przekazany plik, można umieścić w zmiennej (w tym miejscu `uploadedFile`), dzięki czemu można manipulować go. Aby określić nazwę przekazanego pliku, po prostu otrzymasz jego `FileName` właściwości. Jednak po użytkownik służy do przekazywania pliku, `FileName` zawiera oryginalna nazwa użytkownika, który zawiera pełną ścieżkę. Jego może wyglądać następująco:
+    Po pobraniu przekazanego pliku należy umieścić go w zmiennej (tutaj `uploadedFile`), aby umożliwić manipulowanie nim. Aby określić nazwę przekazanego pliku, wystarczy uzyskać jego właściwość `FileName`. Jeśli jednak użytkownik przekaże plik, `FileName` zawiera oryginalną nazwę użytkownika, która obejmuje całą ścieżkę. Może wyglądać następująco:
 
     *C:\Users\Public\Sample.txt*
 
-    Nie chcesz tych informacji ścieżki, ponieważ jest to ścieżka na komputerze użytkownika, nie dla serwera. Po prostu chcesz rzeczywiste nazwy plików (*przykład.txt*). Po prostu pliku ze ścieżki mogą odłączenia przy użyciu `Path.GetFileName` metoda następująco:
+    Nie chcesz, aby wszystkie informacje o ścieżce były takie same jak ścieżki na komputerze użytkownika, a nie na serwerze. Wystarczy tylko rzeczywista nazwa pliku (*Sample. txt*). Można rozdzielić tylko plik ze ścieżki przy użyciu metody `Path.GetFileName`, tak jak to:
 
     [!code-csharp[Main](working-with-files/samples/sample8.cs)]
 
-    `Path` Obiektu to narzędzie, które ma kilka metod, takich jak ta, używanej do paska ścieżki, łączenia ścieżek i tak dalej.
+    Obiekt `Path` jest narzędziem, które ma wiele metod, takich jak to, których można użyć do rozdzielania ścieżek, łączenia ścieżek itd.
 
-    Po trafiła do Ciebie nazwa przekazany plik, możesz utworzyć nową ścieżkę dla której chcesz przechowywać przekazanego pliku w witrynie sieci Web. W takim przypadku możesz połączyć `Server.MapPath`, nazwy folderów (*aplikacji\_danych/UploadedFiles*) i nazwę nowo usuniętych plików, aby utworzyć nową ścieżkę. Następnie możesz wywołać przekazanego pliku `SaveAs` metodę, aby faktycznie Zapisz plik.
+    Po otrzymaniu nazwy przekazanego pliku można utworzyć nową ścieżkę, w której ma zostać zapisany przekazany plik w witrynie sieci Web. W takim przypadku należy połączyć `Server.MapPath`, nazwy folderów (*App\_Data/UploadedFiles*) oraz nowo rozkrytą nazwę pliku w celu utworzenia nowej ścieżki. Następnie można wywołać metodę `SaveAs` przekazanego pliku, aby rzeczywiście zapisać plik.
 5. Uruchom stronę w przeglądarce. 
 
-    ![[image]](working-with-files/_static/image7.jpg)
-6. Kliknij przycisk **Przeglądaj** a następnie wybierz plik do przekazania. 
+    ![Image](working-with-files/_static/image7.jpg)
+6. Kliknij przycisk **Przeglądaj** , a następnie wybierz plik do przekazania. 
 
-    ![[image]](working-with-files/_static/image8.jpg)
+    ![Image](working-with-files/_static/image8.jpg)
 
-    Pole tekstowe obok **Przeglądaj** przycisk będzie zawierać ścieżkę i lokalizacji.
+    Pole tekstowe obok przycisku **przeglądania** będzie zawierać ścieżkę i lokalizację pliku.
 
-    ![[image]](working-with-files/_static/image9.jpg)
+    ![Image](working-with-files/_static/image9.jpg)
 7. Kliknij pozycję **Przekaż**.
-8. W witrynie sieci Web, kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij przycisk **Odśwież**.
-9. Otwórz *UploadedFiles* folderu. Przekazany plik znajduje się w folderze. 
+8. W witrynie sieci Web kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij polecenie **Odśwież**.
+9. Otwórz folder *UploadedFiles* . Przekazany plik znajduje się w folderze. 
 
-    ![[image]](working-with-files/_static/image10.jpg)
+    ![Image](working-with-files/_static/image10.jpg)
 
 <a id="Letting_Users_Upload_Multiple_Files"></a>
-## <a name="letting-users-upload-multiple-files"></a>Umożliwienie użytkownikom przekazywanie wielu plików
+## <a name="letting-users-upload-multiple-files"></a>Zezwalanie użytkownikom na przekazywanie wielu plików
 
-W poprzednim przykładzie możesz zezwolić użytkownikom przekazać jeden plik. Ale można użyć `FileUpload` element pomocniczy służący do przekazywania więcej niż jeden plik jednocześnie. Jest to przydatne w scenariuszach, takich jak przekazywanie zdjęć, gdzie jest niewygodna przekazywania jeden plik jednocześnie. (Możesz przeczytać o przekazywania zdjęć w [Praca z obrazami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202897).) Ten przykład pokazuje, jak umożliwić użytkownikom przekazywanie dwóch naraz, chociaż można używać tej samej techniki, można przekazać więcej niż.
+W poprzednim przykładzie można umożliwić użytkownikom przekazywanie jednego pliku. Można jednak użyć pomocnika `FileUpload`, aby przekazać więcej niż jeden plik jednocześnie. Jest to przydatne w przypadku scenariuszy, takich jak przekazywanie fotografii, gdzie przekazywanie jednego pliku w danym momencie jest żmudnym. (Informacje o przekazywaniu zdjęć w [pracy z obrazami można znaleźć w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202897)). W tym przykładzie pokazano, jak umożliwić użytkownikom przekazywanie dwóch naraz, chociaż możesz użyć tej samej techniki, aby przekazywać więcej niż te informacje.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze go.
-2. Utwórz nową stronę o nazwie *FileUploadMultiple.cshtml*.
-3. Zastąp istniejącą zawartość na stronie następujących czynności:  
+1. Dodaj bibliotekę pomocników sieci Web ASP.NET do witryny sieci Web zgodnie z opisem w temacie [Instalowanie pomocników w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372)(jeśli jeszcze nie zostało to zrobione).
+2. Utwórz nową stronę o nazwie *FileUploadMultiple. cshtml*.
+3. Zastąp istniejącą zawartość na stronie następującymi:  
 
     [!code-cshtml[Main](working-with-files/samples/sample9.cshtml)]
 
-    W tym przykładzie `FileUpload` pomocnika w treści strony jest domyślnie skonfigurowana do zezwala użytkownikom na przekazywanie dwa pliki. Ponieważ `allowMoreFilesToBeAdded` ustawiono `true`, pomocnika renderuje łącze, które pozwala użytkownikowi na dodanie więcej pól przekazywania:
+    W tym przykładzie pomocnik `FileUpload` w treści strony jest skonfigurowany tak, aby umożliwić użytkownikom przekazywanie domyślnie dwóch plików. Ponieważ `allowMoreFilesToBeAdded` jest ustawiona na `true`, pomocnik renderuje link, który umożliwia użytkownikowi dodawanie kolejnych pól przekazywania:
 
-    ![[image]](working-with-files/_static/image11.jpg)
+    ![Image](working-with-files/_static/image11.jpg)
 
-    Aby przetwarzać pliki, które przekazuje użytkownika, w kodzie za pomocą tej samej techniki podstawowe, które było używane w poprzednim przykładzie &#8212; pobieranie pliku z `Request.Files` i zapisz go. (W tym różne elementy należy zrobić, aby uzyskać prawo nazwę i ścieżkę.) Wprowadzanie innowacji w tej chwili jest, czy użytkownik może przekazać wiele plików i nie wiesz, wiele. Aby dowiedzieć się, możesz uzyskać `Request.Files.Count`.
+    Aby przetworzyć pliki, które przekazuje użytkownik, kod używa tej samej podstawowej techniki, która została użyta w poprzednim przykładzie &#8212; Pobierz plik z `Request.Files` a następnie zapisz go. (W tym różne czynności, które należy wykonać, aby uzyskać właściwą nazwę i ścieżkę pliku). Innowacje w tym czasie mogą przekazywać wiele plików, a użytkownik nie wie wielu. Aby dowiedzieć się, możesz uzyskać `Request.Files.Count`.
 
-    Ten numer strony, można pętli `Request.Files`, z kolei pobierania każdego pliku i zapisz go. Sprzężenie znanych kilka razy w kolekcji, należy można użyć `for` pętli następująco:
+    Dzięki tej liczbie można przechodzić między `Request.Files`, pobierać każdy plik z kolei i zapisywać go. Gdy chcesz zapętlać znaną liczbę razy za pomocą kolekcji, możesz użyć pętli `for`, tak jak to:
 
     [!code-csharp[Main](working-with-files/samples/sample10.cs)]
 
-    Zmienna `i` to tylko tymczasowy licznik, który przechodzi od zera do dowolnych górny limit zostanie ustawiona. W tym przypadku górny limit jest to liczba plików. Jednak ponieważ licznik rozpoczyna się od zera, podobnie jak w typowej do zliczania scenariuszy dla platformy ASP.NET, górny limit jest faktycznie jeden mniejsza niż liczba plików. (Jeśli trzy pliki są przekazywane, liczba jest zero, 2).
+    Zmienna `i` jest tylko tymczasowym licznikiem, który przejdzie od zera do dowolnego ustawionego górnego limitu. W takim przypadku górny limit to liczba plików. Ale ponieważ licznik zaczyna się od zera, jak zwykle jest to typowy dla obliczeń scenariuszy w ASP.NET, górny limit jest w rzeczywistości mniejszy niż liczba plików. (Jeśli przekazano trzy pliki, liczba jest równa zero do 2).
 
-    `uploadedCount` Zmiennej sumuje wszystkie pliki, które zostaną pomyślnie przekazane i zapisane. Ten kod kont możliwość, że oczekiwany plik może okazać się niemożliwe do przekazania.
-4. Uruchom stronę w przeglądarce. W przeglądarce pojawi się Strona i jego przekazywanie dwóch polach.
+    Zmienna `uploadedCount` sumuje wszystkie pliki, które zostały pomyślnie przekazane i zapisane. Ten kod może nie być w stanie przekazywać oczekiwanego pliku.
+4. Uruchom stronę w przeglądarce. Przeglądarka wyświetli stronę i jej dwa pola przekazywania.
 5. Wybierz dwa pliki do przekazania.
-6. Kliknij przycisk **dodać inny plik**. Strony wyświetli nowe okno przekazywania. 
+6. Kliknij przycisk **Dodaj inny plik**. Na stronie zostanie wyświetlone nowe pole przekazywania. 
 
-    ![[image]](working-with-files/_static/image12.jpg)
+    ![Image](working-with-files/_static/image12.jpg)
 7. Kliknij pozycję **Przekaż**.
-8. W witrynie sieci Web, kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij przycisk **Odśwież**.
-9. Otwórz *UploadedFiles* folder, aby wyświetlić pliki, które pomyślnie przekazano.
+8. W witrynie sieci Web kliknij prawym przyciskiem myszy folder projektu, a następnie kliknij polecenie **Odśwież**.
+9. Otwórz folder *UploadedFiles* , aby zobaczyć pomyślnie przekazane pliki.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [Praca z obrazami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202897)
 

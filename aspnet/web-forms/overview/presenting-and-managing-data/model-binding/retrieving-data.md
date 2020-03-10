@@ -9,11 +9,11 @@ ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
 ms.openlocfilehash: 81cca22cb4752d071d2a68986ae9ac2bed737594
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633171"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640197"
 ---
 # <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Pobieranie i wyświetlanie danych przy użyciu powiązania modelu i formularzy sieci Web
 
@@ -43,13 +43,13 @@ W tym samouczku przedstawiono następujące instrukcje:
 * Wypełnianie bazy danych danymi testowymi
 * Wyświetlanie danych w formularzu sieci Web
 
-## <a name="create-the-project"></a>Utwórz projekt
+## <a name="create-the-project"></a>Tworzenie projektu
 
 1. W programie Visual Studio 2017 Utwórz projekt **aplikacji sieci Web ASP.NET (.NET Framework)** o nazwie **ContosoUniversityModelBinding**.
 
    ![Utwórz projekt](retrieving-data/_static/image19.png)
 
-2. Wybierz **przycisk OK**. Zostanie wyświetlone okno dialogowe z wybranym szablonem.
+2. Kliknij przycisk **OK**. Zostanie wyświetlone okno dialogowe z wybranym szablonem.
 
    ![Wybieranie formularzy sieci Web](retrieving-data/_static/image3.png)
 
@@ -57,7 +57,7 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 4. W razie potrzeby zmień uwierzytelnianie na **konta poszczególnych użytkowników**. 
 
-5. Wybierz **przycisk OK** , aby utworzyć projekt.
+5. Wybierz przycisk **OK**, aby utworzyć projekt.
 
 ## <a name="modify-site-appearance"></a>Modyfikuj wygląd witryny
 
@@ -93,13 +93,13 @@ W tym samouczku przedstawiono następujące instrukcje:
    
    4. Na stronie wzorcowej formularza sieci Web wybierz pozycję **site. Master**.
    
-   5. Wybierz **przycisk OK**.
+   5. Kliknij przycisk **OK**.
 
 ## <a name="add-the-data-model"></a>Dodawanie modelu danych
 
 W folderze **modele** Dodaj klasę o nazwie **UniversityModels.cs**.
 
-   1. Kliknij prawym przyciskiem myszy pozycję **modele**, wybierz pozycję **Dodaj**, a następnie pozycję **nowy element**. Pojawi się okno dialogowe **Dodaj nowy element** .
+   1. Kliknij prawym przyciskiem myszy pozycję **modele**, wybierz pozycję **Dodaj**, a następnie pozycję **nowy element**. Zostanie wyświetlone okno dialogowe **Dodawanie nowego elementu**.
 
    2. W menu nawigacji po lewej stronie wybierz pozycję **Code**, a następnie **Class**.
 
@@ -115,7 +115,7 @@ W folderze **modele** Dodaj klasę o nazwie **UniversityModels.cs**.
 
       W klasie `Student` Zwróć uwagę na atrybuty zastosowane do właściwości `FirstName`, `LastName`i `Year`. Ten samouczek używa tych atrybutów do sprawdzania poprawności danych. Aby uprościć kod, tylko te właściwości są oznaczone atrybutami walidacji danych. W rzeczywistym projekcie należy zastosować atrybuty walidacji do wszystkich właściwości wymagających walidacji.
 
-   4. Zapisz UniversityModels.cs.
+   4. Save UniversityModels.cs.
 
 ## <a name="set-up-the-database-based-on-classes"></a>Skonfiguruj bazę danych na podstawie klas
 
@@ -136,7 +136,7 @@ Ten samouczek używa [migracje Code First](https://docs.microsoft.com/ef/ef6/mod
 
    1. Otwórz Configuration.cs.
    
-   2. Dodaj następujący kod do metody `Seed`. Ponadto Dodaj instrukcję `using` dla przestrzeni nazw `ContosoUniversityModelBinding. Models`.
+   2. Dodaj następujący kod do metody `Seed`: Ponadto Dodaj instrukcję `using` dla przestrzeni nazw `ContosoUniversityModelBinding. Models`.
 
       [!code-csharp[Main](retrieving-data/samples/sample5.cs)]
 
@@ -214,4 +214,4 @@ W tym samouczku utworzono klasy modelu danych i Wygenerowano bazę danych z tych
 W następnym [samouczku](updating-deleting-and-creating-data.md) w tej serii będziesz włączać aktualizowanie, usuwanie i tworzenie danych.
 
 > [!div class="step-by-step"]
-> [Next](updating-deleting-and-creating-data.md)
+> [Dalej](updating-deleting-and-creating-data.md)

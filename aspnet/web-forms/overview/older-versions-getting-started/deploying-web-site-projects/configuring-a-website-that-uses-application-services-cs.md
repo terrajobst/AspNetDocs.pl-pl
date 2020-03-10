@@ -9,11 +9,11 @@ ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 72aaca84b8c8d6e558d4c946faa57fa999d48bf8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74570195"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630579"
 ---
 # <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurowanie witryny internetowej, która korzysta z usług aplikacji (C#)
 

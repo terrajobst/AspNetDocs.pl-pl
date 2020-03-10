@@ -9,11 +9,11 @@ ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
 ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615452"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568223"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>Wprowadzenie z formularzami sieci Web ASP.NET 4,5 i programem Visual Studio 2017
 
@@ -191,4 +191,4 @@ Komentarze do tej serii samouczków są powitane. Gdy ta seria samouczków zosta
 Jeśli wystąpi błąd, odpowiednie komunikaty o błędach mogą być mylące i nie są dobrym wyjaśnieniem, jak to naprawić. Aby uzyskać pomoc, możesz sprawdzić [fora ASP.NET](https://forums.asp.net/). Innym dobrym źródłem jest sekcja pytań i odpowiedzi w [wprowadzenie za pomocą formularzy sieci Web ASP.NET 4,5 i Visual Studio 2013-Wingtip zabawki](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#). 
 
 > [!div class="step-by-step"]
-> [Next](create-the-project.md)
+> [Dalej](create-the-project.md)

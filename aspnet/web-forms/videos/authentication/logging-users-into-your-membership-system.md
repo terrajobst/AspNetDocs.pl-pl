@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/logging-users-into-your-membership-system
-title: Rejestrowanie użytkowników w systemie członkostwa | Dokumentacja firmy Microsoft
+title: Rejestrowanie użytkowników w systemie członkostwa | Microsoft Docs
 author: JoeStagner
-description: W tym filmie Stagner Jan pokazuje, jak użytkownicy logują się systemu członkostwa programu ASP.NET.
+description: W tym filmie wideo Jan Stagner pokazuje, jak rejestrować użytkowników w systemie członkostwa ASP.NET.
 ms.author: riande
 ms.date: 07/29/2010
 ms.assetid: 39a7142b-8228-4dae-8578-c26d70e3ae71
 msc.legacyurl: /web-forms/videos/authentication/logging-users-into-your-membership-system
 msc.type: video
 ms.openlocfilehash: 39aec7811eb9b93d5d7d6635d03581e45e2be455
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404770"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525488"
 ---
 # <a name="logging-users-into-your-membership-system"></a>Rejestrowanie użytkowników w systemie członkostwa
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie Stagner Jan pokazuje, jak użytkownicy logują się systemu członkostwa programu ASP.NET.
+W tym filmie wideo Jan Stagner pokazuje, jak rejestrować użytkowników w systemie członkostwa ASP.NET.
 
-[&#9654;Obejrzyj film wideo (minuty 19)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/logging-users-into-your-membership-system)
+[&#9654;Obejrzyj wideo (19 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/logging-users-into-your-membership-system)
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-users-to-your-membership-system.md)

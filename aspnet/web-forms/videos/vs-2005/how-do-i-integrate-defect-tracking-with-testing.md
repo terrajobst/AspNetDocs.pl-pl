@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-integrate-defect-tracking-with-testing
-title: '[Jak mogę] Integracja śledzenia usterek z testowaniem? | Microsoft Docs'
+title: '[Jak:] Czy zintegrować śledzenie usterek z testowaniem? | Microsoft Docs'
 author: rick-anderson
-description: W tym filmie pokazano możemy przyjrzeć punktów integracji między testowania Framework programu Visual Studio Team System i System śledzenia elementu roboczego.
+description: W tym filmie wideo Przyjrzyjmy się punktom integracji między platformą testową programu Visual Studio Team System i systemem śledzenia elementów roboczych.
 ms.author: riande
 ms.date: 06/12/2007
 ms.assetid: 83a849da-fe6c-483a-bc26-73e8a135830f
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-integrate-defect-tracking-with-testing
 msc.type: video
 ms.openlocfilehash: f46adbd1ef55061332e4eb3f62578654120c9ebd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398816"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641205"
 ---
-# <a name="how-do-i-integrate-defect-tracking-with-testing"></a>[Jak mogę] Integracja śledzenia usterek z testowaniem?
+# <a name="how-do-i-integrate-defect-tracking-with-testing"></a>[Jak:] Czy zintegrować śledzenie usterek z testowaniem?
 
-przez [Chris Menegay](https://twitter.com/CMenegay)
+[Krzysztof Menegay](https://twitter.com/CMenegay)
 
-W tym filmie pokazano możemy przyjrzeć punktów integracji między testowania Framework programu Visual Studio Team System i System śledzenia elementu roboczego.
+W tym filmie wideo Przyjrzyjmy się punktom integracji między platformą testową programu Visual Studio Team System i systemem śledzenia elementów roboczych.
 
-[&#9654;Obejrzyj film wideo (8 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-integrate-defect-tracking-with-testing)
+[&#9654;Obejrzyj wideo (8 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-integrate-defect-tracking-with-testing)
 
 > [!div class="step-by-step"]
 > [Poprzednie](the-effects-of-viewstate.md)

@@ -9,11 +9,11 @@ ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
 ms.openlocfilehash: eaa3141c22980f0c816e2f33b5597ac9fe69c23c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594908"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78548413"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie dodatkowych plików
 

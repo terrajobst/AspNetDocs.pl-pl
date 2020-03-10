@@ -1,275 +1,275 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
-title: Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript | Dokumentacja firmy Microsoft
+title: Przewodnik interfejsu API centrów sygnałów ASP.NET — klient JavaScript | Microsoft Docs
 author: bradygaster
-description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w klientów języka JavaScript, takie jak przeglądarki i applicat Windows Store (WinJS)...
+description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla programu sygnalizującego w wersji 2 w klientach JavaScript, takich jak przeglądarki i Sklep Windows (WinJS) applicat...
 ms.author: bradyg
 ms.date: 01/15/2019
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
 ms.openlocfilehash: 8befe133c3627dac1f7d011959c68e2054d345da
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119654"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536660"
 ---
-# <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript
+# <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Przewodnik interfejsu API centrów sygnałów ASP.NET — klient JavaScript
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w klientów języka JavaScript, takie jak przeglądarki i aplikacje Windows Store (WinJS).
+> Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla programu sygnalizującego w wersji 2 w klientach JavaScript, takich jak przeglądarki i aplikacje ze sklepu Windows (WinJS).
 >
-> Interfejsu API centrów SignalR umożliwia zdalne wywołania procedur (RPC) z serwera do połączonych klientów i od klientów z serwerem. W kodzie serwera należy zdefiniować metody, które mogą być wywoływane przez klientów, a wywołanie metody, które są uruchamiane na komputerze klienckim. W kodzie klienta definiowania metod, które mogą być wywoływane z serwera, a wywołanie metody, które są uruchamiane na serwerze. SignalR zajmuje się wszystkie nadmiar klient serwer dla Ciebie.
+> Interfejs API centrów sygnałów umożliwia wykonywanie zdalnych wywołań procedur (RPC) z serwera do podłączonych klientów i od klientów do serwera programu. W polu kod serwera można zdefiniować metody, które mogą być wywoływane przez klientów, i wywoływanie metod uruchamianych na kliencie. W kodzie klienta należy zdefiniować metody, które mogą być wywoływane z serwera programu, i wywoływanie metod, które są uruchamiane na serwerze. Sygnalizujący, że wszystkie instalacje z klientem do serwera są obsługiwane.
 >
-> SignalR oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Wprowadzenie do SignalR, centra i połączenia trwałego, zobacz [wprowadzenie do SignalR](../getting-started/introduction-to-signalr.md).
+> Sygnalizujący oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Aby zapoznać się z wprowadzeniem do sygnałów, centrów i połączeń trwałych, zobacz [wprowadzenie do usługi sygnalizującer](../getting-started/introduction-to-signalr.md).
 >
-> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
+> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używane w tym temacie
 >
 >
 > - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 > - .NET 4.5
-> - SignalR w wersji 2
+> - Sygnalizujący wersja 2
 >
 >
 >
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
 >
-> Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
+> Aby uzyskać informacje o wcześniejszych wersjach programu sygnalizującego, zobacz sekcję [sygnalizujące starsze wersje](../older-versions/index.md).
 >
-> ## <a name="questions-and-comments"></a>Pytania i komentarze
+> ## <a name="questions-and-comments"></a>Pytania i Komentarze
 >
-> Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
+> Prosimy o opinię na temat sposobu, w jaki lubię ten samouczek, i co możemy ulepszyć w komentarzach w dolnej części strony. Jeśli masz pytania, które nie są bezpośrednio związane z samouczkiem, możesz je ogłosić na [forum ASP.NET](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 ## <a name="overview"></a>Omówienie
 
 Ten dokument zawiera następujące sekcje:
 
-- [Wygenerowany serwer proxy i przeznaczenie dla Ciebie](#genproxy)
+- [Wygenerowany serwer proxy i jego działanie](#genproxy)
 
-    - [Kiedy należy używać wygenerowany serwer proxy](#cantusegenproxy)
-- [Instalacja klienta](#clientsetup)
+    - [Kiedy używać wygenerowanego serwera proxy](#cantusegenproxy)
+- [Konfiguracja klienta](#clientsetup)
 
-    - [Jak odwoływać się dynamicznie generowanym serwera proxy](#dynamicproxy)
-    - [Jak utworzyć plik fizyczny dla elementu SignalR wygenerowany serwer proxy](#manualproxy)
+    - [Jak odwołać się do dynamicznie generowanego serwera proxy](#dynamicproxy)
+    - [Jak utworzyć plik fizyczny dla wygenerowanego przez sygnał serwera proxy](#manualproxy)
 - [Jak nawiązać połączenie](#establishconnection)
 
-    - [$. connection.hub jest taki sam obiekt, tworzy tego $.hubConnection()](#connequivalence)
-    - [Wykonanie asynchroniczne metody start](#asyncstart)
+    - [$. Connection. Hub jest tym samym obiektem, który $. hubConnection () tworzy](#connequivalence)
+    - [Asynchroniczne wykonywanie metody Start](#asyncstart)
 - [Jak nawiązać połączenie między domenami](#crossdomain)
 - [Jak skonfigurować połączenie](#configureconnection)
 
     - [Jak określić parametry ciągu zapytania](#querystring)
     - [Jak określić metodę transportu](#transport)
-- [Jak uzyskać serwera proxy dla klasy koncentratora](#getproxy)
-- [Sposób definiowania metody na kliencie, który można wywołać serwera](#callclient)
-- [Jak wywołać metody serwera z poziomu klienta](#callserver)
+- [Jak uzyskać serwer proxy dla klasy centrum](#getproxy)
+- [Jak zdefiniować metody na kliencie, które mogą być wywoływane przez serwer](#callclient)
+- [Jak wywoływać metody serwera z klienta](#callserver)
 - [Jak obsługiwać zdarzenia okresu istnienia połączenia](#connectionlifetime)
-- [Sposób obsługi błędów](#handleerrors)
-- [Włączanie rejestrowania po stronie klienta](#logging)
+- [Jak obsłużyć błędy](#handleerrors)
+- [Jak włączyć rejestrowanie po stronie klienta](#logging)
 
-Dokumentacja na temat programu server lub klientów programu .NET, zobacz następujące zasoby:
+Aby uzyskać dokumentację dotyczącą sposobu programowania serwera lub klientów platformy .NET, zobacz następujące zasoby:
 
-- [Podręcznik interfejsu API centrów SignalR — serwer](hubs-api-guide-server.md)
-- [Podręcznik interfejsu API centrów SignalR — klient modelu .NET](hubs-api-guide-net-client.md)
+- [Przewodnik interfejsu API centrów sygnałów — serwer](hubs-api-guide-server.md)
+- [Przewodnik interfejsu API centrów sygnałów — klient platformy .NET](hubs-api-guide-net-client.md)
 
-Składnik serwera SignalR 2 jest dostępna tylko w .NET 4.5 (chociaż klienta platformy .NET dla SignalR 2 program .NET 4.0).
+Składnik sygnalizujący 2 serwer jest dostępny tylko w programie .NET 4,5 (chociaż na platformie .NET 4,0 istnieje klient .NET).
 
 <a id="genproxy"></a>
 
-## <a name="the-generated-proxy-and-what-it-does-for-you"></a>Wygenerowany serwer proxy i przeznaczenie dla Ciebie
+## <a name="the-generated-proxy-and-what-it-does-for-you"></a>Wygenerowany serwer proxy i jego działanie
 
-Można programować klienta JavaScript do komunikowania się z usługą SignalR, z lub bez serwera proxy, który generuje SignalR. Serwer proxy jest dla Ciebie to uprościć jego składnię kodu używana do łączenia metod zapisywania, które wymaga serwera, i wywoływać metody na serwerze.
+Możesz programować klienta JavaScript, aby komunikować się z usługą sygnalizującą z serwerem proxy lub bez niego. Co to jest serwer proxy upraszcza składnię kodu używanego do nawiązywania połączeń, metody zapisu, które serwer wywołuje, i wywołania metod na serwerze.
 
-Podczas pisania kodu w celu wywołania metody serwera wygenerowany serwer proxy umożliwia użycie składni, która wygląda tak, jakby były wykonywania funkcji lokalnej: możesz napisać `serverMethod(arg1, arg2)` zamiast `invoke('serverMethod', arg1, arg2)`. Składnia wygenerowany serwer proxy umożliwia również natychmiastowe i zrozumiałym błąd po stronie klienta, jeśli wpisujesz nazwę metody serwera. A jeśli ręcznie utworzyć plik, który definiuje serwery proxy, możesz również uzyskać obsługę technologii IntelliSense do pisania kodu, który wywołuje metody serwera.
+Podczas pisania kodu do wywoływania metod serwera wygenerowany serwer proxy umożliwia użycie składni, która wygląda tak, jakby była wykonywana funkcja lokalna: można napisać `serverMethod(arg1, arg2)` zamiast `invoke('serverMethod', arg1, arg2)`. Wygenerowana składnia serwera proxy umożliwia również natychmiastowe i zrozumiały błąd po stronie klienta, jeśli wpiszesz nazwę metody serwera. A jeśli ręcznie utworzysz plik, który definiuje serwery proxy, możesz również uzyskać obsługę technologii IntelliSense do pisania kodu, który wywołuje metody serwera.
 
-Na przykład załóżmy, że masz następujące klasy koncentratora na serwerze:
+Załóżmy na przykład, że na serwerze znajduje się następująca Klasa centrum:
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample1.cs?highlight=1,3,5)]
 
-W poniższych przykładach kodu pokazano, co JavaScript kod wygląda do wywoływania `NewContosoChatMessage` metody na serwerze i odbieranie wywołań `addContosoChatMessageToPage` metody z serwera.
+W poniższych przykładach kodu przedstawiono kod JavaScript, który wygląda na sposób wywoływania metody `NewContosoChatMessage` na serwerze i odbieranie wywołań metody `addContosoChatMessageToPage` z serwera.
 
-**Za pomocą wygenerowanego serwera proxy**
+**Z wygenerowanym serwerem proxy**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample2.js?highlight=1-2,8)]
 
-**Bez wygenerowany serwer proxy**
+**Bez wygenerowanego serwera proxy**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample3.js?highlight=2-3,9)]
 
 <a id="cantusegenproxy"></a>
 
-### <a name="when-to-use-the-generated-proxy"></a>Kiedy należy używać wygenerowany serwer proxy
+### <a name="when-to-use-the-generated-proxy"></a>Kiedy używać wygenerowanego serwera proxy
 
-Jeśli chcesz zarejestrować wiele procedur obsługi zdarzeń dla metod klienta, który wywołuje serwer, nie możesz użyć wygenerowanego serwera proxy. W przeciwnym razie można używać wygenerowany serwer proxy lub nie na podstawie kodowania preferencji użytkownika. Jeśli nie chcesz go użyć, nie musisz odwoływać się do adresu URL "koncentratory/signalr" w `script` elementu w kodzie klienta.
+Jeśli chcesz zarejestrować wiele obsługi zdarzeń dla metody klienta, którą wywoła serwer, nie możesz użyć wygenerowanego serwera proxy. W przeciwnym razie można wybrać użycie wygenerowanego serwera proxy lub nie na podstawie preferencji kodowania. Jeśli zdecydujesz się nie używać, nie musisz odwoływać się do adresu URL "sygnalizującer/Hub" w `script` w kodzie klienta.
 
 <a id="clientsetup"></a>
 
-## <a name="client-setup"></a>Instalacja klienta
+## <a name="client-setup"></a>Konfiguracja klienta
 
-Klient JavaScript wymaga odwołania do technologii jQuery i plik JavaScript core SignalR. Wersja jQuery musi być 1.6.4 lub nowsze wersje główne, takich jak 1.7.2, 1.8.2 lub 1.9.1. Jeśli zdecydujesz się używać wygenerowany serwer proxy, należy również odwołanie do serwera proxy SignalR wygenerowany plik JavaScript. Poniższy przykład pokazuje, jak odwołania może wyglądać na stronie HTML, który używa wygenerowany serwer proxy.
+Klient JavaScript wymaga odwołań do jQuery i podstawowego pliku języka JavaScript. Wersja jQuery musi być 1.6.4 lub większością nowszych wersji, takich jak 1.7.2, 1.8.2 lub 1.9.1. Jeśli zdecydujesz się użyć wygenerowanego serwera proxy, musisz również odwołać się do pliku JavaScript wygenerowanego przez Sygnałer. Poniższy przykład pokazuje, jakie odwołania mogą wyglądać na stronie HTML używającej wygenerowanego serwera proxy.
 
 [!code-html[Main](hubs-api-guide-javascript-client/samples/sample4.html)]
 
-Te odwołania muszą być zawarte w następującej kolejności: jQuery imię i nazwisko core SignalR po tym i serwery proxy SignalR.
+Te odwołania muszą być zawarte w tej kolejności: najpierw jQuery, rdzeń sygnalizujący po tym, a serwery proxy sygnalizujące ostatnie.
 
 <a id="dynamicproxy"></a>
 
-### <a name="how-to-reference-the-dynamically-generated-proxy"></a>Jak odwoływać się dynamicznie generowanym serwera proxy
+### <a name="how-to-reference-the-dynamically-generated-proxy"></a>Jak odwołać się do dynamicznie generowanego serwera proxy
 
-W powyższym przykładzie odwołanie do serwera proxy SignalR, generowany jest dynamicznie generowanego kodu JavaScript, nie do pliku fizycznego. SignalR tworzy kod JavaScript dla serwera proxy na bieżąco i służy ona do klienta w odpowiedzi na adres URL "/ signalr/centra". Jeśli określono inny podstawowy adres URL dla połączenia SignalR na serwerze w Twojej `MapSignalR` metody, adres URL pliku dynamicznie generowanym serwera proxy jest adres URL niestandardowego za pomocą "/ koncentratory" dołączone do niego.
+W poprzednim przykładzie odwołanie do wygenerowanego przez sygnalizującego serwera proxy ma dynamicznie generowany kod JavaScript, a nie plik fizyczny. Program sygnalizujący tworzy kod JavaScript dla serwera proxy na bieżąco i służy do obsługi klienta w odpowiedzi na adres URL "/SignalR/Hubs". Jeśli określono inny podstawowy adres URL dla połączeń sygnalizujących na serwerze w metodzie `MapSignalR`, adres URL dla dynamicznie generowanego pliku proxy to niestandardowy adres URL z dołączonym do niego elementem "/Hubs".
 
 > [!NOTE]
-> Dla klientów systemu Windows 8 (Windows Store) JavaScript należy użyć pliku fizycznego serwera proxy zamiast generowanych dynamicznie. Aby uzyskać więcej informacji, zobacz [sposobu tworzenia pliku fizycznego dla elementu SignalR wygenerowany serwer proxy](#manualproxy) w dalszej części tego tematu.
+> W przypadku klientów JavaScript systemu Windows 8 (sklepu Windows) Użyj fizycznego pliku serwera proxy zamiast dynamicznie generowanego. Aby uzyskać więcej informacji, zobacz [jak utworzyć plik fizyczny dla wygenerowanego przez program sygnalizujący serwer proxy](#manualproxy) w dalszej części tego tematu.
 
-W technologii ASP.NET MVC 4 lub 5 widoku Razor należy użyć tylda do odwoływania się do katalogu głównego aplikacji, w której można się odwołać plik serwera proxy:
+W widoku Razor ASP.NET MVC 4 lub 5, użyj tyldy, aby odwołać się do katalogu głównego aplikacji w dokumentacji pliku proxy:
 
 [!code-html[Main](hubs-api-guide-javascript-client/samples/sample5.html)]
 
-Aby uzyskać więcej informacji na temat korzystania z SignalR w MVC 5, zobacz [wprowadzenie do SignalR i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
+Aby uzyskać więcej informacji o korzystaniu z programu sygnalizującego w MVC 5, zobacz [wprowadzenie z sygnalizującer i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
 
-W widoku Razor programu ASP.NET MVC 3, należy użyć `Url.Content` usługi serwera proxy dla odwołania do pliku:
+W widoku Razor ASP.NET MVC 3 Użyj `Url.Content` do odwołania do pliku serwera proxy:
 
 [!code-cshtml[Main](hubs-api-guide-javascript-client/samples/sample6.cshtml)]
 
-W aplikacji formularzy sieci Web ASP.NET, za pomocą `ResolveClientUrl` swoje serwery proxy odwołanie do pliku lub zarejestrować go za pośrednictwem Menedżera skryptów przy użyciu ścieżki względnej katalogu głównego aplikacji (rozpoczynający się tyldą):
+W aplikacji ASP.NET Web Forms Użyj `ResolveClientUrl` do odwołania do pliku proxy lub Zarejestruj ją za pośrednictwem ScriptManager przy użyciu ścieżki względnej głównej aplikacji (rozpoczynając od tyldy):
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Zgodnie z ogólną zasadą należy użyć tej samej metody dla określania adresu URL "/ signalr/centra", której użyjesz dla plików CSS i JavaScript. Jeśli określisz adresu URL bez użycia tyldy w niektórych scenariuszach aplikacja będzie działać poprawnie podczas testowania w programie Visual Studio za pomocą usług IIS Express, ale zakończy się niepowodzeniem z powodu błędu 404, podczas wdrażania usługi IIS. Aby uzyskać więcej informacji, zobacz **rozpoznawania odwołań do zasobów na poziomie głównym** w [serwerów sieci Web w programie Visual Studio dla projektów sieci Web platformy ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx) w witrynie MSDN.
+Ogólnie rzecz biorąc, Użyj tej samej metody, aby określić adres URL "/SignalR/Hubs", który jest używany dla plików CSS lub JavaScript. Jeśli określisz adres URL bez korzystania z tyldy, w niektórych scenariuszach aplikacja będzie działać poprawnie podczas testowania w programie Visual Studio przy użyciu IIS Express, ale wystąpi błąd 404 podczas wdrażania do pełnych usług IIS. Aby uzyskać więcej informacji, zobacz **rozpoznawanie odwołań do zasobów na poziomie głównym** na [serwerach sieci Web w programie Visual Studio for ASP.NET — projekty sieci Web](https://msdn.microsoft.com/library/58wxa9w5.aspx) w witrynie MSDN.
 
-Po uruchomieniu projektu sieci web w programie Visual Studio 2017 w trybie debugowania, jeśli używasz programu Internet Explorer jako przeglądarki widać plik serwera proxy w **Eksploratora rozwiązań** w obszarze **skrypty**.
+Po uruchomieniu projektu sieci Web w programie Visual Studio 2017 w trybie debugowania, a jeśli używasz programu Internet Explorer jako przeglądarki, plik proxy można zobaczyć w **Eksplorator rozwiązań** w obszarze **skrypty**.
 
-Aby wyświetlić zawartość pliku, kliknij dwukrotnie **koncentratory**. Jeśli nie używasz programu Visual Studio 2012 lub 2013 i programu Internet Explorer lub jeśli nie jesteś w trybie debugowania, możesz także uzyskać zawartość pliku, przechodząc do adresu URL "/ signalR/centra". Na przykład, jeśli witryna jest hostowana na `http://localhost:56699`, przejdź do `http://localhost:56699/SignalR/hubs` w przeglądarce.
+Aby wyświetlić zawartość pliku, kliknij dwukrotnie pozycję **centra**. Jeśli nie korzystasz z programu Visual Studio 2012 lub 2013 i przeglądarki Internet Explorer lub jeśli nie jesteś w trybie debugowania, możesz również pobrać zawartość pliku, przechodząc do adresu URL "/signalR/hubs". Na przykład jeśli witryna jest uruchomiona w `http://localhost:56699`, przejdź do `http://localhost:56699/SignalR/hubs` w przeglądarce.
 
 <a id="manualproxy"></a>
 
-### <a name="how-to-create-a-physical-file-for-the-signalr-generated-proxy"></a>Jak utworzyć plik fizyczny dla elementu SignalR wygenerowany serwer proxy
+### <a name="how-to-create-a-physical-file-for-the-signalr-generated-proxy"></a>Jak utworzyć plik fizyczny dla wygenerowanego przez sygnał serwera proxy
 
-Jako alternatywy dla dynamicznie generowanych serwera proxy można utworzyć pliku fizycznego, który ma kod serwera proxy i odwoływać się do tego pliku. Można w tym kontrolę nad buforowania i tworzenia pakietów zachowanie lub korzystania z funkcji IntelliSense podczas kodowania wywołania metody serwera.
+Jako alternatywę dla dynamicznie generowanego serwera proxy można utworzyć plik fizyczny z kodem serwera proxy i odwołać się do tego pliku. Można to zrobić na potrzeby kontroli nad zachowaniem buforowania lub tworzenia lub w celu uzyskania IntelliSense podczas kodowania wywołań do metod serwera.
 
-Aby utworzyć plik serwera proxy, wykonaj następujące czynności:
+Aby utworzyć plik proxy, wykonaj następujące czynności:
 
-1. Zainstaluj [Microsoft.AspNet.SignalR.Utils](https://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) pakietu NuGet.
-2. Otwórz wiersz polecenia i przejdź do *narzędzia* folder zawierający plik SignalR.exe. Folder narzędzia znajduje się w następującej lokalizacji:
+1. Zainstaluj pakiet NuGet [Microsoft. ASPNET. signaler.](https://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) .
+2. Otwórz wiersz polecenia i przejdź do folderu *Tools* zawierającego plik sygnalizującer. exe. Folder Tools znajduje się w następującej lokalizacji:
 
     `[your solution folder]\packages\Microsoft.AspNet.SignalR.Utils.2.1.0\tools`
 3. Wprowadź następujące polecenie:
 
     `signalr ghp /path:[path to the .dll that contains your Hub class]`
 
-    Ścieżka do Twojej *.dll* jest zazwyczaj *bin* folderu w folderze projektu.
+    Ścieżka do *biblioteki DLL* jest zazwyczaj folderem *bin* w folderze projektu.
 
-    To polecenie tworzy plik o nazwie *server.js* w tym samym folderze co *signalr.exe*.
-4. Umieść *server.js* plików w folderze właściwe w projekcie, zmienić jego nazwę odpowiednio do aplikacji i Dodaj odwołanie do niego zamiast odwołania "koncentratory/signalr".
+    To polecenie tworzy plik o nazwie *Server. js* w tym samym folderze co *sygnalizującer. exe*.
+4. Umieść plik *Server. js* w odpowiednim folderze w projekcie, zmień jego nazwę na odpowiedni dla aplikacji i Dodaj odwołanie do niego zamiast odwołania "sygnalizującer/Hub".
 
 <a id="establishconnection"></a>
 
 ## <a name="how-to-establish-a-connection"></a>Jak nawiązać połączenie
 
-Przed może nawiązać połączenie, należy utworzyć obiekt połączenia, utworzyć serwer proxy i zarejestruj procedury obsługi zdarzeń dla metod, które mogą być wywoływane z serwera. Po skonfigurowaniu serwera proxy i programów obsługi nawiązania połączenia przez wywołanie metody `start` metody.
+Przed nawiązaniem połączenia należy utworzyć obiekt połączenia, utworzyć serwer proxy i zarejestrować obsługę zdarzeń dla metod, które mogą być wywoływane z serwera. Po skonfigurowaniu programu obsługi serwera proxy i zdarzeń Ustanów połączenie, wywołując metodę `start`.
 
-Jeśli używasz wygenerowany serwer proxy, nie trzeba utworzyć obiekt połączenia we własnym kodzie, ponieważ kod wygenerowany serwer proxy zrobi to za Ciebie.
+Jeśli używasz wygenerowanego serwera proxy, nie musisz tworzyć obiektu połączenia w własnym kodzie, ponieważ wygenerowany kod serwera proxy robi to za Ciebie.
 
 <a id="nogenconnection"></a>
 
-**Nawiąż połączenie (z wygenerowany serwer proxy)**
+**Nawiązywanie połączenia (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample8.js?highlight=5)]
 
-**Nawiąż połączenie (bez wygenerowany serwer proxy)**
+**Nawiązywanie połączenia (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample9.js?highlight=1,6)]
 
-Przykładowy kod używa domyślnej "/ signalr" adres URL, aby nawiązać połączenie z usługą SignalR. Aby uzyskać informacje o sposobie określania innego podstawowego adresu URL, zobacz [Podręcznik interfejsu API centrów SignalR platformy ASP.NET - Server - /signalr URL](hubs-api-guide-server.md#signalrurl).
+Przykładowy kod używa domyślnego adresu URL "/SignalR", aby nawiązać połączenie z usługą sygnalizującej. Aby uzyskać informacje na temat sposobu określania innego podstawowego adresu URL, zobacz [Przewodnik interfejsu API centrów ASP.NET Signals-Server-The/SIGNALR URL](hubs-api-guide-server.md#signalrurl).
 
-Domyślnie lokalizacją Centrum jest bieżący serwer; Jeśli łączysz się z innym serwerem, podaj adres URL przed wywołaniem `start` metodzie, jak pokazano w poniższym przykładzie:
+Domyślnie lokalizacja centrum to bieżący serwer; Jeśli łączysz się z innym serwerem, określ adres URL przed wywołaniem metody `start`, jak pokazano w następującym przykładzie:
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample10.js)]
 
 > [!NOTE]
-> Zwykle rejestrowanie procedur obsługi zdarzeń przed wywołaniem `start` metodę, aby nawiązać połączenie. Jeśli chcesz zarejestrować niektóre procedury obsługi zdarzeń po ustanowieniu połączenia, możesz to zrobić, ale musisz się zarejestrować, co najmniej jeden z Twojej handler(s) zdarzeń przed wywołaniem `start` metody. Jeden przyczyną jest to, że może istnieć wiele centrów w aplikacji, ale nie chcesz wyzwolić `OnConnected` zdarzenia dla każdego Centrum, jeśli tylko będą korzystać z jednym z nich. Po nawiązaniu połączenia jest obecność metodę klienta dla serwera proxy koncentratora, co informuje SignalR do wyzwolenia `OnConnected` zdarzeń. Jeżeli nie zarejestrujesz dowolnej procedury obsługi zdarzeń przed wywołaniem `start` metody, można do wywołania metody koncentratora, ale Centrum `OnConnected` nie można wywołać metody i żadnych metod klienta zostanie wywołana z serwera.
+> Zwykle należy zarejestrować procedury obsługi zdarzeń przed wywołaniem metody `start` w celu nawiązania połączenia. Jeśli chcesz zarejestrować niektóre programy obsługi zdarzeń po ustanowieniu połączenia, możesz to zrobić, ale przed wywołaniem metody `start` należy zarejestrować co najmniej jeden z obsługi zdarzeń. Jedną z przyczyn tego problemu jest to, że w aplikacji może być wiele centrów, ale nie chcesz wyzwalać zdarzenia `OnConnected` w każdym centrum, jeśli zamierzasz korzystać tylko z jednego z nich. Gdy połączenie zostanie nawiązane, obecność metody klienta na serwerze proxy centrum wskazuje, co informuje sygnalizujący, aby wyzwolić zdarzenie `OnConnected`. Jeśli nie zarejestrowano żadnych programów obsługi zdarzeń przed wywołaniem metody `start`, będzie można wywołać metody w centrum, ale metoda `OnConnected` centrum nie zostanie wywołana i nie będą wywoływane metody klienta z serwera.
 
 <a id="connequivalence"></a>
 
-### <a name="connectionhub-is-the-same-object-that-hubconnection-creates"></a>$. connection.hub jest taki sam obiekt, tworzy tego $.hubConnection()
+### <a name="connectionhub-is-the-same-object-that-hubconnection-creates"></a>$. Connection. Hub jest tym samym obiektem, który $. hubConnection () tworzy
 
-Jak widać w przykładach, gdy używasz wygenerowany serwer proxy `$.connection.hub` odwołuje się do obiektu połączenia. Jest to ten sam obiekt, który można uzyskać przez wywołanie metody `$.hubConnection()` gdy nie używasz wygenerowany serwer proxy. Kod wygenerowany serwer proxy tworzy połączenie, wykonując następującą instrukcję:
+Jak widać w przykładach, gdy używasz wygenerowanego serwera proxy, `$.connection.hub` odwołuje się do obiektu połączenia. Jest to ten sam obiekt, który uzyskuje się, wywołując `$.hubConnection()`, gdy nie korzystasz z wygenerowanego serwera proxy. Wygenerowany kod serwera proxy tworzy połączenie przez wykonanie następującej instrukcji:
 
-![Tworzenie połączenia w pliku wygenerowanego serwera proxy](hubs-api-guide-javascript-client/_static/image3.png)
+![Tworzenie połączenia w wygenerowanym pliku serwera proxy](hubs-api-guide-javascript-client/_static/image3.png)
 
-Wygenerowany serwer proxy jest używany, można wykonać z `$.connection.hub` , można wykonać za pomocą obiektu połączenia, gdy nie używasz wygenerowany serwer proxy.
+W przypadku korzystania z wygenerowanego serwera proxy można wykonać dowolne czynności `$.connection.hub`, które można wykonać przy użyciu obiektu połączenia, gdy nie używasz wygenerowanego serwera proxy.
 
 <a id="asyncstart"></a>
 
-### <a name="asynchronous-execution-of-the-start-method"></a>Wykonanie asynchroniczne metody start
+### <a name="asynchronous-execution-of-the-start-method"></a>Asynchroniczne wykonywanie metody Start
 
-`start` Metoda jest wykonywana asynchronicznie. Zwraca [obiektu opóźnionych jQuery](http://api.jquery.com/category/deferred-object/), co oznacza, że można dodać funkcji wywołania zwrotnego wywoływania metod, takich jak `pipe`, `done`, i `fail`. Jeśli masz kod, który ma zostać wykonany po nawiązaniu połączenia, takie jak wywołanie metody serwera, umieść ten kod w funkcji wywołania zwrotnego lub wywołać go z funkcji wywołania zwrotnego. `.done` Metody wywołania zwrotnego jest wykonywane po ustanowieniu połączenia, a po dowolny kod, który ma swojej `OnConnected` zakończy się wykonywanie metody obsługi zdarzeń na serwerze.
+Metoda `start` jest wykonywana asynchronicznie. Zwraca [odroczony obiekt jQuery](http://api.jquery.com/category/deferred-object/), co oznacza, że można dodawać funkcje wywołania zwrotnego przez wywoływanie metod, takich jak `pipe`, `done`i `fail`. Jeśli masz kod, który chcesz wykonać po nawiązaniu połączenia, na przykład wywołanie metody serwera, Umieść ten kod w funkcji wywołania zwrotnego lub wywołaj ją z funkcji wywołania zwrotnego. Metoda wywołania zwrotnego `.done` jest wykonywana po nawiązaniu połączenia i po każdym kodzie, który znajduje się w metodzie obsługi zdarzeń `OnConnected` na serwerze kończy wykonywanie.
 
-Jeśli umieścisz instrukcję "Teraz connected", z poprzedniego przykładu jako następnego wiersza kodu po `start` wywołania metody (nie w `.done` wywołania zwrotnego), `console.log` wiersza zostaną wykonane, zanim połączenie zostanie nawiązane, jak pokazano w następującym przykład:
+Jeśli umieścisz instrukcję "teraz połączony" z poprzedniego przykładu jako następny wiersz kodu po wywołaniu metody `start` (nie w `.done` wywołaniu zwrotnym), wiersz `console.log` zostanie wykonany przed nawiązaniem połączenia, jak pokazano w następującym przykładzie:
 
-![Problem ze sposobem pisania kodu, który jest uruchamiany po nawiązaniu połączenia](hubs-api-guide-javascript-client/_static/image5.png)
+![Niewłaściwy sposób pisania kodu, który jest uruchamiany po ustanowieniu połączenia](hubs-api-guide-javascript-client/_static/image5.png)
 
 <a id="crossdomain"></a>
 
 ## <a name="how-to-establish-a-cross-domain-connection"></a>Jak nawiązać połączenie między domenami
 
-Zazwyczaj, gdy przeglądarka ładuje stronę z `http://contoso.com`, połączenia SignalR jest w tej samej domenie, w `http://contoso.com/signalr`. Jeśli strona z `http://contoso.com` nawiązuje połączenie `http://fabrikam.com/signalr`, oznacza to połączenie między domenami. Ze względów bezpieczeństwa połączeń między domenami są domyślnie wyłączone.
+Zazwyczaj Jeśli przeglądarka ładuje stronę `http://contoso.com`, połączenie sygnalizujące znajduje się w tej samej domenie, w `http://contoso.com/signalr`. Jeśli strona z `http://contoso.com` nawiązać połączenie z `http://fabrikam.com/signalr`, to jest połączenie między domenami. Ze względów bezpieczeństwa połączenia między domenami są domyślnie wyłączone.
 
-W SignalR 1.x żądania obejmujące różne domeny była kontrolowana przez pojedynczej flagi EnableCrossDomain. Ta flaga kontrolowane żądania CORS i JSONP. Funkcje i elastyczność, obsługa wszystkich mechanizmu CORS zostało usunięte z składnika serwera SignalR (klientów JavaScript nadal CORS normalnie z niego korzystać w przypadku wykrycia, czy przeglądarka obsługuje on), i nowego oprogramowania pośredniczącego OWIN został udostępniony do obsługi tych scenariuszy.
+W sygnale 1. x żądania między domenami były kontrolowane przez jedną flagę EnableCrossDomain. Ta flaga steruje żądaniami JSONP i CORS. Aby zapewnić większą elastyczność, cała obsługa mechanizmu CORS została usunięta ze składnika serwerowego sygnalizującego (klienci języka JavaScript nadal używają mechanizmu CORS normalnie, jeśli wykryje, że jest on obsługiwany przez przeglądarkę), a nowe oprogramowanie pośredniczące OWIN zostało udostępnione do obsługi tych scenariuszy.
 
-Jeśli JSONP jest wymagany na kliencie (do obsługi żądań między domenami w starszych przeglądarkach), trzeba będzie ją można jawnie włączyć, ustawiając `EnableJSONP` na `HubConfiguration` obiekt `true`, jak pokazano poniżej. JSONP jest domyślnie wyłączony, ponieważ jest to mniej bezpieczna niż mechanizmu CORS.
+Jeśli na kliencie jest wymagane JSONP (aby obsługiwać żądania między domenami we wcześniejszych przeglądarkach), należy je włączyć jawnie przez ustawienie `EnableJSONP` na obiekcie `HubConfiguration`, aby `true`, jak pokazano poniżej. JSONP jest domyślnie wyłączona, ponieważ jest mniej bezpieczny niż mechanizm CORS.
 
-**Dodawanie Microsoft.Owin.Cors do projektu:** Aby zainstalować tę bibliotekę, uruchom następujące polecenie w konsoli Menedżera pakietów:
+**Dodawanie Microsoft. Owin. CORS do projektu:** Aby zainstalować tę bibliotekę, uruchom następujące polecenie w konsoli Menedżera pakietów:
 
 `Install-Package Microsoft.Owin.Cors`
 
-To polecenie spowoduje dodanie 2.1.0 wersji pakietu do projektu.
+To polecenie spowoduje dodanie wersji 2.1.0 pakietu do projektu.
 
 ### <a name="calling-usecors"></a>Wywoływanie UseCors
 
- Poniższy fragment kodu demonstruje sposób implementacji połączeń między domenami w SignalR 2.
+ Poniższy fragment kodu przedstawia sposób implementacji połączeń między domenami w programie sygnalizującym 2.
 
-**Implementowanie żądania między domenami w SignalR 2**
+**Implementowanie żądań międzydomenowych w sygnale 2**
 
-Poniższy kod ilustruje sposób włączyć mechanizm CORS i JSONP w projekcie biblioteki SignalR 2. Ten przykładowy kod korzysta `Map` i `RunSignalR` zamiast `MapSignalR`, dzięki czemu oprogramowanie pośredniczące CORS działa tylko w przypadku żądania SignalR, które wymagają obsługi mechanizmu CORS (a nie dla całego ruchu w ścieżce określonej w `MapSignalR`.) Mapy może również dla innego oprogramowania pośredniczącego, które musi zostać uruchomiony dla określonego prefiksu adresu URL, a nie dla całej aplikacji.
+Poniższy kod ilustruje sposób włączania funkcji CORS lub JSONP w projekcie sygnalizującym 2. Ten przykładowy kod używa `Map` i `RunSignalR` zamiast `MapSignalR`, dzięki czemu oprogramowanie typu CORS działa tylko dla żądań sygnalizujących, które wymagają obsługi mechanizmu CORS (a nie dla całego ruchu w ścieżce określonej w `MapSignalR`). Mapy można także użyć dla dowolnego innego oprogramowania pośredniczącego, które musi zostać uruchomione dla określonego prefiksu adresu URL, a nie dla całej aplikacji.
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample11.cs)]
 
 > [!NOTE]
 >
-> - Nie należy ustawiać `jQuery.support.cors` na wartość true w kodzie.
+> - Nie ustawiaj `jQuery.support.cors` na true w kodzie.
 >
->     ![Nie jest ustawiana na wartość true jQuery.support.cors](hubs-api-guide-javascript-client/_static/image7.png)
+>     ![Nie ustawiaj jQuery. support. CORS na true](hubs-api-guide-javascript-client/_static/image7.png)
 >
->     SignalR obsługuje korzystanie z mechanizmu CORS. Ustawienie `jQuery.support.cors` do wartości true powoduje wyłączenie JSONP, ponieważ powoduje ona SignalR założył, przeglądarka obsługuje mechanizm CORS.
-> - Podczas łączenia z adresem URL localhost, programu Internet Explorer 10 nie należy wziąć pod uwagę jej połączenie między domenami, dzięki czemu aplikacja będzie działać lokalnie za pomocą programu Internet Explorer 10, nawet jeśli nie zostały włączone połączenia między domenami na serwerze.
-> - Aby dowiedzieć się, jak za pomocą połączeń między domenami, za pomocą programu Internet Explorer 9, zobacz [wątek w witrynie StackOverflow](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work).
-> - Aby dowiedzieć się, jak za pomocą przeglądarki Chrome przy użyciu połączenia między domenami, zobacz [wątek w witrynie StackOverflow](http://stackoverflow.com/questions/15467373/signalr-1-0-1-cross-domain-request-cors-with-chrome).
-> - Przykładowy kod używa domyślnej "/ signalr" adres URL, aby nawiązać połączenie z usługą SignalR. Aby uzyskać informacje o sposobie określania innego podstawowego adresu URL, zobacz [Podręcznik interfejsu API centrów SignalR platformy ASP.NET - Server - /signalr URL](hubs-api-guide-server.md#signalrurl).
+>     Program sygnalizujący obsługuje korzystanie z mechanizmu CORS. Ustawienie wartości true dla `jQuery.support.cors` powoduje wyłączenie funkcji JSONP, ponieważ powoduje to założenie, że przeglądarka obsługuje mechanizm CORS.
+> - W przypadku nawiązywania połączenia z adresem URL hosta lokalnego program Internet Explorer 10 nie będzie uwzględniać połączenia między domenami, dzięki czemu aplikacja będzie działała lokalnie z programem IE 10, nawet jeśli na serwerze nie włączono połączeń między domenami.
+> - Aby uzyskać informacje o korzystaniu z połączeń między domenami w programie Internet Explorer 9, zobacz [ten wątek StackOverflow](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work).
+> - Aby uzyskać informacje o korzystaniu z połączeń między domenami z programem Chrome, zobacz [ten wątek StackOverflow](http://stackoverflow.com/questions/15467373/signalr-1-0-1-cross-domain-request-cors-with-chrome).
+> - Przykładowy kod używa domyślnego adresu URL "/SignalR", aby nawiązać połączenie z usługą sygnalizującej. Aby uzyskać informacje na temat sposobu określania innego podstawowego adresu URL, zobacz [Przewodnik interfejsu API centrów ASP.NET Signals-Server-The/SIGNALR URL](hubs-api-guide-server.md#signalrurl).
 
 <a id="configureconnection"></a>
 
 ## <a name="how-to-configure-the-connection"></a>Jak skonfigurować połączenie
 
-Przed nawiązaniem połączenia, można określić parametry ciągu zapytania lub Określ metodę transportu.
+Przed nawiązaniem połączenia można określić parametry ciągu zapytania lub określić metodę transportu.
 
 <a id="querystring"></a>
 
 ### <a name="how-to-specify-query-string-parameters"></a>Jak określić parametry ciągu zapytania
 
-Jeśli chcesz wysyłać dane do serwera, gdy klient nawiąże połączenie, można dodać parametry ciągu zapytania do obiektu połączenia. Poniższe przykłady pokazują, jak można ustawić jako parametr ciągu zapytania w kodzie klienta.
+Jeśli chcesz wysłać dane do serwera podczas łączenia się z klientem, możesz dodać parametry ciągu zapytania do obiektu połączenia. W poniższych przykładach pokazano, jak ustawić parametr ciągu zapytania w kodzie klienta.
 
-**Ustaw wartość ciągu zapytania przed wywołaniem metody start (z wygenerowany serwer proxy)**
+**Ustaw wartość ciągu zapytania przed wywołaniem metody Start (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample12.js?highlight=1)]
 
-**Ustaw wartość ciągu zapytania przed wywołaniem metody start (bez wygenerowany serwer proxy)**
+**Ustaw wartość ciągu zapytania przed wywołaniem metody Start (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample13.js?highlight=2)]
 
-Poniższy przykład pokazuje, jak odczytywać parametr ciągu zapytania w kodzie serwera.
+Poniższy przykład pokazuje, jak odczytać parametr ciągu zapytania w kodzie serwera.
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample14.cs?highlight=5)]
 
@@ -277,98 +277,98 @@ Poniższy przykład pokazuje, jak odczytywać parametr ciągu zapytania w kodzie
 
 ### <a name="how-to-specify-the-transport-method"></a>Jak określić metodę transportu
 
-Częścią procesu nawiązywania połączenia klienta SignalR zwykle negocjuje z serwerem, aby określić najlepsze transportu, która jest obsługiwana przez serwer i klienta. Jeśli znasz już transport, którego chcesz użyć, można pominąć ten proces negocjacji, określając metodą transportu podczas wywoływania `start` metody.
+W ramach procesu łączenia klient sygnalizujący zwykle negocjuje z serwerem, aby określić najlepszy transport obsługiwany przez serwer i klienta. Jeśli wiesz już, którego transportu chcesz użyć, możesz pominąć ten proces negocjacji, określając metodę transportu, gdy wywołasz metodę `start`.
 
-**Kod klienta, który określa metodę transportu (z wygenerowany serwer proxy)**
+**Kod klienta określający metodę transportu (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample15.js?highlight=1)]
 
-**Kod klienta, który określa metodę transportu (bez wygenerowany serwer proxy)**
+**Kod klienta określający metodę transportu (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample16.js?highlight=2)]
 
-Alternatywnie można określić wielu metod transportu, w kolejności, w której chcesz SignalR, aby wypróbować je:
+Alternatywnie można określić wiele metod transportu w kolejności, w której ma być wykorzystana przez program sygnalizujący:
 
-**Kod klienta, który określa rezerwowy schematu transport w niestandardowych (z wygenerowany serwer proxy)**
+**Kod klienta określający niestandardowy schemat powrotu do transportu (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample17.js?highlight=1)]
 
-**Kod klienta, który określa rezerwowy schemat transportu niestandardowe (bez wygenerowany serwer proxy)**
+**Kod klienta określający niestandardowy schemat powrotu do transportu (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample18.js?highlight=2)]
 
-Do określania metodą transportu, można użyć następujących wartości:
+Aby określić metodę transportu, można użyć następujących wartości:
 
 - "webSockets"
 - "foreverFrame"
 - "serverSentEvents"
 - "longPolling"
 
-Poniższe przykłady pokazują, jak można dowiedzieć się, jakiej metody transportu jest używany przez połączenie.
+W poniższych przykładach pokazano, jak ustalić, która metoda transportu jest używana przez połączenie.
 
-**Kod klienta, który zawiera metodę transportu, używane przez połączenia (z wygenerowany serwer proxy)**
+**Kod klienta, który wyświetla metodę transportu używaną przez połączenie (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample19.js?highlight=2)]
 
-**Kod klienta, który zawiera metodę transportu, używany przez połączenie (bez wygenerowany serwer proxy)**
+**Kod klienta, który wyświetla metodę transportu używaną przez połączenie (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample20.js?highlight=3)]
 
-Aby uzyskać informacje o sposobie Sprawdź metodą transportu w kodzie serwera, zobacz [Podręcznik interfejsu API centrów SignalR platformy ASP.NET - Server - sposób uzyskiwania informacji na temat klienta z właściwości kontekstu](hubs-api-guide-server.md#contextproperty). Aby uzyskać więcej informacji dotyczących transportu i planów awaryjnych, zobacz [wprowadzenie do SignalR - transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports).
+Aby uzyskać informacje na temat sprawdzania metody transportu w kodzie serwera, zobacz [Przewodnik interfejsu API centrów ASP.NET Signals-Server — jak uzyskać informacje o kliencie z właściwości Context](hubs-api-guide-server.md#contextproperty). Aby uzyskać więcej informacji na temat transportów i rezerw, zobacz [wprowadzenie do sygnałów-Transports and fallbacks](../getting-started/introduction-to-signalr.md#transports).
 
 <a id="getproxy"></a>
 
-## <a name="how-to-get-a-proxy-for-a-hub-class"></a>Jak uzyskać serwera proxy dla klasy koncentratora
+## <a name="how-to-get-a-proxy-for-a-hub-class"></a>Jak uzyskać serwer proxy dla klasy centrum
 
-Każdy obiekt połączenia, którą tworzysz hermetyzuje informacje dotyczące połączenia SignalR service, który zawiera co najmniej jedną klasę koncentratora. Aby komunikować się z klasy koncentratora, należy użyć obiektu serwera proxy utworzonych samodzielnie (Jeśli nie używasz wygenerowany serwer proxy) lub która zostanie wygenerowany.
+Każdy utworzony obiekt połączenia hermetyzuje informacje o połączeniu z usługą sygnalizującą, która zawiera jedną lub więcej klas centrów. Aby komunikować się z klasą centrum, należy użyć obiektu serwera proxy, który utworzysz samodzielnie (jeśli nie używasz wygenerowanego serwera proxy) lub który jest generowany dla Ciebie.
 
-Na komputerze klienckim nazwę serwera proxy jest wersja formacie camelcase nazwy klasy koncentratora. SignalR automatycznie sprawia, że ta zmiana tak, aby kod JavaScript można jest zgodna z konwencjami języka JavaScript.
+Na kliencie nazwa serwera proxy to notacji camelcasea wersja klasy centrum. Program sygnalizujący automatycznie wprowadza tę zmianę, aby kod JavaScript mógł być zgodny z konwencjami języka JavaScript.
 
-**Klasy koncentratora na serwerze**
+**Klasa centrum na serwerze**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample21.cs?highlight=1)]
 
-**Pobierz odwołanie do serwera proxy wygenerowanego klienta dla koncentratora**
+**Pobierz odwołanie do wygenerowanego serwera proxy klienta dla centrum**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample22.js?highlight=1)]
 
-**Utwórz serwer proxy klienta dla klasy koncentratora (bez wygenerowany serwer proxy)**
+**Utwórz serwer proxy klienta dla klasy centrum (bez wygenerowanego serwera proxy)**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample23.cs?highlight=1)]
 
-Jeśli dekoracji klasy koncentratora z `HubName` atrybutu, należy użyć dokładnej nazwy bez wprowadzania zmian w przypadku.
+Jeśli dekorować klasę centrów z atrybutem `HubName`, użyj dokładnej nazwy bez zmieniania wielkości liter.
 
-**Klasy koncentratora na serwerze z atrybutem HubName**
+**Klasa Hub na serwerze z atrybutem HubName**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample24.cs?highlight=1)]
 
-**Pobierz odwołanie do serwera proxy wygenerowanego klienta dla koncentratora**
+**Pobierz odwołanie do wygenerowanego serwera proxy klienta dla centrum**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample25.js?highlight=1)]
 
-**Utwórz serwer proxy klienta dla klasy koncentratora (bez wygenerowany serwer proxy)**
+**Utwórz serwer proxy klienta dla klasy centrum (bez wygenerowanego serwera proxy)**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample26.cs?highlight=1)]
 
 <a id="callclient"></a>
 
-## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>Sposób definiowania metody na kliencie, który można wywołać serwera
+## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>Jak zdefiniować metody na kliencie, które mogą być wywoływane przez serwer
 
-Aby zdefiniować metodę, która serwera można wywołać z koncentratorem, Dodaj program obsługi zdarzeń do serwera proxy koncentratora za pomocą `client` właściwość wygenerowany serwer proxy lub wywołanie `on` metody, jeśli nie używasz wygenerowany serwer proxy. Parametry mogą być złożone obiekty.
+Aby zdefiniować metodę, którą serwer może wywoływać z centrum, Dodaj procedurę obsługi zdarzeń do serwera proxy centrum przy użyciu właściwości `client` wygenerowanego serwera proxy lub wywołaj metodę `on`, jeśli nie używasz wygenerowanego serwera proxy. Parametry mogą być obiektami złożonymi.
 
-Dodawanie obsługi zdarzeń, przed wywołaniem `start` metodę, aby nawiązać połączenie. (Jeśli chcesz dodać procedury obsługi zdarzeń po wywołaniu `start` metody, zobacz uwagi w [jak nawiązać połączenie](#establishconnection) we wcześniejszej części tego dokumentu, a następnie użyj składni przedstawionej w celu zdefiniowania metody bez użycia wygenerowany serwer proxy.)
+Dodaj program obsługi zdarzeń przed wywołaniem metody `start` w celu nawiązania połączenia. (Jeśli chcesz dodać programy obsługi zdarzeń po wywołaniu metody `start`, zapoznaj się z uwagami dotyczącymi [sposobu nawiązywania połączenia](#establishconnection) we wcześniejszej części tego dokumentu i użyj składni pokazanej w celu zdefiniowania metody bez użycia wygenerowanego serwera proxy).
 
-Dopasowywaniu nazwy metody nie jest rozróżniana wielkość liter. Na przykład `Clients.All.addContosoChatMessageToPage` będą wykonywane na serwerze `AddContosoChatMessageToPage`, `addContosoChatMessageToPage`, lub `addcontosochatmessagetopage` na komputerze klienckim.
+W dopasowaniu nazw metod nie jest rozróżniana wielkość liter. Na przykład `Clients.All.addContosoChatMessageToPage` na serwerze wykona `AddContosoChatMessageToPage`, `addContosoChatMessageToPage`lub `addcontosochatmessagetopage` na kliencie.
 
-**Zdefiniuj metodę na komputerze klienckim (z wygenerowany serwer proxy)**
+**Zdefiniuj metodę na kliencie (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample27.js?highlight=2)]
 
-**Alternatywny sposób definiowania metody na komputerze klienckim (z wygenerowany serwer proxy)**
+**Alternatywny sposób definiowania metody na kliencie (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample28.js?highlight=1-2)]
 
-**Zdefiniuj metodę na kliencie (bez wygenerowany serwer proxy lub podczas dodawania po wywołaniu metody start)**
+**Zdefiniuj metodę na kliencie (bez wygenerowanego serwera proxy lub podczas dodawania po wywołaniu metody startowej)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample29.js?highlight=3)]
 
@@ -376,13 +376,13 @@ Dopasowywaniu nazwy metody nie jest rozróżniana wielkość liter. Na przykład
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample30.cs?highlight=5)]
 
-Poniższe przykłady obiektu złożonego jako parametr metody.
+Następujące przykłady zawierają obiekt złożony jako parametr metody.
 
-**Zdefiniuj metodę na komputerze klienckim, który przyjmuje obiekt złożony (z wygenerowany serwer proxy)**
+**Zdefiniuj metodę na kliencie, która pobiera obiekt złożony (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample31.js?highlight=2-3)]
 
-**Zdefiniuj metodę na komputerze klienckim, który przyjmuje obiekt złożony (bez wygenerowany serwer proxy)**
+**Zdefiniuj metodę na kliencie, która pobiera obiekt złożony (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample32.js?highlight=3-4)]
 
@@ -396,59 +396,59 @@ Poniższe przykłady obiektu złożonego jako parametr metody.
 
 <a id="callserver"></a>
 
-## <a name="how-to-call-server-methods-from-the-client"></a>Jak wywołać metody serwera z poziomu klienta
+## <a name="how-to-call-server-methods-from-the-client"></a>Jak wywoływać metody serwera z klienta
 
-Aby wywołać metody serwera od klienta, należy użyć `server` właściwość wygenerowany serwer proxy lub `invoke` metody serwera proxy koncentratora, jeśli nie używasz wygenerowany serwer proxy. Wartości zwracane lub parametry mogą być złożone obiekty.
+Aby wywołać metodę serwera z poziomu klienta, należy użyć właściwości `server` wygenerowanego serwera proxy lub metody `invoke` na serwerze proxy centrum, jeśli nie używasz wygenerowanego serwera proxy. Wartość zwracana lub parametry mogą być obiektami złożonymi.
 
-Przekaż camelcase wersję nazwę metody koncentratora. SignalR automatycznie sprawia, że ta zmiana tak, aby kod JavaScript można jest zgodna z konwencjami języka JavaScript.
+Przekaż notacji camelcaseą nazwę metody w centrum. Program sygnalizujący automatycznie wprowadza tę zmianę, aby kod JavaScript mógł być zgodny z konwencjami języka JavaScript.
 
-W poniższych przykładach pokazano, jak wywoływać metody serwera, który nie ma wartości zwracanej i sposób wywoływania metody serwera, który ma wartość zwracaną.
+W poniższych przykładach pokazano, jak wywołać metodę serwera, która nie ma wartości zwracanej i jak wywołać metodę serwera, która ma wartość zwracaną.
 
-**Metoda serwera nie atrybutem HubMethodName**
+**Metoda serwera bez atrybutu HubMethodName**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample35.cs?highlight=3)]
 
-**Kod serwera, który definiuje obiektu złożonego przekazanego do parametru**
+**Kod serwera, który definiuje złożony obiekt przekazaną w parametrze**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample36.cs)]
 
-**Kod klienta, który wywołuje metodę serwera (za pomocą wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample37.js?highlight=1)]
 
-**Kod klienta, który wywołuje metodę serwera (bez wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample38.js?highlight=1)]
 
-Jeśli dekorowane metody koncentratora, za pomocą `HubMethodName` atrybutu, należy użyć tej nazwy bez wprowadzania zmian w przypadku.
+Jeśli zawarto metodę Hub z atrybutem `HubMethodName`, Użyj tej nazwy bez zmieniania wielkości liter.
 
-**Metoda serwera** atrybutem HubMethodName
+**Metoda serwera** z atrybutem HubMethodName
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample39.cs?highlight=3)]
 
-**Kod klienta, który wywołuje metodę serwera (za pomocą wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample40.js?highlight=1)]
 
-**Kod klienta, który wywołuje metodę serwera (bez wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample41.js?highlight=1)]
 
-Sposób wywoływania metody serwera, która nie zwraca żadnej wartości można znaleźć w poprzednich przykładach. Następujące przykłady przedstawiają sposób wywoływania metody serwera, która nie zwraca wartości.
+W powyższych przykładach pokazano, jak wywołać metodę serwera, która nie zwraca wartości. W poniższych przykładach pokazano, jak wywołać metodę serwera, która ma wartość zwracaną.
 
-**Kod serwera dla metody, która nie zwraca wartości**
+**Kod serwera dla metody, która ma wartość zwracaną**
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample42.cs?highlight=3)]
 
-**Klasy zapasów, używany do** zwracają wartość
+**Klasa magazynowa używana dla** wartości zwracanej
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample43.cs?highlight=1)]
 
-**Kod klienta, który wywołuje metodę serwera (za pomocą wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample44.js?highlight=2,4-5)]
 
-**Kod klienta, który wywołuje metodę serwera (bez wygenerowany serwer proxy)**
+**Kod klienta wywołujący metodę serwera (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample45.js?highlight=2,4-5)]
 
@@ -456,72 +456,72 @@ Sposób wywoływania metody serwera, która nie zwraca żadnej wartości można 
 
 ## <a name="how-to-handle-connection-lifetime-events"></a>Jak obsługiwać zdarzenia okresu istnienia połączenia
 
-Biblioteka SignalR udostępnia następujące połączenia zdarzenia okresu istnienia, które może obsłużyć:
+Program sygnalizujący udostępnia następujące zdarzenia okresu istnienia połączenia, które można obsłużyć:
 
-- `starting`: Wywoływane przed wszystkie dane są wysyłane za pośrednictwem połączenia.
-- `received`: Zgłaszane w przypadku nieodebrania żadnych danych w połączeniu. Udostępnia odebrane dane.
-- `connectionSlow`: Wywoływane, gdy klient wykrywa wolno lub często porzucanie połączenia.
-- `reconnecting`: Wywoływane, gdy transportu źródłowego rozpoczyna ponowne nawiązywanie połączenia.
-- `reconnected`: Wywoływane, gdy nawiązał transportu źródłowego.
-- `stateChanged`: Wywoływane, gdy zmieni się stan połączenia. Zawiera stan stary i nowy stan (łączenie, połączony, ponowne nawiązywanie połączenia i Rozłączono).
-- `disconnected`: Wywoływane, gdy połączenie zostało rozłączone.
+- `starting`: uruchamiany przed wysłaniem danych przez połączenie.
+- `received`: wywoływane po odebraniu dowolnego danych w połączeniu. Dostarcza odebrane dane.
+- `connectionSlow`: wywoływane, gdy klient wykrywa powolne lub często porzucane połączenie.
+- `reconnecting`: uruchamiany, gdy podstawowy transport zacznie ponownie nawiązać połączenie.
+- `reconnected`: wywoływane, gdy podstawowy transport został połączony ponownie.
+- `stateChanged`: występuje, gdy zmieni się stan połączenia. Zapewnia stary stan i nowy stan (połączenie, połączenie, ponowne połączenie lub odłączenie).
+- `disconnected`: wywoływane, gdy połączenie zostało rozłączone.
 
-Na przykład, jeśli chcesz wyświetlić komunikaty ostrzegawcze, gdy występują problemy z połączeniem, które mogłyby spowodować zauważalnego opóźnienia, obsługi `connectionSlow` zdarzeń.
+Na przykład jeśli chcesz wyświetlać komunikaty ostrzegawcze w przypadku problemów z połączeniem, które mogą powodować zauważalne opóźnienia, obsłuż zdarzenie `connectionSlow`.
 
-**Obsługuj zdarzenie connectionSlow (z wygenerowany serwer proxy)**
+**Obsługuj zdarzenie connectionSlow (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample46.js?highlight=1)]
 
-**Obsługuj zdarzenie connectionSlow (bez wygenerowany serwer proxy)**
+**Obsługuj zdarzenie connectionSlow (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample47.js?highlight=2)]
 
-Aby uzyskać więcej informacji, zobacz [zrozumienia i obsługa zdarzeń okresu istnienia połączenia w SignalR](handling-connection-lifetime-events.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie i obsługa zdarzeń okresu istnienia połączenia w programie sygnalizującym](handling-connection-lifetime-events.md).
 
 <a id="handleerrors"></a>
 
-## <a name="how-to-handle-errors"></a>Sposób obsługi błędów
+## <a name="how-to-handle-errors"></a>Jak obsłużyć błędy
 
-Udostępnia klienta SignalR JavaScript `error` zdarzenia, które można dodać program obsługi. Metoda niepowodzenie umożliwia również dodawanie obsługi błędów, które wynikają z wywołania metody serwera.
+Klient JavaScript sygnalizujący udostępnia zdarzenie `error`, do którego można dodać program obsługi dla. Można również użyć metody niepowodzenia, aby dodać procedurę obsługi dla błędów wynikających z wywołania metody serwera.
 
-Jeśli nie włączysz jawnie szczegółowe komunikaty o błędach na serwerze, obiekt wyjątku, który zwraca SignalR, po wystąpieniu błędu zawiera minimalne informacje o tym błędzie. Na przykład, jeśli wywołanie `newContosoChatMessage` zawiera komunikat o błędzie w obiekcie błąd zakończy się niepowodzeniem, "`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`" Wysyłanie szczegółowe komunikaty o błędach do klientów w środowisku produkcyjnym jest niezalecane ze względów bezpieczeństwa, ale jeśli chcesz włączyć szczegółowe komunikaty o błędach dla rozwiązywania problemów, użyj poniższego kodu, na serwerze.
+Jeśli nie włączysz jawnie szczegółowych komunikatów o błędach na serwerze, obiekt wyjątku zwracany przez sygnalizujący po wystąpieniu błędu zawiera minimalne informacje o błędzie. Na przykład jeśli wywołanie `newContosoChatMessage` nie powiedzie się, komunikat o błędzie w obiekcie Error zawiera "`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`" wysyłanie szczegółowych komunikatów o błędach do klientów w środowisku produkcyjnym nie jest zalecane ze względów bezpieczeństwa, ale jeśli chcesz włączyć szczegółowe komunikaty o błędach w celu rozwiązywania problemów, użyj następującego kodu na serwerze.
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample48.cs?highlight=2)]
 
-Poniższy przykład pokazuje, jak dodać program obsługi zdarzenia błędu.
+Poniższy przykład pokazuje, jak dodać procedurę obsługi dla zdarzenia błędu.
 
-**Dodaj procedurę obsługi błędów (z wygenerowany serwer proxy)**
+**Dodaj procedurę obsługi błędów (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample49.js?highlight=1)]
 
-**Dodaj procedurę obsługi błędów (bez wygenerowany serwer proxy)**
+**Dodaj program obsługi błędów (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample50.js?highlight=2)]
 
 Poniższy przykład pokazuje, jak obsłużyć błąd z wywołania metody.
 
-**Obsłużyć błąd w wywołaniu metody (z wygenerowany serwer proxy)**
+**Obsługa błędu z wywołania metody (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample51.js?highlight=2)]
 
-**Obsłużyć błąd w wywołaniu metody (bez wygenerowany serwer proxy)**
+**Obsługa błędu z wywołania metody (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample52.js?highlight=2)]
 
-W przypadku niepowodzenia wywołania metody `error` zdarzenie jest również zgłaszane, więc swój kod w `error` obsługę metody i w `.fail` metody wywołania zwrotnego jest wykonywany.
+Jeśli wywołanie metody nie powiedzie się, zostanie również zgłoszone zdarzenie `error`, więc kod w obsłudze metody `error` i w wywołaniu metody `.fail` może zostać wykonany.
 
 <a id="logging"></a>
 
-## <a name="how-to-enable-client-side-logging"></a>Włączanie rejestrowania po stronie klienta
+## <a name="how-to-enable-client-side-logging"></a>Jak włączyć rejestrowanie po stronie klienta
 
-Aby włączyć połączenia logowania po stronie klienta, należy ustawić `logging` właściwości w obiekcie połączenia przed wywołaniem `start` metodę, aby nawiązać połączenie.
+Aby włączyć rejestrowanie po stronie klienta dla połączenia, należy ustawić właściwość `logging` obiektu połączenia przed wywołaniem metody `start` w celu nawiązania połączenia.
 
-**Włączanie rejestrowania (z wygenerowany serwer proxy)**
+**Włącz rejestrowanie (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample53.js?highlight=1)]
 
-**Włączanie rejestrowania (bez wygenerowany serwer proxy)**
+**Włącz rejestrowanie (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample54.js?highlight=2)]
 
-Aby wyświetlić dzienniki, Otwórz narzędzia deweloperskie przeglądarki i przejdź do karty konsoli. Aby uzyskać samouczek, który zawiera instrukcje krok po kroku i ekran zrzuty, które pokazują, jak to zrobić, zobacz [emisje serwera z użyciem ASP.NET Signalr - Włącz rejestrowanie](../getting-started/tutorial-server-broadcast-with-signalr.md#enable-logging).
+Aby wyświetlić dzienniki, Otwórz narzędzia deweloperskie w przeglądarce i przejdź do karty konsola. Samouczek przedstawiający instrukcje krok po kroku i zrzuty ekranu, które pokazują, jak to zrobić, można znaleźć [w temacie emisja serwera za pomocą sygnału ASP.NET — włączenie rejestrowania](../getting-started/tutorial-server-broadcast-with-signalr.md#enable-logging).

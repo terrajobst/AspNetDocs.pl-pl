@@ -9,11 +9,11 @@ ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: e68a454398f109dfd089be9c9a44d3fe662acc2f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600432"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556414"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData V3 przy użyciu interfejsu Web API 2
 
@@ -29,7 +29,7 @@ według [Jan Wasson](https://github.com/MikeWasson)
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
-> - Web API 2
+> - Internetowy interfejs API 2
 > - Usługa OData w wersji 3
 > - Entity Framework 6
 > - [Serwer proxy debugowania sieci Web programu Fiddler (opcjonalnie)](http://www.fiddler2.com)
@@ -66,7 +66,7 @@ W oknie dialogowym **Nowy projekt ASP.NET** wybierz **pusty** szablon. W obszarz
 
 *Model* to obiekt, który reprezentuje dane w aplikacji. W tym samouczku potrzebny jest model, który reprezentuje produkt. Model odpowiada typowi obiektu OData.
 
-W Eksplorator rozwiązań kliknij prawym przyciskiem myszy folder modele. Z menu kontekstowego wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Klasa**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder Modele. Z menu kontekstowego wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Klasa**.
 
 ![](creating-an-odata-endpoint/_static/image3.png)
 
@@ -187,7 +187,7 @@ Korzystając z programu Fiddler, wprowadź następujący identyfikator URI na ka
 
 ![](creating-an-odata-endpoint/_static/image13.png)
 
-Kliknij przycisk **Execute (wykonaj** ). Programu Fiddler wysyła do aplikacji żądanie HTTP GET. Odpowiedź powinna zostać wyświetlona na liście sesje sieci Web. Jeśli wszystko działa, kod stanu będzie 200.
+Kliknij przycisk **Wykonaj**. Programu Fiddler wysyła do aplikacji żądanie HTTP GET. Odpowiedź powinna zostać wyświetlona na liście sesje sieci Web. Jeśli wszystko działa, kod stanu będzie 200.
 
 ![](creating-an-odata-endpoint/_static/image14.png)
 

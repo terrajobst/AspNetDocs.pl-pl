@@ -1,23 +1,23 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: Strony Razor aplikacji ASP.NET | Dokumentacja firmy Microsoft
+title: ASP.NET Razor Pages | Microsoft Docs
 author: rick-anderson
-description: Które pliki wideo można wyświetlić na przechodzenie do stron sieci Web i programu WebMatrix.
+description: Filmy wideo, które można wyświetlić, aby przechodzenie do szczegółów na stronach sieci Web i WebMatrix.
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c1889f0eab6d2df41ac6e19d433303198c4789f4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127788"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633393"
 ---
-# <a name="aspnet-web-pages"></a>ASP.NET Web Pages
+# <a name="aspnet-web-pages"></a>Strony sieci Web programu ASP.NET
 
-> Które pliki wideo można wyświetlić na przechodzenie do stron sieci Web i programu WebMatrix.
+> Filmy wideo, które można wyświetlić, aby przechodzenie do szczegółów na stronach sieci Web i WebMatrix.
 
 - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](getting-started-with-webmatrix-and-aspnet-web-pages.md)
 - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

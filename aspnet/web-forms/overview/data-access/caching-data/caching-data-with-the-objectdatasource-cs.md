@@ -9,11 +9,11 @@ ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c9883314d6153b9816d9bad2a281ab3c0a816448
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74612623"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78524256"
 ---
 # <a name="caching-data-with-the-objectdatasource-c"></a>Buforowanie danych za pomocą kontrolki ObjectDataSource (C#)
 
@@ -212,4 +212,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Teresa Murphy. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](caching-data-in-the-architecture-cs.md)
+> [Dalej](caching-data-in-the-architecture-cs.md)

@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile141
-title: jQuery Mobile 1.4.1 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
+title: jQuery Mobile 1.4.1 w usłudze Microsoft Ajax CDN | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: 89c96d26-6777-4e1d-839a-df67d2d5c1c2
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile141
 msc.type: content
 ms.openlocfilehash: 0c6697d87521f8c1fce8ac1bcf82df8241faff81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78562707"
 ---
 # <a name="jquery-mobile-141-on-the-microsoft-ajax-cdn"></a>System jQuery Mobile 1.4.1 w usłudze Microsoft AJAX CDN
 

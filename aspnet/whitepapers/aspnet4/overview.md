@@ -9,11 +9,11 @@ ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
 ms.openlocfilehash: ecde48f6bd88ee5f569bfeb8b70c26a50bc869c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576868"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630173"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
 
@@ -781,7 +781,7 @@ Aby ułatwić filtrowanie, dodano nową kontrolkę *QueryExtender* w ASP.NET 4. 
 
 Kontrolka *QueryExtender* obsługuje wiele opcji filtrów. W poniższych sekcjach opisano te opcje i przedstawiono przykłady korzystania z nich.
 
-#### <a name="search"></a>Wyszukaj
+#### <a name="search"></a>Wyszukiwanie
 
 W przypadku opcji Search formant *QueryExtender* wykonuje wyszukiwanie w określonych polach. W poniższym przykładzie formant używa tekstu wprowadzonego w kontrolce TextBoxSearch i wyszukuje jego zawartość w `ProductName` i `Supplier.CompanyName` kolumny w danych, które są zwracane przez formant *LinqDataSource* .
 
@@ -927,8 +927,8 @@ Domyślnie, gdy aplikacja sieci Web lub witryna sieci Web jest przeznaczona dla 
 
 Wartość dla *controlRenderingCompatibility* jest ciągiem, który umożliwia potencjalne nowe definicje wersji w przyszłych wydaniach. W bieżącej wersji dla tej właściwości obsługiwane są następujące wartości:
 
-- "3,5". To ustawienie wskazuje na starsze renderowanie i adiustację. Znaczniki renderowane przez kontrolki są zgodne z poprzednimi wersjami (100%), a ustawienie właściwości *xhtmlConformance* jest honorowane.
-- "4,0". Jeśli właściwość ma to ustawienie, ASP.NET kontroluje serwer sieci Web:
+- "3.5". To ustawienie wskazuje na starsze renderowanie i adiustację. Znaczniki renderowane przez kontrolki są zgodne z poprzednimi wersjami (100%), a ustawienie właściwości *xhtmlConformance* jest honorowane.
+- "4.0". Jeśli właściwość ma to ustawienie, ASP.NET kontroluje serwer sieci Web:
 - Właściwość *xhtmlConformance* jest zawsze traktowana jako "Strict". W efekcie formanty renderują znaczniki języka XHTML 1,0 Strict.
 - Wyłączenie formantów innych niż wejściowe nie powoduje już renderowania nieprawidłowych stylów.
 - elementy *DIV* wokół ukrytych pól są teraz zgodne z stylami, więc nie zakłócają reguł CSS utworzonych przez użytkownika.
@@ -977,7 +977,7 @@ Następnie można zdefiniować klasę CSS, która ma zastosowanie tylko do eleme
 Domyślnie następujące kontrolki serwera sieci Web ASP.NET, które obsługują szablony są automatycznie opakowane w zewnętrzną tabelę, która jest używana do zastosowania stylów wbudowanych:
 
 - *FormView*
-- *Identyfikatorów*
+- *Logowanie*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Kreatora*
@@ -1347,7 +1347,7 @@ Aby uzyskać więcej informacji, zobacz [jak: wdrażanie projektu aplikacji siec
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Zasoby
 
 Poniższe witryny sieci Web zawierają dodatkowe informacje na temat ASP.NET 4 i programu Visual Studio 2010.
 

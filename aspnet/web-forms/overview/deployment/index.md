@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/index
-title: Wdrażanie | Dokumentacja firmy Microsoft
+title: Wdrożenie | Microsoft Docs
 author: rick-anderson
-description: Jak wdrożyć projekty ASP.NET Web Forms z serwerem.
+description: Jak wdrożyć projekty formularzy sieci Web ASP.NET na serwerze programu.
 ms.author: riande
 ms.date: 08/18/2011
 ms.assetid: 05e4c88f-5101-4277-a323-b6774d98f69e
 msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 1483abc212b5f122ad3e2b88474c42b208bb748e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134292"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640610"
 ---
-# <a name="deployment"></a>wdrażania
+# <a name="deployment"></a>Wdrożenie
 
-> Jak wdrożyć projekty ASP.NET Web Forms z serwerem.
+> Jak wdrożyć projekty formularzy sieci Web ASP.NET na serwerze programu.
 
 - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](visual-studio-web-deployment/index.md)
 
@@ -36,8 +36,8 @@ ms.locfileid: "65134292"
 - [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](deploying-web-applications-in-enterprise-scenarios/index.md)
 
     - [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-    - [Enterprise Web Deployment: Omówienie scenariusza](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-    - [Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+    - [Wdrażanie sieci Web w przedsiębiorstwie: omówienie scenariuszy](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+    - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](web-deployment-in-the-enterprise/index.md)
 
     - [Wdrażanie w Internecie w przedsiębiorstwie](web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)

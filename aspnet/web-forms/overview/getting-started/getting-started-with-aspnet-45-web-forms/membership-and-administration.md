@@ -9,11 +9,11 @@ ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
 ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615475"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546740"
 ---
 # <a name="membership-and-administration"></a>Członkostwo i administracja
 
@@ -29,7 +29,7 @@ W tym samouczku pokazano, jak zaktualizować przykładową aplikację Wingtip za
 
 Ten samouczek jest oparty na poprzednim samouczku zatytułowanym "Wyewidencjonowywanie i płatność w systemie PayPal" w serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak dodać rolę niestandardową i użytkownika do aplikacji przy użyciu kodu.
 - Jak ograniczyć dostęp do folderu administracyjnego i strony.

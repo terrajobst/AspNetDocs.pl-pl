@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-autocomplete-control
-title: '[Jak mogę] Użyj kontrolka AutoComplete ASP.NET AJAX | Dokumentacja firmy Microsoft'
+title: '[Jak:] Użyj kontrolki autouzupełniania ASP.NET AJAX | Microsoft Docs'
 author: JoeStagner
-description: Autouzupełnianie rozszerzenie formantu z ASP.NET AJAX Control Toolkit oferuje sugestie w czasie rzeczywistym dla użytkownika jako użytkownik typy w polu tekstowym na możemy...
+description: Kontrolka rozszerzania Autouzupełnianie z ASP.NET AJAX Control Toolkit udostępnia sugestie w czasie rzeczywistym użytkownikowi w miarę ich pisania w polu tekstowym w...
 ms.author: riande
 ms.date: 03/20/2007
 ms.assetid: 636a88fa-bafa-4310-8163-dba4a3461ce3
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-autocomplete-control
 msc.type: video
 ms.openlocfilehash: 41ee7309a1cacbb4d1a83378e141b4004dcd8ad7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414650"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563939"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-autocomplete-control"></a>[Jak mogę] Użyj kontrolka AutoComplete ASP.NET AJAX
+# <a name="how-do-i-use-the-aspnet-ajax-autocomplete-control"></a>[Jak:] Użyj kontrolki autouzupełniania ASP.NET AJAX
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Autouzupełnianie rozszerzenie formantu z ASP.NET AJAX Control Toolkit zawiera sugestie w czasie rzeczywistym dla użytkownika jako użytkownik typy w polu tekstowym na stronie sieci Web, gdzie uzyskiwana jest lista sugestii przez wywołanie asynchroniczne do usługi sieci Web na serwerze.
+Kontrolka rozszerzenia Autouzupełnianie z zestawu narzędzi ASP.NET AJAX Control Toolkit udostępnia sugestie w czasie rzeczywistym użytkownikowi jako jego typy w polu tekstowym na stronie sieci Web, gdzie lista sugestii jest uzyskiwana przez asynchroniczne wywołanie usługi sieci Web na serwerze.
 
-[&#9654;Obejrzyj film wideo (minuty 7)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-autocomplete-control)
+[&#9654;Obejrzyj wideo (7 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-autocomplete-control)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-use-the-aspnet-ajax-slider-control.md)

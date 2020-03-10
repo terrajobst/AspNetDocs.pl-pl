@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/index
-title: Filmy wideo | Dokumentacja firmy Microsoft
+title: Filmy wideo | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,13 +9,13 @@ ms.assetid: f215d6b9-8a84-4bd8-8881-e9527d814950
 msc.legacyurl: /web-forms/videos
 msc.type: book
 ms.openlocfilehash: 0082330e75a905469c66b04277d70416555c30c3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397217"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633638"
 ---
-# <a name="videos"></a>Wideo
+# <a name="videos"></a>Filmy wideo
 
 - [Jak to zrobić](how-do-i/index.md)
 
@@ -73,7 +73,7 @@ ms.locfileid: "59397217"
     - [Wykrywanie możliwości przeglądarki we wzorcu ASP.NET Web Pages](how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
     - [Mapowanie kontrolki serwera platformy ASP.NET do adaptera używanego do jej renderowania](how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
     - [Przekazywanie informacji z jednej strony do innej przy użyciu ciągu zapytania](how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-    - [Użyj aspnet\_merge.exe narzędzie do scalania zestawów](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+    - [Scalanie zestawów przy użyciu narzędzia ASPNET\_merge. exe](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
     - [Implementowanie ogłaszania zwrotnego między stronami na platformie ASP.NET](how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet.md)
     - [Programowe dodawanie kontrolek do strony internetowej ASP.NET](how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
     - [Przechowywanie informacji po stronie klienta i manipulowanie nimi przy użyciu ukrytego pola](how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)
@@ -133,7 +133,7 @@ ms.locfileid: "59397217"
 - [Kompilowanie aplikacji w wersji 3.5](building-35-applications/index.md)
 
     - [Wprowadzenie do programu Visual Web Developer](building-35-applications/intro-to-visual-web-developer.md)
-    - [Funkcja IntelliSense](building-35-applications/intellisense.md)
+    - [IntelliSense](building-35-applications/intellisense.md)
     - [Wprowadzenie do modelu Web Forms](building-35-applications/intro-to-web-forms.md)
     - [Układ strony](building-35-applications/page-layout.md)
     - [Zdarzenia cyklu życia strony](building-35-applications/page-lifecycle-events.md)
@@ -221,16 +221,16 @@ ms.locfileid: "59397217"
     - [[Wprowadzenie do platformy ASP.NET 2.0:] Podstawy platformy ASP.NET 2.0](migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
     - [[Wprowadzenie do platformy ASP.NET 2.0:] Elementy interfejsu użytkownika](migrating/intro-to-aspnet-20-user-interface-elements.md)
     - [[Migrowanie z] Klasyczne środowisko ASP na platformę ASP.NET](migrating/migrating-from-classic-asp-to-aspnet.md)
-    - [Wprowadzenie do platformy ASP.NET dla deweloperów JSP: Witamy w programie ASP.NET 2.0](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-    - [Wprowadzenie do platformy ASP.NET dla deweloperów JSP: Tworzenie aplikacji](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-    - [Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: Dodawanie platformy ASP.NET do swojej oferty](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-    - [Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: Tworzenie aplikacji ASP.NET](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+    - [Wprowadzenie do platformy ASP.NET dla deweloperów JSP: ASP.NET 2.0 — Zapraszamy](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+    - [Wprowadzenie do platformy ASP.NET dla deweloperów JSP: tworzenie aplikacji](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+    - [Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: dodawanie platformy ASP.NET do swojej oferty](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+    - [Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: tworzenie aplikacji ASP.NET](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
     - [Międzyoperacyjność języka PHP i platformy systemu Windows](migrating/interop-between-php-and-the-windows-platform.md)
 - [Kompilowanie aplikacji w wersji 2.0](building-20-applications/index.md)
 
     - [[Lekcja 1:] Wprowadzenie do programu Visual Web Developer Express](building-20-applications/lesson-1-getting-started-with-visual-web-developer-express.md)
     - [[Lekcja 2:] Tworzenie interfejsu użytkownika modelu Web Forms](building-20-applications/lesson-2-creating-a-web-forms-user-interface.md)
-    - [[Lekcja 3:] Opis więcej informacji na temat zdarzeń i ogłaszania zwrotnego](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
+    - [[Lekcja 3:] Informacje o zdarzeniach i ogłaszaniu zwrotnym](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
     - [[Lekcja 4:] Objaśnienie stanu aplikacji internetowej](building-20-applications/lesson-4-understanding-web-application-state.md)
     - [[Lekcja 5:] Debugowanie i śledzenie witryny internetowej](building-20-applications/lesson-5-debugging-and-tracing-your-website.md)
     - [[Lekcja 6:] Praca z arkuszami stylów i stronami wzorcowymi](building-20-applications/lesson-6-working-with-stylesheets-and-master-pages.md)
@@ -353,15 +353,15 @@ ms.locfileid: "59397217"
         - [Praca z zestawami danych i filtrami w aplikacji ASP](data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
     - [Jak to zrobić za pomocą LINQ](data-access/how-do-i-with-linq/index.md)
 
-        - [LINQ do SQL: omówienie](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-        - [LINQ do SQL: Model danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-        - [LINQ do SQL: Zapytanie do bazy danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-        - [LINQ do SQL: Aktualizowanie bazy danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
-        - [LINQ do SQL: LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-        - [LINQ do SQL: Custom LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-        - [LINQ do SQL: Korzystanie z procedur składowanych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-        - [LINQ do SQL: Aktualizowanie za pomocą procedur składowanych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-        - [LINQ do SQL: Wykonywanie dowolnego kodu SQL](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+        - [LINQ to SQL — przegląd](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
+        - [LINQ to SQL — model danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+        - [LINQ to SQL — wykonywanie zapytań w bazie danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+        - [LINQ to SQL — aktualizowanie bazy danych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+        - [LINQ to SQL — kontrolka LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
+        - [LINQ to SQL — niestandardowa kontrolka LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+        - [LINQ to SQL — korzystanie z procedur składowanych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+        - [LINQ to SQL — aktualizowanie przy użyciu procedur składowanych](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+        - [LINQ to SQL — wykonywanie dowolnego kodu SQL](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
     - [Filmy dotyczące LINQ od zespołu VB](data-access/linq-videos-from-the-vb-team/index.md)
 
         - [Wprowadzenie do LINQ](data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -390,7 +390,7 @@ ms.locfileid: "59397217"
     - [Usuwanie kolumn z siatek danych modelu DynamicData](aspnet-dynamic-data/how-to-remove-columns-from-your-dynamicdata-data-grids.md)
     - [Tworzenie niestandardowych formularzy specyficznych dla tabeli w aplikacji ASP.NET Dynamic Data](aspnet-dynamic-data/how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
     - [ASP.NET Dynamic Data — niestandardowe formatowanie formularzy](aspnet-dynamic-data/aspnet-dynamic-data-custom-form-formatting.md)
-- [ASP.NET 3.5](aspnet-35/index.md)
+- [Program Program ASP.NET 3.5](aspnet-35/index.md)
 
     - [Jak to zrobić](aspnet-35/how-do-i/index.md)
 
@@ -410,7 +410,7 @@ ms.locfileid: "59397217"
         - [Obsługa ASP.NET AJAX w programie Visual Studio 2008](aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
         - [Dodawanie funkcjonalności AJAX do istniejącej strony ASP.NET](aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
         - [Tworzenie i używanie usługi internetowej z włączoną obsługą technologii AJAX w witrynie internetowej](aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-        - [ASP.NET AJAX: Pokaz rozszerzeń ASP.NET AJAX](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+        - [ASP.NET AJAX: pokaz rozszerzeń ASP.NET AJAX](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
         - [ADO.NET Data Services z obsługą rozszerzeń ASP.NET AJAX](aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
         - [Wprowadzenie do kontrolki History ASP.NET AJAX](aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
         - [Zwiększanie wydajności rozszerzeń AJAX przy użyciu łączenia skryptów](aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/index
-title: Microsoft Ajax Content Delivery Network | Dokumentacja firmy Microsoft
+title: Microsoft Ajax Content Delivery Network | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: fc98bde7-484a-4191-bba2-04d29551cb8f
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 10ee617ff5653bcc478364b7bea75bac4f4770f6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388858"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78564569"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 
@@ -57,7 +57,7 @@ ms.locfileid: "59388858"
     - [Interfejs użytkownika jQuery 1.12.1 w usłudze Microsoft Ajax CDN](jquery-ui/cdnjqueryui1121.md)
 - [jQuery Validate](jquery-validate/index.md)
 
-    - [Sprawdzanie poprawności 1.17.0 jQuery](jquery-validate/cdnjqueryvalidate1170.md)
+    - [Sprawdzanie poprawności jQuery 1.17.0](jquery-validate/cdnjqueryvalidate1170.md)
     - [jQuery Validation 1.16.0](jquery-validate/cdnjqueryvalidate1160.md)
     - [jQuery Validation 1.15.1](jquery-validate/cdnjqueryvalidate1151.md)
     - [jQuery Validation 1.15.0](jquery-validate/cdnjqueryvalidate1150.md)

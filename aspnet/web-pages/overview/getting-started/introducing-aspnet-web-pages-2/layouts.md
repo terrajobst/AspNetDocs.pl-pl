@@ -1,185 +1,185 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: Wprowadzenie do składnika ASP.NET Web Pages — tworzenie spójnego układu | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — tworzenie spójnego układu | Microsoft Docs
 author: Rick-Anderson
-description: W tym samouczku dowiesz się, jak za pomocą układów tworzenie spójnego wyglądu dla stron w lokacji korzystającej z ASP.NET Web Pages. Przyjęto założenie, że zostały wykonane...
+description: W tym samouczku pokazano, jak używać układów do tworzenia spójnego wyglądu stron w witrynie, która używa stron sieci Web ASP.NET. Przyjęto założenie, że ukończono...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
 ms.openlocfilehash: 678eb7089e95e3d221d6b2d82034a62aefa75757
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131838"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78526692"
 ---
-# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do wzorca ASP.NET Web Pages — tworzenie spójnego układu
+# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do stron sieci Web ASP.NET — tworzenie spójnego układu
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku dowiesz się, jak używać *układy* do tworzenia spójnego wyglądu dla stron w lokacji korzystającej z ASP.NET Web Pages. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [usuwanie danych z baz danych w programie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251584).
+> W tym samouczku pokazano, jak używać *układów* do tworzenia spójnego wyglądu stron w witrynie, która używa stron sieci Web ASP.NET. Przyjęto założenie, że ukończono serię przez [usunięcie danych bazy danych na stronach sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251584).
 > 
 > Zawartość:
 > 
-> - Strona układu jest.
-> - Jak połączyć układu strony z zawartością dynamiczną.
+> - Co to jest strona układu.
+> - Jak połączyć strony układu z zawartością dynamiczną.
 > - Jak przekazać wartości do strony układu.
 
 ## <a name="about-layouts"></a>Układy — informacje
 
-Strony utworzone do tej pory wszystkie zostały zakończone, stron autonomicznych. Wszystkie one należeć do tej samej lokacji, ale nie mają żadnych wspólnych elementów lub standardowy wygląd.
+Wszystkie utworzone przez siebie strony zostały ukończone, autonomiczne strony. Wszystkie należą do tej samej lokacji, ale nie mają żadnych wspólnych elementów ani standardowego wyglądu.
 
-Większość witryn mają spójnego wyglądu i układ. Na przykład, jeśli przejdziesz do [Microsoft.com/web](https://www.microsoft.com/web/) lokacji i poszukaj, zobaczysz, że wszystkie strony stosować ogólny układ i motyw wizualny:
+Większość lokacji ma spójny wygląd i układ. Na przykład jeśli przejdziesz do witryny [Microsoft.com/Web](https://www.microsoft.com/web/) i zobaczysz, że wszystkie strony są zgodne z ogólnym układem i motywem wizualnym:
 
-![Strona witryny Microsoft.com/Web przedstawiający układ nagłówka, obszar nawigacji, obszarem zawartości i stopka](layouts/_static/image1.png)
+![Strona witryny Microsoft.com/web przedstawiająca układ nagłówka, obszaru nawigacji, obszaru zawartości i stopki](layouts/_static/image1.png)
 
-*Nieefektywne* sposób, aby utworzyć ten układ jest zdefiniować nagłówek, pasek nawigacyjny i stopka osobno dla poszczególnych stron sieci. Można będzie się duplikowania ten sam kod znaczników każdorazowo. Jeśli chcesz coś zmienić (na przykład aktualizacja stopki), trzeba zmienić każdą stronę oddzielnie.
+*Nieefektywnym* sposobem tworzenia tego układu będzie Definiowanie nagłówka, paska nawigacyjnego i stopki oddzielnie na każdej stronie. Za każdym razem duplikujesz te same znaczniki. Jeśli chcesz zmienić coś (na przykład zaktualizować stopkę), musisz oddzielnie zmienić każdą stronę.
 
-To tutaj *strony układu* pochodzą. W składniku ASP.NET Web Pages można zdefiniować stronę układu, oferująca pojemniku ogólnego stron w witrynie. Na przykład strony układu może zawierać nagłówek, obszar nawigacji i stopki. Strona układu zawiera symbol zastępczy, gdzie należy wstawić zawartość głównego.
+Jest to miejsce, w którym są dostępne *strony układu* . Na stronach sieci Web ASP.NET można zdefiniować stronę układu, która zawiera ogólny kontener dla stron w witrynie. Na przykład strona układu może zawierać nagłówek, obszar nawigacji i stopkę. Strona układu zawiera symbol zastępczy, w którym znajduje się główna Zawartość.
 
-Następnie można zdefiniować poszczególne strony z zawartością, które zawierają znaczników i kodu tylko na tej stronie. Strony z zawartością nie muszą być ukończone stron HTML. jeszcze nie mają mieć `<body>` elementu. Mają one linię kodu, który informuje, jakie stronę układu, w której chcesz wyświetlać zawartość w ASP.NET. Oto obraz, który około pokazuje, jak działa ta relacja:
+Następnie można zdefiniować pojedyncze strony zawartości zawierające znaczniki i kod tylko dla tej strony. Strony zawartości nie muszą być kompletnymi stronami HTML; nie muszą oni nawet mieć elementu `<body>`. Mają także wiersz kodu, który informuje ASP.NET, na której stronie układu ma być wyświetlana zawartość. Oto ilustracja przedstawiająca sposób działania tej relacji:
 
-![Diagram koncepcyjny przedstawiający dwóch stronach zawartości i stronę układu, w którym mieściły się](layouts/_static/image2.png)
+![Diagram koncepcyjny pokazujący dwie strony zawartości i stronę układu, do których one pasują.](layouts/_static/image2.png)
 
-Ta interakcja jest łatwa do zrozumienia, kiedy zostanie wyświetlony w działaniu. W tym samouczku zmienisz stron sieci filmy, aby używać układu.
+Ta interakcja jest łatwa do zrozumienia, gdy zobaczysz ją w działaniu. W tym samouczku zmienisz strony filmów do korzystania z układu.
 
 ## <a name="adding-a-layout-page"></a>Dodawanie strony układu
 
-Będziesz rozpoczyna się od utworzenia strony układu, który definiuje układ strony typowego nagłówka, stopki i obszar do głównej zawartości. W witrynie WebPagesMovies Dodaj stronę CSHTML o nazwie  *\_Layout.cshtml*.
+Zacznij od utworzenia strony układu, która definiuje typowy układ strony z nagłówkiem, stopką i obszarem zawartości głównej. W witrynie WebPagesMovies Dodaj stronę CSHTML o nazwie *\_Layout. cshtml*.
 
-Wiodący znak podkreślenia ( `_` ) znak jest znacząca. Jeśli na stronie nazwa zaczyna się od znaku podkreślenia, ASP.NET nie bezpośrednio wysłać tę stronę w przeglądarce. Ta konwencja pozwala zdefiniować stron, które są wymagane dla danej witryny, jednak, że użytkownicy nie powinien móc żądać bezpośrednio.
+Znak podkreślenia wiodącego (`_`) jest znaczący. Jeśli nazwa strony rozpoczyna się od znaku podkreślenia, ASP.NET nie będzie bezpośrednio wysyłać tej strony do przeglądarki. Ta konwencja umożliwia zdefiniowanie stron, które są wymagane dla danej witryny, ale nie ma możliwości bezpośredniego żądania.
 
-Zastąp zawartość strony następujących czynności:
+Zastąp zawartość na stronie następującym:
 
 [!code-html[Main](layouts/samples/sample1.html)]
 
-Jak widać, ten kod znaczników jest po prostu HTML, który używa `<div>` elementy, aby zdefiniować trzy sekcje w stronę plus 1 bardziej `<div>` elementu do przechowywania trzy sekcje. Stopka zawiera ilość kodu Razor: `@DateTime.Now.Year`, który będzie renderowany w bieżącym roku w tej lokalizacji, na stronie.
+Jak widać, ten znacznik jest tylko HTML, który używa elementów `<div>` do definiowania trzech sekcji na stronie oraz jednego elementu `<div>`, aby przechowywać trzy sekcje. Stopka zawiera bit kodu Razor: `@DateTime.Now.Year`, który będzie renderować bieżący rok w tej lokalizacji na stronie.
 
-Należy zauważyć, że znajduje się link do arkusza stylów, o nazwie *Movies.css*. Arkusz stylów jest, gdzie można zdefiniować szczegóły fizycznego układu elementów. Instrukcje dotyczące tworzenia, za chwilę.
+Zwróć uwagę, że istnieje link do arkusza stylów o nazwie *filmy. css*. Arkusz stylów to miejsce, w którym zostaną zdefiniowane szczegóły układu fizycznego elementów. W tej chwili utworzysz ten element.
 
-Tylko niezwykłych funkcji, w tym  *\_Layout.cshtml* strona jest `@Render.Body()` wiersza. To symbol zastępczy, gdzie zawartość, gdy ten układ jest scalany z innej strony.
+Jedyną nietypową funkcją na tej *\_stronie Layout. cshtml* jest wiersz `@Render.Body()`. Jest to symbol zastępczy, w którym zostanie wystawiona zawartość, gdy ten układ zostanie scalony z inną stroną.
 
-## <a name="adding-a-css-file"></a>Dodawanie pliku .css
+## <a name="adding-a-css-file"></a>Dodawanie pliku. CSS
 
-Preferowanym sposobem zdefiniowania układowi (czyli wygląd) elementów na stronie jest użyć reguły stylów kaskadowych w arkusz (CSS). Dlatego należy utworzyć *.css* pliku, który ma reguły dla nowego układu.
+Preferowanym sposobem zdefiniowania rzeczywistego układu (czyli wyglądu) elementów na stronie jest użycie reguł kaskadowego arkusza stylów (CSS). Utwórz plik *CSS* , który zawiera reguły dla nowego układu.
 
-W programie WebMatrix wybierz katalog główny witryny. Następnie w **pliki** karty na wstążce kliknij strzałkę w obszarze **New** przycisk, a następnie kliknij przycisk **nowy Folder**.
+W programie WebMatrix wybierz katalog główny witryny. Następnie na karcie **pliki** wstążki kliknij strzałkę pod przyciskiem **Nowy** , a następnie kliknij pozycję **Nowy folder**.
 
-![Opcję "Nowy Folder" w obszarze nowe na Wstążce.](layouts/_static/image3.png)
+![Opcja "nowy folder" w obszarze nowy na Wstążce.](layouts/_static/image3.png)
 
-Nadaj nazwę nowego folderu *style*.
+Nazwij nowe *Style*folderów.
 
-![Nazewnictwo nowy folder "Style"](layouts/_static/image4.png)
+![Nazywanie nowego folderu "Style"](layouts/_static/image4.png)
 
-W nowym *style* folderze utwórz plik o nazwie *Movies.css*.
+W folderze nowe *Style* Utwórz plik o nazwie *filmy. css*.
 
-![Tworzenie nowego pliku Movies.css](layouts/_static/image5.png)
+![Tworzenie nowych filmów plik CSS](layouts/_static/image5.png)
 
-Zastąp zawartość nowego *.css* pliku następującym kodem:
+Zastąp zawartość nowego pliku *. css* następującym:
 
 [!code-css[Main](layouts/samples/sample2.css)]
 
-Firma Microsoft nie będzie, że te informacje, te reguły CSS, z wyjątkiem dwie czynności Pamiętaj, aby. Jeden jest oprócz ustawienia czcionek i rozmiarów, reguły pozycjonowanie absolutne ustanowienie lokalizacji nagłówek, stopka i główny obszar zawartości. Jeśli jesteś nowym użytkownikiem pozycjonowania w kodzie CSS, możesz przeczytać [pozycjonowania CSS](http://www.w3schools.com/css/css_positioning.asp) samouczek w witrynie W3Schools.
+Nie będziemy mówić więcej o tych regułach CSS, z wyjątkiem dwóch rzeczy. Jest to, że oprócz ustawiania czcionek i rozmiarów, reguły używają pozycjonowania bezwzględnego do ustalenia lokalizacji nagłówka, stopki i głównego obszaru zawartości. Jeśli dopiero zaczynasz pozycjonować w CSS, możesz przeczytać samouczek dotyczący [pozycjonowania CSS](http://www.w3schools.com/css/css_positioning.asp) w witrynie w3schools.
 
-Jeszcze inną czynność należy pamiętać, zdefiniowano, u dołu skopiowano możemy reguły stylów, które były pierwotnie indywidualnie w *Movies.cshtml* pliku. Te reguły zostały użyte w [wprowadzenie do wyświetlania danych przy użyciu stron ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251580) samouczka, aby wprowadzić `WebGrid` pomocnika renderowania kodu znaczników dodaną rozkłada do tabeli. (Jeśli zamierzasz używać *.css* pliku definicji stylów może także stanowić reguł stylu dla całej witryny w nim.)
+Druga należy zwrócić uwagę na to, że na dole zostały skopiowane reguły stylu, które zostały pierwotnie zdefiniowane w pliku *Films. cshtml* . Te reguły zostały użyte we [wprowadzeniu do wyświetlania danych przy użyciu samouczka ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251580) , aby uczynić pomocnika `WebGrid` renderować znaczniki dodawane do tabeli. (Jeśli zamierzasz użyć pliku *. css* do definiowania definicji stylu, możesz również ustawić reguły stylu dla całej witryny).
 
-## <a name="updating-the-movies-file-to-use-the-layout"></a>Aktualizowanie pliku filmy do użycia w układzie
+## <a name="updating-the-movies-file-to-use-the-layout"></a>Aktualizowanie pliku filmów do korzystania z układu
 
-Można teraz zaktualizować istniejące pliki w tej witryny używanie nowego układu. Otwórz *Movies.cshtml* pliku. U góry strony w pierwszym wierszu kodu, Dodaj następujący fragment kodu:
+Teraz można zaktualizować istniejące pliki w lokacji, aby używały nowego układu. Otwórz plik *Films. cshtml* . W górnej części, jako pierwszy wiersz kodu, Dodaj następujące elementy:
 
 [!code-csharp[Main](layouts/samples/sample3.cs)]
 
-Strona teraz rozpoczyna się w ten sposób:
+Strona zostanie teraz uruchomiona w następujący sposób:
 
 [!code-cshtml[Main](layouts/samples/sample4.cshtml?highlight=2)]
 
-To jeden wiersz kodu informuje ASP.NET że w przypadku *filmy* uruchamia stronę, powinny zostać scalone z  *\_Layout.cshtml* pliku.
+Ten wiersz kodu instruuje ASP.NET, że gdy strona *filmów* zostanie uruchomiona, należy ją scalić z plikiem *\_Layout. cshtml* .
 
-Ponieważ *Movies.cshtml* plik używa teraz stronę układu, możesz usunąć znaczników z *Movies.cshtml* strona, która jest wykonywane przez  *\_Layout.cshtml*pliku. Opróżnij `<!DOCTYPE>`, `<html>`, i `<body>` znaczników otwierających i zamykających. W działaniu całej `<head>` elementu i jego zawartości, które obejmują reguły stylów siatki, ponieważ masz teraz tych zasad w *.css* pliku. Podczas pracy w tym zmienić istniejące `<h1>` elementu `<h2>` element; ma `<h1>` element już strony układu. Zmiana `<h2>` tekst "Listy filmów".
+Ponieważ plik *Films. cshtml* używa teraz strony układu, można usunąć znaczniki ze strony *filmy. cshtml* , która jest traktowana przez plik *\_Layout. cshtml* . Wypełnij `<!DOCTYPE>`, `<html>`i `<body>` otwierając i zamykając Tagi. Wykorzystaj cały `<head>` element i jego zawartość, w tym reguły stylu dla siatki, ponieważ teraz masz te reguły w pliku *. css* . Gdy skończysz, Zmień istniejący element `<h1>` na element `<h2>`; masz już element `<h1>` na stronie układu. Zmień tekst `<h2>` na "filmy lists".
 
-Zazwyczaj nie trzeba wprowadzać tego rodzaju zmian w zawartości strony. Po uruchomieniu witryny ze stroną układu tworzenia stron zawartości bez tych elementów rozpoczynać się. W takim jednak konwertujesz strony autonomicznego na taki, który używa układu, więc ma nieco oczyszczania.
+Zwykle nie trzeba wprowadzać tych zmian na stronie zawartości. Po uruchomieniu witryny za pomocą strony układu utworzysz strony zawartości bez wszystkich tych elementów, które mają zaczynać się od. W tym przypadku w tym przypadku konwertujesz autonomiczną stronę na jedną, która korzysta z układu, więc istnieje trochę oczyszczania.
 
-Gdy skończysz, *Movies.cshtml* strona będzie wyglądała podobnie do poniższego:
+Po zakończeniu strona *filmy. cshtml* będzie wyglądać następująco:
 
 [!code-cshtml[Main](layouts/samples/sample5.cshtml)]
 
 ### <a name="testing-the-layout"></a>Testowanie układu
 
-Teraz możesz zobaczyć, jak wygląda układu. W programie WebMatrix, kliknij prawym przyciskiem myszy *Movies.cshtml* strony i wybierz **Uruchom w przeglądarce**. Jeśli przeglądarka wyświetla stronę, wygląda na tej stronie:
+Teraz można zobaczyć, jak wygląda układ. W programie WebMatrix kliknij prawym przyciskiem myszy stronę *filmy. cshtml* i wybierz polecenie **Uruchom w przeglądarce**. Gdy przeglądarka wyświetli stronę, będzie wyglądać następująco:
 
-![Strona filmy renderowany przy użyciu układu](layouts/_static/image6.png)
+![Strona filmów renderowana przy użyciu układu](layouts/_static/image6.png)
 
-ASP.NET został scalony zawartość strony Movies.cshtml do  *\_Layout.cshtml* stronie odpowiednie miejsce `RenderBody` jest metoda. I oczywiście  *\_Layout.cshtml* stronie odwołania *.css* pliku, która definiuje wygląd strony.
+ASP.NET scalono zawartość strony filmy. cshtml na stronie *\_Layout. cshtml* , w której znajduje się `RenderBody` Metoda. I oczywiście strona *\_Layout. cshtml* odwołuje się do pliku *. css* , który definiuje wygląd strony.
 
-## <a name="updating-the-addmovie-page-to-use-the-layout"></a>Aktualizowanie strony AddMovie do użycia w układzie
+## <a name="updating-the-addmovie-page-to-use-the-layout"></a>Aktualizowanie strony addmovie do korzystania z układu
 
-Rzeczywiste zaletą układów jest, której można je na wszystkich stronach w witrynie. Otwórz *AddMovie.cshtml* strony.
+Rzeczywista korzyść dotycząca układów polega na tym, że można używać ich dla wszystkich stron w witrynie. Otwórz stronę *addmovie. cshtml* .
 
-Może być Pamiętaj, że *AddMovie.cshtml* strony pierwotnie miały niektóre reguły CSS w nim zdefiniować wygląd komunikatów o błędach weryfikacji. Ponieważ masz *.css* pliku teraz witryny, można przenieść te reguły *.css* pliku. Usuń je z *AddMovie.cshtml* plik i dodać je do dolnej części *Movies.css* pliku. Chcesz przenieść następujące reguły:
+Można pamiętać, że na stronie *addmovie. cshtml* na początku znajdują się pewne reguły CSS umożliwiające Definiowanie wyglądu komunikatów o błędach walidacji. Ponieważ masz teraz plik *CSS* witryny, możesz przenieść te reguły do pliku *. css* . Usuń je z pliku *addmovie. cshtml* i Dodaj je do dolnej części pliku *film. css* . Przenosisz następujące reguły:
 
 [!code-css[Main](layouts/samples/sample6.css)]
 
-Teraz wprowadzić tej samej różne rodzaje zmian w *AddMovie.cshtml* wykonanego *Movies.cshtml* — Dodaj `Layout="~/_Layout.cshtml;` i Usuń kod znaczników HTML, która jest teraz nadmiarowe. Zmiana `<h1>` elementu `<h2>`. Gdy wszystko będzie gotowe, strony będzie wyglądać następująco:
+Teraz należy wprowadzić takie same zmiany w pliku *addmovie. cshtml* dla *filmów. cshtml* — Dodaj `Layout="~/_Layout.cshtml;` i Usuń znacznik HTML, który jest teraz nadmiarowy. Zmień element `<h1>`, aby `<h2>`. Gdy skończysz, strona będzie wyglądać podobnie do tego przykładu:
 
 [!code-cshtml[Main](layouts/samples/sample7.cshtml)]
 
-Uruchom stronę. Teraz wygląda na tej ilustracji:
+Uruchom stronę. Teraz wygląda na to ilustracja:
 
-!["Dodaj filmy" strony renderowany przy użyciu układu](layouts/_static/image7.png)
+![Strona "Dodawanie filmów" renderowana przy użyciu układu](layouts/_static/image7.png)
 
-Aby wprowadzić zmiany podobne do strony w witrynie — *EditMovie.cshtml* i *DeleteMovie.cshtml*. Jednak zanim to zrobisz, możesz wprowadzenie innej zmiany do układu, który sprawia, że to nieco bardziej elastyczne.
+Chcesz wprowadzić podobne zmiany na stronach w witrynie — *EditMovie. cshtml* i *DeleteMovie. cshtml*. Jednak przed rozpoczęciem możesz wprowadzić kolejną zmianę w układzie, która sprawia, że jest nieco bardziej elastyczna.
 
-## <a name="passing-title-information-to-the-layout-page"></a>Informacje o tytułach Przechodzenie do strony układ
+## <a name="passing-title-information-to-the-layout-page"></a>Przekazywanie informacji o tytule do strony układu
 
-*\_Layout.cshtml* zawiera strony, który został utworzony `<title>` element, który jest ustawiony na "Moja witryna filmu". W większości przeglądarek wyświetlenie zawartości tego elementu jako tekst, na karcie:
+Utworzona strona *\_Layout. cshtml* ma element `<title>`, który jest ustawiony na "Moja witryna filmów". Większość przeglądarek wyświetla zawartość tego elementu jako tekst na karcie:
 
-![Strony &lt;tytuł&gt; element wyświetlane na karcie przeglądarki](layouts/_static/image8.png)
+![&lt;tytuł strony&gt; element wyświetlany na karcie przeglądarki](layouts/_static/image8.png)
 
-Informacje o tytułach jest ogólny. Załóżmy, tekst tytułu, aby dokładniej do bieżącej strony. (Tekst tytułu również służy przez aparaty wyszukiwania do określania strona jest o.) Możesz przekazać informacje ze strony zawartości, takich jak *Movies.cshtml* lub *AddMovie.cshtml* do strony układu i następnie użyć tych informacji, aby dostosować stronę układu renderuje.
+Informacje o tym tytule są ogólne. Załóżmy, że tekst tytułu ma być bardziej szczegółowy dla bieżącej strony. (Tekst tytułu jest również używany przez aparaty wyszukiwania, aby określić, do czego służy strona). Można przekazać informacje ze strony zawartości, takiej jak *filmy. cshtml* lub *addmovie. cshtml* , do strony układ, a następnie użyć tych informacji do dostosowania działania renderowania strony układu.
 
-Otwórz *Movies.cshtml* strony. W kodzie u góry Dodaj następujący wiersz:
+Otwórz ponownie stronę *filmy. cshtml* . W kodzie u góry Dodaj następujący wiersz:
 
 [!code-csharp[Main](layouts/samples/sample8.cs)]
 
-`Page` Obiekt jest dostępny na wszystkich *.cshtml* strony i jest w tym celu, a mianowicie udostępnianie informacji między stroną i jego układu.
+Obiekt `Page` jest dostępny na wszystkich stronach *. cshtml* i jest przeznaczony do tego celu, a mianowicie do udostępniania informacji między stroną a jej układem.
 
-Otwórz  *\_Layout.cshtml* strony. Zmiana `<title>` elementu, tak że wygląda ten kod znaczników:
+Otwórz stronę *\_Layout. cshtml* . Zmień element `<title>` tak, aby wyglądał następująco:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
-Ten kod renderuje, niezależnie od rodzaju znajduje się w `Page.Title` właściwość bezpośrednio w tej lokalizacji, na stronie.
+Ten kod renderuje wszystko, co znajduje się we właściwości `Page.Title` bezpośrednio w tej lokalizacji na stronie.
 
-Uruchom *Movies.cshtml* strony. Tym razem karty przeglądarki pokazuje przekazany jako wartość `Page.Title`:
+Uruchom stronę *filmy. cshtml* . Tym razem karta przeglądarki pokazuje przekazaną wartość `Page.Title`:
 
-![Na karcie przeglądarki, przedstawiający tytuł tworzone dynamicznie](layouts/_static/image9.png)
+![Karta przeglądarki pokazująca tytuł utworzony dynamicznie](layouts/_static/image9.png)
 
-Jeśli chcesz, wyświetlić źródło strony w przeglądarce. Możesz zobaczyć, że `<title>` element jest renderowany jako `<title>List Movies</title>`.
+Jeśli chcesz, Wyświetl źródło strony w przeglądarce. Można zobaczyć, że element `<title>` jest renderowany jako `<title>List Movies</title>`.
 
 > [!TIP] 
 > 
 > **Obiekt strony**
 > 
-> Przydatną cechą `Page` jest to obiekt dynamiczny — `Title` właściwość nie jest nazwą fixed lub zastrzeżonych. Możesz użyć *wszelkie* nazwę wartości `Page` obiektu. Na przykład, można łatwo przekazana tytuł przy użyciu właściwości o nazwie `Page.CurrentName` lub `Page.MyPage`. Jedynym ograniczeniem jest, że nazwa ta musi postępuj zgodnie z normalnym zasady mogą mieć nazwę właściwości. (Na przykład nazwa nie może zawierać spacji).
+> Przydatną funkcją `Page` jest to, że jest to obiekt dynamiczny — Właściwość `Title` nie jest nazwą stałą lub zastrzeżoną. Możesz użyć *dowolnej* nazwy dla wartości `Page` obiektu. Na przykład można łatwo przekazywać tytuł przy użyciu właściwości o nazwie `Page.CurrentName` lub `Page.MyPage`. Jedynym ograniczeniem jest to, że nazwa musi być zgodna z normalnymi regułami dla właściwości, które można nazwać. (Na przykład nazwa nie może zawierać spacji).
 > 
-> Można przekazać dowolną liczbę wartości za pomocą `Page` obiektu. Jeśli chcesz przekazać informacje o filmach do strony układu można przekazać wartości, przy użyciu polecenia podobnego `Page.MovieTitle` i `Page.Genre` i `Page.MovieYear`. (Lub innych nazw, które opracowali do przechowywania informacji.) Jedynym wymaganiem — czyli prawdopodobnie oczywiste — jest konieczne przy użyciu tych samych nazw w zawartości strony i strony układu.
+> Za pomocą obiektu `Page` można przekazać dowolną liczbę wartości. Jeśli chcesz przekazać informacje o filmie do strony układu, możesz przekazać wartości, używając takich elementów jak `Page.MovieTitle` i `Page.Genre` i `Page.MovieYear`. (Lub wszystkie inne nazwy, które zostały stworzone w celu przechowywania informacji). Jedyne wymaganie — co jest prawdopodobnie oczywiste — należy używać tych samych nazw na stronie zawartości i strony układu.
 > 
-> Informacje przekazywane za pomocą `Page` obiekt nie jest ograniczona do po prostu tekst do wyświetlenia na stronie układu. Można przekazać wartość do strony układu, a następnie kod w stronę układu można użyć wartości zdecydować, czy mają być wyświetlane w sekcji strony, co *.css* plików do użycia i tak dalej. Wartości są przekazywane w `Page` obiektu są tak jak inne wartości użycia w kodzie. Jest po prostu czy wartości pochodzą z poziomu strony zawartości i są przekazywane do strony układu.
+> Informacje przekazywane przy użyciu obiektu `Page` nie są ograniczone do tekstu wyświetlanego na stronie układu. Można przekazać wartość do strony układ, a następnie kod na stronie układu może użyć wartości, aby zdecydować, czy ma być wyświetlana sekcja strony, co plik *CSS* ma być używany i tak dalej. Wartości przekazywane w obiekcie `Page` są podobne do innych wartości, które są używane w kodzie. Tylko te wartości pochodzą ze strony zawartości i są przesyłane do strony układu.
 
-Otwórz *AddMovie.cshtml* strony, a następnie dodaj wiersz na początku kod, który zawiera tytuł *AddMovie.cshtml* strony:
+Otwórz stronę *addmovie. cshtml* i Dodaj wiersz na początku kodu, który zawiera tytuł dla strony *addmovie. cshtml* :
 
 [!code-csharp[Main](layouts/samples/sample10.cs)]
 
-Uruchom *AddMovie.cshtml* strony. Zostanie wyświetlony nowy tytuł istnieje:
+Uruchom stronę *addmovie. cshtml* . Zobaczysz nowy tytuł:
 
-![Na karcie przeglądarki, przedstawiający tytuł "Dodaj filmy" tworzone dynamicznie](layouts/_static/image10.png)
+![Karta przeglądarki pokazująca, że tytuł "Dodaj filmy" został utworzony dynamicznie](layouts/_static/image10.png)
 
-## <a name="updating-the-remaining-pages-to-use-the-layout"></a>Aktualizowanie pozostałe strony do użycia w układzie
+## <a name="updating-the-remaining-pages-to-use-the-layout"></a>Aktualizowanie pozostałych stron w celu korzystania z układu
 
-Teraz można dokończyć pozostałe strony w witrynie, tak aby używały nowego układu. Otwórz *EditMovie.cshtml* i *DeleteMovie.cshtml* z kolei i wprowadzenie identycznych zmian w każdym.
+Teraz możesz zakończyć pozostałe strony w swojej lokacji, tak aby korzystały z nowego układu. Otwórz *EditMovie. cshtml* i *DeleteMovie. cshtml* z kolei i wprowadź te same zmiany w każdym z nich.
 
-Dodaj wiersz kodu, który stanowi łącze do strony układu:
+Dodaj wiersz kodu, który łączy się ze stroną układu:
 
 [!code-csharp[Main](layouts/samples/sample11.cs)]
 
@@ -191,46 +191,46 @@ lub:
 
 [!code-csharp[Main](layouts/samples/sample13.cs)]
 
-Usuń wszystkie nadmiarowe kod znaczników HTML — po prostu Pozostaw tylko bity, które znajdują się wewnątrz `<body>` — element (plus blok kodu, u góry).
+Usuń wszystkie nadmiarowe znaczniki HTML — w zasadzie pozostaw tylko bity znajdujące się wewnątrz elementu `<body>` (plus blok kodu u góry).
 
-Zmiana `<h1>` element ma być `<h2>` elementu.
+Zmień element `<h1>` na element `<h2>`.
 
-Po wprowadzeniu tych zmian, każdy test i upewnij się, że są wyświetlane prawidłowo i czy tytuł jest poprawna.
+Po wprowadzeniu tych zmian przetestuj każdy z nich i upewnij się, że jest on prawidłowo wyświetlany i że tytuł jest poprawny.
 
-## <a name="parting-thoughts-about-layout-pages"></a>Towarzyszącą pomysł, strony układu
+## <a name="parting-thoughts-about-layout-pages"></a>Częściowe pomysły dotyczące stron układu
 
-W tym samouczku utworzono  *\_Layout.cshtml* strony, a następnie użyć `RenderBody` metodę, aby scalić zawartości z innej strony. To podstawowy wzorzec na stronach sieci Web za pomocą układów.
+W tym samouczku utworzono stronę *\_Layout. cshtml* i użyto metody `RenderBody`, aby scalić zawartość z innej strony. Jest to podstawowy wzorzec służący do używania układów na stronach sieci Web.
 
-Układ strony mają dodatkowe funkcje, które nie zostały omówione w tym miejscu. Na przykład, można zagnieżdżać strony układu — jedną stronę układu można z kolei odwoływać się do innego. Układy zagnieżdżonych mogą być przydatne, jeśli pracujesz z podsekcje lokacji, które wymagają różnych układów. Można również użyć dodatkowych metod (na przykład `RenderSection`) do skonfigurowania o nazwie sekcjach strony układu.
+Strony układu mają dodatkowe funkcje, które nie zostały tutaj omówione. Na przykład można zagnieżdżać strony układu — jedną stronę układu można z kolei zmienić. Układy zagnieżdżone mogą być przydatne, jeśli pracujesz z podsekcjami lokacji, które wymagają różnych układów. Możesz również użyć dodatkowych metod (na przykład `RenderSection`), aby skonfigurować nazwane sekcje na stronie układu.
 
-Połączenie strony układu i *.css* plików to zaawansowane. Jak zobaczysz w następnej serii samouczków, w programie WebMatrix można utworzyć witrynę na podstawie *szablonu*, które zapewnia witryny, która ma wbudowanych funkcji w nim. Szablony umożliwiają pełne wykorzystanie strony układu i arkusze CSS do tworzenia witryn, który wyglądał świetnie, które mają funkcje, takie jak menu. Poniżej przedstawiono zrzut ekranu strony głównej z lokacji, na podstawie szablonu, przedstawiający funkcji używających strony układu i arkusze CSS:
+Kombinacja stron układu i plików *CSS* jest zaawansowana. Jak widać w następnej serii samouczków, w programie WebMatrix można utworzyć witrynę na podstawie *szablonu*, który udostępnia lokację ze wstępnie utworzoną funkcją. Szablony ułatwiają używanie stron układu i CSS do tworzenia witryn, które wyglądają doskonale i mają funkcje takie jak menu. Oto zrzut ekranu strony głównej z witryny na podstawie szablonu, który pokazuje funkcje korzystające ze stron układu i CSS:
 
-![Układ utworzone przez wyświetlanie nagłówka, obszar nawigacji, obszaru zawartości, opcjonalna sekcja i łącza logowania szablonu witryny programu WebMatrix](layouts/_static/image11.png)
+![Układ utworzony przez szablon witryny WebMatrix pokazujący nagłówek, obszar nawigacji, obszar zawartości, sekcję opcjonalną i linki logowania](layouts/_static/image11.png)
 
-## <a name="complete-listing-for-movie-page-updated-to-use-a-layout-page"></a>Kompletna lista strony filmu (zaktualizowana w celu używania strony układu)
+## <a name="complete-listing-for-movie-page-updated-to-use-a-layout-page"></a>Ukończ listę dla strony filmu (Zaktualizowano do korzystania ze strony układu)
 
 [!code-cshtml[Main](layouts/samples/sample14.cshtml)]
 
-## <a name="complete-page-listing-for-add-movie-page-updated-for-layout"></a>Strona ukończone dla dodać strony filmu (Aktualizacja dla układu)
+## <a name="complete-page-listing-for-add-movie-page-updated-for-layout"></a>Kompletna lista stron na potrzeby dodawania stron filmu (zaktualizowanych na potrzeby układu)
 
 [!code-cshtml[Main](layouts/samples/sample15.cshtml)]
 
-## <a name="complete-page-listing-for-delete-movie-page-updated-for-layout"></a>Kompletna lista strony dla strony filmu Delete (Aktualizacja dla układu)
+## <a name="complete-page-listing-for-delete-movie-page-updated-for-layout"></a>Pełna lista stron do usuwania filmów (zaktualizowanych dla układu)
 
 [!code-cshtml[Main](layouts/samples/sample16.cshtml)]
 
-## <a name="complete-page-listing-for-edit-movie-page-updated-for-layout"></a>Kompletna lista strony dla strony filmu edycji (Aktualizacja dla układu)
+## <a name="complete-page-listing-for-edit-movie-page-updated-for-layout"></a>Kompletna lista stron do edycji strony filmu (zaktualizowana do układu)
 
 [!code-cshtml[Main](layouts/samples/sample17.cshtml)]
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-W następnym samouczku dowiesz się, jak opublikowanie witryny z Internetem, dzięki czemu wszyscy mogą oglądać.
+W następnym samouczku dowiesz się, jak opublikować witrynę w Internecie, aby wszyscy mogli ją zobaczyć.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Tworzenie spójnego Szukaj](https://go.microsoft.com/fwlink/?LinkID=202891) — artykułu, który zawiera więcej szczegółów na temat pracy z układów. Zawiera opis również sposób przekazywania wartości do strony układu, który pokazuje lub ukrywa część zawartości.
-- [Zagnieżdżone strony układu ze składnią Razor](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) — blogi Mike Brind przykładowy sposób zagnieździć strony układu. (Obejmuje pobierania stron).
+- [Tworzenie spójnego wyglądu](https://go.microsoft.com/fwlink/?LinkID=202891) — artykułu, który zawiera bardziej szczegółowe informacje na temat pracy z układami. Opisano w nim również, jak przekazać wartość do strony układu, która pokazuje lub ukrywa część zawartości.
+- [Zagnieżdżone strony układu z](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) tablicą Razor — na przykład, jak zagnieżdżać strony układu. (Obejmuje pobieranie stron).
 
 > [!div class="step-by-step"]
 > [Poprzednie](deleting-data.md)

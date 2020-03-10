@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/creating-user-accounts-with-the-create-user-wizard
-title: Tworzenie kont użytkowników z Kreator tworzenia użytkownika | Dokumentacja firmy Microsoft
+title: Tworzenie kont użytkowników przy użyciu Kreatora tworzenia użytkownika | Microsoft Docs
 author: JoeStagner
-description: W tym filmie Stagner Jan pokazuje, jak utworzyć użytkowników za pomocą Kreatora tworzenia użytkownika dołączoną do kolekcji formantów logowania w ASP.NET i Visual Studio. F...
+description: W tym filmie wideo Jan Stagner pokazuje, jak utworzyć użytkowników przy użyciu Kreatora tworzenia użytkownika, który jest dostarczany z kolekcją kontroli logowania w ASP.NET i programie Visual Studio. F...
 ms.author: riande
 ms.date: 08/22/2008
 ms.assetid: fe023ad0-a25e-48e6-a43a-304e113f1fca
 msc.legacyurl: /web-forms/videos/authentication/creating-user-accounts-with-the-create-user-wizard
 msc.type: video
 ms.openlocfilehash: d1eff0f8a0671f554b07f00328d7f28573553581
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411634"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78635934"
 ---
 # <a name="creating-user-accounts-with-the-create-user-wizard"></a>Tworzenie kont użytkowników za pomocą Kreatora tworzenia użytkownika
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie Stagner Jan pokazuje, jak utworzyć użytkowników za pomocą Kreatora tworzenia użytkownika dołączoną do kolekcji formantów logowania w ASP.NET i Visual Studio. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek zabezpieczeń "Tworzenie konta użytkownika" ([C#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md), [VB](../../overview/older-versions-security/membership/creating-user-accounts-vb.md)).
+W tym filmie wideo Jan Stagner pokazuje, jak utworzyć użytkowników przy użyciu Kreatora tworzenia użytkownika, który jest dostarczany z kolekcją kontroli logowania w ASP.NET i programie Visual Studio. Aby uzyskać dodatkowe informacje na temat tego wideo, zapoznaj się z samouczkiem dotyczącym[C#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md)tworzenia kont użytkowników (w [języku VB](../../overview/older-versions-security/membership/creating-user-accounts-vb.md)).
 
-[&#9654;Obejrzyj film wideo (9 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-user-accounts-with-the-create-user-wizard)
+[&#9654;Obejrzyj wideo (9 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-user-accounts-with-the-create-user-wizard)
 
 > [!div class="step-by-step"]
 > [Poprzednie](changing-membership-settings-in-the-default-membership-schema.md)

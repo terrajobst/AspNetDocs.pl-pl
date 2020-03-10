@@ -1,216 +1,216 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
-title: 'Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji | Dokumentacja firmy Microsoft'
+title: 'Zarządzanie cyklem życia aplikacji: od projektowania do produkcji | Microsoft Docs'
 author: jrjlee
-description: W tym temacie przedstawiono sposób fikcyjnej firmy zarządzania wdrożenia aplikacji sieci web ASP.NET za pomocą środowisk testowania, przejściowego i produkcji jako par...
+description: W tym temacie przedstawiono sposób, w jaki fikcyjna firma zarządza wdrażaniem aplikacji sieci Web ASP.NET za pomocą środowisk testowych, przejściowych i produkcyjnych jako wartości nominalnych...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
 ms.openlocfilehash: 230cf4393db0ee19cfc42ed54359d61e7926a49d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109288"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640666"
 ---
 # <a name="application-lifecycle-management-from-development-to-production"></a>Zarządzanie cyklem życia aplikacji: od projektowania do produkcji
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie przedstawiono sposób fikcyjnej firmy zarządzania wdrożenia aplikacji sieci web ASP.NET za pomocą środowisk testowania, przejściowego i produkcji jako część procesu ciągłego rozwoju. W temacie podano linki do dalszych informacji i wskazówki na temat sposobu wykonywania określonych zadań.
+> W tym temacie przedstawiono sposób, w jaki fikcyjna firma zarządza wdrażaniem aplikacji sieci Web ASP.NET za pomocą środowisk testowych, przejściowych i produkcyjnych w ramach procesu ciągłego tworzenia oprogramowania. W tym temacie przedstawiono linki do dalszych informacji i przewodników dotyczących wykonywania określonych zadań.
 > 
-> Temat ma na celu zapewnienie ogólny przegląd dla [serii samouczków](deploying-web-applications-in-enterprise-scenarios.md) na wdrażanie w Internecie w przedsiębiorstwie. Nie martw się, jeśli nie znasz niektóre pojęcia opisane w tym miejscu&#x2014;samouczków, które należy wykonać zawierają szczegółowe informacje o wszystkich tych zadań i technik.
+> Temat został zaprojektowany w celu zapewnienia wysokiego poziomu ogólnych informacji na temat [szeregu samouczków](deploying-web-applications-in-enterprise-scenarios.md) dotyczących wdrażania w Internecie w przedsiębiorstwie. Nie martw się, jeśli nie znasz niektórych koncepcji opisanych w tym&#x2014;samouczku, aby uzyskać szczegółowe informacje na temat wszystkich tych zadań i technik.
 > 
 > > [!NOTE]
-> > Dla uproszczenia w tym temacie nie omówiono w nim aktualizowanie bazy danych jako część procesu wdrażania. Wprowadzanie aktualizacji przyrostowych funkcje bazy danych jest wymagane wiele scenariuszy wdrażania w przedsiębiorstwie i wskazówki można znaleźć w sposób, w tym celu w dalszej części tej serii samouczków. Aby uzyskać więcej informacji, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > W celu uproszczenia ten temat nie omawia aktualizacji baz danych w ramach procesu wdrażania. Jednak wykonywanie aktualizacji przyrostowych baz danych jest wymaganiem wielu scenariuszy wdrażania w przedsiębiorstwie i można znaleźć wskazówki dotyczące tego, jak to zrobić w dalszej części tej serii samouczków. Aby uzyskać więcej informacji, zobacz [wdrażanie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 
 ## <a name="overview"></a>Omówienie
 
-Przedstawione poniżej proces wdrażania opiera się na scenariusz wdrażania firmy Fabrikam, Inc., które są opisane w [wdrażania sieci Web w przedsiębiorstwie: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md). Omówienie scenariusza należy przeczytać przed zapoznają się w tym temacie. Zasadniczo scenariusz sprawdza, jak organizacja zarządza wdrożenia aplikacji sieci web jest złożone, [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md), za pośrednictwem różnych faz w typowym środowisku przedsiębiorstwa.
+Opisany tutaj proces wdrażania jest oparty na scenariuszu wdrażania firmy Fabrikam, Inc. opisanego w artykule [wdrażanie w przedsiębiorstwie w sieci Web: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md). Zapoznaj się z omówieniem scenariusza przed rozpoczęciem badania tego tematu. Zasadniczo scenariusz analizuje sposób, w jaki organizacja zarządza wdrożeniem odpowiednio złożonej aplikacji sieci Web, [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)w różnych fazach w typowym środowisku przedsiębiorstwa.
 
-Na wysokim poziomie rozwiązania Contact Manager przechodzi przez te etapy jako część procesu projektowania i proces wdrażania przez:
+Na wysokim poziomie rozwiązanie Contact Manager przechodzi przez te etapy w ramach procesu tworzenia i wdrażania:
 
-1. Sprawdza Deweloper jakiś kod w Team Foundation Server (TFS) 2010.
-2. TFS jest tworzony kod i uruchamia wszystkie testy jednostkowe, skojarzone z projektem zespołowym.
-3. TFS wdraża to rozwiązanie do środowiska testowego.
-4. Zespół deweloperów sprawdza i weryfikuje rozwiązania w środowisku testowym.
-5. Administrator środowiska przejściowego wykonuje wdrożenia "what if" środowiska tymczasowego w celu ustalenia, czy wdrożenie spowoduje, że wszelkie problemy.
-6. Administrator środowiska przejściowego wykonuje na żywo wdrożenia w środowisku przejściowym.
-7. Rozwiązanie podlega testów w środowisku przejściowym odbiorczych użytkowników.
-8. Pakiety wdrożeniowe sieci web są importowane ręcznie do środowiska produkcyjnego.
+1. Deweloper sprawdza kod w Team Foundation Server (TFS) 2010.
+2. TFS kompiluje kod i uruchamia wszystkie testy jednostkowe skojarzone z projektem zespołowym.
+3. TFS wdraża rozwiązanie w środowisku testowym.
+4. Zespół deweloperów sprawdza i weryfikuje rozwiązanie w środowisku testowym.
+5. W celu ustalenia, czy wdrożenie spowoduje jakiekolwiek problemy, administrator środowiska tymczasowego wykonuje wdrożenie w środowisku "co jeśli".
+6. Administrator środowiska tymczasowego wykonuje wdrożenie na żywo w środowisku przejściowym.
+7. Rozwiązanie przeprowadzi testowanie akceptacji przez użytkownika w środowisku przejściowym.
+8. Pakiety wdrażania sieci Web są ręcznie importowane do środowiska produkcyjnego.
 
-Te etapy częścią cyklu rozwoju ciągłe.
+Te etapy stanowią część ciągłego cyklu programowania.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image1.png)
 
-W praktyce proces jest nieco bardziej skomplikowane niż to, jak zostanie wyświetlony, gdy spojrzymy na każdym etapie bardziej szczegółowo. Fabrikam, Inc. używa innego podejścia do wdrażania dla każdego środowiska docelowego.
+W ćwiczeniu proces jest nieco bardziej skomplikowany niż ten, ponieważ zobaczysz, że widzimy poszczególne etapy w bardziej szczegółowy sposób. Fabrikam, Inc. stosuje różne podejście do wdrożenia dla każdego środowiska docelowego.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image2.png)
 
-Pozostała część tego tematu sprawdza, czy te etapy klucza tego cyklu wdrażania:
+Pozostała część tego tematu dotyczy najważniejszych etapów tego cyklu wdrożenia:
 
-- **Wymagania wstępne**: Jak należy skonfigurować infrastrukturę serwera, zanim przeniesiesz logikę wdrożenie w miejscu.
-- **Początkowe tworzenie i wdrażanie**: Co należy zrobić przed wdrożeniem rozwiązania po raz pierwszy.
-- **Wdrożenie do testowania**: Jak pakować i wdrażać zawartość w środowisku testowym automatycznie, gdy programista zaewidencjonuje nowy kod.
-- **Wdrożenie przejściowe**: Wdrażanie określonej kompilacji, aby środowisko przejściowe i sposobu wykonywania "what if", wdrożeń, aby upewnić się, że wdrożenie nie powoduje żadnych problemów.
-- **Wdrożenia w środowisku produkcyjnym**: Jak importować pakiety sieci web w środowisku produkcyjnym po infrastruktury sieci uniemożliwia zdalnego wdrażania.
+- **Wymagania wstępne**: jak należy skonfigurować infrastrukturę serwera przed wprowadzeniem logiki wdrożenia.
+- **Początkowe programowanie i wdrażanie**: co należy zrobić przed wdrożeniem rozwiązania po raz pierwszy.
+- **Wdrożenie do przetestowania**: Jak spakować i wdrożyć zawartość w środowisku testowym automatycznie, gdy deweloper sprawdzi nowy kod.
+- **Wdrażanie do przemieszczania**: jak wdrażać konkretne kompilacje w środowisku przejściowym oraz jak wykonywać wdrożenia "co jeśli", aby upewnić się, że wdrożenie nie spowoduje żadnych problemów.
+- **Wdrażanie w środowisku produkcyjnym**: Importowanie pakietów sieci Web do środowiska produkcyjnego, gdy infrastruktura sieciowa uniemożliwia zdalne wdrażanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwsze zadanie w każdym scenariuszu wdrożenia jest upewnij się, że infrastruktury serwera spełnia wymagania wdrożenia narzędzi i technik. W tym przypadku firmy Fabrikam, Inc. skonfigurował swoją infrastrukturę serwera następująco:
+Pierwsze zadanie w dowolnym scenariuszu wdrożenia polega na zapewnieniu, że infrastruktura serwera spełnia wymagania narzędzi i technik wdrażania. W tym przypadku firma Fabrikam Inc. skonfigurował jej infrastrukturę serwera w następujący sposób:
 
-- TFS jest skonfigurowany do zawierać kolekcji projektów zespołowych, kontrolery kompilacji i agentów kompilacji. Zobacz [Konfigurowanie serwera Team Foundation Server dla automatycznego wdrażania w Internecie](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md) Aby uzyskać więcej informacji.
-- Środowisko testowe jest skonfigurowany do akceptowania zdalnych wdrożeń przy użyciu usługi agenta wdrażania sieci Web ("agent zdalny"), zgodnie z opisem w [scenariusza: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md) i [skonfigurować serwer sieci Web dla usługi Web Deploy (Agent zdalny) publikowanie](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md).
-- Środowisko przejściowe jest skonfigurowany do akceptowania zdalnych wdrożeń przy użyciu punktu końcowego obsługi wdrażania sieci Web, zgodnie z opisem w [scenariusza: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md) i [dla publikowania Web Deploy, skonfiguruj serwer sieci Web (Web Deploy obsługi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md).
-- W środowisku produkcyjnym jest skonfigurowane i umożliwiają administratorowi ręcznie zaimportować pakiety wdrażania sieci web w Internet Information Services (IIS), zgodnie z opisem w [scenariusza: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md) i [skonfigurować serwer sieci Web dla usługi Web Deploy (wdrożenie w trybie Offline) publikowanie](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md).
+- TFS jest skonfigurowany do uwzględnienia kolekcji projektów zespołowych, kontrolerów kompilacji i agentów kompilacji. Aby uzyskać więcej informacji, zobacz [konfigurowanie Team Foundation Server automatycznego wdrażania w sieci Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md) .
+- Środowisko testowe jest skonfigurowane do akceptowania wdrożeń zdalnych przy użyciu usługi Deployment Agent sieci Web ("zdalnego agenta"), zgodnie z opisem w temacie [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md) i [Konfigurowanie serwera sieci Web do publikowania Web Deploy (Agent zdalny)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md).
+- Środowisko przejściowe jest skonfigurowane do akceptowania wdrożeń zdalnych przy użyciu punktu końcowego procedury obsługi Web Deploy, zgodnie z opisem w temacie [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md) i [Konfigurowanie serwera sieci web do publikowania Web Deploy (obsługa Web Deploy)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md).
+- Środowisko produkcyjne jest skonfigurowane tak, aby umożliwić administratorowi ręczne zaimportowanie pakietów wdrożeniowych sieci Web do Internet Information Services (IIS), zgodnie z opisem w temacie [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md) i [Konfigurowanie serwera sieci web do publikowania Web Deploy (Wdrażanie w trybie offline)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md).
 
-## <a name="initial-development-and-deployment"></a>Początkowego projektowania i wdrażania
+## <a name="initial-development-and-deployment"></a>Początkowe programowanie i wdrażanie
 
-Zanim zespół deweloperów Fabrikam, Inc., można wdrożyć rozwiązanie Contact Manager po raz pierwszy, musi wykonać następujące zadania:
+Zanim zespół Fabrikam, Inc. programistyczny będzie mógł wdrożyć rozwiązanie Contact Manager po raz pierwszy, musi wykonać następujące zadania:
 
-- Tworzenie nowego projektu zespołowego w programie TFS.
-- Tworzenie plików projektów aparatu Microsoft Build Engine (MSBuild), które zawierają logikę wdrożenia.
-- Tworzenie definicji kompilacji serwera TFS, które mogą powodować procesów wdrażania.
+- Utwórz nowy projekt zespołowy w programie TFS.
+- Utwórz pliki projektu Microsoft Build Engine (MSBuild), które zawierają logikę wdrażania.
+- Utwórz definicje kompilacji TFS, które wyzwalają procesy wdrażania.
 
-### <a name="create-a-new-team-project"></a>Tworzenie nowego projektu zespołowego
+### <a name="create-a-new-team-project"></a>Utwórz nowy projekt zespołowy
 
-- Administratora TFS, Tomasz Rob powoduje utworzenie nowego projektu zespołowego dla aplikacji, zgodnie z opisem w [tworzenia projektu zespołowego w programie TFS](../configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md). Następnie główny programista Matt Hink tworzy szkielet rozwiązanie. ADAM sprawdza, czy jego pliki do nowego projektu zespołowego w programie TFS, zgodnie z opisem w [dodawania zawartości do kontroli źródła](../configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md).
+- Administrator TFS, Rob Walters, tworzy nowy projekt zespołowy dla aplikacji, zgodnie z opisem w temacie [Tworzenie projektu zespołowego w programie TFS](../configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md). Następnie deweloper lidera, hink matowy, tworzy rozwiązanie szkieletowe. Sprawdza pliki w nowym projekcie zespołowym w programie TFS, zgodnie z opisem w temacie [Dodawanie zawartości do kontroli źródła](../configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md).
 
-### <a name="create-the-deployment-logic"></a>Tworzenie logiki wdrożenia
+### <a name="create-the-deployment-logic"></a>Tworzenie logiki wdrażania
 
-Matt Hink tworzy różnych niestandardowych plików projektu MSBuild przy użyciu podejścia pliku projektu Podziel opisanego w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Matt tworzy:
+Hink matowy tworzy różne pliki niestandardowego projektu programu MSBuild przy użyciu podejścia rozdzielonego pliku projektu opisanego w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Tworzenie otoczki:
 
-- Plik projektu o nazwie *Publish.proj* , które jest uruchamiane w procesie wdrażania. Ten plik zawiera docelowych elementów MSBuild kompilować projekty w rozwiązaniu, tworzenie pakietów w sieci web i wdrożenia pakietów dla środowiska serwera docelowego.
-- Pliki projektu specyficznego dla środowiska o nazwie *Env Dev.proj* i *Env Stage.proj*. Zawierają one ustawienia, które są specyficzne dla środowiska testowego i środowisko przejściowe, takie jak parametry połączenia, punkty końcowe usługi i szczegółowe informacje o usługę zdalną, która, otrzymają pakiet sieci web. Aby uzyskać wskazówki na temat wybierania odpowiednich ustawień dla określonego miejsca docelowego środowiska, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+- Plik projektu o nazwie *Publish. proj* , który uruchamia proces wdrożenia. Ten plik zawiera elementy docelowe programu MSBuild, które kompilują projekty w rozwiązaniu, tworzą pakiety sieci Web i wdrażają pakiety w środowisku serwera docelowego.
+- Pliki projektu specyficzne dla środowiska o nazwie *ENV-dev. proj* i *ENV-Stage. proj*. Zawierają one ustawienia specyficzne dla środowiska testowego i środowiska przejściowego, takie jak ciągi połączeń, punkty końcowe usługi i szczegóły usługi zdalnej, która będzie odbierać pakiet sieci Web. Aby uzyskać wskazówki dotyczące wybierania odpowiednich ustawień dla konkretnych środowisk docelowych, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-Aby uruchomić wdrożenie, użytkownik wykonuje *Publish.proj* plików przy użyciu programu MSBuild lub kompilacji zespołowej i określa lokalizację pliku projektu specyficznymi dla środowiska (*Env Dev.proj* lub *Env Stage.proj*) jako argument wiersza polecenia. *Publish.proj* pliku następnie importuje plik projektu specyficznego dla środowiska, aby utworzyć kompletny zestaw instrukcji dla każdego środowiska docelowego publikowania.
+Aby uruchomić wdrożenie, użytkownik wykonuje plik *Publish. proj* przy użyciu programu MSBuild lub kompilacji zespołu i określa lokalizację odpowiedniego pliku projektu specyficznego dla środowiska (*ENV-dev. proj* lub *ENV-Stage. proj*) jako argument wiersza polecenia. Plik *Publish. proj* importuje następnie plik projektu specyficzny dla środowiska, aby utworzyć kompletny zestaw instrukcji publikowania dla każdego środowiska docelowego.
 
 > [!NOTE]
-> Sposób, w jaki działają te pliki niestandardowego projektu jest niezależna od mechanizmu, którego używasz do wywoływania MSBuild. Na przykład, można użyć wiersza polecenia MSBuild bezpośrednio, zgodnie z opisem w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Możesz uruchamiać pliki projektu z pliku polecenia, zgodnie z opisem w [tworzenie i uruchamianie pliku poleceń wdrażania](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatywnie można uruchomić pliki projektu z definicji kompilacji w programie TFS, zgodnie z opisem w [tworząc definicję kompilacji tego wdrożenia obsługuje](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> W każdym przypadku efekt jest taki sam&#x2014;MSBuild wykonuje pliku scalonego projektu i wdraża rozwiązanie na środowisku docelowym. Zapewnia dużą elastyczność w jak wyzwolić proces publikowania.
+> Sposób działania tych niestandardowych plików projektu jest niezależny od mechanizmu używanego do wywoływania programu MSBuild. Na przykład można użyć wiersza polecenia MSBuild bezpośrednio, zgodnie z opisem w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Pliki projektu można uruchomić z pliku poleceń, zgodnie z opisem w temacie [Tworzenie i uruchamianie pliku poleceń wdrożenia](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatywnie można uruchomić pliki projektu z definicji kompilacji w programie TFS, zgodnie z opisem w temacie [Tworzenie definicji kompilacji, która obsługuje wdrażanie](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
+> W każdym przypadku wynikiem jest ten sam&#x2014;pakiet MSBuild, który wykonuje scalony plik projektu i wdraża rozwiązanie w środowisku docelowym. Zapewnia to doskonałą elastyczność w sposobie wyzwalania procesu publikowania.
 
-Gdy ma on utworzone pliki niestandardowego projektu, Matt dodaje je do folderu rozwiązania i ewidencjonuje je w kontroli źródła.
+Po utworzeniu niestandardowych plików projektu otoczka dodaje je do folderu rozwiązania i sprawdza je w kontroli źródła.
 
-### <a name="create-build-definitions"></a>Utwórz definicje kompilacji
+### <a name="create-build-definitions"></a>Tworzenie definicji kompilacji
 
-Jako zadanie przygotowania końcowego Matt i Rob współpracują ze sobą do tworzenia trzech definicji kompilacji dla nowego projektu zespołowego:
+Jako ostateczne zadanie przygotowania, matowy i Rob współpracują ze sobą, aby utworzyć trzy definicje kompilacji dla nowego projektu zespołowego:
 
-- **DeployToTest**. Kompiluje rozwiązanie Contact Manager i wdraża ją do środowiska testowego, za każdym razem, gdy występuje, ewidencjonowania.
-- **DeployToStaging**. Wdraża zasobów z określonej poprzedniej kompilacji do środowiska pomostowego, gdy deweloper kolejkuje kompilację.
-- **DeployToStaging-WhatIf**. Wykonuje "what if" wdrożenia w środowisku przejściowym, gdy deweloper kolejkuje kompilację.
+- **DeployToTest**. To kompiluje rozwiązanie Contact Manager i wdraża je w środowisku testowym przy każdym wystąpieniu zaewidencjonowania.
+- **DeployToStaging**. Spowoduje to wdrożenie zasobów z określonej poprzedniej kompilacji w środowisku przejściowym, gdy deweloper zakolejkuje kompilację.
+- **DeployToStaging — whatIf**. Wykonuje to wdrażanie w środowisku przejściowym, gdy deweloper zakolejkuje kompilację.
 
-W kolejnych sekcjach więcej szczegółowych informacji dotyczących każdej z tych definicji kompilacji.
+Poniższe sekcje zawierają więcej szczegółów na temat każdej z tych definicji kompilacji.
 
-## <a name="deployment-to-test"></a>Wdrożenie do testowania
+## <a name="deployment-to-test"></a>Wdrożenie do przetestowania
 
-Zespół deweloperów w firmie Fabrikam, Inc. zachowuje środowisk testowych, związanych z różnymi rodzajami oprogramowania testowania działań, takich jak weryfikacji i sprawdzania poprawności, użyteczność testowania, testy zgodności i ad hoc, czy poznawczego testowania.
+Zespół programistyczny w firmie Fabrikam, Inc. obsługuje środowiska testowe, aby przeprowadzić różne działania związane z testowaniem oprogramowania, takie jak weryfikacja i weryfikacja, testowanie użyteczności, testowanie zgodności i badania ad hoc.
 
-Zespół projektowy, który utworzył definicję kompilacji w programie TFS o nazwie **DeployToTest**. Ta definicja kompilacji używa wyzwalacza ciągłej integracji, co oznacza, że proces kompilacji jest uruchamiany za każdym razem, gdy członek zespołu deweloperów firmy Fabrikam, Inc. wykona ewidencjonowania. Gdy kompilacja zostaje wyzwolona, definicji kompilacji wykonują następujące czynności:
+Zespół programistyczny utworzył definicję kompilacji w programie TFS o nazwie **DeployToTest**. Ta definicja kompilacji używa wyzwalacza ciągłej integracji, co oznacza, że proces kompilacji jest uruchamiany za każdym razem, gdy członek zespołu Fabrikam, Inc. programowanie wykonuje zaewidencjonowanie. Gdy kompilacja jest wyzwalana, definicja kompilacji będzie:
 
-- Skompiluj rozwiązanie ContactManager.sln. Tworzy to z kolei każdy projekt w ramach rozwiązania.
-- Uruchom wszystkie testy jednostkowe w strukturze folderu rozwiązania (jeśli jest to rozwiązanie zostanie skompilowane pomyślnie).
-- Uruchamianie plików niestandardowego projektu, które sterują procesem wdrażania (Jeśli rozwiązanie pomyślnie skompilowana i przeszedł wszystkie testy jednostki).
+- Kompiluj rozwiązanie ContactManager. sln. To z kolei kompiluje każdy projekt w ramach rozwiązania.
+- Uruchom wszystkie testy jednostkowe w strukturze folderów rozwiązań (Jeśli rozwiązanie zostanie pomyślnie skompilowane).
+- Uruchom pliki projektu niestandardowego kontrolujące proces wdrażania (Jeśli rozwiązanie zostanie pomyślnie skompilowane i przeszedł wszystkie testy jednostkowe).
 
-Wynik końcowy to, czy rozwiązanie pomyślnie skompilowana, przekazuje testów jednostkowych pakietów sieci web i inne zasoby dotyczące wdrażania są wdrażane do środowiska testowego.
+Wynikiem tego jest to, że jeśli rozwiązanie zostanie pomyślnie skompilowane i przejdzie testy jednostkowe, pakiety sieci Web i inne zasoby wdrożenia są wdrażane w środowisku testowym.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image3.png)
 
-### <a name="how-does-the-deployment-process-work"></a>Jak działa w procesie wdrażania?
+### <a name="how-does-the-deployment-process-work"></a>Jak działa proces wdrażania?
 
-**DeployToTest** tworzenia definicji dostarcza te argumenty MSBuild:
+Definicja kompilacji **DeployToTest** dostarcza następujące argumenty do programu MSBuild:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample1.cmd)]
 
-**DeployOnBuild = true** i **DeployTarget = pakiet** właściwości są używane w przypadku kompilacji zespołowej kompilacji projektów w rozwiązaniu. Gdy projekt jest projektem aplikacji sieci web, te właściwości poinstruować program MSBuild, aby utworzyć pakiet wdrożeniowy sieci web dla projektu. **TargetEnvPropsFile** właściwość zawiera informacje dla *Publish.proj* gdzie można znaleźć pliku projektu specyficznymi dla środowiska, aby zaimportować plik.
+Właściwości **DeployOnBuild = true** i **DeployTarget =** są używane, gdy Kompilacja zespołu kompiluje projekty w ramach rozwiązania. Gdy projekt jest projektem aplikacji sieci Web, te właściwości instruują MSBuild, aby utworzyć pakiet wdrożeniowy sieci Web dla projektu. Właściwość **TargetEnvPropsFile** informuje plik *Publish. proj* , gdzie znaleźć plik projektu specyficzny dla środowiska do zaimportowania.
 
 > [!NOTE]
-> Szczegółowy przewodnik na temat tworzenia definicji kompilacji, tak, zobacz [tworząc definicję kompilacji tego wdrożenia obsługuje](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
+> Aby uzyskać szczegółowy przewodnik dotyczący sposobu tworzenia definicji kompilacji podobnej do tego, zobacz [Tworzenie definicji kompilacji, która obsługuje wdrażanie](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
-*Publish.proj* plik zawiera elementy docelowe, które kompilują każdy projekt w rozwiązaniu. Jednak obejmuje również logikę warunkową, pomija te Kompiluj elementów docelowych, gdy wykonujesz pliku w programie Team Build. Dzięki temu można wykorzystać funkcje dodatkowe kompilacji, pozwalającą na tworzenie zespołu, takie jak możliwość uruchamiania testów jednostkowych. Jeśli kompilacja rozwiązania lub jednostki testy kończyć się niepowodzeniem, *Publish.proj* pliku nie zostaną wykonane, a aplikacja nie zostanie wdrożony.
+Plik *Publish. proj* zawiera elementy docelowe, które kompilują każdy projekt w rozwiązaniu. Jednak zawiera również logikę warunkową, która pomija te cele kompilacji, jeśli jest wykonywany plik w kompilacji zespołu. Dzięki temu można korzystać z dodatkowych funkcji kompilacji oferowanych przez kompilację zespołową, takich jak możliwość uruchamiania testów jednostkowych. Jeśli kompilacja rozwiązania lub testy jednostkowe zakończą się niepowodzeniem, plik *Publish. proj* nie zostanie wykonany i aplikacja nie zostanie wdrożona.
 
-Logikę warunkową odbywa się poprzez ocenę **BuildingInTeamBuild** właściwości. Jest to właściwość MSBuild, automatycznie zostaje ustawiony poziom **true** podczas używania Team Build do tworzenia projektów.
+Logika warunkowa jest realizowana poprzez obliczenie właściwości **BuildingInTeamBuild** . Jest to właściwość programu MSBuild, która jest automatycznie ustawiana na **wartość true** w przypadku kompilowania projektów przy użyciu kompilacji zespołowej.
 
-## <a name="deployment-to-staging"></a>Wdrażanie w środowisku przejściowym
+## <a name="deployment-to-staging"></a>Wdrażanie do przemieszczania
 
-Podczas kompilacji spełnia wszystkie wymagania zespołu deweloperów w środowisku testowym, zespół może chcesz wdrożyć tę samą kompilację w środowisku przejściowym. Środowiska przejściowe zwykle są skonfigurowane do dopasowania właściwości "na żywo" środowisku co dokładnie, jak to możliwe, na przykład w specyfikacjach serwera, systemy operacyjne i oprogramowanie oraz konfiguracji sieci lub produkcji. Środowiska przejściowe są często używane do testowania obciążenia, testy odbiorcze użytkowników i przeglądy wewnętrzne szersze. Kompilacje są wdrażane w środowisku przejściowym bezpośrednio z serwera kompilacji.
+Gdy kompilacja spełnia wszystkie wymagania zespołu deweloperów w środowisku testowym, zespół może chcieć wdrożyć tę samą kompilację w środowisku przejściowym. Środowiska tymczasowe są zwykle skonfigurowane tak, aby były zgodne z charakterystyką środowiska produkcyjnego lub "na żywo" tak jak to możliwe, na przykład w przypadku specyfikacji serwera, systemów operacyjnych i oprogramowania oraz konfiguracji sieci. Środowiska przejściowe są często używane do testowania obciążenia, testowania akceptacji użytkowników i szerszych przeglądów wewnętrznych. Kompilacje są wdrażane w środowisku przejściowym bezpośrednio z serwera kompilacji.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image4.png)
 
-Definicje kompilacji, używany do wdrożenia rozwiązania w środowisku przejściowym **DeployToStaging-WhatIf** i **DeployToStaging**, udostępnianie następującą charakterystykę:
+Definicje kompilacji używane do wdrożenia rozwiązania w środowisku przejściowym, **DeployToStaging-whatIf** i **DeployToStaging**, mają następujące cechy:
 
-- Nie faktycznie tworzą niczego. Gdy Rob wdraża to rozwiązanie do środowiska pomostowego, chce wdrożyć konkretne, istniejące kompilacji, która już została zweryfikowana i sprawdzone w środowisku testowym. Definicje kompilacji, wystarczy na uruchamianie plików niestandardowego projektu, które sterują procesem wdrażania.
-- Kiedy Rob wyzwala kompilację, on używa parametrów kompilacji, aby określić kompilację, która zawiera zasoby, które chce wdrożyć z serwera kompilacji.
+- Nie kompilują niczego. Gdy Rob wdraża rozwiązanie w środowisku przejściowym, chce wdrożyć konkretną istniejącą kompilację, która została już zweryfikowana i sprawdzona w środowisku testowym. Definicje kompilacji wymagają tylko uruchomienia niestandardowych plików projektu, które kontrolują proces wdrażania.
+- Gdy Rob wyzwala kompilację, używa parametrów kompilacji, aby określić, która kompilacja zawiera zasoby, które chcą wdrożyć z serwera kompilacji.
 - Definicje kompilacji nie są wyzwalane automatycznie. Rob ręcznie kolejkuje kompilację, gdy chce wdrożyć rozwiązanie w środowisku przejściowym.
 
-Oto ogólny proces wdrażania w środowisku przejściowym:
+Jest to proces wysokiego poziomu dla wdrożenia w środowisku przejściowym:
 
-1. Administrator środowiska przejściowego Tomasz Rob umieszcza w kolejce kompilacji za pomocą **DeployToStaging-WhatIf** definicji kompilacji. Rob używa parametrów definicji kompilacji, aby określić kompilację, która chce wdrożyć.
-2. **DeployToStaging-WhatIf** kompilacja definicji przebiegów plików niestandardowego projektu w trybie "what if". Spowoduje to wygenerowanie plików dziennika, tak, jakby Rob działał na żywo wdrożenia, ale faktycznie nie wprowadza żadnych zmian w środowisku docelowym.
-3. Rob monitoruje pliki dziennika w celu potwierdzenia skutków wdrożenia w środowisku przejściowym. W szczególności Rob chce sprawdzić, co zostanie dodany, co zostanie zaktualizowana i co zostanie usunięte.
-4. Jeśli Rob jest spełnione, wdrożenie nie wprowadzić żadnych niepożądanych zmian do istniejących zasobów lub danych, i umieszcza w kolejce kompilacji za pomocą **DeployToStaging** definicji kompilacji.
-5. **DeployToStaging** pliki niestandardowego projektu w definicji uruchomienia kompilacji. Zasoby związane z wdrażaniem tych opublikować na podstawowym serwerze sieci web w środowisku przejściowym.
-6. Kontroler Framework kolektywu serwerów sieci Web (WFF) synchronizuje serwerów sieci web w środowisku przejściowym. Dzięki temu aplikacja dostępna na wszystkich serwerach sieci web w farmie serwerów.
+1. Administrator środowiska tymczasowego, Rob Walters, kolejkuje kompilację przy użyciu definicji kompilacji **DeployToStaging-whatIf** . Rob korzysta z parametrów definicji kompilacji, aby określić kompilację, która ma zostać wdrożona.
+2. Definicja kompilacji **DeployToStaging-whatIf** uruchamia niestandardowe pliki projektu w trybie "co jeśli". Spowoduje to wygenerowanie plików dziennika, tak jakby Rob wykonywał wdrożenie na żywo, ale nie wprowadza żadnych zmian w środowisku docelowym.
+3. Rob przegląda pliki dziennika, aby upewnić się, że wdrożenia w środowisku przejściowym. W szczególności Rob chce sprawdzić, co zostanie dodane, co zostanie zaktualizowane i co zostanie usunięte.
+4. Jeśli Rob jest przekonany, że wdrożenie nie spowoduje żadnych niepożądanych zmian istniejących zasobów lub danych, ustawia kompilację przy użyciu definicji kompilacji **DeployToStaging** .
+5. W definicji kompilacji **DeployToStaging** są uruchamiane niestandardowe pliki projektu. Umożliwiają one Publikowanie zasobów wdrożenia na podstawowym serwerze sieci Web w środowisku przejściowym.
+6. Kontroler Web Farm Framework (WFF) synchronizuje serwery sieci Web w środowisku przejściowym. Dzięki temu aplikacja jest dostępna na wszystkich serwerach sieci Web w farmie serwerów.
 
-### <a name="how-does-the-deployment-process-work"></a>Jak działa w procesie wdrażania?
+### <a name="how-does-the-deployment-process-work"></a>Jak działa proces wdrażania?
 
-**DeployToStaging** tworzenia definicji dostarcza te argumenty MSBuild:
+Definicja kompilacji **DeployToStaging** dostarcza następujące argumenty do programu MSBuild:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample2.cmd)]
 
-**TargetEnvPropsFile** właściwość zawiera informacje dla *Publish.proj* gdzie można znaleźć pliku projektu specyficznymi dla środowiska, aby zaimportować plik. **OutputRoot** właściwości przesłonięcia wbudowanej wartości i wskazuje lokalizację folderu kompilacji, która zawiera zasoby, którą chcesz wdrożyć. Gdy Rob kolejkuje kompilację, używając **parametry** kartę, aby zapewnić zaktualizowaną wartość dla **OutputRoot** właściwości.
+Właściwość **TargetEnvPropsFile** informuje plik *Publish. proj* , gdzie znaleźć plik projektu specyficzny dla środowiska do zaimportowania. Właściwość **OutputRoot** przesłania wartość wbudowaną i wskazuje lokalizację folderu kompilacji zawierającego zasoby, które mają zostać wdrożone. Gdy Rob kolejkuje kompilację, używa karty **Parametry** , aby podać zaktualizowaną wartość właściwości **OutputRoot** .
 
 ![](application-lifecycle-management-from-development-to-production/_static/image5.png)
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia definicji kompilacji, tak, zobacz [wdrażanie określonej kompilacji](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
+> Aby uzyskać więcej informacji na temat tworzenia definicji kompilacji podobnej do tego, zobacz [wdrażanie określonej kompilacji](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
 
-**DeployToStaging-WhatIf** definicji kompilacji zawiera tę samą logikę wdrożenia jako **DeployToStaging** definicji kompilacji. Jednak zawiera dodatkowy argument **WhatIf = true**:
+Definicja kompilacji **DeployToStaging-whatIf** zawiera tę samą logikę wdrażania, co definicja kompilacji **DeployToStaging** . Jednak zawiera dodatkowy argument **whatIf = true**:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
-W ramach *Publish.proj* pliku **WhatIf** właściwość wskazuje, że wszystkie zasoby dotyczące wdrażania powinny być publikowane w trybie "what if". Innymi słowy pliki dziennika są generowane, tak, jakby wyprzedzeniem zdecydowali wdrożenia, ale nic nie zostanie faktycznie zmienione w środowisku docelowym. Dzięki temu można ocenić wpływ proponowanej wdrożenia&#x2014;w szczególności, co będzie poproś o dodanie Cię, jakie zostaną zaktualizowani i jakie będą usuwane&#x2014;przed faktycznie wprowadzone zmiany.
+W pliku *Publish. proj* Właściwość **whatIf** wskazuje, że wszystkie zasoby wdrożenia powinny być publikowane w trybie "co IF". Inaczej mówiąc, pliki dziennika są generowane tak, jakby wdrożenie było już w przeszłości, ale w środowisku docelowym nie ma żadnych zmian. Dzięki temu można oszacować wpływ proponowanego wdrożenia&#x2014;, co zostanie dodane, co zostanie zaktualizowane i co zostanie usunięte&#x2014;przed faktycznym wprowadzeniem jakichkolwiek zmian.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat konfigurowania wdrożenia "what if", zobacz [wykonywania wdrożenia "What If"](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
+> Aby uzyskać więcej informacji na temat konfigurowania wdrożeń "co jeśli", zobacz [wykonywanie wdrożenia "What If"](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
 
-Po wdrożeniu aplikacji na podstawowym serwerze sieci web w środowisku przejściowym, WFF automatyczną synchronizację aplikacji na wszystkich serwerach w farmie serwerów.
+Po wdrożeniu aplikacji na podstawowym serwerze sieci Web w środowisku przejściowym program WFF automatycznie zsynchronizuje aplikację na wszystkich serwerach w farmie serwerów.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat konfigurowania WFF do synchronizowania serwerów sieci web, zobacz [utworzyć farmę serwerów za pomocą rozwiązania Web Farm Framework](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
+> Aby uzyskać więcej informacji na temat konfigurowania WFF do synchronizowania serwerów sieci Web, zobacz [tworzenie farmy serwerów za pomocą struktury farmy sieci Web](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
 
-## <a name="deployment-to-production"></a>Wdrożenia w środowisku produkcyjnym
+## <a name="deployment-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
-Po zatwierdzeniu kompilacji w środowisku przejściowym zespół firmy Fabrikam, Inc. opublikowanie aplikacji do środowiska produkcyjnego. W środowisku produkcyjnym jest, gdzie aplikacja przejdzie "na żywo" i osiągnie jego docelowymi odbiorcami użytkowników końcowych.
+Gdy kompilacja została zatwierdzona w środowisku przejściowym, firma Fabrikam, Inc. Team może opublikować aplikację w środowisku produkcyjnym. Środowisko produkcyjne to miejsce, w którym aplikacja działa "na żywo" i dociera do nich docelowych użytkowników końcowych.
 
-W środowisku produkcyjnym znajduje się w sieci obwodowej dostępnego z Internetu. To jest odizolowana od sieci wewnętrznej, który zawiera serwer kompilacji. Administrator środowiska produkcyjnego, Lisa Andrews, należy ręcznie skopiować pakiety wdrażania sieci web z serwera kompilacji i zaimportować je do usług IIS na serwerze sieci web produkcji podstawowej.
+Środowisko produkcyjne znajduje się w sieci obwodowej połączonej z Internetem. Jest to odizolowane od sieci wewnętrznej zawierającej serwer kompilacji. Administrator środowiska produkcyjnego, Lisa Andrews, musi ręcznie skopiować pakiety wdrażania sieci Web z serwera kompilacji i zaimportować je do usług IIS na podstawowym serwerze produkcyjnym sieci Web.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image6.png)
 
-Oto ogólny proces wdrażania w środowisku produkcyjnym:
+Jest to proces wysokiego poziomu dla wdrożenia w środowisku produkcyjnym:
 
-1. Zespołu deweloperów z informacją o tym Lisa czy kompilacja jest gotowa do wdrożenia w środowisku produkcyjnym. Zespół z informacją o tym Lisa lokalizacji pakiety wdrażania sieci web w ramach folderu docelowego na serwerze kompilacji.
-2. Lisa zbiera pakietów sieci web z serwera kompilacji i kopiuje je na podstawowym serwerze sieci web w środowisku produkcyjnym.
-3. Lisa używa Menedżera usług IIS, aby zaimportować i opublikować pakietów sieci web na podstawowym serwerze sieci web.
-4. Kontroler WFF synchronizuje serwerów sieci web w środowisku produkcyjnym. Dzięki temu aplikacja dostępna na wszystkich serwerach sieci web w farmie serwerów.
+1. Zespół deweloperów doradza Lisa, że kompilacja jest gotowa do wdrożenia w środowisku produkcyjnym. Zespół doradza Lisa lokalizacji pakietów wdrożeniowych sieci Web w folderze docelowym na serwerze kompilacji.
+2. Lisa zbiera pakiety internetowe z serwera kompilacji i kopiuje je na podstawowy serwer sieci Web w środowisku produkcyjnym.
+3. Lisa używa Menedżera usług IIS do importowania i publikowania pakietów sieci Web na podstawowym serwerze sieci Web.
+4. Kontroler WFF synchronizuje serwery sieci Web w środowisku produkcyjnym. Dzięki temu aplikacja jest dostępna na wszystkich serwerach sieci Web w farmie serwerów.
 
-### <a name="how-does-the-deployment-process-work"></a>Jak działa w procesie wdrażania?
+### <a name="how-does-the-deployment-process-work"></a>Jak działa proces wdrażania?
 
-Menedżer usług IIS zawiera Kreatora importowania aplikacji pakietu, który ułatwia publikowanie pakietów w sieci web w witrynie sieci Web usług IIS. Aby uzyskać wskazówki na temat sposobu wykonania tej procedury, zobacz [ręczne instalowanie pakietów internetowych](../web-deployment-in-the-enterprise/manually-installing-web-packages.md).
+Menedżer usług IIS zawiera Kreatora importowania pakietu aplikacji, który ułatwia publikowanie pakietów sieci Web w witrynie sieci Web usług IIS. Aby zapoznać się z przewodnikiem dotyczącym wykonywania tej procedury, zobacz [Ręczne instalowanie pakietów internetowych](../web-deployment-in-the-enterprise/manually-installing-web-packages.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie podano ilustrację cykl życia wdrożenia dla aplikacji sieci web typowe skali przedsiębiorstwa.
+W tym temacie przedstawiono ilustrację cyklu życia wdrożenia typowej aplikacji sieci Web w skali korporacyjnej.
 
-Ten temat jest częścią serii samouczków, które zawiera wskazówek na temat różnych aspektów wdrażania aplikacji sieci web. W praktyce dostępnych jest wiele dodatkowych zadań i uwagi na każdym etapie procesu wdrażania, a nie jest możliwe je pokryć wszystko w jednym wskazówki. Aby uzyskać więcej informacji zapoznaj się z tych samouczków:
+Ten temat stanowi część szeregu samouczków, które zapewniają wskazówki dotyczące różnych aspektów wdrażania aplikacji sieci Web. W ramach tej procedury istnieją wiele dodatkowych zadań i zagadnień na każdym etapie procesu wdrażania. nie jest możliwe pokryć ich wszystkie w jednym przewodniku. Aby uzyskać więcej informacji, zapoznaj się z następującymi samouczkami:
 
-- [Narzędzie Web Deployment w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera obszerne wprowadzenie do funkcji techniki wdrażania sieci web przy użyciu programu MSBuild i Narzędzie wdrażania sieci Web usług IIS (Web Deploy).
-- [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące sposobu konfigurowania środowisk serwera Windows do obsługi różnych scenariuszy wdrażania.
-- [Konfigurowanie serwera Team Foundation Server dla automatycznego wdrażania w Internecie](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Ten samouczek zawiera wskazówki na temat wdrażania logiki do procesów kompilacji TFS.
-- [Zaawansowane wdrażanie w Internecie Enterprise](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten samouczek zawiera wskazówki na temat sposobu spełniają niektóre wyzwania związane z wdrożeniem bardziej złożone, organizacje.
+- [Wdrażanie w sieci Web w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera kompleksowe wprowadzenie do technik wdrażania w sieci Web przy użyciu programu MSBuild i narzędzia Web Deployment (Web Deploy) usług IIS.
+- [Konfigurowanie środowisk serwera na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące sposobu konfigurowania środowisk systemu Windows Server w celu obsługi różnych scenariuszy wdrażania.
+- [Konfigurowanie Team Foundation Server zautomatyzowanego wdrażania w sieci Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące integrowania logiki wdrażania z procesami kompilacji programu TFS.
+- [Zaawansowane wdrażanie w sieci Web dla przedsiębiorstw](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące sposobu zaspokajania niektórych bardziej złożonych wyzwań związanych z wdrażaniem, które są dostępne w organizacji.
 
 > [!div class="step-by-step"]
-> [Poprzednie](enterprise-web-deployment-scenario-overview.md)
+> [Wstecz](enterprise-web-deployment-scenario-overview.md)

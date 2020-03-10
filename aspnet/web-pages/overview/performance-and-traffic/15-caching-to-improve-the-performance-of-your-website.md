@@ -1,80 +1,80 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: Buforowanie danych we wzorcu ASP.NET Web Pages lokacji (Razor) zapewnienia lepszej wydajności | Dokumentacja firmy Microsoft
+title: Buforowanie danych w witrynie ASP.NET Web Pages (Razor) w celu zapewnienia lepszej wydajności | Microsoft Docs
 author: Rick-Anderson
-description: Można przyspieszyć witryny sieci Web przez on przechowywać — czyli pamięci podręcznej — wyniki danych, który normalnie zajęłoby znaczną ilość czasu pobierania lub przetwarzać...
+description: Aby przyspieszyć swoją witrynę sieci Web, możesz ją przechowywać w pamięci podręcznej — czyli na podstawie danych, które zwykle zajmują dużo czasu na pobranie lub przetworzenie...
 ms.author: riande
 ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
 ms.openlocfilehash: 01796d3ca699a6af5d9162b22a926551435c2040
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134579"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641520"
 ---
 # <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Buforowanie danych w witrynie ASP.NET Web Pages (Razor) w celu zapewnienia lepszej wydajności
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule wyjaśniono, jak użyć pomocnika do informacji o pamięci podręcznej, aby zwiększyć wydajność w witrynie internetowej ASP.NET Web Pages (Razor). Można przyspieszyć witryny sieci Web, konfigurując go przechowywać &#8212; oznacza to, że w pamięci podręcznej &#8212; wyników danych, który normalnie zajęłoby znaczną ilość czasu, można pobrać lub przetwarzania, a która nie zmienia się często.
+> W tym artykule wyjaśniono, jak używać pomocnika do buforowania informacji w celu zwiększenia wydajności w witrynie internetowej ASP.NET Web Pages (Razor). Aby przyspieszyć swoją witrynę sieci Web, Wystarczy przechowywać &#8212; ją w pamięci podręcznej &#8212; , co oznacza, że dane są zwykle czasochłonne w celu pobrania lub przetworzenia, a które nie zmieniają się często.
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
-> - Jak używać buforowania, można zwiększyć szybkość reakcji witryny sieci Web.
+> - Jak używać buforowania, aby zwiększyć czas odpowiedzi witryny sieci Web.
 > 
-> Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
+> Są to funkcje ASP.NET wprowadzone w artykule:
 > 
-> - `WebCache` Pomocnika.
+> - Pomocnik `WebCache`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
-Za każdym razem, gdy ktoś zgłasza żądanie strony z lokacji, serwer sieci web ma wykonania dodatkowych czynności w celu spełnienia żądania. W przypadku niektórych stron serwer może być konieczne przeprowadzenie zadań, które długo (stosunkowo), takie jak pobieranie danych z bazy danych. Nawet jeśli te zadania nie wykona długo w liczbach bezwzględnych, jeśli wiele ruchu witryny, całego szeregu poszczególnych żądań, które powodują serwer sieci web do wykonania zadania skomplikowany lub powolne możliwe jest dodanie do sporego nakładu pracy. Ostatecznie może to wpłynąć na wydajność lokacji.
+Za każdym razem, gdy ktoś żąda strony z witryny, serwer sieci Web musi wykonać pewne czynności w celu spełnienia żądania. W przypadku niektórych stron serwer może potrzebować wykonać zadania, które pomogą (w sposób porównawczy), takie jak pobieranie danych z bazy danych. Nawet jeśli te zadania nie zajmują dużo czasu, w przypadku, gdy witryna zajmuje dużo ruchu, cała seria indywidualnych żądań, które powodują, że serwer sieci Web do wykonywania skomplikowanych lub wolnych zadań może dodawać do dużo pracy. Może to ostatecznie mieć wpływ na wydajność lokacji.
 
-Jednym ze sposobów, aby zwiększyć wydajność witryny sieci Web w sytuacjach, takich jak to jest danych w pamięci podręcznej. Jeśli lokacji pobiera ponownych żądań tych samych informacji i informacji nie musi zostać zmodyfikowany dla każdej osoby, a nie jest to czas uwzględniana wielkość liter, zamiast ponownie podczas pobierania lub ponowne obliczanie, możesz pobrać dane jeden raz i następnie zapisać wyniki. Przy następnym dotrze żądanie, tym informacji, po prostu jego uzyskaniu z pamięci podręcznej.
+Jednym ze sposobów na zwiększenie wydajności witryny sieci Web w takich okolicznościach jest buforowanie danych. Jeśli witryna uzyskuje powtórzone żądania dla tych samych informacji, a informacje nie muszą być modyfikowane dla każdej osoby i nie są zależne od czasu, a nie do ponownego pobrania lub ponownej obliczeń, można pobrać dane jeden raz, a następnie zapisać wyniki. Następnym razem, gdy żądanie dotyczy tych informacji, wystarczy pobrać je z pamięci podręcznej.
 
-Ogólnie rzecz biorąc należy w pamięci podręcznej informacje, które nie zmieniają się często. Kiedy wprowadzasz informacje w pamięci podręcznej znajduje się w pamięci na serwerze sieci web. Można określić, jak długo go powinno być buforowane, od sekund do dni. Po wygaśnięciu okresu buforowania informacji zostanie automatycznie usunięty z pamięci podręcznej.
+Ogólnie rzecz biorąc, informacje o pamięci podręcznej, które nie zmieniają się często. Gdy umieszczasz informacje w pamięci podręcznej, są one przechowywane w pamięci na serwerze sieci Web. Możesz określić, jak długo powinna być buforowana, od sekund do dni. Po upływie okresu buforowania informacje są automatycznie usuwane z pamięci podręcznej.
 
 > [!NOTE]
-> Wpisy w pamięci podręcznej mogą zostać usunięte powodów innych niż, po wygaśnięciu. Na przykład serwer sieci web może być tymczasowo brakować pamięci i jednym ze sposobów jej odzyskania pamięci jest zgłaszanie wpisów z pamięci podręcznej. Jak można zauważyć, nawet jeśli została utworzona informacje w pamięci podręcznej, masz upewnij się, że jest on jeszcze gdy ich potrzebujesz.
+> Wpisy w pamięci podręcznej mogą zostać usunięte ze względu na to, że wygasły. Na przykład serwer sieci Web może tymczasowo uruchamiać małą ilość pamięci, a jednym ze sposobów odzyskiwania pamięci jest wyrzucanie wpisów z pamięci podręcznej. Jak widać, nawet jeśli informacje są umieszczane w pamięci podręcznej, należy upewnić się, że są nadal dostępne, gdy ich potrzebujesz.
 
-Załóżmy, że witryna ma stronę, która zawiera aktualną temperaturę i prognozy pogody. Aby uzyskać informacje tego typu, może wysyłać żądania do usługi zewnętrznej. Ponieważ te informacje nie zmienia się wiele (w ciągu dwóch godzin okresu, na przykład), a ponieważ połączeniami zewnętrznymi wymaga czasu i przepustowość, jest dobrym kandydatem do buforowania.
+Wyobraź sobie, że witryna sieci Web zawiera stronę wyświetlającą bieżącą temperaturę i prognozę pogody. Aby uzyskać informacje o tym typie, można wysłać żądanie do usługi zewnętrznej. Ponieważ te informacje nie zmieniają się znacznie (na przykład w okresie dwóch godzin), ponieważ wywołania zewnętrzne wymagają czasu i przepustowości, jest to dobry kandydat do buforowania.
 
-## <a name="adding-caching-to-a-page"></a>Dodanie do strony
+## <a name="adding-caching-to-a-page"></a>Dodawanie buforowania do strony
 
-Program ASP.NET zawiera `WebCache` pomocnika, która ułatwia dodawanie funkcji buforowania do swojej witryny i dodać dane do pamięci podręcznej. W tej procedurze utworzysz strona, która zapisuje bieżący czas w pamięci podręcznej. Jest to przykład rzeczywistych, ponieważ bieżąca godzina to coś, który zmienia się często, a ponadto nie jest to skomplikowane obliczenia. Jednak jest dobrym sposobem ilustrowania buforowania.
+ASP.NET zawiera pomocnika `WebCache`, który ułatwia dodawanie buforowania do lokacji i Dodawanie danych do pamięci podręcznej. W tej procedurze utworzysz stronę, która przechowuje w pamięci podręcznej bieżącą godzinę. To nie jest rzeczywisty przykład, ponieważ bieżący czas to coś, co często zmienia się, a co nie jest skomplikowane do obliczenia. Jednak jest dobrym sposobem zilustrowania buforowania w działaniu.
 
-1. Dodaj nową stronę o nazwie *WebCache.cshtml* do witryny sieci Web.
-2. Na stronie, Dodaj następujący kod i znaczników:
+1. Dodaj nową stronę o nazwie *webcache. cshtml* do witryny sieci Web.
+2. Dodaj następujący kod i znaczniki do strony:
 
     [!code-cshtml[Main](15-caching-to-improve-the-performance-of-your-website/samples/sample1.cshtml)]
 
-    Po użytkownik dane z pamięci podręcznej, został on umieszczony w pamięci podręcznej przy użyciu nazwy, to jest unikatowa w obrębie witryny sieci Web. W tym przypadku użyjemy wpis pamięci podręcznej o nazwie `CachedTime`. Jest to `cacheItemKey` pokazano w przykładzie kodu.
+    Podczas buforowania danych należy umieścić je w pamięci podręcznej przy użyciu nazwy, która jest unikatowa w całej witrynie sieci Web. W takim przypadku należy użyć wpisu pamięci podręcznej o nazwie `CachedTime`. Jest to `cacheItemKey` pokazano w przykładzie kodu.
 
-    Kod najpierw odczytuje `CachedTime` wpisu pamięci podręcznej. Jeśli wartość jest zwracana (to znaczy, jeśli wpis pamięci podręcznej nie jest null), kod po prostu ustawia wartość zmiennej czasu buforowania danych.
+    Kod najpierw odczytuje wpis pamięci podręcznej `CachedTime`. Jeśli zwracana jest wartość (to oznacza, że jeśli wpis pamięci podręcznej nie ma wartości null), kod ustawia wartość zmiennej czasowej na dane pamięci podręcznej.
 
-    Jednak jeśli nie istnieje wpis pamięci podręcznej (czyli jest wartość null), ten kod ustawia wartość czasu, dodaje ją do pamięci podręcznej i ustawia wartość dla wygaśnięcia na jedną minutę. Po jednej minucie wpisu pamięci podręcznej jest odrzucany. (Wartość domyślna wygaśnięcie elementu w pamięci podręcznej jest 20 minut). Polecenie `WebCache.Set(cacheItemKey, time, 1, false)` pokazuje, jak dodać wartość bieżącej godziny do pamięci podręcznej i ustawić jej wygaśnięcia na 1 minutę. Ustawienie *slidingExpiration* parametr `false` oznacza, że czas wygaśnięcia nie zostanie odnowiony każdorazowo żądanie. Wygaśnięcia dokładnie 1 minuta po pierwotnie został dodany do pamięci podręcznej. Jeśli ta wartość jest ustawiona na `true` każdego czas żądania wartość z pamięci podręcznej jest resetowany przy 1 minuta czasu wygaśnięcia.
+    Jeśli jednak wpis pamięci podręcznej nie istnieje (oznacza to, że ma wartość null), kod ustawia wartość czasu, dodaje ją do pamięci podręcznej i ustawia wartość wygaśnięcia na jedną minutę. Po upływie jednej minuty wpis pamięci podręcznej zostanie odrzucony. (Domyślna wartość wygaśnięcia dla elementu w pamięci podręcznej to 20 minut). Polecenie `WebCache.Set(cacheItemKey, time, 1, false)` pokazuje, jak dodać bieżącą wartość czasu do pamięci podręcznej i ustawić jej wygaśnięcie na 1 minutę. Ustawienie parametru *slidingExpiration* na `false` oznacza, że czas wygaśnięcia nie jest odnawiany przy każdym żądaniu żądania. Po jego pierwotnym dodaniu do pamięci podręcznej wygaśnie dokładnie 1 minutę. Jeśli ta wartość zostanie ustawiona na `true` czas wygaśnięcia 1 minuty zostanie zresetowany za każdym razem, gdy wartość zostanie zażądana z pamięci podręcznej.
 
-    Ten kod ilustruje wzorzec, który należy zawsze używać podczas buforowania danych. Przed zagłębieniem się coś z pamięci podręcznej, zawsze najpierw sprawdzić czy `WebCache.Get` metoda zwróciła wartość null. Należy pamiętać, że wpis pamięci podręcznej wygasła lub mógł zostać usunięty innego powodu, aby dany wpis nigdy nie musi znajdować się w pamięci podręcznej.
-3. Uruchom *WebCache.cshtml* w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.) Żądanie strony, po raz pierwszy danych czasowych nie znajduje się w pamięci podręcznej, a kod musi dodać wartości w czasie do pamięci podręcznej.
+    Ten kod ilustruje wzorzec, który powinien być zawsze używany podczas buforowania danych. Przed uzyskaniem czegoś z pamięci podręcznej należy zawsze najpierw sprawdzić, czy metoda `WebCache.Get` zwróciła wartość null. Należy pamiętać, że wpis pamięci podręcznej mógł wygasnąć lub mógł zostać usunięty z jakiegoś innego powodu, więc każdy podaną pozycję nigdy nie będzie w pamięci podręcznej.
+3. Uruchom w przeglądarce element *webcache. cshtml* . (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem). Podczas pierwszego żądania strony dane czasu nie znajdują się w pamięci podręcznej, a kod musi dodać wartość czasu do pamięci podręcznej.
 
-    ![pamięć podręczna-1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
-4. Odśwież *WebCache.cshtml* w przeglądarce. Tym razem danych czasowych jest w pamięci podręcznej. Należy zauważyć, że czas nie zmieniła się od czasu ostatniego przeglądać strony.
+    ![pamięć podręczna 1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
+4. Odśwież w przeglądarce *webcache. cshtml* . Tym razem dane czasu są w pamięci podręcznej. Zauważ, że czas nie został zmieniony od czasu ostatniego wyświetlenia strony.
 
     ![pamięć podręczna 2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
-5. Poczekaj jedną minutę na można opróżnić pamięć podręczną, a następnie odśwież stronę. Strona ponownie wskazuje, że danych czasowych nie został znaleziony w pamięci podręcznej i czas aktualizacji jest dodawany do pamięci podręcznej.
+5. Odczekaj jedną minutę, aby opróżnić pamięć podręczną, a następnie Odśwież stronę. Strona ponownie wskazuje, że dane czasu nie zostały odnalezione w pamięci podręcznej, a zaktualizowany czas został dodany do pamięci podręcznej.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Wyświetlanie danych na wykresie](https://go.microsoft.com/fwlink/?LinkId=202895)
-- [Dokumentacja interfejsu API WebCache](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)
+- [Dokumentacja interfejsu API webcache](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)

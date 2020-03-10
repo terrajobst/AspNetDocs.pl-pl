@@ -1,73 +1,73 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
-title: Dziedziczenie typu złożonego w protokole OData v4 Web API platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Dziedziczenie typu złożonego w protokole OData v4 przy użyciu interfejsu API sieci Web ASP.NET | Microsoft Docs
 author: microsoft
-description: Zgodnie ze specyfikacją OData v4 typ złożony może dziedziczyć z innego typu złożonego. (Typ złożony jest typem strukturalnym bez klucza). Interfejs API sieci Web...
+description: Zgodnie ze specyfikacją OData v4, typ złożony może dziedziczyć z innego typu złożonego. (Typ złożony jest typem strukturalnym bez klucza). Internetowy interfejs API...
 ms.author: riande
 ms.date: 09/16/2014
 ms.assetid: a00d3600-9c2a-41bc-9460-06cc527904e2
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
 msc.type: authoredcontent
 ms.openlocfilehash: 3d90216c8e594055f77577eb6d8b1d978ae4c24d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132744"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556309"
 ---
-# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>Dziedziczenie typu złożonego w protokole OData v4 Web API platformy ASP.NET
+# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>Dziedziczenie typu złożonego w protokole OData v4 przy użyciu interfejsu API sieci Web ASP.NET
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Zgodnie z protokołu OData v4 [specyfikacji](http://www.odata.org/documentation/odata-version-4-0/), typ złożony mogą dziedziczyć z innego typu złożonego. (A *złożonych* typ jest typem strukturalnym bez klucza.) Składnik Web API OData 5.3 obsługuje dziedziczenie typu złożonego.
+> Zgodnie ze [specyfikacją](http://www.odata.org/documentation/odata-version-4-0/)OData v4, typ złożony może dziedziczyć z innego typu złożonego. (Typ *złożony* jest typem strukturalnym bez klucza). Internetowy interfejs API OData 5,3 obsługuje dziedziczenie typu złożonego.
 > 
-> W tym temacie przedstawiono sposób tworzenia modelu entity data model (EDM struktury) z typów złożonych dziedziczenia. Aby uzyskać pełnego kodu źródłowego, zobacz [przykładowe dziedziczenia typu złożonego OData](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).
+> W tym temacie przedstawiono sposób tworzenia modelu Entity Data Model (EDM) przy użyciu złożonych typów dziedziczenia. Aby uzyskać pełny kod źródłowy, zobacz [przykładowy dziedziczenie typu złożonego OData](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - Web API OData 5.3
+> - Internetowy interfejs API OData 5,3
 > - OData 4
 
-## <a name="model-hierarchy"></a>Hierarchia modeli
+## <a name="model-hierarchy"></a>Hierarchia modelu
 
-Aby zilustrować dziedziczenie typu złożonego, użyjemy następujących hierarchii klas.
+Aby zilustrować dziedziczenie typu złożonego, użyjemy następującej hierarchii klas.
 
 ![](complex-type-inheritance-in-odata-v4/_static/image1.png)
 
-`Shape` jest typem abstrakcyjnym złożone. `Rectangle`, `Triangle`, i `Circle` typy złożone pochodne `Shape`, i `RoundRectangle` pochodzi od klasy `Rectangle`. `Window` jest typem jednostki i zawiera `Shape` wystąpienia.
+`Shape` jest abstrakcyjnym typem złożonym. `Rectangle`, `Triangle`i `Circle` są typami złożonymi pochodnymi `Shape`, a `RoundRectangle` pochodzą z `Rectangle`. `Window` jest typem jednostki i zawiera wystąpienie `Shape`.
 
-Poniżej przedstawiono klasy CLR, które definiują tych typów.
+Oto klasy CLR, które definiują te typy.
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample1.cs)]
 
-## <a name="build-the-edm-model"></a>Budowanie modelu EDM
+## <a name="build-the-edm-model"></a>Kompiluj model modelu EDM
 
-Aby utworzyć EDM, można użyć **ODataConventionModelBuilder**, którego wnioskuje relacje dziedziczenia z typami CLR.
+Aby utworzyć modelu EDM, można użyć **ODataConventionModelBuilder**, który wnioskuje relacje dziedziczenia z typów CLR.
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample2.cs)]
 
-Możesz również tworzyć EDM jawnie, przy użyciu **element ODataModelBuilder**. Trwa więcej kodu, ale daje większą kontrolę nad EDM.
+Możesz również jawnie skompilować modelu EDM przy użyciu **ODataModelBuilder**. Zajmuje to więcej kodu, ale daje większą kontrolę nad modelu EDM.
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample3.cs)]
 
-Dwa poniższe przykłady utworzyć ten sam schemat EDM.
+Te dwa przykłady tworzą ten sam schemat modelu EDM.
 
 ## <a name="metadata-document"></a>Dokument metadanych
 
-Oto dokument metadanych OData, przedstawiający dziedziczenie typu złożonego.
+Oto dokument metadanych OData przedstawiający dziedziczenie typu złożonego.
 
 [!code-xml[Main](complex-type-inheritance-in-odata-v4/samples/sample4.xml?highlight=13,17,25,30)]
 
-Z dokumentu metadanych możesz zobaczyć, który:
+W dokumencie metadanych można zobaczyć, że:
 
-- `Shape` Typu złożonego jest abstrakcyjna.
-- `Rectangle`, `Triangle`, I `Circle` typ złożony ma typ podstawowy `Shape`.
-- `RoundRectangle` Typ ma podstawowy typ `Rectangle`.
+- Typ złożony `Shape` jest abstrakcyjny.
+- `Rectangle`, `Triangle`i `Circle` typ złożony mają `Shape`typ podstawowy.
+- Typ `RoundRectangle` ma `Rectangle`typu podstawowego.
 
 ## <a name="casting-complex-types"></a>Rzutowanie typów złożonych
 
-Rzutowanie na typy złożone jest teraz obsługiwane. Na przykład poniższe zapytanie rzutowania `Shape` do `Rectangle`.
+Rzutowanie na typy złożone jest teraz obsługiwane. Na przykład następujące zapytanie rzutuje `Shape` na `Rectangle`.
 
 [!code-console[Main](complex-type-inheritance-in-odata-v4/samples/sample5.cmd)]
 

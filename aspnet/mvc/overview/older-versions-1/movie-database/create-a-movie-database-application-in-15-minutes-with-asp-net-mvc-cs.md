@@ -9,11 +9,11 @@ ms.assetid: dd1be137-91c5-47a8-8137-fecf0789c7f5
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1be5d135a44feb27626dd26a544b64cfb57b18a9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74596361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541994"
 ---
 # <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>Tworzenie aplikacji bazy danych filmów w ciągu 15 minut za pomocą wzorca ASP.NET MVC (C#)
 
@@ -49,7 +49,7 @@ Aby można było utworzyć aplikację, należy wykonać następujące czynności
 4. Tworzenie kontrolera ASP.NET MVC
 5. Tworzenie widoków ASP.NET MVC
 
-## <a name="preliminaries"></a>Czynności wstępne
+## <a name="preliminaries"></a>Akcje wstępne
 
 Do skompilowania aplikacji ASP.NET MVC wymagany jest program Visual Studio 2008 lub Visual Web Developer 2008 Express. Należy również pobrać strukturę ASP.NET MVC.
 
@@ -122,10 +122,10 @@ Następnie musimy utworzyć nową tabelę bazy danych. W oknie Eksploratora serw
 
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
-| #C1 | int | Fałsz |
-| Tytuł | Nvarchar (100) | Fałsz |
-| General | Nvarchar (100) | Fałsz |
-| DateReleased | DataGodzina | Fałsz |
+| Identyfikator | int | Fałsz |
+| Tytuł | Nvarchar(100) | Fałsz |
+| Dyrektor ds. | Nvarchar(100) | Fałsz |
+| DateReleased | DateTime | Fałsz |
 
 Pierwsza kolumna, Identyfikator kolumny, ma dwie specjalne właściwości. Najpierw należy oznaczyć kolumnę ID jako kolumnę klucza podstawowego. Po wybraniu kolumny Identyfikator kliknij przycisk **Ustaw klucz podstawowy** (jest to ikona, która wygląda jak klucz). Następnie należy oznaczyć kolumnę ID jako kolumnę tożsamości. W kolumnie okno Właściwości przewiń w dół do sekcji Specyfikacja tożsamości i rozwiń ją. Zmień właściwość **jest tożsamości** na wartość **tak**. Po zakończeniu tabela powinna wyglądać jak rysunek 4.
 
@@ -158,7 +158,7 @@ Wykonaj następujące kroki, aby uruchomić Kreatora Entity Data Model:
 Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator Entity Data Model (zobacz rysunek 6). Wykonaj następujące kroki, aby zakończyć działanie kreatora:
 
 1. W kroku **Wybierz zawartość modelu** wybierz opcję **Generuj z bazy danych** .
-2. W kroku **Wybierz połączenie danych** Użyj połączenia danych *MoviesDB. mdf* oraz nazwy *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **dalej** .
+2. W kroku **Wybierz połączenie danych** Użyj połączenia danych *MoviesDB. mdf* oraz nazwy *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **Dalej**.
 3. W kroku **Wybierz obiekty bazy danych** rozwiń węzeł tabele, a następnie wybierz tabelę filmy. Wprowadź przestrzeń nazw *MovieApp. models* i kliknij przycisk **Zakończ** .
 
 [![okno dialogowe Nowy projekt](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image11.png)
@@ -328,4 +328,4 @@ Celem tego samouczka było zrozumienie środowiska tworzenia aplikacji ASP.NET M
 W tym samouczku zbadamy tylko najbardziej podstawowe funkcje platformy MVC ASP.NET. W przyszłych samouczkach szczegółowe się do tematów, takich jak kontrolery, akcje kontrolera, widoki, wyświetlanie danych i pomocników HTML.
 
 > [!div class="step-by-step"]
-> [Next](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)
+> [Dalej](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)

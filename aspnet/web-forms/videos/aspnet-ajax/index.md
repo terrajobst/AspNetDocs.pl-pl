@@ -2,22 +2,22 @@
 uid: web-forms/videos/aspnet-ajax/index
 title: ASP.NET AJAX | Microsoft Docs
 author: rick-anderson
-description: Sposoby pracy z ASP.NET AJAX do tworzenia stron o wysokiej dynamice, nawet jeśli nie jesteś ekspertem języka JavaScript.
+description: Sposoby pracy z ASP.NET AJAX w celu tworzenia wysoce reagujących stron, nawet jeśli nie jesteś specjalistą języka JavaScript.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
 ms.openlocfilehash: 52cc785a92bc3e902f0f3266333d6157c6a78354
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116136"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628626"
 ---
 # <a name="aspnet-ajax"></a>ASP.NET AJAX
 
-> Sposoby pracy z ASP.NET AJAX do tworzenia stron o wysokiej dynamice, nawet jeśli nie jesteś ekspertem języka JavaScript.
+> Sposoby pracy z ASP.NET AJAX w celu tworzenia wysoce reagujących stron, nawet jeśli nie jesteś specjalistą języka JavaScript.
 
 - [Wprowadzenie do ASP.NET AJAX](how-do-i-get-started-with-aspnet-ajax.md)
 - [Implementowanie dynamicznych aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

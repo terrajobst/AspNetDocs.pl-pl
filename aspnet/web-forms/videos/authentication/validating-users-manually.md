@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/validating-users-manually
-title: Ręczne weryfikowanie użytkowników | Dokumentacja firmy Microsoft
+title: Ręczne Weryfikowanie użytkowników | Microsoft Docs
 author: JoeStagner
-description: W tym wideo Stagner Jan pokazano, jak ręcznie utworzyć własne formularz sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje na temat tego vi...
+description: W tym filmie wideo Jan Stagner pokazuje, jak utworzyć własny formularz sieci Web i ręcznie przetworzyć żądanie uwierzytelniania. Aby uzyskać dodatkowe informacje na temat tego VI...
 ms.author: riande
 ms.date: 08/22/2008
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
 ms.openlocfilehash: 3fc0ad6b366650d20d2710574a0b443f8cd994ee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396697"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565143"
 ---
 # <a name="validating-users-manually"></a>Ręczna walidacja użytkowników
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym wideo Stagner Jan pokazano, jak ręcznie utworzyć własne formularz sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności użytkownika poświadczeń względem członkostwa użytkownika Store" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
+W tym filmie wideo Jan Stagner pokazuje, jak utworzyć własny formularz sieci Web i ręcznie przetworzyć żądanie uwierzytelniania. Aby uzyskać dodatkowe informacje na temat tego wideo, zapoznaj się z samouczkiem zabezpieczeń "Weryfikowanie poświadczeń użytkownika względem[C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md)magazynu użytkowników członkostwa" (, [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
 
-[&#9654;Obejrzyj film wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-manually)
+[&#9654;Obejrzyj wideo (13 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-manually)
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-user-accounts-programmatically.md)

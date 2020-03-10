@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData - ASP.NET 4.x
+title: Wskazówki dotyczące zabezpieczeń dla ASP.NET Web API 2 OData-ASP.NET 4. x
 author: MikeWasson
-description: Opisano zagadnienia zabezpieczeń, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pośrednictwem interfejsu OData dla programu ASP.NET Web API 2 na platformie ASP.NET 4.x.
+description: Opisuje problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pomocą protokołu OData dla ASP.NET Web API 2 w ASP.NET 4. x.
 ms.author: riande
 ms.date: 02/06/2013
 ms.custom: seoapril2019
@@ -10,70 +10,70 @@ ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
 ms.openlocfilehash: 8194a368cb0629c30e32ec05bf4bed150d442ad8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59393512"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556498"
 ---
-# <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
+# <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla usługi ASP.NET Web API 2 OData
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym temacie opisano niektóre problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pośrednictwem interfejsu OData dla programu ASP.NET Web API 2 na platformie ASP.NET 4.x.
+W tym temacie opisano niektóre problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pomocą protokołu OData dla ASP.NET Web API 2 w ASP.NET 4. x.
 
-## <a name="edm-security"></a>Zabezpieczenia EDM
+## <a name="edm-security"></a>Zabezpieczenia modelu EDM
 
-Semantyki zapytań są oparte na modelu entity data model (EDM) struktury, nie podstawowych typów modelu. Właściwości można wykluczyć z EDM i nie będą widoczne dla zapytania. Na przykład załóżmy, że model zawiera typ pracownika z właściwością wynagrodzenia. Możesz chcieć wyłączyć tę właściwość z EDM, aby go ukryć od klientów.
+Semantyka zapytań jest oparta na modelu Entity Data Model (EDM), a nie na źródłowych typach modeli. Można wykluczyć właściwość z modelu EDM i nie będzie ona widoczna dla zapytania. Załóżmy na przykład, że model zawiera typ pracownika z właściwością wynagrodzeń. Możesz chcieć wykluczyć tę właściwość z modelu EDM, aby ukryć ją od klientów.
 
-Istnieją dwa sposoby spod właściwości EDM. Możesz ustawić **[IgnoreDataMember]** atrybutu dla właściwości w klasie modelu:
+Istnieją dwa sposoby wykluczenia właściwości z modelu EDM. Można ustawić atrybut **[IgnoreDataMember]** dla właściwości w klasie modelu:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 
-Możesz również usunąć właściwość z EDM programowe:
+Możesz również usunąć właściwość z modelu EDM programowo:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample2.cs)]
 
-## <a name="query-security"></a>Zabezpieczenie zapytania
+## <a name="query-security"></a>Zabezpieczenia zapytań
 
-Złośliwego lub prostego klienta można utworzyć zapytanie, które bardzo długi czas do wykonania. W najgorszym przypadku może to zakłócać dostęp do usługi.
+Złośliwy lub algorytmie klient może utworzyć zapytanie, które zajmuje bardzo dużo czasu na wykonanie. W najgorszym przypadku może to przerwać dostęp do usługi.
 
-**[Queryable]** atrybut jest filtr akcji, która analizuje, weryfikuje i stosuje zapytanie. Filtr konwertuje opcje zapytania w wyrażeniu LINQ. Gdy zwraca kontrolera OData **IQueryable** typu **IQueryable** dostawcy LINQ konwertuje wyrażenie LINQ do kwerendy. W związku z tym wydajność zależy od dostawcy LINQ, która jest używana, a także na konkretnej właściwości schemat zestawu danych lub bazy danych.
+Atrybut **[Queryable]** jest filtrem akcji, który analizuje, weryfikuje i stosuje zapytanie. Filtr konwertuje opcje zapytania na wyrażenie LINQ. Gdy kontroler OData zwraca typ **IQueryable** , dostawca **IQueryable** LINQ konwertuje wyrażenie LINQ na zapytanie. W związku z tym wydajność jest zależna od dostawcy LINQ, który jest używany, a także dla określonych cech zestawu danych lub schematu bazy danych.
 
-Aby uzyskać więcej informacji o używaniu opcji zapytania protokołu OData w interfejsie API sieci Web platformy ASP.NET, zobacz [obsługi opcji zapytania OData](supporting-odata-query-options.md).
+Aby uzyskać więcej informacji na temat korzystania z opcji zapytania OData w interfejsie Web API ASP.NET, zobacz [Obsługa opcji zapytania OData](supporting-odata-query-options.md).
 
-Jeśli wiesz, że wszyscy klienci są zaufane (na przykład w środowisku przedsiębiorstwa) lub zestaw danych jest małe, wydajność zapytań nie może być problem. W przeciwnym razie należy rozważyć poniższe zalecenia.
+Jeśli wiesz, że wszyscy klienci są zaufani (na przykład w środowisku przedsiębiorstwa) lub jeśli zestaw danych jest mały, wydajność zapytań może nie być problemem. W przeciwnym razie należy wziąć pod uwagę następujące zalecenia.
 
-- Testowanie usługi z różnych zapytań i profilowanie bazy danych.
-- Włączanie stronicowania opartych na serwerze uniknąć zwrócenie dużych zestawów danych w jednym zapytaniu. Aby uzyskać więcej informacji, zobacz [stronicowania Server-Driven](supporting-odata-query-options.md#server-paging). 
+- Przetestuj swoją usługę przy użyciu różnych zapytań i Profiluj bazę danych.
+- Włącz stronicowanie oparte na serwerze, aby uniknąć powrotu dużego zestawu danych w jednym zapytaniu. Aby uzyskać więcej informacji, zobacz [stronicowanie oparte na serwerze](supporting-odata-query-options.md#server-paging). 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample3.cs)]
-- Potrzebujesz $filter i $orderby? Niektóre aplikacje mogą zezwolić na klientów, stronicowania, przy użyciu $top i $skip, ale wyłącz innymi opcjami zapytania. 
+- Potrzebujesz $filter i $orderby? Niektóre aplikacje mogą zezwalać na stronicowanie klienta przy użyciu $top i $skip, ale wyłączyć inne opcje zapytania. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample4.cs)]
-- Należy rozważyć ograniczenie $orderby do właściwości w indeksie klastrowanym. Sortowanie dużej ilości danych bez indeksu klastrowanego trwa długo. 
+- Rozważ ograniczenie $orderby do właściwości w indeksie klastrowanym. Sortowanie dużych danych bez indeksu klastrowanego jest powolne. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample5.cs)]
-- Maksymalna dopuszczalna liczba węzłów: **MaxNodeCount** właściwość **[Queryable]** ustawia maksymalnej liczby węzłów w drzewie składni $filter dozwolone. Wartość domyślna to 100, ale warto ustawić niższą wartość, ponieważ dużą liczbę węzłów może być powolne skompilować. Jest to szczególnie istotne w przypadku korzystania z LINQ to Objects (czyli zapytań LINQ w kolekcji w pamięci, bez użycia pośrednie dostawcy LINQ). 
+- Maksymalna liczba węzłów: Właściwość **MaxNodeCount** na **[Queryable]** ustawia maksymalną liczbę węzłów dozwoloną w drzewie składni $Filter. Wartość domyślna to 100, ale można ustawić niższą wartość, ponieważ może być konieczne spowolnienie kompilowania dużej liczby węzłów. Jest to szczególnie istotne, jeśli używasz LINQ to Objects (tj., zapytania LINQ w kolekcji w pamięci, bez użycia pośredniego dostawcy LINQ). 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample6.cs)]
-- Rozważ wyłączenie funkcji funkcja any() i all(), ponieważ mogą one być powolne. 
+- Rozważ wyłączenie dowolnej funkcji () i wszystkich (), ponieważ mogą one być wolne. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Jeśli wszystkie właściwości parametrów zawierają dużych ciągów&#8212;na przykład opis produktu lub wpis w blogu&#8212;Rozważ wyłączenie funkcji ciągów. 
+- Jeśli dowolne właściwości ciągu zawierają duże ciągi&#8212;na przykład, opis produktu lub wpis&#8212;w blogu rozważ wyłączenie funkcji ciągu. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
-- Należy wziąć pod uwagę, nie można przydzielać filtrowania według właściwości nawigacji. Filtrowanie według właściwości nawigacji może spowodować sprzężenie, która może być powolne, w zależności od schematu bazy danych. Poniższy kod przedstawia moduł weryfikacji zapytania, który uniemożliwia filtrowania według właściwości nawigacji. Aby uzyskać więcej informacji na temat modułów weryfikacji zapytań zobacz [sprawdzanie poprawności zapytań](supporting-odata-query-options.md#query-validation). 
+- Należy rozważyć niezezwalanie na filtrowanie właściwości nawigacji. Filtrowanie właściwości nawigacji może skutkować przyłączeniem, co może potrwać, w zależności od schematu bazy danych. Poniższy kod przedstawia moduł sprawdzania poprawności zapytań, który uniemożliwia filtrowanie właściwości nawigacji. Aby uzyskać więcej informacji na temat modułów sprawdzania poprawności zapytań, zobacz [Walidacja zapytań](supporting-odata-query-options.md#query-validation). 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
-- Należy rozważyć ograniczenie zapytania $filter, pisząc modułu sprawdzania poprawności, który jest dostosowany do bazy danych. Na przykład należy wziąć pod uwagę te dwa zapytania: 
+- Rozważ ograniczenie $filter zapytań, pisząc moduł sprawdzania poprawności, który jest dostosowany do bazy danych. Rozważmy na przykład te dwa zapytania: 
 
-  - Wszystkie filmy z aktorów, których nazwisko zaczyna się od "A".
-  - Wydane w 1994 r. wszystkie filmy.
+  - Wszystkie filmy z aktorami, których nazwisko zaczyna się od "A".
+  - Wszystkie filmy wydane w 1994.
 
-    Chyba że filmy są indeksowane przez podmioty, pierwsze zapytanie może wymagać aparat bazy danych w celu skanowania całą listę filmów. Drugie zapytanie może być akceptowalne, przyjmuje filmy są indeksowane przez rok wydania.
+    Jeśli nie są indeksowane przez aktorów, pierwsze zapytanie może wymagać aparatu bazy danych do skanowania całej listy filmów. Drugie zapytanie może być akceptowalne, przy założeniu, że filmy są indeksowane przez rok wydania.
 
-    Poniższy kod przedstawia modułu sprawdzania poprawności, który umożliwia filtrowanie na właściwości "ReleaseYear" i "Title", ale żadne inne właściwości.
+    Poniższy kod przedstawia moduł sprawdzania poprawności, który umożliwia filtrowanie właściwości "ReleaseYear" i "title", ale nie innych właściwości.
 
     [!code-csharp[Main](odata-security-guidance/samples/sample10.cs)]
-- Ogólnie rzecz biorąc należy wziąć pod uwagę jakie funkcje $filter, potrzebujesz. Jeśli klienci pełną wyrazistość $filter nie jest konieczne, można ograniczyć dozwolonych funkcji.
+- Ogólnie rzecz biorąc, należy rozważyć, które funkcje $filter są potrzebne. Jeśli klienci nie potrzebują pełnego wyrazistości $filter, można ograniczyć dozwolone funkcje.

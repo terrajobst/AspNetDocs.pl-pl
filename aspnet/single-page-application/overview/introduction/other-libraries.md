@@ -9,60 +9,60 @@ ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
 ms.openlocfilehash: 64a4ad1fb411f7291a5cba634afdf4d2fdb16d55
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116083"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578548"
 ---
 # <a name="know-a-library-other-than-knockout"></a>Znasz biblioteki inne niż Knockout?
 
-przez [: Mads Kristensen](https://github.com/madskristensen)
+Autor [produktywność Madsa Kristensena](https://github.com/madskristensen)
 
-[Szablonu jednej strony aplikacji (SPA)](knockoutjs-template.md) to świetny sposób, aby rozpocząć pisanie aplikacji jednostronicowej. Szablon używa [KnockoutJS](http://knockoutjs.com/) powiązać elementów DOM danych aplikacji.
+[Szablon aplikacji jednostronicowej (Spa)](knockoutjs-template.md) to doskonały sposób na rozpoczęcie pisania aplikacji jednostronicowych. Szablon używa [KnockoutJS](http://knockoutjs.com/) do wiązania danych aplikacji z elementami modelu DOM.
 
-Ale separowania na ostro nie tylko biblioteki JavaScript do tworzenia rozbudowanych aplikacji klienckich aplikacji. Inne biblioteki wyzwaniom podobne na różne sposoby. Jedna biblioteka preferować za pośrednictwem innego, więc wprowadziliśmy kilka szablonów utworzonych przez społeczność dostępne do pobrania. Każdy z tych szablonów używa kombinacji różnych bibliotek klienckich dla języka JavaScript.
+Jednak odcinanie nie jest jedyną biblioteką języka JavaScript do tworzenia rozbudowanych aplikacji klienckich. Inne biblioteki rozwiązują podobne wyzwania na różne sposoby. Możesz preferować jedną bibliotekę w innej, więc wprowadziliśmy kilka szablonów utworzonych przez społeczność do pobrania. Każdy z tych szablonów używa innej kombinacji bibliotek JavaScript klienta.
 
-Aby zainstalować szablon utworzonych przez społeczność, odwiedź jedną z szablonu stron wymienione poniżej, a następnie kliknij przycisk pobierania. Szablony są dostarczane jako plików VSIX.
+Aby zainstalować szablon utworzony przez społeczność, odwiedź jedną z wymienionych poniżej stron szablonów, a następnie kliknij przycisk Pobierz. Szablony są udostępniane jako pliki VSIX.
 
 ## <a name="backbonejs"></a>BackboneJS
 
-[Szablon SPA backbone.js](../templates/backbonejs-template.md). Ten szablon zawiera szkielet początkowy do tworzenia [Backbone.js](http://backbonejs.org/) aplikacji na platformie ASP.NET MVC. Gotowych zapewnia funkcje logowania użytkowników w warstwie podstawowa, w tym, resetowanie hasła tworzenia nowych kont i logowania użytkownika i potwierdzenie przez użytkownika za pomocą szablonów podstawowy adres e-mail.
+[Szablon spa. js](../templates/backbonejs-template.md). Ten szablon zawiera początkowy szkielet tworzenia aplikacji sieci [szkieletowej](http://backbonejs.org/) w języku ASP.NET MVC. Poza tym pole zapewnia podstawowe funkcje logowania użytkowników, w tym rejestrowanie użytkowników, logowanie, resetowanie haseł i potwierdzenie użytkownika przy użyciu podstawowych szablonów wiadomości e-mail.
 
 ## <a name="breezejs"></a>BreezeJS
 
-[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) to biblioteka typu open source do zarządzania danymi sformatowanego w klienta JavaScript. Szybka i bezproblemowa obsługuje zapytania, buforowania, śledzenia zmian, weryfikacji i nie tylko. Dwa szablony funkcji Breeze:
+[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) to biblioteka typu open source służąca do zarządzania rozbudowanymi danymi w kliencie JavaScript. Breeze obsługuje zapytania, buforowanie, śledzenie zmian, sprawdzanie poprawności i inne. Breeze funkcji dwóch szablonów:
 
-- [Breeze/Knockout](../templates/breezeknockout-template.md) szablonu rozszerza szablonu Knockout SPA, pokazujący, jak łatwo można tworzenie aplikacji jednej strony z szybka i bezproblemowa dla zarządzania danymi i KnockoutJS dla powiązania danych.
-- [Breeze/Angular](../templates/breezeangular-template.md) rozszerzają szablonu Knockout SPA, szybka i bezproblemowa, ale przy użyciu szablonu [AngularJS](http://angularjs.org) biblioteki dla wiązania danych, wstrzykiwanie zależności i zarządzanie ekranu.
+- Szablon [Breeze/odcinania](../templates/breezeknockout-template.md) rozszerza szablon Spa odcinania, pokazując jak łatwo można skompilować aplikację jednostronicową z Breeze do zarządzania danymi i KnockoutJS na potrzeby tworzenia powiązań danych.
+- Szablon [Breeze/kątowy](../templates/breezeangular-template.md) rozszerza również szablon odcinania spa z Breeze, ale używa biblioteki [AngularJS](http://angularjs.org) do tworzenia powiązań danych, iniekcji zależności i zarządzania ekranem.
 
-Ponadto [szablon Hot Towel SPA](../templates/hottowel-template.md) używa BreezeJS.
+Ponadto [szablon Hot ręczników Spa](../templates/hottowel-template.md) używa BreezeJS.
 
 ## <a name="emberjs"></a>EmberJS
 
-[Szablon EmberJS SPA](../templates/emberjs-template.md). Ten szablon używa [użyciu](http://emberjs.com/), zaawansowane biblioteki MVC JavaScript, która rozwiązuje szeroką gamę wyzwania do tworzenia zaawansowanych aplikacji klienckich.
+[Szablon Spa EmberJS](../templates/emberjs-template.md). Ten szablon używa [wpływ](http://emberjs.com/), zaawansowanej biblioteki języka JavaScript w języku MVC, która rozwiązuje szeroką gamę wyzwań związanych z tworzeniem rozbudowanych aplikacji klienckich.
 
-Szablon użyciu SPA jest ponownego wdrażania szablonu Knockout SPA, korzystając z szablonów EmberJS i Handlebars.
+Szablon SPA wpływ jest ponowną implementacją szablonu odcinania SPA przy użyciu EmberJS i kierownicy tworzenia szablonów.
 
-## <a name="hot-towel"></a>Hot Towel
+## <a name="hot-towel"></a>Gorąca ręczników
 
-[Hot Towel SPA szablonu](../templates/hottowel-template.md). Ten szablon łączy w kilku bibliotek JavaScript, w tym szybka i bezproblemowa, Knockout i RequireJS oraz Twitter Bootstrap.
+[Szablon Hot ręczników Spa](../templates/hottowel-template.md). Ten szablon zawiera kilka bibliotek JavaScript, w tym Breeze, odcinania, RequireJS i Twitter Bootstrap.
 
-W porównaniu z innych szablonów wymienione w tym miejscu, szablon Hot Towel zapewnia bardziej szczegółowy aplikacji, z której można tworzyć własne. Istnieją więcej koncepcji, które należy zwrócić uwagę, ale po zrozumieniu ich ten szablon może być po prostu czego szukasz. Jeśli chcesz skompilować SPA, ale nie podjęcie decyzji rozpocząć, należy użyć Hot Towel, a w ciągu kilku sekund będziesz mieć SPA i wszystkie narzędzia potrzebne do tworzenia na nim.
+W porównaniu z innymi szablonami wymienionymi w tym miejscu, szablon gorąca ręczników zapewnia bardziej kompletną aplikację, z której można utworzyć własne. Istnieje więcej koncepcji, które należy wziąć pod uwagę, ale po ich zrozumieniu ten szablon może być właśnie wyszukiwany. Jeśli chcesz skompilować SPA, ale nie możesz zdecydować, gdzie zacząć, użyj gorącej ręczników i w ciągu kilku sekund, będziesz mieć SPA i wszystkie narzędzia potrzebne do jego skompilowania.
 
 ## <a name="feature-table"></a>Tabela funkcji
 
-Poniżej przedstawiono funkcji oferowanych przez każdy szablon SPA:
+Poniżej przedstawiono funkcje udostępniane przez każdy szablon SPA:
 
-|                        | ASP.NET SPA | Sieci szkieletowej | BREEZE/Angular | Szybka i bezproblemowa/KO |  Użyciu platformy ember   | Hot Towel |
+|                        | ASP.NET SPA | Szybkości | Breeze/kątowy | Breeze/KO |  Ember   | Gorąca ręczników |
 |------------------------|-------------|----------|----------------|-----------|----------|-----------|
-|      Przykładowe ToDo       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
-|     Szablon kompletnego      |             | &#10003; |                |           |          | &#10003;  |
-| Nawigacji i Historia |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
+|      Przykład do zrobienia       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|     Szablon systemu operacyjnego      |             | &#10003; |                |           |          | &#10003;  |
+| Nawigacja i historia |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
 |        Biblioteki       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;Backbone     |             | &#10003; |                |           |          |           |
 |         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
-|        Durandal        |             |          |                |           |          | &#10003;  |
-|         Użyciu platformy ember          |             |          |                |           | &#10003; |           |
-|        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+|        durandal        |             |          |                |           |          | &#10003;  |
+|         Ember          |             |          |                |           | &#10003; |           |
+|        Separowanie        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |

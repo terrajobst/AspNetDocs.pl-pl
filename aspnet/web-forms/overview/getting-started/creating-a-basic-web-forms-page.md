@@ -9,11 +9,11 @@ ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
 ms.openlocfilehash: 5d13a51128eecd92a82cfd06054448582a348e11
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78629760"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Tworzenie strony formularzy sieci Web w warstwie Podstawowa ASP.NET 4,5 przy użyciu Visual Studio 2013
 
@@ -56,7 +56,7 @@ W tej części przewodnika utworzysz projekt aplikacji sieci Web i dodasz do nie
 2. W menu **plik** wybierz pozycję **Nowy projekt**.  
     ![menu plik](creating-a-basic-web-forms-page/_static/image1.png)
 
-    Pojawi się okno dialogowe **Nowy projekt** .
+    Zostanie wyświetlone okno dialogowe **Nowy projekt**.
 3. Wybierz kolejno pozycje **Szablony** -&gt;  **C# Visual** -&gt; szablon **sieci Web** po lewej stronie.
 4. Wybierz szablon **aplikacji sieci Web ASP.NET** w środkowej kolumnie.
 5. Nazwij projekt ***BasicWebApp*** i kliknij przycisk **OK** .   
@@ -180,7 +180,7 @@ Program Visual Studio oferuje różne sposoby ustawiania właściwości formant�
 
     > [!NOTE] 
     > 
-    > Wszystkie kontrolki znajdują się wewnątrz elementu **form** , który ma także atrybut **runat =&quot;Server&quot;** . Wartość **runat =&quot;server&quot;** Attribute i **ASP:** prefix dla tagów kontroli oznacza kontrolki tak, aby były przetwarzane przez ASP.NET na serwerze podczas uruchamiania strony. Kod poza **&lt;formularzu runat =&quot;server&quot;&gt;** i **&lt;skryptu runat =&quot;Server&quot;&gt;** elementy są wysyłane bez zmian do przeglądarki, co oznacza, że kod ASP.NET musi znajdować się wewnątrz elementu którego tag otwierającego zawiera atrybut **runat =&quot;server&quot;** .
+    > Wszystkie kontrolki znajdują się wewnątrz elementu **form** , który ma także atrybut **runat =&quot;Server&quot;** . Wartość **runat =&quot;server&quot;** Attribute i **ASP:** prefix dla tagów kontroli oznacza kontrolki tak, aby były przetwarzane przez ASP.NET na serwerze podczas uruchamiania strony. Kod poza **&lt;formularzu runat =&quot;server&quot;&gt;** i **&lt;skryptu runat =&quot;Server&quot;&gt;** elementy są wysyłane bez zmian do przeglądarki, co jest dlatego, że kod ASP.NET musi znajdować się wewnątrz elementu, którego tag otwierającego zawiera atrybut **runat =&quot;Server&quot;** .
 4. Następnie dodasz dodatkową właściwość do kontrolki [etykieta](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) . Umieść punkt wstawiania bezpośrednio po stronie **ASP: etykieta** w tagu **&lt;asp: Label&gt;** , a następnie naciśnij klawisz **spacji**.
 
     Zostanie wyświetlona lista rozwijana, która wyświetla listę dostępnych właściwości, które można ustawić dla kontrolki [etykieta](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) . Ta funkcja, nazywana technologią **IntelliSense**, pomaga w widoku **źródła** z składnią formantów serwera, elementów HTML i innych elementów na stronie. Na poniższej ilustracji przedstawiono listę rozwijaną **IntelliSense** dla kontrolki [etykieta](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) .
@@ -242,7 +242,7 @@ Teraz można testować kontrolki serwera na stronie.
 3. W przeglądarce Wyświetl źródło uruchomionej strony, klikając ją prawym przyciskiem myszy i wybierając pozycję **Wyświetl źródło**.
 
     Kod źródłowy strony zawiera kod HTML bez kodu serwera. W tym celu nie widzisz elementów **&lt;ASP:&gt;** , z którymi pracowano w widoku **źródła** . Gdy strona zostanie uruchomiona, ASP.NET przetwarza formanty serwera i renderuje elementy HTML na stronie, która wykonuje funkcje reprezentujące formant. Na przykład formant **&lt;ASP: Button&gt;** jest RENDEROWANY jako HTML **&lt;input type =&quot;Submit&quot;&gt;** .
-4. Zamknij przeglądarkę.
+4. Zamknij okno przeglądarki.
 
 ## <a name="working-with-additional-controls"></a>Praca z dodatkowymi kontrolkami
 
@@ -302,7 +302,7 @@ Teraz można testować kalendarz.
 3. W przeglądarce Wyświetl kod źródłowy strony.
 
     Należy zauważyć, że formant [Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) został renderowany na stronie jako **tabela**, z każdym dniem jako elementem **TD** .
-4. Zamknij przeglądarkę.
+4. Zamknij okno przeglądarki.
 
 ## <a name="next-steps"></a>Następne kroki
 

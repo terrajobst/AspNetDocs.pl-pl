@@ -9,11 +9,11 @@ ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: fbb4cd7afa2506879d47bce980bf0164aad40c2c
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519274"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555224"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów internetowych ASP.NET w programie Visual Studio 2013
 
@@ -48,7 +48,7 @@ Poniższe kroki pokazują, jak utworzyć projekt sieci Web:
 1. Na stronie **startowej** lub w menu **plik** kliknij pozycję **Nowy projekt** .
 2. W oknie dialogowym **Nowy projekt** kliknij pozycję **Sieć Web** w lewym okienku i **aplikację sieci Web ASP.NET** w środkowym okienku.
 
-    ![Okno dialogowe nowego projektu](creating-web-projects-in-visual-studio/_static/image1.png)
+    ![Okno dialogowe Nowy projekt](creating-web-projects-in-visual-studio/_static/image1.png)
 
     W okienku po lewej stronie możesz wybrać **chmurę** , aby utworzyć [usługę w chmurze platformy Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy), [usługę mobilną Azure](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx)lub [zadanie WebJob platformy Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs). Ten temat nie obejmuje tych szablonów.
 3. W prawym okienku kliknij pole wyboru **dodaj Application Insights do projektu** , jeśli chcesz monitorować kondycję i użycie aplikacji. Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności w aplikacjach sieci Web](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/).
@@ -56,7 +56,7 @@ Poniższe kroki pokazują, jak utworzyć projekt sieci Web:
 
     Zostanie wyświetlone okno dialogowe **Nowy projekt ASP.NET** .
 
-    ![Okno dialogowe nowego projektu](creating-web-projects-in-visual-studio/_static/image2.png)
+    ![Okno dialogowe Nowy projekt](creating-web-projects-in-visual-studio/_static/image2.png)
 5. Kliknij szablon.
 
     ![Wybierz szablon](creating-web-projects-in-visual-studio/_static/image3.png)
@@ -65,7 +65,7 @@ Poniższe kroki pokazują, jak utworzyć projekt sieci Web:
     ![Dodaj struktury](creating-web-projects-in-visual-studio/_static/image4.png)
 7. <a id="testproj"></a>Jeśli chcesz dodać projekt testu jednostkowego, kliknij przycisk **Dodaj testy jednostkowe**.
 
-    ![Dodaj testy jednostkowe](creating-web-projects-in-visual-studio/_static/image5.png)
+    ![Dodawanie testów jednostkowych](creating-web-projects-in-visual-studio/_static/image5.png)
 8. Jeśli chcesz, aby metoda uwierzytelniania była inna niż domyślnie udostępniana przez szablon, kliknij przycisk **Zmień uwierzytelnianie**.
 
     ![Przycisk Konfiguruj uwierzytelnianie](creating-web-projects-in-visual-studio/_static/image6.png)
@@ -109,7 +109,7 @@ Visual Studio 2013 zapewnia następujące opcje dla szablonów projektów sieci 
 - [Szablon internetowego interfejsu API](#webapi)
 - [Szablon aplikacji jednostronicowej](#spa)
 - [Szablon usługi mobilnej platformy Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
-- [Visual Studio 2012 Templates](#vs2012)
+- [Szablony programu Visual Studio 2012](#vs2012)
 
 Możesz również zainstalować rozszerzenie programu Visual Studio, które udostępnia [szablon w serwisie Facebook](#facebook).
 
@@ -317,7 +317,7 @@ ASP.NET Identity jest dobrym rozwiązaniem, jeśli tworzysz internetową witryn�
 
 Więcej informacji o opcjach poszczególnych kont użytkowników można znaleźć w następujących zasobach:
 
-- [www.asp.net/identity](../../../identity/index.md). Dokumentacja dotycząca ASP.NET Identity w witrynie sieci Web ASP.NET.
+- [www.ASP.NET/Identity](../../../identity/index.md). Dokumentacja dotycząca ASP.NET Identity w witrynie sieci Web ASP.NET.
 - [Utwórz aplikację ASP.NET MVC 5 za pomocą usługi Facebook i usługi Google OAuth2 i OpenID Connect](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Pokazuje również, jak dostosować dane profilu użytkownika.
 - [Interfejs API sieci Web — zewnętrzne usługi uwierzytelniania](../../../web-api/overview/security/external-authentication-services.md)
 - [Dodawanie zewnętrznych logowań do aplikacji ASP.NET w Visual Studio 2013](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)

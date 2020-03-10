@@ -1,225 +1,225 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: Konfigurowanie serwera bazy danych dla sieci Web wdrażanie, publikowanie | Dokumentacja firmy Microsoft
+title: Konfigurowanie serwera bazy danych na potrzeby publikowania Web Deploy | Microsoft Docs
 author: jrjlee
-description: W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrażania w Internecie i publikowania. Zadania opisane w tym temacie są co...
+description: W tym temacie opisano sposób konfigurowania serwera bazy danych SQL Server 2008 R2 do obsługi wdrażania i publikowania w sieci Web. Zadania opisane w tym temacie to...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
 ms.openlocfilehash: ade3c1ba1c470092f512436f39b8831458408c2c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131572"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634618"
 ---
 # <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrażania w Internecie i publikowania.
+> W tym temacie opisano sposób konfigurowania serwera bazy danych SQL Server 2008 R2 do obsługi wdrażania i publikowania w sieci Web.
 > 
-> Zadania opisane w tym temacie są wspólne dla każdego scenariusza wdrażania&#x2014;nie ma znaczenia, czy serwery sieci web są skonfigurowane do używania zdalnej usługi agenta narzędzia do wdrażania sieci Web usług IIS (Web Deploy), program obsługi wdrażania w sieci Web lub wdrożenie w trybie offline lub Aplikacja jest uruchomiona na jednym serwerze sieci web lub w farmie serwerów. Sposób wdrażania bazy danych może się zmieniać zgodnie z wymagań dotyczących zabezpieczeń oraz inne zagadnienia. Na przykład można wdrożyć bazę danych z lub bez przykładowych danych i mogą wdrażać mapowania roli użytkownika lub ręcznie skonfigurować po wdrożeniu. Jednak sposób konfigurowania serwera bazy danych pozostaje taki sam.
+> Zadania opisane w tym temacie są wspólne dla każdego scenariusza&#x2014;wdrażania, bez względu na to, czy serwery sieci Web są skonfigurowane do korzystania z usługi zdalnego agenta wdrażania usług IIS (Web Deploy), programu obsługi Web Deploy lub wdrożenia w trybie offline lub aplikacji uruchomionej na jednym serwerze sieci Web lub w farmie serwerów. Sposób wdrażania bazy danych może ulec zmianie zgodnie z wymaganiami dotyczącymi zabezpieczeń i innymi kwestiami. Można na przykład wdrożyć bazę danych z przykładowymi danymi lub bez nich i można wdrożyć mapowania roli użytkownika lub skonfigurować je ręcznie po wdrożeniu. Jednak sposób konfigurowania serwera bazy danych pozostaje taki sam.
 
-Nie musisz zainstalować wszelkie dodatkowe produkty lub narzędzi do konfigurowania serwera bazy danych do obsługi wdrażania w Internecie. Przy założeniu, że serwer bazy danych i serwera sieci web działają na różnych maszynach, po prostu musisz:
+Nie trzeba instalować żadnych dodatkowych produktów ani narzędzi, aby skonfigurować serwer bazy danych do obsługi wdrażania w sieci Web. Przy założeniu, że serwer bazy danych i serwer sieci Web działają na różnych komputerach, wystarczy wykonać następujące czynności:
 
-- Zezwalaj na SQL Server do komunikowania się za pomocą protokołu TCP/IP.
-- Zezwalać na ruch programu SQL Server za pośrednictwem wszystkich zapór.
-- Należy podać konto komputera serwera sieci web logowania programu SQL Server.
-- Logowanie konta maszyny są mapowane na wszystkie role wymaganej bazy danych.
-- Nadaj konta, które będą uruchamiać wdrożenie uprawnienia twórcy programu SQL Server, jak identyfikator logowania i bazy danych.
-- Do obsługi wdrożeń Powtórz tę procedurę, mapy wdrażania konto logowania do **db\_właściciela** roli bazy danych.
+- Zezwól SQL Server na komunikację przy użyciu protokołu TCP/IP.
+- Zezwalaj na ruch SQL Server przez zapory.
+- Nadaj kontu komputera serwera sieci Web nazwę logowania SQL Server.
+- Zamapuj logowanie do konta komputera na wszystkie wymagane role bazy danych.
+- Nadaj kontu, które będą uruchamiać wdrożenie, SQL Server uprawnienia użytkownika i twórcę bazy danych.
+- Aby można było obsługiwać powtarzające się wdrożenia, należy zamapować logowanie do konta wdrożenia na rolę bazy danych **właściciela\_DB** .
 
-W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i wskazówki, w tym temacie założono, że zaczynasz przy użyciu domyślnego wystąpienia programu SQL Server 2008 R2, systemem Windows Server 2008 R2. Przed kontynuowaniem upewnij się, że:
+W tym temacie przedstawiono sposób wykonywania każdej z tych procedur. W zadaniach i przewodnikach w tym temacie przyjęto założenie, że rozpoczynasz pracę z domyślnym wystąpieniem SQL Server 2008 R2 uruchomionym w systemie Windows Server 2008 R2. Przed kontynuowaniem upewnij się, że:
 
-- Systemu Windows Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są instalowane.
+- System Windows Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są zainstalowane.
 - Serwer jest przyłączony do domeny.
 - Serwer ma statyczny adres IP.
-- SQL Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są instalowane.
+- SQL Server 2008 R2 z dodatkiem Service Pack 1 oraz wszystkie dostępne aktualizacje.
 
-Wystąpienie programu SQL Server musi jedynie zawierać **usługi aparatu bazy danych** roli, która znajduje się automatycznie w każdej instalacji programu SQL Server. Jednak w celu ułatwienia konfiguracji i konserwacji, zaleca się że zawrzesz **narzędzia do zarządzania — podstawowe** i **narzędzia zarządzania — kompletne** ról serwera.
+Wystąpienie SQL Server musi zawierać tylko rolę **usługi aparatu bazy danych** , która jest włączana automatycznie podczas instalacji SQL Server. Jednak w celu ułatwienia konfiguracji i konserwacji zaleca się dołączenie **narzędzi do zarządzania — podstawowe** i narzędzia do **zarządzania — kompletne** role serwera.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Aby uzyskać więcej informacji na temat instalowania programu SQL Server, zobacz [Instalowanie programu SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
+> Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [dołączanie komputerów do domeny i logowanie](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [Konfigurowanie statycznego adresu IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Aby uzyskać więcej informacji na temat instalowania SQL Server, zobacz [instalowanie SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
 
-## <a name="enable-remote-access-to-sql-server"></a>Włącz dostęp zdalny do programu SQL Server
+## <a name="enable-remote-access-to-sql-server"></a>Włączanie dostępu zdalnego do SQL Server
 
-Program SQL Server używa protokołu TCP/IP do komunikowania się z komputerami zdalnymi. Jeśli serwer bazy danych i serwera sieci web znajdują się na różnych komputerach, należy:
+SQL Server używa protokołu TCP/IP do komunikowania się z komputerami zdalnymi. Jeśli serwer bazy danych i serwer sieci Web znajdują się na różnych komputerach, należy:
 
-- Konfigurowanie ustawień sieciowych programu SQL Server, aby umożliwić komunikację za pośrednictwem protokołu TCP/IP.
-- Konfigurowanie sprzętowego lub programowego zapory do zezwalania na ruch TCP (i w niektórych przypadkach protokołu UDP (User Datagram) ruchu) na portach, które korzysta z wystąpienia programu SQL Server.
+- Skonfiguruj ustawienia sieci SQL Server, aby umożliwić komunikację za pośrednictwem protokołu TCP/IP.
+- Skonfiguruj wszelkie zapory sprzętowe lub programowe w taki sposób, aby zezwalały na ruch TCP (oraz w niektórych przypadkach ruch UDP) na portach używanych przez wystąpienie SQL Server.
 
-Aby włączyć program SQL Server do komunikowania się za pośrednictwem protokołu TCP/IP, należy użyć Menedżera konfiguracji SQL Server, aby zmienić konfigurację sieci dla wystąpienia programu SQL Server.
+Aby umożliwić SQL Server komunikację za pośrednictwem protokołu TCP/IP, należy użyć SQL Server Configuration Manager do zmiany konfiguracji sieci dla wystąpienia SQL Server.
 
-**Aby włączyć program SQL Server do komunikowania się za pomocą protokołu TCP/IP**
+**Aby włączyć komunikację SQL Server przy użyciu protokołu TCP/IP**
 
-1. Na **Start** menu wskaż **wszystkie programy**, kliknij przycisk **programu Microsoft SQL Server 2008 R2**, kliknij przycisk **narzędzia konfiguracji**, a następnie kliknij przycisk **Menedżera konfiguracji SQL Server**.
-2. W okienku widoku drzewa rozwiń **konfiguracja sieci programu SQL Server**, a następnie kliknij przycisk **protokoły dla MSSQLSERVER**.
+1. W menu **Start** wskaż polecenie **Wszystkie programy**, kliknij pozycję **Microsoft SQL Server 2008 R2**, kliknij pozycję **Narzędzia konfiguracji**, a następnie kliknij pozycję **SQL Server Configuration Manager**.
+2. W okienku widoku drzewa rozwiń węzeł **Konfiguracja sieci SQL Server**, a następnie kliknij pozycję **Protokoły dla MSSQLSERVER**.
 
    > [!NOTE]
-   > Jeśli zainstalowano wiele wystąpień programu SQL Server, zobaczysz <strong>protokoły dla</strong><em>[nazwa wystąpienia]</em> elementu dla każdego wystąpienia. Należy skonfigurować ustawienia sieciowe na podstawie wystąpienia wystąpienia.
-3. W okienku szczegółów kliknij prawym przyciskiem myszy **TCP/IP** wiersza, a następnie kliknij przycisk **Włącz**.
+   > Jeśli zainstalowano wiele wystąpień SQL Server, zobaczysz <strong>Protokoły dla</strong>elementu<em>[nazwa wystąpienia]</em> dla każdego wystąpienia. Należy skonfigurować ustawienia sieciowe na podstawie wystąpienia.
+3. W okienku szczegółów kliknij prawym przyciskiem myszy wiersz **TCP/IP** , a następnie kliknij pozycję **Włącz**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
-4. W **ostrzeżenie** okno dialogowe, kliknij przycisk **OK**.
+4. W oknie dialogowym **ostrzeżenia** kliknij przycisk **OK**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image2.png)
-5. Musisz ponownie uruchomić usługi MSSQLSERVER, zanim nowe konfiguracji sieci zostały zastosowane. Możesz to zrobić w wierszu polecenia z konsoli usługi lub SQL Server Management Studio. W tej procedurze użyjesz programu SQL Server Management Studio.
-6. Zamknij Menedżera konfiguracji SQL Server.
-7. Na **Start** menu wskaż **wszystkie programy**, kliknij przycisk **programu Microsoft SQL Server 2008 R2**, a następnie kliknij przycisk **SQL Server Management Studio**.
-8. W **Połącz z serwerem** okna dialogowego, **nazwy serwera** , wpisz nazwę serwera bazy danych, a następnie kliknij przycisk **Connect**.
+5. Aby nowa konfiguracja sieci zaczęła obowiązywać, należy ponownie uruchomić usługę MSSQLSERVER. Można to zrobić w wierszu polecenia, z poziomu konsoli usługi lub z SQL Server Management Studio. W tej procedurze zostanie użyta SQL Server Management Studio.
+6. Zamknij Menedżera konfiguracji programu SQL Server.
+7. W menu **Start** wskaż polecenie **Wszystkie programy**, kliknij pozycję **Microsoft SQL Server 2008 R2**, a następnie kliknij pozycję **SQL Server Management Studio**.
+8. W oknie dialogowym **łączenie z serwerem** w polu **Nazwa serwera** wpisz nazwę serwera bazy danych, a następnie kliknij przycisk **Połącz**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image3.png)
-9. W **Eksplorator obiektów** okienku kliknij prawym przyciskiem myszy węzeł serwera nadrzędnego (na przykład **TESTDB1**), a następnie kliknij przycisk **ponowne uruchomienie**.
+9. W okienku **Eksplorator obiektów** kliknij prawym przyciskiem myszy węzeł serwera nadrzędnego (na przykład **TESTDB1**), a następnie kliknij pozycję **Uruchom ponownie**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image4.png)
-10. W **programu Microsoft SQL Server Management Studio** okno dialogowe, kliknij przycisk **tak**.
+10. W oknie dialogowym **Management Studio Microsoft SQL Server** kliknij przycisk **tak**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image5.png)
-11. Gdy usługa zostanie ponownie uruchomiony, zamknij program SQL Server Management Studio.
+11. Po ponownym uruchomieniu usługi Zamknij SQL Server Management Studio.
 
-Aby zezwolić na ruch programu SQL Server przez zaporę, najpierw musisz wiedzieć, które porty używa wystąpienia programu SQL Server. To zależy od sposobu tworzenia i skonfigurowane wystąpienie programu SQL Server:
+Aby zezwolić na ruch SQL Server przez zaporę, najpierw musisz wiedzieć, które porty są używane przez wystąpienie SQL Server. Zależą od tego, jak wystąpienie SQL Server zostało utworzone i skonfigurowane:
 
-- A *domyślnego wystąpienia* programu SQL Server nasłuchuje (i reaguje na nie) żądania na porcie TCP 1433.
-- A *nazwane wystąpienie* programu SQL Server nasłuchuje (i reaguje na nie) żądania na porcie TCP przypisywany dynamicznie.
-- Jeśli usługa SQL Server Browser jest włączona, klienci mogą wysyłać zapytania usługi na porcie UDP 1434, aby dowiedzieć się, który port TCP używany dla danego wystąpienia programu SQL Server. Jednak ta usługa zostanie wyłączona często ze względów bezpieczeństwa.
+- *Domyślne wystąpienie* SQL Server nasłuchuje żądań (i odpowiada na nie) na porcie TCP 1433.
+- *Nazwane wystąpienie* SQL Server nasłuchuje żądań (i reaguje na nie) na dynamicznie przypisanym porcie TCP.
+- Jeśli usługa SQL Server Browser jest włączona, klienci mogą wysyłać zapytania do usługi na porcie UDP 1434, aby dowiedzieć się, który port TCP ma być używany dla określonego wystąpienia SQL Server. Ta usługa jest jednak często wyłączona ze względów bezpieczeństwa.
 
-Przy założeniu, że używasz domyślnego wystąpienia programu SQL Server, musisz skonfigurować zaporę, aby zezwolić na ruch.
+Przy założeniu, że używasz domyślnego wystąpienia SQL Server, musisz skonfigurować zaporę tak, aby zezwalała na ruch.
 
 | Kierunek | Z portu | Do portu | Typ portu |
 | --- | --- | --- | --- |
-| Dla ruchu przychodzącego | Dowolne | 1433 | TCP |
-| Wychodzące | 1433 | Dowolne | TCP |
+| Przychodzący | Dowolne | 1433 | TCP |
+| Wychodzący | 1433 | Dowolne | TCP |
 
 > [!NOTE]
-> Technicznie rzecz biorąc komputer kliencki będzie używać jeden losowo przypisany port TCP od 1024 do 5000 do komunikowania się z programem SQL Server i odpowiednio ograniczyć reguły zapory. Aby uzyskać więcej informacji na temat programu SQL Server, porty i zapór, zobacz [numery portów TCP/IP wymagany do komunikowania się do bazy danych SQL za pośrednictwem zapory](https://go.microsoft.com/?linkid=9805125) i [jak: Konfigurowanie serwera do nasłuchiwania na konkretnym porcie TCP (SQL Server Configuration Manager)](https://msdn.microsoft.com/library/ms177440.aspx).
+> Technicznie komputery klienckie będą używać losowo przypisanego portu TCP między 1024 i 5000, aby komunikować się z SQL Server i można odpowiednio ograniczyć reguły zapory. Aby uzyskać więcej informacji na SQL Server portów i zapór, zobacz [numery portów TCP/IP wymagane do komunikacji z usługą SQL przez zaporę](https://go.microsoft.com/?linkid=9805125) i [instrukcje: Konfigurowanie serwera do nasłuchiwania na konkretnym porcie TCP (SQL Server Configuration Manager)](https://msdn.microsoft.com/library/ms177440.aspx).
 
-W większości środowisk systemu Windows Server prawdopodobnie musisz skonfigurować zaporę Windows na serwerze bazy danych. Domyślnie Zapora Windows umożliwia cały ruch wychodzący, chyba że regułę. Aby włączyć serwer sieci web dotrzeć do bazy danych, musisz skonfigurować regułę ruchu przychodzącego zezwalającą na ruch TCP na numer portu, który korzysta z wystąpienia programu SQL Server. Jeśli używasz domyślnego wystąpienia programu SQL Server umożliwia następnej procedury konfigurowania tej reguły.
+W większości środowisk systemu Windows Server prawdopodobnie trzeba będzie skonfigurować zaporę systemu Windows na serwerze bazy danych. Domyślnie Zapora systemu Windows zezwala na cały ruch wychodzący, chyba że reguła zabrania go. Aby umożliwić serwerowi sieci Web dostęp do bazy danych, należy skonfigurować regułę ruchu przychodzącego, która zezwala na ruch TCP na numer portu, którego używa wystąpienie SQL Server. Jeśli używasz domyślnego wystąpienia SQL Server, możesz użyć następnej procedury, aby skonfigurować tę regułę.
 
-**Aby skonfigurować zaporę Windows, aby umożliwić komunikację z domyślnego wystąpienia programu SQL Server**
+**Aby skonfigurować zaporę systemu Windows w celu zezwalania na komunikację z domyślnym wystąpieniem SQL Server**
 
-1. Na serwerze bazy danych na **Start** menu wskaż **narzędzia administracyjne**, a następnie kliknij przycisk **Zapora Windows z zabezpieczeniami zaawansowanymi**.
-2. W okienku widoku drzewa kliknij **reguły ruchu przychodzącego**.
+1. Na serwerze bazy danych w menu **Start** wskaż polecenie **Narzędzia administracyjne**, a następnie kliknij pozycję **Zapora systemu Windows z zabezpieczeniami zaawansowanymi**.
+2. W okienku widoku drzewa kliknij pozycję **reguły ruchu przychodzącego**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image6.png)
-3. W **akcje** okienku w obszarze **reguły ruchu przychodzącego**, kliknij przycisk **nową regułę**.
-4. W Kreatora nowej reguły przychodzącej na **typ reguły** wybierz opcję **portu**, a następnie kliknij przycisk **dalej**.
+3. W okienku **Akcje** w obszarze **reguły ruchu przychodzącego**kliknij pozycję **Nowa reguła**.
+4. W Kreatorze nowej reguły ruchu przychodzącego na stronie **Typ reguły** wybierz pozycję **port**, a następnie kliknij przycisk **dalej**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image7.png)
-5. Na **protokół i porty** strony, upewnij się, że **TCP** jest zaznaczone, a następnie w **określone porty lokalne** wpisz **1433**, a następnie kliknij przycisk **Dalej**.
+5. Na stronie **Protokół i porty** upewnij się, że wybrano opcję **TCP** i w polu **określone porty lokalne** wpisz **1433**, a następnie kliknij przycisk **dalej**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image8.png)
-6. Na **akcji** zostaw **Zezwalaj na połączenie** zaznaczone, a następnie kliknij przycisk **dalej**.
-7. Na **profilu** zostaw **domeny** zaznaczone, wyczyść **prywatnej** i **publicznego** pola wyboru, a następnie kliknij przycisk **Następny**.
+6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie kliknij przycisk **dalej**.
+7. Na stronie **profil** pozostaw wybraną **domenę** , wyczyść pola wyboru **prywatne** i **publiczne** , a następnie kliknij przycisk **dalej**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
-8. Na **nazwa** strony, Nadaj regule nazwę opisową odpowiednio (na przykład **wystąpienia domyślnego programu SQL Server — dostęp do sieci**), a następnie kliknij przycisk **Zakończ**.
+8. Na stronie **Nazwa** nadaj regule odpowiednio nazwę opisową (na przykład **SQL Server domyślne wystąpienie — dostęp do sieci**), a następnie kliknij przycisk **Zakończ**.
 
-Aby uzyskać więcej informacji na temat konfigurowania zapory Windows dla programu SQL Server, zwłaszcza, jeśli chcesz komunikować się z programem SQL Server za pośrednictwem portów niestandardowych lub dynamicznych, zobacz [jak: Konfigurowanie zapory Windows dla dostępu aparatu bazy danych](https://technet.microsoft.com/library/ms175043.aspx).
+Aby uzyskać więcej informacji na temat konfigurowania zapory systemu Windows dla SQL Server, szczególnie jeśli chcesz komunikować się z SQL Server za pośrednictwem portów niestandardowych lub dynamicznych, zobacz [How to: Configure a Zapora systemu Windows na potrzeby dostępu do aparatu bazy danych](https://technet.microsoft.com/library/ms175043.aspx).
 
-## <a name="configure-logins-and-database-permissions"></a>Konfigurowanie logowania i bazy danych uprawnienia
+## <a name="configure-logins-and-database-permissions"></a>Konfigurowanie logowań i uprawnień bazy danych
 
-Podczas wdrażania aplikacji sieci web do programu Internet Information Services (IIS), aplikacja zostanie uruchomiona przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji, użyj konta komputera serwera, na którym uruchomiony do dostępu do zasobów sieciowych. Konta komputerów mieć postać <em>[nazwa domeny]</em><strong>\</ strong ><em>[nazwa komputera]</em><strong>$</strong>&#x2014;na przykład <strong>FABRIKAM\TESTWEB1$</strong>. Aby zezwolić na dostęp do bazy danych przez sieć aplikacji sieci web, należy:
+Podczas wdrażania aplikacji sieci Web do Internet Information Services (IIS) aplikacja jest uruchamiana przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji używają konta komputera serwera, na którym są uruchamiane w celu uzyskania dostępu do zasobów sieciowych. Konta komputerów przyjmują postać <em>[Domain Name]</em><strong>\</strong ><em>[nazwa komputera]</em> <strong>$</strong> &#x2014;na przykład <strong>FABRIKAM\TESTWEB1 $</strong>. Aby umożliwić aplikacji sieci Web dostęp do bazy danych w sieci, należy:
 
-- Dodaj identyfikator logowania dla konta komputera serwera sieci web do wystąpienia programu SQL Server.
-- Mapowanie dane logowanie konta komputera do żadnej roli wymaganej bazy danych (zwykle **db\_datareader** i **db\_datawriter**).
+- Dodaj nazwę logowania dla konta komputera serwera sieci Web do wystąpienia SQL Server.
+- Zamapuj logowanie do konta komputera na wszystkie wymagane role bazy danych (zazwyczaj **db\_DataReader** i **DB\_datawriteer**).
 
-Jeśli aplikacja sieci web jest uruchomiony na farmie serwerów, a nie pojedynczego serwera, należy powtórzyć te procedury dla każdego serwera sieci web w farmie serwerów.
+Jeśli aplikacja sieci Web jest uruchomiona w farmie serwerów, a nie na pojedynczym serwerze, należy powtórzyć te procedury dla każdego serwera sieci Web w farmie serwerów.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o tożsamości puli aplikacji i uzyskiwanie dostępu do zasobów sieciowych, zobacz [tożsamości puli aplikacji](https://go.microsoft.com/?linkid=9805123).
+> Aby uzyskać więcej informacji na temat tożsamości puli aplikacji i uzyskiwania dostępu do zasobów sieciowych, zobacz [tożsamość puli aplikacji](https://go.microsoft.com/?linkid=9805123).
 
-Może zbliżać się te zadania na różne sposoby. Aby utworzyć identyfikator logowania, można:
+Te zadania można podejścia na różne sposoby. Aby utworzyć identyfikator logowania, można wykonać jedną z:
 
-- Ręczne tworzenie identyfikatora logowania na serwerze bazy danych przy użyciu języka Transact-SQL lub SQL Server Management Studio.
-- Użyj Projekt serwera SQL Server 2008 w programie Visual Studio do tworzenia i wdrażania logowania.
+- Ręcznie Utwórz identyfikator logowania na serwerze bazy danych przy użyciu języka Transact-SQL lub SQL Server Management Studio.
+- Użyj projektu serwera SQL Server 2008 w programie Visual Studio, aby utworzyć i wdrożyć nazwę logowania.
 
-Logowania programu SQL Server jest obiektem poziomu serwera, a nie obiekt poziomu bazy danych, tak nie jest zależna od bazy danych, którą chcesz wdrożyć. W efekcie można utworzyć nazwy logowania w dowolnym momencie, a to najłatwiejsza metoda jest często logowania ręcznie utworzyć na serwerze bazy danych przed rozpoczęciem wdrażania baz danych. Aby utworzyć identyfikator logowania w programie SQL Server Management Studio, można użyć następnej procedury.
+Logowanie SQL Server jest obiektem na poziomie serwera, a nie obiektem na poziomie bazy danych, więc nie zależy od bazy danych, którą chcesz wdrożyć. W związku z tym można utworzyć identyfikator logowania w dowolnym momencie, a najprostszym podejściem jest często ręczne utworzenie nazwy logowania na serwerze bazy danych przed rozpoczęciem wdrażania baz danych. Przy użyciu następnej procedury można utworzyć identyfikator logowania w SQL Server Management Studio.
 
-**Aby utworzyć identyfikator logowania programu SQL Server dla konta komputera serwera sieci web**
+**Aby utworzyć identyfikator logowania SQL Server dla konta komputera serwera sieci Web**
 
-1. Na serwerze bazy danych na **Start** menu wskaż **wszystkie programy**, kliknij przycisk **programu Microsoft SQL Server 2008 R2**, a następnie kliknij przycisk **SQL Server Management Studio** .
-2. W **Połącz z serwerem** okna dialogowego, **nazwy serwera** , wpisz nazwę serwera bazy danych, a następnie kliknij przycisk **Connect**.
+1. Na serwerze bazy danych w menu **Start** wskaż polecenie **Wszystkie programy**, kliknij pozycję **Microsoft SQL Server 2008 R2**, a następnie kliknij pozycję **SQL Server Management Studio**.
+2. W oknie dialogowym **łączenie z serwerem** w polu **Nazwa serwera** wpisz nazwę serwera bazy danych, a następnie kliknij przycisk **Połącz**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image10.png)
-3. W **Eksplorator obiektów** okienku kliknij prawym przyciskiem myszy **zabezpieczeń**, wskaż polecenie **New**, a następnie kliknij przycisk **logowania**.
-4. W **logowania — nowy** dialogowym **nazwa logowania** wpisz nazwę konta komputera serwera sieci web (na przykład **FABRIKAM\TESTWEB1$**).
+3. W okienku **Eksplorator obiektów** kliknij prawym przyciskiem myszy pozycję **zabezpieczenia**, wskaż polecenie **Nowy**, a następnie kliknij pozycję **Zaloguj**.
+4. W oknie dialogowym **Logowanie — nowy** w polu **Nazwa logowania** wpisz nazwę konta komputera serwera sieci Web (na przykład **FABRIKAM\TESTWEB1 $** ).
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image11.png)
 5. Kliknij przycisk **OK**.
 
-W tym momencie serwer bazy danych jest gotowa do opublikowania narzędzia Web Deploy. Jednak wszystkie rozwiązania, które można wdrożyć nie będzie działać, dopóki mapy dane logowanie konta komputera do ról wymaganej bazy danych. Mapowanie identyfikatora logowania do ról bazy danych wymaga dużo więcej traktować, co Ty nie role mapy aż po wdrożeniu bazy danych. Aby zamapować dane logowanie konta komputera do ról wymaganej bazy danych, można:
+Na tym etapie serwer bazy danych jest gotowy do publikowania Web Deploy. Jednak wdrożone rozwiązania nie będą działały, dopóki nie zostanie zmapowane logowanie do konta komputera w wymaganych rolach bazy danych. Mapowanie logowania do ról bazy danych wymaga dużej liczby myśli, ponieważ nie można mapować ról do momentu, gdy baza danych zostanie wdrożona. Aby zmapować logowanie do konta komputera do wymaganych ról bazy danych, można wykonać jedną z następujących czynności:
 
-- Przypisz role bazy danych logowania na ręcznie, po wdrożeniu bazy danych po raz pierwszy.
-- Użyj skryptu powdrożeniowego do przypisywania ról bazy danych do nazwy logowania.
+- Ręcznie Przypisz role bazy danych do nazwy logowania po wdrożeniu bazy danych po raz pierwszy.
+- Użyj skryptu powdrożeniowego, aby przypisać role bazy danych do nazwy logowania.
 
-Aby uzyskać więcej informacji na temat Automatyzacja tworzenia danych logowania i mapowania roli bazy danych, zobacz [członkostw roli bazy danych wdrażania w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Alternatywnie służy następnej procedury do mapowania logowania konta komputera do ról wymaganej bazy danych ręcznie. Należy pamiętać, że nie można wykonać tej procedury, dopóki *po* udało Ci się wdrożyć bazy danych.
+Aby uzyskać więcej informacji na temat automatyzowania tworzenia identyfikatorów logowania i mapowania ról bazy danych, zobacz [wdrażanie członkostw ról bazy danych w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Można też użyć następnej procedury, aby ręcznie zmapować logowanie do konta komputera do wymaganej roli bazy danych. Należy pamiętać, że nie można wykonać tej procedury dopiero *po* wdrożeniu bazy danych.
 
-**Aby zamapować ról bazy danych do logowania konta komputera serwera sieci web**
+**Aby zamapować role bazy danych na logowanie do konta komputera serwera sieci Web**
 
-1. Otwórz program SQL Server Management Studio, tak jak poprzednio.
-2. W **Eksplorator obiektów** okienku rozwiń **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład **FABRIKAM\TESTWEB1$**).
+1. Otwórz SQL Server Management Studio jak wcześniej.
+2. W okienku **Eksplorator obiektów** rozwiń węzeł **zabezpieczenia** , rozwiń węzeł **logowania** , a następnie kliknij dwukrotnie pozycję Logowanie do konta komputera (na przykład **FABRIKAM\TESTWEB1 $** ).
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image12.png)
-3. W **właściwości logowania** okno dialogowe, kliknij przycisk **mapowania użytkowników**.
-4. W **użytkownicy zamapowani do tego logowania** tabeli, wybierz nazwę bazy danych (na przykład **ContactManager**).
-5. W **członkostwo roli dla bazy danych:** *[Nazwa bazy danych]* wybierz wymagane uprawnienia. W przypadku przykładowe rozwiązanie Contact Manager, musisz wybrać **db\_datareader** i **db\_datawriter** ról.
+3. W oknie dialogowym **Właściwości logowania** kliknij pozycję **Mapowanie użytkownika**.
+4. W tabeli **Użytkownicy zamapowane na tę nazwę logowania** wybierz nazwę bazy danych (na przykład **ContactManager**).
+5. Na liście **członkostwo w roli bazy danych dla:** *[nazwa bazy danych]* wybierz wymagane uprawnienia. W przypadku przykładowego rozwiązania Contact Manager należy wybrać role **bazy danych\_DataReader** i **baza danych\_** .
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image13.png)
 6. Kliknij przycisk **OK**.
 
-Podczas ręcznego mapowania ról bazy danych często jest większe niż odpowiednie dla środowisk testowych, jest mniej pożądana automatyczna lub z jednym kliknięciem wdrożeń w środowiskach przejściowych lub produkcyjnych. Można znaleźć więcej informacji na temat tego rodzaju zadania przy użyciu skryptów po wdrożeniu w automatyzacji [członkostw roli bazy danych wdrażania w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
+Podczas ręcznego mapowania ról bazy danych jest często większa niż odpowiednia dla środowisk testowych, ale jest mniej pożądane dla wdrożeń zautomatyzowanych lub jednym kliknięciem w środowisku przejściowym lub produkcyjnym. Więcej informacji na temat automatyzowania tego rodzaju zadania za pomocą skryptów po wdrożeniu można znaleźć w temacie [wdrażanie członkostw roli bazy danych w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat serwera i bazy danych projektów, zobacz [Visual Studio 2010 projektów bazodanowych SQL Server](https://msdn.microsoft.com/library/ff678491.aspx).
+> Aby uzyskać więcej informacji na temat projektów serwera i projektów bazy danych, zobacz [Visual Studio 2010 SQL Server projects Database](https://msdn.microsoft.com/library/ff678491.aspx).
 
-## <a name="configure-permissions-for-the-deployment-account"></a>Skonfiguruj uprawnienia dla konta wdrożenia
+## <a name="configure-permissions-for-the-deployment-account"></a>Konfigurowanie uprawnień dla konta wdrożenia
 
-Jeśli konto, które będzie używane do uruchamiania wdrożenia nie jest administratorem programu SQL Server, należy także utworzyć identyfikator logowania dla tego konta. Aby utworzyć bazę danych, konto musi należeć do **dbcreator** roli serwera lub mieć równoważne uprawnienia.
+Jeśli konto, którego będziesz używać do uruchamiania wdrożenia, nie jest administratorem SQL Server, należy również utworzyć identyfikator logowania dla tego konta. Aby można było utworzyć bazę danych, konto musi być członkiem roli serwera **dbcreator** lub mieć równoważne uprawnienia.
 
 > [!NOTE]
-> Korzystając z narzędzia Web Deploy lub VSDBCMD wdrożyć bazę danych, można użyć poświadczenia Windows lub programu SQL Server (jeśli wystąpienia programu SQL Server jest skonfigurowany do obsługi uwierzytelniania w trybie mieszanym). Następnej procedury przyjęto założenie, że chcesz użyć poświadczeń Windows, ale nie ma nic zatrzymywanie możesz z określania programu SQL Server, nazwę użytkownika i hasła w ciągu połączenia, podczas konfigurowania wdrożenia.
+> W przypadku używania Web Deploy lub VSDBCMD do wdrożenia bazy danych można użyć poświadczeń systemu Windows lub poświadczeń SQL Server (Jeśli wystąpienie SQL Server jest skonfigurowane do obsługi uwierzytelniania w trybie mieszanym). W następnej procedurze przyjęto założenie, że użytkownik chce używać poświadczeń systemu Windows, ale nie ma żadnego zatrzymywania podania nazwy użytkownika SQL Server i hasła w parametrach połączenia podczas konfigurowania wdrożenia.
 
 **Aby skonfigurować uprawnienia dla konta wdrożenia**
 
-1. Otwórz program SQL Server Management Studio, tak jak poprzednio.
-2. W **Eksplorator obiektów** okienku kliknij prawym przyciskiem myszy **zabezpieczeń**, wskaż polecenie **New**, a następnie kliknij przycisk **logowania**.
-3. W **logowania — nowy** dialogowym **nazwa logowania** wpisz nazwę konta usługi wdrażania (na przykład **FABRIKAM\matt**).
-4. W **wybierz stronę** okienku kliknij **ról serwera**.
-5. Wybierz **dbcreator**, a następnie kliknij przycisk **OK**.
+1. Otwórz SQL Server Management Studio jak wcześniej.
+2. W okienku **Eksplorator obiektów** kliknij prawym przyciskiem myszy pozycję **zabezpieczenia**, wskaż polecenie **Nowy**, a następnie kliknij pozycję **Zaloguj**.
+3. W oknie dialogowym **login — nowe** w polu **Nazwa logowania** wpisz nazwę konta wdrożenia (na przykład **FABRIKAM\matt**).
+4. W okienku **Wybierz stronę** kliknij pozycję **role serwera**.
+5. Wybierz pozycję **dbcreator**, a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image14.png)
 
-Do obsługi kolejnych wdrożeń, należy także dodać na wdrażanie konta **db\_właściciela** roli bazy danych po ich pierwszym wdrożeniu. Jest tak, ponieważ na kolejne wdrożenia w przypadku modyfikowania schematu istniejącą bazę danych, zamiast tworzenia nowej bazy danych. Zgodnie z opisem w poprzedniej sekcji, nie można dodać użytkownika do roli bazy danych, dopóki nie utworzysz bazę danych, ze względów oczywiste.
+Aby obsłużyć kolejne wdrożenia, należy również dodać konto wdrażania do roli **właściciela bazy danych\_** w bazie danych programu po pierwszym wdrożeniu. Dzieje się tak, ponieważ w przypadku kolejnych wdrożeń modyfikujących schemat istniejącej bazy danych zamiast tworzenia nowej bazy danych. Zgodnie z opisem w poprzedniej sekcji nie można dodać użytkownika do roli bazy danych, dopóki baza danych nie zostanie utworzona z oczywistych powodów.
 
-**Do mapowania logowania konta wdrożenia bazy danych\_właściciela roli bazy danych**
+**Aby zmapować logowanie do konta wdrożenia do roli bazy danych właściciela\_**
 
-1. Otwórz program SQL Server Management Studio, tak jak poprzednio.
-2. W **Eksplorator obiektów** okna, rozwiń węzeł **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład **FABRIKAM\matt**).
-3. W **właściwości logowania** okno dialogowe, kliknij przycisk **mapowania użytkowników**.
-4. W **użytkownicy zamapowani do tego logowania** tabeli, wybierz nazwę bazy danych (na przykład **ContactManager**).
-5. W **członkostwo roli dla bazy danych:** *[Nazwa bazy danych]* listy wybierz **db\_właściciela** roli.
+1. Otwórz SQL Server Management Studio jak wcześniej.
+2. W oknie **Eksplorator obiektów** rozwiń węzeł **zabezpieczenia** , rozwiń węzeł **logowania** , a następnie kliknij dwukrotnie pozycję Logowanie do konta komputera (na przykład **FABRIKAM\matt**).
+3. W oknie dialogowym **Właściwości logowania** kliknij pozycję **Mapowanie użytkownika**.
+4. W tabeli **Użytkownicy zamapowane na tę nazwę logowania** wybierz nazwę bazy danych (na przykład **ContactManager**).
+5. Z listy **członkostwo w roli bazy danych dla:** *[nazwa bazy danych]* wybierz rolę **właściciela\_bazy danych** .
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
 6. Kliknij przycisk **OK**.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-Serwer bazy danych powinno być teraz gotowy do akceptowania wdrożeń zdalnej bazy danych i zezwolić na dostęp do bazy danych zdalnego serwerów sieci web usług IIS. Przed przystąpieniem do wdrażania i korzystanie z baz danych, można sprawdzić tych kluczowych zagadnieniach:
+Serwer bazy danych powinien teraz być gotowy do akceptowania zdalnych wdrożeń baz danych i zezwalania zdalnym serwerom sieci Web usług IIS na dostęp do baz danych. Przed podjęciem próby wdrożenia baz danych i korzystania z nich warto sprawdzić następujące kluczowe punkty:
 
-- Czy skonfigurowano program SQL Server do akceptowania połączeń zdalnych TCP/IP?
-- Czy skonfigurowano wszelkie zapory, aby zezwalać na ruch programu SQL Server?
-- Czy utworzono dane logowanie konta komputera dla każdego serwera sieci web, który będzie miał dostęp programu SQL Server?
-- Wdrożenie bazy danych ma skryptu, aby utworzyć mapowania roli użytkownika, czy należy utworzyć je ręcznie, po wdrożeniu bazy danych po raz pierwszy?
-- Możesz utworzono nazwy logowania dla konta wdrożenia i dodać go do **dbcreator** roli serwera?
+- Czy skonfigurowano SQL Server do akceptowania zdalnych połączeń TCP/IP?
+- Czy skonfigurowano zapory zezwalające na ruch SQL Server?
+- Czy utworzono logowanie do konta komputera dla każdego serwera sieci Web, który będzie miał dostęp SQL Server?
+- Czy wdrożenie bazy danych obejmuje skrypt służący do tworzenia mapowań roli użytkownika, czy też należy je utworzyć ręcznie po wdrożeniu bazy danych po raz pierwszy?
+- Czy utworzono identyfikator logowania dla konta wdrożenia i został on dodany do roli serwera **dbcreator** ?
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać wskazówki dotyczące wdrażania projektów bazy danych, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące tworzenia członkostw roli bazy danych, uruchamiając skrypt po wdrożeniu, zobacz [członkostw roli bazy danych wdrażania w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Aby uzyskać wskazówki na temat sposobu sprostać wyzwaniom wdrażania unikatowy, które stanowią bazy danych członkostwa, zobacz [wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
+Aby uzyskać wskazówki dotyczące wdrażania projektów bazy danych, zobacz [wdrażanie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące tworzenia członkostw roli bazy danych, uruchamiając skrypt powdrożeniowy, zobacz [wdrażanie członkostw roli bazy danych w środowiskach testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Aby uzyskać informacje na temat sposobu zaspokajania unikatowych wyzwań związanych z wdrażaniem, które są przeznaczone dla baz danych, zobacz [wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

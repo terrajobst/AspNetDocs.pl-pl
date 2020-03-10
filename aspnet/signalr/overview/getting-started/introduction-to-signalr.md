@@ -9,11 +9,11 @@ ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 8dbc31a5c8d59fa55dc5b513c1a51d24d18a685f
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519404"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536436"
 ---
 # <a name="introduction-to-signalr"></a>Wprowadzenie do usługi SignalR
 
@@ -39,7 +39,7 @@ Sygnalizujący oferuje prosty interfejs API służący do tworzenia zdalnych wyw
 
 ![Wywoływanie metod przy użyciu sygnalizującego](introduction-to-signalr/_static/image1.png)
 
-Usługa SignalR automatycznie obsługuje zarządzanie połączeniami i umożliwia rozgłaszanie komunikatów do wszystkich połączonych klientów równocześnie, tak w przypadku pokoju rozmów. Można również wysyłać komunikaty do określonych klientów. Połączenie między klientem i serwerem jest trwałe w odróżnieniu od klasycznego połączenia HTTP, które jest nawiązywane ponownie dla każdej komunikacji.
+Program sygnalizujący automatycznie obsługuje zarządzanie połączeniami i umożliwia emitowanie komunikatów do wszystkich połączonych klientów jednocześnie, takich jak pokój rozmowy. Możesz również wysyłać komunikaty do określonych klientów. Połączenie między klientem a serwerem jest trwałe, w przeciwieństwie do klasycznego połączenia HTTP, które jest ponownie nawiązane dla każdej komunikacji.
 
 Usługa sygnalizująca obsługuje funkcję "wypychania serwera", w której kod serwera może wywoływać kod klienta w przeglądarce przy użyciu zdalnych wywołań procedur (RPC), a nie modelu odpowiedzi na żądanie, który jest często używany w sieci Web.
 

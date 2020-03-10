@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/aspnet-mvc-2-render-action
-title: ASP.NET MVC 2 — Akcja renderowania | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 2 — akcja renderowania | Microsoft Docs
 author: jongalloway
-description: W tym filmie wideo dowiesz się, jak używać Html.RenderAction do zapisywania wyników akcji kontrolera widoku. Omówimy sposób Html.RenderAction różni się fr...
+description: W tym filmie wideo dowiesz się, jak za pomocą języka HTML. RenderAction napisać wyniki akcji kontrolera do widoku. Dowiesz się, jak plik HTML. RenderAction różni się od fr...
 ms.author: riande
 ms.date: 04/22/2010
 ms.assetid: 11906982-0a64-4bc8-be23-6443afee8b88
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/aspnet-mvc-2-render-action
 msc.type: video
 ms.openlocfilehash: 211a8d5e3ce535a641bc3b57c6969ab80e3524df
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400883"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537528"
 ---
 # <a name="aspnet-mvc-2---render-action"></a>ASP.NET MVC 2 — akcja renderowania
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-W tym filmie wideo dowiesz się, jak używać Html.RenderAction do zapisywania wyników akcji kontrolera widoku. Omówimy sposób Html.RenderAction różni się od Html.RenderPartial i jak Html.Action różni się od Html.RenderAction.
+W tym filmie wideo dowiesz się, jak za pomocą języka HTML. RenderAction napisać wyniki akcji kontrolera do widoku. Dowiesz się, jak plik HTML. RenderAction różni się od języka HTML. RenderPartial i w jaki sposób html. Action różni się od html. RenderAction.
 
-[&#9654;Obejrzyj film wideo, (3 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-2-render-action)
+[&#9654;Obejrzyj wideo (3 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-2-render-action)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-2-areas.md)

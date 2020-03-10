@@ -1,25 +1,25 @@
 ---
 uid: mvc/overview/getting-started/index
-title: ASP.NET MVC wprowadzenie | Dokumentacja firmy Microsoft
+title: ASP.NET MVC Wprowadzenie | Microsoft Docs
 author: rick-anderson
-description: Dowiedz się więcej o platformy ASP.NET MVC platformy ASP.NET MVC zapewnia zaawansowany, bazujący na wzorcach sposób tworzenia dynamicznych witryn sieci Web, która umożliwia wyraźne oddzielenie obaw i że g...
+description: Dowiedz się więcej na temat ASP.NET MVC ASP.NET MVC zapewnia zaawansowany, oparty na wzorcach sposób tworzenia dynamicznych witryn sieci Web, które umożliwiają czyste rozdzielenie obaw i to g...
 ms.author: riande
 ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 8e25c3a01634df6c3d9c81df8ab1738cc079d341
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121126"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583014"
 ---
-# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC Getting Started
+# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC Wprowadzenie
 
-> Poniższe wskazówki opisano platformy ASP.NET MVC, a czego pokazuje, jak rozpocząć pracę.
+> Poniższe wskazówki wyjaśniają, co to jest ASP.NET MVC i jak zacząć pracę.
 
-- [Wprowadzenie do ASP.NET MVC 5](introduction/index.md)
+- [Wprowadzenie z ASP.NET MVC 5](introduction/index.md)
 
     - [Wprowadzenie](introduction/getting-started.md)
     - [Dodawanie kontrolera](introduction/adding-a-controller.md)

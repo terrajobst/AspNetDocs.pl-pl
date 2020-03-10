@@ -1,119 +1,119 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
-title: Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 sieci Web Forms — część 4 | Dokumentacja firmy Microsoft
+title: Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 4 | Microsoft Docs
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy Entity Framework. Przykładowa aplikacja jest...
+description: Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework. Przykładowa aplikacja to...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: ceb9e60f-957c-4d25-9331-cc527de96a33
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
 msc.type: authoredcontent
 ms.openlocfilehash: eb75a76038466bf30738387ed4739687de1df944
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133292"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638167"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-4"></a>Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 Web Forms — część 4
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-4"></a>Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 4
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu Entity Framework 4.0 i Visual Studio 2010. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework 4,0 i programu Visual Studio 2010. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek w serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
-## <a name="working-with-related-data"></a>Praca z powiązanych danych
+## <a name="working-with-related-data"></a>Praca z danymi powiązanymi
 
-W poprzednim samouczku użyto `EntityDataSource` kontrolki filtrowanie, sortowanie i grupowanie danych. W tym samouczku możesz wyświetlić i aktualizowanie powiązanych danych.
+W poprzednim samouczku użyto kontrolki `EntityDataSource` do filtrowania, sortowania i grupowania danych. W tym samouczku zostaną wyświetlone i zaktualizowane powiązane dane.
 
-Utworzysz strony instruktorów, który wyświetla listę instruktorów. Po wybraniu pod kierunkiem instruktora, zobaczysz listę kursom prowadzonym przez instruktora tego. Po wybraniu kurs, zobaczysz szczegółowe informacje dotyczące kurs i listę uczniów zarejestrowane w ramach tego kursu. Można edytować nazwę przez instruktorów, data zatrudnienia i przypisania pakietu office. Przypisanie pakietu office to zestaw osobne jednostki, które są dostępne za pośrednictwem właściwości nawigacji.
+Utworzysz stronę instruktorów, która wyświetla listę instruktorów. Po wybraniu instruktora zostanie wyświetlona lista szkoleń szkoleniowych według tego instruktora. Po wybraniu kursu zobaczysz szczegóły dotyczące kursu i listę studentów zarejestrowanych w kursie. Można edytować nazwisko instruktora, datę zatrudnienia i przypisanie pakietu Office. Przypisanie pakietu Office to oddzielny zestaw jednostek, do którego uzyskujesz dostęp za pomocą właściwości nawigacji.
 
-Szczegółowe dane w znacznikach lub w kodzie można połączyć danych głównych. W tej części samouczka użyjesz obu tych metod.
+Dane główne można połączyć z danymi szczegółowymi w znacznikach lub w kodzie. W tej części samouczka będziesz używać obu tych metod.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-4/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image1.png)
 
 ## <a name="displaying-and-updating-related-entities-in-a-gridview-control"></a>Wyświetlanie i aktualizowanie powiązanych jednostek w kontrolce GridView
 
-Utwórz nową stronę sieci web o nazwie *Instructors.aspx* , który używa *Site.Master* strony wzorcowej, a następnie dodaj następujący kod do `Content` formantu o nazwie `Content2`:
+Utwórz nową stronę sieci Web o nazwie *instruktors. aspx* , która korzysta ze strony wzorcowej *site. Master* , i Dodaj następujące znaczniki do kontrolki `Content` o nazwie `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample1.aspx)]
 
-Ten kod znaczników tworzy `EntityDataSource` formant, który wybiera instruktorów i umożliwia aktualizacji. `div` Element konfiguruje znaczników renderowania po lewej stronie, tak aby później możesz dodać kolumnę po prawej stronie.
+Ten znacznik tworzy formant `EntityDataSource`, który wybiera instruktorów i włącza aktualizacje. Element `div` konfiguruje adiustację do renderowania po lewej stronie, aby można było dodać kolumnę po prawej stronie później.
 
-Między `EntityDataSource` znaczników i zamknięcie `</div>` tag, Dodaj następujący kod znaczników, który tworzy `GridView` kontroli i `Label` formantu, którego będziesz używać dla komunikatów o błędach:
+Między znacznikiem `EntityDataSource` i zamykanym tagiem `</div>` Dodaj następujące znaczniki, które tworzą kontrolkę `GridView` i kontrolkę `Label`, która będzie używana dla komunikatów o błędach:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample2.aspx)]
 
-To `GridView` kontroli umożliwia wybór wiersza wyróżnia wybranego wiersza przy użyciu koloru światła szarego tła i określa programy obsługi (które utworzysz w dalszej części) `SelectedIndexChanged` i `Updating` zdarzenia. Określa również `PersonID` dla `DataKeyNames` właściwości, tak aby wartość klucza wybranego wiersza, może być przekazywany do innego formantu, który będzie później dodać.
+Ta kontrolka `GridView` umożliwia zaznaczanie wierszy, wyróżnianie zaznaczonego wiersza przy użyciu jasnego szarego koloru tła i określa programy obsługi (które utworzysz później) dla zdarzeń `SelectedIndexChanged` i `Updating`. Określa również `PersonID` właściwości `DataKeyNames`, dzięki czemu wartość klucza wybranego wiersza może być przenoszona do innego formantu, który zostanie dodany później.
 
-Ostatnia kolumna zawiera przypisania pakietu office przez instruktorów, który jest przechowywany we właściwości nawigacji `Person` jednostki, ponieważ pochodzi on z skojarzona jednostka. Należy zauważyć, że `EditItemTemplate` element Określa `Eval` zamiast `Bind`, ponieważ `GridView` kontroli bezpośrednio nie można powiązać właściwości nawigacji, aby je zaktualizować. Zaktualizujesz biuro w kodzie. Aby to zrobić, należy odwołanie do `TextBox` kontroli, a uzyskasz i zapisać w `TextBox` kontrolki `Init` zdarzeń.
+Ostatnia kolumna zawiera przypisanie pakietu Office instruktora, które jest przechowywane we właściwości nawigacji jednostki `Person`, ponieważ pochodzi ze skojarzonej jednostki. Należy zauważyć, że element `EditItemTemplate` określa `Eval` zamiast `Bind`, ponieważ kontrolka `GridView` nie może zostać powiązana bezpośrednio z właściwościami nawigacji, aby je zaktualizować. Aktualizujesz przypisanie pakietu Office w kodzie. W tym celu należy odwołać się do kontrolki `TextBox` i uzyskać i zapisać ją w zdarzeniu `Init` kontrolki `TextBox`.
 
-Następujące `GridView` formant jest `Label` formant, który jest używany dla komunikatów o błędach. Kontrolki `Visible` właściwość `false`, a stan widoku jest wyłączona, tak aby etykiety będą wyświetlane tylko kiedy kod sprawia, że widoczny w odpowiedzi na błąd.
+Kontrolka `GridView` jest formantem `Label` używanym do komunikatów o błędach. Właściwość `Visible` kontrolki jest `false`, a stan widoku jest wyłączony, dzięki czemu etykieta będzie wyświetlana tylko wtedy, gdy kod staje się widoczny w odpowiedzi na błąd.
 
-Otwórz *Instructors.aspx.cs* pliku i Dodaj następujący kod `using` instrukcji:
+Otwórz plik *Instructors.aspx.cs* i Dodaj następującą instrukcję `using`:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample3.cs)]
 
-Dodaj pole Klasa prywatna bezpośrednio po deklaracji nazwy częściowej klasy do przechowywania odwołań do pola tekstowego przypisania pakietu office.
+Dodaj pole klasy prywatnej bezpośrednio po deklaracji nazwy częściowej klasy, aby pomieścić odwołanie do pola tekstowego przypisania pakietu Office.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample4.cs)]
 
-Dodaj wycinkiem `SelectedIndexChanged` na później dodasz kod procedury obsługi zdarzeń. Również dodać program obsługi do przypisania pakietu office `TextBox` kontrolki `Init` zdarzeń, dzięki czemu można przechowywać odwołanie do `TextBox` kontroli. Użyjesz tego odwołania można pobrać wartości które użytkownik wprowadził w celu zaktualizowania jednostki skojarzony z właściwością nawigacji.
+Dodaj element zastępczy dla programu obsługi zdarzeń `SelectedIndexChanged`, do którego kod zostanie dodany później. Dodaj również procedurę obsługi dla zdarzenia `Init` kontrolki `TextBox` przypisania pakietu Office, aby można było zapisać odwołanie do kontrolki `TextBox`. Użyjesz tego odwołania, aby pobrać wartość wprowadzoną przez użytkownika w celu zaktualizowania jednostki skojarzonej z właściwością nawigacji.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample5.cs)]
 
-Użyjesz `GridView` kontrolki `Updating` zdarzenie, aby zaktualizować `Location` właściwości skojarzonego `OfficeAssignment` jednostki. Dodaj następujący program obsługi dla `Updating` zdarzeń:
+Będziesz używać zdarzenia `Updating` kontrolki `GridView`, aby zaktualizować Właściwość `Location` skojarzonej jednostki `OfficeAssignment`. Dodaj następującą procedurę obsługi dla zdarzenia `Updating`:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample6.cs)]
 
-Ten kod jest uruchamiany, gdy użytkownik kliknie **aktualizacji** w `GridView` wiersza. Kod używa składnik LINQ to Entities, aby pobrać `OfficeAssignment` jednostki, która jest skojarzona z bieżącą `Person` jednostki przy użyciu `PersonID` wybranego wiersza z argumentu zdarzenia.
+Ten kod jest uruchamiany, gdy użytkownik kliknie przycisk **Aktualizuj** w wierszu `GridView`. Kod używa LINQ to Entities do pobrania jednostki `OfficeAssignment` skojarzonej z bieżącą jednostką `Person` przy użyciu `PersonID` wybranego wiersza z argumentu zdarzenia.
 
-Kod bierze pod jedną z następujących czynności w zależności od wartości w `InstructorOfficeTextBox` sterowania:
+Następnie kod pobiera jedną z następujących akcji w zależności od wartości w kontrolce `InstructorOfficeTextBox`:
 
-- Jeśli pole ma wartość i nie `OfficeAssignment` jednostki do zaktualizowania, tworzony jest jeden.
-- Jeśli pole ma wartość i `OfficeAssignment` jednostki, aktualizuje `Location` wartości właściwości.
-- Jeśli pole tekstowe jest puste i `OfficeAssignment` jednostka istnieje, jej usunięcie jednostki.
+- Jeśli pole tekstowe ma wartość i nie ma `OfficeAssignment` jednostki do zaktualizowania, zostanie ona utworzona.
+- Jeśli pole tekstowe ma wartość i istnieje jednostka `OfficeAssignment`, aktualizuje wartość właściwości `Location`.
+- Jeśli pole tekstowe jest puste i istnieje jednostka `OfficeAssignment`, spowoduje to usunięcie jednostki.
 
-Następnie zapisuje zmiany w bazie danych. Jeśli wystąpi wyjątek, wyświetla komunikat o błędzie.
+Następnie zapisuje zmiany w bazie danych. Jeśli wystąpi wyjątek, zostanie wyświetlony komunikat o błędzie.
 
 Uruchom stronę.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-4/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image3.png)
 
-Kliknij przycisk **Edytuj** i zmiana wszystkich pól do pól tekstowych.
+Kliknij przycisk **Edytuj** i wszystkie pola przejdź do pól tekstowych.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-4/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image5.png)
 
-Zmienić dowolne z tych wartości, w tym **Biuro**. Kliknij przycisk **aktualizacji** zmiany zostaną uwzględnione na liście zostaną wyświetlone.
+Zmień dowolne z tych wartości, w tym **przypisanie pakietu Office**. Kliknij przycisk **Aktualizuj** , aby zobaczyć zmiany odzwierciedlone na liście.
 
-## <a name="displaying-related-entities-in-a-separate-control"></a>Wyświetlanie powiązanych jednostek w oddzielnej kontrolce
+## <a name="displaying-related-entities-in-a-separate-control"></a>Wyświetlanie powiązanych jednostek w oddzielnym formancie
 
-Każdy instruktora nauczyć co najmniej jeden kursów, więc należy dodać `EntityDataSource` kontroli i `GridView` kontrolki Lista kursów skojarzone z dowolnego instruktora wybrano Instruktorzy `GridView` kontroli. Aby utworzyć nagłówek i `EntityDataSource` dla jednostek kursów i Dodaj następujący kod między komunikat o błędzie `Label` kontroli i zamknięcie `</div>` tag:
+Każdy instruktor może nauczyć jeden lub więcej kursów, dlatego dodasz kontrolkę `EntityDataSource` i kontrolkę `GridView`, aby wyświetlić listę kursów skojarzonych z tym instruktorem w `GridView` kontroli. Aby utworzyć nagłówek i formant `EntityDataSource` dla jednostek kursów, Dodaj następujące znaczniki między formantem `Label` komunikatu o błędzie i zamykającym tagiem `</div>`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample7.aspx)]
 
-`Where` Parametru zawiera wartość `PersonID` instruktora, w których wiersz jest zaznaczony w `InstructorsGridView` kontroli. `Where` Właściwość zawiera polecenia wyboru podrzędnego, który pobiera wszystkie skojarzone `Person` jednostek z `Course` jednostki `People` właściwość nawigacji i wybiera `Course` jednostki tylko wtedy, gdy jeden skojarzone `Person`jednostki zawiera wybrane `PersonID` wartość.
+Parametr `Where` zawiera wartość `PersonID` instruktora, którego wiersz został wybrany w kontrolce `InstructorsGridView`. Właściwość `Where` zawiera polecenie subselect, które pobiera wszystkie skojarzone jednostki `Person` z `People` właściwości nawigacji jednostki `Course` i wybiera jednostkę `Course` tylko wtedy, gdy jedna z skojarzonych jednostek `Person` zawiera wybraną wartość `PersonID`.
 
-Aby utworzyć `GridView` kontroli. Dodaj następujący kod bezpośrednio po `CoursesEntityDataSource` kontroli (przed zamknięciem `</div>` tag):
+Aby utworzyć kontrolkę `GridView`. Dodaj następujące znaczniki bezpośrednio po kontrolce `CoursesEntityDataSource` (przed tagiem zamykającym `</div>`):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample8.aspx)]
 
-Ponieważ kursy nie będzie wyświetlana, jeśli wybrano opcję nie przez instruktorów, `EmptyDataTemplate` element jest dołączony.
+Ponieważ żadne kursy nie będą wyświetlane w przypadku wybrania żadnego instruktora, zostanie uwzględniony element `EmptyDataTemplate`.
 
 Uruchom stronę.
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-4/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image7.png)
 
-Wybierz instruktora, który ma co najmniej jeden kursy przypisana, a kursu lub kursy są wyświetlane na liście. (Uwaga: mimo że schemat bazy danych pozwala wielu kursów, w dostarczonych z bazą danych danych test nie instruktora faktycznie zawiera więcej niż jednego kursu. Można dodać kursy w bazie danych samodzielnie przy użyciu **Eksploratora serwera** okna lub *CoursesAdd.aspx* strony, która zostanie dodana później w samouczku.)
+Wybierz instruktora, do którego przypisano co najmniej jeden kurs, a kurs lub kursy pojawiają się na liście. (Uwaga: Chociaż schemat bazy danych umożliwia używanie wielu kursów, w danych testowych dostarczonych z bazą danych żaden instruktor nie ma więcej niż jednego kursu. Kursy do bazy danych można dodać samodzielnie przy użyciu okna **Eksplorator serwera** lub strony *CoursesAdd. aspx* , która zostanie dodana w kolejnym samouczku.)
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-4/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image9.png)
 
-`CoursesGridView` Kontrolka pokazuje tylko kilka pól kursu. Aby wyświetlić wszystkie szczegóły na kurs, użyjesz `DetailsView` kontroli na kursie, wybierany przez użytkownika. W *Instructors.aspx*, Dodaj następujący kod po zamykającym `</div>` tag (Upewnij się, umieść ten kod znaczników **po** iloraz zamknięciem tagu, nie wcześniej niż jego):
+Kontrolka `CoursesGridView` zawiera tylko kilka pól kursów. Aby wyświetlić wszystkie szczegóły dotyczące kursu, użyjesz kontrolki `DetailsView` dla kursu, który wybierze użytkownik. W przypadku *instruktorów. aspx*Dodaj następujące znaczniki po tagu zamykającym `</div>` (Upewnij się, że ten znacznik jest umieszczony **po** tagu zamykającego DIV, a nie przed nim):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample9.aspx)]
 
-Ten kod znaczników tworzy `EntityDataSource` formant, który jest powiązany z `Courses` zestawu jednostek. `Where` Właściwość wybiera kurs przy użyciu `CourseID` wartość wybranego wiersza w kursach `GridView` kontroli. Znaczniki Określa program obsługi `Selected` zdarzenie, które będą używane później do wyświetlania ocen studentów, który jest inny poziom niżej w hierarchii.
+Ten znacznik tworzy formant `EntityDataSource`, który jest powiązany z zestawem `Courses` Entity. Właściwość `Where` wybiera kurs przy użyciu wartości `CourseID` wybranego wiersza w kontrolce `GridView` kursów. Znacznik określa procedurę obsługi dla zdarzenia `Selected`, który będzie używany później do wyświetlania ocen uczniów, który jest niższym poziomem w hierarchii.
 
-W *Instructors.aspx.cs*, utwórz następujące klasy zastępczej dla `CourseDetailsEntityDataSource_Selected` metody. (Będziesz wypełniania tego wycinka w dalszej części tego samouczka; teraz należy ją tak, aby strona będzie skompilować i uruchomić).
+W *Instructors.aspx.cs*Utwórz następujące elementy zastępcze dla metody `CourseDetailsEntityDataSource_Selected`. (W dalszej części tego samouczka zostanie wypełniona ta procedura), która będzie potrzebna, aby strona została skompilowana i uruchomiona.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample10.cs)]
 
@@ -121,31 +121,31 @@ Uruchom stronę.
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-4/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image11.png)
 
-Ponieważ wybrano nie kursów Brak początkowo szczegółów kursu. Wybierz instruktora, który ma przypisane kurs, a następnie wybierz kurs, aby wyświetlić szczegóły.
+Początkowo nie ma szczegółowych informacji o kursie, ponieważ nie wybrano kursu. Wybierz instruktora, który ma przypisany kurs, a następnie wybierz kurs, aby wyświetlić szczegóły.
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-4/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image13.png)
 
-## <a name="using-the-entitydatasource-selected-event-to-display-related-data"></a>Za pomocą EntityDataSource "wybrane" zdarzenie, aby wyświetlić powiązane z nimi dane
+## <a name="using-the-entitydatasource-selected-event-to-display-related-data"></a>Wyświetlanie powiązanych danych przy użyciu zdarzenia EntityDataSource "selected"
 
-Ponadto chcesz pokazać wszystkich uczniów zarejestrowane i ich ocen dla wybranych kursów. Aby to zrobić, użyjesz `Selected` zdarzenia `EntityDataSource` formant powiązany z kursu `DetailsView`.
+Na koniec chcesz wyświetlić wszystkie zarejestrowane uczniowie i ich klasy dla wybranego kursu. W tym celu należy użyć zdarzenia `Selected` formantu `EntityDataSource` powiązanego z `DetailsView`em kursu.
 
-W *Instructors.aspx*, Dodaj następujący kod po `DetailsView` sterowania:
+W oknie *instruktors. aspx*Dodaj następujące znaczniki po kontrolce `DetailsView`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample11.aspx)]
 
-Ten kod znaczników tworzy `ListView` formant, który wyświetla listę uczniów i ich ocen dla wybranych kursów. Zostanie określone żadne źródło danych, ponieważ należy powiązać z danymi kontrolki w kodzie. `EmptyDataTemplate` Element udostępnia komunikat do wyświetlenia po wybraniu nie kurs — w takim przypadku nie istnieją żadne studentów, aby wyświetlić. `LayoutTemplate` Element tworzy tabelę HTML, aby wyświetlić listę, a `ItemTemplate` Określa kolumny do wyświetlenia. Identyfikator dla uczniów i klasy korporacyjnej dla uczniów pochodzą z `StudentGrade` jednostki i nazwę dla uczniów pochodzi z `Person` jednostki, która udostępnia Entity Framework w `Person` właściwość nawigacji `StudentGrade` jednostki.
+Ten znacznik tworzy formant `ListView`, który wyświetla listę studentów i ich klasy dla wybranego kursu. Nie określono źródła danych, ponieważ będziesz wiązać się z kontrolką w kodzie. Element `EmptyDataTemplate` udostępnia komunikat, który będzie wyświetlany, gdy nie jest wybrany żaden kurs — w tym przypadku nie ma studentów do wyświetlenia. Element `LayoutTemplate` tworzy tabelę HTML do wyświetlania listy, a `ItemTemplate` określa kolumny do wyświetlenia. Identyfikator ucznia i jakość ucznia pochodzą z jednostki `StudentGrade`, a nazwa ucznia pochodzi z jednostki `Person`, która Entity Framework udostępniana w `Person` właściwości nawigacji jednostki `StudentGrade`.
 
-W *Instructors.aspx.cs*, Zastąp zastąpić jej metodą zastępczą poza `CourseDetailsEntityDataSource_Selected` metoda następującym kodem:
+W *Instructors.aspx.cs*Zastąp metodę `CourseDetailsEntityDataSource_Selected` użyto metod zastępczych, używając następującego kodu:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample12.cs)]
 
-Argument zdarzenia dla tego zdarzenia zawiera wybrane dane w postaci kolekcji, które będą miały zawierały elementów, jeśli nic nie jest zaznaczone, lub jeden element Jeśli `Course` wybrano jednostki. Jeśli `Course` podmiot jest zaznaczone, kod używa `First` metodę, aby przekonwertować kolekcji do pojedynczego obiektu. Następnie pobiera `StudentGrade` jednostek z właściwości nawigacji powoduje ich konwersję do kolekcji i wiąże `GradesListView` sterowania do kolekcji.
+Argument zdarzenia dla tego zdarzenia zawiera wybrane dane w postaci kolekcji, które będą miały zero elementów, jeśli nic nie jest zaznaczone lub jeden element w przypadku wybrania jednostki `Course`. Jeśli wybrano jednostkę `Course`, kod używa metody `First` do konwersji kolekcji na pojedynczy obiekt. Następnie pobiera `StudentGrade` jednostek z właściwości nawigacji, konwertuje je do kolekcji i wiąże formant `GradesListView` z kolekcją.
 
-Jest to wystarczające, aby wyświetlić klasami, ale chcesz upewnić się, że wiadomości w szablonie pustymi danymi jest wyświetlany, gdy ta strona jest wyświetlana po raz pierwszy, i zawsze, gdy nie wybrano kursu. Aby to zrobić, utwórz następującą metodę wywołasz z dwóch miejsc:
+Jest to wystarczające do wyświetlania ocen, ale chcesz upewnić się, że komunikat w pustym szablonie danych jest wyświetlany podczas pierwszego wyświetlania strony i gdy nie wybrano kursu. W tym celu należy utworzyć następującą metodę, która będzie wywoływana z dwóch miejsc:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample13.cs)]
 
-Wywołanie tej nowej metody z `Page_Load` metodę, aby wyświetlić czas pierwszego szablonu pustymi danymi, ta strona jest wyświetlana. I wywołać go z `InstructorsGridView_SelectedIndexChanged` metody, ponieważ to zdarzenie jest wywoływane, gdy wybrano pod kierunkiem instruktora, co oznacza, że nowe kursy są ładowane do kursy `GridView` kontroli i nie wybrano jeszcze. Poniżej przedstawiono dwa wywołania:
+Wywołaj tę nową metodę z metody `Page_Load`, aby wyświetlić pusty szablon danych podczas pierwszego wyświetlania strony. I Wywołaj ją z metody `InstructorsGridView_SelectedIndexChanged`, ponieważ to zdarzenie jest zgłaszane w przypadku wybrania instruktora, co oznacza, że nowe kursy są ładowane do kontrolki kursy `GridView` i żadna nie została jeszcze wybrana. Oto dwa wywołania:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-4/samples/sample14.cs)]
 
@@ -155,11 +155,11 @@ Uruchom stronę.
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-4/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image15.png)
 
-Wybierz pod kierunkiem instruktora, która ma przypisane kurs, a następnie wybierz kursu.
+Wybierz instruktora, który ma przypisany kurs, a następnie wybierz kurs.
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-4/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-4/_static/image17.png)
 
-Teraz wiesz na kilka sposobów do pracy z powiązanych danych. W następującego samouczka, dowiesz się, jak można dodać relacji między jednostkami istniejących, jak usunąć relacje oraz sposób dodawania nowego obiektu, który ma ustanowioną relację do istniejącej jednostki.
+Widzisz teraz kilka sposobów pracy z powiązanymi danymi. W poniższym samouczku dowiesz się, jak dodać relacje między istniejącymi jednostkami, jak usunąć relacje i jak dodać nową jednostkę, która ma relację z istniejącą jednostką.
 
 > [!div class="step-by-step"]
 > [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-3.md)

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: 'Samouczek: Emisje serwera z użyciem SignalR 2 | Dokumentacja firmy Microsoft'
+title: 'Samouczek: emisja serwera z sygnałem 2 | Microsoft Docs'
 author: tdykstra
-description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera.
+description: W tym samouczku pokazano, jak utworzyć aplikację sieci Web korzystającą z ASP.NET sygnalizującego 2, aby zapewnić funkcję emisji serwera.
 ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
@@ -10,493 +10,493 @@ ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 14924109fff8db3e537e6bc08b6dc868792ee660
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119930"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536604"
 ---
-# <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Serwer emisji z SignalR 2
+# <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: emisja serwera z sygnałem 2
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera. Emisji serwera oznacza, że serwer jest uruchamiany komunikacji klientów.
+W tym samouczku pokazano, jak utworzyć aplikację sieci Web korzystającą z ASP.NET sygnalizującego 2, aby zapewnić funkcję emisji serwera. Emisja serwera oznacza, że serwer uruchamia komunikację wysyłaną do klientów.
 
-Aplikacja, którą utworzysz w tym samouczku symuluje giełdowej typowy scenariusz emisji funkcje serwera. Okresowo serwer losowo aktualizuje giełdowych i aktualizacji można rozgłaszać do wszystkich połączonych klientów. W przeglądarce, cyfry i symbole w **zmienić** i **%** kolumn zmieniać dynamicznie w odpowiedzi na powiadomienia z serwera. Jeśli otworzysz dodatkowe przeglądarki pod kątem tego samego adresu URL, wszystkie one pokazywane te same dane i te same zmiany w danych jednocześnie.
+Aplikacja, którą utworzysz w tym samouczku, symuluje taktowanie giełdowe, typowy scenariusz dla funkcji emisji serwera. Okresowo serwer losowo aktualizuje ceny akcji i emituje aktualizacje do wszystkich podłączonych klientów. W przeglądarce numery i symbole w kolumnach **Zmień** i **%** zmieniają się dynamicznie w odpowiedzi na powiadomienia z serwera. Jeśli otworzysz dodatkowe przeglądarki pod tym samym adresem URL, wszystkie będą wyświetlać te same dane i te same zmiany w danych jednocześnie.
 
-![Tworzenie sieci web](tutorial-server-broadcast-with-signalr/_static/image1.png)
+![Tworzenie sieci Web](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Utwórz projekt
+> * Tworzenie projektu
 > * Konfigurowanie kodu serwera
-> * Badanie kodu serwera
-> * Ustaw kod klienta
-> * Badanie kodu klienta
+> * Sprawdzanie kodu serwera
+> * Konfigurowanie kodu klienta
+> * Sprawdzanie kodu klienta
 > * Testowanie aplikacji
-> * Włącz rejestrowanie
+> * Włączanie rejestrowania
 
 > [!IMPORTANT]
-> Jeśli nie chcesz pracować, kolejne kroki tworzenia aplikacji, można zainstalować pakietu SignalR.Sample w nowym projekcie pusta aplikacja sieci Web platformy ASP.NET. Po zainstalowaniu pakietu NuGet bez wykonywania czynności w ramach tego samouczka należy postępuj zgodnie z instrukcjami w *readme.txt* pliku. Aby uruchomić pakiet, należy dodać początkowa OWIN klasy która wywołuje metodę `ConfigureSignalR` metody w zainstalowanym pakietem. Zostanie wyświetlony błąd, jeśli nie dodasz klasy początkowej OWIN. Zobacz [zainstalować przykład StockTicker](#install-the-stockticker-sample) dalszej części tego artykułu.
+> Jeśli nie chcesz wykonać kroków tworzenia aplikacji, możesz zainstalować program sygnalizujący. przykładowego pakietu w nowym pustym projekcie aplikacji sieci Web ASP.NET. W przypadku zainstalowania pakietu NuGet bez wykonywania czynności opisanych w tym samouczku należy wykonać instrukcje zawarte w pliku *README. txt* . Aby uruchomić pakiet, należy dodać klasę uruchomieniową OWIN, która wywołuje metodę `ConfigureSignalR` w zainstalowanym pakiecie. Jeśli nie dodasz klasy uruchomieniowej OWIN, zostanie wyświetlony komunikat o błędzie. Zobacz sekcję [Instalowanie przykładu StockTicker](#install-the-stockticker-sample) w tym artykule.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+* Program [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z pakietem roboczym **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych**.
 
-## <a name="create-the-project"></a>Utwórz projekt
+## <a name="create-the-project"></a>Tworzenie projektu
 
 W tej sekcji pokazano, jak utworzyć pustą aplikację sieci Web ASP.NET za pomocą programu Visual Studio 2017.
 
-1. W programie Visual Studio należy utworzyć aplikację sieci Web platformy ASP.NET.
+1. W programie Visual Studio Utwórz aplikację sieci Web ASP.NET.
 
-    ![Tworzenie sieci web](tutorial-server-broadcast-with-signalr/_static/image2.png)
+    ![Tworzenie sieci Web](tutorial-server-broadcast-with-signalr/_static/image2.png)
 
-1. W **nowej aplikacji sieci Web ASP.NET - SignalR.StockTicker** okna, pozostaw **pusty** zaznaczone, a następnie wybierz **OK**.
+1. W oknie **nowy ASP.NET Web Application-sygnalizującer. StockTicker** pozostaw **puste** zaznaczone i wybierz **przycisk OK**.
 
 ## <a name="set-up-the-server-code"></a>Konfigurowanie kodu serwera
 
-W tej sekcji służy do konfigurowania kodu, który działa na serwerze.
+W tej sekcji skonfigurujesz kod, który jest uruchamiany na serwerze.
 
-### <a name="create-the-stock-class"></a>Tworzenie klasy zasobów
+### <a name="create-the-stock-class"></a>Tworzenie klasy giełdowej
 
-Rozpocznij od utworzenia *Stock* modelu klasy, które będzie używane do przechowywania i przesyłania informacji dotyczących danego zasobu.
+Zacznij od utworzenia klasy modelu *giełdowego* , która będzie używana do przechowywania i przesyłania informacji o magazynie.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **klasy**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie Dodaj **klasę** > .
 
-1. Nazwa klasy *Stock* i dodaj go do projektu.
+1. Nadaj *klasie nazwę* i Dodaj ją do projektu.
 
-1. Zastąp kod w *Stock.cs* pliku przy użyciu tego kodu:
+1. Zastąp kod w pliku *Stock.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample1.cs)]
 
-    Dwie właściwości, które zostaną ustawione podczas tworzenia zasobów `Symbol` (na przykład MSFT dla firmy Microsoft) i `Price`. Inne właściwości zależą od tego, jak i kiedy ustawisz `Price`. Możesz ustawić po raz pierwszy `Price`, wartość pobiera propagowane do `DayOpen`. Po tym, gdy ustawisz `Price`, aplikacja oblicza `Change` i `PercentChange` wartości właściwości na podstawie różnicy między `Price` i `DayOpen`.
+    Dwie właściwości, które zostaną ustawione podczas tworzenia zasobów, są `Symbol` (na przykład MSFT dla firmy Microsoft) i `Price`. Inne właściwości zależą od tego, jak i kiedy ustawiasz `Price`. Przy pierwszym ustawianiu `Price`wartość jest przekazywana do `DayOpen`. Po ustawieniu `Price`aplikacja oblicza wartości właściwości `Change` i `PercentChange` na podstawie różnicy między `Price` i `DayOpen`.
 
-### <a name="create-the-stocktickerhub-and-stockticker-classes"></a>Tworzenie klasy StockTickerHub i StockTicker
+### <a name="create-the-stocktickerhub-and-stockticker-classes"></a>Tworzenie klas StockTickerHub i StockTicker
 
-Za pomocą interfejsu API Centrum SignalR będzie obsługiwać interakcji z serwera do klienta. A `StockTickerHub` klasy pochodzącej od elementu SignalR `Hub` klasy będzie obsługiwać odbieranie wywołań metod i połączenia od klientów. Należy również utrzymania danych giełdowych i uruchom `Timer` obiektu. `Timer` Obiektu okresowo spowoduje wyzwolenie aktualizacji cen niezależne od połączeń klientów. Nie można umieścić te funkcje w `Hub` klasy, ponieważ przejściowy koncentratorów. Aplikacja tworzy `Hub` wystąpienia klasy dla każdego zadania w Centrum, takich jak połączenia i wywołania od klienta do serwera. Dlatego mechanizm, który przechowuje dane zapasów, aktualizacji cen i emituje aktualizacji cen musi działać w osobnej klasy. Będzie nazwa klasy `StockTicker`.
+Użyjesz interfejsu API centrum sygnału do obsługi interakcji między serwerem a klientem. Klasa `StockTickerHub`, która pochodzi od klasy sygnalizującej `Hub`, będzie obsługiwać odbierające połączenia i wywołania metod od klientów. Należy również zachować dane giełdowe i uruchomić `Timer` obiektu. Obiekt `Timer` będzie okresowo wyzwalać aktualizacje cen niezależnie od połączeń klientów. Nie można umieścić tych funkcji w klasie `Hub`, ponieważ centra są przejściowe. Aplikacja tworzy wystąpienie klasy `Hub` dla każdego zadania w centrum, takie jak połączenia i wywołania z klienta do serwera. Dlatego mechanizm, który przechowuje dane giełdowe, aktualizuje ceny i emituje aktualizacje cen, musi działać w oddzielnym klasie. Nazwa klasy `StockTicker`.
 
-![Emisja z StockTicker](tutorial-server-broadcast-with-signalr/_static/image3.png)
+![Emitowanie z StockTicker](tutorial-server-broadcast-with-signalr/_static/image3.png)
 
-Chcesz tylko jedno wystąpienie `StockTicker` klasy są uruchamiane na serwerze, więc musisz skonfigurować odwołanie z każdej `StockTickerHub` wystąpienia do wzorca singleton `StockTicker` wystąpienia. `StockTicker` Klasa ma wysyłać do klientów, ponieważ ma danych podstawowych i wyzwala aktualizacje, ale `StockTicker` nie jest `Hub` klasy. `StockTicker` Klasy musi uzyskać odwołanie do obiektu kontekstu połączenia koncentratora SignalR. Można następnie użyć obiektu context połączenia SignalR do emisji przeznaczonych dla klientów.
+Tylko jedno wystąpienie klasy `StockTicker` może być uruchomione na serwerze, dlatego należy skonfigurować odwołanie z każdego wystąpienia `StockTickerHub` do wystąpienia pojedynczego `StockTicker`. Klasa `StockTicker` musi emitować do klientów, ponieważ ma dane podstawowe i wyzwala aktualizacje, ale `StockTicker` nie jest klasą `Hub`. Klasa `StockTicker` musi uzyskać odwołanie do obiektu kontekstu połączenia centrum sygnału. Następnie może użyć obiektu kontekstu połączenia sygnalizującego do emisji do klientów.
 
 #### <a name="create-stocktickerhubcs"></a>Create StockTickerHub.cs
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - SignalR.StockTicker**, wybierz opcję **zainstalowane** > **Visual C#**   >  **Web**  >  **SignalR** , a następnie wybierz **klasa Centrum SignalR (v2)**.
+1. W obszarze **Dodaj nowy element — sygnalizującer. StockTicker**wybierz **pozycję zainstalowane** > **Visual C#**  > **sieci Web** > **sygnalizujący** , a następnie wybierz pozycję **Klasa centrum sygnałów (v2)** .
 
-1. Nazwa klasy *StockTickerHub* i dodaj go do projektu.
+1. Nadaj klasie nazwę *StockTickerHub* i Dodaj ją do projektu.
 
-    Spowoduje to utworzenie *StockTickerHub.cs* pliku klasy. Jednocześnie dodaje zestaw pliki skryptów i odwołania do zestawu, który obsługuje SignalR do projektu.
+    Ten krok powoduje utworzenie pliku klasy *StockTickerHub.cs* . Jednocześnie dodaje zestaw plików skryptów i odwołań do zestawów, które obsługują program sygnalizujący do projektu.
 
-1. Zastąp kod w *StockTickerHub.cs* pliku przy użyciu tego kodu:
+1. Zastąp kod w pliku *StockTickerHub.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample2.cs)]
 
 1. Zapisz plik.
 
-Ta aplikacja używa [Centrum](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) klasy do definiowania metod klientów można wywołać na serwerze. Możesz zdefiniować jedną z metod: `GetAllStocks()`. Gdy klient początkowo łączy się z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącym ceny. Metoda mogą być uruchamiane synchronicznie i zwracać `IEnumerable<Stock>` ponieważ zwraca dane z pamięci.
+Aplikacja używa klasy [Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) do definiowania metod, które klienci mogą wywoływać na serwerze. Definiujesz jedną metodę: `GetAllStocks()`. Gdy klient początkowo nawiązuje połączenie z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącymi cenami. Metoda może być uruchomiona synchronicznie i zwracać `IEnumerable<Stock>`, ponieważ zwraca dane z pamięci.
 
-Jeśli metoda musiały uzyskać danych, wykonując coś, co wymagałoby oczekiwania, takich jak wyszukiwania w bazie danych lub wywołanie usługi sieci web należy określić `Task<IEnumerable<Stock>>` jako wartości zwracanej, aby umożliwić przetwarzanie asynchroniczne. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR Podręcznik interfejsu API centrów — serwer — kiedy są wykonywane asynchronicznie](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
+Jeśli metoda musiała pobrać dane, wykonując coś, co będzie wymagało oczekiwania, takiego jak wyszukiwanie bazy danych lub wywołanie usługi sieci Web, należy określić `Task<IEnumerable<Stock>>` jako wartość zwrotną, aby włączyć asynchroniczne przetwarzanie. Aby uzyskać więcej informacji, zobacz [Podręcznik interfejsu API centrów ASP.NETer — serwer — Kiedy należy wykonać asynchronicznie](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
 
-`HubName` Atrybut określa, jak aplikacja będzie odwoływać się w Centrum w kodzie JavaScript na komputerze klienckim. Domyślna nazwa na kliencie, jeśli nie korzystasz z tego atrybutu to camelCase wersję nazwy klasy, która w tym przypadku wyniesie `stockTickerHub`.
+Atrybut `HubName` określa, w jaki sposób aplikacja będzie odwoływać się do centrum w kodzie JavaScript na kliencie. Nazwa domyślna na kliencie, jeśli ten atrybut nie jest używany, to camelCase wersja klasy, która w tym przypadku byłaby `stockTickerHub`.
 
-Jak zobaczysz później podczas tworzenia `StockTicker` klasy, aplikacja tworzy pojedyncze wystąpienie tej klasy w jego statyczny `Instance` właściwości. To wystąpienie singleton `StockTicker` znajduje się w pamięci, niezależnie od tego, ilu klientów łączyć i rozłączać. To wystąpienie jest co `GetAllStocks()` metoda używa do zwracania bieżących informacji podstawowych.
+Jak zobaczysz później podczas tworzenia klasy `StockTicker`, aplikacja utworzy pojedyncze wystąpienie tej klasy w swojej statycznej `Instance` właściwości. To pojedyncze wystąpienie `StockTicker` znajduje się w pamięci, niezależnie od tego, ile klientów nawiązuje połączenie lub rozłączanie. To wystąpienie jest używane przez metodę `GetAllStocks()` do zwracania bieżących informacji o zapasach.
 
-#### <a name="create-stocktickercs"></a>Create StockTicker.cs
+#### <a name="create-stocktickercs"></a>Utwórz StockTicker.cs
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **klasy**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie Dodaj **klasę** > .
 
-1. Nazwa klasy *StockTicker* i dodaj go do projektu.
+1. Nadaj klasie nazwę *StockTicker* i Dodaj ją do projektu.
 
-1. Zastąp kod w *StockTicker.cs* pliku przy użyciu tego kodu:
+1. Zastąp kod w pliku *StockTicker.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample3.cs)]
 
-Ponieważ wszystkie wątki będą uruchomione to samo wystąpienie elementu StockTicker kodu, klasa StockTicker musi być metodą o bezpiecznych wątkach.
+Ponieważ wszystkie wątki będą działać w tym samym wystąpieniu kodu StockTicker, Klasa StockTicker musi być bezpieczna wątkowo.
 
-### <a name="examine-the-server-code"></a>Badanie kodu serwera
+### <a name="examine-the-server-code"></a>Sprawdzanie kodu serwera
 
-Kod serwera podczas badania, pomoże Ci zrozumieć, jak działa aplikacja.
+Jeśli sprawdzisz kod serwera, pomoże Ci zrozumieć, jak działa aplikacja.
 
-#### <a name="storing-the-singleton-instance-in-a-static-field"></a>Przechowywanie pojedyncze wystąpienie, w polu statycznym
+#### <a name="storing-the-singleton-instance-in-a-static-field"></a>Przechowywanie pojedynczego wystąpienia w polu statycznym
 
-Ten kod inicjalizuje statycznej `_instance` pola, która będzie tworzyć kopię `Instance` właściwości przy użyciu wystąpienia klasy. Ponieważ Konstruktor jest prywatny, jest tylko wystąpienia klasy, które można utworzyć aplikacji. Ta aplikacja używa [inicjowania z opóźnieniem](/dotnet/framework/performance/lazy-initialization) dla `_instance` pola. Nie jest ze względu na wydajność. Jest upewnij się, że tworzenie wystąpienia jest bezpieczna dla wątków.
+Kod inicjuje statyczne `_instance` pole, które wykonuje kopię zapasową właściwości `Instance` z wystąpieniem klasy. Ponieważ Konstruktor jest prywatny, jest to jedyne wystąpienie klasy, które może utworzyć aplikacja. Aplikacja używa [inicjalizacji z opóźnieniem](/dotnet/framework/performance/lazy-initialization) dla pola `_instance`. Nie jest ze względu na wydajność. Należy upewnić się, że tworzenie wystąpienia jest bezpieczne wątkowo.
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
-Każdorazowo, klient nawiąże połączenie z serwerem, nowe wystąpienie klasy StockTickerHub działające w oddzielnym wątku pobiera StockTicker pojedyncze wystąpienie z `StockTicker.Instance` właściwość statyczna jak pokazano wcześniej w `StockTickerHub` klasy.
+Za każdym razem, gdy klient nawiązuje połączenie z serwerem, nowe wystąpienie klasy StockTickerHub uruchomione w osobnym wątku Pobiera pojedyncze wystąpienie StockTicker z właściwości statycznej `StockTicker.Instance`, jak pokazano wcześniej w klasie `StockTickerHub`.
 
 #### <a name="storing-stock-data-in-a-concurrentdictionary"></a>Przechowywanie danych giełdowych w ConcurrentDictionary
 
-Konstruktor inicjuje `_stocks` kolekcji z pewnymi przykładowymi danymi zapasów i `GetAllStocks` zwraca zasobów. Jak wcześniej, to zbiór zasobów jest zwracany przez `StockTickerHub.GetAllStocks`, czyli metody serwera w `Hub` klasę, która może wywołać klientów.
+Konstruktor inicjuje kolekcję `_stocks` z niektórymi przykładowymi danymi zapasowymi, a `GetAllStocks` zwraca te zasoby. Jak widać wcześniej, ta kolekcja zapasów jest zwracana przez `StockTickerHub.GetAllStocks`, czyli metodę serwera w klasie `Hub`, którą klienci mogą wywoływać.
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample5.cs)]
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample6.cs)]
 
-Kolekcja zasobów jest zdefiniowana jako [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) typu pod kątem bezpieczeństwa wątków. Alternatywnie, można użyć [słownika](https://msdn.microsoft.com/library/xfhwa508.aspx) obiektu i jawnie zablokować słownika, po wprowadzeniu zmian do niego.
+Kolekcja magazynów jest definiowana jako typ [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) dla bezpieczeństwa wątków. Alternatywnie, można użyć obiektu [dictionary](https://msdn.microsoft.com/library/xfhwa508.aspx) i jawnie zablokować słownik po wprowadzeniu w nim zmian.
 
-Ta przykładowa aplikacja OK do przechowywania danych aplikacji w pamięci i jest do utraty danych, gdy aplikacja usuwa `StockTicker` wystąpienia. W rzeczywistej aplikacji będzie działać z magazynem danych zaplecza, takich jak bazy danych.
+W przypadku tej aplikacji przykładowej można przechowywać dane aplikacji w pamięci i utracić dane, gdy aplikacja zostanie oddysponowana wystąpieniem `StockTicker`. W rzeczywistej aplikacji można korzystać z magazynu danych zaplecza, takiego jak baza danych.
 
-#### <a name="periodically-updating-stock-prices"></a>Okresowo aktualizowanie cen akcji
+#### <a name="periodically-updating-stock-prices"></a>Okresowe aktualizowanie cen akcji
 
-Konstruktor jest uruchamiany `Timer` obiekt, który okresowo wywołuje metody, które aktualizują cen akcji na podstawie losowej.
+Konstruktor uruchamia obiekt `Timer`, który okresowo wywołuje metody, które codziennie aktualizują ceny giełdowe.
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample7.cs)]
 
- `Timer` wywołania `UpdateStockPrices`, które przechodzą w wartości null w parametrze state. Przed zaktualizowaniem ceny, aplikacja przejmuje blokadę `_updateStockPricesLock` obiektu. Sprawdza kod, jeśli inny wątek już trwa aktualizowanie cen, a następnie wywołuje `TryUpdateStockPrice` na każdej akcji, na liście. `TryUpdateStockPrice` Metoda określa, czy należy zmienić najniższej ceny i ilości go zmienić. Jeśli zmieni się cena akcji w aplikacji jest nazywana `BroadcastStockPrice` do emisji przeznaczonych jest zmiana najniższej ceny akcji dla wszystkich połączonych klientów.
+ `Timer` wywołań `UpdateStockPrices`, które są przekazywane do wartości null w parametrze stanu. Przed aktualizacją cen aplikacja wykonuje blokadę na obiekcie `_updateStockPricesLock`. Kod sprawdza, czy inny wątek już aktualizuje ceny, a następnie wywołuje `TryUpdateStockPrice` na każdym spisie na liście. Metoda `TryUpdateStockPrice` decyduje o tym, czy należy zmienić cenę giełdową, i ile jej zmienić. W przypadku zmiany ceny giełdowej aplikacja wywoła `BroadcastStockPrice`, aby emitować zmianę cen giełdowych do wszystkich połączonych klientów.
 
-`_updatingStockPrices` Flagi wyznaczony [volatile](https://msdn.microsoft.com/library/x13ttww7.aspx) aby upewnić się, jest metodą o bezpiecznych wątkach.
+Flaga `_updatingStockPrices` oznaczona jako [nietrwała](https://msdn.microsoft.com/library/x13ttww7.aspx) , aby upewnić się, że jest bezpieczna wątkowo.
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample8.cs)]
 
-W rzeczywistej aplikacji `TryUpdateStockPrice` metoda będzie wywołać usługę sieci web, aby wyszukać cena. W tym kodzie aplikacja używa generator liczb losowych, aby wprowadzić zmiany w losowo.
+W rzeczywistej aplikacji Metoda `TryUpdateStockPrice` wywoła usługę sieci Web w celu wyszukania ceny. W tym kodzie aplikacja używa generatora liczb losowych, aby wprowadzać zmiany losowo.
 
-#### <a name="getting-the-signalr-context-so-that-the-stockticker-class-can-broadcast-to-clients"></a>Wprowadzenie kontekstu SignalR, tak aby klasy StockTicker można rozgłaszać do klientów
+#### <a name="getting-the-signalr-context-so-that-the-stockticker-class-can-broadcast-to-clients"></a>Pobieranie kontekstu sygnalizującego, aby Klasa StockTicker mogła emitować się do klientów
 
-Ponieważ zmiany cen poniżej pochodzą z `StockTicker` obiektu, jest to obiekt, który musi wywołać `updateStockPrice` metody na wszystkich połączonych klientów. W `Hub` klasy, masz interfejs API do wywoływania metody klientów, ale `StockTicker` nie pochodzi od `Hub` klasy, a nie ma odniesienia do dowolnych `Hub` obiektu. Do emisji przeznaczonych do połączonych klientów `StockTicker` klasa ma wystąpienia kontekstu SignalR dla `StockTickerHub` klasy i używać go do wywoływania metod na komputerach klienckich.
+Ponieważ zmiany cen pochodzą z tego miejsca w obiekcie `StockTicker`, jest to obiekt, który musi wywołać metodę `updateStockPrice` na wszystkich połączonych klientach. W klasie `Hub` masz interfejs API do wywoływania metod klienta, ale `StockTicker` nie pochodzi od klasy `Hub` i nie zawiera odwołania do żadnego obiektu `Hub`. Aby emitować do podłączonych klientów, Klasa `StockTicker` musi uzyskać wystąpienie kontekstu sygnalizującego dla klasy `StockTickerHub` i używać go do wywoływania metod na klientach.
 
-Ten kod pobiera odwołanie do kontekstu SignalR, podczas tworzenia wystąpienia klasy pojedyncze, przebiegi, które odwołują się do konstruktora, i umieszcza go w Konstruktorze `Clients` właściwości.
+Kod pobiera odwołanie do kontekstu sygnalizującego, gdy tworzy wystąpienie klasy pojedynczej, przekazuje odwołanie do konstruktora, a Konstruktor umieszcza go we właściwości `Clients`.
 
-Istnieją dwie przyczyny, dlaczego chcesz uzyskać kontekst tylko raz: Pobieranie kontekstu jest kosztowne zadania oraz pobierania ich po sprawia, że się, że aplikacja zachowuje zalecanej kolejności wiadomości wysyłane do klientów.
+Istnieją dwa powody, dla których chcesz uzyskać kontekst tylko raz: uzyskanie kontekstu jest kosztownym zadaniem i wprowadzenie go, aby zachować zaplanowaną kolejność komunikatów wysyłanych do klientów.
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample9.cs)]
 
-Wprowadzenie `Clients` właściwość kontekstu i umieszczenie go w `StockTickerClient` właściwość umożliwia pisanie kodu w celu wywołania metody klienta, który wygląda tak samo jak w `Hub` klasy. Na przykład napisać rozgłaszać do wszystkich klientów `Clients.All.updateStockPrice(stock)`.
+Pobranie właściwości `Clients` kontekstu i umieszczenie jej we właściwości `StockTickerClient` umożliwia pisanie kodu w celu wywołania metod klienta, które wyglądają tak samo jak w klasie `Hub`. Na przykład do emisji do wszystkich klientów można pisać `Clients.All.updateStockPrice(stock)`.
 
-`updateStockPrice` Metodę, która jest wywoływana w `BroadcastStockPrice` jeszcze nie istnieje. Należy dodać go później podczas pisania kodu, który jest uruchamiany na kliencie. Możesz zapoznać się z `updateStockPrice` tutaj ponieważ `Clients.All` jest dynamiczną, która oznacza, że aplikacja będzie oceniać wyrażenia w czasie wykonywania. Po wykonaniu wywołanie tej metody, SignalR wyśle nazwy metody i wartość parametru do klienta, a jeśli klient ma metodę o nazwie `updateStockPrice`, aplikacja wywoła tę metodę i przekaż wartość parametru do niego.
+Metoda `updateStockPrice` wywoływana w `BroadcastStockPrice` nie istnieje jeszcze. Dodasz go później podczas pisania kodu, który jest uruchamiany na kliencie. Możesz odwołać się do `updateStockPrice` tutaj, ponieważ `Clients.All` jest dynamiczna, co oznacza, że aplikacja będzie szacować wyrażenie w czasie wykonywania. Gdy to wywołanie metody jest wykonywane, sygnalizujący wyśle do klienta nazwę metody i wartość parametru, a jeśli klient ma metodę o nazwie `updateStockPrice`, aplikacja wywoła tę metodę i przekaże do niej wartość parametru.
 
-`Clients.All` oznacza, że wysyłać do wszystkich klientów. SignalR udostępnia innych opcji, aby określić, które klientów lub grup klientów, aby wysyłać. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+`Clients.All` oznacza wysyłanie do wszystkich klientów. Sygnalizujący oferuje inne opcje umożliwiające określenie klientów lub grup klientów, do których mają być wysyłane. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
-### <a name="register-the-signalr-route"></a>Zarejestruj trasy SignalR
+### <a name="register-the-signalr-route"></a>Rejestrowanie trasy sygnalizującej
 
-Serwer musi znać adres URL, który można przechwycić i kierują je bezpośrednio z SignalR. Aby to zrobić, Dodaj klasę początkową OWIN:
+Serwer musi wiedzieć, który adres URL przechwycić i bezpośrednio do sygnalizującego. Aby to zrobić, Dodaj klasę uruchomieniową OWIN:
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - SignalR.StockTicker** wybierz **zainstalowane** > **Visual C#**   >  **Web** i następnie wybierz pozycję **klasy początkowej OWIN**.
+1. W obszarze **Dodaj nowy element — sygnalizujący. StockTicker** wybierz pozycję **zainstalowane** > **Visual C#**  > **Web** , a następnie wybierz pozycję **Owin klasy startowej**.
 
-1. Nazwa klasy *uruchamiania* i wybierz **OK**.
+1. Nazwij klasę *uruchamiania* i wybierz **przycisk OK**.
 
-1. Zastąp kod domyślne *Startup.cs* pliku przy użyciu tego kodu:
+1. Zastąp domyślny kod w pliku *Startup.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample10.cs)]
 
-Konfigurowanie kodu serwera zostało zakończone. W następnej sekcji należy skonfigurować klienta.
+Konfiguracja kodu serwera została zakończona. W następnej sekcji zostanie skonfigurowany klient.
 
-## <a name="set-up-the-client-code"></a>Ustaw kod klienta
+## <a name="set-up-the-client-code"></a>Konfigurowanie kodu klienta
 
-W tej sekcji służy do konfigurowania kod, który jest uruchamiany na kliencie.
+W tej sekcji skonfigurujesz kod, który jest uruchamiany na kliencie programu.
 
-### <a name="create-the-html-page-and-javascript-file"></a>Utwórz stronę HTML i plik JavaScript
+### <a name="create-the-html-page-and-javascript-file"></a>Tworzenie strony HTML i pliku JavaScript
 
-Strony HTML będą wyświetlane dane i plik JavaScript będzie organizowania danych.
+Na stronie HTML zostaną wyświetlone dane, a plik JavaScript będzie organizować dane.
 
 #### <a name="create-stocktickerhtml"></a>Create StockTicker.html
 
 Najpierw należy dodać klienta HTML.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **strony HTML**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **stronę HTML**.
 
-1. Nadaj plikowi nazwę *StockTicker* i wybierz **OK**.
+1. Nazwij plik *StockTicker* i wybierz **przycisk OK**.
 
-1. Zastąp kod domyślne *StockTicker.html* pliku przy użyciu tego kodu:
+1. Zastąp domyślny kod w pliku *StockTicker. html* tym kodem:
 
     [!code-html[Main](tutorial-server-broadcast-with-signalr/samples/sample11.html?highlight=40-43)]
 
-    Kod HTML tworzy tabelę z pięciu kolumn, wiersz nagłówka i wiersz danych z pojedynczą komórkę, która obejmuje wszystkie kolumny pięć. Wiersz danych zawiera "Trwa ładowanie..." chwilowo, po uruchomieniu aplikacji. Kod JavaScript spowoduje usunięcie tego wiersza i dodać w jej miejscu wiersze z danych giełdowych pobrany z serwera.
+    KOD HTML tworzy tabelę z pięcioma kolumnami, wierszem nagłówka i wierszem danych z pojedynczą komórką obejmującą wszystkie pięć kolumn. W wierszu danych zostanie wyświetlona wartość "ładowanie..." chwilę po uruchomieniu aplikacji. Kod JavaScript spowoduje usunięcie tego wiersza i dodanie go do swoich wierszy z danymi podstawowymi pobranymi z serwera.
 
-    Określ tagi skryptu:
+    Tagi skryptu określają:
 
     * Plik skryptu jQuery.
 
-    * Plik skryptu core SignalR.
+    * Podstawowy plik skryptu sygnalizującego.
 
-    * Plik skryptu proxy SignalR.
+    * Plik skryptu dla serwerów proxy sygnałów.
 
-    * Plik skryptu StockTicker, którą utworzysz później.
+    * Plik skryptu StockTicker, który utworzysz później.
 
-    Aplikacja dynamicznie generuje plik skryptu proxy SignalR. Określa adres URL "/ signalr/centra" i definiuje metody serwera proxy dla metody na klasy koncentratora, w tym przypadku `StockTickerHub.GetAllStocks`. Jeśli wolisz, możesz wygenerować ten plik JavaScript ręcznie przy użyciu [narzędzia SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/). Nie należy zapominać wyłączyć tworzenie dynamicznych plików w `MapHubs` wywołania metody.
+    Aplikacja dynamicznie generuje plik skryptu dla serwerów proxy sygnalizującego. Określa adres URL "/SignalR/Hubs" i definiuje metody serwera proxy dla metod klasy Hub, w tym przypadku `StockTickerHub.GetAllStocks`. Jeśli wolisz, możesz wygenerować ten plik JavaScript ręcznie przy użyciu [narzędzi sygnalizujących](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/). Nie zapomnij wyłączyć tworzenia pliku dynamicznego w wywołaniu metody `MapHubs`.
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **skrypty**.
+1. W **Eksplorator rozwiązań**rozwiń węzeł **skrypty**.
 
-    Biblioteki skryptów, jQuery i SignalR są widoczne w projekcie.
+    Biblioteki skryptów dla jQuery i sygnalizujących są widoczne w projekcie.
 
     > [!IMPORTANT]
-    > Menedżer pakietów zainstaluje późniejszą wersję skrypty SignalR.
+    > Menedżer pakietów zainstaluje nowszą wersję skryptów sygnalizujących.
 
-1. Aktualizuj odwołania do skryptu w bloku kodu, aby odpowiadać wersji plików skrypt w projekcie.
+1. Zaktualizuj odwołania do skryptu w bloku kodu, aby odpowiadały wersji plików skryptów w projekcie.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *StockTicker.html*, a następnie wybierz pozycję **Ustaw jako strona startowa**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję *StockTicker. html*, a następnie wybierz pozycję **Ustaw jako stronę początkową**.
 
 #### <a name="create-stocktickerjs"></a>Create StockTicker.js
 
-Teraz można utworzyć pliku JavaScript.
+Teraz Utwórz plik JavaScript.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **plik JavaScript**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **plik JavaScript**.
 
-1. Nadaj plikowi nazwę *StockTicker* i wybierz **OK**.
+1. Nazwij plik *StockTicker* i wybierz **przycisk OK**.
 
-1. Dodaj następujący kod do *StockTicker.js* pliku:
+1. Dodaj ten kod do pliku *StockTicker. js* :
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample12.js)]
 
-### <a name="examine-the-client-code"></a>Badanie kodu klienta
+### <a name="examine-the-client-code"></a>Sprawdzanie kodu klienta
 
-Jeśli możesz zbadać kod klienta, pomoże Ci dowiedzieć się, jak kod klienta współdziała z kod serwera, aby aplikacja pracuje.
+Po sprawdzeniu kodu klienta pomoże Ci dowiedzieć się, jak kod klienta współdziała z kodem serwera, aby umożliwić działanie aplikacji.
 
-#### <a name="starting-the-connection"></a>Zainicjowanie połączenia
+#### <a name="starting-the-connection"></a>Uruchamianie połączenia
 
-`$.connection` odnosi się do serwerów proxy SignalR. Ten kod pobiera odwołanie do serwera proxy dla `StockTickerHub` klasy i umieszcza go w `ticker` zmiennej. Nazwa serwera proxy jest nazwa, która została ustawiona przez `HubName` atrybutu:
+`$.connection` odnosi się do serwerów proxy sygnalizujących. Kod pobiera odwołanie do serwera proxy dla klasy `StockTickerHub` i umieszcza je w zmiennej `ticker`. Nazwa serwera proxy jest nazwą ustawioną przez atrybut `HubName`:
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample13.js)]
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample14.cs)]
 
-Po zdefiniowaniu wszystkich zmiennych i funkcji, ostatni wiersz kodu w pliku inicjuje połączenia SignalR, wywołując SignalR `start` funkcji. `start` Funkcja wykonuje asynchronicznie i zwraca [jQuery opóźnionych obiektu](http://api.jquery.com/category/deferred-object/). Można wywołać funkcję gotowe do określenia funkcji do wywołania po jej zakończeniu akcję asynchroniczną.
+Po zdefiniowaniu wszystkich zmiennych i funkcji ostatni wiersz kodu w pliku inicjuje połączenie sygnalizujące przez wywołanie funkcji `start` sygnałów. Funkcja `start` wykonuje asynchroniczne i zwraca [odroczony obiekt jQuery](http://api.jquery.com/category/deferred-object/). Można wywołać funkcję gotowe, aby określić funkcję do wywołania, gdy aplikacja zakończy akcję asynchroniczną.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample15.js)]
 
-#### <a name="getting-all-the-stocks"></a>Wprowadzenie do zasobów
+#### <a name="getting-all-the-stocks"></a>Pobieranie wszystkich zasobów
 
-`init` Wywołaniach funkcji `getAllStocks` funkcji na serwerze i używa tych informacji, serwer zwraca można zaktualizować podstawowego tabeli. Należy zauważyć, że domyślnie, trzeba użyć camelCasing na kliencie, nawet jeśli nazwa metody jest pascal — z uwzględnieniem wielkości liter na serwerze. Reguła camelCasing dotyczy tylko metody, a nie obiektów. Na przykład, możesz odwołać się do `stock.Symbol` i `stock.Price`, a nie `stock.symbol` lub `stock.price`.
+Funkcja `init` wywołuje funkcję `getAllStocks` na serwerze i używa informacji zwracanych przez serwer w celu zaktualizowania tabeli giełdowej. Należy zauważyć, że domyślnie należy używać camelCasing na kliencie, nawet jeśli nazwa metody jest w języku Pascal-wielkość liter na serwerze. Reguła camelCasing dotyczy tylko metod, a nie obiektów. Załóżmy na przykład, że odwołujesz się do `stock.Symbol` i `stock.Price`, a nie `stock.symbol` lub `stock.price`.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample16.js)]
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample17.cs)]
 
-W `init` metody, aplikacja tworzy HTML dla wiersza tabeli, dla każdego obiektu podstawowego otrzymany z serwera, wywołując `formatStock` format właściwości `stock` obiektu, a następnie przez wywołanie `supplant` zastąpić symbole zastępcze w wywołaniach `rowTemplate` zmiennej za pomocą `stock` wartości właściwości obiektu. Wynikowy kod HTML, następnie jest dołączany do podstawowego tabeli.
+W metodzie `init` aplikacja tworzy kod HTML dla wiersza tabeli dla każdego obiektu giełdowego otrzymanego z serwera, wywołując `formatStock` do formatowania właściwości obiektu `stock`, a następnie wywołując `supplant`, aby zamienić symbole zastępcze w zmiennej `rowTemplate` na wartości właściwości obiektu `stock`. Otrzymany kod HTML jest następnie dołączany do tabeli giełdowej.
 
 > [!NOTE]
-> Należy wywołać `init` przez przekazanie jej jako `callback` funkcji, który jest wykonywany po asynchroniczną `start` funkcji zostanie zakończone. Jeśli wywołujesz `init` jako osobne instrukcja kodu JavaScript po wywołaniu `start`, funkcja może zakończyć się niepowodzeniem, ponieważ aplikacja może działać natychmiast bez oczekiwania na funkcję start, aby zakończyć ustanawiania połączenia. W takim przypadku `init` próbowała funkcja do wywołania `getAllStocks` działać, zanim aplikacja nawiązuje połączenie z serwerem.
+> `init` przez przekazanie go jako funkcji `callback`, która jest wykonywana po zakończeniu asynchronicznej funkcji `start`. Jeśli wywołano `init` jako oddzielną instrukcję JavaScript po wywołaniu `start`, funkcja nie powiedzie się, ponieważ zostanie uruchomiona natychmiast bez oczekiwania na zakończenie tworzenia połączenia przez funkcję startową. W takim przypadku funkcja `init` spróbuje wywołać funkcję `getAllStocks`, zanim aplikacja nawiąże połączenie z serwerem.
 
-#### <a name="getting-updated-stock-prices"></a>Pobieranie zaktualizowanego cen akcji
+#### <a name="getting-updated-stock-prices"></a>Pobieranie zaktualizowanych cen giełdowych
 
-Po zmianie cen zasobów serwera wywoływanych przez nią `updateStockPrice` na połączonych klientów. Aplikacja dodaje funkcję do właściwości klienta `stockTicker` serwera proxy, aby udostępnić ją do wywołań z serwera.
+Gdy serwer zmieni cenę giełdową, wywoła `updateStockPrice` na podłączonych klientach. Aplikacja dodaje funkcję do właściwości client serwera proxy `stockTicker`, aby była dostępna dla wywołań z serwera.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample18.js)]
 
-`updateStockPrice` Formaty funkcja obiektem magazynowym otrzymany z serwera do tabeli Wiersz taki sam sposób jak w `init` funkcji. Zamiast dołączać wiersz do tabeli, wyszukuje stock bieżącego wiersza w tabeli i zamienia nowego wiersza.
+Funkcja `updateStockPrice` formatuje obiekt giełdowy otrzymany z serwera w wierszu tabeli w taki sam sposób jak w funkcji `init`. Zamiast dołączyć wiersz do tabeli, znajduje bieżący wiersz zapasu w tabeli i zamienia ten wiersz na nowy.
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
 
-Można przetestować aplikację, aby upewnić się, że działa. Zostaną wyświetlone wszystkie okna przeglądarki, Wyświetl tabeli podstawowe na żywo z cen akcji zmienne.
+Możesz przetestować aplikację, aby upewnić się, że działa. Zobaczysz wszystkie okna przeglądarki wyświetlają dynamiczną tabelę giełdową z wahaniami cen giełdowych.
 
-1. Na pasku narzędzi, Włącz **debugowanie skryptu** a następnie wybierz przycisk Odtwórz, aby uruchomić aplikację w trybie debugowania.
+1. Na pasku narzędzi Włącz **debugowanie skryptów** , a następnie wybierz przycisk Odtwórz, aby uruchomić aplikację w trybie debugowania.
 
-    ![Zrzut ekranu przedstawiający użytkownika, włączając tryb debugowania i wybierając polecenie play.](tutorial-server-broadcast-with-signalr/_static/image4.png)
+    ![Zrzut ekranu przedstawiający Włączanie trybu debugowania przez użytkownika i wybieranie opcji Odtwórz.](tutorial-server-broadcast-with-signalr/_static/image4.png)
 
-    Zostanie otwarte okno przeglądarki, wyświetlanie **Live tabeli Stock**. Tabela podstawowych początkowo jest widocznych wiersza "Trwa ładowanie...", następnie po pewnym czasie aplikacja będzie wyświetlana początkowej danych podstawowych i zacznij cen akcji można zmienić.
+    Zostanie otwarte okno przeglądarki z wyświetlaniem **tabeli giełdowej na żywo**. W tabeli giełdowej początkowo jest wyświetlana wartość "ładowanie..." Po krótkim czasie aplikacja wyświetli początkowe dane giełdowe, a następnie ceny giełdowe zaczynają się zmienić.
 
-1. Skopiuj adres URL w przeglądarce otwórz dwóch innych przeglądarek i wklejać adresy URL paski adresu.
+1. Skopiuj adres URL z przeglądarki, Otwórz dwie inne przeglądarki i wklej adresy URL do pasków adresów.
 
-    Początkowe wyświetlanie podstawowych jest taki sam jak pierwszy przeglądarki i jednocześnie wprowadzenia zmiany.
+    Początkowy wyświetlacz giełdowy jest taki sam jak pierwsza przeglądarka i zmiany są wykonywane jednocześnie.
 
-1. Zamknij wszystkie przeglądarki, Otwórz w nowym oknie przeglądarki i przejdź do tego samego adresu URL.
+1. Zamknij wszystkie przeglądarki, Otwórz nową przeglądarkę i przejdź do tego samego adresu URL.
 
-    Nadal StockTicker pojedynczego obiektu do uruchomienia na serwerze. **Live tabeli Stock** pokazuje, które nadal zasobów można zmienić. Nie widzisz początkowa tabela o wartości zero, zmień wartości.
+    Obiekt StockTicker singleton nadal działa na serwerze. W **tabeli magazynu na żywo** widać, że zasoby nadal się zmieniają. Nie widzisz tabeli początkowej ze zmianami o wartości zero.
 
-1. Zamknij przeglądarkę.
+1. Zamknij okno przeglądarki.
 
-## <a name="enable-logging"></a>Włącz rejestrowanie
+## <a name="enable-logging"></a>Włączanie rejestrowania
 
-SignalR ma funkcję wbudowane funkcje rejestrowania, który można włączyć na kliencie, aby ułatwić rozwiązywanie problemów. W tej sekcji, Włącz rejestrowanie i zapoznaj się z przykładami, które pokazują, jak dzienniki informujące, który z poniższych metod transportu używa SignalR:
+Sygnalizujący ma wbudowaną funkcję rejestrowania, którą można włączyć na kliencie, aby pomóc w rozwiązywaniu problemów. W tej części należy włączyć rejestrowanie i zobaczyć przykłady pokazujące, w jaki sposób dzienniki poinformują o następujących metodach transportu:
 
-* [Gniazda Websocket](http://en.wikipedia.org/wiki/WebSocket)obsługiwany przez usługi IIS 8 i bieżącej przeglądarki.
+* Obiekty [WebSockets](http://en.wikipedia.org/wiki/WebSocket)obsługiwane przez usługi IIS 8 i bieżące przeglądarki.
 
-* [Serwer wysłał zdarzenia](http://en.wikipedia.org/wiki/Server-sent_events), obsługiwane przez przeglądarki innej niż Internet Explorer.
+* [Zdarzenia wysyłane przez serwer](http://en.wikipedia.org/wiki/Server-sent_events)obsługiwane przez przeglądarki inne niż Internet Explorer.
 
-* [Nieskończona ramki](http://en.wikipedia.org/wiki/Comet_(programming)#Hidden_iframe)obsługiwany przez program Internet Explorer.
+* [Ramka bez ograniczeń](http://en.wikipedia.org/wiki/Comet_(programming)#Hidden_iframe)obsługiwana przez program Internet Explorer.
 
-* [AJAX długim sondowaniem](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling)obsługiwany przez wszystkie przeglądarki.
+* [Długotrwałe sondowanie AJAX](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling)obsługiwane przez wszystkie przeglądarki.
 
-Dla dowolnego danego połączenia SignalR wybiera najlepszą metodą transportu, który obsługuje zarówno na serwerze, jak i klienta.
+Dla dowolnego połączenia sygnalizujący wybiera najlepszą metodę transportu, którą obsługuje serwer i klient.
 
-1. Open *StockTicker.js*.
+1. Otwórz *StockTicker. js*.
 
-1. Dodaj ten wyróżniony wiersz kodu, aby włączyć rejestrowanie bezpośrednio przed kod, który inicjuje połączenie z końcem pliku:
+1. Dodaj ten wyróżniony wiersz kodu, aby włączyć rejestrowanie bezpośrednio przed kodem, który inicjuje połączenie na końcu pliku:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample19.js?highlight=2)]
 
-1. Naciśnij klawisz **F5** Aby uruchomić projekt.
+1. Naciśnij klawisz **F5** , aby uruchomić projekt.
 
-1. Otwórz okno narzędzi programistycznych w przeglądarce, a następnie wybierz konsolę, aby wyświetlić dzienniki. Trzeba będzie odświeżyć stronę, aby wyświetlić dzienniki negocjowania metodę transportu do nowego połączenia SignalR.
+1. Otwórz okno narzędzia deweloperskie w przeglądarce i wybierz konsolę, aby wyświetlić dzienniki. Może być konieczne odświeżenie strony, aby wyświetlić dzienniki sygnalizujące transportowanie metody transportu dla nowego połączenia.
 
-    * Jeśli korzystasz z programu Internet Explorer 10 w systemie Windows 8 (IIS 8), jest metodą transportu **WebSockets**.
+    * Jeśli używasz programu Internet Explorer 10 w systemie Windows 8 (IIS 8), Metoda transportowa to **WebSockets**.
 
-    * Jeśli korzystasz z programu Internet Explorer 10, Windows 7 (usługi IIS 7.5), jest metodą transportu **iframe**.
+    * Jeśli używasz programu Internet Explorer 10 w systemie Windows 7 (IIS 7,5), Metoda transportu jest **iframe**.
 
-    * Jeśli korzystasz z 19 przeglądarki Firefox w systemie Windows 8 (IIS 8), jest metodą transportu **WebSockets**.
+    * Jeśli korzystasz z programu Firefox 19 w systemie Windows 8 (IIS 8), Metoda transportu jest funkcją **WebSockets**.
 
         > [!TIP]
-        > W przeglądarce Firefox Zainstaluj dodatek Firebug można pobrać z okna konsoli.
+        > W programie Firefox zainstaluj dodatek Firebug, aby uzyskać okno konsoli.
 
-    * Jeśli korzystasz z Firefox 19, Windows 7 (usługi IIS 7.5), jest metodą transportu **serwer wysłał** zdarzenia.
+    * W przypadku korzystania z programu Firefox 19 w systemie Windows 7 (IIS 7,5) Metoda transportu to zdarzenia **wysłane przez serwer** .
 
-## <a name="install-the-stockticker-sample"></a>Instalowanie przykładowej StockTicker
+## <a name="install-the-stockticker-sample"></a>Instalowanie przykładu StockTicker
 
-[Microsoft.AspNet.SignalR.Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) instaluje aplikację StockTicker. Pakiet NuGet zawiera więcej funkcji niż uproszczonej wersji, który został utworzony od zera. W tej części samouczka zainstaluj pakiet NuGet i Przejrzyj nowe funkcje i kod, który implementuje je.
+[Microsoft. ASPNET. Signal. przykład](http://nuget.org/packages/microsoft.aspnet.signalr.sample) instaluje aplikację StockTicker. Pakiet NuGet zawiera więcej funkcji niż wersja uproszczona utworzona od podstaw. W tej części samouczka zainstalujesz pakiet NuGet i zapoznajesz się z nowymi funkcjami oraz kodem, który je implementuje.
 
 > [!IMPORTANT]
-> Po zainstalowaniu pakietu bez przeprowadzania wcześniejsze kroki tego samouczka, należy dodać klasę początkową OWIN do projektu. Ten plik readme.txt dla pakietu NuGet wyjaśnia, w tym kroku.
+> Jeśli pakiet zostanie zainstalowany bez wykonywania wcześniejszych kroków tego samouczka, należy dodać do projektu klasę uruchomieniową OWIN. Ten krok zawiera opis tego pliku Readme. txt dla pakietu NuGet.
 
-### <a name="install-the-signalrsample-nuget-package"></a>Zainstaluj pakiet SignalR.Sample NuGet
+### <a name="install-the-signalrsample-nuget-package"></a>Zainstaluj program sygnalizujący. przykładowy pakiet NuGet
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Zarządzaj pakietami NuGet**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**.
 
-1. W **Menedżera pakietów NuGet: SignalR.StockTicker**, wybierz opcję **Przeglądaj**.
+1. W **Menedżerze pakietów NuGet: signaler. StockTicker**, wybierz pozycję **Przeglądaj**.
 
-1. Z **źródła pakietu**, wybierz opcję **nuget.org**.
+1. W obszarze **Źródło pakietu**wybierz pozycję **NuGet.org**.
 
-1. Wprowadź *SignalR.Sample* w polu wyszukiwania i wybierz pozycję **Microsoft.AspNet.SignalR.Sample** > **zainstalować**.
+1. Wprowadź *sygnalizowanie. przykład* w polu wyszukiwania i wybierz pozycję **Microsoft. ASPNET. signal. sample** > **Install**.
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł *SignalR.Sample* folderu.
+1. W **Eksplorator rozwiązań**rozwiń folder *sygnalizujący. sample* .
 
-    Instalowanie pakietu SignalR.Sample utworzony folder i jego zawartość.
+    Instalowanie programu sygnalizującego. przykładowy pakiet utworzył folder i jego zawartość.
 
-1. W *SignalR.Sample* folderu, kliknij prawym przyciskiem myszy *StockTicker.html*, a następnie wybierz pozycję **Ustaw jako stronę startową**.
+1. W folderze *sygnalizującym. sample* kliknij prawym przyciskiem myszy *plik StockTicker. html*, a następnie wybierz pozycję **Ustaw jako stronę początkową**.
 
     > [!NOTE]
-    > Instalowanie SignalR.Sample NuGet pakietu może zmienić wersję jQuery, które mają w swojej *skrypty* folderu. Nowy *StockTicker.html* pliku, który pakiet instaluje w *SignalR.Sample* folder będzie zsynchronizowany z wersją jQuery instalująca pakiet, ale jeśli chcesz uruchomić oryginalny *StockTicker.html* ponownie plik, trzeba najpierw zaktualizuj odwołanie jQuery w tagu.
+    > Instalowanie programu sygnalizującego. przykładowy pakiet NuGet może zmienić wersję platformy jQuery, która znajduje się w folderze *skryptów* . Nowy plik *StockTicker. html* instalowany przez pakiet w *sygnale. przykładowy* folder będzie synchronizowany z wersją jQuery, którą instaluje pakiet, ale jeśli chcesz ponownie uruchomić oryginalny plik *StockTicker. html* , być może trzeba będzie najpierw zaktualizować odwołanie do jQuery w tagu skryptu.
 
 ### <a name="run-the-application"></a>Uruchamianie aplikacji
 
- Tabelę, która działa w pierwszej aplikacji ma użytecznych funkcji. Aplikacja pełnej giełdowej przedstawiono nowe funkcje: okna przewijania w poziomie, pokazujący danych giełdowych i zasobów, które zmieniają kolor, jak długo będą rosnąć i dzielą się.
+ Tabela, która została zaprojektowana w pierwszej aplikacji, miała przydatne funkcje. W przypadku pełnego spisu aplikacji są widoczne nowe funkcje: okno przewijania w poziomie, które pokazuje dane giełdowe i zasoby, które zmieniają kolor w miarę wzrostu i spadku.
 
-1. Naciśnij klawisz **F5** do uruchomienia aplikacji.
+1. Naciśnij klawisz **F5** , aby uruchomić aplikację.
 
-     Po uruchomieniu aplikacji po raz pierwszy "na rynku" to "zamknięte", a zobaczysz tabelę statyczną i okna znacznika, który nie jest przewijanie.
+     Po uruchomieniu aplikacji po raz pierwszy "rynek" jest "zamknięty" i zobaczysz tabelę statyczną i okno znaczników, które nie jest przewijane.
 
-1. Wybierz **wolnym rynku**.
+1. Wybierz pozycję **Otwórz rynek**.
 
-    ![Zrzut ekranu przedstawiający znacznika na żywo.](tutorial-server-broadcast-with-signalr/_static/image5.png)
+    ![Zrzut ekranu dynamicznego znacznika.](tutorial-server-broadcast-with-signalr/_static/image5.png)
 
-    * **Live znacznika Stock** pole zaczyna być przewijane w poziomie, a serwer jest uruchamiany okresowo wysyłać zmian cen akcji na podstawie losowej.
+    * Skrzynka **giełdowa na żywo** zostanie przesunięta w poziomie, a serwer rozpocznie okresowe emitowanie zmian cen giełdowych.
 
-    * Każdorazowo cena akcji zmiany, aplikacja aktualizuje zarówno **Live tabeli Stock** i **Live znacznika Stock**.
+    * Za każdym razem, gdy zmieni się cena giełdowa, aplikacja aktualizuje zarówno **dynamiczną** , jak i giełdę na **żywo**.
 
-    * Gdy zmian cen zasobów jest dodatnia, aplikacja będzie wyświetlana cena akcji z zielonym tłem.
+    * Gdy zmiana ceny zapasów jest dodatnia, aplikacja pokazuje magazyn z zielonym tłem.
 
-    * Gdy ta zmiana jest ujemna, stock czerwonym tle wyświetlany przez aplikację.
+    * Gdy zmiana jest ujemna, aplikacja pokazuje zapas z czerwonym tłem.
 
-1. Wybierz **Zamknij rynku**.
+1. Wybierz pozycję **Zamknij rynek**.
 
-    * Tabela aktualizacji zatrzymania.
+    * Aktualizacja tabeli zatrzymuje się.
 
-    * Znacznika zatrzymuje przewijania.
+    * Znacznik przestaje przewijać.
 
-1. Wybierz **resetowania**.
+1. Wybierz pozycję **Zresetuj**.
 
-    * Wszystkie dane podstawowe jest resetowany.
+    * Wszystkie dane giełdowe są resetowane.
 
-    * Aplikacja przywraca stan początkowy przed wprowadzeniem zmian cen pracę.
+    * Aplikacja przywraca stan początkowy przed rozpoczęciem zmian cen.
 
-1. Skopiuj adres URL w przeglądarce otwórz dwóch innych przeglądarek i wklejać adresy URL paski adresu.
+1. Skopiuj adres URL z przeglądarki, Otwórz dwie inne przeglądarki i wklej adresy URL do pasków adresów.
 
-1. Możesz zobaczyć te same dane, które są aktualizowane dynamicznie w tym samym czasie w każdej przeglądarce.
+1. Te same dane są automatycznie aktualizowane w każdej przeglądarce.
 
-1. Po wybraniu dowolnej kontrolki wszystkie przeglądarki odpowiedzieć ten sam sposób, w tym samym czasie.
+1. Po wybraniu dowolnej z tych kontrolek wszystkie przeglądarki reagują w ten sam sposób w tym samym czasie.
 
-### <a name="live-stock-ticker-display"></a>Na żywo wyświetlanie znacznika zapasów
+### <a name="live-stock-ticker-display"></a>Wyświetlanie grafu giełdowego na żywo
 
-**Live znacznika Stock** wyświetlana jest Lista nieuporządkowana w `<div>` element sformatowane w jednej linii za style CSS. Inicjuje i aktualizuje znacznika taki sam sposób jak tabela aplikacji:, zastępując symbole zastępcze w wywołaniach `<li>` ciąg szablonu i dynamiczne dodawanie `<li>` elementów `<ul>` elementu. Aplikacja zawiera przewijanie przy użyciu jQuery `animate` funkcji różnią się w lewej margines nieuporządkowaną listę w obrębie `<div>`.
+Wyświetlacz **giełdowy na żywo** jest nieuporządkowaną listą w elemencie `<div>` sformatowanym w jednym wierszu według stylów CSS. Aplikacja inicjuje i aktualizuje znaczniki w taki sam sposób jak tabela: przez zastąpienie symboli zastępczych w ciągu szablonu `<li>` i dynamiczne dodanie elementów `<li>` do elementu `<ul>`. Aplikacja obejmuje przewijanie przy użyciu funkcji jQuery `animate` w celu zaróżnienia lewego marginesu listy nieuporządkowanej w `<div>`.
 
-#### <a name="signalrsample-stocktickerhtml"></a>SignalR.Sample StockTicker.html
+#### <a name="signalrsample-stocktickerhtml"></a>Sygnalizujący. przykład StockTicker. html
 
-Giełdowej kodu HTML:
+Kod HTML znacznika giełdowego:
 
 [!code-html[Main](tutorial-server-broadcast-with-signalr/samples/sample20.html)]
 
-#### <a name="signalrsample-stocktickercss"></a>SignalR.Sample StockTicker.css
+#### <a name="signalrsample-stocktickercss"></a>Sygnalizujący. przykład StockTicker. CSS
 
-Giełdowej kod CSS:
+Kod CSS znacznika giełdowego:
 
 [!code-html[Main](tutorial-server-broadcast-with-signalr/samples/sample21.html)]
 
-#### <a name="signalrsample-signalrstocktickerjs"></a>SignalR.Sample SignalR.StockTicker.js
+#### <a name="signalrsample-signalrstocktickerjs"></a>Sygnalizujący. przykładowy sygnał. StockTicker. js
 
-Przewiń kodu jQuery, który sprawia, że:
+Kod jQuery, który umożliwia przewinięcie:
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample22.js)]
 
-### <a name="additional-methods-on-the-server-that-the-client-can-call"></a>Dodatkowe metody na serwerze, który klient może wywołać
+### <a name="additional-methods-on-the-server-that-the-client-can-call"></a>Dodatkowe metody na serwerze, z którym klient może wywoływać
 
-Aby dodać elastyczność do aplikacji, istnieją dodatkowe metody, które aplikacja może wywołać.
+Aby dodać elastyczność do aplikacji, istnieją dodatkowe metody, które może wywoływać aplikacja.
 
 #### <a name="signalrsample-stocktickerhubcs"></a>SignalR.Sample StockTickerHub.cs
 
-`StockTickerHub` Klasa definiuje cztery dodatkowe metody, które klient może wywoływać:
+Klasa `StockTickerHub` definiuje cztery dodatkowe metody, które klient może wywoływać:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample23.cs)]
 
-Wywołania aplikacji `OpenMarket`, `CloseMarket`, i `Reset` w odpowiedzi na przycisków w górnej części strony. Pokazują one wzorca jednego klienta, wyzwalając zmianę stanu natychmiast propagowane do wszystkich klientów. Każda z tych metod wywołuje metodę `StockTicker` klasę, która powoduje, że zmiana stanu na rynku, a następnie emituje nowy stan.
+Aplikacja wywołuje `OpenMarket`, `CloseMarket`i `Reset` w odpowiedzi na przyciski w górnej części strony. Pokazują one wzorzec jednego klienta wyzwalającego zmianę stanu natychmiast propagowany do wszystkich klientów. Każda z tych metod wywołuje metodę w klasie `StockTicker`, która powoduje zmianę stanu rynku, a następnie emituje nowy stan.
 
-#### <a name="signalrsample-stocktickercs"></a>SignalR.Sample StockTicker.cs
+#### <a name="signalrsample-stocktickercs"></a>Sygnalizujący. przykład StockTicker.cs
 
-W `StockTicker` klasy, aplikacja przechowuje stan rynku dzięki `MarketState` właściwość, która zwraca `MarketState` wartość wyliczenia:
+W klasie `StockTicker` aplikacja zachowuje stan rynku z właściwością `MarketState`, która zwraca `MarketState` wartość wyliczenia:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample24.cs)]
 
-Każdej z metod, które zmieniają stan rynku zrobić wewnątrz bloku blokady ponieważ `StockTicker` klasy musi być metodą o bezpiecznych wątkach:
+Każda z metod, które zmieniają stan rynku, to w bloku blokady, ponieważ Klasa `StockTicker` musi być bezpieczna wątkowo:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample25.cs)]
 
-Aby upewnić się, że ten kod jest bezpieczna dla wątków, `_marketState` pola, która będzie tworzyć kopię `MarketState` wyznaczona właściwość `volatile`:
+Aby upewnić się, że ten kod jest bezpieczny dla wątków, pole `_marketState`, które wykonuje kopię zapasową właściwości `MarketState` wyznaczono `volatile`:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample26.cs)]
 
-`BroadcastMarketStateChange` i `BroadcastMarketReset` metody są podobne do metody BroadcastStockPrice, która już działa, z wyjątkiem wywołują różnych metod, zdefiniowanych na komputerze klienckim:
+Metody `BroadcastMarketStateChange` i `BroadcastMarketReset` są podobne do metody BroadcastStockPrice, która została już wykorzystana, z tą różnicą, że wywołują różne metody zdefiniowane na kliencie:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample27.cs)]
 
-### <a name="additional-functions-on-the-client-that-the-server-can-call"></a>Dodatkowe funkcje, na komputerze klienckim, który można wywoływać serwera
+### <a name="additional-functions-on-the-client-that-the-server-can-call"></a>Dodatkowe funkcje na kliencie, które może wywoływać serwer
 
-`updateStockPrice` Funkcja obsługuje teraz zarówno w tabeli, jak i wyświetlanie znacznika, przy czym `jQuery.Color` do flash czerwonego i zielonego kolorów.
+Funkcja `updateStockPrice` obsługuje teraz zarówno tabelę, jak i wyświetlanie znaczników i używa `jQuery.Color` do Flash Red i Green Color.
 
-Nowe funkcje w *SignalR.StockTicker.js* Włączanie i wyłączanie przycisków na podstawie stanu rynku. Mogą również zatrzymać lub rozpocząć **Live znacznika Stock** przewijanie w poziomie. Ponieważ wiele funkcji są dodawane do `ticker.client`, ta aplikacja używa [jQuery rozszerzanie funkcji](http://api.jquery.com/jQuery.extend/) je dodać.
+Nowe funkcje w programie *sygnalizującer. StockTicker. js* włącza i wyłącza przyciski na podstawie stanu na rynku. Zatrzymają one również lub uruchamiają przewijanie w poziomie giełdy na **żywo** . Ponieważ wiele funkcji jest dodawanych do `ticker.client`, aplikacja używa [funkcji rozszerzającej jQuery](http://api.jquery.com/jQuery.extend/) , aby je dodać.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample28.js)]
 
-### <a name="additional-client-setup-after-establishing-the-connection"></a>Instalacja klienta dodatkowe po ustanowieniu połączenia
+### <a name="additional-client-setup-after-establishing-the-connection"></a>Dodatkowa konfiguracja klienta po ustanowieniu połączenia
 
-Po nawiązaniu połączenia przez klienta ma pewne dodatkowe zadania do wykonania:
+Po nawiązaniu połączenia klient ma kilka dodatkowych czynności do wykonania:
 
-* Dowiedz się, czy rynku jest otwarte lub zamknięte do wywołania odpowiednie `marketOpened` lub `marketClosed` funkcji.
+* Sprawdź, czy rynek jest otwarty lub zamknięty w celu wywołania odpowiedniej funkcji `marketOpened` lub `marketClosed`.
 
 * Dołącz wywołania metody serwera do przycisków.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample29.js)]
 
-Metody serwera nie są powiązaną przycisków do momentu, po Aplikacja nawiązuje połączenie. To dlatego kod nie można wywołać metody serwera, zanim staną się dostępne.
+Metody serwera nie są połączone z przyciskami do momentu, gdy aplikacja nawiąże połączenie. Kod nie może wywoływać metod serwera przed ich udostępnieniem.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-W tym samouczku wyjaśniono sposób programowania aplikacji SignalR, który emituje komunikaty z serwera do wszystkich połączonych klientów. Teraz może emitować wiadomości w regularnych odstępach czasu i odpowiedzi na powiadomienia za pomocą dowolnego klienta. Pojęcie wielowątkowych pojedyncze wystąpienie służy do zarządzania stanem serwera w trybie online scenariuszach gier wielu graczy. Aby uzyskać przykład, zobacz [ShootR gry oparte na SignalR](https://github.com/NTaylorMullen/ShootR).
+W tym samouczku przedstawiono sposób programowania aplikacji sygnalizującej, która emituje komunikaty z serwera do wszystkich połączonych klientów. Teraz można emitować wiadomości okresowo i w odpowiedzi na powiadomienia z dowolnego klienta. Można użyć koncepcji wielowątkowego wystąpienia pojedynczego, aby zachować stan serwera w scenariuszach gier online obejmujących wiele graczy. Aby zapoznać się z przykładem, zapoznaj [się z grą korzystającą z usługi sygnalizującej](https://github.com/NTaylorMullen/ShootR).
 
-Samouczki, które pokazują scenariuszy komunikacji między peer-to-peer, zobacz [wprowadzenie do SignalR](introduction-to-signalr.md) i [aktualizacji w czasie rzeczywistym, przy użyciu SignalR](tutorial-high-frequency-realtime-with-signalr.md).
+Aby zapoznać się z samouczkami pokazującymi scenariusze komunikacji równorzędnej, zobacz [wprowadzenie z sygnalizacją](introduction-to-signalr.md) i [aktualizacją w czasie rzeczywistym za pomocą usługi sygnalizującego](tutorial-high-frequency-realtime-with-signalr.md).
 
-Aby uzyskać więcej informacji na temat biblioteki SignalR zobacz następujące zasoby:
+Aby uzyskać więcej informacji o sygnalizacji, zobacz następujące zasoby:
 
-* [ASP.NET SignalR](../../index.md)
-* [Projekt SignalR](http://signalr.net/)
-* [SignalR GitHub i przykłady](https://github.com/SignalR/SignalR)
-* [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)
+* [ASP.NET sygnalizujący](../../index.md)
+* [Projekt sygnalizującego](http://signalr.net/)
+* [Usługi GitHub i przykłady dla sygnałów](https://github.com/SignalR/SignalR)
+* [Strona typu wiki sygnalizująca](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenia projektu
+> * Utworzono projekt
 > * Konfigurowanie kodu serwera
-> * Zbadanie kodu serwera
-> * Ustaw kod klienta
-> * Zbadanie kodu klienta
+> * Zbadano kod serwera
+> * Konfigurowanie kodu klienta
+> * Zbadano kod klienta
 > * Testowanie aplikacji
-> * Rejestrowanie włączone
+> * Włączone rejestrowanie
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikację sieci web w czasie rzeczywistym, korzystającą z signalr2 na platformie ASP.NET.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikację sieci Web w czasie rzeczywistym korzystającą z ASP.NET sygnalizującego 2.
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji sieci web w czasie rzeczywistym przy użyciu biblioteki SignalR](real-time-web-applications-with-signalr.md)
+> [Tworzenie aplikacji sieci Web w czasie rzeczywistym za pomocą sygnalizującego](real-time-web-applications-with-signalr.md)

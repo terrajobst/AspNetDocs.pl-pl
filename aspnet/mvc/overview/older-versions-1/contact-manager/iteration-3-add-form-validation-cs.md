@@ -1,132 +1,132 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
-title: 'Iteracja #3 — Dodawanie weryfikacji formularza (C#) | Dokumentacja firmy Microsoft'
+title: 'Iteracja #3 — Dodawanie walidacjiC#formularza () | Microsoft Docs'
 author: microsoft
-description: W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy sprawdzić, czy emai...
+description: W trzeciej iteracji zostanie dodana podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie formularza bez wykonywania wymaganych pól formularza. Sprawdzamy również emai...
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
 ms.openlocfilehash: af2e86e820f60f0a3d8e3db8f78eba67ef63579a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123962"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544472"
 ---
-# <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodawanie weryfikacji formularza (C#)
+# <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodawanie walidacjiC#formularza ()
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-[Pobierz program Code](iteration-3-add-form-validation-cs/_static/contactmanager_3_cs1.zip)
+[Pobierz kod](iteration-3-add-form-validation-cs/_static/contactmanager_3_cs1.zip)
 
-> W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
+> W trzeciej iteracji zostanie dodana podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie formularza bez wykonywania wymaganych pól formularza. Sprawdzamy również adresy e-mail i numery telefonów.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji do zarządzania kontaktami ASP.NET MVCC#()
 
-W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
+W tej serii samouczków tworzymy całą aplikację do zarządzania kontaktami od początku do końca. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazw, numerów telefonów i adresów e-mail — w celu uzyskania listy osób.
 
-Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą iteracją można stopniowo ulepszyć aplikację. Celem tego wielu podejścia iteracji jest, aby umożliwić Ci zrozumienie przyczyn wprowadzenia poszczególnych zmian.
+Aplikacja została utworzona przez wiele iteracji. W przypadku każdej iteracji stopniowo ulepszamy aplikację. Celem tej wielu iteracji jest umożliwienie zrozumienia przyczyny każdej zmiany.
 
-- Iteracja #1 — Tworzenie aplikacji. W pierwszej iteracji utworzymy Contact Manager w najprostszym sposobem możliwe. Dodano obsługę dla operacji podstawowej bazy danych: Tworzenia, odczytu, aktualizacji i usuwania (CRUD).
+- #1 iteracji — Utwórz aplikację. W pierwszej iteracji tworzymy Menedżera kontaktów w najprostszy sposób. Dodaliśmy obsługę podstawowych operacji bazy danych: Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD).
 
-- Iteracja 2 # — należy wyglądu nieuprzywilejowany aplikacji. W tej iteracji możemy poprawić wygląd aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku platformy ASP.NET MVC i kaskadowych arkuszy stylów.
+- Iteracja #2 — Zwiększ wygląd aplikacji. W tej iteracji ulepszamy wygląd aplikacji, modyfikując domyślną stronę wzorcową widoku MVC ASP.NET i kaskadowy arkusz stylów.
 
-- Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
+- Iteracja #3 — Dodawanie walidacji formularza. W trzeciej iteracji zostanie dodana podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie formularza bez wykonywania wymaganych pól formularza. Sprawdzamy również adresy e-mail i numery telefonów.
 
-- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja #4 — możliwość swobodnego łączenia aplikacji. W tej czwartej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład Refaktoryzacja naszej aplikacji używa wzorca repozytorium i wzorca iniekcji zależności.
 
-- Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
+- #5 iteracji — Utwórz testy jednostkowe. W piątej iteracji upraszczamy obsługę i modyfikację naszej aplikacji przez dodanie testów jednostkowych. Tworzymy klasy modelu danych i kompilujemy testy jednostkowe dla naszych kontrolerów i logiki walidacji.
 
-- Iteracja #6 — korzystanie z projektowania opartego na testach. W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
+- Iteracja #6 — Użyj programowania opartego na testach. W tej szóstej iteracji Dodaliśmy nowe funkcje do naszej aplikacji, pisząc testy jednostkowe jako pierwsze i pisząc kod na testach jednostkowych. W tej iteracji dodamy grupy kontaktów.
 
-- Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
+- Iteracja #7 — Dodawanie funkcji AJAX. W siódmej iteracji poprawimy czas reakcji i wydajność naszej aplikacji przez dodanie obsługi technologii AJAX.
 
-## <a name="this-iteration"></a>Tej iteracji
+## <a name="this-iteration"></a>Ta iteracja
 
-W drugiej iteracji aplikacji Contact Manager dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem kontaktu bez podawania wartości wymaganych pól formularza. Możemy zweryfikować numerów telefonów i adresów e-mail (patrz rysunek 1).
+W drugiej iteracji aplikacji Contact Manager dodawana jest podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie kontaktów bez wprowadzania wartości dla wymaganych pól formularza. Sprawdzamy również numery telefonów i adresy e-mail (patrz rysunek 1).
 
-[![Okno dialogowe Nowy projekt](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
+[![okno dialogowe Nowy projekt](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
-**Rysunek 01**: Formularz z weryfikacją ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-3-add-form-validation-cs/_static/image2.png))
+**Ilustracja 01**. formularz z walidacją ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](iteration-3-add-form-validation-cs/_static/image2.png))
 
-W tej iteracji możemy dodać logikę weryfikacji bezpośrednio do akcji kontrolera. Ogólnie rzecz biorąc to nie jest to zalecany sposób dodawania sprawdzania poprawności do aplikacji ASP.NET MVC. Lepszym rozwiązaniem jest umieszczenie logikę weryfikacji s aplikacji w osobnym [warstwy usług](http://martinfowler.com/eaaCatalog/serviceLayer.html). W następnej iteracji refaktoryzacji aplikacji Contact Manager, aby aplikacja będzie łatwiejszy w utrzymaniu.
+W tej iteracji dodawana jest logika walidacji bezpośrednio do akcji kontrolera. Ogólnie rzecz biorąc, nie jest to zalecany sposób dodawania walidacji do aplikacji ASP.NET MVC. Lepszym rozwiązaniem jest umieszczenie logiki walidacji aplikacji w oddzielnej [warstwie usług](http://martinfowler.com/eaaCatalog/serviceLayer.html). W następnej iteracji będziemy refaktoryzacji aplikacji menedżera kontaktów, aby zwiększyć łatwość obsługi aplikacji.
 
-W tym iteracji Aby zachować ich prostotę, napiszemy cały kod sprawdzania poprawności ręcznie. Zamiast pisać kod sprawdzania poprawności, osoby, firma Microsoft może korzystać z ram sprawdzania poprawności. Na przykład można użyć Microsoft Enterprise Library weryfikacji aplikacji bloku (VAB) Aby zaimplementować logikę weryfikacji dla aplikacji ASP.NET MVC. Aby dowiedzieć się więcej na temat weryfikacji blok aplikacji, zobacz:
+W tej iteracji, aby zachować prostotę, należy ręcznie napisać cały kod sprawdzania poprawności. Zamiast pisać kod weryfikacyjny wypróbujemy, możemy skorzystać z platformy walidacji. Na przykład można użyć bloku Application Validation Library (VAB) firmy Microsoft, aby zaimplementować logikę sprawdzania poprawności dla aplikacji ASP.NET MVC. Aby dowiedzieć się więcej o bloku aplikacji walidacji, zobacz:
 
 [*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
-## <a name="adding-validation-to-the-create-view"></a>Dodawanie walidacji do widoku Create
+## <a name="adding-validation-to-the-create-view"></a>Dodawanie walidacji do widoku tworzenia
 
-Pozwól, s, najpierw Dodaj logikę walidacji do tworzenia widoku. Na szczęście, ponieważ firma Microsoft wygenerowany widok Utwórz za pomocą programu Visual Studio, Utwórz widok zawiera już całą logikę interfejsu użytkownika niezbędne do wyświetlania komunikatów dotyczących sprawdzania poprawności. Utwórz widok znajduje się w ofercie 1.
+Aby rozpocząć, Dodaj logikę walidacji do widoku tworzenia. Ze względu na to, że Wygenerowano widok Tworzenie za pomocą programu Visual Studio, widok tworzenie zawiera już wszystkie niezbędne logiki interfejsu użytkownika do wyświetlania komunikatów sprawdzania poprawności. Widok tworzenie znajduje się na liście 1.
 
-**Wyświetlanie listy 1 - \Views\Contact\Create.aspx**
+**Lista 1 — \Views\Contact\Create.aspx**
 
 [!code-aspx[Main](iteration-3-add-form-validation-cs/samples/sample1.aspx)]
 
-Zwróć uwagę, wywołanie metody pomocnika Html.ValidationSummary(), pojawia się natychmiast powyżej formularza HTML. W przypadku komunikatów o błędach weryfikacji następnie ta metoda Wy wyświetla komunikatów dotyczących sprawdzania poprawności na liście punktowanej.
+Zwróć uwagę na wywołanie metody pomocnika html. podsumowania walidacji (), która pojawia się bezpośrednio powyżej formularza HTML. W przypadku komunikatów o błędach walidacji ta metoda wyświetla komunikaty o walidacji na liście punktowanej.
 
-Zwróć uwagę, ponadto wywołania Html.ValidationMessage(), które pojawiają się obok każdego pola formularza. Pomocnik ValidationMessage() wyświetli komunikat o błędzie sprawdzania poprawności poszczególnych. W przypadku wyświetlania listy 1 gwiazdka jest wyświetlana, gdy występuje błąd weryfikacji.
+Ponadto Zwróć uwagę na wywołania html. ValidationMessage (), które pojawiają się obok każdego pola formularza. Pomocnik ValidationMessage () wyświetla indywidualny komunikat o błędzie walidacji. W przypadku list 1 gwiazdka jest wyświetlana w przypadku błędu walidacji.
 
-Na koniec pomocnika Html.TextBox() automatycznie renderuje klas kaskadowych arkuszy stylów, gdy występuje błąd weryfikacji skojarzony z właściwością wyświetlane przez pomocnika. Pomocnik Html.TextBox() renderuje klasę o nazwie **błędzie sprawdzania poprawności danych wejściowych**.
+Na koniec pomocnik html. TextBox () automatycznie renderuje klasę kaskadowego arkusza stylów w przypadku błędu walidacji skojarzonego z właściwością wyświetlaną przez pomocnika. Pomocnik html. TextBox () renderuje klasę o nazwie **Input-Validation-Error**.
 
-Podczas tworzenia nowej aplikacji platformy ASP.NET MVC, arkusz stylów o nazwie pliku Site.css jest automatycznie tworzony w folderze zawartości. Ten arkusz stylów zawiera poniższe definicje klas CSS związane z wygląd komunikatów o błędach weryfikacji:
+Podczas tworzenia nowej aplikacji ASP.NET MVC arkusz stylów o nazwie Site. CSS jest tworzony automatycznie w folderze Content. Ten arkusz stylów zawiera następujące definicje klas CSS związanych z wyglądem komunikatów o błędach walidacji:
 
 [!code-css[Main](iteration-3-add-form-validation-cs/samples/sample2.css)]
 
-Klasa błędzie sprawdzania poprawności pola jest używana do określenia stylu danych wyjściowych renderowany przez pomocnika Html.ValidationMessage(). Klasa błędzie sprawdzania poprawności danych wejściowych jest używana do określania stylu pola tekstowego (dane wejściowe) renderowana przez pomocnika Html.TextBox(). Klasa błędy sprawdzania poprawności — podsumowanie jest używana do określania stylu listę nieuporządkowaną renderowany przez pomocnika Html.ValidationSummary().
+Klasa Field-Validation-Error służy do nadawania stylu dane wyjściowe renderowane przez pomocnika html. ValidationMessage (). Klasa Input-Validation-Error służy do nadawania stylu TextBox (Input) renderowanego przez pomocnika html. TextBox (). Klasa walidacji-Summary-Errors służy do nadawania stylu listę nieuporządkowaną renderowaną przez pomocnika html. podsumowania walidacji ().
 
 > [!NOTE] 
 > 
-> Można zmodyfikować klasy arkusza stylów, które są opisane w tej sekcji, aby dostosować wygląd komunikatów o błędach weryfikacji.
+> Możesz zmodyfikować klasy arkuszy stylów opisane w tej sekcji, aby dostosować wygląd komunikatów o błędach walidacji.
 
-## <a name="adding-validation-logic-to-the-create-action"></a>Dodawanie logikę walidacji do utworzenia akcji
+## <a name="adding-validation-logic-to-the-create-action"></a>Dodawanie logiki walidacji do akcji tworzenia
 
-W tej chwili, widok Utwórz nigdy nie wyświetla komunikatów o błędach weryfikacji, ponieważ możemy niezapisania logiki można wygenerować wszystkie komunikaty. Aby wyświetlić komunikaty o błędach weryfikacji, należy dodać komunikaty o błędach do ModelState.
+Teraz widok Tworzenie nigdy nie wyświetla walidacji komunikatów o błędach, ponieważ nie zapisano logiki w celu wygenerowania żadnych komunikatów. Aby wyświetlić komunikaty o błędach walidacji, należy dodać komunikaty o błędach do ModelState.
 
 > [!NOTE] 
 > 
-> Metoda UpdateModel() komunikaty o błędach do ModelState automatycznie dodaje po błąd przypisywania wartości pola formularza do właściwości. Na przykład jeśli użytkownik spróbuje przypisać ciąg "apple" do właściwości daty urodzenia, która akceptuje wartości daty/godziny, metoda UpdateModel() dodaje błąd do ModelState.
+> Metoda UpdateModel () dodaje komunikaty o błędach do ModelState automatycznie, gdy wystąpi błąd podczas przypisywania wartości pola formularza do właściwości. Na przykład, jeśli spróbujesz przypisać ciąg "Apple" do właściwości DataUrodzenia, która akceptuje wartości DateTime, a następnie Metoda UpdateModel () dodaje błąd do ModelState.
 
-Modyfikowana Metoda Create() w ofercie 2 zawiera nową sekcję, która weryfikuje właściwości klasy skontaktuj się z przed jego miejsce nowego kontaktu są wstawiane do bazy danych.
+Zmodyfikowana Metoda Create () na liście 2 zawiera nową sekcję, która sprawdza poprawność właściwości klasy Contact przed wstawieniem nowego kontaktu do bazy danych.
 
-**Wyświetlanie listy 2 - Controllers\ContactController.cs (Tworzenie ze sprawdzaniem poprawności)**
+**Lista 2 — Controllers\ContactController.cs (tworzenie z walidacją)**
 
 [!code-csharp[Main](iteration-3-add-form-validation-cs/samples/sample3.cs)]
 
-W sekcji sprawdzania poprawności wymusza cztery różne sprawdzania poprawności reguły:
+Sekcja Validate wymusza cztery unikatowe reguły sprawdzania poprawności:
 
-- Właściwość FirstName musi mieć długość większą niż zero (i nie może ona składać się wyłącznie ze spacji)
-- Właściwość nazwisko musi mieć długość większą niż zero (i nie może ona składać się wyłącznie ze spacji)
-- Jeśli wartość właściwości telefonu (ma długość większą niż 0), a następnie właściwość telefonu musi być zgodna wyrażenia regularnego.
-- Jeśli wartość właściwości wiadomości E-mail (ma długość większą niż 0), a następnie właściwość poczty E-mail musi być zgodna wyrażenia regularnego.
+- Właściwość FirstName musi mieć długość większą od zera (i nie może składać się z samych spacji)
+- Właściwość LastName musi mieć długość większą od zera (i nie może składać się z samych spacji)
+- Jeśli właściwość telefonu ma wartość (ma długość większą niż 0), właściwość telefon musi być zgodna z wyrażeniem regularnym.
+- Jeśli właściwość wiadomości E-mail ma wartość (ma długość większą niż 0), Właściwość wiadomości E-mail musi być zgodna z wyrażeniem regularnym.
 
-Po naruszenie reguły sprawdzania poprawności, komunikat o błędzie jest dodawany do ModelState za pomocą metody AddModelError(). Po dodaniu komunikatu do ModelState, należy podać nazwę właściwości i tekst komunikat o błędzie weryfikacji. Ten komunikat o błędzie jest wyświetlany w widoku przez metody pomocnika Html.ValidationSummary() i Html.ValidationMessage().
+W przypadku naruszenia reguły walidacji komunikat o błędzie zostanie dodany do ModelState za pomocą metody AddModelError (). Po dodaniu komunikatu do ModelState należy podać nazwę właściwości i tekst komunikatu o błędzie walidacji. Ten komunikat o błędzie jest wyświetlany w widoku przez metody pomocnika html. podsumowania walidacji () i HTML. ValidationMessage ().
 
-Po reguł sprawdzania poprawności są wykonywane, właściwość IsValid ModelState jest sprawdzana. Właściwość IsValid zwraca wartość false, gdy do ModelState zostały dodane jakiekolwiek komunikaty o błędach weryfikacji. Jeśli weryfikacja zakończy się niepowodzeniem, Utwórz formularz zostanie wyświetlony ponownie z komunikatami o błędach.
+Po wykonaniu reguł walidacji jest sprawdzana Właściwość IsValid elementu ModelState. Właściwość IsValid zwraca wartość false, jeśli wszystkie komunikaty o błędach walidacji zostały dodane do ModelState. Jeśli walidacja nie powiedzie się, formularz Utwórz zostanie wyświetlony ponownie przy użyciu komunikatów o błędach.
 
 > [!NOTE] 
 > 
-> Stało się wyrażeń regularnych do weryfikacji telefonu i adresu e-mail z repozytorium wyrażeń regularnych w [*http://regexlib.com*](http://regexlib.com)
+> Otrzymałem wyrażenia regularne do sprawdzania poprawności numeru telefonu i adresu e-mail z repozytorium wyrażeń regularnych w [ *http://regexlib.com* ](http://regexlib.com)
 
-## <a name="adding-validation-logic-to-the-edit-action"></a>Dodawanie logikę walidacji do akcji, Edytuj
+## <a name="adding-validation-logic-to-the-edit-action"></a>Dodawanie logiki walidacji do akcji Edytuj
 
-Akcja Edit() aktualizuje kontakt. Akcja Edit() musi wykonać dokładnie tych samych sprawdzania poprawności akcji Create(). Zamiast duplikowania ten sam kod sprawdzania poprawności, firma Microsoft refaktoryzować skontaktuj się z kontrolerem, dzięki czemu akcje Create() i Edit() wywołać tę samą metodę sprawdzania poprawności.
+Akcja Edytuj () aktualizuje kontakt. Akcja Edit () wymaga wykonania dokładnie tej samej walidacji co akcja Utwórz (). Zamiast duplikowania tego samego kodu sprawdzania poprawności należy ponownie sprawdzić kontroler kontaktu, aby akcje create () i Edit () wywoływały tę samą metodę walidacji.
 
-Zmodyfikowane klasy kontrolera kontaktu znajduje się w ofercie 3. Ta klasa ma nową metodę ValidateContact(), która jest wywoływana w ramach Create() i Edit() akcji.
+Zmodyfikowana Klasa kontrolera kontaktów jest zawarta w liście 3. Ta klasa ma nową metodę ValidateContact (), która jest wywoływana w ramach akcji Create () i Edit ().
 
-**Wyświetlanie listy 3 - Controllers\ContactController.cs**
+**Lista 3 — Controllers\ContactController.cs**
 
 [!code-csharp[Main](iteration-3-add-form-validation-cs/samples/sample4.cs)]
 
 ## <a name="summary"></a>Podsumowanie
 
-W tej iteracji dodaliśmy weryfikacji formularza podstawowego do naszej aplikacji Contact Manager. Nasze logikę weryfikacji uniemożliwia użytkownikom przesyłanie nowego kontaktu lub edycji istniejącego kontaktu bez podawania wartości dla właściwości imię i nazwisko. Ponadto użytkownicy muszą podać prawidłowy phone liczb i ich adresy e-mail.
+W tej iteracji dodaliśmy podstawowe sprawdzanie poprawności formularza do naszej aplikacji menedżera kontaktów. Nasza logika walidacji uniemożliwia użytkownikom przesyłanie nowych kontaktów lub edytowanie istniejącej osoby kontaktowej bez podawania wartości właściwości FirstName i LastName. Ponadto użytkownicy muszą podać prawidłowe numery telefonów i adresy e-mail.
 
-W tej iteracji dodaliśmy logikę walidacji do naszej aplikacji Contact Manager w najprostszym sposobem możliwe. Jednak mieszanie naszych logikę walidacji do naszych logiką kontrolera utworzy problemy dla nas w perspektywie długoterminowej. Nasza aplikacja będzie trudniejsze do konserwację i modyfikowanie wraz z upływem czasu.
+W tej iteracji dodaliśmy logikę walidacji do naszej aplikacji z Menedżerem kontaktów w najprostszym możliwym zakresie. Jednak mieszanie naszej logiki walidacji z naszą logiką kontrolera spowoduje utworzenie w długim czasie problemów dla Stanów Zjednoczonych. Nasza aplikacja będzie trudniejsza do utrzymania i modyfikacji w czasie.
 
-W następnej iteracji naszych kontrolerami poza będzie refaktoryzacji naszych logikę weryfikacji i logiką dostępu do bazy danych. Firma Microsoft będzie korzystać z kilku zasad projektowania oprogramowania, aby umożliwiają tworzenie luźno sprzężonych i będzie łatwiejszy w utrzymaniu, aplikacji.
+W następnej iteracji będziemy refaktoryzacji logika weryfikacji dostępu do bazy danych z naszych kontrolerów. Będziemy korzystać z kilku zasad projektowania oprogramowania w celu umożliwienia nam tworzenia bardziej luźno powiązanych i łatwiejszego w obsłudze aplikacji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](iteration-2-make-the-application-look-nice-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: 3a052ced-9cf5-47b8-a400-934f0b687c26
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 27ff6941008b4e7bf6d632e4c248fd1d35fb3589
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621228"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78587669"
 ---
 # <a name="updating-and-deleting-existing-binary-data-vb"></a>Aktualizowanie i usuwanie istniejących danych binarnych (VB)
 
@@ -315,4 +315,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Teresa Murphy. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](including-a-file-upload-option-when-adding-a-new-record-vb.md)
+> [Wstecz](including-a-file-upload-option-when-adding-a-new-record-vb.md)

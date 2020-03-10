@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
-title: 'Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie | Dokumentacja firmy Microsoft'
+title: 'Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w sieci Web | Microsoft Docs'
 author: jrjlee
-description: W tym temacie opisano scenariusz wdrażania web typowe dla dewelopera lub środowisk testowych i opisano zadania, które należy wykonać, aby skonfigurować zdarzenia serwisowego...
+description: W tym temacie opisano typowy scenariusz wdrażania w sieci Web dla środowisk deweloperskich i testowych oraz wyjaśniono zadania, które należy wykonać w celu skonfigurowania si...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 44a22ac7-1fc7-4174-b946-c6129fb6a19b
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: d580e550f2461837f0e8a4e477273348b49cb53e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132400"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637817"
 ---
 # <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Scenariusz: konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano scenariusz wdrażania web typowe dla dewelopera lub środowisk testowych i opisano zadania, które należy wykonać, aby można było skonfigurować podobnie środowisko.
+> W tym temacie opisano typowy scenariusz wdrażania sieci Web dla środowisk deweloperskich i testowych oraz wyjaśniono zadania, które należy wykonać w celu skonfigurowania podobnego środowiska.
 
-Gdy deweloperzy pracują w aplikacjach sieci web, często mają one dostęp do środowiska serwera, który może służyć do testowania zmian w aplikacjach w ustawieniu realistyczne. Tego rodzaju środowiska deweloperskie lub testowe zazwyczaj ma następujące cechy:
+Gdy deweloperzy pracują z aplikacjami sieci Web, często uzyskują dostęp do środowiska serwera, którego mogą używać do testowania zmian w aplikacjach w postaci realistycznych ustawień. Ten rodzaj środowiska programistycznego lub testowego ma zwykle następujące cechy:
 
-- Środowisko składa się z jednym serwerze sieci web a serwerem pojedynczej bazy danych.
-- Deweloperzy zazwyczaj mieć uprawnienia administratora na serwerach, aby umożliwić im skonfiguruj środowisko do wymagań aplikacji.
-- Zmiany w aplikacji są wdrażane na podstawie często, dlatego środowisko musi obsługiwać pojedynczy krok lub automatycznego wdrażania.
+- Środowisko składa się z jednego serwera sieci Web i jednego serwera bazy danych.
+- Deweloperzy mają zazwyczaj uprawnienia administratora na serwerach, aby umożliwić im skonfigurowanie środowiska pod kątem wymagań aplikacji.
+- Zmiany w aplikacjach są wdrażane regularnie, dlatego środowisko musi obsługiwać wdrożenie jednoetapowe lub zautomatyzowane.
 
-Na przykład w naszym [scenariusz samouczka](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Matt Hink jest programistą w firmie Fabrikam, Inc. Matt pracuje nad rozwiązania Contact Manager i regularnie musi wdrożyć zmiany w środowisku testowym. Matt jest administratorem na serwerze sieci web test i serwera bazy danych testów. Początkowo Matt musi mieć możliwość wdrażania rozwiązania do środowiska testowego bezpośrednio.
+Na przykład w naszym [scenariuszu samouczka](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)otoczka hink jest deweloperem w firmie Fabrikam, Inc. matowy działa w rozwiązaniu Contact Manager i regularnie musi wdrożyć zmiany w środowisku testowym. Matowy jest administratorem na serwerze testowym sieci Web i testowanym serwerze bazy danych. Najpierw matowy musi być w stanie wdrożyć rozwiązanie bezpośrednio w środowisku testowym.
 
 ![](scenario-configuring-a-test-environment-for-web-deployment/_static/image1.png)
 
-Jako praca postępów i liczby deweloperów, Dołącz do zespołu, Contact Manager rozwiązania jest skonfigurowany w celu zapewnienia ciągłej integracji (CI) w Team Foundation Server (TFS). Zawsze, gdy programista zaewidencjonuje zawartości, Team Build powinien Skompiluj rozwiązanie, testy jednostkowe i automatycznie wdrażać rozwiązania do środowiska testowego.
+W miarę jak postęp pracy i większa deweloperzy przyłączają się do zespołu, rozwiązanie Contact Manager jest skonfigurowane pod kątem ciągłej integracji (CI) w Team Foundation Server (TFS). Za każdym razem, gdy deweloper sprawdzi zawartość, Kompilacja zespołu powinna kompilować rozwiązanie, uruchamiać dowolne testy jednostkowe i automatycznie wdrażać rozwiązanie w środowisku testowym.
 
 ![](scenario-configuring-a-test-environment-for-web-deployment/_static/image2.png)
 
-## <a name="solution-overview"></a>Omówienie rozwiązania
+## <a name="solution-overview"></a>Przegląd rozwiązania
 
-Środowisko testowe musi obsługiwać pojedynczy krok lub automatycznego wdrażania z komputera zdalnego, dzięki czemu masz do wyboru dwie główne metody. Można:
+Środowisko testowe musi obsługiwać jednoetapowy lub zautomatyzowany wdrożenia z komputera zdalnego, dzięki czemu można wybrać dwa główne podejścia. Możesz:
 
-- Skonfiguruj serwer sieci web test do obsługi wdrożenia przy użyciu usługi agenta wdrażania sieci Web ("agent zdalny").
-- Skonfiguruj serwer sieci web test do obsługi wdrożenia przy użyciu procedury obsługi narzędzia Web Deploy.
+- Skonfiguruj testowy serwer sieci Web do obsługi wdrożenia za pomocą usługi Deployment Agent sieci Web ("Agent zdalny").
+- Skonfiguruj testowy serwer sieci Web do obsługi wdrożenia przy użyciu programu obsługi Web Deploy.
 
 > [!NOTE]
-> Można także użyć [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("temp agent"). Jest to podobne do metody zdalnego agenta pod kątem wymagań i ograniczeń.
+> Można również użyć [Web Deploy na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("tymczasowy Agent"). Jest to podobne do podejścia zdalnego agenta w zakresie wymagań i ograniczeń.
 
-W tym przypadku deweloperzy mają uprawnienia administratora na serwerach docelowych, a środowisko testowe nie podlega ograniczenia ścisłymi zasadami kontrolnymi zabezpieczeń, więc logicznym wyborem jest skonfigurowanie serwera sieci web test do obsługi wdrożenia przy użyciu agenta zdalnego. Jest to mniej skomplikowane i wymaga mniej początkowej konfiguracji niż podejście program obsługi wdrażania w sieci Web. Należy również skonfigurować serwer bazy danych do obsługi dostępu zdalnego i wdrażania.
+W takim przypadku deweloperzy mają uprawnienia administratora na serwerach docelowych, a środowisko testowe nie podlega ścisłym ograniczeniom zabezpieczeń, więc logiczną opcją jest skonfigurowanie testowego serwera sieci Web do obsługi wdrożenia za pomocą zdalnego agenta. Jest to mniej skomplikowane i wymaga mniejszej konfiguracji początkowej niż metoda obsługi Web Deploy. Należy również skonfigurować serwer bazy danych do obsługi dostępu zdalnego i wdrożenia.
 
-Te tematy zawierają wszystkie informacje potrzebne do wykonania tych zadań:
+Te tematy zawierają wszystkie informacje potrzebne do wykonania następujących zadań:
 
-- [Konfigurowanie serwera sieci Web dla usługi Web Deploy (Agent zdalny) publikowanie](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). W tym temacie opisano sposób tworzenia serwera sieci web, który obsługuje narzędzie Web Deploy publikowania, przy użyciu metody agenta zdalnego od czysta kompilacja systemu Windows Server 2008 R2.
-- [Konfigurowanie serwera bazy danych dla publikowania Web Deploy](configuring-a-database-server-for-web-deploy-publishing.md). W tym temacie opisano sposób konfigurowania serwera bazy danych do obsługi dostępu zdalnego i wdrażania, zaczynając od domyślnej instalacji programu SQL Server 2008 R2.
+- [Skonfiguruj serwer sieci Web do publikowania Web Deploy (Agent zdalny)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). W tym temacie opisano sposób tworzenia serwera sieci Web, który obsługuje publikowanie Web Deploy przy użyciu metody zdalnego agenta, rozpoczynając od czystej kompilacji systemu Windows Server 2008 R2.
+- [Skonfiguruj serwer bazy danych na potrzeby publikowania Web Deploy](configuring-a-database-server-for-web-deploy-publishing.md). W tym temacie opisano sposób konfigurowania serwera bazy danych do obsługi dostępu zdalnego i wdrażania, rozpoczynając od domyślnej instalacji SQL Server 2008 R2.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać wskazówki na temat konfigurowania typowe środowisko przejściowe, zobacz [scenariusza: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](scenario-configuring-a-staging-environment-for-web-deployment.md). Aby uzyskać wskazówki na temat konfigurowania środowiska produkcji typowych, zobacz [scenariusza: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](scenario-configuring-a-production-environment-for-web-deployment.md).
+Aby uzyskać wskazówki dotyczące konfigurowania typowego środowiska przejściowego, zobacz [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w sieci Web](scenario-configuring-a-staging-environment-for-web-deployment.md). Aby uzyskać wskazówki dotyczące konfigurowania typowego środowiska produkcyjnego, zobacz [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w sieci Web](scenario-configuring-a-production-environment-for-web-deployment.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](choosing-the-right-approach-to-web-deployment.md)

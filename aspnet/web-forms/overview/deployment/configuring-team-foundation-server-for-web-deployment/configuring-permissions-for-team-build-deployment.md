@@ -1,92 +1,92 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: Konfigurowanie uprawnień dla zespołu wdrożenia kompilacji | Dokumentacja firmy Microsoft
+title: Konfigurowanie uprawnień do wdrożenia kompilacji zespołowej | Microsoft Docs
 author: jrjlee
-description: W tym temacie opisano sposób konfigurowania uprawnień, aby włączyć serwer kompilacji do wdrażania zawartości serwerów sieci web i serwery baz danych w ramach zautomatyzowanej b...
+description: W tym temacie opisano sposób konfigurowania uprawnień umożliwiających serwerowi kompilacji wdrażanie zawartości na serwerach sieci Web i serwerach baz danych w ramach zautomatyzowanej części b...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 5699f72af6b8d7f18d1a2c631dfdedd63c66e1e6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133855"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638426"
 ---
 # <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano sposób konfigurowania uprawnień, aby włączyć serwer kompilacji do wdrażania zawartości serwerów sieci web i serwery baz danych w ramach zautomatyzowanego procesu kompilacji.
+> W tym temacie opisano, jak skonfigurować uprawnienia umożliwiające serwerowi kompilacji wdrażanie zawartości na serwerach sieci Web i serwerach baz danych w ramach zautomatyzowanego procesu kompilacji.
 
-Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
+Ten temat stanowi część szeregu samouczków opartych na wymaganiach dotyczących wdrażania w przedsiębiorstwie fikcyjnej firmy o nazwie Fabrikam, Inc. W tej serii samouczków jest stosowane&#x2014;przykładowe rozwiązanie&#x2014;do reprezentowania aplikacji sieci Web, [które ma](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)realistyczny poziom złożoności, w tym aplikacji ASP.NET MVC 3, usługi Windows Communication Foundation (WCF) i projektu bazy danych.
 
-Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
+Metoda wdrażania w tym samouczku jest oparta na rozłożeniu pliku projektu dzielonego opisanym w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowany przez dwa pliki&#x2014;projektu, zawierający instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego, oraz jeden zawierający ustawienia kompilacji i wdrożenia specyficznego dla środowiska. W czasie kompilacji plik projektu specyficzny dla środowiska jest scalany z plikiem projektu Environment-niezależny od w celu utworzenia kompletnego zestawu instrukcji kompilacji.
 
-## <a name="task-overview"></a>Omówienie zadań
+## <a name="task-overview"></a>Przegląd zadania
 
-Po zainstalowaniu usługi kompilacji 2010 Team Foundation Server (TFS), możesz określić tożsamość za pomocą którego chcesz, aby usługa działała. Domyślnie to konto Usługa sieciowa. Alternatywnie można skonfigurować usługi kompilacji do uruchamiania przy użyciu konta domeny.
+Podczas instalowania usługi kompilacji Team Foundation Server (TFS) 2010 należy określić tożsamość, z którą usługa ma zostać uruchomiona. Domyślnie jest to konto usługi sieciowej. Alternatywnie można skonfigurować usługę kompilacji do uruchamiania przy użyciu konta domeny.
 
-Wszystkie zadania wdrażania, które wymagają uwierzytelniania Windows i planujesz zautomatyzować za pomocą kompilacji zespołowej, uruchamiana, za pomocą tożsamości usługi kompilacji. Jako takie należy przyznać tożsamości usługi kompilacji wszelkich wymaganych uprawnień na serwerach sieci web i serwery bazy danych.
+Wszystkie zadania wdrażania, które wymagają uwierzytelniania systemu Windows i planujesz zautomatyzować za pomocą kompilacji zespołu, będą uruchamiane przy użyciu tożsamości usługi kompilacji. W związku z tym należy przyznać tożsamości usługi kompilacji wszelkie wymagane uprawnienia na serwerach sieci Web i serwerach baz danych.
 
 > [!NOTE]
-> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na innych komputerach. Konta komputerów mieć postać *[nazwa domeny]\[nazwa komputera]* **$** &#x2014;na przykład **FABRIKAM\TFSBUILD$** . Jako takie swoją usługę kompilacji jest uruchamiany, za pomocą tożsamości usługi sieciowej, należy udzielić wszystkie uprawnienia wymagane do tożsamość konta komputera dla serwera kompilacji.
+> Konto usługi sieciowej używa konta komputera do uwierzytelniania na innych komputerach. Konta komputerów przyjmują postać * [Domain Name]\[Machine Name] * **$** &#x2014;na przykład **FABRIKAM\TFSBUILD $** . W związku z tym, jeśli usługa kompilacji jest uruchomiona przy użyciu tożsamości usługi sieciowej, należy przyznać wszelkie wymagane uprawnienia do tożsamości konta komputera dla serwera kompilacji.
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurowanie uprawnień serwera sieci Web
 
-Zgodnie z opisem w [Wybieranie podejścia prawo do wdrażania w Internecie](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md), dostępne są dwie główne opcje możesz użyć, jeśli chcesz wdrożyć pakietów sieci web do zdalnego serwera:
+Zgodnie z opisem w temacie [Wybieranie odpowiedniego podejścia do wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md), istnieją dwa główne podejścia, których można użyć, jeśli chcesz wdrożyć pakiety internetowe na zdalnym serwerze sieci Web:
 
-- Wdrażanie aplikacji z lokalizacji zdalnej, określając jako docelowe *Usługa agenta wdrażania sieci Web* (znany także jako agent zdalny) na serwerze docelowym.
-- Wdrażanie aplikacji z lokalizacji zdalnej, określając jako docelowe *Internetowe usługi informacyjne* (*usług IIS) program obsługi wdrażania w sieci Web* na serwerze docelowym.
+- Wdróż aplikację z lokalizacji zdalnej, przeznaczoną dla *usługi Deployment Agent sieci Web* (znanej również jako agent zdalny) na serwerze docelowym.
+- Wdróż aplikację z lokalizacji zdalnej, przeznaczoną dla*programu obsługi Web Deploy* *Internet Information Services* (IIS) na serwerze docelowym.
 
-Agent zdalny ma dwa ograniczenia klucza w tym przypadku:
+W takim przypadku Agent zdalny ma dwa kluczowe ograniczenia:
 
-- Agent zdalny obsługuje tylko uwierzytelnianie NTLM. Innymi słowy, wdrożenia należy użyć tożsamości usługi kompilacji&#x2014;nie można spersonifikować innego konta.
-- Aby użyć agenta zdalnego, konto które wykonuje wdrożenia musi być administratorem na serwerze docelowym.
+- Agent zdalny obsługuje tylko uwierzytelnianie NTLM. Innymi słowy, wdrożenie musi używać tożsamości&#x2014;usługi kompilacji, nie można spersonifikować innego konta.
+- Aby można było korzystać z agenta zdalnego, konto, które wykonuje wdrożenie, musi być administratorem na serwerze docelowym.
 
-Razem te dwa ograniczenia uczynienia agenta zdalnego niepożądane dla automatycznego wdrażania kompilacji zespołowej. Aby użyć tego podejścia, należałoby ułatwi zarządzanie usługą kompilacji, konto administratora na wszystkich serwerach sieci web docelowego.
+Ze sobą te dwa ograniczenia sprawiają, że podejście zdalnego agenta jest niepożądane dla zautomatyzowanego wdrożenia kompilacji zespołowej. Aby skorzystać z tej metody, należy utworzyć konto usługi kompilacji jako administrator na dowolnym docelowym serwerze sieci Web.
 
-Z kolei podejście program obsługi wdrażania w sieci Web oferuje różne korzyści:
+Z kolei podejście do procedury obsługi Web Deploy oferuje różne zalety:
 
-- Program obsługi wdrażania sieci Web obsługuje uwierzytelnianie podstawowe, za pośrednictwem protokołu HTTPS, który umożliwia przekazywanie poświadczeń alternatywnych konta do narzędzia wdrażania Web usług IIS (Web Deploy).
-- Można skonfigurować docelowych serwerów sieci web umożliwia użytkownikom niebędącym administratorami wdrażania zawartości do określonych witryn internetowych usług IIS przy użyciu procedury obsługi wdrażania sieci Web.
+- Obsługa Web Deploy obsługuje uwierzytelnianie podstawowe za pośrednictwem protokołu HTTPS, co umożliwia przekazywanie poświadczeń alternatywnego konta do narzędzia Web Deployment (Web Deploy) usług IIS.
+- Można skonfigurować docelowe serwery sieci Web, aby umożliwić użytkownikom innym niż administrator wdrażanie zawartości do określonych witryn sieci Web usług IIS przy użyciu programu obsługi Web Deploy.
 
-Dlatego zaleca się wyraźnie pod kątem obsługi wdrażania sieci Web podczas automatyzacji wdrożenia pakietu internetowego poziomu kompilacji zespołowej. Jest to zalecany proces:
+W związku z tym jest wyraźnie preferowany dla programu obsługi Web Deploy podczas automatyzowania wdrażania pakietu internetowego z kompilacji zespołu. Jest to zalecany proces:
 
-1. Utwórz konto domeny z niskim poziomem uprawnień na potrzeby wdrożenia.
-2. Skonfiguruj program obsługi wdrażania sieci Web i Przyznaj kontu uprawnienia wymagane do wdrażania zawartości określonej witryny sieci Web usług IIS, zgodnie z opisem w [Konfigurowanie serwera sieci Web na potrzeby wdrażania publikowania w sieci Web (Web wdrażanie obsługi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md).
-3. Wywoływanie narzędzia Web Deploy i docelowy program obsługi wdrażania sieci Web, przy użyciu uwierzytelniania podstawowego i dostarczenie poświadczeń konta domeny został utworzony, aby wykonać wdrożenie.
+1. Utwórz konto domeny z niskim poziomem uprawnień do użycia we wdrożeniu.
+2. Skonfiguruj procedurę obsługi Web Deploy i przyznaj kontu uprawnienia wymagane do wdrożenia zawartości w określonej witrynie sieci Web usług IIS, zgodnie z opisem w temacie [Konfigurowanie serwera sieci Web do Web Deploy Publishing (procedura obsługi Web Deploy)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md).
+3. Wywołaj Web Deploy i docelową procedurę obsługi Web Deploy, używając uwierzytelniania podstawowego i dostarczając poświadczenia utworzonego konta domeny, aby wykonać wdrożenie.
 
-W [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) przykładowe rozwiązanie, należy określić typ uwierzytelniania (podstawowe lub NTLM), poświadczenia narzędzia Web Deploy i adres punktu końcowego (agent zdalny lub program obsługi wdrażania w sieci Web) w pliku projektu specyficznego dla danego środowiska. Te wartości są używane do sformułowania i uruchom polecenie Narzędzia Web Deploy, gdy plik projektu jest wykonywane. Aby uzyskać więcej informacji, zobacz [wdrażanie pakietów internetowych](../web-deployment-in-the-enterprise/deploying-web-packages.md).
+W przykładowym rozwiązaniu [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) należy określić typ uwierzytelniania (podstawowa lub NTLM), poświadczenia Web Deploy i adres punktu końcowego (program obsługi agenta zdalnego lub Web Deploy) w pliku projektu specyficznym dla środowiska. Te wartości są używane do formułowania i uruchamiania polecenia Web Deploy, gdy plik projektu jest wykonywany. Aby uzyskać więcej informacji, zobacz [wdrażanie pakietów internetowych](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
-Aby uzyskać więcej informacji na temat konfigurowania obsługi wdrażania sieci Web, w tym sposób konfigurowania uprawnień, zobacz [Konfigurowanie serwera sieci Web na potrzeby wdrażania publikowania w sieci Web (Web wdrażanie obsługi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md). Aby uzyskać więcej informacji na temat konfigurowania agenta zdalnego, zobacz [Konfigurowanie serwera sieci Web na potrzeby wdrażania publikowania w sieci Web (Agent zdalny)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md).
+Aby uzyskać więcej informacji na temat konfigurowania programu obsługi Web Deploy, w tym konfigurowania uprawnień, zobacz [Konfigurowanie serwera sieci Web do Web Deploy Publishing (procedura obsługi Web Deploy)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md). Aby uzyskać więcej informacji na temat konfigurowania agenta zdalnego, zobacz [Konfigurowanie serwera sieci Web do publikowania Web Deploy (Agent zdalny)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md).
 
 ## <a name="configuring-database-server-permissions"></a>Konfigurowanie uprawnień serwera bazy danych
 
-Aby wdrożyć bazę danych programu SQL Server, musisz mieć:
+Aby wdrożyć bazę danych w SQL Server, musisz:
 
-- Utwórz identyfikator logowania dla konta wdrażanie w wystąpieniu programu SQL Server.
-- Przyznaj logowania **DBCreator** uprawnienia w wystąpieniu programu SQL Server.
-- Po początkowym wdrożeniu należy dodać logowanie do **db\_właściciela** roli w docelowej bazie danych. Jest to wymagane, ponieważ na kolejne wdrożenia jest zmodyfikowanie istniejącej bazy danych zamiast tworzenia nowej bazy danych.
+- Utwórz nazwę logowania dla konta wdrożenia w wystąpieniu SQL Server.
+- Udziel uprawnienia logowanie **dbcreator** do wystąpienia SQL Server.
+- Po wdrożeniu początkowym Dodaj nazwę logowania do roli **właściciela\_bazy danych** w docelowej bazie danych. Jest to wymagane, ponieważ w kolejnych wdrożeniach modyfikowana jest istniejąca baza danych zamiast tworzenia nowej bazy danych.
 
-Istnieje możliwość uwierzytelnienia się wystąpienia programu SQL Server przy użyciu uwierzytelniania NTLM lub uwierzytelniania programu SQL Server:
+Można uwierzytelnić się w wystąpieniu SQL Server przy użyciu uwierzytelniania NTLM lub uwierzytelniania SQL Server:
 
-- Jeśli używasz uwierzytelniania NTLM, należy przyznać uprawnienia opisane powyżej, aby konto usługi kompilacji.
-- Jeśli używasz uwierzytelniania programu SQL Server, należy przyznać uprawnienia opisane powyżej do konta programu SQL Server. Należy również uwzględnić w parametrach połączenia, który zostanie użyty do wdrożenia bazy danych programu SQL Server, nazwę użytkownika i hasło.
+- W przypadku korzystania z uwierzytelniania NTLM należy przyznać uprawnienia opisane powyżej do konta usługi kompilacji.
+- W przypadku korzystania z uwierzytelniania SQL Server należy przyznać uprawnienia opisane powyżej do konta SQL Server. W parametrach połączenia używanych do wdrażania bazy danych należy również podać nazwę użytkownika i hasło SQL Server.
 
-Aby uzyskać szczegółowe informacje krok po kroku dotyczące sposobu konfigurowania uprawnień do wdrożenia bazy danych, zobacz [Konfigurowanie serwera bazy danych na potrzeby wdrażania publikowania w sieci Web](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
+Szczegółowe informacje na temat sposobu konfigurowania uprawnień do wdrażania bazy danych znajdują się w temacie [Configuring a Database Server for Web Deploy Publishing](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym momencie należy zrozumieć uprawnienia wymagane wraz z opcji uwierzytelniania, Otwórz, gdy Automatyzowanie wdrożeń aplikacji i baz danych w sieci web poziomu kompilacji zespołowej. Należy również możliwość wdrożenia wymaganych uprawnień na serwerach sieci web usług IIS i serwery baz danych programu SQL Server.
+W tym momencie należy zrozumieć wymagane uprawnienia wraz z opcjami uwierzytelniania otwartymi dla użytkownika, podczas automatyzowania wdrożeń aplikacji sieci Web i baz danych z kompilacji zespołu. Należy również mieć możliwość zaimplementowania niezbędnych uprawnień na serwerach sieci Web usług IIS i serwerach bazy danych SQL Server.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat konfigurowania środowisk serwera Windows do obsługi zdalnego wdrażania, zobacz [Konfigurowanie środowisk serwera wdrażania sieci Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
+Aby uzyskać więcej informacji na temat konfigurowania środowisk systemu Windows Server do obsługi zdalnego wdrażania, zobacz [Konfigurowanie środowisk serwera na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
 > [!div class="step-by-step"]
-> [Poprzednie](deploying-a-specific-build.md)
+> [Wstecz](deploying-a-specific-build.md)

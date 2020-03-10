@@ -9,11 +9,11 @@ ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5c5ad110ee0836f0a464b02a2b29254e2e06381e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74571344"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78592828"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (VB)
 
@@ -33,7 +33,7 @@ Aby zapewnić dostosowaną edycję lub wstawianie interfejsu, należy zamienić 
 
 W tym samouczku dowiesz się, jak łatwo można dodać kontrolki weryfikacji do `EditItemTemplate` i `InsertItemTemplate`, aby zapewnić bardziej foolproof interfejs użytkownika. W tym samouczku przedstawiono przykład utworzony w ramach [badania zdarzeń skojarzonych z wstawianiem, aktualizowaniem i usuwaniem](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) samouczka oraz rozszerza edytowanie i wstawianie interfejsów w celu uwzględnienia odpowiedniej weryfikacji.
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>Krok 1. replikowanie przykładu z[badania zdarzeń skojarzonych z wstawianiem, aktualizowaniem i usuwaniem](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deleting"></a>Krok 1. replikowanie przykładu z[badania zdarzeń skojarzonych z wstawianiem, aktualizowaniem i usuwaniem](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
 
 W oknie [badanie zdarzeń skojarzonych z wstawianiem, aktualizowaniem i usuwaniem](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) samouczka została utworzona strona z nazwami i cenami produktów w edytowalnym widoku GridView. Ponadto strona zawiera element DetailsView, którego właściwość `DefaultMode` została ustawiona na `Insert`, a tym samym zawsze Renderuj w trybie wstawiania. Z tego widoku DetailsView użytkownik może wprowadzić nazwę i cenę nowego produktu, kliknąć pozycję Wstaw, a następnie dodać do systemu (patrz rysunek 1).
 

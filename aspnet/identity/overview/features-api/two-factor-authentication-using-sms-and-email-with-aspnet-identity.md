@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 527b4392846e60dae0b216fdeabf21fd6618e4d7
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456741"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616684"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail przy użyciu ASP.NET Identity
 
@@ -119,7 +119,7 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z programu Twilio lub AS
 8. Kliknij swój identyfikator użytkownika, który aktywuje metodę `Index` akcji w kontrolerze `Manage`.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image2.png)
-9. Kliknij pozycję Add (Dodaj).  
+9. Kliknij przycisk Dodaj.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image3.png)
 10. W ciągu kilku sekund otrzymasz wiadomość SMS z kodem weryfikacyjnym. Wprowadź ją i naciśnij przycisk **Prześlij**.  
@@ -272,7 +272,7 @@ Mimo że można ustawić blokadę konta dla nieudanych prób logowania, to podej
 
 <a id="addRes"></a>
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [ASP.NET Identity zalecane zasoby](../getting-started/aspnet-identity-recommended-resources.md) Pełna lista blogów, klipów wideo, samouczków i doskonałych elementów.
 - [Aplikacja MVC 5 z logowaniem w serwisach Facebook, Twitter, LinkedIn i Google OAuth2](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) również pokazuje, jak dodać informacje o profilu do tabeli users.

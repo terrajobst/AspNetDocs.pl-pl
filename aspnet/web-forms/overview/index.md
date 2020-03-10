@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/index
-title: Wskazówki dotyczące formularzy sieci Web ASP.NET | Dokumentacja firmy Microsoft
+title: Wskazówki dotyczące formularzy sieci Web ASP.NET | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: b3fb4480-0f41-495b-add6-163ca92dc8a3
 msc.legacyurl: /web-forms/overview
 msc.type: book
 ms.openlocfilehash: 4b38d6b54f53508f7b568207fe7f1a624a7af5f3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402274"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639448"
 ---
 # <a name="aspnet-web-forms-guidance"></a>Wskazówki dotyczące formularzy sieci Web ASP.NET
 
@@ -56,7 +56,7 @@ ms.locfileid: "59402274"
 - [Wydajność](performance-and-caching/index.md)
 
     - [Używanie metod asynchronicznych na platformie ASP.NET 4.5](performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)
-- [Wdrażanie](deployment/index.md)
+- [Wdrożenie](deployment/index.md)
 
     - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](deployment/visual-studio-web-deployment/index.md)
 
@@ -75,8 +75,8 @@ ms.locfileid: "59402274"
     - [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
         - [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-        - [Enterprise Web Deployment: Omówienie scenariusza](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-        - [Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+        - [Wdrażanie sieci Web w przedsiębiorstwie: omówienie scenariuszy](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+        - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
     - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](deployment/web-deployment-in-the-enterprise/index.md)
 
         - [Wdrażanie w Internecie w przedsiębiorstwie](deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -130,14 +130,14 @@ ms.locfileid: "59402274"
 
     - [ASP.NET 4 — Tailspin Spyworks](older-versions-getting-started/tailspin-spyworks/index.md)
 
-        - [Część 1. Plik -> Nowy projekt](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-        - [Część 2. Warstwa dostępu do danych](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-        - [Część 3: Układ i Menu kategorii](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+        - [Część 1: Plik -> Nowy projekt](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+        - [Część 2: Warstwa dostępu do danych](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+        - [Część 3: Układ i menu kategorii](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
         - [Część 4: Tworzenie listy produktów](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
         - [Część 5: Logika biznesowa](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-        - [Część 6: Członkostwo ASP.NET](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+        - [Część 6: Członkostwo platformy ASP.NET](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
         - [Część 7: Dodawanie funkcji](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-        - [Część 8: Końcowe strony, obsługa wyjątków i zawierania](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+        - [Część 8: Końcowe strony, obsługa wyjątków i podsumowanie](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
     - [ASP.NET4 — wprowadzenie do programu Entity Framework 4 i wzorca Web Forms](older-versions-getting-started/getting-started-with-ef/index.md)
 
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -150,9 +150,9 @@ ms.locfileid: "59402274"
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0 — część 8](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
     - [ASP.NET4 — kontynuowanie pracy z programem Entity Framework 4 i wzorcem Web Forms](older-versions-getting-started/continuing-with-ef/index.md)
 
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: Sortowanie i filtrowanie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: wprowadzenie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: dodawanie warstwy logiki biznesowej i testów jednostkowych](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: sortowanie i filtrowanie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
         - [Obsługa współbieżności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Co nowego w programie Entity Framework 4.0](older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -356,7 +356,7 @@ ms.locfileid: "59402274"
 
         - [Testowanie siły hasła (C#)](ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs.md)
         - [Testowanie siły hasła (VB)](ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-vb.md)
-    - [Popup](ajax-control-toolkit/popup/index.md)
+    - [Okno podręczne](ajax-control-toolkit/popup/index.md)
 
         - [Używanie wielu kontrolek Popup (C#)](ajax-control-toolkit/popup/using-multiple-popup-controls-cs.md)
         - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (C#)](ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
@@ -374,7 +374,7 @@ ms.locfileid: "59402274"
         - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)](ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs.md)
         - [Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)](ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb.md)
         - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (VB)](ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb.md)
-    - [Slider](ajax-control-toolkit/slider/index.md)
+    - [Suwak](ajax-control-toolkit/slider/index.md)
 
         - [Kontrolka Slider z automatycznym ogłaszaniem zwrotnym (C#)](ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs.md)
         - [Powiązanie danych kontrolki Slider (C#)](ajax-control-toolkit/slider/databinding-the-slider-control-cs.md)

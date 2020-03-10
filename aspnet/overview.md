@@ -9,11 +9,11 @@ ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519365"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537346"
 ---
 # <a name="aspnet-overview"></a>Omówienie platformy ASP.NET
 
@@ -21,7 +21,7 @@ ASP.NET to bezpłatna platforma internetowa do tworzenia doskonałych witryn int
 
 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/) jest alternatywą dla ASP.NET.  Zapoznaj się ze [wskazówkami dotyczącymi wybierania między ASP.NET i ASP.NET Core](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczynanie pracy
 
 Zainstaluj [program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community Edition, bezpłatne środowisko IDE dla ASP.NET w systemie Windows.
 
@@ -47,7 +47,7 @@ Za pomocą formularzy sieci Web ASP.NET można tworzyć dynamiczne witryny inter
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC zapewnia zaawansowany sposób oparty na wzorcach do tworzenia dynamicznych witryn, które umożliwia wyraźne oddzielenie obaw i zapewnia pełną kontrolę nad znacznikami, aby zapewnić przyjemne, elastyczne programowanie. ASP.NET MVC zawiera wiele funkcji, które umożliwiają szybkie i niezrozumiałe Programowanie dla tworzenia zaawansowanych aplikacji, które korzystają z najnowszych standardów sieci Web.
+ASP.NET MVC oferuje zaawansowany, oparty na wzorcach sposób tworzenia dynamicznych witryn sieci Web, które umożliwiają czyste rozdzielenie problemów i zapewnia pełną kontrolę nad adiustacjami, aby można było korzystać z programowania Agile. ASP.NET MVC zawiera wiele funkcji, które umożliwiają szybkie i niezrozumiałe Programowanie dla tworzenia zaawansowanych aplikacji, które korzystają z najnowszych standardów sieci Web.
 
 [Dowiedz się więcej o MVC](mvc/index.md)
 
@@ -63,7 +63,7 @@ Wszystkie trzy platformy ASP.NET są oparte na .NET Framework i udostępniają p
 
 Ponadto trzy struktury nie są całkowicie niezależne i wybór jednego z nich nie wyklucza użycia innego. Ponieważ struktury mogą współistnieć w tej samej aplikacji sieci Web, nie jest rzadko widoczne poszczególne składniki aplikacji pisanych przy użyciu różnych platform. Na przykład składniki aplikacji dostępne dla klientów mogą być opracowywane w MVC, aby zoptymalizować znaczniki, podczas gdy dane dotyczące dostępu do danych i administracyjne są opracowywane w formularzach sieci Web w celu wykorzystania kontroli danych i prostego dostępu do danych.
 
-## <a name="web-apis"></a>Interfejsy Web API
+## <a name="web-apis"></a>Interfejsy API sieci Web
 
 Składnik Web API platformy ASP.NET to środowisko ułatwiające tworzenie usług HTTP, które można udostępniać dla wielu różnych klientów, takich jak przeglądarki i urządzenia przenośne. Składnik Web API platformy ASP.NET jest idealną platformą do tworzenia aplikacji o architekturze REST na platformie .NET Framework.
 

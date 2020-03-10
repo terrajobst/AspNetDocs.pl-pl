@@ -10,28 +10,28 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-s
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 5671e4f0123ca2b0cb5314336cf4411467feac70
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600484"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537045"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Samouczek: rozmowa w czasie rzeczywistym z sygnałami 2 i MVC 5
 
 W tym samouczku pokazano, jak za pomocą ASP.NET sygnalizujący 2 utworzyć aplikację czatu w czasie rzeczywistym. Dodajesz sygnalizację do aplikacji MVC 5 i utworzysz widok rozmowy w celu wysyłania i wyświetlania komunikatów.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
-> * Uruchamianie przykładu
-> * Sprawdzanie kodu
+> * Uruchamianie aplikacji przykładowej
+> * Analizowanie kodu
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i programowaniem w sieci Web** .
+* Program [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z pakietem roboczym **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych**.
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
@@ -176,7 +176,7 @@ Ten kod otwiera połączenie z centrum.
 
 Kod uruchamia połączenie, a następnie przekazuje go do funkcji, aby obsłużyć zdarzenie kliknięcia na przycisku **Wyślij** na stronie rozmowy.
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
 [Pobierz ukończony projekt](https://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
@@ -192,7 +192,7 @@ Aby uzyskać więcej informacji o sygnalizacji, zobacz następujące zasoby:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu

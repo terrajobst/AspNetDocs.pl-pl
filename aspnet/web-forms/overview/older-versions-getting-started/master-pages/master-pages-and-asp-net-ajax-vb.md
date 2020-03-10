@@ -9,11 +9,11 @@ ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 7be4ff422b91321ff83ed1f1c731c9a0bfe768f1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637878"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525607"
 ---
 # <a name="master-pages-and-aspnet-ajax-vb"></a>Strony wzorcowe i ASP.NET AJAX (VB)
 
@@ -129,7 +129,7 @@ Utwórz procedurę obsługi zdarzeń dla zdarzenia `Tick` czasomierza. W tym obs
 
 [!code-vb[Main](master-pages-and-asp-net-ajax-vb/samples/sample6.vb)]
 
-To wszystko. Odwiedź stronę ponownie za pomocą przeglądarki. Początkowo wyświetlane są informacje losowe o produkcie. Jeśli zauważysz, że na ekranie zobaczysz, że po 15 sekundach informacje o nowym produkcie zastępują istniejący ekran.
+To wszystko! Odwiedź stronę ponownie za pomocą przeglądarki. Początkowo wyświetlane są informacje losowe o produkcie. Jeśli zauważysz, że na ekranie zobaczysz, że po 15 sekundach informacje o nowym produkcie zastępują istniejący ekran.
 
 Aby lepiej zobaczyć, co się dzieje w tym miejscu, dodajmy kontrolkę etykieta do elementu UpdatePanel, który wyświetla czas ostatniej aktualizacji wyświetlania. Dodaj kontrolkę sieci Web etykieta w elemencie UpdatePanel, ustaw jej `ID` na `LastUpdateTime`i wyczyść jej Właściwość `Text`. Następnie Utwórz procedurę obsługi zdarzeń dla zdarzenia `Load` elementu UpdatePanel i Wyświetl bieżącą godzinę w etykiecie. (Zdarzenie `Load` elementu UpdatePanel jest uruchamiane na wszystkich pełnych lub częściowych stronach ogłaszania zwrotnego.)
 

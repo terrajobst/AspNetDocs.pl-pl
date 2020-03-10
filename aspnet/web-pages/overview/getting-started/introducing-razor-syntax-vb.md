@@ -1,57 +1,57 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
-title: Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic) | Dokumentacja firmy Microsoft
+title: Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor (Visual Basic) | Microsoft Docs
 author: Rick-Anderson
-description: Ten dodatek zapewnia przegląd programowania, korzystając z wzorca ASP.NET Web pages w języku Visual Basic z użyciem składni Razor.
+description: Ten dodatek zawiera omówienie programowania za pomocą ASP.NET stron sieci Web w Visual Basic przy użyciu składnia Razor.
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 2be57655b8c9b76b94e1d9a7ae5fbee27545a0a9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113090"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78526594"
 ---
-# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic)
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor (Visual Basic)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule umożliwia przegląd programowania przy użyciu stron ASP.NET Web Pages przy użyciu składni Razor i Visual Basic. ASP.NET to technologia firmy Microsoft dotyczące uruchamiania dynamicznych stron sieci web na serwerach sieci web.
+> Ten artykuł zawiera omówienie programowania za pomocą ASP.NET stron sieci Web przy użyciu składnia Razor i Visual Basic. ASP.NET to technologia firmy Microsoft do uruchamiania dynamicznych stron sieci Web na serwerach sieci Web.
 > 
-> **Dowiesz się**:
+> Dowiesz **się**:
 > 
-> - Najważniejsze 8, porady dotyczące wprowadzenie do programowania stron sieci Web platformy ASP.NET używająca składni Razor programowania.
-> - Podstawowe pojęcia programowania, które będą potrzebne.
-> - Jaki kod serwera programu ASP.NET o składni Razor są wszystkie informacje.
+> - 8 najważniejszych porad programistycznych dotyczących rozpoczynania pracy z programowaniem ASP.NET stron sieci Web przy użyciu programu składnia Razor.
+> - Podstawowe pojęcia związane z programowaniem, które będą potrzebne.
+> - Co to jest kod serwera ASP.NET i składnia Razor.
 >   
 > 
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
-Większość przykładów przy użyciu stron ASP.NET Web Pages o składni Razor używaj języka C#. Ale języka Visual Basic obsługuje również składni Razor. Programowanie na stronie sieci web platformy ASP.NET w języku Visual Basic, utworzyć stronę sieci web w taki sposób, przy użyciu *.vbhtml* rozszerzenie nazwy pliku, a następnie dodać kod języka Visual Basic. Ten artykuł zawiera omówienie pracy z języka Visual Basic i składnię tworzenia stron sieci Web ASP.NET.
+Większość przykładów używania stron sieci Web ASP.NET z użyciem C#składnia Razor. Jednak składnia Razor obsługuje również Visual Basic. Aby program ASP.NET stronę sieci Web w Visual Basic, należy utworzyć stronę sieci Web z rozszerzeniem nazwy pliku *. vbhtml* , a następnie dodać kod Visual Basic. Ten artykuł zawiera omówienie pracy z Visual Basic językiem i składnią w celu tworzenia stron sieci Web ASP.NET.
 
 > [!NOTE]
-> Domyślne szablony witryny sieci Web programu Microsoft WebMatrix (**dla piekarni**, **Galeria fotografii**, i **witryny początkowej**, itp.) są dostępne w wersjach C# i Visual Basic. Szablony programu Visual Basic, można zainstalować jako pakiety NuGet. Szablonów sieci Web są zainstalowane w folderze głównym lokacji w folderze o nazwie *Templates firmy Microsoft*.
+> Domyślne szablony witryn sieci Web dla programu Microsoft WebMatrix (**piekarni**, **Photo Gallery**i **Starter site**itp.) są dostępne w C# systemach i Visual Basic. Szablony Visual Basic można zainstalować za pomocą programu jako pakietów NuGet. Szablony witryn sieci Web są instalowane w folderze głównym witryny w folderze o nazwie *Szablony firmy Microsoft*.
 
-## <a name="the-top-8-programming-tips"></a>Najważniejsze 8 porady dotyczące programowania
+## <a name="the-top-8-programming-tips"></a>8 najważniejszych wskazówek dotyczących programowania
 
-W tej sekcji przedstawiono kilka wskazówek, które bezwzględnie musisz wiedzieć, po rozpoczęciu pisania kodu serwera ASP.NET używająca składni Razor.
+W tej sekcji przedstawiono kilka wskazówek, które należy znać podczas pisania kodu serwera ASP.NET przy użyciu składnia Razor.
 
-### <a name="1-you-add-code-to-a-page-using-the--character"></a>1. Możesz dodać kod do strony przy użyciu znaku @
+### <a name="1-you-add-code-to-a-page-using-the--character"></a>1. Dodaj kod do strony przy użyciu znaku @
 
-`@` Znak rozpoczyna się w tekście wyrażeń, bloków pojedynczej instrukcji i bloków wielu instrukcji:
+Znak `@` uruchamia wyrażenia śródwierszowe, bloki pojedynczej instrukcji i bloki zawierające wiele instrukcji:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample1.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
 
@@ -59,224 +59,224 @@ Wynik jest wyświetlany w przeglądarce:
 > 
 > **Kodowanie HTML**
 > 
-> Podczas wyświetlania zawartości na stronie za pomocą `@` znaków, jak w poprzednich przykładach, ASP.NET koduje jako HTML dane wyjściowe. Spowoduje to zastąpienie zastrzeżone znaki HTML (takie jak `<` i `>` i `&`) przy użyciu kodów, umożliwiające znaków, które mają być wyświetlane jako znaki na stronie sieci web, a interpretowany jako tagów HTML lub jednostki. Zakodowany w formacie HTML, dane wyjściowe z kodu serwera mogą być wyświetlane nieprawidłowo i spowodować narażenie na zagrożenia bezpieczeństwa strony.
+> Gdy wyświetlasz zawartość na stronie przy użyciu znaku `@`, jak w powyższych przykładach, ASP.NET HTML — koduje dane wyjściowe. Zastępuje to zastrzeżone znaki HTML (takie jak `<` i `>` i `&`) kodami, które umożliwiają wyświetlanie znaków jako znaków na stronie sieci Web zamiast interpretowania ich jako tagów HTML lub jednostek. Bez kodowania HTML dane wyjściowe z kodu serwera mogą nie być wyświetlane prawidłowo i mogą uwidaczniać zagrożenie bezpieczeństwa.
 > 
-> Jeśli dowiesz się, jak dane wyjściowe kod znaczników HTML, który renderuje tagi jako kod znaczników (na przykład `<p></p>` akapitu lub `<em></em>` aby wyróżnić tekst), zobacz sekcję [łączenie tekstu, znaczników i kodu w blokach kodu](#BM_CombiningTextMarkupAndCode) w dalszej części tego artykułu.
+> Jeśli celem jest wyprowadzanie kodu HTML, który renderuje Tagi jako znaczniki (na przykład `<p></p>` akapitu lub `<em></em>` w celu wyróżnienia tekstu), zobacz sekcję [łączenie tekstu, znaczników i kodu w blokach kodu w](#BM_CombiningTextMarkupAndCode) dalszej części tego artykułu.
 > 
-> Możesz dowiedzieć się więcej o kodowanie HTML w [Praca z formularzami HTML w witrynach stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202892).
+> Więcej informacji na temat kodowania HTML można znaleźć w artykule [Praca z formularzami HTML w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202892).
 
-### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. Umieść bloki kodu przy użyciu kodu... Kod zakończenia
+### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. bloki kodu zostały ujęte w kodzie... Kod końcowy
 
-Blok kodu zawiera jeden lub więcej instrukcji kodu i znajduje się za pomocą słów kluczowych `Code` i `End Code`. Umieść otwierający `Code` — słowo kluczowe natychmiast po `@` znak &#8212; nie może zawierać odstępów między nimi.
+Blok kodu zawiera jedną lub więcej instrukcji kodu i jest ujęty w słowa kluczowe `Code` i `End Code`. Umieść otwierający `Code` słowo kluczowe bezpośrednio po znaku &#8212; `@` nie może być odstęp między nimi.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample2.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
 
-### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. Wewnątrz bloku zakończenia każda instrukcja kodu za pomocą podział wiersza
+### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. wewnątrz bloku można zakończyć każdą instrukcję Code z podziałem wiersza
 
-W bloku kodu języka Visual Basic każda instrukcja kończy się podział wiersza. (W dalszej części tego artykułu zobaczysz sposób opakować instrukcję kodu długa na wiele wierszy, jeśli to konieczne.)
+W bloku kodu Visual Basic każda instrukcja zostaje zakończona podziałem wiersza. (W dalszej części artykułu zobaczysz sposób zawijania długiej instrukcji kodu do wielu wierszy w razie potrzeby).
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample3.vbhtml)]
 
-### <a name="4-you-use-variables-to-store-values"></a>4. W przypadku używania zmiennych do przechowywania wartości
+### <a name="4-you-use-variables-to-store-values"></a>4. Użyj zmiennych do przechowywania wartości
 
-Można przechowywać wartości w *zmiennej*, w tym ciągi, liczby i daty, itp. Możesz utworzyć nową zmienną za pomocą `Dim` — słowo kluczowe. Wartości zmiennych można wstawić bezpośrednio na stronie za pomocą `@`.
+Można przechowywać wartości w *zmiennej*, w tym ciągi, liczby i daty itp. Tworzysz nową zmienną za pomocą słowa kluczowego `Dim`. Można wstawiać wartości zmiennych bezpośrednio na stronie przy użyciu `@`.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample4.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
 
-### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Ujmij wartości literału ciągu w znaki podwójnego cudzysłowu
+### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. w podwójnym cudzysłowie należy umieścić wartości ciągu literału
 
-A *ciąg* jest sekwencją znaków, które są traktowane jako tekst. Aby określić ciąg, ująć w znaki cudzysłowu:
+*Ciąg* jest sekwencją znaków, które są traktowane jako tekst. Aby określić ciąg, należy umieścić go w podwójnym cudzysłowie:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample5.vbhtml)]
 
-Aby osadzić podwójnego cudzysłowu wewnątrz wartości ciągu, Wstaw dwa znaki cudzysłowu. Znak cudzysłowu się jeden raz w danych wyjściowych strony, wprowadź go w formie `""` w cudzysłowie ciąg i się pojawić się dwa razy, wprowadź go jako `""""` w ramach ciągów w cudzysłowach.
+Aby osadzić znaki podwójnego cudzysłowu w ciągu wartości ciągu, Wstaw dwa znaki podwójnego cudzysłowu. Jeśli chcesz, aby znak podwójnego cudzysłowu pojawił się raz w danych wyjściowych na stronie, wprowadź go jako `""` w ciągu ujętym w cudzysłów, a jeśli chcesz, aby pojawił się dwukrotnie, wprowadź go jako `""""` w ciągu ujętym w cudzysłów.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample6.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
 
-### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. Kod języka Visual Basic nie jest uwzględniana wielkość liter
+### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. kod Visual Basic nie uwzględnia wielkości liter
 
-Język Visual Basic nie jest uwzględniana wielkość liter. Programowanie słowa kluczowe (takie jak `Dim`, `If`, i `True`) i nazwy zmiennych (takich jak `myString`, lub `subTotal`) mogą być zapisywane w każdym przypadku.
+W języku Visual Basic nie jest rozróżniana wielkość liter. W każdym przypadku można napisać słowa kluczowe programowania (takie jak `Dim`, `If`i `True`) oraz nazwy zmiennych (takie jak `myString`lub `subTotal`).
 
-Następujące wiersze kodu przypisać wartość do zmiennej `lastname` przy użyciu małymi literami nazwę, a następnie wyprowadzić wartość zmiennej strony za pomocą wielkie nazwy.
+Następujące wiersze kodu przypisują wartość do zmiennej `lastname` przy użyciu nazwy z małymi literami, a następnie wyprowadza wartość zmiennej na stronę przy użyciu nazwy z wielką literą.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample7.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
 
-### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Większość kodowania wymaga pracy z obiektami
+### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. większość kodowania obejmuje pracę z obiektami
 
-Obiekt reprezentuje rzecz, którą można programować za pomocą &#8212; strony pola tekstowego, pliku, obraz, żądania sieci web, wiadomości e-mail, rekord klienta (wiersz bazy danych), itp. Obiekty mają właściwości, które opisują ich właściwości &#8212; ma obiekt pola tekstowego `Text` właściwości obiektu żądania ma `Url` właściwość, wiadomość e-mail ma `From` właściwość i obiekt klienta ma `FirstName` Właściwość. Obiektów ma także metody, które są &quot;zleceń&quot; mogą wykonywać. Przykłady obejmują obiekt pliku `Save` metodę, obiekt obrazu `Rotate` metody i obiekt e-mail `Send` metody.
+Obiekt reprezentuje element, który można zaprogramować ze &#8212; stroną, polem tekstowym, plikiem, obrazem, żądaniem sieci Web, wiadomością e-mail, rekordem klienta (wierszem bazy danych) itd. Obiekty mają właściwości opisujące ich właściwości &#8212; obiekt pola tekstowego ma właściwość `Text`, obiekt żądania ma właściwość `Url`, wiadomość e-mail ma właściwość `From`, a obiekt klienta ma właściwość `FirstName`. Obiekty mają również metody, które są zleceniami &quot;,&quot; mogą być wykonywane. Przykłady obejmują metodę `Save` obiektu pliku, metodę `Rotate` obiektu obrazu oraz metodę `Send` obiektu poczty e-mail.
 
-Często będziesz pracować `Request` obiektu, który zapewnia informacje, takie jak wartości formularza pola na stronie (pola tekstowe itp.), jakiego rodzaju przeglądarki wysłał żądanie, adres URL strony, tożsamość użytkownika, itp. W tym przykładzie przedstawiono sposób uzyskiwania dostępu do właściwości `Request` obiektu i wywoływania `MapPath` metody `Request` obiektu, który zapewnia ścieżkę bezwzględną strony na serwerze:
+Często pracujesz z obiektem `Request`, który zawiera informacje, takie jak wartości pól formularza na stronie (pola tekstowe itd.), typ przeglądarki, która złożyła żądanie, adres URL strony, tożsamość użytkownika itd. Ten przykład pokazuje, jak uzyskać dostęp do właściwości obiektu `Request` i jak wywołać metodę `MapPath` obiektu `Request`, która zapewnia ścieżkę bezwzględną strony na serwerze:
 
 [!code-html[Main](introducing-razor-syntax-vb/samples/sample8.html)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img5](introducing-razor-syntax-vb/_static/image6.jpg)
 
-### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Można napisać kod, który podejmuje decyzje
+### <a name="8-you-can-write-code-that-makes-decisions"></a>8. możesz napisać kod, który podejmuje decyzje
 
-Kluczową funkcją dynamicznych stron sieci web jest, czy można określić, co należy zrobić, na podstawie warunków. Jest najbardziej popularny sposób, w tym celu `If` — instrukcja (i opcjonalnie `Else` instrukcji).
+Kluczową cechą dynamicznych stron sieci Web jest określenie, jakie czynności należy wykonać na podstawie warunków. Najbardziej typowym sposobem wykonania tej czynności jest wykonanie instrukcji `If` (i opcjonalnej instrukcji `Else`).
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample9.vbhtml)]
 
-Wykonywanie instrukcji `If IsPost` jest skrót sposobem pisania `If IsPost = True`. Wraz z `If` instrukcji, istnieje wiele sposobów, aby przetestować warunki, powtórz bloki kodu, i itd., które są opisane w dalszej części tego artykułu.
+Instrukcja `If IsPost` to skrócony sposób pisania `If IsPost = True`. Wraz z `If` instrukcjami istnieją różne sposoby testowania warunków, powtarzania bloków kodu i tak dalej, które opisano w dalszej części tego artykułu.
 
-Wynik wyświetlany w przeglądarce (po kliknięciu przycisku **przesyłania**):
+Wynik wyświetlany w przeglądarce (po kliknięciu przycisku **Prześlij**):
 
 ![Razor-Img6](introducing-razor-syntax-vb/_static/image7.jpg)
 
 > [!TIP] 
 > 
-> **HTTP GET i POST metod i właściwości IsPost**
+> **Metody GET i POST protokołu HTTP oraz Właściwość ispost**
 > 
-> Protokół używany dla stron sieci web (HTTP) obsługuje bardzo ograniczona liczba metod (&quot;zleceń&quot;) które są używane, aby wysyłać żądania do serwera. Dwie najbardziej typowe to GET, który służy do odczytu strony i WPIS, który jest używany do przesyłania strony. Ogólnie rzecz biorąc po raz pierwszy użytkownik zgłasza żądanie strony, strony jest przesyłane przy użyciu GET. Jeśli użytkownik wypełnia formularz, a następnie klika przycisk **przesyłania**, przeglądarce wysyła żądanie POST do serwera.
+> Protokół używany przez strony sieci Web (HTTP) obsługuje bardzo ograniczoną liczbę metod (&quot;czasownik&quot;), które są używane do żądania do serwera. Dwa Najczęstsze są pobieranie, które są używane do odczytywania strony i wpisu, które są używane do przesyłania strony. Na ogół podczas pierwszego żądania strony użytkownik żąda strony przy użyciu polecenia GET. Jeśli użytkownik wypełni formularz, a następnie kliknie przycisk **Prześlij**, przeglądarka wysyła żądanie post do serwera.
 > 
-> W programowanie dla sieci web jest często grupowaniu można sprawdzić, czy strona jest wymagana jako GET lub POST, aby znać sposób przetwarzania tej strony. W składniku ASP.NET Web Pages można użyć `IsPost` właściwość, aby sprawdzić, czy żądanie GET lub POST. Jeśli żądanie jest żądaniem POST `IsPost` właściwość zostanie zwrócona wartość PRAWDA, a można wykonywać takie czynności, takich jak odczyt wartości pola tekstowe w formularzu. Wiele przykładów zobaczysz pokazują, jak można przetworzyć strony inaczej w zależności od wartości `IsPost`.
+> W programowaniu sieci Web często warto wiedzieć, czy strona jest żądana jako GET, czy jako wpis, aby poznać sposób przetwarzania strony. Na stronach sieci Web ASP.NET można użyć właściwości `IsPost`, aby sprawdzić, czy żądanie jest GET lub POST. Jeśli żądanie jest WPISem, właściwość `IsPost` zwróci wartość true i można wykonać czynności, takie jak odczytywanie wartości pól tekstowych w formularzu. Wiele przykładów zobaczysz, jak przetwarzać stronę w różny sposób w zależności od wartości `IsPost`.
 
 ## <a name="a-simple-code-example"></a>Prosty przykład kodu
 
-Ta procedura pokazuje, jak utworzyć stronę, która przedstawia podstawowe techniki programowania. W tym przykładzie utworzysz stronę, która umożliwia użytkownikom wprowadź dwie liczby, a następnie dodanie ich i wyświetla wynik.
+Ta procedura pokazuje, jak utworzyć stronę przedstawiającą podstawowe techniki programowania. W tym przykładzie utworzysz stronę umożliwiającą użytkownikom wprowadzanie dwóch liczb, a następnie ich dodanie i wyświetlenie wyniku.
 
-1. W edytorze, Utwórz nowy plik i nadaj mu nazwę *AddNumbers.vbhtml*.
-2. Skopiuj następujący kod i znaczników do strony, zastępując wszystko już na stronie.
+1. W edytorze Utwórz nowy plik i nadaj mu nazwę *AddNumbers. vbhtml*.
+2. Skopiuj poniższy kod i adiustację na stronie, zastępując wszystkie elementy znajdujące się już na stronie.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample10.vbhtml)]
 
-    Oto kilka rzeczy, umożliwiające należy zwrócić uwagę:
+    Oto kilka rzeczy, dla których warto zwrócić uwagę:
 
-    - `@` Znak rozpoczyna się pierwszego bloku kodu na stronie i poprzedza ono `totalMessage` zmiennej osadzone w dolnej części.
-    - Blok, w górnej części strony jest ujęty w `Code...End Code`.
-    - Zmienne `total`, `num1`, `num2`, i `totalMessage` przechowywać kilka liczb i ciąg.
-    - Wartość literału ciągu przypisana do `totalMessage` zmiennej znajduje się w znaki podwójnego cudzysłowu.
-    - Ponieważ kod języka Visual Basic nie jest uwzględniana wielkość liter, kiedy `totalMessage` zmienna jest używana w dolnej części strony, jego nazwa tylko musi być zgodna pisownię deklaracja zmiennej w górnej części strony. Wielkość liter w wyrazie nie ma znaczenia.
-    - Wyrażenie `num1.AsInt()`  +  `num2.AsInt()` pokazuje, jak pracować z obiektami i metody. `AsInt` Metody dla każdej zmiennej konwertuje ciąg wprowadzanego przez użytkownika do liczb całkowitych (liczba całkowita), który można dodać.
-    - `<form>` Znacznik obejmuje `method="post"` atrybutu. Określa to, że gdy użytkownik kliknie **Dodaj**, strony, które będą wysyłane do serwera przy użyciu metody POST protokołu HTTP. Po przesłaniu strony, kod `If IsPost` daje w wyniku wartość PRAWDA, a warunkowy kod działa, wyświetlanie wynikiem dodania liczb.
-3. Zapisz stronę i uruchom go w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.) Wprowadź dwoma liczbami całkowitymi, a następnie kliknij przycisk **Dodaj** przycisku.
+    - Znak `@` uruchamia pierwszy blok kodu na stronie i poprzedza zmienną `totalMessage` osadzoną w dolnej części.
+    - Blok w górnej części strony jest ujęty w `Code...End Code`.
+    - Zmienne `total`, `num1`, `num2`i `totalMessage` przechowują kilka liczb i ciąg.
+    - Wartość ciągu literału przypisana do zmiennej `totalMessage` znajduje się w podwójnym cudzysłowie.
+    - Ponieważ w kodzie Visual Basic nie jest rozróżniana wielkość liter, gdy zmienna `totalMessage` jest używana w dolnej części strony, jej nazwa musi być zgodna z pisownią deklaracji zmiennej w górnej części strony. Wielkość liter nie ma znaczenia.
+    - Wyrażenie `num1.AsInt()` + `num2.AsInt()` pokazuje, jak korzystać z obiektów i metod. Metoda `AsInt` dla każdej zmiennej konwertuje ciąg wprowadzony przez użytkownika na liczbę całkowitą (liczbę całkowitą), którą można dodać.
+    - Tag `<form>` zawiera atrybut `method="post"`. Oznacza to, że gdy użytkownik kliknie przycisk **Dodaj**, Strona zostanie wysłana na serwer przy użyciu metody POST protokołu HTTP. Gdy strona zostanie przesłana, kod `If IsPost` ma wartość true, a kod warunkowy zostanie uruchomiony, wyświetlając wynik dodawania liczb.
+3. Zapisz stronę i uruchom ją w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem). Wprowadź dwie liczby całkowite, a następnie kliknij przycisk **Dodaj** .
 
     ![Razor-Img7](introducing-razor-syntax-vb/_static/image8.jpg)
 
-## <a name="visual-basic-language-and-syntax"></a>Język Visual Basic i składnia
+## <a name="visual-basic-language-and-syntax"></a>Visual Basic język i składnia
 
-Wcześniej był wyświetlany podstawowy przykład sposobu tworzenia strony sieci web ASP.NET i jak możesz dodać kod serwera do kod znaczników HTML. Tutaj dowiesz się podstawowe informacje dotyczące pisania kodu serwera ASP.NET używająca składni Razor przy użyciu języka Visual Basic &#8212; czyli programowania reguły języka.
+Wcześniej przedstawiono podstawowy przykład tworzenia strony sieci Web ASP.NET oraz sposób dodawania kodu serwerowego do znacznika HTML. W tym artykule poznasz podstawy używania Visual Basic do pisania kodu serwera ASP.NET przy użyciu składnia Razor &#8212; , które są regułami języka programowania.
 
-Jeśli masz doświadczenie w pracy z programowania (zwłaszcza, jeśli używano C, C++, C#, Visual Basic lub JavaScript), większość tutaj przeczytaj będą niczym nowym. Prawdopodobnie należy zapoznać się tylko z jak kod w programie WebMatrix jest dodawany do znaczników w *.vbhtml* plików.
+Jeśli masz doświadczenie z programowaniem (zwłaszcza jeśli użyto języka C, C++, C#, Visual Basic lub JavaScript), większość czytanych tutaj informacji będzie znana. Prawdopodobnie trzeba będzie zaznajomić się tylko z informacjami o sposobie dodawania kodu WebMatrix do znaczników w plikach *. vbhtml* .
 
-### <a id="BM_CombiningTextMarkupAndCode"></a>  Łączenie tekstu, znaczników i kodu w blokach kodu
+### <a id="BM_CombiningTextMarkupAndCode"></a>Łączenie tekstu, znaczników i kodu w blokach kodu
 
-W blokach kodu serwera należy często danych wyjściowych tekst i znacznik do strony. Jeśli blok kodu serwera zawiera tekst nie jest kodem, który zamiast tego powinien być renderowany jako jest, ASP.NET musi być w stanie odróżnić go od kodu. Istnieje kilka sposobów, aby to zrobić.
+W blokach kodu serwera często chcesz, aby tekst i adiustacje były wyprowadzane na stronie. Jeśli blok kodu serwera zawiera tekst, który nie jest kodem, a zamiast tego powinien być renderowany jako, ASP.NET musi mieć możliwość odróżnienia tego tekstu od kodu. Istnieje kilka sposobów, aby to zrobić.
 
-- Należy wpisać tekst w elemencie bloku HTML, takich jak `<p></p>` lub `<em></em>`:
+- Ujmij tekst w element bloku HTML, taki jak `<p></p>` lub `<em></em>`:
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample11.vbhtml)]
 
-    HTML element może zawierać tekstu, dodatkowe elementy HTML i wyrażenia w kodzie serwera. Gdy program ASP.NET widzi otwierający HTML tag (na przykład `<p>`), wszystko, czego renderowania elementu a jej zawartość jako przeglądarki (i rozwiązuje wyrażeń kodu serwera).
+    Element HTML może zawierać tekst, dodatkowe elementy HTML i wyrażenia kodu serwera. Gdy ASP.NET widzi tag otwierającego HTML (na przykład `<p>`), renderuje wszystko element i jego zawartość jako plik przeglądarki (i rozwiązuje wyrażenie kodu serwera).
 
-- Użyj `@:` operatora lub `<text>` elementu. `@:` Generuje pojedynczy wiersz zawartość zawierająca zwykły tekst lub niedopasowane tagów HTML; `<text>` element zawiera wiele wierszy w danych wyjściowych. Te opcje są przydatne, jeśli nie chcesz renderować HTML element jako część danych wyjściowych.
+- Użyj operatora `@:` lub elementu `<text>`. `@:` wyprowadza pojedynczy wiersz zawartości zawierający zwykły tekst lub niedopasowane Tagi HTML; element `<text>` obejmuje wiele wierszy do danych wyjściowych. Te opcje są przydatne, gdy nie chcesz renderować elementu HTML jako części danych wyjściowych.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample12.vbhtml)]
 
-    W poniższym przykładzie jest powtarzany w poprzednim przykładzie, ale używa jedna para `<text>` tagów, aby ująć tekstu do renderowania.
+    Poniższy przykład powtarza poprzedni przykład, ale używa pojedynczej pary tagów `<text>`, aby umieścić tekst do renderowania.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample13.vbhtml)]
 
-    W poniższym przykładzie `<text>` i `</text>` tagi należy ująć w trzy wiersze, które mają niektóre niedopasowane tagi HTML i uncontained tekst (`<br />`), wraz z kodu serwera i dopasowane tagów HTML. Ponownie, również może poprzedzać każdy wiersz za pomocą `@:` operator; albo sposób działania.
+    W poniższym przykładzie Tagi `<text>` i `</text>` zawierają trzy wiersze, z których wszystkie mają niezwierany tekst i niedopasowane Tagi HTML (`<br />`), a także kod serwera i dopasowane Tagi HTML. Ponownie można także poprzedzać każdy wiersz pojedynczym operatorem `@:`; w dowolny sposób działa.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample14.vbhtml)]
 
     > [!NOTE]
-    > Gdy tekstu wyjściowego przedstawione w tej sekcji &#8212; przy użyciu elementu HTML `@:` operatora lub `<text>` elementu &#8212; ASP.NET nie kodowanie HTML dane wyjściowe. (Jak wspomniano wcześniej, ASP.NET, kodowania danych wyjściowych wyrażeń kodu serwera i serwera bloków kodu, które są poprzedzone `@`, z wyjątkiem specjalnych przypadków wymienionych w tej sekcji.)
+    > Podczas wyprowadzania tekstu, jak pokazano w tej &#8212; sekcji przy użyciu elementu HTML, operatora `@:` lub elementu &#8212; `<text>` ASP.NET nie jest kodowane w języku HTML. (Jak wspomniano wcześniej, ASP.NET koduje dane wyjściowe wyrażeń kodów serwera i bloków kodu serwera, które są poprzedzone `@`, z wyjątkiem przypadków specjalnych zanotowanych w tej sekcji).
 
-### <a name="whitespace"></a>Białe znaki
+### <a name="whitespace"></a>Odstępu
 
-Dodatkowe spacje w instrukcji (i poza literału ciągu), nie mają wpływu na instrukcji:
+Dodatkowe spacje w instrukcji (i poza literałem ciągu) nie wpływają na instrukcję:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample15.vbhtml)]
 
-### <a name="breaking-long-statements-into-multiple-lines"></a>Podzielenie długie instrukcje na wiele wierszy
+### <a name="breaking-long-statements-into-multiple-lines"></a>Przerywanie długich instrukcji w wielu wierszach
 
-Instrukcja długie kodu można podzielić wiele wierszy za pomocą znaku podkreślenia `_` (w języku Visual Basic nazywana *znak kontynuacji*) po każdym wierszu kodu. Aby przerwać instrukcję do następnego wiersza, na końcu wiersza dodać spację, a następnie znak kontynuacji. Continue — instrukcja w następnym wierszu. Może zawijać się instrukcje, na których trzeba poprawić czytelność dowolną liczbę wierszy. Poniższe instrukcje są takie same:
+Można przerwać wykonywanie instrukcji Long Code w wielu wierszach przy użyciu znaku podkreślenia `_` (który w Visual Basic jest nazywany *znakiem kontynuacji*) po każdym wierszu kodu. Aby przerwać instrukcję do następnego wiersza, na końcu wiersza Dodaj spację, a następnie znak kontynuacji. Kontynuuj wykonywanie instrukcji w następnym wierszu. Można zawijać instrukcje na tyle wierszy, ile potrzebujesz, aby zwiększyć czytelność. Następujące instrukcje są takie same:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample16.vbhtml)]
 
-Jednak nie można opakować linię trakcie literału ciągu. Poniższy przykład nie działa:
+Nie można jednak otoczyć wiersza w środku literału ciągu. Poniższy przykład nie działa:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample17.vbhtml)]
 
-Aby połączyć długi ciąg, który jest zawijany do wielu linii, takich jak kod powyżej, czy należy użyć *operatora łączenia* (`&`), które zostaną wyświetlone w dalszej części tego artykułu.
+Aby połączyć długi ciąg, który otacza wiele wierszy, takich jak powyższy kod, należy użyć *operatora łączenia* (`&`), który będzie widoczny w dalszej części tego artykułu.
 
-### <a name="code-comments"></a>Komentarze w kodzie
+### <a name="code-comments"></a>Komentarze do kodu
 
-Komentarze umożliwiają pozostawienie notatki dla siebie i innych osób. Komentarze składni razor mają prefiks `@*` i kończyć się znakiem `*@`.
+Komentarze umożliwiają wystawianie notatek dla siebie lub dla innych osób. Komentarze składnia Razor są poprzedzone `@*` i kończyć się `*@`.
 
 [!code-cshtml[Main](introducing-razor-syntax-vb/samples/sample18.cshtml)]
 
-Wewnątrz bloków kodu można użyć komentarze składni Razor, lub można użyć zwykły znak komentarz języka Visual Basic, który jest pojedynczy cudzysłów (`'`) prefiks do każdego wiersza.
+W blokach kodu można użyć komentarzy składnia Razor lub użyć zwykłego znaku Visual Basic komentarza, który jest pojedynczym cudzysłowem (`'`) poprzedzonym każdym wierszem.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample19.vbhtml)]
 
 ## <a name="variables"></a>Zmienne
 
-Zmienna jest nazwany obiekt, który służy do przechowywania danych. Zmienne możesz nazwać wszystko, ale nazwa musi rozpoczynać się od litery alfabetu i nie może zawierać spacji ani znaków zarezerwowanych. W języku Visual Basic, jak przedstawiono wcześniej, wielkość liter w nazwie zmiennej nie ma znaczenia.
+Zmienna to nazwany obiekt, który służy do przechowywania danych. Można nazwać zmienne, ale nazwa musi zaczynać się od litery i nie może zawierać spacji ani znaków zarezerwowanych. W Visual Basic, jak pokazano wcześniej, przypadek liter w nazwie zmiennej nie ma znaczenia.
 
 ### <a name="variables-and-data-types"></a>Zmienne i typy danych
 
-Zmienna może mieć na określony typ danych, która wskazuje, jakiego typu dane są przechowywane w zmiennej. Mogą mieć zmiennych ciągu, które przechowują wartości ciągu (takich jak &quot;Witaj, świecie&quot;), zmiennych całkowitych, które przechowują wartości liczby całkowitej (np. 3 lub 79) i zmienne daty, które przechowywanie wartości daty w różnych formatach (np. 4/12/2012 lub marca 2009 ). Wiąże się wiele typów danych, w których można użyć.
+Zmienna może mieć określony typ danych, co wskazuje, jakiego rodzaju dane są przechowywane w zmiennej. Można mieć zmienne ciągów, które przechowują wartości ciągu (takie jak &quot;Hello World&quot;), zmienne typu Integer, które przechowują wartości całkowite (takie jak 3 lub 79) i zmienne dat, które przechowują wartości daty w różnych formatach (na przykład 4/12/2012 lub marzec 2009). Istnieje wiele innych typów danych, których można użyć.
 
-Jednakże nie trzeba określać typu zmiennej. W większości przypadków platformy ASP.NET można ustalić typu, w oparciu sposobu korzystania z danych w zmiennej. (Czasami musisz określić typ; pojawi się przykłady którym ta zasada obowiązuje).
+Nie trzeba jednak określać typu dla zmiennej. W większości przypadków ASP.NET może ustalić typ na podstawie sposobu użycia danych w zmiennej. (Czasami musisz określić typ; zobaczysz przykłady, w których to prawda).
 
-Aby zadeklarować zmienną bez określania typu, należy użyć `Dim` oraz nazwę zmiennej (na przykład `Dim myVar`). Aby zadeklarować zmienną typu, należy użyć `Dim` oraz nazwę zmiennej, a następnie `As` i następnie nazwę typu (na przykład `Dim myVar As String`).
+Aby zadeklarować zmienną bez określenia typu, użyj `Dim` i nazwy zmiennej (na przykład `Dim myVar`). Aby zadeklarować zmienną typu, użyj `Dim` plusa nazwy zmiennej, a następnie `As` a następnie nazwę typu (na przykład `Dim myVar As String`).
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample20.vbhtml)]
 
-Poniższy przykład przedstawia niektóre wbudowane wyrażeń zmiennych na stronie sieci web.
+Poniższy przykład pokazuje niektóre wyrażenia wbudowane, które używają zmiennych na stronie sieci Web.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample21.vbhtml)]
 
-Wynik jest wyświetlany w przeglądarce:
+Wynik wyświetlany w przeglądarce:
 
 ![Razor-Img9](introducing-razor-syntax-vb/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Konwertowanie i testowanie typów danych
 
-Mimo że program ASP.NET zazwyczaj może automatycznie określić typu danych, czasami nie jest. W związku z tym konieczne może być pomógł ASP.NET, wykonując jawnej konwersji. Nawet jeśli nie masz konwersji typów, czasami warto sprawdzić, jakiego typu dane być może pracujesz z.
+Chociaż ASP.NET zazwyczaj zwykle określa typ danych, czasami nie jest to możliwe. W związku z tym może być konieczne ASP.NET przez wykonanie jawnej konwersji. Nawet jeśli nie musisz konwertować typów, czasami warto przetestować, aby zobaczyć, jakiego typu dane mogą pracować.
 
-Najbardziej często zdarza się, trzeba przekonwertować ciąg do innego typu, takie jak liczbą całkowitą lub daty. Poniższy przykład przedstawia typową sytuacją, w którym należy przekonwertować ciąg na liczbę.
+Najczęstszym przypadkiem jest to, że trzeba przekonwertować ciąg na inny typ, na przykład na liczbę całkowitą lub datę. W poniższym przykładzie pokazano typowy przypadek, w którym należy przekonwertować ciąg na liczbę.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample22.vbhtml)]
 
-Zgodnie z zasadą dane wejściowe użytkownika dostarczany jako ciągi. Nawet jeśli została monituje użytkownika o wprowadzenie numeru, a nawet wtedy, gdy zostały wprowadzone cyfr, podczas przesyłania danych wejściowych użytkownika, a następnie go odczytać w kodzie, dane są w formacie ciągu. W związku z tym należy przekonwertować ciąg na liczbę. W przykładzie Jeśli zostanie podjęta próba wykonania operacji arytmetycznych na wartościach, bez konwersji, następujący błąd wyników, ponieważ program ASP.NET nie można dodać dwa ciągi:
+Zgodnie z regułą dane wprowadzane przez użytkownika są uznawane za ciągi. Nawet jeśli użytkownik otrzyma monit o wprowadzenie numeru, a nawet jeśli podano cyfrę, gdy dane wejściowe użytkownika są przesyłane i odczytywane w kodzie, dane są w formacie ciągu. W związku z tym należy przekonwertować ciąg na liczbę. W przykładzie, jeśli spróbujesz wykonać operacje arytmetyczne na wartościach bez ich konwersji, następujące wyniki błędu, ponieważ ASP.NET nie mogą dodać dwóch ciągów:
 
 `Cannot implicitly convert type 'string' to 'int'.`
 
-Aby przekonwertować wartości liczb całkowitych, należy wywołać `AsInt` metody. Jeśli konwersja się pomyślnie, następnie można dodać liczb.
+Aby przekonwertować wartości na liczby całkowite, należy wywołać metodę `AsInt`. Jeśli konwersja zakończy się pomyślnie, można dodać liczby.
 
-Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmiennych.
+W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania zmiennych.
 
 :::row:::
     :::column:::
-        <strong>Method</strong>
+        <strong>Metoda</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+        <strong>Opis</strong>
     :::column-end:::
     :::column:::
-        <strong>Example</strong>
+        <strong>Przykład</strong>
     :::column-end:::
 :::row-end:::
 
@@ -287,7 +287,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsInt(), IsInt()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a whole number (like &quot;593&quot;) to an integer.
+        Konwertuje ciąg, który reprezentuje liczbę całkowitą (na przykład &quot;593&quot;) do liczby całkowitej.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
@@ -301,7 +301,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsBool(), IsBool()`
     :::column-end:::
     :::column:::
-        Converts a string like &quot;true&quot; or &quot;false&quot; to a Boolean type.
+        Konwertuje ciąg, taki jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
@@ -315,7 +315,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsFloat(), IsFloat()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a floating-point number.
+        Konwertuje ciąg, który ma wartość dziesiętną, taką jak &quot;1,3&quot; lub &quot;7,439&quot; do liczby zmiennoprzecinkowej.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
@@ -329,7 +329,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsDecimal(), IsDecimal()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a decimal number. (In ASP.NET, a decimal number is more precise than a floating-point number.)
+        Konwertuje ciąg, który ma wartość dziesiętną, taką jak &quot;1,3&quot; lub &quot;7,439&quot; do liczby dziesiętnej. (W ASP.NET liczba dziesiętna jest bardziej precyzyjna niż liczba zmiennoprzecinkowa).
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
@@ -343,7 +343,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsDateTime(), IsDateTime()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a date and time value to the ASP.NET `DateTime` type.
+        Konwertuje ciąg, który reprezentuje wartość daty i godziny dla typu `DateTime` ASP.NET.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
@@ -357,7 +357,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `ToString()`
     :::column-end:::
     :::column:::
-        Converts any other data type to a string.
+        Konwertuje wszystkie inne typy danych na ciąg.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
@@ -366,17 +366,17 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
 
 ## <a name="operators"></a>Operatory
 
-Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. Visual Basic obsługuje wiele operatorów, ale musisz rozpoznać kilka, aby rozpocząć wdrażanie stron ASP.NET web pages. Poniższa tabela zawiera podsumowanie najbardziej typowych operatorów.
+Operator jest słowem kluczowym lub znakiem, który informuje ASP.NET jakiego rodzaju polecenia wykonać w wyrażeniu. Visual Basic obsługuje wiele operatorów, ale wystarczy tylko rozpoznać kilka, aby rozpocząć opracowywanie stron sieci Web ASP.NET. Poniższa tabela zawiera podsumowanie najbardziej typowych operatorów.
 
 :::row:::
     :::column:::
-        <strong>Operator</strong>
+        <strong>Zakład</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+        <strong>Opis</strong>
     :::column-end:::
     :::column:::
-        <strong>Examples</strong>
+        <strong>Przykłady</strong>
     :::column-end:::
 :::row-end:::
 
@@ -387,7 +387,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `+ - * /`
     :::column-end:::
     :::column:::
-        Math operators used in numerical expressions.
+        Operatory matematyczne używane w wyrażeniach liczbowych.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
@@ -401,7 +401,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `=`
     :::column-end:::
     :::column:::
-        Assignment and equality. Depending on context, either assigns the value on the right side of a statement to the object on the left side, or checks the values for equality.
+        Przypisanie i równość. W zależności od kontekstu przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie lub sprawdza wartości pod kątem równości.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
@@ -415,7 +415,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `<>`
     :::column-end:::
     :::column:::
-        Inequality. Returns `True` if the values are not equal.
+        Nierówności. Zwraca `True`, jeśli wartości nie są równe.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
@@ -429,7 +429,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `< > <= >=`
     :::column-end:::
     :::column:::
-        Less than, greater than, less than or equal, and greater than or equal.
+        Mniejsze niż, większe niż, mniejsze niż lub równe i większe niż lub równe.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
@@ -443,7 +443,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `&`
     :::column-end:::
     :::column:::
-        Concatenation, which is used to join strings.
+        Łączenie, które jest używane do dołączania ciągów.
     :::column-end:::
     :::column:::
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
@@ -457,7 +457,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `+= -=`
     :::column-end:::
     :::column:::
-        The increment and decrement operators, which add and subtract 1 (respectively) from a variable.
+        Operatory zwiększania i zmniejszania, które dodają i odejmujeją 1 (odpowiednio) od zmiennej.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
@@ -471,7 +471,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `.`
     :::column-end:::
     :::column:::
-        Dot. Used to distinguish objects and their properties and methods.
+        Kropka. Używane do rozróżniania obiektów i ich właściwości i metod.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
@@ -485,7 +485,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `()`
     :::column-end:::
     :::column:::
-        Parentheses. Used to group expressions, to pass parameters to methods, and to access members of arrays and collections.
+        Nawiasów. Służy do grupowania wyrażeń, przekazywania parametrów do metod i uzyskiwania dostępu do elementów członkowskich tablic i kolekcji.
     :::column-end:::
     :::column:::
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
@@ -499,7 +499,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `Not`
     :::column-end:::
     :::column:::
-        Not. Reverses a true value to false and vice versa. Typically used as a shorthand way to test for `False` (that is, for not `True`).
+        Niemożliwe. Odwraca wartość true na false i odwrotnie. Zwykle używany jako skrócony sposób testowania dla `False` (to oznacza, że nie `True`).
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
@@ -513,26 +513,26 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `AndAlso OrElse`
     :::column-end:::
     :::column:::
-        Logical AND and OR, which are used to link conditions together.
+        Logiczne i i lub, które są używane do łączenia warunków.
     :::column-end:::
     :::column:::
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
     :::column-end:::
 :::row-end:::
 
-## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z pliku i ścieżki folderu, w kodzie
+## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z ścieżkami plików i folderów w kodzie
 
-Będziesz często pracować ze ścieżkami plików i folderów w kodzie. Oto przykład strukturę folderu fizycznego dla witryny sieci Web mogą być wyświetlane na komputerze deweloperskim:
+Często pracujesz ze ścieżkami plików i folderów w kodzie. Oto przykład struktury folderów fizycznych dla witryny sieci Web, która może pojawić się na komputerze deweloperskim:
 
 `C:\WebSites\MyWebSite default.cshtml datafile.txt \images Logo.jpg \styles Styles.css`
 
-Poniżej przedstawiono niektóre podstawowe szczegóły dotyczące adresów URL i ścieżki:
+Poniżej przedstawiono niektóre istotne informacje dotyczące adresów URL i ścieżek:
 
-- Adres URL zaczyna się od jedną nazwę domeny (`http://www.example.com`) lub nazwy serwera (`http://localhost`, `http://mycomputer`).
-- Adres URL odnosi się do ścieżki fizycznej na komputerze-hoście. Na przykład `http://myserver` może odpowiadać folder *C:\websites\mywebsite* na serwerze.
-- Ścieżka wirtualna jest skrótem do reprezentowania ścieżek w kodzie bez konieczności podać pełną ścieżkę. Obejmuje on część adresu URL, który następuje nazwa domeny lub serwera. Gdy używasz ścieżki wirtualne, kod można przenieść do innej domeny lub serwer, bez konieczności aktualizowania ścieżki.
+- Adres URL rozpoczyna się od nazwy domeny (`http://www.example.com`) lub nazwy serwera (`http://localhost`, `http://mycomputer`).
+- Adres URL odpowiada ścieżce fizycznej na komputerze-hoście. Na przykład `http://myserver` mogą odpowiadać *C:\websites\mywebsite* folderu na serwerze.
+- Ścieżka wirtualna jest skrótem do reprezentowania ścieżek w kodzie bez konieczności określania pełnej ścieżki. Zawiera część adresu URL, która następuje po nazwie domeny lub serwera. W przypadku używania ścieżek wirtualnych można przenieść kod do innej domeny lub serwera bez konieczności aktualizacji ścieżek.
 
-Oto przykład, aby lepiej zrozumieć różnice:
+Oto przykład, który pomoże zrozumieć różnice:
 
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
@@ -540,145 +540,145 @@ Oto przykład, aby lepiej zrozumieć różnice:
 | Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
-Wirtualny katalog główny jest /, podobnie jak głównego C: dysku \. (Folder wirtualny ścieżki zawsze używać ukośników.) Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może być aliasem. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko odpowiada dokładnej ścieżki fizycznej.)
+Wirtualny katalog główny jest/, podobnie jak katalog główny dysku C:. (Ścieżki folderów wirtualnych zawsze używają ukośników). Ścieżka wirtualna folderu nie musi mieć takiej samej nazwy jak folder fizyczny; może to być alias. (Na serwerach produkcyjnych ścieżka wirtualna rzadko jest zgodna z dokładną ścieżką fizyczną).
 
-Podczas pracy z plikami i folderami w kodzie, czasami musisz odwoływać się do ścieżki fizycznej, a czasami ścieżką wirtualną, w zależności od tego, jakie obiekty pracujemy z użyciem. ASP.NET udostępnia te narzędzia do pracy ze ścieżkami plików i folderów w kodzie: `Server.MapPath` metody i `~` operatora i `Href` metody.
+Podczas pracy z plikami i folderami w kodzie czasami trzeba odwoływać się do ścieżki fizycznej i czasami ścieżki wirtualnej, w zależności od obiektów, z którymi pracujesz. ASP.NET udostępnia następujące narzędzia do pracy z ścieżkami plików i folderów w kodzie: Metoda `Server.MapPath` i operator `~` i Metoda `Href`.
 
-### <a name="converting-virtual-to-physical-paths-the-servermappath-method"></a>Konwertowanie ścieżki wirtualnej do fizycznego: Metoda Server.MapPath
+### <a name="converting-virtual-to-physical-paths-the-servermappath-method"></a>Konwertowanie wirtualnej na ścieżki fizyczne: Metoda Server. MapPath
 
-`Server.MapPath` Metoda konwertuje ścieżki wirtualnej (np. */default.cshtml*) do ścieżki bezwzględnej fizycznych (takich jak *C:\WebSites\MyWebSiteFolder\default.cshtml*). Możesz użyć tej metody w każdej chwili należy pełną ścieżkę fizyczną. Typowym przykładem jest podczas odczytywania lub zapisywania pliku tekstowego lub pliku obrazu na serwerze sieci web.
+Metoda `Server.MapPath` Konwertuje ścieżkę wirtualną (na przykład */default.cshtml*) na bezwzględną ścieżkę fizyczną (na przykład *C:\WebSites\MyWebSiteFolder\default.cshtml*). Tej metody należy używać w dowolnym momencie, gdy potrzebna jest kompletna ścieżka fizyczna. Typowym przykładem jest odczytywanie lub zapisywanie pliku tekstowego lub pliku obrazu na serwerze sieci Web.
 
-Zazwyczaj nie wiesz, bezwzględną ścieżkę fizyczną witryny na serwerze lokacji hostingu, więc tej metody można przekonwertować ścieżkę wiadomo — ścieżka wirtualna — do odpowiedniej ścieżki na serwerze dla Ciebie. Ścieżka wirtualna jest przekazywane do pliku lub folderu, do metody i zwraca ścieżkę fizyczną:
+Zwykle nie jest znana absolutna ścieżka fizyczna witryny na serwerze lokacji hostingu, dlatego ta metoda może przekonwertować ścieżkę, którą znasz — ścieżkę wirtualną — do odpowiedniej ścieżki na serwerze. Ścieżka wirtualna do pliku lub folderu zostanie przekazana do metody i zwraca ścieżkę fizyczną:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample39.vbhtml)]
 
-### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>Odwoływanie się do wirtualnego katalogu głównego: ~ operatora i Href, metoda
+### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>Odwoływanie się do wirtualnego katalogu głównego: Metoda ~ operatora i href
 
-W *.cshtml* lub *.vbhtml* pliku, możesz odwoływać się za pomocą ścieżka wirtualnego katalogu głównego `~` operatora. Może to być bardzo przydatne, ponieważ możesz poruszać się strony w witrynie, a wszystkie łącza, które zawierają do innych stron nie będzie działać. Jest to również przydatne w przypadku, gdy przeniesiesz kiedykolwiek witryny sieci Web w innej lokalizacji. Oto kilka przykładów:
+W pliku *. cshtml* lub *. vbhtml* można odwoływać się do wirtualnej ścieżki katalogu głównego przy użyciu operatora `~`. Jest to bardzo przydatne, ponieważ można przenieść strony w obrębie witryny, a wszystkie linki, które zawierają do innych stron, nie zostaną zerwane. Jest on również przydatny w przypadku przenoszenia witryny sieci Web do innej lokalizacji. Oto kilka przykładów:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample40.vbhtml)]
 
-Jeśli witryna sieci Web `http://myserver/myapp`, Oto jak ASP.NET będzie traktować te ścieżki, po uruchomieniu na stronie:
+Jeśli witryna sieci Web jest `http://myserver/myapp`, Oto, jak ASP.NET będzie traktować te ścieżki podczas uruchamiania strony:
 
 - `myImagesFolder`: `http://myserver/myapp/images`
-- `myStyleSheet` : `http://myserver/myapp/styles/Stylesheet.css`
+- `myStyleSheet`: `http://myserver/myapp/styles/Stylesheet.css`
 
-(Te ścieżki faktycznie nie będzie widoczna jako wartości zmiennej, ale ASP.NET traktują ścieżki, tak, jakby to, jakie były).
+(Te ścieżki nie będą widoczne w rzeczywistości jako wartości zmiennej, ale ASP.NET będą traktować ścieżki tak, jakby były.)
 
-Możesz użyć `~` operator zarówno w kodzie serwera (jak powyżej), jak i znaczników w następujący sposób:
+Operatora `~` można użyć zarówno w kodzie serwera (jak powyżej), jak to:
 
 [!code-html[Main](introducing-razor-syntax-vb/samples/sample41.html)]
 
-W znaczniku, użyj `~` operatora do utworzenia ścieżki do zasobów, takich jak pliki obrazów, innych stron sieci web i plików CSS. Po uruchomieniu strony ASP.NET przegląda strony (kodu i znaczników) i usuwa wszystkie `~` odwołania do danej ścieżce.
+W znacznikach można użyć operatora `~`, aby tworzyć ścieżki do zasobów, takich jak pliki obrazów, inne strony sieci Web i pliki CSS. Po uruchomieniu strony ASP.NET przegląda stronę (kod i znacznik) i rozwiązuje wszystkie `~` odwołania do odpowiedniej ścieżki.
 
-## <a name="conditional-logic-and-loops"></a>Logika warunkowe i pętle
+## <a name="conditional-logic-and-loops"></a>Logika warunkowa i pętle
 
-Kod serwera ASP.NET umożliwia wykonywanie zadań na podstawie warunków i zapisu kod powtarzany instrukcji określonej liczby razy oznacza to, że kod uruchamiany pętli).
+Kod serwera ASP.NET umożliwia wykonywanie zadań w oparciu o warunki i pisanie kodu, który powtarza instrukcje, która pociąga za siebie określoną liczbę razy, kod, który uruchamia pętlę.
 
-### <a name="testing-conditions"></a>Warunki badania
+### <a name="testing-conditions"></a>Warunki testowania
 
-Aby przetestować warunku prostego, możesz użyć `If...Then` instrukcję, która zwraca `True` lub `False` na podstawie testu, można określić:
+Aby przetestować prosty warunek, użyj instrukcji `If...Then`, która zwraca `True` lub `False` w oparciu o określony test:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample42.vbhtml)]
 
-`If` — Słowo kluczowe uruchamia blok. Test rzeczywisty (stan) jest zgodna `If` — słowo kluczowe i zwraca wartość PRAWDA lub FAŁSZ. `If` Instrukcja kończy się `Then`. Znajdują się wewnątrz instrukcji, które zostanie uruchomione, gdy test jest true `If` i `End If`. `If` Może zawierać instrukcji `Else` blok, który określa instrukcje do uruchomienia, jeśli warunek nie jest spełniony:
+Słowo kluczowe `If` uruchamia blok. Rzeczywisty test (warunek) następuje po słowie kluczowym `If` i zwraca wartość true lub false. Instrukcja `If` zostanie zakończona z `Then`. Instrukcje, które będą uruchamiane, jeśli test ma wartość true, są ujęte w `If` i `End If`. Instrukcja `If` może zawierać blok `Else`, który określa instrukcje do uruchomienia, jeśli warunek ma wartość false:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample43.vbhtml)]
 
-Jeśli `If` instrukcji rozpoczyna blok kodu, nie trzeba stosować normalną `Code...End Code` instrukcji, aby zawierała bloki. Można dodać `@` do bloku, i będzie ona działać. Ta metoda działa z `If` oraz innych programowania słów kluczowych, które następują bloków kodu, w tym Visual Basic `For`, `For Each`, `Do While`itp.
+Jeśli instrukcja `If` uruchamia blok kodu, nie trzeba używać zwykłych instrukcji `Code...End Code` w celu uwzględnienia bloków. Możesz po prostu dodać `@` do bloku i będzie on działać. Takie podejście współdziała z `If`, a także innymi Visual Basic programistycznymi słowami kluczowymi, które są umieszczane w blokach kodu, takich jak `For`, `For Each`, `Do While`itd.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample44.vbhtml)]
 
-Można dodać wiele warunków przy użyciu co najmniej jeden `ElseIf` bloków:
+Można dodać wiele warunków przy użyciu jednego lub kilku bloków `ElseIf`:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample45.vbhtml)]
 
-W tym przykładzie, jeśli pierwszy warunek w `If` bloku nie ma wartość true, `ElseIf` warunek jest sprawdzany. Jeśli ten warunek jest spełniony, instrukcje w `ElseIf` bloku są wykonywane. Jeśli żaden z warunków nie jest spełniony, instrukcje w `Else` bloku są wykonywane. Można dodać dowolną liczbę `ElseIf` blokuje, a następnie Zamknij z `Else` zablokować, jako &quot;cała reszta&quot; warunku.
+W tym przykładzie, jeśli pierwszy warunek w bloku `If` nie ma wartości true, sprawdzana jest `ElseIf` warunek. Jeśli ten warunek jest spełniony, instrukcje w bloku `ElseIf` są wykonywane. Jeśli żaden z warunków nie zostanie spełniony, instrukcje w bloku `Else` są wykonywane. Można dodać dowolną liczbę bloków `ElseIf`, a następnie zamknąć z blokiem `Else`, podobnie jak w przypadku &quot;wszystko inne&quot; warunek.
 
-Aby przetestować dużą liczbę warunków, należy użyć `Select Case` bloku:
+Aby przetestować dużą liczbę warunków, użyj bloku `Select Case`:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample46.vbhtml)]
 
-Wartość do sprawdzenia jest w nawiasach (w przykładzie zmienna dzień tygodnia). Każdy pojedynczy test używa `Case` instrukcję, która zawiera listę wartości. Jeśli wartość `Case` instrukcji pasuje do wartości testu, kod w tym `Case` blok jest wykonywany.
+Wartość do przetestowania jest w nawiasach (w przykładzie zmienna Weekday). Każdy test używa instrukcji `Case`, która wyświetla wartość. Jeśli wartość instrukcji `Case` pasuje do wartości testowej, wykonywany jest kod w tym `Case` bloku.
 
-Wynik ostatnich dwóch bloków warunkowych, wyświetlany w przeglądarce:
+Wynik ostatnich dwóch bloków warunkowych wyświetlanych w przeglądarce:
 
 ![Razor-Img10](introducing-razor-syntax-vb/_static/image10.jpg)
 
-### <a name="looping-code"></a>Tworzenie pętli kodu
+### <a name="looping-code"></a>Kod zapętlenia
 
-Często muszą uruchomić te same instrukcje wielokrotnie. W tym pętli są uwzględnione. Na przykład można często uruchamiane te same instrukcje dla każdego elementu w kolekcji danych. Jeśli wiesz, dokładnie tak jak często chcesz pętli, możesz użyć `For` pętli. Ten rodzaj pętli jest szczególnie przydatna podczas liczenia w lub inwentaryzacji:
+Często trzeba wielokrotnie uruchamiać te same instrukcje. Można to zrobić przez zapętlenie. Na przykład często uruchamiasz te same instrukcje dla każdego elementu w kolekcji danych. Jeśli wiesz dokładnie, ile razy chcesz wykonać pętlę, możesz użyć pętli `For`. Ten rodzaj pętli jest szczególnie przydatny do zliczania w górę lub w dół:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample47.vbhtml)]
 
-Pętla zaczyna się od `For` — słowo kluczowe następują trzy elementy:
+Pętla zaczyna się od słowa kluczowego `For`, a następnie trzech elementów:
 
-- Natychmiast po `For` instrukcji, Zadeklaruj zmienną licznika (nie trzeba stosować `Dim`), a następnie zaznaczyć zakres, podobnie jak w `i = 10 to 20`. Oznacza to, że zmienna `i` uruchomi zliczania, 10 i kontynuować, dopóki nie osiągnie 20 (włącznie).
-- Między `For` i `Next` instrukcji znajduje się odpowiednia zawartość bloku. To może zawierać jedną lub więcej kodu instrukcji, które są wykonywane w każdej iteracji.
-- `Next i` Instrukcja kończy pętli. On zwiększa licznik i uruchamia następnej iteracji pętli.
+- Bezpośrednio po instrukcji `For` deklaruje zmienną licznika (nie trzeba używać `Dim`), a następnie wskazuje zakres, jak w `i = 10 to 20`. Oznacza to, że zmienna `i` rozpocznie zliczanie w wysokości 10 i kontynuuje do momentu osiągnięcia 20 (włącznie).
+- Między instrukcjami `For` i `Next` jest zawartość bloku. Może zawierać co najmniej jedną instrukcję Code, która jest wykonywana z każdą pętlą.
+- Instrukcja `Next i` zatrzymuje pętlę. Zwiększa licznik i uruchamia następną iterację pętli.
 
-W wierszu kodu między `For` i `Next` wierszy zawiera kod, który jest wykonywany dla każdej iteracji pętli. Znaczniki, tworzy nowy akapit (`<p>` elementu) każdego czas i dodaje wiersz danych wyjściowych, wyświetlanie wartości i (licznik). Po uruchomieniu tej strony, ten przykład tworzy 11 wiersza, wyświetlanie danych wyjściowych z tekstem w każdym wierszu, wskazującą liczbę elementów.
+Wiersz kodu między `For` i `Next` wierszy zawiera kod, który jest uruchamiany dla każdej iteracji pętli. Znacznik tworzy nowy akapit (`<p>` elementu) za każdym razem i dodaje linię do danych wyjściowych, wyświetlając wartość i (licznik). Po uruchomieniu tej strony przykład tworzy 11 wierszy wyświetlających dane wyjściowe, a tekst w każdym wierszu wskazujący numer elementu.
 
 ![Razor-Img11](introducing-razor-syntax-vb/_static/image11.jpg)
 
-Jeśli pracujesz z kolekcji lub tablicy, są często używane `For Each` pętli. Kolekcja to grupa podobnych obiektów i `For Each` pętli pozwala przeprowadzić zadanie dla każdego elementu w kolekcji. Ten typ pętli jest wygodne w przypadku kolekcji, ponieważ w odróżnieniu od `For` pętli, nie trzeba ten licznik lub Ustaw limit. Zamiast tego `For Each` kodu pętli po prostu obejmującego kolekcji dopiero po jej zakończeniu.
+Jeśli pracujesz z kolekcją lub tablicą, często używasz pętli `For Each`. Kolekcja jest grupą podobnych obiektów, a pętla `For Each` umożliwia wykonywanie zadania na każdym elemencie w kolekcji. Pętla tego typu jest wygodna dla kolekcji, ponieważ w przeciwieństwie do pętli `For` nie trzeba zwiększać licznika ani ustawiać limitu. Zamiast tego kod pętli `For Each` po prostu przechodzi przez kolekcję do momentu zakończenia.
 
-W tym przykładzie zwraca elementy w `Request.ServerVariables` kolekcję (która zawiera informacje o serwerze sieci web). Używa ona `For Each` pętli, aby wyświetlić nazwę każdego elementu przez utworzenie nowego `<li>` element na liście punktowanej we wcześniejszej HTML.
+Ten przykład zwraca elementy z kolekcji `Request.ServerVariables` (która zawiera informacje o serwerze sieci Web). Używa pętli `For Each`, aby wyświetlić nazwę każdego elementu przez utworzenie nowego elementu `<li>` na liście punktowanej HTML.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample48.vbhtml)]
 
-`For Each` — Słowo kluczowe następuje zmienną, która reprezentuje pojedynczy element w kolekcji (w tym przykładzie `myItem`), a następnie `In` — słowo kluczowe, następuje kolekcję ma pętli. W treści `For Each` pętli, możesz uzyskać dostęp bieżącego elementu przy użyciu zmiennej zadeklarowanej wcześniej.
+Po słowie kluczowym `For Each` następuje zmienna, która reprezentuje pojedynczy element w kolekcji (w przykładzie `myItem`), po którym następuje słowo kluczowe `In`, a następnie kolekcja, w której ma się znajdować pętla. W treści pętli `For Each` można uzyskać dostęp do bieżącego elementu przy użyciu zmiennej, która została zadeklarowana wcześniej.
 
 ![Razor-Img12](introducing-razor-syntax-vb/_static/image12.jpg)
 
-Aby utworzyć bardziej ogólnego przeznaczenia pętli, użyj `Do While` instrukcji:
+Aby utworzyć więcej pętli ogólnego przeznaczenia, użyj instrukcji `Do While`:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample49.vbhtml)]
 
-Ta pętla zaczyna się od `Do While` — słowo kluczowe warunku, a następnie bloku, aby powtórzyć. Zazwyczaj Zwiększ pętli (dodać) lub dekrementacji (odjęcia od) zmiennej lub obiektu użytego do zliczania. W tym przykładzie `+=` operator dodaje 1 wartość zmiennej przy każdym uruchomieniu pętli. (W celu dekrementacja zmiennej w pętlę, który odlicza, należy użyć operatora dekrementacyjnego `-=`.)
+Ta pętla rozpoczyna się od słowa kluczowego `Do While`, po którym następuje warunek, po którym następuje blok, który ma zostać powtórzony. Pętle zwykle zwiększają się (Dodaj do) lub zmniejszają (odejmowanie od) zmiennej lub obiektu używanej do zliczania. W przykładzie operator `+=` dodaje 1 do wartości zmiennej za każdym razem, gdy pętla zostanie uruchomiona. (Aby zmniejszyć zmienną w pętli, która liczy w dół, użyj operatora zmniejszania `-=`).
 
 ## <a name="objects-and-collections"></a>Obiekty i kolekcje
 
-Prawie wszystko w witrynie internetowej platformy ASP.NET jest obiektem, w tym strona sieci web. W tej sekcji omówiono niektóre ważne obiekty, które często będziesz pracować z w kodzie.
+Niemal wszystko w witrynie ASP.NET Web to obiekt, w tym sama strona sieci Web. W tej sekcji omówiono niektóre ważne obiekty, które często działają w kodzie.
 
 ### <a name="page-objects"></a>Obiekty strony
 
-Najbardziej podstawowa obiektu w programie ASP.NET: jest to strona. Możesz uzyskać dostęp właściwości obiektu strony bezpośrednio, bez dowolnych obiektów kwalifikujących. Poniższy kod pobiera ścieżkę do pliku, przy użyciu `Request` obiekt strony:
+Najbardziej podstawowym obiektem w ASP.NET jest strona. Można uzyskać dostęp do właściwości obiektu strony bezpośrednio bez żadnego obiektu kwalifikującego. Poniższy kod pobiera ścieżkę pliku strony przy użyciu obiektu `Request` strony:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample50.vbhtml)]
 
-Można użyć właściwości `Page` można uzyskać mnóstwo informacji, takich jak:
+Właściwości obiektu `Page` można użyć, aby uzyskać wiele informacji, takich jak:
 
-- `Request`. Jak już przeczytane, to zbiór informacji o bieżącym żądaniu, w tym, jakiego rodzaju przeglądarki wysłał żądanie, adres URL strony, tożsamość użytkownika, itp.
-- `Response`. Jest to zbiór informacji na temat odpowiedzi (strona), który będzie wysyłany do przeglądarki, gdy kod serwera zakończył działanie. Na przykład można używasz tej właściwości można zapisać informacji do odpowiedzi.
+- `Request`. Jak już widzisz, jest to zbiór informacji dotyczących bieżącego żądania, w tym typ przeglądarki, która złożyła żądanie, adres URL strony, tożsamość użytkownika itd.
+- `Response`. Jest to zbiór informacji o odpowiedzi (stronie), które zostaną wysłane do przeglądarki po zakończeniu działania kodu serwera. Na przykład można użyć tej właściwości do zapisu informacji w odpowiedzi.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample51.vbhtml)]
 
-### <a name="collection-objects-arrays-and-dictionaries"></a>Obiekty kolekcji (tablic i słowników)
+### <a name="collection-objects-arrays-and-dictionaries"></a>Obiekty kolekcji (tablice i słowniki)
 
-Kolekcja to grupa obiektów tego samego typu, na przykład zbiór `Customer` obiektów z bazy danych. Program ASP.NET zawiera wiele kolekcji wbudowanych, takie jak `Request.Files` kolekcji.
+Kolekcja jest grupą obiektów tego samego typu, na przykład z kolekcją `Customer` obiektów z bazy danych. ASP.NET zawiera wiele wbudowanych kolekcji, takich jak kolekcja `Request.Files`.
 
-Często będziesz pracować z danymi w kolekcji. Istnieją dwa typy kolekcji typowe *tablicy* i *słownika*. Tablica jest przydatne, gdy ma być przechowywany w kolekcji podobnych elementów, ale nie chcesz utworzyć osobne zmienną do przechowywania każdego elementu:
+Często pracujesz z danymi w kolekcjach. Dwa popularne typy kolekcji to *Tablica* i *słownik*. Tablica jest przydatna, gdy chcesz przechowywać kolekcję podobnych elementów, ale nie chcesz tworzyć oddzielnej zmiennej do przechowywania poszczególnych elementów:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample52.vbhtml)]
 
-W przypadku tablic, możesz zadeklarować na określony typ danych, takich jak `String`, `Integer`, lub `DateTime`. Aby wskazać, że zmienna może zawierać tablicę, Dodaj nawiasy do nazwy zmiennej w deklaracji (takie jak `Dim myVar() As String`). Możesz uzyskać dostęp elementów w tablicy przy użyciu ich pozycji (indeks) lub za pomocą `For Each` instrukcji. Indeksy tablicy są oparte na zerze &#8212; oznacza to, pierwszy element jest na pozycji 0, drugi element znajduje się na pozycji 1 i tak dalej.
+Z tablicami deklaruje się konkretny typ danych, taki jak `String`, `Integer`lub `DateTime`. Aby wskazać, że zmienna może zawierać tablicę, należy dodać nawiasy do nazwy zmiennej w deklaracji (takiej jak `Dim myVar() As String`). Dostęp do elementów w tablicy można uzyskać przy użyciu ich położenia (indeksu) lub instrukcji `For Each`. Indeksy tablicy są oparte na &#8212; zero oznaczające, że pierwszy element znajduje się na pozycji 0, drugi element znajduje się na pozycji 1 i tak dalej.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample53.vbhtml)]
 
-Można określić liczbę elementów w tablicy, uzyskując jego `Length` właściwości. Można pobrać pozycja konkretny element w tablicy (oznacza to, aby wyszukać), użyj `Array.IndexOf` metody. Można również wykonać elementów, takich jak wstecznego zawartość tablicy ( `Array.Reverse` metoda) i sortować zawartość ( `Array.Sort` metody).
+Możesz określić liczbę elementów w tablicy, pobierając jej Właściwość `Length`. Aby uzyskać położenie określonego elementu w tablicy (to oznacza, aby przeszukać tablicę), użyj metody `Array.IndexOf`. Można również wykonywać operacje, takie jak odwracanie zawartości tablicy (Metoda `Array.Reverse`) lub sortowanie zawartości (Metoda `Array.Sort`).
 
-Dane wyjściowe kodu tablicy ciąg wyświetlany w przeglądarce:
+Dane wyjściowe kodu tablicy ciągów wyświetlanego w przeglądarce:
 
 ![Razor-Img13](introducing-razor-syntax-vb/_static/image13.jpg)
 
-Słownik to kolekcja par klucz wartość, określane klucz (lub nazwę) można ustawić lub pobrać odpowiednią wartość:
+Słownik jest kolekcją par klucz/wartość, w których podano klucz (lub nazwę), aby ustawić lub pobrać odpowiednią wartość:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample54.vbhtml)]
 
-Aby utworzyć słownik, należy użyć `New` — słowo kluczowe, aby wskazać, czy tworzysz nową `Dictionary` obiektu. Słownik można przypisać do zmiennej za pomocą `Dim` — słowo kluczowe. Możesz określać typy danych elementów w słowniku przy użyciu nawiasów ( `( )` ). Na końcu deklaracji należy dodać kolejną parę nawiasów, ponieważ jest to rzeczywiście metodę, która tworzy nowy słownik.
+Aby utworzyć słownik, użyj słowa kluczowego `New`, aby wskazać, że tworzysz nowy obiekt `Dictionary`. Można przypisać słownik do zmiennej za pomocą słowa kluczowego `Dim`. Możesz wskazać typy danych elementów w słowniku przy użyciu nawiasów (`( )`). Na końcu deklaracji należy dodać kolejną parę nawiasów, ponieważ jest to metoda, która tworzy nowy słownik.
 
-Aby dodać elementy do słownika, możesz wywołać `Add` metody na zmienną słownika (`myScores` w tym przypadku), a następnie określ klucz i wartość. Alternatywnie można użyć nawiasów do klucza, a następnie wykonaj przypisanie proste, jak w poniższym przykładzie:
+Aby dodać elementy do słownika, można wywołać metodę `Add` zmiennej słownika (`myScores` w tym przypadku), a następnie określić klucz i wartość. Alternatywnie można użyć nawiasów, aby wskazać klucz i wykonać proste przypisanie, jak w poniższym przykładzie:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample55.vbhtml)]
 
@@ -686,53 +686,53 @@ Aby uzyskać wartość ze słownika, należy określić klucz w nawiasach:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample56.vbhtml)]
 
-## <a name="calling-methods-with-parameters"></a>Wywołanie metody z parametrami
+## <a name="calling-methods-with-parameters"></a>Wywoływanie metod z parametrami
 
-Jak przedstawiono wcześniej w tym artykule obiektów, które program za pomocą mają metody. Na przykład `Database` obiekt może mieć `Database.Connect` metody. Wiele metod również mieć co najmniej jeden parametr. A *parametru* jest wartością, który jest przekazywany do metody, aby włączyć metodę w celu zakończenia zadania. Na przykład Przyjrzyj się deklarację dla `Request.MapPath` metody, która przyjmuje trzy parametry:
+Jak przedstawiono wcześniej w tym artykule, obiekty, z którymi program ma metody. Na przykład obiekt `Database` może mieć metodę `Database.Connect`. Wiele metod ma także jeden lub więcej parametrów. *Parametr* jest wartością, którą można przekazać do metody, aby umożliwić wykonywanie jej zadania. Na przykład Przyjrzyj się deklaracji dla metody `Request.MapPath`, która przyjmuje trzy parametry:
 
 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample57.vb)]
 
-Ta metoda zwraca ścieżkę fizyczną na serwerze, który odnosi się do określonej ścieżki wirtualnej. Są trzy parametry dla metody `virtualPath`, `baseVirtualDir`, i `allowCrossAppMapping`. (Zwróć uwagę, że w deklaracji, parametry są wyświetlane z typami danych, który będzie mógł zaakceptować). Po wywołaniu tej metody należy podać wartości dla wszystkich trzech parametrów.
+Ta metoda zwraca ścieżkę fizyczną na serwerze, który odpowiada określonej ścieżce wirtualnej. Trzy parametry dla metody to `virtualPath`, `baseVirtualDir`i `allowCrossAppMapping`. (Należy zauważyć, że w deklaracji parametry są wyświetlane z danymi o typach danych, które będą akceptowane). Po wywołaniu tej metody należy podać wartości dla wszystkich trzech parametrów.
 
-Podczas korzystania z języka Visual Basic z użyciem składni Razor, masz dwie opcje do przekazywania parametrów do metody: *parametry pozycyjne* lub *nazwanych parametrów*. Aby wywołać metodę, przy użyciu parametry pozycyjne, parametry są przekazywane w kolejności strict, który jest określony w deklaracji metody. (Będzie zazwyczaj wiesz to zamówienie, przeczytaj dokumentację dla metody.) Należy wykonać, kolejność i nie można pominąć dowolny z parametrów &#8212; Jeśli to konieczne, możesz przekazać pusty ciąg (`""`) lub wartość null parametru pozycyjnych, które nie mają wartości.
+Gdy używasz Visual Basic z składnia Razor, masz dwie opcje przekazywania parametrów do metody: *parametry pozycyjne* lub *nazwane parametry*. Aby wywołać metodę przy użyciu parametrów pozycyjnych, należy przekazać parametry w ścisłej kolejności, która jest określona w deklaracji metody. (Zazwyczaj znana jest ta kolejność, odczytując dokumentację dla metody). Należy postępować zgodnie z kolejnością, a w razie potrzeby nie można &#8212; pominąć żadnego z parametrów, należy przekazać pusty ciąg (`""`) lub null dla parametru pozycyjnego, dla którego nie ma wartości.
 
-W poniższym przykładzie założono, masz folder o nazwie *skrypty* w witrynie sieci Web. Kod wywołuje `Request.MapPath` metody i przekazuje wartości dla trzech parametrów w odpowiedniej kolejności. Następnie wyświetla ścieżki wynikowej zamapowany.
+W poniższym przykładzie przyjęto założenie, że w witrynie sieci Web znajduje się folder o nazwie *skrypty* . Kod wywołuje metodę `Request.MapPath` i przekazuje wartości dla trzech parametrów w poprawnej kolejności. Następnie zostanie wyświetlona zamapowana ścieżka.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample58.vbhtml)]
 
-Gdy istnieje wiele parametrów dla metody, można zachować kod bardziej przejrzyste i bardziej czytelny przy użyciu nazwanych parametrów. Aby wywołać metodę, przy użyciu nazwanych parametrów, należy określić nazwę parametru, a następnie `:=` , a następnie wprowadź wartość. Zaletą nazwanych parametrów jest, możesz je dodać w dowolnej kolejności, które chcesz. (Wadą jest wywołanie metody nie jest najmniejszy).
+Jeśli istnieje wiele parametrów dla metody, można zachować przejrzystość kodu i bardziej czytelność przy użyciu nazwanych parametrów. Aby wywołać metodę przy użyciu nazwanych parametrów, należy określić nazwę parametru, po którym następuje `:=` a następnie podać wartość. Zaletą parametrów nazwanych jest możliwość dodawania ich w dowolnej kolejności. (Wadą jest to, że wywołanie metody nie jest jako kompaktowe).
 
-Poniższy przykład wywołuje tę samą metodę jak powyżej, ale korzysta z nazwanych parametrów, aby podać wartości:
+Poniższy przykład wywołuje tę samą metodę, jak powyżej, ale używa nazwanych parametrów do dostarczenia wartości:
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample59.vbhtml)]
 
-Jak widać, parametry są przekazywane w innej kolejności. Jednak po uruchomieniu poprzedniego przykładu i w tym przykładzie zostanie zwrócona taką samą wartość.
+Jak widać, parametry są przesyłane w innej kolejności. Jeśli jednak zostanie uruchomiony poprzedni przykład i ten przykład zwróci tę samą wartość.
 
 ## <a name="handling-errors"></a>Obsługa błędów
 
-### <a name="try-catch-statements"></a>Instrukcje try-Catch
+### <a name="try-catch-statements"></a>Instrukcje try-catch
 
-Często masz instrukcji w kodzie, który może zakończyć się niepowodzeniem ze względów poza Twoją kontrolą. Na przykład:
+Często występują instrukcje w kodzie, które mogą zakończyć się niepowodzeniem z przyczyn poza formantem. Na przykład:
 
-- Jeśli kod próbuje otworzyć, tworzenia, odczytu lub zapisu pliku, mogą wystąpić wszelkiego rodzaju błędów. Żądany plik nie istnieje, może być zablokowana, kod może nie mieć uprawnień i tak dalej.
-- Podobnie jeśli kod próbuje zaktualizować rekordy w bazie danych, może to być problemy z uprawnieniami, mogą być opuszczane połączenia z bazą danych, dane w celu zaoszczędzenia może być nieprawidłowy i tak dalej.
+- Jeśli kod próbuje otworzyć, utworzyć, odczytać lub zapisać plik, mogą wystąpić wszystkie rodzaje błędów. Plik, który nie istnieje, może być zablokowany, kod może nie mieć uprawnień i tak dalej.
+- Podobnie, jeśli kod próbuje zaktualizować rekordy w bazie danych, mogą wystąpić problemy z uprawnieniami, połączenie z bazą danych może być porzucone, dane do zapisania mogą być nieprawidłowe i tak dalej.
 
-W sposób programowania, są nazywane tych sytuacji *wyjątki*. Jeśli Twój kod napotka wyjątek, generuje (zgłasza) komunikatu o błędzie oznacza to, co najlepiej irytujących dla użytkowników.
+W warunkach programowania te sytuacje nazywają się *wyjątkami*. Jeśli Twój kod napotyka wyjątek, generuje (zgłasza) komunikat o błędzie, który jest, co jest najlepszym rozwiązaniem dla użytkowników.
 
 ![Razor-Img14](introducing-razor-syntax-vb/_static/image14.jpg)
 
-W sytuacjach, w którym kod może wystąpić wyjątki i w celu uniknięcia komunikaty o błędach tego typu można użyć `Try/Catch` instrukcji. W `Try` instrukcji, uruchom kod, który jest sprawdzany. W co najmniej jednej `Catch` instrukcji, można wyszukać konkretnego błędów (określonych typów wyjątków), które mogły wystąpić. Może zawierać tyle `Catch` instrukcje, jak należy sprawdzić występowanie błędów, które są przewidywania.
+W sytuacjach, w których kod może napotkać wyjątki i aby uniknąć komunikatów o błędach tego typu, można użyć instrukcji `Try/Catch`. W instrukcji `Try` uruchamiasz sprawdzany kod. W co najmniej jednej instrukcji `Catch` można wyszukać konkretne błędy (określone typy wyjątków), które mogły wystąpić. Możesz dołączyć dowolną liczbę instrukcji `Catch`, ile potrzebujesz, aby wyszukać błędy, które są przewidywane.
 
 > [!NOTE]
-> Firma Microsoft zaleca, unikaj używania `Response.Redirect` method in Class metoda `Try/Catch` instrukcji, ponieważ może to spowodować wyjątek na stronie.
+> Zalecamy uniknięcie użycia metody `Response.Redirect` w instrukcjach `Try/Catch`, ponieważ może to spowodować wyjątek na stronie.
 
-Poniższy przykład pokazuje stronę, która tworzy plik tekstowy na pierwsze żądanie, a następnie wyświetla przycisk, który umożliwia użytkownikowi, otwórz plik. W przykładzie użyto celowo Zła nazwa pliku, tak aby spowoduje wyjątek. Kod zawiera `Catch` instrukcji dla dwóch możliwych wyjątków: `FileNotFoundException`, który występuje, jeśli nazwa pliku jest nieprawidłowa, i `DirectoryNotFoundException`, który występuje, gdy program ASP.NET nawet nie można odnaleźć folderu. (Aby zobaczyć, jak działa, gdy wszystko będzie działać prawidłowo można komentarz do instrukcji w tym przykładzie).
+Poniższy przykład pokazuje stronę, która tworzy plik tekstowy przy pierwszym żądaniu, a następnie wyświetla przycisk, który umożliwia użytkownikowi otwarcie pliku. Przykład celowo używa nieprawidłowej nazwy pliku, aby powodował wyjątek. Kod zawiera instrukcje `Catch` dla dwóch możliwych wyjątków: `FileNotFoundException`, które występuje, jeśli nazwa pliku jest zła, i `DirectoryNotFoundException`, który występuje, jeśli ASP.NET nie może odnaleźć folderu. (Możesz usunąć komentarz z instrukcji w przykładzie, aby zobaczyć, jak działa, gdy wszystko działa prawidłowo).
 
-Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut ekranu przedstawiający stronę błędu. Jednak `Try/Catch` sekcji uniemożliwia użytkownikowi widzisz błędy tych typów.
+Jeśli kod nie obsłużył wyjątku, zobaczysz stronę błędu, jak poprzedni zrzut ekranu. Jednak sekcja `Try/Catch` pozwala zapobiec wyświetlaniu tych typów błędów przez użytkownika.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample60.vbhtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 ### <a name="reference-documentation"></a>Dokumentacja referencyjna
 

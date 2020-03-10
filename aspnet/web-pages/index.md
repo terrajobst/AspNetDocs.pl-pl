@@ -1,24 +1,24 @@
 ---
 uid: web-pages/index
-title: ASP.NET Web Pages | Dokumentacja firmy Microsoft
+title: ASP.NET stron sieci Web | Microsoft Docs
 author: rick-anderson
-description: Pobierz program WebMatrix i Dowiedz się, jak szybkiego tworzenia stron sieci web w uproszczone sposób łączenia kodu serwera z kodem HTML.
+description: Pobierz & WebMatrix, aby dowiedzieć się, jak szybko tworzyć strony sieci Web w sposób prosty do łączenia kodu serwera z HTML.
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
 ms.openlocfilehash: 56bf82e22b3562893ef842a90d42aa7b6ff5858f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114529"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640953"
 ---
-# <a name="aspnet-web-pages"></a>ASP.NET Web Pages
+# <a name="aspnet-web-pages"></a>Strony sieci Web programu ASP.NET
 
 > [!NOTE] 
-> Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
+> Element WebMatrix nie jest już zalecany jako zintegrowane środowisko programistyczne dla stron sieci Web ASP.NET. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [Visual Studio Code](https://code.visualstudio.com/).
 
 - [Wskazówki](overview/index.md)
 
@@ -68,7 +68,7 @@ ms.locfileid: "65114529"
 
         - [Wprowadzenie do debugowania](overview/testing-and-debugging/introduction-to-debugging.md)
         - [Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)](overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide.md)
-    - [Zabezpieczenia](overview/security/index.md)
+    - [Bezpieczeństwo](overview/security/index.md)
 
         - [Dodawanie zabezpieczeń i członkostwa](overview/security/16-adding-security-and-membership.md)
         - [Włączanie logowania z zewnętrznych witryn w witrynie ASP.NET Web Pages](overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
@@ -81,14 +81,14 @@ ms.locfileid: "65114529"
     - [Dokumentacja interfejsu API](overview/api-reference/index.md)
 
         - [Interfejs API platformy ASP.NET — krótki przewodnik](overview/api-reference/asp-net-web-pages-api-reference.md)
-    - [Wydania](overview/releases/index.md)
+    - [Releases](overview/releases/index.md) (Wydania)
 
         - [Co nowego we wzorcu ASP.NET Web Pages 3.2](overview/releases/whats-new-in-aspnet-web-pages-32.md)
         - [Co nowego we wzorcu ASP.NET Web Pages 3.1](overview/releases/whats-new-aspnet-web-pages-31.md)
         - [Co nowego we wzorcu ASP.NET Web Pages 2](overview/releases/top-features-in-web-pages-2.md)
         - [ASP.NET Web Pages 2 Developer Preview — plik ReadMe](overview/releases/aspnet-web-pages-2-developer-preview-readme.md)
         - [Równoległe uruchamianie różnych wersji wzorca ASP.NET Web Pages](overview/releases/running-v1-and-v2-sites-side-by-side.md)
-- [Filmy wideo](videos/index.md)
+- [Wideo](videos/index.md)
 
     - [Wprowadzenie](videos/introduction/index.md)
 
@@ -102,7 +102,7 @@ ms.locfileid: "65114529"
         - [Tworzenie strony edycji danych w programie WebMatrix](videos/introduction/create-an-edit-data-page-in-webmatrix.md)
         - [Tworzenie strony usuwania danych w programie WebMatrix](videos/introduction/create-a-delete-data-page-in-webmatrix.md)
         - [Publikowanie witryny w Internecie przy użyciu programu WebMatrix](videos/introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-    - [Strony Razor programu ASP.NET](videos/aspnet-razor-pages/index.md)
+    - [ASP.NET Razor Pages](videos/aspnet-razor-pages/index.md)
 
         - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
         - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

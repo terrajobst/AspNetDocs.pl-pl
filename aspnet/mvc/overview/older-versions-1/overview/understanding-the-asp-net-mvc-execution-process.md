@@ -1,57 +1,57 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
-title: Objaśnienie procesu wykonywania platformy ASP.NET MVC | Dokumentacja firmy Microsoft
+title: Informacje o procesie wykonywania ASP.NET MVC | Microsoft Docs
 author: microsoft
-description: Dowiedz się, jak platforma ASP.NET MVC przetwarza żądanie przeglądarkę krok po kroku.
+description: Dowiedz się, w jaki sposób platforma MVC ASP.NET przetwarza żądanie przeglądarki, krok po kroku.
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
 ms.openlocfilehash: 28940947253e0af43886cf1231f8aaf4615526cc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125479"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541518"
 ---
 # <a name="understanding-the-aspnet-mvc-execution-process"></a>Objaśnienie procesu wykonywania we wzorcu ASP.NET MVC
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak platforma ASP.NET MVC przetwarza żądanie przeglądarkę krok po kroku.
+> Dowiedz się, w jaki sposób platforma MVC ASP.NET przetwarza żądanie przeglądarki, krok po kroku.
 
-Najpierw przekazywania żądań do aplikacji sieci Web opartych na programie ASP.NET MVC **UrlRoutingModule** obiektu, który jest moduł protokołu HTTP. Ten moduł analizuje żądania i wykonuje wybór trasy. **UrlRoutingModule** obiektu wybiera pierwszy obiekt trasy, który pasuje do bieżącego żądania. (Obiekt trasy jest klasa, która implementuje **RouteBase**, i zazwyczaj to wystąpienie **trasy** klasy.) Jeśli brak tras zgodnych, **UrlRoutingModule** obiektu nic nie robi i umożliwia żądanie wracać do regularnego żądania programu ASP.NET lub IIS przetwarzania.
+Żądania do aplikacji sieci Web opartej na ASP.NET MVC najpierw przekazywane przez obiekt **UrlRoutingModule** , który jest modułem http. Ten moduł analizuje żądanie i wykonuje wybór trasy. Obiekt **UrlRoutingModule** wybiera pierwszy obiekt trasy, który jest zgodny z bieżącym żądaniem. (Obiekt trasy jest klasą, która implementuje **RouteBase**, i jest zwykle wystąpieniem klasy **trasy** ). Jeśli żadne trasy nie pasują do siebie, obiekt **UrlRoutingModule** nie robi nic i pozwala na żądanie powraca do regularnego przetwarzania żądań ASP.NET lub IIS.
 
-Z wybranego **trasy** obiektu **UrlRoutingModule** uzyskuje obiekt **IRouteHandler** obiekt, który jest skojarzony z **trasy**obiektu. Zazwyczaj w aplikacji MVC, będzie to wystąpienie **MvcRouteHandler**. **IRouteHandler** tworzy wystąpienie **IHttpHandler** obiektu i przekazuje je **IHttpContext** obiektu. Domyślnie **IHttpHandler** wystąpienia dla platformy MVC jest **MvcHandler** obiektu. **MvcHandler** obiektu następnie wybiera kontrolera, który będzie ostatecznie obsługiwać żądania.
+Z wybranego obiektu **trasy** obiekt **UrlRoutingModule** uzyskuje obiekt **IRouteHandler** , który jest skojarzony z obiektem **Route** . Zazwyczaj w aplikacji MVC będzie to wystąpienie **MvcRouteHandler**. Wystąpienie **IRouteHandler** tworzy obiekt **IHttpHandler** i przekazuje go do obiektu **IHttpContext** . Domyślnie wystąpienie **IHttpHandler** dla MVC jest obiektem **MvcHandler** . Obiekt **MvcHandler** wybiera kontroler, który ostatecznie obsłuży żądanie.
 
 > [!NOTE]
-> Po uruchomieniu aplikacji sieci Web platformy ASP.NET MVC w usługach IIS 7.0, bez rozszerzenia nazwy pliku jest wymagana dla projektów MVC. W usługach IIS 6.0, program obsługi wymaga jednak mapowania rozszerzenia nazwy pliku MVC do biblioteki DLL ISAPI programu ASP.NET.
+> Gdy aplikacja sieci Web ASP.NET MVC jest uruchamiana w usługach IIS 7,0, dla projektów MVC nie jest wymagane rozszerzenie nazwy pliku. Jednak w usługach IIS 6,0 program obsługi wymaga zamapowania rozszerzenia nazwy pliku MVC na ASP.NET ISAPI DLL.
 
-Moduł i procedury obsługi są punktami wejściowymi umożliwiającymi platformę ASP.NET MVC. Wykonują następujące czynności:
+Moduł i program obsługi są punktami wejścia do struktury ASP.NET MVC. Wykonują następujące czynności:
 
 - Wybierz odpowiedni kontroler w aplikacji sieci Web MVC.
-- Uzyskaj wystąpienia określonego kontrolera.
-- Wywołaj kontrolera **Execute** metody.
+- Uzyskanie określonego wystąpienia kontrolera.
+- Wywołaj metodę **Execute** kontrolera.
 
-Poniższa lista zawiera etapy wykonywania dla projektu sieci Web MVC:
+Poniżej przedstawiono listę etapów wykonywania dla projektu sieci Web MVC:
 
-- Odbieranie pierwszego żądania aplikacji 
+- Odbieraj pierwsze żądanie dla aplikacji 
 
-    - W pliku Global.asax **trasy** obiekty są dodawane do **RouteTable** obiektu.
-- Wykonaj routingu 
+    - W pliku Global. asax obiekty **tras** są dodawane do obiektu **Route** .
+- Wykonaj Routing 
 
-    - **UrlRoutingModule** modułu używa pierwszego dopasowania **trasy** obiektu **RouteTable** kolekcji, aby utworzyć **RouteData** obiekt, który następnie używane w celu utworzenia **RequestContext** (**IHttpContext**) obiektu.
+    - Moduł **UrlRoutingModule** używa pierwszego dopasowanego obiektu **trasy** w kolekcji **Routes** w celu utworzenia obiektu **RouteData** , który następnie używa do tworzenia obiektu **RequestContext** (**IHttpContext**).
 - Utwórz procedurę obsługi żądania MVC 
 
-    - **MvcRouteHandler** obiektu tworzy wystąpienie **MvcHandler** klasy i przekazuje je **RequestContext** wystąpienia.
-- Tworzenie kontrolera 
+    - Obiekt **MvcRouteHandler** tworzy wystąpienie klasy **MvcHandler** i przekazuje je do wystąpienia **RequestContext** .
+- Utwórz kontroler 
 
-    - **MvcHandler** obiektu używa **RequestContext** wystąpienia, aby zidentyfikować **IControllerFactory** obiektu (zazwyczaj wystąpienie  **DefaultControllerFactory** klasy) do tworzenia wystąpienia kontrolera za pomocą.
-- Wykonaj controller — **MvcHandler** wystąpienia wywołuje kontroler s **Execute** metody. |
-- Wywołaj akcję 
+    - Obiekt **MvcHandler** używa wystąpienia **RequestContext** do identyfikowania obiektu **IControllerFactory** (zwykle wystąpienie klasy **DefaultControllerFactory** ) do utworzenia wystąpienia kontrolera za pomocą.
+- Wykonaj kontroler — wystąpienie **MvcHandler** wywołuje metodę **Execute** sterownika. |
+- Akcja wywołania 
 
-    - Większość kontrolerów dziedziczyć **kontrolera** klasy bazowej. Dla kontrolerów, które to robi **ControllerActionInvoker** określa obiekt, który jest skojarzony z kontrolerem, metody akcji, które klasy kontrolera do wywołania, a następnie wywołuje tę metodę.
-- Wynik wykonania 
+    - Większość kontrolerów dziedziczy z klasy podstawowej **kontrolera** . Dla kontrolerów, które to powodują, obiekt **ControllerActionInvoker** , który jest skojarzony z kontrolerem określa metodę akcji klasy kontrolera do wywołania, a następnie wywołuje tę metodę.
+- Wykonaj wynik 
 
-    - Metoda typowych akcji może odbierać dane wejściowe użytkownika przygotowywania danych właściwą odpowiedź i wykonujących wynik, zwracając typ wyniku. Typy wbudowane wyników, które mogą być wykonywane są następujące: **ViewResult** (który renderuje widok, to typ wyniku większość często używanych), **RedirectToRouteResult**, **RedirectResult**, **ContentResult**,  **JsonResult**, i **EmptyResult**.
+    - Typową metodą akcji może być otrzymanie danych wejściowych użytkownika, przygotowanie odpowiednich danych odpowiedzi, a następnie wykonanie wyniku zwracając typ wyniku. Wbudowane typy wyników, które mogą być wykonywane, obejmują: **ViewResult** (który renderuje widok i jest najczęściej używanym typem wyniku), **RedirectToRouteResult**, **RedirectResult**, **ContentResult**, **JsonResult**i **EmptyResult**.

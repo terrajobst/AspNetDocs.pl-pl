@@ -1,87 +1,87 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
-title: Tworzenie bazy danych | Dokumentacja firmy Microsoft
+title: Tworzenie bazy danych | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
 ms.openlocfilehash: 995db714ce6365415d06dc458aee84a31c7c8fd6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117680"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581439"
 ---
 # <a name="creating-a-database"></a>Tworzenie bazy danych
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-W tej sekcji użyjemy do utworzenia nowego programu SQL Express bazy danych, która użyjemy do przechowywania i pobierania danych filmu. Z poziomu programu Visual Web Developer środowiska IDE, wybierz widok | Eksploratora serwera. Kliknij prawym przyciskiem myszy połączeń danych, a następnie kliknij przycisk Dodaj połączenie...
+W tej sekcji zamierzamy utworzyć nową bazę danych SQL Express, która będzie używana do przechowywania i pobierania danych filmów. W środowisku IDE programu Visual Web Developer wybierz pozycję Widok | Eksplorator serwera. Kliknij prawym przyciskiem myszy pozycję połączenia danych, a następnie kliknij pozycję Dodaj połączenie.
 
-![AddConnection](getting-started-with-mvc-part4/_static/image1.png)
+![Addconnection](getting-started-with-mvc-part4/_static/image1.png)
 
-W oknie dialogowym Wybierz źródło danych wybierz program Microsoft SQL Server, a następnie wybierz pozycję Kontynuuj.
+W oknie dialogowym Wybierz źródło danych wybierz pozycję Microsoft SQL Server i wybierz pozycję Kontynuuj.
 
 ![](getting-started-with-mvc-part4/_static/image2.png)
 
-W oknie dialogowym Dodaj połączenie, wprowadź ". \SQLEXPRESS" dla nazwy serwera, a następnie wprowadź "Filmy" jako nazwę nowej bazy danych.
+W oknie dialogowym Dodawanie połączenia wprowadź wartość ".\SQLEXPRESS" dla nazwy serwera, a następnie wprowadź "filmy" jako nazwę nowej bazy danych.
 
-[![Dodaj okno dialogowe połączenia](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[okno dialogowe Dodawanie połączenia ![](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
-Kliknij przycisk OK, a użytkownik zostanie zapytany, jeśli chcesz utworzyć tę bazę danych. Kliknij przycisk Tak.
+Kliknij przycisk OK. pojawi się monit z prośbą o utworzenie tej bazy danych. Wybierz pozycję tak.
 
-[![Utwórz filmy?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[![tworzyć filmy?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
-Teraz masz pustej bazy danych w Eksploratorze serwera.
+Teraz masz pustą bazę danych w Eksplorator serwera.
 
 ![Dodaj nową tabelę](getting-started-with-mvc-part4/_static/image7.png)
 
-Kliknij prawym przyciskiem myszy w tabelach, a następnie kliknij przycisk Dodaj tabelę. Pojawi się okno projektanta tabel. Dodaj kolumny Identyfikator, tytuł, ReleaseDate, gatunku i ceny. Kliknij prawym przyciskiem myszy kolumny Identyfikatora, a następnie kliknij polecenie Ustaw klucz podstawowy. Oto mój projekt obszary wygląda podobnie.
+Kliknij prawym przyciskiem myszy tabele i kliknij polecenie Dodaj tabelę. Zostanie wyświetlony Projektant tabel. Dodaj kolumny dla identyfikatora, tytułu, ReleaseDate, gatunku i ceny. Kliknij prawym przyciskiem myszy kolumnę ID, a następnie kliknij pozycję Ustaw klucz podstawowy. Oto, jak wyglądają moje obszary projektowania.
 
-[![Edytor tabel bazy danych](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
+[Edytor tabeli bazy danych ![](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
-Ponadto wybierz kolumny identyfikatora, a w obszarze poniżej właściwości kolumny zmiany "Specyfikacja tożsamości", "Yes".
+Ponadto wybierz kolumnę ID, a następnie w obszarze właściwości kolumny poniżej Zmień wartość "Specyfikacja tożsamości" na "tak".
 
-[![IsIdentity — właściwości kolumny](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
+[![właściwości IsIdentity-Column](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
 
-Jeśli właśnie tak zrobić, kliknij ikonę Zapisz na pasku narzędzi lub wybierz plik | Zapisz z menu, a nazwa tabeli "**filmu**" (pojedynczą). Gdy mamy już bazę danych i tabelę!
+Gdy wszystko będzie gotowe, kliknij ikonę Zapisz na pasku narzędzi lub wybierz pozycję plik | Zapisz z menu i nazwij tabelę "**Movie**" (pojedynczo). Mamy bazę danych i tabelę.
 
-[![Wybierz nazwę](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
+[![wybierz nazwę](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
-Wróć do Eksploratora serwera i kliknij prawym przyciskiem myszy tabelę filmu, a następnie wybierz opcję "Pokaż dane tabeli". Wprowadź kilka filmów, więc niektóre dane nie naszej bazie danych.
+Wróć do Eksplorator serwera i kliknij prawym przyciskiem myszy tabelę filmu, a następnie wybierz polecenie "Pokaż dane tabeli". Wprowadź kilka filmów, aby nasze bazy danych miały pewne dane.
 
-[![Edytowanie tabel bazy danych](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
+[Edytowanie tabeli bazy danych ![](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>Tworzenie modelu
 
-Teraz przejdź z powrotem do Eksploratora rozwiązań na po prawej stronie okna środowiska IDE programu i kliknij prawym przyciskiem myszy w folderze modeli i wybierz opcję Dodaj | Nowy element.
+Teraz przełącz się z powrotem do Eksplorator rozwiązań po prawej stronie IDE, a następnie kliknij prawym przyciskiem myszy folder modele i wybierz polecenie Dodaj | Nowy element.
 
 [![addnewmodelitem](getting-started-with-mvc-part4/_static/image17.png)](getting-started-with-mvc-part4/_static/image16.png)
 
-Zamierzamy utworzyć Model jednostki z naszej nowej bazy danych. Zestaw klas, spowoduje to dodanie do naszego projektu, który ułatwia to firmie Microsoft w celu wykonywania zapytań i manipulowania danymi w naszej bazie danych. Wybierz węzeł danych po lewej stronie okna dialogowego, a następnie wybierz szablon elementu ADO.NET Entity Data Model. Nadaj mu nazwę Movies.edmx.
+Utworzymy model jednostki na podstawie naszej nowej bazy danych. Spowoduje to dodanie zestawu klas do naszego projektu, który ułatwia wykonywanie zapytań i manipulowanie danymi w bazie danych. Wybierz węzeł dane po lewej stronie okna dialogowego, a następnie wybierz szablon elementu ADO.NET Entity Data Model. Nadaj mu nazwę filmy. edmx.
 
 [![AddNewDataModel](getting-started-with-mvc-part4/_static/image19.png)](getting-started-with-mvc-part4/_static/image18.png)
 
-Kliknij przycisk "Dodaj". Spowoduje to uruchomienie "Kreator modelu danych jednostki".
+Kliknij przycisk "Dodaj". Następnie zostanie uruchomiony Kreator Entity Data Model.
 
-W oknie dialogowym Nowy, które się pojawi wybierz pozycję Generuj z bazy danych. Ponieważ właśnie wprowadziliśmy bazę danych, będziemy potrzebować tylko mówić Entity Framework na temat naszej nowej bazy danych i jego tabeli. Kliknij obok pozycji Zapisz naszych połączenia z bazą danych w konfiguracji naszej aplikacji sieci web. Sprawdź tabele i film pole wyboru, a następnie kliknij przycisk Zakończ.
+W nowym oknie dialogowym, które się pojawi, wybierz pozycję Generuj z bazy danych. Ponieważ właśnie została utworzona baza danych, będziemy musieli powiedzieć Entity Framework o naszej nowej bazie danych i jej tabeli. Kliknij przycisk Dalej, aby zapisać połączenie z bazą danych w konfiguracji aplikacji sieci Web. Zaznacz pole wyboru tabele i film, a następnie kliknij przycisk Zakończ.
 
-[![Kreator modelu Entity Data Model](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
+[Kreator Entity Data Model ![](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
 
-Teraz możemy Zobacz naszej nowej tabeli filmu w Entity Framework Designer i uzyskać do niego dostęp z poziomu kodu.
+Teraz możemy zobaczyć nową tabelę filmów w Entity Framework Designer i uzyskać do niej dostęp z kodu.
 
-[![Filmy — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![filmów — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
-Na powierzchni projektowej widać klasy "Filmu". Ta klasa jest mapowany do tabeli "Filmu" w naszej bazie danych i każdej właściwości w nim mapuje kolumną z tabeli. Każde wystąpienie klasy "Filmu" odpowiada wiersz w tabeli "Filmu".
+Na powierzchni projektowej można zobaczyć "film". Ta klasa jest mapowana na tabelę "film" w naszej bazie danych, a każda właściwość w niej jest mapowana na kolumnę z tabelą. Każde wystąpienie klasy "Movie" będzie odpowiadać wierszowi w tabeli "Movie".
 
-Jeśli nie potrzebujesz domyślne nazewnictwa i Konwencji używanych przez program Entity Framework mapowania, może używać Projektanta Entity Framework, zmienić lub dostosować je. Dla tej aplikacji będzie używane wartości domyślne i mogą po prostu zapisz plik jako-to.
+Jeśli nie chcesz używać domyślnych konwencji nazewnictwa i mapowania używanych przez Entity Framework, możesz użyć projektanta Entity Framework, aby zmienić lub dostosować je. W przypadku tej aplikacji będziemy używać ustawień domyślnych i po prostu zapiszą plik w stanie takim, w jakim się znajdują.
 
-Teraz Użyjmy niektórych rzeczywistych danych!
+Teraz pracujemy nad niektórymi rzeczywistymi danymi!
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part3.md)

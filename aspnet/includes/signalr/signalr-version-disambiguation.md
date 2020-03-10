@@ -1,2 +1,2 @@
 > [!WARNING]
-> Ta dokumentacja nie jest w najnowszej wersji biblioteki SignalR. Przyjrzyj się [biblioteki SignalR platformy ASP.NET Core](/aspnet/core/signalr/introduction).
+> Ta dokumentacja nie jest najnowsza dla najnowszej wersji usługi sygnalizującej. Zapoznaj się z tematem [ASP.NET Core sygnalizujący](/aspnet/core/signalr/introduction).

@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/index
-title: Starsze wersje — MVC 1 i 2 | Dokumentacja firmy Microsoft
+title: Starsze wersje — MVC 1 i 2 | Microsoft Docs
 author: rick-anderson
-description: Zasoby do nauki, jak program MVC 1 i 2.
+description: Zasoby do uczenia się, w jaki sposób program MVC 1 i 2.
 ms.author: riande
 ms.date: 10/10/2014
 ms.assetid: 1506f70f-6919-45bd-8c75-a17aff77510c
 msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
 ms.openlocfilehash: 297f9ce7d16b49ef0f0ff376f57fc414584fc286
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117622"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581299"
 ---
 # <a name="older-versions---mvc-1-and-2"></a>Starsze wersje — MVC 1 i 2
 
-> Zasoby do nauki, jak program MVC 1 i 2.
+> Zasoby do uczenia się, w jaki sposób program MVC 1 i 2.
 
 - [Omówienie](overview/index.md)
 
@@ -85,11 +85,11 @@ ms.locfileid: "65117622"
     - [Tworzenie tras niestandardowych (VB)](controllers-and-routing/creating-custom-routes-vb.md)
     - [Tworzenie ograniczenia trasy (VB)](controllers-and-routing/creating-a-route-constraint-vb.md)
     - [Tworzenie niestandardowego ograniczenia trasy (VB)](controllers-and-routing/creating-a-custom-route-constraint-vb.md)
-- [Wdrażanie](deployment/index.md)
+- [Wdrożenie](deployment/index.md)
 
     - [Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (C#)](deployment/using-asp-net-mvc-with-different-versions-of-iis-cs.md)
     - [Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (VB)](deployment/using-asp-net-mvc-with-different-versions-of-iis-vb.md)
-- [Zabezpieczenia](security/index.md)
+- [Bezpieczeństwo](security/index.md)
 
     - [Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (C#)](security/authenticating-users-with-forms-authentication-cs.md)
     - [Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (C#)](security/authenticating-users-with-windows-authentication-cs.md)

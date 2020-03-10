@@ -9,11 +9,11 @@ ms.assetid: 081fe010-ba0f-4e7d-b4ba-774840b601c2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: fe1f7b80b26ff25c1ce744e4f823e3fb35eea074
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74577288"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78548217"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Interakcja ze stroną wzorcową z poziomu strony zawartości (VB)
 
@@ -123,7 +123,7 @@ Następnie na karcie Wstawianie Dodaj następującą instrukcję `INSERT`:
 
 Po zakończeniu działania kreatora przejdź do tagu inteligentnego DetailsView i zaznacz pole wyboru "Włącz wstawianie". Spowoduje to dodanie CommandField do widoku DetailsView z właściwością `ShowInsertButton` ustawioną na wartość true. Ponieważ ten DetailsView zostanie użyty wyłącznie do wstawiania danych, ustaw właściwość `DefaultMode` DetailsView na `Insert`.
 
-To wszystko. Przetestujmy Tę stronę. Odwiedź witrynę `AddProduct.aspx` za pomocą przeglądarki, wprowadź nazwę i cenę (patrz rysunek 6).
+To wszystko! Przetestujmy Tę stronę. Odwiedź witrynę `AddProduct.aspx` za pomocą przeglądarki, wprowadź nazwę i cenę (patrz rysunek 6).
 
 [![dodać nowego produktu do bazy danych](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 

@@ -9,11 +9,11 @@ ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
 ms.openlocfilehash: c2f420bb7c2f7d2e31654c20fb9ec7497a30a9f7
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74564883"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641576"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składniC#Razor ()
 
@@ -89,7 +89,7 @@ Można przechowywać wartości w *zmiennej*, w tym ciągi, liczby i daty itp. Tw
 
 Wynik wyświetlany w przeglądarce:
 
-![Razor-IMG3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. w podwójnym cudzysłowie należy umieścić wartości ciągu literału
@@ -335,7 +335,7 @@ W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania zm
 
 :::row:::
     :::column:::
-    <strong>Method</strong>
+    <strong>Metoda</strong>
     :::column-end:::
     :::column:::
     <strong>Opis</strong>
@@ -533,7 +533,7 @@ Operator jest słowem kluczowym lub znakiem, który informuje ASP.NET jakiego ro
 
 :::row:::
     :::column:::
-        `+=``-=`
+        `+=` `-=`
     :::column-end:::
     :::column:::
     Operatory zwiększania i zmniejszania, które dodają i odejmujeją 1 (odpowiednio) od zmiennej.
@@ -603,7 +603,7 @@ Operator jest słowem kluczowym lub znakiem, który informuje ASP.NET jakiego ro
 
 :::row:::
     :::column:::
-        `&&``||`
+        `&&` `||`
     :::column-end:::
     :::column:::
     Logiczne i i lub, które są używane do łączenia warunków.

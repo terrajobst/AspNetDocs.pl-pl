@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: 'Samouczek: Zwiększ sprawdzania poprawności danych dla platformy EF Database First w aplikacji ASP.NET MVC'
-description: Ten samouczek koncentruje się na temat dodawania adnotacji danych do modelu danych do określania wymagań dotyczących walidacji i wyświetlenie formatowania.
+title: 'Samouczek: ulepszanie sprawdzania poprawności danych dla EF Database First z aplikacją ASP.NET MVC'
+description: Ten samouczek koncentruje się na dodawaniu adnotacji do danych do modelu danych, aby określić wymagania dotyczące weryfikacji i formatowanie wyświetlania.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,35 +10,35 @@ ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 897cd7c6a40445e2a4abede50d81e101372d3233
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070598"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616278"
 ---
-# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Zwiększ sprawdzania poprawności danych dla platformy EF Database First w aplikacji ASP.NET MVC
+# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: ulepszanie sprawdzania poprawności danych dla EF Database First z aplikacją ASP.NET MVC
 
-Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych.
+Korzystając z szkieletów MVC, Entity Framework i ASP.NET, można utworzyć aplikację sieci Web, która udostępnia interfejs istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie generować kod, który umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i usuwanie danych znajdujących się w tabeli bazy danych. Wygenerowany kod odpowiada kolumnom w tabeli bazy danych.
 
-Ten samouczek koncentruje się na temat dodawania adnotacji danych do modelu danych do określania wymagań dotyczących walidacji i wyświetlenie formatowania. Został udoskonalony na podstawie informacji pochodzących od użytkowników w sekcji komentarzy.
+Ten samouczek koncentruje się na dodawaniu adnotacji do danych do modelu danych, aby określić wymagania dotyczące weryfikacji i formatowanie wyświetlania. Ulepszono je na podstawie opinii użytkowników w sekcji komentarzy.
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodawanie adnotacji danych
-> * Dodawanie klasy metadanych
+> * Dodawanie adnotacji do danych
+> * Dodaj klasy metadanych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Dostosowywanie widoku](customizing-a-view.md)
 
-## <a name="add-data-annotations"></a>Dodawanie adnotacji danych
+## <a name="add-data-annotations"></a>Dodawanie adnotacji do danych
 
-Jak pokazano w poprzednim temacie niektóre reguły sprawdzania poprawności danych są automatycznie stosowane do danych wejściowych użytkownika. Można na przykład tylko podać numer dla właściwości klasy korporacyjnej. Aby określić więcej reguł sprawdzania poprawności danych, można dodać adnotacje danych na klasę modelu. Adnotacje są stosowane w całej aplikacji sieci web dla określonej właściwości. Można także zastosować atrybutów formatowania, które zmieniają się, jak wyświetlić właściwości; takie jak zmiana wartości używanego do etykiet tekstu.
+Zgodnie z wcześniejszym tematem niektóre reguły sprawdzania poprawności danych są automatycznie stosowane do danych wejściowych użytkownika. Na przykład można podać tylko liczbę dla właściwości klasy. Aby określić więcej reguł walidacji danych, można dodać adnotacje do danych klasy modelu. Adnotacje są stosowane w całej aplikacji sieci Web dla określonej właściwości. Można również zastosować atrybuty formatowania, które zmieniają sposób wyświetlania właściwości. takie jak, zmiana wartości używanej w etykietach tekstowych.
 
-W tym samouczku zostaną dodane adnotacje danych, aby ograniczyć długość wartości podanych dla właściwości FirstName, LastName i MiddleName. W bazie danych te wartości są ograniczone do 50 znaków. Jednak w aplikacji sieci web ten limit znaków: obecnie nie są wymuszane. Jeśli użytkownik poda więcej niż 50 znaków, dla jednego z tych wartości, strony ulegnie awarii podczas próby zapisania wartości w bazie danych. Zostanie również ograniczyć klasy korporacyjnej, do wartości z zakresu od 0 do 4.
+W tym samouczku dodasz adnotacje danych w celu ograniczenia długości wartości podanych dla właściwości FirstName, LastName i MiddleName. W bazie danych te wartości są ograniczone do 50 znaków; Niemniej jednak w aplikacji sieci Web limit znaków nie jest wymuszany. Jeśli użytkownik poda więcej niż 50 znaków dla jednej z tych wartości, strona ulegnie awarii podczas próby zapisania wartości w bazie danych. Należy również ograniczyć zakres do wartości z zakresu od 0 do 4.
 
-Wybierz **modeli** > **ContosoModel.edmx** > **ContosoModel.tt** , a następnie otwórz *Student.cs* pliku. Dodaj następujący wyróżniony kod do klasy.
+Wybierz pozycję **modele** > **ContosoModel. edmx** > **ContosoModel.tt** i Otwórz plik *student.cs* . Dodaj następujący wyróżniony kod do klasy.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample1.cs?highlight=5,15,17,20)]
 
@@ -48,62 +48,62 @@ Otwórz *Enrollment.cs* i Dodaj następujący wyróżniony kod.
 
 Skompiluj rozwiązanie.
 
-Kliknij przycisk **listę uczniów** i wybierz **Edytuj**. Jeśli użytkownik podejmie próbę wprowadzić więcej niż 50 znaków, jest wyświetlany komunikat o błędzie.
+Kliknij pozycję **Lista uczniów** i wybierz pozycję **Edytuj**. Jeśli spróbujesz wprowadzić więcej niż 50 znaków, zostanie wyświetlony komunikat o błędzie.
 
 ![Pokaż komunikat o błędzie](enhancing-data-validation/_static/image1.png)
 
-Wróć do strony głównej. Kliknij przycisk **listę rejestracje** i wybierz **Edytuj**. Podjęto próbę zapewnienie jakości powyżej 4. Zostanie wyświetlony ten błąd: *Pola, które klasy korporacyjnej musi należeć do zakresu od 0 do 4.*
+Wróć do strony głównej. Kliknij pozycję **Lista rejestracji** i wybierz pozycję **Edytuj**. Próba dostarczenia klasy powyżej 4. Zostanie wyświetlony następujący błąd: *Klasa pola musi zawierać się w przedziale od 0 do 4.*
 
-## <a name="add-metadata-classes"></a>Dodawanie klasy metadanych
+## <a name="add-metadata-classes"></a>Dodaj klasy metadanych
 
-Dodawanie atrybutów sprawdzania poprawności bezpośrednio do klasy modelu działa, gdy nie będzie bazy danych, aby zmienić; Jednak jeśli zmian w bazie danych i chcesz ponownie wygenerować klasę modelu, utracisz wszystkie atrybuty, które były stosowane do klasy modelu. Takie podejście może być bardzo mało wydajne i podatne na utratę reguł sprawdzania poprawności ważne.
+Dodawanie atrybutów walidacji bezpośrednio do klasy modelu działa, gdy nie oczekuje się, że baza danych nie zostanie zmieniona; Jeśli jednak baza danych ulegnie zmianie i trzeba będzie ponownie wygenerować klasę modelu, utracisz wszystkie atrybuty zastosowane do klasy modelu. Takie podejście może być bardzo wydajne i podatne na utratę ważnych reguł sprawdzania poprawności.
 
-Aby uniknąć tego problemu, można dodać klasę metadanych, który zawiera atrybuty. Po skojarzeniu klasy modelu do klasy metadanych te atrybuty są stosowane do modelu. W tym podejściu klasy modelu może być generowany ponownie bez utraty wszystkie atrybuty, które zostały zastosowane do klasy metadanych.
+Aby uniknąć tego problemu, można dodać klasę metadanych, która zawiera atrybuty. Po skojarzeniu klasy modelu z klasą metadanych te atrybuty są stosowane do modelu. W tym podejściu klasy modelu można ponownie wygenerować bez utraty wszystkich atrybutów, które zostały zastosowane do klasy metadanych.
 
-W **modeli** folderu, Dodaj klasę o nazwie *Metadata.cs*.
+W folderze **modele** Dodaj klasę o nazwie *Metadata.cs*.
 
 Zastąp kod w *Metadata.cs* następującym kodem.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample3.cs)]
 
-Te klasy metadanych zawiera wszystkie atrybuty weryfikacji, które były zastosowane wcześniej klasy modelu. **Wyświetlania** atrybut jest używany, aby zmienić wartość etykiety tekstowe.
+Te klasy metadanych zawierają wszystkie atrybuty walidacji, które zostały wcześniej zastosowane do klas modelu. Atrybut **Display** służy do zmiany wartości używanej w etykietach tekstowych.
 
-Teraz należy skojarzyć klas modelu za pomocą klasy metadanych.
+Teraz należy skojarzyć klasy modelu z klasami metadanych.
 
-W **modeli** folderu, Dodaj klasę o nazwie *PartialClasses.cs*.
+W folderze **modele** Dodaj klasę o nazwie *PartialClasses.cs*.
 
 Zastąp zawartość pliku następującym kodem.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample4.cs)]
 
-Należy zauważyć, że każda klasa jest oznaczona jako `partial` klasy, a każda jest zgodna nazwa i nazw jako klasa, która jest generowana automatycznie. Stosowanie atrybutu metadanych do klasy częściowej, gwarantuje, że atrybutów sprawdzania poprawności danych zostaną zastosowane do klasy generowane automatycznie. Te atrybuty nie zostaną utracone podczas ponownego generowania klasy modelu, ponieważ atrybut metadanych jest stosowany w klas częściowych, które nie są generowane.
+Zauważ, że każda klasa jest oznaczona jako Klasa `partial`, a każda z nich jest zgodna z nazwą i przestrzenią nazw jako klasą, która jest generowana automatycznie. Stosując atrybut metadanych do klasy częściowej, upewnij się, że atrybuty walidacji danych zostaną zastosowane do klasy generowanej automatycznie. Te atrybuty nie zostaną utracone w przypadku ponownego wygenerowania klas modelu, ponieważ atrybut metadanych jest stosowany w klasach częściowych, które nie są ponownie generowane.
 
-Aby ponownie wygenerować automatycznie wygenerowane klasy, otwórz *ContosoModel.edmx* pliku. Ponownie, kliknij prawym przyciskiem myszy projekt powierzchni i wybierz **Model aktualizacji z bazy danych**. Mimo że nie uległy zmianie bazy danych, ten proces spowoduje to ponowne wygenerowanie klasy. W **Odśwież** zaznacz **tabel** i **Zakończ**.
+Aby ponownie wygenerować klasy generowane automatycznie, Otwórz plik *ContosoModel. edmx* . Ponownie kliknij prawym przyciskiem myszy powierzchnię projektu i wybierz polecenie **Aktualizuj model z bazy danych**. Mimo że baza danych nie została zmieniona, proces ten spowoduje ponowne wygenerowanie klas. Na karcie **Odśwież** wybierz pozycję **tabele** i **Zakończ**.
 
-Zapisz *ContosoModel.edmx* plik, aby zastosować zmiany.
+Zapisz plik *ContosoModel. edmx* , aby zastosować zmiany.
 
-Otwórz *Student.cs* pliku lub *Enrollment.cs* plików i zwróć uwagę, że atrybutów sprawdzania poprawności danych, które są stosowane w starszych nie są już w pliku. Uruchom aplikację i zwróć uwagę, czy reguły sprawdzania poprawności nadal są stosowane podczas wprowadzania danych.
+Otwórz plik *student.cs* lub plik *Enrollment.cs* i Zauważ, że zastosowane wcześniej atrybuty sprawdzania poprawności danych nie są już w pliku. Jednak Uruchom aplikację i zwróć uwagę, że reguły walidacji są nadal stosowane podczas wprowadzania danych.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-Ta seria podać prosty przykład sposobu generowania kodu z istniejącej bazy danych, która umożliwia użytkownikom edytowanie, aktualizowanie, tworzenie i usuwanie danych. ASP.NET MVC 5, platformy Entity Framework i ASP.NET tworzenie szkieletów on używany do tworzenia projektu. 
+W tej serii przedstawiono prosty przykład generowania kodu z istniejącej bazy danych, który umożliwia użytkownikom edytowanie, aktualizowanie, tworzenie i usuwanie danych. Do tworzenia projektu używane są ASP.NET MVC 5, Entity Framework i ASP.NET. 
 
-Wprowadzający przykład rozwiązania deweloperskiego Code First, zobacz [wprowadzenie do ASP.NET MVC 5](../introduction/getting-started.md). 
+Przykładowy przykład tworzenia Code First można znaleźć [w temacie Wprowadzenie with ASP.NET MVC 5](../introduction/getting-started.md). 
 
-Na przykład bardziej zaawansowanych, zobacz [Tworzenie modelu danych Entity Framework dla aplikacji platformy ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Pamiętaj, że interfejs API typu DbContext, służące do pracy z danymi w pierwszej bazy danych jest taki sam jak interfejs API, można użyć do pracy z danymi w Code First. Nawet wtedy, gdy użytkownik zamierza użyć pierwszej bazy danych, możesz dowiedzieć się, jak do obsługi bardziej złożonych scenariuszy, takich jak odczytywanie i aktualizowanie powiązanych danych, obsługa konfliktów współbieżności, i innych elementów z samouczka Code First. Jedyną różnicą jest w sposób tworzenia bazy danych, klasy kontekstu i klas jednostek.
+Aby zapoznać się z bardziej zaawansowanym przykładem, zobacz [Tworzenie modelu danych Entity Framework dla aplikacji ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Należy zauważyć, że interfejs API DbContext używany do pracy z danymi w Database First jest taki sam jak interfejs API służący do pracy z danymi w Code First. Nawet jeśli zamierzasz używać Database First, możesz dowiedzieć się, jak obsługiwać bardziej złożone scenariusze, takie jak odczytywanie i aktualizowanie powiązanych danych, obsługa konfliktów współbieżności i tak dalej z samouczka Code First. Jedyną różnicą jest to, jak tworzona jest baza danych, Klasa kontekstowa i klasy jednostek.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać pełną listę można zastosować do klasy i właściwości adnotacji sprawdzania poprawności danych, zobacz [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
+Aby uzyskać pełną listę adnotacji dotyczących walidacji danych, które można zastosować do właściwości i klas, zobacz [System. ComponentModel. DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dane dodane adnotacje
-> * Dodano metadanych klas
+> * Dodano adnotacje danych
+> * Dodano klasy metadanych
 
-Aby dowiedzieć się, jak wdrożyć aplikację sieci web i bazy danych SQL w usłudze Azure App Service, zobacz w tym samouczku:
+Aby dowiedzieć się, jak wdrożyć aplikację internetową i bazę danych SQL na Azure App Service, zobacz ten samouczek:
 > [!div class="nextstepaction"]
-> [Wdrażanie aplikacji .NET w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)
+> [Wdrażanie aplikacji .NET do Azure App Service](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)

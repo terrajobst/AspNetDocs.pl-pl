@@ -9,11 +9,11 @@ ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
 ms.openlocfilehash: 738318cce442fdc5d58dd1e4c992d4941be2487e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74591240"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640603"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie do testowania
 
@@ -79,7 +79,7 @@ Aby wdrożyć usługi IIS na komputerze deweloperskim, upewnij się, że usługi
     
      ![Wybierz World Wide Web usług](deploying-to-iis/_static/image24.png)    
   
-   * Wybierz **przycisk OK**. Pojawią się komunikaty okna dialogowego informujące o instalacji.
+   * Kliknij przycisk **OK**. Pojawią się komunikaty okna dialogowego informujące o instalacji.
 
 Po zainstalowaniu usług IIS Uruchom **Menedżera usług IIS** , aby upewnić się, że .NET Framework wersja 4 jest przypisana do domyślnej puli aplikacji.
 
@@ -107,9 +107,9 @@ Po zainstalowaniu usług IIS Uruchom **Menedżera usług IIS** , aby upewnić si
 
    ![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image25.png)
 
-7. W oknie dialogowym **Edytowanie puli aplikacji** Zmień **wersję środowiska .NET CLR** na **.NET CLR v 4.0.30319**. Wybierz **przycisk OK**.
+7. W oknie dialogowym **Edytowanie puli aplikacji** Zmień **wersję środowiska .NET CLR** na **.NET CLR v 4.0.30319**. Kliknij przycisk **OK**.
 
-   ![Selecting_. NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
+   ![Selecting_.NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
 Teraz można przystąpić do publikowania aplikacji sieci Web w usługach IIS. Należy jednak najpierw utworzyć bazy danych do testowania.
 
@@ -140,7 +140,7 @@ W menu **Widok** w programie Visual Studio wybierz pozycję **Eksplorator serwer
 
 ![Selecting_Create_New_SQL_Server_Database](deploying-to-iis/_static/image8.png)
 
-W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-ContosoUniversity" w polu **Nazwa nowej bazy danych** . Wybierz **przycisk OK**.
+W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-ContosoUniversity" w polu **Nazwa nowej bazy danych** . Kliknij przycisk **OK**.
 
 ![Utwórz ASPNET-ContosoUniversity](deploying-to-iis/_static/image9.png)
 
@@ -174,11 +174,11 @@ Profil publikacji można skonfigurować tak, aby uruchamiał skrypt przydzieleni
 
 1. W programie Visual Studio Otwórz utworzony wcześniej plik *Grant. SQL* .
 
-2. Wybierz pozycję **Połącz**. 
+2. Wybierz przycisk **Połącz**. 
 
     ![Przycisk Połącz](deploying-to-iis/_static/image11.png)
 
-3. W oknie dialogowym **łączenie z serwerem** wprowadź *.\SQLEXPRESS* jako **nazwę serwera**. Wybierz pozycję **Połącz**.
+3. W oknie dialogowym **łączenie z serwerem** wprowadź *.\SQLEXPRESS* jako **nazwę serwera**. Wybierz przycisk **Połącz**.
 
 4. Z listy rozwijanej baza danych wybierz pozycję **ContosoUniversity**. Wybierz pozycję **Wykonaj**. 
 
@@ -272,7 +272,7 @@ Poniższe kroki dotyczą bazy danych **DefaultConnection** w sekcji **bazy danyc
 
    ![Konfigurowanie aktualizacji bazy danych dla członkostwa](deploying-to-iis/_static/image16.png)
 
-6. Wybierz pozycję **Zamknij**.
+6. Wybierz polecenie **Zamknij**.
 
 ### <a name="configure-deployment-for-the-application-database"></a>Skonfiguruj wdrożenie dla bazy danych aplikacji
 
@@ -296,7 +296,7 @@ Poniższe kroki dotyczą bazy danych **SchoolContext** w sekcji **bazy danych** 
 
 ### <a name="configure-publish-profile-transforms"></a>Konfiguruj transformacje profilu publikowania
 
-1. Wybierz pozycję **Zamknij**. Wybierz opcję **tak** , gdy zostanie wyświetlony monit o zapisanie zmian.
+1. Wybierz polecenie **Zamknij**. Wybierz opcję **tak** , gdy zostanie wyświetlony monit o zapisanie zmian.
 
 2. W **Eksplorator rozwiązań**rozwiń węzeł **Właściwości**, rozwiń węzeł **PublishProfiles**.
 

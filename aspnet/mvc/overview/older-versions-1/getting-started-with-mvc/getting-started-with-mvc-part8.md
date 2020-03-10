@@ -1,83 +1,83 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
-title: Dodawanie kolumny do modelu | Dokumentacja firmy Microsoft
+title: Dodawanie kolumny do modelu | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 7ae696b9-348f-4993-8ebb-a838acbe0c28
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
 ms.openlocfilehash: 1cf092c3db3959d6f47006f1be2ba82833c5dc06
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122847"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543583"
 ---
 # <a name="adding-a-column-to-the-model"></a>Dodawanie kolumny do modelu
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-W tej sekcji użyjemy opisano jak firma Microsoft może dokonać zmian schematu w naszej bazie danych i obsługi zmian w naszej aplikacji.
+W tej sekcji omówiono, jak możemy wprowadzić zmiany w schemacie bazy danych i obsłużyć zmiany w naszej aplikacji.
 
-Dodajmy "Ocena" kolumny do tabeli filmu. Wróć do IDE, a następnie kliknij pozycję Eksplorator bazy danych. Kliknij prawym przyciskiem myszy tabelę filmu, a następnie wybierz Otwórz definicję tabeli.
+Dodajmy kolumnę "Rating" do tabeli filmów. Wróć do środowiska IDE i kliknij Eksplorator bazy danych. Kliknij prawym przyciskiem myszy tabelę filmów i wybierz polecenie Otwórz definicję tabeli.
 
-Dodaj kolumnę "Ocena", jak pokazano poniżej. Ponieważ firma Microsoft nie mają teraz wszystkie klasyfikacje kolumny można zezwolić na wartości null. Kliknij pozycję Zapisz.
+Dodaj kolumnę "Rating", jak pokazano poniżej. Ponieważ nie mamy teraz żadnych ocen, kolumna może zezwalać na wartości null. Kliknij polecenie Zapisz.
 
-[![Edytowanie tabel filmy](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
+[![edytowania filmów](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
 
-Następnie wróć do Eksploratora rozwiązań i Otwórz plik Movies.edmx (która znajduje się w folderze \Models). Kliknij prawym przyciskiem myszy na powierzchni projektowej (białego obszaru) i wybierz Model aktualizacji z bazy danych.
+Następnie wróć do Eksplorator rozwiązań i Otwórz plik filmy. edmx (znajdujący się w folderze \Models). Kliknij prawym przyciskiem myszy powierzchnię projektu (biały obszar) i wybierz pozycję Aktualizuj model z bazy danych.
 
-[![Filmy — Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
+[![filmów — Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
 
-Spowoduje to uruchomienie kreatora"aktualizacji". Kliknij kartę odświeżania w nim, a następnie kliknij przycisk Zakończ. Klasa modelu nasz film zostaną zaktualizowane przy użyciu nowej kolumny.
+Spowoduje to uruchomienie "kreatora aktualizacji". Kliknij znajdującą się na niej kartę Odśwież i kliknij przycisk Zakończ. Nasze klasy modelu filmu zostaną następnie zaktualizowane przy użyciu nowej kolumny.
 
 ![Kreator aktualizacji (2)](getting-started-with-mvc-part8/_static/image5.png)
 
-Po kliknięciu przycisku Zakończ, zobaczysz, że nowa kolumna Ocena został dodany do jednostki filmu w naszym modelu.
+Po kliknięciu przycisku Zakończ zobaczysz, że nowa kolumna ocen została dodana do jednostki filmu w naszym modelu.
 
-[![Jednostki filmu](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![jednostka filmu](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
-Dodaliśmy kolumny w modelu bazy danych, ale widoków nie wiadomo o nim.
+Dodaliśmy kolumnę w modelu bazy danych, ale widoki nie są dla niego znane.
 
-## <a name="update-views-with-model-changes"></a>Zaktualizuj widoków, wprowadzając zmiany w modelu
+## <a name="update-views-with-model-changes"></a>Aktualizowanie widoków ze zmianami modelu
 
-Istnieje kilka sposobów aktualizujemy nasze szablony widoku, aby odzwierciedlić nową kolumnę klasyfikacji. Ponieważ utworzyliśmy te widoki, generując je za pomocą okna dialogowego Dodaj widok, można je usunąć i ponownie utwórz je ponownie. Jednak zazwyczaj osób będzie zostały już wykonane modyfikacje ich Przeglądanie szablonów początkowej generowania szkieletu i trzeba dodać lub usunąć pola, ręcznie, tak jak robiliśmy z polem Identyfikator tworzenia.
+Istnieje kilka sposobów aktualizowania naszych szablonów widoku w celu odzwierciedlenia nowej kolumny klasyfikacji. Ponieważ Utworzyliśmy te widoki przez wygenerowanie ich za pomocą okna dialogowego Dodaj widok, możemy je usunąć i ponownie utworzyć. Jednak zazwyczaj ludzie już wprowadziły modyfikacje w swoich szablonach widoków od początkowej generacji szkieletowej i chcą ręcznie dodawać lub usuwać pola, podobnie jak w przypadku pola ID dla tworzenia.
 
-Otwórz szablon \Views\Movies\Index.aspx i Dodaj &lt;th&gt;ocena&lt;/th&gt; porównanie tabeli filmu. Po dodaniu wydobywanie po gatunku. Następnie w tym samym położeniu kolumny, ale pod nią, Dodaj wiersz w danych wyjściowych naszych Nowa klasyfikacja.
+Otwórz szablon \Views\Movies\Index.aspx i Dodaj &lt;ową ocenę&gt;&lt;/th&gt; do nagłówka tabeli filmów. Dodano mnie po gatunku. Następnie w tej samej pozycji kolumny, ale mniej więcej, Dodaj wiersz do danych wyjściowych naszej nowej klasyfikacji.
 
 [!code-aspx[Main](getting-started-with-mvc-part8/samples/sample1.aspx)]
 
-Ostateczny szablon Index.aspx będzie wyglądać następująco:
+Nasz końcowy szablon index. aspx będzie wyglądać następująco:
 
 [!code-aspx[Main](getting-started-with-mvc-part8/samples/sample2.aspx)]
 
-Możemy następnie otworzyć szablon \Views\Movies\Create.aspx i dodawanie etykiety i pole tekstowe dla naszej nowej właściwości klasyfikacji:
+Następnie Otwórzmy szablon \Views\Movies\Create.aspx i dodasz etykietę i pole tekstowe nowej właściwości rankingu:
 
 [!code-aspx[Main](getting-started-with-mvc-part8/samples/sample3.aspx)]
 
-Nasze ostateczny szablon Create.aspx będzie wyglądać następująco, a Zmieńmy tytuł i pomocniczy naszej przeglądarki &lt;h2&gt; tytułu na wartość podobną "Tworzenie filmu" gdy mamy tutaj!
+Nasz końcowy szablon Create. aspx będzie wyglądać następująco i zmienimy tytuł przeglądarki i pomocniczą &lt;H2&gt; tytułu w taki sam sposób jak "Utwórz film" w tym miejscu.
 
 [!code-aspx[Main](getting-started-with-mvc-part8/samples/sample4.aspx)]
 
-Uruchom aplikację, a teraz masz nowe pole w bazie danych zostały dodane do tworzenia strony. Dodaj nowy film — tym razem z oceną — i kliknij przycisk Utwórz.
+Uruchom aplikację, a teraz masz nowe pole w bazie danych, które zostało dodane do strony Tworzenie. Dodaj nowy film — tym razem z klasyfikacją, a następnie kliknij przycisk Utwórz.
 
-[![Utwórz film — Windows Internet Explorer](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
+[![utworzyć filmu — Windows Internet Explorer](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
 
-Po kliknięciu pozycji Utwórz nastąpiło do strony indeksu w przypadku, gdy użytkownik nowego filmu znajduje się nowa kolumna oceny w bazie danych
+Po kliknięciu przycisku Utwórz zostanie wysłana do strony indeks, na której jest wyświetlany nowy film z nową kolumną oceny w bazie danych.
 
-[![Lista filmu — Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[Lista filmów ![— Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
-W tym samouczku podstawowe stało się ułatwiające rozpoczęcie pracy, dzięki czemu kontrolerów, skojarzenie ich z widoków i przekazanie wokół zakodowanych danych. Następnie możemy utworzone i przeznaczone do bazy danych niektóre dane umieszczane w. Firma Microsoft może pobrać dane z bazy danych i on wyświetlany w tabeli HTML. Następnie dodaliśmy Utwórz formularz, który umożliwia użytkownikowi dodawanie danych do bazy danych samodzielnie z poziomu aplikacji sieci Web. Możemy dodać sprawdzanie poprawności, a następnie wykonywane sprawdzanie poprawności używany język JavaScript po stronie klienta. Na koniec możemy zmienić bazę danych, aby uwzględnić nową kolumnę danych, a następnie zaktualizowane nasze dwie strony, aby utworzyć i wyświetlić te nowe dane.
+W tym podstawowym samouczku przedstawiono tworzenie kontrolerów, kojarzenie ich z widokami i przekazywaniem danych z zakodowanymi danymi. Następnie utworzyliśmy i zaprojektowano bazę danych oraz umieszczamy w niej dane. Pobrano dane z bazy danych i są one wyświetlane w tabeli HTML. Następnie dodaliśmy formularz Create, który umożliwia użytkownikowi dodawanie danych do bazy danych z poziomu aplikacji sieci Web. Dodaliśmy sprawdzanie poprawności, a następnie Walidacja używa języka JavaScript po stronie klienta. Na koniec baza danych została zmieniona w taki sposób, aby zawierała nową kolumnę danych, a następnie Zaktualizowano te dwie strony, aby utworzyć i wyświetlić te nowe dane.
 
-Teraz zachęcam Cię do przejdziemy do Nasz samouczek dotyczący poziomu pośredniego "[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)", a także wiele filmów wideo i zasobów w [ https://asp.net/mvc ](https://asp.net/mvc) się jeszcze bardziej poświęcone platformie ASP.NET MVC!
+Teraz zachęcamy do przechodzenia do naszego samouczka pośredniego "[sklepu z muzyką MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" oraz wielu filmów wideo i zasobów w [https://asp.net/mvc](https://asp.net/mvc) , aby dowiedzieć się więcej o ASP.NET MVC!
 
-Ciesz się!
+Owocnej pracy.
 
-- Scott Hanselman — [ http://hanselman.com ](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter.
+- Scott Hanselman — [http://hanselman.com](http://hanselman.com) i [@shanselman](http://twitter.com/shanselman) w serwisie Twitter.
 
 > [!div class="step-by-step"]
-> [Poprzednie](getting-started-with-mvc-part7.md)
+> [Wstecz](getting-started-with-mvc-part7.md)

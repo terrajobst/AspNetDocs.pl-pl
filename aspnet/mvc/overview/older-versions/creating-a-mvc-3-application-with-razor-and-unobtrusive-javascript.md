@@ -1,210 +1,210 @@
 ---
 uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
-title: MVC 3 do tworzenia aplikacji przy użyciu Razor i dyskretnym kodem JavaScript | Dokumentacja firmy Microsoft
+title: Tworzenie aplikacji MVC 3 z użyciem Razor i niewygodnego języka JavaScript | Microsoft Docs
 author: microsoft
-description: Przykładową aplikację sieci web listy użytkowników pokazuje, jak łatwo jest tworzyć aplikacje platformy ASP.NET MVC 3, za pomocą aparatu widoku Razor. Przykładowe s aplikacji...
+description: Przykładowa aplikacja internetowa z listą użytkowników pokazuje, jak prosta służy do tworzenia aplikacji ASP.NET MVC 3 przy użyciu aparatu widoku Razor. Przykładowa aplikacja s...
 ms.author: riande
 ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
 ms.openlocfilehash: fb63493ff22c9261fc5746a998a32f2511141f87
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130387"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78540986"
 ---
 # <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretnym kodem JavaScript
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Przykładową aplikację sieci web listy użytkowników pokazuje, jak łatwo jest tworzyć aplikacje platformy ASP.NET MVC 3, za pomocą aparatu widoku Razor. Przykładowa aplikacja pokazuje, jak używać nowego aparatu widoku Razor z platformą ASP.NET MVC w wersji 3 i Visual Studio 2010 w celu utworzenia fikcyjnej listy użytkowników witryny sieci Web, która zawiera funkcje, takie jak tworzenie, wyświetlanie, edytowanie i usuwanie użytkowników.
+> Przykładowa aplikacja internetowa z listą użytkowników pokazuje, jak prosta służy do tworzenia aplikacji ASP.NET MVC 3 przy użyciu aparatu widoku Razor. Przykładowa aplikacja pokazuje, jak używać nowego aparatu widoku Razor z ASP.NET MVC w wersji 3 i Visual Studio 2010 w celu utworzenia fikcyjnej witryny sieci Web z listą użytkowników, która obejmuje funkcje, takie jak tworzenie, wyświetlanie, edytowanie i usuwanie użytkowników.
 > 
-> W tym samouczku opisano kroki, które zostały wykonane w celu tworzenia przykładowej aplikacji ASP.NET MVC 3 listy użytkowników. Projekt programu Visual Studio za pomocą C# i VB, kod źródłowy jest dostępny powiązany z tym tematem: [Pobierz](https://code.msdn.microsoft.com/aspnetmvcsamples/Release/ProjectReleases.aspx?ReleaseId=5114). Jeśli masz pytania dotyczące tego samouczka, opublikuj je na [MVC forum](https://forums.asp.net/1146.aspx).
+> W tym samouczku opisano kroki, które zostały wykonane w celu skompilowania przykładowej aplikacji ASP.NET MVC 3. Projekt programu Visual Studio z C# kodem źródłowym i VB można dołączyć do tego tematu: [Pobierz](https://code.msdn.microsoft.com/aspnetmvcsamples/Release/ProjectReleases.aspx?ReleaseId=5114). Jeśli masz pytania dotyczące tego samouczka, Opublikuj je na [forum MVC](https://forums.asp.net/1146.aspx).
 
 ## <a name="overview"></a>Omówienie
 
-Aplikacja, której możesz tworzyć znajduje listy użytkownika prostą witrynę sieci Web. Użytkownicy mogą wprowadzać, wyświetlanie i aktualizowanie informacji o użytkowniku.
+Aplikacja, którą tworzysz, jest prostą witryną z listą użytkowników. Użytkownicy mogą wprowadzać, wyświetlać i aktualizować informacje o użytkowniku.
 
-![Przykładową witrynę](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image1.png)
+![Witryna Przykładowa](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image1.png)
 
-Można ściągnąć projekt ukończone VB i C# [tutaj](https://code.msdn.microsoft.com/Creating-a-MVC-3-28883c0f).
+W [tym miejscu](https://code.msdn.microsoft.com/Creating-a-MVC-3-28883c0f)możesz pobrać projekt C# VB i zakończony.
 
 ## <a name="creating-the-web-application"></a>Tworzenie aplikacji sieci Web
 
-Aby uruchomić tego samouczka, Otwórz program Visual Studio 2010, a następnie utwórz nowy projekt za pomocą *aplikacji sieci Web programu ASP.NET MVC 3* szablonu. Nazwij aplikację &quot;Mvc3Razor&quot;.
+Aby rozpocząć pracę z samouczkiem, Otwórz program Visual Studio 2010 i Utwórz nowy projekt za pomocą szablonu *aplikacji sieci Web ASP.NET MVC 3* . Nadaj aplikacji nazwę &quot;Mvc3Razor&quot;.
 
-[![Nowy projekt MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![nowy projekt MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
-W **nowego projektu programu ASP.NET MVC 3** okno dialogowe, wybierz opcję **aplikacji internetowej**wybierz aparatu widoku Razor, a następnie kliknij przycisk **OK**.
+W oknie dialogowym **Nowy projekt ASP.NET MVC 3** wybierz pozycję **aplikacja internetowa**, wybierz aparat widoku Razor, a następnie kliknij przycisk **OK**.
 
-![Okno dialogowe nowego projektu ASP.NET MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image4.png)
+![Nowe okno dialogowe projektu ASP.NET MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image4.png)
 
-W tym samouczku możesz nie będzie korzystać z dostawcy członkostwa platformy ASP.NET, więc można usunąć wszystkie pliki, które są skojarzone z logowania i członkostwa. W **Eksploratora rozwiązań**, Usuń następujące pliki i katalogi:
+W tym samouczku nie będziesz używać dostawcy członkostwa ASP.NET, więc możesz usunąć wszystkie pliki skojarzone z logowaniem i członkostwem. W **Eksplorator rozwiązań**Usuń następujące pliki i katalogi:
 
 - *Controllers\AccountController*
 - *Models\AccountModels*
 - *Views\Shared\\_LogOnPartial*
 - *Views\Account* (i wszystkie pliki w tym katalogu)
 
-![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
+![Soln](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Edytuj  <em>\_Layout.cshtml</em> i Zastąp kod znaczników wewnątrz `<div>` elementu o nazwie `logindisplay` z komunikatem <em>&quot;</em>wyłączone logowania&quot;. Poniższy przykład przedstawia nowy kod znaczników:
+Edytuj plik <em>\_Layout. cshtml</em> i Zastąp znacznik wewnątrz elementu `<div>` o nazwie `logindisplay` komunikatem <em>&quot;</em>logowanie wyłączone&quot;. W poniższym przykładzie przedstawiono nowe oznakowanie:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
 ## <a name="adding-the-model"></a>Dodawanie modelu
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modeli* folderu, wybierz **Dodaj**, a następnie kliknij przycisk **klasy**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *modele* , wybierz polecenie **Dodaj**, a następnie kliknij pozycję **Klasa**.
 
-![Nowa klasa Mdl użytkownika](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image6.png)
+![Nowa Klasa MDL użytkownika](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image6.png)
 
-Nazwa klasy `UserModel`. Zastąp zawartość *UserModel* pliku następującym kodem:
+Nadaj klasie nazwę `UserModel`. Zastąp zawartość pliku *UserModel* następującym kodem:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-`UserModel` Klasa reprezentuje użytkowników. Każdy członek tej klasy jest oznaczony za pomocą [wymagane](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybut z [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw. Atrybuty w [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeń nazw zapewnia automatyczne klienta i serwera-weryfikację po stronie aplikacji sieci web.
+Klasa `UserModel` reprezentuje użytkowników. Każdy element członkowski klasy ma adnotację z [wymaganym](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybutem z przestrzeni nazw [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) . Atrybuty w przestrzeni nazw [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) zapewniają automatyczne sprawdzanie poprawności klienta i serwera dla aplikacji sieci Web.
 
-Otwórz `HomeController` klasę i Dodaj `using` dyrektywy, dzięki czemu mogą uzyskać dostęp `UserModel` i `Users` klasy:
+Otwórz klasę `HomeController` i Dodaj dyrektywę `using`, aby można było uzyskać dostęp do klas `UserModel` i `Users`:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample3.cs)]
 
-Tuż za `HomeController` deklaracji, Dodaj poniższy komentarz i odwołania do `Users` klasy:
+Zaraz po deklaracji `HomeController` Dodaj następujący komentarz i odwołanie do klasy `Users`:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample4.cs)]
 
-`Users` Klasy jest magazynem danych uproszczone, w pamięci, które będzie używane w ramach tego samouczka. W rzeczywistej aplikacji należy użyć bazy danych do przechowywania informacji o użytkowniku. Pierwszych kilka wierszy tego `HomeController` plików są wyświetlane w następującym przykładzie:
+Klasa `Users` to uproszczony magazyn danych znajdujący się w pamięci, który będzie używany w tym samouczku. W prawdziwej aplikacji należy użyć bazy danych do przechowywania informacji o użytkownikach. W poniższym przykładzie przedstawiono kilka pierwszych wierszy pliku `HomeController`:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample5.cs)]
 
-Skompiluj aplikację tak, aby modelu użytkowników będzie dostępna do Kreatora tworzenia szkieletów w następnym kroku.
+Skompiluj aplikację, aby model użytkownika był dostępny dla Kreatora tworzenia szkieletów w następnym kroku.
 
 ## <a name="creating-the-default-view"></a>Tworzenie widoku domyślnego
 
-Następnym krokiem jest dodać metody akcji i widok, aby wyświetlić użytkowników.
+Następnym krokiem jest dodanie metody akcji i widoku w celu wyświetlenia użytkowników.
 
-Usuń istniejącą *Views\Home\Index* pliku. Zostanie utworzony nowy *indeksu* plik, aby wyświetlić użytkowników.
+Usuń istniejący plik *Views\Home\Index* . Zostanie utworzony nowy plik *indeksu* w celu wyświetlenia użytkowników.
 
-W `HomeController` klasy, Zastąp zawartość `Index` metoda następującym kodem:
+W klasie `HomeController` Zastąp zawartość metody `Index` następującym kodem:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample6.cs)]
 
-Kliknij prawym przyciskiem myszy wewnątrz `Index` metody, a następnie kliknij przycisk **Dodaj widok**.
+Kliknij prawym przyciskiem myszy wewnątrz metody `Index`, a następnie kliknij polecenie **Dodaj widok**.
 
-![Dodawanie widoku](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image7.png)
+![Dodaj widok](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image7.png)
 
-Wybierz **utworzyć widok silnie typizowane** opcji. Aby uzyskać **wyświetlić klasy danych**, wybierz opcję **Mvc3Razor.Models.UserModel**. (Jeśli nie widzisz **Mvc3Razor.Models.UserModel** w **wyświetlić klasy danych** pole, należy skompilować projekt.) Upewnij się, że aparat widoku jest ustawiona na **Razor**. Ustaw **wyświetlanie zawartości** do **listy** a następnie kliknij przycisk **Dodaj**.
+Wybierz opcję **Utwórz widok z silną typem** . W obszarze **Klasa danych widoku**wybierz pozycję **Mvc3Razor. models. UserModel**. (Jeśli nie widzisz **Mvc3Razor. models. UserModel** w polu **klasy widoku** , należy skompilować projekt). Upewnij się, że aparat widoku jest ustawiony na **Razor**. Ustaw wartość **Wyświetl zawartość** na **listę** , a następnie kliknij przycisk **Dodaj**.
 
-![Dodawanie widoku indeksu](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image8.png)
+![Dodaj widok indeksu](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image8.png)
 
-Nowy widok automatycznie scaffolds danych użytkownika, który jest przekazywany do `Index` widoku. Sprawdź nowo wygenerowane *Views\Home\Index* pliku. **Utwórz nowy**, **Edytuj**, **szczegóły**, i **Usuń** łącza nie działają, ale działa pozostałej części strony. Uruchom stronę. Zobaczysz listę użytkowników.
+Nowy widok automatycznie szkieletuje dane użytkownika, które są przesyłane do widoku `Index`. Przejrzyj nowo wygenerowany plik *Views\Home\Index* . Linki **Utwórz nowe**, **Edytuj**, **szczegóły**i **Usuń** nie działają, ale pozostała część strony jest funkcjonalna. Uruchom stronę. Zostanie wyświetlona lista użytkowników.
 
 ![Strona indeksu](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image9.png)
 
-Otwórz *Index.cshtml* i Zastęp `ActionLink` kod znaczników dla **Edytuj**, **szczegóły**, i **Usuń** następującym kodem :
+Otwórz plik *index. cshtml* i zastąp `ActionLink` znacznikami do **edycji**, **szczegółów**i **usuwania** przy użyciu następującego kodu:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample7.cshtml)]
 
-Nazwa użytkownika jest używany jako identyfikator można znaleźć wybranego rekordu w **Edytuj**, **szczegóły**, i **Usuń** łącza.
+Nazwa użytkownika jest używana jako identyfikator, aby znaleźć wybrany rekord w łączach **Edytuj**, **szczegóły**i **Usuń** .
 
 ## <a name="creating-the-details-view"></a>Tworzenie widoku szczegółów
 
-Następnym krokiem jest dodanie `Details` metody akcji i widok, aby wyświetlić szczegóły użytkownika.
+Następnym krokiem jest dodanie `Details` akcji i widoku w celu wyświetlenia szczegółów użytkownika.
 
 ![Szczegóły](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image10.png)
 
-Dodaj następujący kod `Details` metody do głównego kontrolera:
+Dodaj następującą metodę `Details` do kontrolera macierzystego:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-Kliknij prawym przyciskiem myszy wewnątrz `Details` metody, a następnie wybierz <strong>Dodaj widok</strong>. Upewnij się, że <strong>wyświetlić klasy danych</strong> zawiera pole <strong>Mvc3Razor.Models.UserModel</strong><em>.</em> Ustaw <strong>wyświetlanie zawartości</strong> do <strong>szczegóły</strong> a następnie kliknij przycisk <strong>Dodaj</strong>.
+Kliknij prawym przyciskiem myszy wewnątrz metody `Details` a następnie wybierz polecenie <strong>Dodaj widok</strong>. Sprawdź, czy pole <strong>Klasa widoku</strong> zawiera <strong>Mvc3Razor. models. UserModel</strong><em>.</em> Ustaw wartość <strong>Wyświetl zawartość</strong> na <strong>szczegóły</strong> , a następnie kliknij przycisk <strong>Dodaj</strong>.
 
 ![Dodaj widok szczegółów](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 
-Uruchom aplikację, a następnie wybierz łącze szczegółowe informacje. Automatyczne tworzenie szkieletów pokazuje każdej właściwości w modelu.
+Uruchom aplikację i wybierz łącze Szczegóły. Funkcja automatycznego tworzenia szkieletów pokazuje każdą właściwość w modelu.
 
 ![Szczegóły](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image12.png)
 
 ## <a name="creating-the-edit-view"></a>Tworzenie widoku edycji
 
-Dodaj następujący kod `Edit` metody do głównego kontrolera.
+Dodaj następującą metodę `Edit` do kontrolera macierzystego.
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample9.cs)]
 
-Dodaj widok, tak jak w poprzednich krokach, ale ustawiony **wyświetlanie zawartości** do **Edytuj**.
+Dodaj widok jak w poprzednich krokach, ale ustaw **zawartość widoku** do **edycji**.
 
-![Dodawanie widoku edycji](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image13.png)
+![Dodaj widok edycji](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image13.png)
 
-Uruchom aplikację, a następnie edytuj imię i nazwisko nazwę jednego z użytkowników. Jeśli dowolny naruszają `DataAnnotation` ograniczenia, które zostały zastosowane do `UserModel` klasy, gdy prześlesz formularz, zobaczysz błędy sprawdzania poprawności, które są tworzone przez kod serwera. Na przykład, jeśli zmienisz nazwę pierwszego &quot;pods&quot; do &quot;A&quot;, gdy prześlesz formularz, jest wyświetlany następujący błąd, na formularzu:
+Uruchom aplikację i edytuj pierwszą i nazwisko jednego z użytkowników. W przypadku naruszenia wszelkich `DataAnnotation` ograniczeń, które zostały zastosowane do klasy `UserModel`, podczas przesyłania formularza zostaną wyświetlone błędy sprawdzania poprawności, które są generowane przez kod serwera. Na przykład jeśli zmienisz imię &quot;Ann&quot; na &quot;&quot;, podczas przesyłania formularza zostanie wyświetlony następujący błąd:
 
 `The field First Name must be a string with a minimum length of 3 and a maximum length of 8.`
 
-W tym samouczku są traktowanie nazwy użytkownika jako klucz podstawowy. W związku z tym nie można zmienić właściwości nazwy użytkownika. W *Edit.cshtml* pliku tuż za `Html.BeginForm` instrukcji, ustaw nazwę użytkownika, jako ukryte pole. Powoduje to właściwości, które zostaną przekazane w modelu. Poniższy fragment kodu przedstawia położenie `Hidden` instrukcji:
+W tym samouczku potraktowano nazwę użytkownika jako klucz podstawowy. W związku z tym nie można zmienić właściwości Nazwa użytkownika. W pliku *Edit. cshtml* , tuż po instrukcji `Html.BeginForm`, ustaw wartość pola Nazwa użytkownika na ukryte. Powoduje to, że właściwość zostanie przekazana w modelu. Poniższy fragment kodu przedstawia położenie instrukcji `Hidden`:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample10.cshtml)]
 
-Zastąp `TextBoxFor` i `ValidationMessageFor` kodu znaczników dla nazwy użytkownika z `DisplayFor` wywołania. `DisplayFor` Metoda Wyświetla właściwość jako element tylko do odczytu. Poniższy przykład pokazuje ukończone znaczników. Oryginalny `TextBoxFor` i `ValidationMessageFor` wywołania są oznaczone jako komentarz ze znakami Początek komentarza i koniec komentarza Razor (`@* *@`)
+Zastąp `TextBoxFor` i `ValidationMessageFor` znaczników dla nazwy użytkownika z wywołaniem `DisplayFor`. Metoda `DisplayFor` wyświetla właściwość jako element tylko do odczytu. W poniższym przykładzie pokazano ukończony znacznik. Pierwotne wywołania `TextBoxFor` i `ValidationMessageFor` są oznaczone jako komentarze BEGIN-Comment i End-comment (`@* *@`).
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample11.cshtml)]
 
-## <a name="enabling-client-side-validation"></a>Włączanie weryfikacji po stronie klienta
+## <a name="enabling-client-side-validation"></a>Włączanie walidacji po stronie klienta
 
-Aby włączyć weryfikację po stronie klienta w programie ASP.NET MVC 3, należy ustawić dwie flagi, i musi zawierać trzy pliki JavaScript.
+Aby włączyć weryfikację po stronie klienta w ASP.NET MVC 3, należy ustawić dwie flagi i należy dołączyć trzy pliki JavaScript.
 
-Otwórz aplikację *Web.config* pliku. Sprawdź `that ClientValidationEnabled` i `UnobtrusiveJavaScriptEnabled` są ustawione na wartość true, w ustawieniach aplikacji. Poniższy fragment z katalogu głównego *Web.config* pliku są wyświetlane prawidłowe ustawienia:
+Otwórz plik *Web. config* aplikacji. Sprawdź, czy `that ClientValidationEnabled` i `UnobtrusiveJavaScriptEnabled` są ustawione na wartość true w ustawieniach aplikacji. Następujący fragment z głównego pliku *Web. config* zawiera poprawne ustawienia:
 
 [!code-xml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample12.xml)]
 
-Ustawienie `UnobtrusiveJavaScriptEnabled` na wartość true włącza dyskretny kod w technologii Ajax i sprawdzania poprawności dyskretnego kodu klienta. Użycie opcji sprawdzania poprawności dyskretnego kodu, reguł sprawdzania poprawności są przekształcane w atrybuty HTML5. Nazwy atrybutów HTML5 może zawierać tylko małe litery, cyfry i łączniki.
+Ustawienie `UnobtrusiveJavaScriptEnabled` na true włącza niezauważalną technologię AJAX i niewygodną weryfikację klienta. W przypadku korzystania z niedyskretnej weryfikacji reguły sprawdzania poprawności są włączone do atrybutów HTML5. Nazwy atrybutów HTML5 mogą zawierać tylko małe litery, cyfry i łączniki.
 
-Ustawienie `ClientValidationEnabled` do weryfikacji po stronie klienta umożliwia wartość true. Przez ustawienie tych kluczy w aplikacji *Web.config* pliku, Włącz weryfikację klienckich i dyskretny kod JavaScript dla całej aplikacji. Można również włączyć lub wyłączyć te ustawienia w poszczególnych widokach, lub w metodach kontrolera, używając następującego kodu:
+Ustawienie `ClientValidationEnabled` na true powoduje włączenie walidacji po stronie klienta. Ustawiając te klucze w pliku *Web. config* aplikacji, można włączyć sprawdzanie poprawności klienta i niewygodne środowisko JavaScript dla całej aplikacji. Możesz również włączyć lub wyłączyć te ustawienia w poszczególnych widokach lub w metodach kontrolera przy użyciu następującego kodu:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample13.cs)]
 
-Należy również uwzględnić kilka plików JavaScript w renderowanym widoku. Łatwe uwzględnianie języka JavaScript we wszystkich widokach jest, aby dodać je do *Views\Shared\\_Layout.cshtml* pliku. Zastąp `<head>` elementu  *\_Layout.cshtml* pliku następującym kodem:
+Musisz również dołączyć kilka plików JavaScript w renderowanym widoku. Łatwy sposób dołączania kodu JavaScript we wszystkich widokach polega na dodaniu ich do pliku *Views\Shared\\_Layout. cshtml* . Zastąp element `<head>` pliku *\_Layout. cshtml* następującym kodem:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample14.cshtml)]
 
-Pierwsze dwa skrypty jQuery są hostowane przez Microsoft Ajax Content Delivery Network (CDN). Dzięki wykorzystaniu Microsoft Ajax CDN może znacznie poprawić wydajność trafień pierwszej aplikacji.
+Pierwsze dwa skrypty jQuery są obsługiwane przez Microsoft Ajax Content Delivery Network (CDN). Korzystając z zalet usługi Microsoft Ajax CDN, możesz znacząco poprawić wydajność aplikacji.
 
-Uruchom aplikację, a następnie kliknij link Edytuj. Wyświetl źródło strony w przeglądarce. Źródła przeglądarki zawiera wiele atrybutów w formie `data-val` (na potrzeby weryfikacji danych). Po włączeniu weryfikacji klienckich i dyskretny kod JavaScript pól wejściowych przy użyciu reguły weryfikacji klienta zawierają `data-val="true"` atrybutu, aby wyzwolić sprawdzania poprawności dyskretnego kodu klienta. Na przykład `City` pola w modelu została ozdobione [wymagane](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybut, co skutkuje HTML pokazano w poniższym przykładzie:
+Uruchom aplikację i kliknij link edycji. Wyświetl źródło strony w przeglądarce. Źródło przeglądarki pokazuje wiele atrybutów formularza `data-val` (na potrzeby sprawdzania poprawności danych). Gdy jest włączone sprawdzanie poprawności klienta i niezauważalny kod JavaScript, pola wejściowe z regułą walidacji klienta zawierają atrybut `data-val="true"`, aby wyzwolić niezauważalną weryfikację klienta. Na przykład pole `City` w modelu zostało dekoracyjne przy użyciu [wymaganego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybutu, co spowoduje, że w kodzie HTML pokazano w następującym przykładzie:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
-Dla każdej reguły weryfikacji klienta jest dodawany atrybut zawierający formularz `data-val-rulename="message"`. Za pomocą `City` pola przedstawionym wcześniej przykładzie obejmującym, generuje reguły weryfikacji klienta wymagane `data-val-required` atrybut i komunikat &quot;Miasto pole jest wymagane&quot;. Uruchom aplikację, edytować jeden z użytkowników, a następnie wyczyść `City` pola. Gdy karcie poza pole zobaczysz komunikat o błędzie weryfikacji po stronie klienta.
+Dla każdej reguły sprawdzania poprawności klienta dodawany jest atrybut, który ma `data-val-rulename="message"`formularza. Korzystając z przykładowego pola `City` pokazanego wcześniej, wymagana reguła sprawdzania poprawności klienta generuje atrybut `data-val-required` i komunikat &quot;pole Miasto jest wymagane&quot;. Uruchom aplikację, Edytuj jednego z użytkowników i usuń zaznaczenie pola `City`. Po wybraniu karty z pola zobaczysz komunikat o błędzie weryfikacji po stronie klienta.
 
-![Miasto wymagane](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
+![Miasto jest wymagane](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-Podobnie, dla każdego parametru reguły weryfikacji klienta jest dodawany atrybut zawierający formularz `data-val-rulename-paramname=paramvalue`. Na przykład `FirstName` właściwość jest oznaczona za pomocą [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu i określa minimalną długość 3 i maksymalna długość 8. Reguły sprawdzania poprawności danych o nazwie `length` ma nazwę parametru `max` i wartość parametru 8. Poniżej pokazano kod HTML, który jest generowany dla `FirstName` pola, gdy edytujesz jednego z użytkowników:
+Podobnie dla każdego parametru w regule sprawdzania poprawności klienta dodawany jest atrybut, który ma `data-val-rulename-paramname=paramvalue`. Na przykład właściwość `FirstName` ma adnotację z atrybutem [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) i określa minimalną długość równą 3 i maksymalną 8. Reguła walidacji danych o nazwie `length` ma nazwę parametru `max` i wartość parametru 8. Poniżej przedstawiono kod HTML wygenerowany dla pola `FirstName` podczas edytowania jednego z użytkowników:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 
-Aby uzyskać więcej informacji na temat sprawdzania poprawności dyskretnego kodu klienta, zobacz wpis [dyskretny kod weryfikacji klienta w programie ASP.NET MVC 3](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) w Brada Wilsona.
+Aby uzyskać więcej informacji o niezauważalnej weryfikacji klienta, zobacz wpis [niezauważalna Weryfikacja klienta w ASP.NET MVC 3](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) w blogu Brada Wilson.
 
 > [!NOTE]
-> W programie ASP.NET MVC 3 w wersji Beta czasami musisz przesłać formularza w celu uruchamiania funkcji weryfikacji po stronie klienta. To może ulec zmianie w ostatecznej wersji.
+> W programie ASP.NET MVC 3 beta czasami trzeba przesłać formularz w celu uruchomienia walidacji po stronie klienta. Można to zmienić w przypadku ostatecznej wersji.
 
-## <a name="creating-the-create-view"></a>Tworzenie widoku Create
+## <a name="creating-the-create-view"></a>Tworzenie widoku
 
-Następnym krokiem jest dodanie `Create` metody akcji i widoku w celu umożliwienia użytkownikowi utworzenie nowego użytkownika. Dodaj następujący kod `Create` metody do głównego kontrolera:
+Następnym krokiem jest dodanie `Create` akcji i widoku w celu umożliwienia użytkownikowi utworzenia nowego użytkownika. Dodaj następującą metodę `Create` do kontrolera macierzystego:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample17.cs)]
 
-Dodaj widok, tak jak w poprzednich krokach, ale ustawiony **wyświetlanie zawartości** do **Utwórz**.
+Dodaj widok jak w poprzednich krokach, ale ustaw **zawartość widoku** do **utworzenia**.
 
 ![Utwórz widok](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image15.png)
 
-Uruchom aplikację, wybierz **Utwórz** łącze i Dodaj nowego użytkownika. `Create` Metoda wykorzystuje automatycznie Walidacja po stronie klienta i po stronie serwera. Wprowadź nazwę użytkownika, który zawiera biały znak, takich jak &quot;Ben X&quot;. Gdy karcie poza pole nazwy użytkownika, błąd weryfikacji po stronie klienta (`White space is not allowed`) jest wyświetlana.
+Uruchom aplikację, wybierz link **Utwórz** i Dodaj nowego użytkownika. Metoda `Create` automatycznie korzysta z funkcji weryfikacji po stronie klienta i po stronie serwera. Spróbuj wprowadzić nazwę użytkownika, która zawiera białe znaki, takie jak &quot;Ben X&quot;. Po wybraniu karty z pola Nazwa użytkownika zostanie wyświetlony komunikat o błędzie weryfikacji po stronie klienta (`White space is not allowed`).
 
 ## <a name="add-the-delete-method"></a>Dodaj metodę Delete
 
-Do ukończenia tego samouczka, Dodaj następujący kod `Delete` metody do głównego kontrolera:
+Aby ukończyć ten samouczek, Dodaj następującą metodę `Delete` do kontrolera macierzystego:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample18.cs)]
 
-Dodaj `Delete` widok, tak jak w poprzednich krokach, ustawienie **wyświetlanie zawartości** do **Usuń**.
+Dodaj widok `Delete` jak w poprzednich krokach ustawienia **Wyświetl zawartość** do **usunięcia**.
 
 ![Usuń widok](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image16.png)
 
-Masz teraz prostą, ale w pełni funkcjonalnych aplikacji ASP.NET MVC 3 ze sprawdzaniem poprawności.
+Masz teraz prostą, ale w pełni funkcjonalną ASP.NET aplikację MVC 3 z walidacją.

@@ -9,11 +9,11 @@ ms.assetid: 3fc23eed-921d-4d46-a610-a2d156e4bd03
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db8f58e3679e6dea865dadb6f64916032dd9f38c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74639873"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528197"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: Rozwiązywanie problemów (12 z 12)
 
@@ -44,7 +44,7 @@ Aby umożliwić aplikacji Wyświetlanie szczegółowych komunikatów o błędach
 1. Jeśli plik Web. config aplikacji zawiera element `customErrors` w elemencie `system.web`, Zmień atrybut `mode` na "off". W przeciwnym razie Dodaj element `customErrors` w elemencie `system.web` z atrybutem `mode` ustawionym na wartość "off", jak pokazano w następującym przykładzie:
 
     [!code-xml[Main](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12/samples/sample2.xml?highlight=3)]
-2. Wdrożenie aplikacji.
+2. Wdróż aplikację.
 3. Uruchom aplikację i powtórz wszystkie wcześniej, które spowodowały wystąpienie błędu. Teraz można zobaczyć, jaki jest rzeczywisty komunikat o błędzie.
 4. Po rozwiązaniu błędu Przywróć oryginalne ustawienie `customErrors` i ponownie Wdróż aplikację.
 
@@ -317,4 +317,4 @@ Serwer nie obsługuje ASP.NET 4,5. Skontaktuj się z dostawcą hostingu, aby okr
 Okna **Właściwości** projektu zawierają listę rozwijaną platformy docelowej, ale nie można rozwiązać tego problemu przez zmianę wartości z **.NET Framework 4,5** na **.NET Framework 4**. Jeśli zmienisz platformę docelową na wcześniejszą wersję Framework, projekt nadal będzie zawierał odwołania do zestawów wersji platformy w przyszłości i nie zostanie uruchomiony. Musisz ręcznie zmienić te odwołania lub utworzyć nowy projekt, który jest przeznaczony dla .NET Framework 4 lub wcześniejszych. Aby uzyskać więcej informacji, zobacz [.NET Framework określania elementów docelowych dla witryn sieci Web](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 > [!div class="step-by-step"]
-> [Ubiegł](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [Wstecz](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

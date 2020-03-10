@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
-title: 'Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: Tworzenie aplikacji ASP.NET | Dokumentacja firmy Microsoft'
+title: 'Wprowadzenie do ASP.NET dla deweloperów ColdFusion: Tworzenie aplikacji ASP.NET | Microsoft Docs'
 author: microsoft
-description: Ta emisja internetowa przedstawia sposób tworzenia aplikacji ASP.NET zaczynając od pustego formularza, aby dać doświadczonych deweloperów ColdFusion wyczyść pogląd dokładnie, co...
+description: Ta emisja internetowa pokazuje, jak utworzyć aplikację ASP.NET rozpoczynającą się od pustego formularza, aby dać doświadczonym deweloperowi ColdFusion pomysł dokładnie na to, co...
 ms.author: riande
 ms.date: 07/25/2006
 ms.assetid: 47316dec-a4cd-4818-8ba7-87e29d963c38
 msc.legacyurl: /web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
 msc.type: video
 ms.openlocfilehash: 8ebbd7a8e8fa4adb9835cea9560797beee2b86fa
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383922"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639840"
 ---
-# <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: kompilowanie aplikacji ASP.NET
+# <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Wprowadzenie do ASP.NET dla deweloperów ColdFusion: Tworzenie aplikacji ASP.NET
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-Temat pokazuje, jak utworzyć aplikację platformy ASP.NET zaczynając od pustego formularza, dają doświadczonych deweloperów ColdFusion wyczyść pogląd dokładnie na czym polega.
+Ta emisja internetowa pokazuje, jak utworzyć aplikację ASP.NET rozpoczynającą się od pustego formularza, aby dać doświadczonym deweloperowi ColdFusion pomysł dokładnie na to, czego dotyczy.
 
-[&#9654;Obejrzyj film wideo (minuty 77)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
+[&#9654;Obejrzyj wideo (77 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
 
 > [!div class="step-by-step"]
 > [Poprzednie](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)

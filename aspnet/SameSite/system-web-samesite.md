@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać programu do SameSite plików cookie w AS
 ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: edb368910b24be2d042afe3c19ffa1fb23245443
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.openlocfilehash: 7987a5d6c9b3a82679d42a2d381d471d56f495c2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455711"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546747"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>Pracuj z plikami cookie SameSite w ASP.NET
 
@@ -133,7 +133,7 @@ Aplikacja jest przerywana w przeglądarce Chrome lub może zostać przerwana w w
 
 Obsługa SameSite została najpierw zaimplementowana w programie .NET 4.7.2 przy użyciu [standardowego standardu 2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1).
 
-19 listopada 2019 aktualizacje dla systemu Windows Zaktualizowano .NET 4.7.2 + ze standardu 2016 do standardu 2019. Dodatkowe aktualizacje są nachodzące dla innych wersji systemu Windows. Aby uzyskać więcej informacji, zobacz <xref:samesite/kbs-samesite>.
+19 listopada 2019 aktualizacje dla systemu Windows Zaktualizowano .NET 4.7.2 + ze standardu 2016 do standardu 2019. Dodatkowe aktualizacje są nachodzące dla innych wersji systemu Windows. Aby uzyskać więcej informacji, zobacz temat <xref:samesite/kbs-samesite>.
 
  Wersja robocza 2019 specyfikacji SameSite:
 
@@ -177,7 +177,7 @@ Te wykrywania są najczęściej spotykanymi agentami przeglądarki, którzy obs�
 * Twoja aplikacja może zobaczyć przeglądarki, których nie ma w naszej witrynie testowej.
 * Należy przystąpić do dodawania wykrywania zależnie od potrzeb danego środowiska.
 
-Sposób działania wykrywania zależy od używanej wersji platformy .NET i platformy sieci Web. Następujący kod można wywołać w witrynie wywołania <xref:HTTP.HttpCookie>:
+Sposób działania wykrywania zależy od używanej wersji platformy .NET i platformy sieci Web. Następujący kod można wywołać w witrynie wywołania [HttpCookie](/dotnet/api/system.web.httpcookie) :
 
 [!code-csharp[](sample/SameSiteCheck.cs?name=snippet)]
 
@@ -236,7 +236,7 @@ Aplikacje, które współdziałają z witrynami zdalnymi, takie jak logowanie in
 * Przetestuj interakcję w wielu przeglądarkach.
 * Zastosuj [wykrywanie przeglądarki i środki zaradcze](#sob) omówione w tym dokumencie.
 
-Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i chrom Microsoft Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
+Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i chrom Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 
 ### <a name="test-with-chrome"></a>Testowanie za pomocą przeglądarki Chrome
 
@@ -247,6 +247,8 @@ Firma Google nie udostępnia starszych wersji programu Chrome. Postępuj zgodnie
 * [Chrom 76 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/664998/)
 * [Chrom 74 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/638880/)
 * Jeśli nie używasz 64-bitowej wersji systemu Windows, możesz użyć [przeglądarki OmahaProxy](https://omahaproxy.appspot.com/) do wyszukania, która gałąź chromu odnosi się do programu Chrome 74 (v 74.0.3729.108), korzystając z [instrukcji dostarczonych przez chrom](https://www.chromium.org/getting-involved/download-chromium).
+
+Począwszy od wersji `80.0.3975.0`Kanaryjskich, można wyłączyć swobodny + POST tymczasowych środków zaradczych na potrzeby testowania przy użyciu nowej flagi `--enable-features=SameSiteDefaultChecksMethodRigorously`, aby umożliwić Testowanie witryn i usług w stanie końcowym funkcji, w której zostało usunięte. Aby uzyskać więcej informacji, zobacz artykuł dotyczący projektów chrom [SameSite Updates](https://www.chromium.org/updates/same-site)
 
 #### <a name="test-with-chrome-80"></a>Testowanie przy użyciu przeglądarki Chrome 80 +
 
@@ -264,9 +266,9 @@ Przeglądarka Safari 12 ściśle wdrożyła poprzednią wersję roboczą i końc
 
 Obsługę programu Firefox dla nowego standardu można przetestować w wersji 68 + przez wypróbowanie na stronie `about:config` z flagą funkcji `network.cookie.sameSite.laxByDefault`. Nie zgłoszono problemów ze zgodnością ze starszymi wersjami programu Firefox.
 
-### <a name="test-with-edge-legacy-browser"></a>Testowanie przy użyciu przeglądarki Microsoft Edge (starsza wersja)
+### <a name="test-with-edge-legacy-browser"></a>Testowanie przy użyciu przeglądarki Edge (starsza wersja)
 
-Program Microsoft Edge obsługuje stary Standard SameSite. W wersji brzegowej 44 + nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
+Program Edge obsługuje stary Standard SameSite. W wersji brzegowej 44 + nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
 
 ### <a name="test-with-edge-chromium"></a>Testowanie przy użyciu krawędzi (chrom)
 
@@ -302,6 +304,7 @@ Zaktualizuj *plik Web. config* , aby uwzględnić następujące ustawienia konfi
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Nadchodzące zmiany plików cookie SameSite w ASP.NET i ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
+* [Wskazówki dotyczące testowania i debugowania SameSite-by-default i "SameSite = none; Bezpieczne "pliki cookie](https://www.chromium.org/updates/same-site/test-debug)
 * [Blog chromu: deweloperzy: przygotowanie do nowego SameSite = none; Ustawienia bezpiecznego pliku cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Wyjaśniono pliki cookie SameSite](https://web.dev/samesite-cookies-explained/)
 * [Aktualizacje programu Chrome](https://www.chromium.org/updates/same-site)

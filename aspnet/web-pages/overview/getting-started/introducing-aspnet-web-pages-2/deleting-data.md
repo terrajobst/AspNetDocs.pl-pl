@@ -1,171 +1,171 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: Wprowadzenie do składnika ASP.NET Web Pages — usuwanie danych bazy danych | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — usuwanie danych bazy danych | Microsoft Docs
 author: Rick-Anderson
-description: W tym samouczku dowiesz się, jak usunąć wpis poszczególnych baz danych. Założono, że zostały wykonane serii za pośrednictwem aktualizacji bazy danych w sieci Web platformy ASP.NET Pa....
+description: W tym samouczku przedstawiono sposób usuwania poszczególnych wpisów bazy danych. Przyjęto założenie, że została ukończona seria przez zaktualizowanie danych bazy danych w sieci Web ASP.NET...
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
 ms.openlocfilehash: c8620fc1abc61d514bdc039c66f7a84e67e89abe
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78629039"
 ---
-# <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — usuwanie danych bazy danych
+# <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Wprowadzenie do stron sieci Web ASP.NET — usuwanie danych bazy danych
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku dowiesz się, jak usunąć wpis poszczególnych baz danych. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [aktualizowanie bazy danych w programie ASP.NET Web Pages](updating-data.md).
+> W tym samouczku przedstawiono sposób usuwania poszczególnych wpisów bazy danych. Przyjęto założenie, że wykonano serię przez [zaktualizowanie danych bazy danych na stronach sieci Web ASP.NET](updating-data.md).
 > 
 > Zawartość:
 > 
-> - Jak wybrać pojedynczego rekordu z listy rekordów.
+> - Jak wybrać pojedynczy rekord z listy rekordów.
 > - Jak usunąć pojedynczy rekord z bazy danych.
-> - Jak sprawdzić, czy konkretny przycisk został kliknięty w formularzu.
+> - Jak sprawdzić, czy określony przycisk został kliknięty w formularzu.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - `WebGrid` Pomocnika.
-> - SQL `Delete` polecenia.
-> - `Database.Execute` Metodę, aby uruchomić SQL `Delete` polecenia.
+> - Pomocnik `WebGrid`.
+> - Polecenie SQL `Delete`.
+> - Metoda `Database.Execute` do uruchamiania polecenia SQL `Delete`.
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-W poprzednim samouczku przedstawiono sposób aktualizacji istniejącego rekordu bazy danych. W tym samouczku jest podobny, z tą różnicą, że zamiast aktualizowania rekordu, zostaną one usunięte. Procesy są bardzo podobne do, z tą różnicą, że usunięcie jest prostsze, więc w tym samouczku będą krótki.
+W poprzednim samouczku przedstawiono sposób aktualizowania istniejącego rekordu bazy danych. Ten samouczek jest podobny, z tą różnicą, że zamiast aktualizacji rekordu, zostanie usunięty. Procesy są znacznie takie same, z tą różnicą, że usuwanie jest prostsze, więc ten samouczek będzie krótki.
 
-W *filmy* stronie będą aktualizowane `WebGrid` pomocnika, tak że wyświetla **Usuń** łącze obok każdego filmu, która ma towarzyszyć **Edytuj** łącze dodano wcześniej.
+Na stronie *filmy* należy zaktualizować pomocnika `WebGrid` tak, aby wyświetlał link **usuwania** obok każdego filmu, który zostanie dołączony do dodanego wcześniej linku **edycji** .
 
-![Filmy strona, wyświetlająca łącze usuwanie dla każdego filmu](deleting-data/_static/image1.png)
+![Strona filmów z linkiem usuwania dla każdego filmu](deleting-data/_static/image1.png)
 
-Podobnie jak w przypadku edytowania, po kliknięciu **Usuń** łącza, spowoduje to przejście do innej strony, której informacje film jest już w postaci:
+Podobnie jak w przypadku edycji, kliknięcie linku **usuwania** spowoduje przejście do innej strony, gdzie informacje o filmie są już w postaci:
 
-![Usuwanie strony filmu przy użyciu filmu wyświetlane](deleting-data/_static/image2.png)
+![Usuń stronę filmu z wyświetlonym filmem](deleting-data/_static/image2.png)
 
-Można następnie kliknij przycisk aby trwale usunąć rekord.
+Następnie możesz kliknąć przycisk, aby trwale usunąć rekord.
 
-## <a name="adding-a-delete-link-to-the-movie-listing"></a>Dodawanie Usuń łącze do listy filmów
+## <a name="adding-a-delete-link-to-the-movie-listing"></a>Dodawanie linku usuwania do listy filmów
 
-Użytkownik rozpoczyna się przez dodanie **Usuń** połączyć `WebGrid` pomocnika. Ten link jest podobny do **Edytuj** łącze, które zostały dodane w poprzednim samouczku.
+Zacznij od dodania linku **usuwania** do pomocnika `WebGrid`. Ten link jest podobny do linku **edycji** , który został dodany w poprzednim samouczku.
 
-Otwórz *Movies.cshtml* pliku.
+Otwórz plik *Films. cshtml* .
 
-Zmiana `WebGrid` znaczników w treści strony przez dodanie kolumny. Oto znaczniki zmodyfikowane:
+Zmień `WebGrid` znaczników w treści strony, dodając kolumnę. Oto zmodyfikowano znaczniki:
 
 [!code-html[Main](deleting-data/samples/sample1.html?highlight=9-10)]
 
-Nowa kolumna jest to:
+Nowa kolumna to:
 
 [!code-html[Main](deleting-data/samples/sample2.html)]
 
-Sposób siatki jest skonfigurowany, **Edytuj** kolumna jest skrajnie po lewej stronie w siatce i **Usuń** kolumna znajduje się po prawej stronie. (Brak przecinka po `Year` teraz kolumny w przypadku, gdy nie można zauważyć, że.) Nic specjalnego nie o dokąd te kolumny łącza, a następnie równie łatwo można je umieścić obok siebie. W tym przypadku są one utrudnić pomieszała się oddzielnie.
+W sposób skonfigurowania siatki, kolumna **Edycja** jest lewej strony siatki, a kolumna **Usuń** jest przysunięta do prawej strony. (Istnieje przecinek po `Year` kolumnie teraz, jeśli nie zauważysz, że.) Nie ma żadnych specjalnych informacji o tym, gdzie znajdują się te kolumny linków, i można je łatwo umieścić obok siebie. W takim przypadku są one oddzielone, aby utrudnić ich przetworzenie.
 
-![Strona filmy wraz z łączami do edycji i szczegóły oznaczone, aby pokazać, że są one nie obok siebie](deleting-data/_static/image3.png)
+![Strona filmów z linkami Edytuj i szczegóły oznaczona jako widoczna, aby pokazać, że nie są obok siebie](deleting-data/_static/image3.png)
 
-Nowa kolumna pokazuje łącze (`<a>` elementu) którego tekst jest wyświetlany komunikat "Delete". Miejsce docelowe łącza (jego `href` atrybutu) jest kod, który ostatecznie jest rozpoznawany jako podobny do tego adresu URL za pomocą `id` wartość dla każdego filmu różnią się od:
+Nowa kolumna zawiera link (`<a>` element), którego tekst mówi "Delete". Obiekt docelowy linku (jego atrybut `href`) to kod, który ostatecznie jest rozpoznawany jako taki, jak ten adres URL, z wartością `id` inną dla każdego filmu:
 
 [!code-css[Main](deleting-data/samples/sample3.css)]
 
-Ten link spowoduje wywołanie stronę o nazwie *DeleteMovie* i przekaż go identyfikator filmu wybrano.
+Ten link spowoduje wywołanie strony o nazwie *DeleteMovie* i przekazanie jej identyfikatora wybranego filmu.
 
-W tym samouczku nie przejść do szczegółów dotyczących sposobu ten link jest tworzony, ponieważ jest niemal identyczny **Edytuj** link z poprzedniego samouczka ([aktualizowanie bazy danych w programie ASP.NET Web Pages](updating-data.md)).
+Ten samouczek nie zawiera szczegółowych informacji o sposobie konstruowania tego linku, ponieważ jest prawie identyczny z linkiem **edycji** z poprzedniego samouczka ([Aktualizowanie danych bazy danych na stronach sieci Web ASP.NET](updating-data.md)).
 
 ## <a name="creating-the-delete-page"></a>Tworzenie strony usuwania
 
-Teraz możesz utworzyć stronę która będzie obiektem docelowym dla **Usuń** łącze w siatce.
+Teraz można utworzyć stronę, która będzie elementem docelowym linku **usuwania** w siatce.
 
 > [!NOTE] 
 > 
-> **Ważne** technika polega na wybraniu rekordu do usunięcia, a następnie użyć osobnej stronie, a przycisk, aby upewnić się, proces jest bardzo ważne dla bezpieczeństwa. Jako przeczytane w poprzednich samouczkach, dzięki czemu *wszelkie* typu zmian do witryny sieci Web powinien *zawsze* odbywać się za pomocą formularza &mdash; oznacza to, za pomocą operację POST protokołu HTTP. Jeśli wprowadzono możliwość zmiany lokacji po prostu, klikając łącze, (tj. z użyciem operacji GET), osób może wysyłać żądania prostego do swojej witryny i usunąć swoje dane. Nawet przeszukiwarką aparat wyszukiwania, która jest indeksowania witryny przypadkowo można usunąć danych wystarczy poniższe linki.
+> **Ważne** Technika pierwszego wyboru rekordu do usunięcia, a następnie użycie osobnej strony i przycisku w celu potwierdzenia, że proces jest niezwykle istotny dla bezpieczeństwa. Po przeczytaniu w poprzednich samouczkach, wprowadzanie *wszelkich* zmian w witrynie sieci Web powinno odbywać się *zawsze* przy użyciu formularza &mdash;, czyli przy użyciu operacji post protokołu HTTP. Jeśli można zmienić witrynę po prostu przez kliknięcie linku (czyli przy użyciu operacji GET), użytkownicy mogą tworzyć proste żądania do witryny i usuwać dane. Nawet przeszukiwarka wyszukiwarki, która indeksuje witrynę, może przypadkowo usunąć dane po prostu przez następujące linki.
 > 
-> Gdy aplikacja umożliwia użytkownikom modyfikowania rekordu, masz użytkownik widzi rekordu do edytowania mimo to. Jednak może być kuszące, aby pominąć ten krok w przypadku usuwania rekordu. Nie jednak pominąć ten krok. (To również przydatne w przypadku użytkowników zobaczyć rekord i upewnij się, że są usuwane rekord, który one przeznaczone.)
+> Gdy aplikacja pozwala użytkownikom na zmianę rekordu, należy zaprezentować rekord użytkownikowi do edycji. Może jednak być skłonny do pominięcia tego kroku w celu usunięcia rekordu. Nie pomijaj tego kroku, chociaż. (Przydatne jest również, aby użytkownicy mogli zobaczyć rekord i potwierdzić, że usuwają one rekord, którego zamierzą).
 > 
-> W kolejnych zestawie samouczków pokazano, jak dodać funkcję logowania, dzięki czemu użytkownik będzie musiał zalogować się przed usunięciem rekordu.
+> W kolejnym zestawie samouczków zobaczysz, jak dodać funkcje logowania, aby użytkownik musiał się zalogować przed usunięciem rekordu.
 
-Utwórz stronę o nazwie *DeleteMovie.cshtml* i Zamień, co znajduje się w pliku następującym kodem:
+Utwórz stronę o nazwie *DeleteMovie. cshtml* i Zastąp zawartość pliku następującym znacznikiem:
 
 [!code-cshtml[Main](deleting-data/samples/sample4.cshtml)]
 
-Ten kod znaczników jest podobna *EditMovie* stron, chyba że zamiast używania pól tekstowych (`<input type="text">`), zawiera znaczników `<span>` elementów. Nie ma nic w tym miejscu można edytować. To wszystko, co należy zrobić, są wyświetlane szczegóły filmu, aby użytkownicy upewnić się, czy są usuwane prawo filmu.
+Znaczniki te są podobne do stron *EditMovie* , z tą różnicą, że zamiast używania pól tekstowych (`<input type="text">`), znaczniki zawierają `<span>` elementy. Nie ma nic tutaj do edycji. Wystarczy wyświetlić szczegóły filmu, aby użytkownicy mogli upewnić się, że usuwa właściwy film.
 
-Znaczniki już zawiera łącze, które umożliwia użytkownikowi, wróć do strony listy filmów.
+Znacznik zawiera już link umożliwiający powrót użytkownika do strony z listą filmów.
 
-Podobnie jak w *EditMovie* strony, identyfikator wybrany film jest przechowywany w ukrytym polu. (Jest przekazywany do strony w pierwszej kolejności wartość ciągu zapytania.) Brak `Html.ValidationSummary` wywołania, które będą wyświetlane błędy sprawdzania poprawności. W tym przypadku błąd może być, czy identyfikator filmu nie został przekazany do strony lub że identyfikator film jest nieprawidłowy. Taka sytuacja może wystąpić, jeśli ktoś uruchomiono tę stronę bez zaznaczania filmu w *filmy* strony.
+Podobnie jak na stronie *EditMovie* , identyfikator wybranego filmu jest przechowywany w ukrytym polu. (Jest ona przenoszona do strony w pierwszym miejscu jako wartość ciągu zapytania). Istnieje `Html.ValidationSummary` wywołanie, które spowoduje wyświetlenie błędów walidacji. W takim przypadku przyczyną błędu może być to, że żaden z identyfikatorów filmów nie został przesłany do strony lub identyfikator filmu jest nieprawidłowy. Taka sytuacja może wystąpić, jeśli ktoś uruchomił Tę stronę bez uprzedniego wybrania filmu na stronie *filmów* .
 
-Napis na przycisku jest **Usuwanie filmu**, a jej nazwa atrybutu jest ustawiona na `buttonDelete`. `name` Atrybut będzie używana w kodzie, wskaż przycisk, który formularz został przesłany.
+Podpis przycisku to **Usuń film**, a jego atrybut name jest ustawiony na `buttonDelete`. Atrybut `name` zostanie użyty w kodzie do zidentyfikowania przycisku, który przesłał formularz.
 
-Musisz napisać kod, 1) odczytać szczegóły filmu po wyświetleniu strony i (2) faktycznie usunąć film, gdy użytkownik kliknie przycisk.
+Musisz napisać kod do 1) odczytać szczegóły filmu, gdy strona jest wyświetlana po raz pierwszy i 2) w rzeczywistości usunie film, gdy użytkownik kliknie przycisk.
 
-## <a name="adding-code-to-read-a-single-movie"></a>Dodawanie kodu do odczytu pojedynczego filmu
+## <a name="adding-code-to-read-a-single-movie"></a>Dodawanie kodu w celu odczytania pojedynczego filmu
 
-W górnej części *DeleteMovie.cshtml* strony, należy dodać następujący blok kodu:
+W górnej części strony *DeleteMovie. cshtml* Dodaj następujący blok kodu:
 
 [!code-cshtml[Main](deleting-data/samples/sample5.cshtml)]
 
-Ten kod znaczników jest taka sama jak odpowiedni kod w *EditMovie* strony. Ona pobiera identyfikator film z ciągu zapytania i używa Identyfikatora odczytać rekordu z bazy danych. Kod zawiera test weryfikacji (`IsInt()` i `row != null`) aby upewnić się, że identyfikator filmu przekazywany do strony jest nieprawidłowy.
+Ten znacznik jest taki sam jak odpowiedni kod na stronie *EditMovie* . Pobiera identyfikator filmu z ciągu zapytania i używa identyfikatora do odczytywania rekordu z bazy danych. Kod zawiera test weryfikacyjny (`IsInt()` i `row != null`), aby upewnić się, że identyfikator filmu jest prawidłowy.
 
-Należy pamiętać o tym, ten kod uruchamiać tylko przy pierwszym uruchomieniu strony. Nie chcesz ponownie odczytywana nagrywanie filmu z bazy danych, gdy użytkownik kliknie **Usuwanie filmu** przycisku. W związku z tym, kod można odczytać filmu znajduje się wewnątrz test, który jest wyświetlany komunikat `if(!IsPost)` &mdash; czyli *Jeśli żądanie nie jest na operację post (przesyłania formularza)*.
+Należy pamiętać, że ten kod powinien zostać uruchomiony tylko podczas pierwszego uruchomienia strony. Nie ma potrzeby ponownego odczytywania rekordu filmu z bazy danych, gdy użytkownik kliknie przycisk **Usuń film** . W związku z tym kod odczytywania filmu znajduje się w teście, który brzmi `if(!IsPost)` &mdash; to, *Jeśli żądanie nie jest operacją post (Przesyłanie formularza)* .
 
-## <a name="adding-code-to-delete-the-selected-movie"></a>Dodawanie kodu, aby usunąć wybrany film
+## <a name="adding-code-to-delete-the-selected-movie"></a>Dodawanie kodu w celu usunięcia wybranego filmu
 
-Aby usunąć film, gdy użytkownik kliknie przycisk, Dodaj następujący kod wewnątrz zamykającym nawiasem klamrowym `@` bloku:
+Aby usunąć film, gdy użytkownik kliknie przycisk, Dodaj następujący kod tuż wewnątrz zamykającego nawiasu klamrowego bloku `@`:
 
 [!code-csharp[Main](deleting-data/samples/sample6.cs)]
 
-Ten kod jest podobny do kodu dotyczące aktualizacji istniejącego rekordu, ale jest prostsze. Kod działa na zasadzie SQL `Delete` instrukcji.
+Ten kod jest podobny do kodu do aktualizowania istniejącego rekordu, ale łatwiejszy. Kod zasadniczo uruchamia instrukcję SQL `Delete`.
 
- Podobnie jak w *EditMovie* stronie kod znajduje się w `if(IsPost)` bloku. Tym razem `if()` warunek jest nieco bardziej skomplikowane: 
+ Podobnie jak na stronie *EditMovie* , kod znajduje się w bloku `if(IsPost)`. Tym razem `if()` warunku jest nieco bardziej skomplikowany: 
 
 [!code-csharp[Main](deleting-data/samples/sample7.cs)]
 
-Istnieją tutaj dwa warunki. Pierwsza to, że strona jest przekazywana, jak już wspomniano wcześniej &mdash; `if(IsPost)`.
+Poniżej przedstawiono dwa warunki. Pierwszy polega na tym, że strona jest przesyłana, jak widać przed &mdash; `if(IsPost)`.
 
-Drugi warunek ma `!Request["buttonDelete"].IsEmpty()`, co oznacza, że żądanie ma obiekt o nazwie `buttonDelete`. Niewątpliwie jest to sposób pośredni testów, który przycisk formularz został przesłany. Jeśli formularz zawiera wiele przycisków przesyłania, tylko nazwę przycisku, który został kliknięty pojawi się w żądaniu. W związku z tym, logicznie Jeśli nazwa określonego przycisku pojawia się w żądaniu &mdash; lub opisany w kodzie, jeśli ten przycisk nie jest pusty &mdash; to przycisk, który formularz został przesłany.
+Drugi warunek jest `!Request["buttonDelete"].IsEmpty()`, co oznacza, że żądanie ma obiekt o nazwie `buttonDelete`. Jest to pośredni sposób testowania, który przycisk przesłał formularz. Jeśli formularz zawiera wiele przycisków przesyłania, w żądaniu zostanie wyświetlona tylko nazwa klikniętego przycisku. W związku z tym, logicznie, jeśli nazwa określonego przycisku pojawia się w żądaniu &mdash; lub zgodnie z opisem w kodzie, jeśli ten przycisk nie jest pusty &mdash; jest to przycisk, który przesłał formularz.
 
-`&&` Oznacza, że operator "i" (operator logiczny oraz). W związku z tym całą `if` warunek jest...
+Operator `&&` oznacza "i" (logiczny i). W związku z tym cały `if` warunek to...
 
-*To żądanie jest żądaniem post (nie żądanie po raz pierwszy)*  
+*To żądanie jest ogłoszeniem (nie jest żądaniem pierwszego uruchomienia)*  
   
  AND  
   
-*`buttonDelete`Przycisk został przycisku,* *który formularz został przesłany.*
+Przycisk `buttonDelete`*był przyciskiem, który przesłał formularz.*
 
-Ten formularz (w rzeczywistości ta strona) zawiera tylko jeden przycisk, więc dodatkowy test na `buttonDelete` technicznie nie jest wymagane. Nadal którą zamierzasz wykonać operacji, która spowoduje to trwałe usunięcie danych. Dlatego należy się, jak to możliwe, że wykonujesz operację tylko wtedy, gdy użytkownik jawnie zgłosił żądanie. Załóżmy na przykład, możesz później rozszerzyć tę stronę i do niej dodać inny przycisk. Nawet, kod, który usuwa film zostanie uruchomione tylko wtedy, gdy `buttonDelete` kliknięcia przycisku.
+Ten formularz (w rzeczywistości ta strona) zawiera tylko jeden przycisk, dlatego dodatkowy test dla `buttonDelete` nie jest technicznie wymagany. Nadal można wykonać operację, która spowoduje trwałe usunięcie danych. Tak więc należy się upewnić, że wykonywanie operacji jest możliwe tylko wtedy, gdy użytkownik jawnie zażądał tego. Załóżmy na przykład, że ta strona została rozszerzona później i dodano do niej inne przyciski. Nawet kod usuwający film zostanie uruchomiony tylko wtedy, gdy kliknięto przycisk `buttonDelete`.
 
-Podobnie jak w *EditMovie* strony, możesz uzyskać identyfikator ukryte pola, a następnie uruchom polecenie SQL. Składnia `Delete` instrukcja jest:
+Podobnie jak na stronie *EditMovie* , otrzymujesz identyfikator z ukrytego pola, a następnie uruchamiasz polecenie SQL. Składnia instrukcji `Delete` jest następująca:
 
 `DELETE FROM table WHERE ID = value`
 
-Należy koniecznie obejmują `WHERE` klauzuli i identyfikatora. Jeśli pozostawisz klauzuli WHERE *zostaną usunięte wszystkie rekordy w tabeli*. Jak wiesz już, przekażesz wartości Identyfikatora polecenia SQL przy użyciu symbolu zastępczego.
+Należy uwzględnić klauzulę `WHERE` i identyfikator. Jeśli opuścisz klauzulę WHERE, *wszystkie rekordy w tabeli zostaną usunięte*. Jak widać, przekaż wartość identyfikatora do polecenia SQL przy użyciu symbolu zastępczego.
 
-## <a name="testing-the-movie-delete-process"></a>Testowanie proces usuwania filmu
+## <a name="testing-the-movie-delete-process"></a>Testowanie procesu usuwania filmu
 
-Teraz możesz przetestować. Uruchom *filmy* strony, a następnie kliknij przycisk **Usuń** obok filmu. Gdy *DeleteMovie* zostanie wyświetlona strona, kliknij przycisk **Usuwanie filmu**.
+Teraz można testować. Uruchom stronę *filmy* , a następnie kliknij pozycję **Usuń** obok filmu. Gdy zostanie wyświetlona strona *DeleteMovie* , kliknij przycisk **Usuń film**.
 
-![Usuń stronę film z wyróżnionym przyciskiem Usuń filmu](deleting-data/_static/image4.png)
+![Usuń stronę filmu z wyróżnionym przyciskiem Usuń film](deleting-data/_static/image4.png)
 
-Po kliknięciu przycisku, kod usuwa filmy i zwraca listę filmu. Można wyszukać usunięte film i upewnij się, że jest ona zostać usunięta.
+Po kliknięciu przycisku kod usuwa filmy i wraca do listy filmów. Można wyszukać usunięty film i potwierdzić, że został on usunięty.
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-Następny samouczek pokazuje, jak zapewnić wszystkich stron w witrynie, wspólnej układ i wygląd.
+W następnym samouczku przedstawiono sposób nadawania wszystkim stronom w witrynie typowego wyglądu i układu.
 
-## <a name="complete-listing-for-movie-page-updated-with-delete-links"></a>Kompletna lista strony filmu (aktualizowane wraz z łączami Delete)
+## <a name="complete-listing-for-movie-page-updated-with-delete-links"></a>Ukończ listę na stronie filmu (Zaktualizowano za pomocą linków usuwania)
 
 [!code-cshtml[Main](deleting-data/samples/sample8.cshtml)]
 
-## <a name="complete-listing-for-deletemovie-page"></a>Kompletna lista DeleteMovie strony
+## <a name="complete-listing-for-deletemovie-page"></a>Ukończ listę dla strony DeleteMovie
 
 [!code-cshtml[Main](deleting-data/samples/sample9.cshtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Wprowadzenie do programowania dla sieci Web platformy ASP.NET przy użyciu składni Razor](../introducing-razor-syntax-c.md)
-- [Usuń instrukcję SQL w](http://www.w3schools.com/sql/sql_delete.asp) witrynie W3Schools
+- [Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](../introducing-razor-syntax-c.md)
+- [Instrukcja DELETE SQL](http://www.w3schools.com/sql/sql_delete.asp) w witrynie w3schools
 
 > [!div class="step-by-step"]
 > [Poprzednie](updating-data.md)

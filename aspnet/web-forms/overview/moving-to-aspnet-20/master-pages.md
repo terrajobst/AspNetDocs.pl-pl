@@ -1,178 +1,178 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
-title: Strony wzorcowe | Dokumentacja firmy Microsoft
+title: Strony wzorcowe | Microsoft Docs
 author: microsoft
-description: 'Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy używane kontrolki użytkownika do replikowania wspólnej elem. strony...'
+description: Jednym ze najważniejszych składników do pomyślnej witryny sieci Web jest spójny wygląd i działanie. W ASP.NET 1. x deweloperzy korzystali z formantów użytkownika do replikowania wspólnych elem stron...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 36f2caf7c2c9bcafd22c8f6681c1d6b19fe5078a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567334"
 ---
 # <a name="master-pages"></a>Strony wzorcowe
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy umożliwia kontrolki użytkownika replikować wspólnych elementów strony w aplikacji sieci Web. Chociaż to oczywiście zwiększą rozwiązania, za pomocą kontrolki użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmian na wielu stronach w lokacji. Formanty użytkownika również nie są renderowane w widoku Projekt po wstawiane na stronie.
+> Jednym ze najważniejszych składników do pomyślnej witryny sieci Web jest spójny wygląd i działanie. W ASP.NET 1. x deweloperzy korzystali z formantów użytkownika do replikowania wspólnych elementów strony w aplikacji sieci Web. Chociaż jest to oczywiście rozwiązaniem, korzystanie z kontrolek użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmiany na wiele stron w witrynie. Formanty użytkownika nie są również renderowane w widok Projekt po wstawieniu na stronie.
 
-Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy umożliwia kontrolki użytkownika replikować wspólnych elementów strony w aplikacji sieci Web. Chociaż to oczywiście zwiększą rozwiązania, za pomocą kontrolki użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmian na wielu stronach w lokacji. Formanty użytkownika również nie są renderowane w widoku Projekt po wstawiane na stronie.
+Jednym ze najważniejszych składników do pomyślnej witryny sieci Web jest spójny wygląd i działanie. W ASP.NET 1. x deweloperzy korzystali z formantów użytkownika do replikowania wspólnych elementów strony w aplikacji sieci Web. Chociaż jest to oczywiście rozwiązaniem, korzystanie z kontrolek użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmiany na wiele stron w witrynie. Formanty użytkownika nie są również renderowane w widok Projekt po wstawieniu na stronie.
 
-ASP.NET 2.0 wprowadzono główny strony sposób utrzymania spójny wygląd i zachowanie, jak i użytkownik zostanie wkrótce znajduje się główny strony reprezentują znacznej poprawy za pośrednictwem metody kontroli użytkownika.
+ASP.NET 2,0 wprowadza strony wzorcowe jako sposób utrzymywania spójnego wyglądu i działania oraz jak zobaczysz, że strony wzorcowe reprezentują znaczącą poprawę w porównaniu z metodą kontroli użytkownika.
 
-## <a name="why-master-pages"></a>Dlaczego Master strony?
+## <a name="why-master-pages"></a>Dlaczego strony główne?
 
-Możesz się zastanawiać, dlaczego potrzebne były stron wzorcowych platformy ASP.NET w wersji 2.0. Po wszystkich projektantów witryn sieci Web jest już używany kontrolki użytkownika w programie ASP.NET: 1.x do udostępniania zawartości obszarów między stronami. Istnieją faktycznie kilka powodów dlaczego kontrolki użytkownika są mniej niż optymalne rozwiązanie do tworzenia typowych układu.
+Może być zastanawiasz się, dlaczego strony główne były potrzebne w ASP.NET 2,0. Wszyscy deweloperzy witryn sieci Web używają już formantów użytkownika w ASP.NET 1. x do udostępniania obszarów zawartości między stronami. Istnieje kilka powodów, dla których kontrolki użytkownika to mniej niż optymalne rozwiązanie do tworzenia wspólnego układu.
 
-Formanty użytkownika nie definiowania układu strony. Zamiast tego mogą określać układ i funkcje dla części strony. Różnica między tymi dwoma jest ważne, ponieważ dzięki niemu możliwości rozwiązania do kontroli użytkownika dużo bardziej skomplikowane. Na przykład jeśli chcesz zmienić położenie kontrolki użytkownika na stronie, możesz edytować rzeczywistą stronę, na którym jest wyświetlany formantu użytkownika. Thats poprawnie, jeśli masz niewielką liczbę stron, ale w dużych witrynach szybko staje się okropnej zarządzania lokacji!
+Kontrolki użytkownika nie definiują w rzeczywistości układu strony. Zamiast tego definiują układ i funkcjonalność części strony. Różnica między tymi dwoma jest ważna, ponieważ sprawia, że zarządzanie rozwiązaniem kontroli użytkownika znacznie trudniejsze. Na przykład jeśli chcesz zmienić położenie kontrolki użytkownika na stronie, musisz edytować stronę rzeczywistą, na której zostanie wyświetlona kontrolka użytkownika. Która się, jeśli masz tylko kilka stron, ale w dużych lokacjach szybko to okropnej zarządzanie lokacją.
 
-Innym wadą wykorzystania samej kontrolki użytkownika do definiowania układu typowych zostaje umieszczone w architekturze platformy ASP.NET, sam. Jeśli żadnego publicznego elementu członkowskiego kontrolki użytkownika zostało zmienione, należy ponownie skompilować wszystkie strony, które używają kontrolki użytkownika. Z kolei ASP.NET będzie, a następnie ponownie JIT stron sieci po raz pierwszy są dostępne. Tworzy, jeszcze raz nieskalowalny architektury i problem zarządzania lokacji dla lokacji większe.
+Inna Wadą korzystania z kontrolek użytkownika do definiowania wspólnego układu jest katalog główny w architekturze ASP.NET. Jeśli jakikolwiek publiczny element członkowski kontrolki użytkownika zostanie zmieniony, wymaga ponownego skompilowania wszystkich stron, które używają kontrolki użytkownika. Z kolei ASP.NET będzie ponownie JIT strony podczas pierwszego dostępu do nich. Dzięki temu program tworzy nieskalowalną architekturę i problem z zarządzaniem lokacją w większych lokacjach.
 
-Oba te problemy (i wielu innych) dotyczą dobrze stron wzorcowych platformy ASP.NET w wersji 2.0.
+Oba te problemy (i wiele innych) są dobrze rozkierowane przez strony wzorcowe w ASP.NET 2,0.
 
-## <a name="how-master-pages-work"></a>Jak strony wzorcowe pracy
+## <a name="how-master-pages-work"></a>Jak działają strony wzorcowe
 
-Strony wzorcowej jest analogiczne do szablonu dla innych stron. Elementy strony, które powinny być współużytkowane przez inne strony (np. menu, obramowania itp.) są dodawane do strony wzorcowej. Po dodaniu nowych stron w witrynie, można skojarzyć je z strony wzorcowej. Nosi nazwę strony, który jest skojarzony ze stroną wzorcową **strony zawartości**. Domyślnie strony zawartości ma wygląd ze strony wzorcowej. Jednak po utworzeniu strony wzorcowej, można zdefiniować części strony, strony zawartości można zastąpić własną zawartość. Te fragmenty są definiowane przy użyciu nowej kontrolki wprowadzone w programie ASP.NET 2.0; **ContentPlaceHolder** kontroli.
+Strona wzorcowa jest analogiczna do szablonu dla innych stron. Elementy strony, które powinny być współużytkowane przez inne strony (tj. menu, obramowania itp.), są dodawane do strony wzorcowej. Po dodaniu nowych stron do witryny można je skojarzyć ze stroną wzorcową. Strona, która jest skojarzona ze stroną wzorcową, nosi nazwę **strony zawartości**. Domyślnie strona zawartości przyjmuje wygląd na stronie wzorcowej. Jednak podczas tworzenia strony wzorcowej można zdefiniować fragmenty strony, które strona zawartości może zamienić na własną zawartość. Te części są definiowane przy użyciu nowej kontrolki wprowadzonej w ASP.NET 2,0; formant **ContentPlaceHolder** .
 
-Strona wzorcowa może zawierać dowolną liczbę kontrolek ContentPlaceHolder (lub brak wszystkie). Na stronie zawartości, zawartość z kontrolek ContentPlaceHolder pojawia się wewnątrz **zawartości** formantów, innego nowej kontrolki w programie ASP.NET 2.0. Domyślnie strony zawartości, które kontrolki zawartości są puste, dzięki czemu możesz podać własną zawartość. Jeśli chcesz korzystać z zawartości z strony wzorcowej wewnątrz formanty zawartości, możesz to zrobić tak, jak widać w dalszej części tego modułu. Formant zawartości jest zamapowana na formant ContentPlaceHolder za pomocą atrybutu ContentPlaceHolderID zawartości kontrolki. Kod poniżej mapy do formantu ContentPlaceHolder o nazwie mainBody na stronie wzorcowej kontrolować zawartość.
+Strona główna może zawierać dowolną liczbę kontrolek ContentPlaceHolder (lub wcale nie istnieje). Na stronie zawartość, zawartość z formantów ContentPlaceHolder pojawia się wewnątrz kontrolek **zawartości** , kolejną nową kontrolką w ASP.NET 2,0. Domyślnie formanty zawartości stron zawartości są puste, aby można było zapewnić własną zawartość. Jeśli chcesz użyć zawartości z poziomu strony wzorcowej wewnątrz kontrolek zawartości, możesz to zrobić, ponieważ będzie ona widoczna w dalszej części tego modułu. Kontrolka zawartości jest mapowana na formant ContentPlaceHolder za pośrednictwem atrybutu ContentPlaceHolderID formantu Content. Poniższy kod mapuje formant zawartości na formant ContentPlaceHolder o nazwie mainBody na stronie wzorcowej.
 
 [!code-aspx[Main](master-pages/samples/sample1.aspx)]
 
 > [!NOTE]
-> Często otrzymasz od osób, które opisują strony wzorcowe, jako klasę bazową dla innych stron. Thats faktycznie nie jest wartość true. Relacja między stron wzorcowych i stronach zawartości nie jest jednym z dziedziczenia.
+> Często użytkownicy będą chcieli opisywać strony wzorcowe jako klasę bazową dla innych stron. Która faktycznie nie prawda. Relacja między stronami wzorcowymi a stronami zawartości nie jest jednym z dziedziczenia.
 
-**Rysunek 1** pokazuje stronę wzorcową i skojarzonej strony zawartości, w jakiej występują w programie Visual Studio 2005. Możesz zobaczyć kontrolki ContentPlaceHolder na stronie wzorcowej i odpowiedni zawartości kontrolki na stronie zawartości. Należy zauważyć, że zawartość strony wzorcowe, która jest poza ContentPlaceHolder jest widoczne, ale są wygaszone się na stronie zawartości. Tylko zawartość wewnątrz ContentPlaceHolder można supplanted przez strony zawartości. Cała zawartość, która pochodzi z strony wzorcowej jest niezmienny.
+**Rysunek 1** przedstawia stronę wzorcową i skojarzoną z nią stronę zawartości, która pojawia się w programie Visual Studio 2005. Formant ContentPlaceHolder można zobaczyć na stronie wzorcowej i odpowiadającej jej kontroli zawartości na stronie zawartość. Zauważ, że zawartość stron wzorcowych spoza elementu ContentPlaceHolder jest widoczna, ale wyszarzona na stronie zawartość. Tylko zawartość wewnątrz elementu ContentPlaceHolder może być supplanted na stronie zawartości. Cała inna zawartość, która pochodzi ze strony głównej, jest niezmienna.
 
-![Strona wzorcowa i skojarzone z nią zawartości strony](master-pages/_static/image1.jpg)
+![Strona wzorcowa i skojarzona z nią zawartość](master-pages/_static/image1.jpg)
 
-**Rysunek 1**: Strona wzorcowa i skojarzone z nią zawartości strony
+**Rysunek 1**: Strona wzorcowa i skojarzona z nią strona zawartości
 
 ## <a name="creating-a-master-page"></a>Tworzenie strony wzorcowej
 
 Aby utworzyć nową stronę wzorcową:
 
 1. Otwórz program Visual Studio 2005 i Utwórz nową witrynę sieci Web.
-2. Kliknij plik, nowy, plików.
-3. Wybierz plik głównej z poziomu okna dialogowego Dodawanie nowego elementu, jak pokazano na **rysunek 2.**.
+2. Kliknij plik, nowy, plik.
+3. Wybierz pozycję plik główny z okna dialogowego Dodaj nowy element, jak pokazano na **rysunku 2**.
 4. Kliknij przycisk Dodaj.
 
 ![Tworzenie nowej strony wzorcowej](master-pages/_static/image2.jpg)
 
-**Rysunek 2**: Tworzenie nowej strony wzorcowej
+**Rysunek 2**. Tworzenie nowej strony wzorcowej
 
-Należy zauważyć, że plik ma rozszerzenie dla strony wzorcowej *.master*. Jest jednym ze sposobów, które strony wzorcowej różni się od zwykłej strony. Główną różnicą jest to, że proceduralny @Page dyrektywy, zawiera strony wzorcowej @Master dyrektywy. Przejdź do widoku źródłowego dla głównego strony właśnie został utworzony i przeglądać kod.
+Zwróć uwagę, że rozszerzenie pliku dla strony głównej to *. Master*. Jest to jeden z metod, które różnią się od zwykłej strony. Druga podstawowa różnica polega na tym, że w przypadku dyrektywy @Page Strona główna zawiera @Master dyrektywy. Przełącz się do widoku źródła dla strony wzorcowej, która została właśnie utworzona, i Przejrzyj kod.
 
-Domyślnie nowe strony wzorcowej będzie mieć jeden formant ContentPlaceHolder. W większości przypadków warto więcej najpierw utworzyć wspólne elementy strony, a następnie Wstawianie kontrolek ContentPlaceHolder gdzie pożądana jest zawartości niestandardowej. W takich przypadkach deweloperzy będą chcieli usunąć domyślny formant ContentPlaceHolder i Wstaw nowe opracowanej strony. Kontrolek ContentPlaceHolder nie są o zmiennym rozmiarze, pomimo faktu, że wyświetlają one uchwyty zmiany rozmiaru. Rozmiary kontroli ContentPlaceHolder automatycznie na podstawie zawartości, która zawiera się on z jednym wyjątkiem; Jeśli umieścisz kontrolki ContentPlaceHolder w elemencie bloku, takich jak komórki tabeli, będzie to rozmiar zgodnie z rozmiarem elementu.
+Nowa Strona główna ma domyślnie jeden formant ContentPlaceHolder. W większości przypadków warto najpierw utworzyć wspólne elementy strony, a następnie wstawić kontrolki ContentPlaceHolder, w których jest wymagana zawartość niestandardowa. W takich przypadkach deweloperzy będą chcieć usunąć domyślną kontrolkę ContentPlaceHolder i wstawić nowe w miarę rozwijania strony. Kontrolki ContentPlaceHolder nie są zmieniane, pomimo faktu, że są wyświetlane uchwyty rozmiaru. Rozmiary formantów ContentPlaceHolder są automatycznie oparte na zawartości zawartej w jednym wyjątku; Jeśli umieścisz formant ContentPlaceHolder wewnątrz elementu bloku, takiego jak komórka tabeli, rozmiar będzie zmieniany w zależności od rozmiaru elementu.
 
-## <a name="lab-1-working-with-master-pages"></a>Laboratorium 1 pracy za pomocą stron wzorcowych
+## <a name="lab-1-working-with-master-pages"></a>Laboratorium 1 — Praca ze stronami wzorcowymi
 
-W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj trzech kontrolek ContentPlaceHolder. Następnie utworzysz nową stronę zawartości i Zastąp zawartość z co najmniej jednej z kontrolek ContentPlaceHolder.
+W tym laboratorium utworzysz nową stronę wzorcową i zdefiniujesz trzy kontrolki ContentPlaceHolder. Następnie utworzysz nową stronę zawartości i zastąpisz zawartość z co najmniej jednej kontrolki ContentPlaceHolder.
 
-1. Utwórz stronę wzorcową i Wstawianie kontrolek ContentPlaceHolder. 
+1. Utwórz stronę wzorcową i Wstaw kontrolki ContentPlaceHolder. 
 
-    1. Utwórz nową stronę wzorcową, zgodnie z powyższym opisem.
-    2. Usuń domyślny formant ContentPlaceHolder.
-    3. Zaznacz formant ContentPlaceHolder, klikając przyciemnione krawędzi górnego obramowania kontrolki, a następnie usuń ją, naciskając klawisz DEL na klawiaturze.
-    4. Wstawianie nowej tabeli za pomocą *nagłówek i po stronie* szablonu, jak pokazano na rysunku 3. Zmień szerokość i wysokość do 90%, tak, aby cała tabela jest widoczne w projektancie.
+    1. Utwórz nową stronę wzorcową zgodnie z powyższym opisem.
+    2. Usuń domyślną kontrolkę ContentPlaceHolder.
+    3. Wybierz formant ContentPlaceHolder, klikając przycieniowaną górną krawędź kontrolki, a następnie usuń ją, naciskając klawisz DEL na klawiaturze.
+    4. Wstaw nową tabelę przy użyciu *nagłówka i szablonu po stronie* , jak pokazano na rysunku 3. Zmień szerokość i wysokość na 90%, aby cała tabela była widoczna w projektancie.
 
 ![](master-pages/_static/image3.jpg)
 
-**Rysunek 3.**
+**Rysunek 3**
 
-1. Umieść kursor w każdej komórce tabeli i ustaw *dopasowanie w pionie* właściwości *górnej*.
-2. Z przybornika Wstawianie formantu ContentPlaceHolder górnej komórki tabeli (komórki nagłówka.)
-3. Podczas wstawiania tego formantu ContentPlaceHolder można zauważyć, że wiersze o nierównej wysokości zajmuje prawie całej strony, jak pokazano na rysunku 4. Nie przejmuj się o tym w tym momencie.
+1. Umieść kursor w każdej komórce tabeli i ustaw właściwość *VAlign* na *Top*.
+2. Z przybornika Wstaw formant ContentPlaceHolder w górnej komórce tabeli (komórka nagłówka).
+3. Po wstawieniu tego formantu ContentPlaceHolder zobaczysz, że wysokość wiersza zajmie prawie całą stronę, jak pokazano na rysunku 4. Nie dotyczy to w tym momencie.
 
-![Puste miejsce znajduje się w tej samej komórki jako ContentPlaceHolder](master-pages/_static/image1.gif)
+![Puste miejsce znajduje się w tej samej komórce co ContentPlaceHolder](master-pages/_static/image1.gif)
 
-**Rysunek 4**: Puste miejsce znajduje się w tej samej komórki jako ContentPlaceHolder
+**Ilustracja 4**. puste miejsce znajduje się w tej samej komórce co ContentPlaceHolder
 
-1. Umieść kontroli ContentPlaceHolder w innych komórek. Po wstawieniu innych kontrolek ContentPlaceHolder rozmiaru komórek tabeli należy, jak można oczekiwać. Strona powinna teraz wyglądać strona wyświetlona w **rysunek 5**.
+1. Umieść formant ContentPlaceHolder w dwóch pozostałych komórkach. Po wstawieniu innych kontrolek ContentPlaceHolder rozmiar komórek tabeli powinien być taki jak oczekiwano. Strona powinna teraz wyglądać podobnie jak strona pokazana na **rysunku 5**.
 
-![Głównego przy użyciu wszystkich kontrolek ContentPlaceHolder. Zauważ, że wysokość komórki dla komórki nagłówka teraz czymś co powinno być](master-pages/_static/image2.gif)
+![Wzorzec ze wszystkimi kontrolkami ContentPlaceHolder. Należy zauważyć, że wysokość komórki dla komórki nagłówka jest teraz to, co powinno być](master-pages/_static/image2.gif)
 
-**Rysunek 5**: Głównego przy użyciu wszystkich kontrolek ContentPlaceHolder. Zauważ, że wysokość komórki dla komórki nagłówka teraz czymś co powinno być
+**Rysunek 5**: wzorzec ze wszystkimi kontrolkami elementów ContentPlaceHolder. Należy zauważyć, że wysokość komórki dla komórki nagłówka jest teraz to, co powinno być
 
-1. Wprowadź jakiś tekst wybranego do każdego z trzech kontrolek ContentPlaceHolder.
-2. Zapisz stronę wzorcową jako exercise1.master.
-3. Tworzenie nowego formularza sieci Web i skojarz go ze stroną wzorcową exercise1.master.
+1. Wprowadź wybrany tekst do każdego z trzech formantów ContentPlaceHolder.
+2. Zapisz stronę wzorcową jako Exercise1. Master.
+3. Utwórz nowy formularz sieci Web i skojarz go z Exercise1. Master Master.
 4. Wybierz plik, nowy, plik w programie Visual Studio 2005.
-5. Wybierz **formularz sieci Web** w oknie dialogowym Dodaj nowy element.
-6. Upewnij się, że zaznaczone jest pole wyboru Wybierz stronę wzorcową, jak pokazano na rysunku 6.
+5. W oknie dialogowym Dodaj nowy element wybierz pozycję **formularz sieci Web** .
+6. Upewnij się, że pole wyboru Wybierz stronę wzorcową jest zaznaczone, jak pokazano na rysunku 6.
 
 ![Dodawanie nowej strony zawartości](master-pages/_static/image3.gif)
 
-**Rysunek 6**: Dodawanie nowej strony zawartości
+**Ilustracja 6**. Dodawanie nowej strony zawartości
 
 1. Kliknij przycisk Dodaj.
-2. Wybierz exercise1.master wybierz w oknie dialogowym strona wzorcowa jak pokazano na rysunku 7.
+2. Wybierz Exercise1. Master w oknie dialogowym Wybierz stronę wzorcową, jak pokazano na rysunku 7.
 3. Kliknij przycisk OK, aby dodać nową stronę zawartości.
 
-Z jednym formantem zawartości dla każdego formantu ContentPlaceHolder na stronie wzorcowej w programie Visual Studio zostanie wyświetlona nowa strona zawartości. Domyślnie formanty zawartości są puste, aby dodać własną zawartość. Jeśli chcesz używać zawartości z formantu ContentPlaceHolder strony wzorcowej, po prostu kliknij symbol tagu inteligentnego (małe czarną strzałkę w prawym górnym rogu formantu) i wybierz polecenie *domyślną zawartość wzorców* za pomocą tagu inteligentnego, jak pokazano na **rysunek 8**. Jeśli tak zrobisz, element menu zmienia się na *Utwórz niestandardowe zawartość*. W tym momencie klikając polecenie usuwa zawartość z strony wzorcowej, umożliwiając Definiowanie niestandardowej zawartości dla tego określonego formantu zawartości.
+Nowa zawartość zostanie wyświetlona w programie Visual Studio z jedną kontrolką zawartości dla każdej kontrolki ContentPlaceHolder na stronie wzorcowej. Domyślnie formanty zawartości są puste, aby można było dodać własną zawartość. Jeśli chcesz, aby użytkownicy korzystali z zawartości kontrolki ContentPlaceHolder na stronie wzorcowej, po prostu kliknij symbol taga inteligentnego (małą czarną strzałkę w prawym górnym rogu kontrolki) i wybierz opcję *domyślne do zawartości wzorca* z taga inteligentnego, jak pokazano na **rysunku 8**. Po wykonaniu tej czynności element menu zostanie zmieniony w celu *utworzenia zawartości niestandardowej*. Kliknięcie go w tym momencie spowoduje usunięcie zawartości z strony wzorcowej, co pozwala na zdefiniowanie zawartości niestandardowej dla tej konkretnej kontrolki zawartości.
 
-![Ustawienia formantu zawartości domyślne, aby zawartość strony główne](master-pages/_static/image4.gif)
+![Ustawianie domyślnej kontrolki zawartości na stronie wzorcowej](master-pages/_static/image4.gif)
 
-**Rysunek 7**: Ustawienia formantu zawartości domyślne, aby zawartość strony główne
+**Rysunek 7**. Ustawianie domyślnego formantu zawartości dla zawartości stron wzorcowych
 
-## <a name="connecting-master-page-and-content-pages"></a>Łączenie z strony wzorcowej oraz strony z zawartością
+## <a name="connecting-master-page-and-content-pages"></a>Łączenie strony wzorcowej i stron zawartości
 
-Skojarzenie między strony wzorcowej oraz strony zawartości można skonfigurować w jednej z czterech sposobów:
+Skojarzenie między stroną wzorcową a stroną zawartości można skonfigurować na jeden z czterech różnych sposobów:
 
-- <strong>MasterPageFile</strong> atrybutu @Page — dyrektywa
-- Ustawienie **Page.MasterPageFile** właściwości w kodzie.
-- **&lt;Stron&gt;** elementu w pliku konfiguracyjnym aplikacji (web.config w folderze głównym aplikacji)
-- **&lt;Stron&gt;** elementu w pliku konfiguracji (web.config w podfolderze) podfoldery
+- Atrybut <strong>MasterPageFile</strong> dyrektywy @Page
+- Ustawianie właściwości **Page. MasterPageFile** w kodzie.
+- **&lt;strony&gt;** elementu w pliku konfiguracji aplikacji (Web. config w folderze głównym aplikacji)
+- **&lt;strony&gt;** elementu w podfolderach plik konfiguracyjny (Web. config w folderze)
 
-## <a name="masterpagefile-attribute"></a>MasterPageFile Attribute
+## <a name="masterpagefile-attribute"></a>MasterPageFile — atrybut
 
-Ten atrybut MasterPageFile ułatwia stosowanie strony wzorcowej do konkretnej strony ASP.NET. Warto również metodę używaną do zastosowania strony wzorcowej, podczas sprawdzania **wybierz stronę wzorcową** pole wyboru co Ty, jak w ćwiczenie 1.
+Atrybut MasterPageFile ułatwia stosowanie strony wzorcowej do określonej strony ASP.NET. Jest to również Metoda używana do zastosowania strony wzorcowej po zaznaczeniu pola wyboru **Wybierz stronę wzorcową** , jak w ćwiczeniu 1.
 
-## <a name="setting-pagemasterpagefile-in-code"></a>Ustawianie Page.MasterPageFile w kodzie
+## <a name="setting-pagemasterpagefile-in-code"></a>Ustawianie strony. MasterPageFile w kodzie
 
-Ustawiając właściwość MasterPageFile w kodzie, można zastosować określonej strony wzorcowej do zawartości w czasie wykonywania. Jest to przydatne w przypadkach, w których konieczne może być zastosowanie określonej strony wzorcowej, na podstawie roli użytkowników lub innych kryteriów. Właściwość MasterPageFile musi być ustawiona w metodzie PreInit. Jeśli jest ustawiona po metodzie PreInit, zostanie zgłoszony InvalidOperationException. Strona, na którym ta właściwość jest ustawiona, również muszą mieć zawartość formantu jako formant najwyższego poziomu dla strony. W przeciwnym razie httpexception — zostanie zgłoszony, jeśli ustawiono właściwość MasterPageFile.
+Ustawiając właściwość MasterPageFile w kodzie, można zastosować określoną stronę wzorcową do zawartości w czasie wykonywania. Jest to przydatne w przypadkach, w których może być konieczne zastosowanie konkretnej strony wzorcowej na podstawie roli użytkownika lub innych kryteriów. Właściwość MasterPageFile musi być ustawiona w metodzie preinicjowania. Jeśli jest ustawiona po metodzie inicjowania, zostanie zgłoszony InvalidOperationException. Strona, na której jest ustawiana ta właściwość, musi mieć również kontrolkę zawartości jako formant najwyższego poziomu dla strony. W przeciwnym razie zostanie wygenerowany element HttpException, gdy ustawiona jest właściwość MasterPageFile.
 
-## <a name="using-the-ltpagesgt-element"></a>Za pomocą &lt;stron&gt; — Element
+## <a name="using-the-ltpagesgt-element"></a>Używanie &lt;stron&gt; elementu
 
-Można skonfigurować stronę wzorcową stron, ustawiając atrybut masterPageFile w &lt;stron&gt; elementu w pliku web.config. Przy użyciu tej metody, należy pamiętać o tym, że w plikach web.config niżej w strukturze aplikacji można zastąpić to ustawienie. Dowolny atrybut MasterPageFile w @Page dyrektywy zostanie również zastąpić to ustawienie. Za pomocą &lt;stron&gt; element upraszcza tworzenie *wzorca* strona wzorcowa, która może zostać zastąpiona w razie potrzeby w szczególności folderów lub plików.
+Stronę wzorcową dla stron można skonfigurować przez ustawienie atrybutu masterPageFile na stronach &lt;&gt; elemencie pliku Web. config. Korzystając z tej metody, należy pamiętać, że pliki Web. config znajdujące się poniżej struktury aplikacji mogą zastąpić to ustawienie. Dowolny atrybut MasterPageFile ustawiony w dyrektywie @Page również przesłoni to ustawienie. Za pomocą &lt;stron&gt; element ułatwia utworzenie *głównej* strony wzorcowej, która może zostać przesłonięta w razie potrzeby w określonych folderach lub plikach.
 
 ## <a name="properties-in-master-pages"></a>Właściwości na stronach wzorcowych
 
-Strona wzorcowa można ujawnić właściwości podejmując po prostu te właściwości publicznej w obrębie strony wzorcowej. Na przykład poniższy kod definiuje właściwość o nazwie SomeProperty:
+Strona wzorcowa może uwidaczniać właściwości, po prostu czyniąc te właściwości publicznie na stronie głównej. Na przykład poniższy kod definiuje właściwość o nazwie SomeProperty:
 
 [!code-csharp[Main](master-pages/samples/sample2.cs)]
 
-Dostęp do właściwości SomeProperty z poziomu strony zawartości, należy użyć wzorca właściwości w następujący sposób:
+Aby uzyskać dostęp do właściwości SomeProperty ze strony zawartości, należy użyć właściwości głównej, takiej jak:
 
 [!code-csharp[Main](master-pages/samples/sample3.cs)]
 
-## <a name="nesting-master-pages"></a>Strony wzorcowe zagnieżdżania
+## <a name="nesting-master-pages"></a>Zagnieżdżanie stron wzorcowych
 
-Strony wzorcowe są idealnym rozwiązaniem dla zapewnienia wspólne wyglądu i działania w dużych aplikacji sieci Web. Jednak nie jest niczym niezwykłym mają niektórych części udział w przypadku dużych witryn wspólny interfejs, a inne części udostępnianie innego interfejsu. Aby spełnić te potrzeby, wiele stron wzorcowych są idealne rozwiązanie. Jednak że nadal nie adresów fakt, że dużych aplikacji może mieć niektóre składniki (takie jak menu, na przykład), które są współużytkowane przez wszystkie strony i inne składniki, które są udostępniane tylko wśród niektóre sekcje witryny. W tej sytuacji zagnieżdżone strony wzorcowe wypełnienia potrzebę dobrze. Jak wiesz, normalne strony wzorcowej składa się z strony wzorcowej oraz strony zawartości. W sytuacji zagnieżdżonej strony wzorcowej istnieją dwie strony wzorcowe; wzorzec nadrzędnego i wzorzec podrzędnych. Strona wzorcowa podrzędne również strony zawartości i jego główny jest nadrzędny strony wzorcowej.
+Strony wzorcowe są idealnym rozwiązaniem do zapewnienia wspólnego wyglądu i działania w ramach dużej aplikacji sieci Web. Nierzadko zdarza się jednak, że niektóre części dużej lokacji mają wspólny interfejs, podczas gdy inne części współużytkują inny interfejs. Aby rozwiązać ten problem, wiele stron głównych jest idealnym rozwiązaniem. Jednak nadal nie dotyczy faktu, że duża aplikacja może mieć pewne składniki (na przykład menu), które są współużytkowane przez wszystkie strony i inne składniki, które są współużytkowane tylko w niektórych sekcjach witryny. Dla tego typu sytuacji zagnieżdżone strony wzorcowe wypełniają potrzebną dobrze. Jak widać, normalna Strona wzorcowa składa się z strony wzorcowej i strony zawartości. W sytuacji zagnieżdżonej strony wzorcowej istnieją dwie strony główne: nadrzędny wzorzec i podrzędny element główny. Podrzędna Strona wzorcowa jest również stroną zawartości, a jej główną stroną wzorcową jest strona nadrzędna.
 
-Poniżej przedstawiono kod dla typowych strony wzorcowej:
+Oto kod typowej strony głównej:
 
 [!code-aspx[Main](master-pages/samples/sample4.aspx)]
 
-W przypadku wzorca zagnieżdżonych będzie to główny nadrzędnej. Innej strony wzorcowej mogą używać tej strony jako jego strony głównej, a ten kod będzie wyglądać następująco:
+W zagnieżdżonym scenariuszu głównym będzie to nadrzędny wzorzec. Inna strona wzorcowa użyje tej strony jako strony głównej, a ten kod będzie wyglądać następująco:
 
 [!code-aspx[Main](master-pages/samples/sample5.aspx)]
 
-Należy pamiętać, że w tym scenariuszu wzorzec podrzędne również strony zawartości dla wzorca macierzystego. Całą zawartość wzorca podrzędnych pojawia się wewnątrz formantu zawartości, która pobiera zawartość z elementu nadrzędnego ContentPlaceHolder kontroli.
+Należy zauważyć, że w tym scenariuszu podrzędny wzorzec jest również stroną zawartości dla nadrzędnego serwera głównego. Cała zawartość nadrzędnego elementu głównego jest wyświetlana wewnątrz kontrolki zawartości, która pobiera jej zawartość z formantu ContentPlaceHolder elementu nadrzędnego.
 
 > [!NOTE]
-> Obsługa projektanta nie jest dostępna dla zagnieżdżone strony wzorcowe. Gdy jest tworzona przy użyciu zagnieżdżonych wzorców, należy użyć widoku źródła.
+> Obsługa projektanta nie jest dostępna dla zagnieżdżonych stron wzorcowych. Podczas programowania przy użyciu zagnieżdżonych wzorców należy użyć widoku źródła.
 
-Ten film pokazuje Przewodnik po użyciu zagnieżdżone strony wzorcowe.
+Ten film wideo przedstawia przewodnik po użyciu zagnieżdżonych stron wzorcowych.
 
 ![](master-pages/_static/image1.png)
 
-[Otwórz wideo pełnego ekranu](master-pages/_static/nested1.wmv)
+[Otwórz wideo pełnoekranowe](master-pages/_static/nested1.wmv)
 
 ![Wybieranie strony wzorcowej](master-pages/_static/image4.jpg)
 
-**Rysunek 8**: Wybieranie strony wzorcowej
+**Ilustracja 8**. Wybieranie strony wzorcowej

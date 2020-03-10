@@ -9,11 +9,11 @@ ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: d8af9c8e7ee1316a5eac90c5959d07c628154e09
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600436"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557933"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools dla programu Visual Studio 2013 — informacje o wersji
 
@@ -218,7 +218,7 @@ Routing atrybutu udostępnia również wygodną składnię określającą parame
 
 Aby uzyskać więcej informacji na temat routingu atrybutów, zobacz [Routing atrybutów w interfejsie Web API 2](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md).
 
-### <a name="oauth-20"></a>OAuth 2,0
+### <a name="oauth-20"></a>OAuth 2.0
 
 Szablony projektów internetowego interfejsu API i aplikacji jednostronicowych obsługują teraz autoryzację przy użyciu protokołu OAuth 2,0. Uwierzytelnianie OAuth 2,0 to platforma umożliwiająca autoryzowanie dostępu klientów do chronionych zasobów. Działa ona w przypadku wielu klientów, w tym przeglądarek i urządzeń przenośnych.
 
@@ -276,11 +276,11 @@ Nowy **HttpRequestContext** śledzi każdy stan, który jest powiązany z żąda
 
 Ponieważ podmiot zabezpieczeń żądania jest przepływem żądania, a nie polega na **wątku. CurrentPrincipal**, podmiot zabezpieczeń jest teraz dostępny przez cały okres istnienia żądania, gdy znajduje się w potoku interfejsu API sieci Web.
 
-### <a name="cors"></a>SPECYFIKACJI
+### <a name="cors"></a>CORS
 
 Dzięki innemu doskonałemu wpływowi z usługi Brock, ASP.NET teraz w pełni obsługuje udostępnianie żądania krzyżowego (CORS).
 
-Zabezpieczenia przeglądarki uniemożliwiają stronom sieci Web wykonywanie żądań AJAX do innej domeny. [CORS](http://www.w3.org/TR/cors/) jest standardem W3C, który umożliwia serwerowi złagodzenie zasad tego samego źródła. Przy użyciu mechanizmu CORS serwer może jawnie zezwolić na niektóre żądania między źródłami podczas odrzucania innych.
+Zabezpieczenia przeglądarki uniemożliwiają stronie internetowej wysyłanie żądań AJAX do innej domeny. [CORS](http://www.w3.org/TR/cors/) jest standardem W3C, który umożliwia serwerowi złagodzenie zasad tego samego źródła. Przy użyciu mechanizmu CORS serwer może jawnie zezwolić na niektóre żądania między źródłami podczas odrzucania innych.
 
 Interfejs Web API 2 obsługuje teraz mechanizm CORS, w tym automatyczną obsługę żądań inspekcji wstępnej. Aby uzyskać więcej informacji, zobacz [Włączanie żądań między źródłami w interfejsie API sieci Web ASP.NET](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md).
 
@@ -299,7 +299,7 @@ Interfejs API sieci Web ASP.NET teraz w pełni obsługuje OWIN i może być uruc
 Dzięki integracji z usługą OWIN można samodzielnie hostować internetowy interfejs API we własnym procesie wraz z innymi firmowymi narzędziami OWIN, takimi jak sygnalizujący. Aby uzyskać więcej informacji, zobacz [Używanie Owin do samoobsługowego hostowania interfejsu API sieci Web ASP.NET](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="TOC13"></a>
-## <a name="aspnet-signalr-20"></a>ASP.NET sygnalizujący 2,0
+## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
 W poniższych sekcjach opisano funkcje sygnalizujące 2,0.
 
@@ -392,7 +392,7 @@ Dodano pomoc techniczną dla klientów z systemami iOS i Android przy użyciu pl
 
 Aby ulepszyć Programowanie dla wielu platform, klienci korzystający z technologii Silverlight, WinRT i Windows Phone zostali zainstalowani za pomocą jednego przenośnego klienta platformy .NET, który obsługuje następujące platformy:
 
-- SIEĆ 4,5
+- NET 4.5
 - Program Silverlight 5
 - WinRT (.NET dla aplikacji do sklepu Windows)
 - Windows Phone 8
@@ -688,7 +688,7 @@ Aby dodać MVC do projektu formularzy sieci Web, Dodaj nowy element szkieletowy 
 
 Jeśli wystąpi błąd podczas dodawania elementu szkieletowego do projektu, istnieje możliwość, że projekt zostanie pozostawiony w stanie niespójnym. Niektóre zmiany zostaną wycofane, ale inne zmiany, takie jak zainstalowane pakiety NuGet, nie zostaną wycofane. Jeśli zmiany konfiguracji routingu są wycofywane, użytkownicy otrzymają błąd HTTP 404 podczas przechodzenia do elementów szkieletowych.
 
-Obejście problemu:
+{1&gt;Obejście problemu:&lt;1}
 
 - Aby naprawić ten błąd dla składnika MVC, Dodaj nowy element szkieletowy i wybierz zależności MVC 5 (minimalnie lub pełne). Ten proces spowoduje dodanie wszystkich wymaganych zmian do projektu.
 - Aby naprawić ten błąd dla interfejsu API sieci Web:

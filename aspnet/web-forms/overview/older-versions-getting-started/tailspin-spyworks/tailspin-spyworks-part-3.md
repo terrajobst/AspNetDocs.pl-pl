@@ -1,77 +1,77 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: Część 3. Układ i Menu kategorii | Dokumentacja firmy Microsoft
+title: 'Część 3: menu Układ i Kategoria | Microsoft Docs'
 author: JoeStagner
-description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 3 obejmuje dodawanie układ i menu kategorii.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 3 dotyczy dodawania układu i menu kategorii.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: a223b97fd362ecf73ecde431e141021c1dcc6a6d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131029"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639119"
 ---
 # <a name="part-3-layout-and-category-menu"></a>Część 3. Układ i menu kategorii
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
+> Tailspin Spyworks ilustruje, w jaki sposób bardzo jest prosta, aby tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. W tym artykule przedstawiono sposób korzystania z doskonałych nowych funkcji w programie ASP.NET 4 do tworzenia sklepu online, w tym zakupów, wyewidencjonowywania i administrowania.
 > 
-> W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 3 obejmuje dodawanie układ i menu kategorii.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 3 dotyczy dodawania układu i menu kategorii.
 
-## <a id="_Toc260221669"></a>  Dodanie niektórych układ i Menu kategorii
+## <a id="_Toc260221669"></a>Dodawanie niektórych układów i menu kategorii
 
-Strona wzorcowa naszej witryny polega na dodaniu div kolumny po lewej stronie, która będzie zawierać nasze menu kategorii produktów.
+Na naszej stronie wzorcowej witryny dodamy blok DIV dla kolumny po lewej stronie, która będzie zawierać menu kategorii produktów.
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample1.aspx)]
 
-Należy pamiętać, że żądane wyrównanie i inne elementy formatowania będzie świadczona przez klasy CSS, która dodaliśmy do naszego pliku Style.css.
+Należy zauważyć, że odpowiednie wyrównanie i inne formatowanie będzie zapewnione przez klasę CSS dodaną do naszego pliku style. css.
 
 [!code-css[Main](tailspin-spyworks-part-3/samples/sample2.css)]
 
-Menu kategorii produktu zostanie dynamicznie utworzony w czasie wykonywania, badając Commerce bazy danych dla istniejącej kategorii produktów oraz tworzenie elementów menu i odpowiadające łączy.
+Menu Kategoria produktu zostanie dynamicznie utworzone w środowisku uruchomieniowym przez wykonanie zapytania dotyczącego bazy danych commerce dla istniejących kategorii produktów i utworzenie elementów menu i odpowiednich linków.
 
-W tym celu użyjemy dwóch ASP. Formanty zaawansowanych danych przez sieć. Formantem "Źródła danych jednostki" i "ListView".
+Aby to osiągnąć, użyjemy dwóch z ASP. Zaawansowane kontrolki danych sieci. Kontrolka "Źródło danych jednostki" i kontrolka "ListView".
 
 ![](tailspin-spyworks-part-3/_static/image1.jpg)
 
-Teraz przejdź do "W widoku projektu" i umożliwia konfigurowanie kontrolek naszych pomocników.
+Przełączmy na "Widok projektu" i użyj pomocników, aby skonfigurować nasze kontrolki.
 
 ![](tailspin-spyworks-part-3/_static/image2.jpg)
 
-Teraz ustaw właściwość Identyfikatora EntityDataSource do zewnętrznego źródła danych\_kategorii\_Menu i kliknij przycisk "Konfiguruj źródła danych".
+Skonfigurujmy Właściwość Identyfikator obiektu EntityDataSource do menu EDS\_kategorii\_i kliknij pozycję "Konfiguruj źródło danych".
 
 ![](tailspin-spyworks-part-3/_static/image3.jpg)
 
-Wybierz połączenie CommerceEntities, który został utworzony dla nas podczas tworzenia modelu źródła danych jednostki dla naszych Commerce bazy danych, a następnie kliknij przycisk "Dalej".
+Wybierz połączenie CommerceEntities, które zostało utworzone dla nas po utworzeniu modelu źródła danych jednostki dla bazy danych firmy Commerce i kliknij przycisk "dalej".
 
 ![](tailspin-spyworks-part-3/_static/image4.jpg)
 
-Wybierz jednostki "Kategorie" Nazwa zestawu i pozostaw resztę opcji jako domyślny. Kliknij przycisk "Zakończ".
+Wybierz nazwę zestawu jednostek "Kategorie" i pozostaw pozostałe opcje jako domyślne. Kliknij przycisk "Zakończ".
 
-Teraz możemy ustawić właściwość identyfikator wystąpienie kontrolki ListView, który możemy umieścić na naszej stronie ListView\_ProductsMenu i uaktywnić jego pomocy.
+Teraz Skonfigurujmy Właściwość ID instancji formantu ListView, która została umieszczona na naszej stronie w celu udostępnienia elementu ListView\_ProductsMenu i aktywowania pomocnika.
 
 ![](tailspin-spyworks-part-3/_static/image5.jpg)
 
-Mimo że moglibyśmy użyć różnych opcji kontroli do formatowania wyświetlania elementu danych i formatowania, nasze menu tworzenia będzie wymagać tylko proste znaczników, dzięki czemu możemy wprowadzić kod w widoku źródła.
+Mimo że możemy użyć opcji kontroli do formatowania wyświetlania i formatowania elementów danych, nasze polecenie tworzenia menu będzie wymagało tylko prostego znacznika, więc w widoku źródła wprowadzimy kod.
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample3.aspx)]
 
-Należy pamiętać, instrukcji "Eval": &lt;% # Eval("CategoryName") %&gt;
+Zanotuj instrukcję "eval": &lt;% # eval ("CategoryName")%&gt;
 
-Składnia ASP.NET &lt;% # %&gt; jest Konwencja skrót, który powoduje, że środowisko uruchomieniowe do wykonania, niezależnie od rodzaju znajduje się w obrębie i zapisuje wyniki "w wierszu".
+Składnia ASP.NET &lt;% #%&gt; jest konwencją skróconą, która instruuje środowisko uruchomieniowe, aby wykonać dowolne, które jest zawarte w i wyprowadza wyniki "w wierszu".
 
-Instrukcja Eval("CategoryName") powoduje, że, bieżącego wpisu w powiązanej kolekcji elementów danych, pobrać wartości nazw elementów modelu Entity "CategoryName". Jest to zwarta składnia bardzo zaawansowaną funkcją.
+Instrukcja eval ("CategoryName") instruuje, że dla bieżącego wpisu w powiązanej kolekcji elementów danych Pobierz wartość elementów modelu jednostki "CategoryName". Jest to zwięzła składnia dla bardzo zaawansowanej funkcji.
 
-Uruchomimy aplikację teraz.
+Umożliwia uruchomienie aplikacji teraz.
 
 ![](tailspin-spyworks-part-3/_static/image6.jpg)
 
-Pamiętaj, że nasze menu kategorii produktu są wyświetlane i kiedy jednak umieścimy kursor nad jednym z elementów menu kategorii widać prowadzi link element menu na stronie mamy jeszcze do wdrożenia o nazwie ProductsList.aspx a, stworzyliśmy argumentu ciągu zapytania dynamicznego, zawiera  Identyfikator kategorii.
+Należy zauważyć, że nasze menu Kategoria produktu jest teraz wyświetlane, a po umieszczeniu wskaźnika myszy nad jednym z elementów menu Kategoria zobaczysz, że na stronie nie ma jeszcze zaimplementowanej wartości Nazwa ProductsList. aspx i że został skompilowany argument ciągu zapytania dynamicznego zawierający  Identyfikator kategorii.
 
 > [!div class="step-by-step"]
 > [Poprzednie](tailspin-spyworks-part-2.md)

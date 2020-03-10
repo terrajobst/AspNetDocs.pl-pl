@@ -9,11 +9,11 @@ ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ea88da1e6d510f706fc7ca370cfa32974c1243f8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587741"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525635"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio: wprowadzenie-1 z 12
 
@@ -39,7 +39,7 @@ Liczba samouczków — 11 we wszystkich i stronach rozwiązywania problemów —
 
 Samouczki zostały zaprojektowane tak, aby były uruchamiane w kolejności, a każda z nich kompiluje się w poprzedniej części. Można jednak pominąć części, które nie są związane z twoją sytuacją. (Części pomijające mogą wymagać dostosowania procedur w kolejnych samouczkach).
 
-## <a name="intended-audience"></a>Zamierzone odbiorcy
+## <a name="intended-audience"></a>Docelowi odbiorcy
 
 Samouczki mają na celu ASP.NET deweloperów, którzy pracują w małych organizacjach i innych środowiskach, w których:
 
@@ -139,4 +139,4 @@ Poniższe funkcje aplikacji mają wpływ na sposób ich wdrażania lub czynnośc
 W tym pierwszym samouczku w serii pobrano przykładowy projekt programu Visual Studio i przegląd funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W poniższych samouczkach przygotowano do wdrożenia przez skonfigurowanie niektórych z tych elementów do obsługi automatycznej. Inne osoby, które postanowisz ręcznie.
 
 > [!div class="step-by-step"]
-> [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [Dalej](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

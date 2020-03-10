@@ -9,11 +9,11 @@ ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
 ms.openlocfilehash: 7c4aa34567ac4fb31d1ed874cf65986c4e779e66
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456169"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78540391"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 
@@ -28,7 +28,7 @@ W tej sekcji utworzysz nową klasę `MoviesController` i piszesz kod, który pob
 
 Kliknij prawym przyciskiem myszy folder *controllers* i Utwórz nowy kontroler `MoviesController`. Poniższe opcje nie będą wyświetlane do momentu skompilowania aplikacji. Wybierz następujące opcje:
 
-- Nazwa kontrolera: **MoviesController**. (Jest to ustawienie domyślne. )
+- Nazwa kontrolera: **MoviesController**. (Jest to ustawienie domyślne. ).
 - Szablon: **kontroler MVC z akcjami odczytu/zapisu i widokami korzystającymi z Entity Framework**.
 - Model klasy: **Movie (MvcMovie. models)** .
 - Klasa kontekstu danych: **MovieDBContext (MvcMovie. models)** .

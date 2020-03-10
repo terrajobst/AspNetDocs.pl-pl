@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 10/29/2018
 msc.type: content
 ms.openlocfilehash: 5299d9ab057c3096773955a7461e77a80673ebfe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586764"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584512"
 ---
 # <a name="configuration-builders-for-aspnet"></a>Konstruktory konfiguracji dla ASP.NET
 
@@ -103,7 +103,7 @@ Poprzedni kod ustawi wartości właściwości na:
 
 Na przykład przy użyciu poprzedniego pliku *Web. config* klucze/wartości w poprzednim obrazie edytora środowiska i Poprzedni kod są ustawiane następujące wartości:
 
-|  Key              | Wartość |
+|  Klucz              | Wartość |
 | ----------------- | ------------ |
 |     AppSetting_ServiceID           | AppSetting_ServiceID ze zmiennych ENV|
 |    AppSetting_default            | AppSetting_default wartość z ENV |
@@ -136,7 +136,7 @@ Poprzedni kod ustawi wartości właściwości na:
 
 Na przykład przy użyciu poprzedniego pliku *Web. config* klucze/wartości w poprzednim obrazie edytora środowiska i Poprzedni kod są ustawiane następujące wartości:
 
-|  Key              | Wartość |
+|  Klucz              | Wartość |
 | ----------------- | ------------ |
 |     ServiceID           | AppSetting_ServiceID ze zmiennych ENV|
 |    {1&gt;default&lt;1}            | AppSetting_default wartość z ENV |
@@ -277,7 +277,7 @@ Szczegóły atrybutu:
 
 * `jsonFile` — wymagane. Określa plik JSON, z którego ma zostać odczytany. Znaku `~` można użyć na początku, aby odwołać się do katalogu głównego aplikacji.
 * `optional`-wartość domyślna to `true`. Zapobiega zgłaszaniu wyjątków, jeśli nie można znaleźć pliku JSON.
-* `jsonMode` - `[Flat|Sectional]`. `Flat` jest wartością domyślną. Gdy `jsonMode` jest `Flat`, plik JSON jest jednym prostym źródłem klucza/wartości. `EnvironmentConfigBuilder` i `AzureKeyVaultConfigBuilder` są również pojedynczymi płaskimi źródłami klucz/wartość. Gdy `SimpleJsonConfigBuilder` jest skonfigurowany w trybie `Sectional`:
+* `jsonMode` - `[Flat|Sectional]`. Wartość domyślna to `Flat`. Gdy `jsonMode` jest `Flat`, plik JSON jest jednym prostym źródłem klucza/wartości. `EnvironmentConfigBuilder` i `AzureKeyVaultConfigBuilder` są również pojedynczymi płaskimi źródłami klucz/wartość. Gdy `SimpleJsonConfigBuilder` jest skonfigurowany w trybie `Sectional`:
 
   * Plik JSON jest koncepcyjnie podzielony na najwyższego poziomu do wielu słowników.
   * Każdy słownik jest stosowany tylko do sekcji konfiguracji, która pasuje do dołączonej nazwy właściwości najwyższego poziomu. Na przykład:

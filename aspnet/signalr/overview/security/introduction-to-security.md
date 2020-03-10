@@ -1,194 +1,194 @@
 ---
 uid: signalr/overview/security/introduction-to-security
-title: Wprowadzenie do zabezpieczeń SignalR | Dokumentacja firmy Microsoft
+title: Wprowadzenie do zabezpieczeń sygnalizujących | Microsoft Docs
 author: bradygaster
-description: W tym artykule opisano problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas opracowywania aplikacji SignalR.
+description: Opisuje problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas tworzenia aplikacji sygnalizującej.
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
 ms.openlocfilehash: 24ce20b45543468de28ad017ba62d2f6e5a00f3b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113664"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558577"
 ---
 # <a name="introduction-to-signalr-security"></a>Wprowadzenie do zabezpieczeń usługi SignalR
 
-przez [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+[Fletcher Patryk](https://github.com/pfletcher), [Tomasz FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> W tym artykule opisano problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas opracowywania aplikacji SignalR.
+> W tym artykule opisano problemy związane z zabezpieczeniami, które należy wziąć pod uwagę podczas tworzenia aplikacji sygnalizującej.
 >
-> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
+> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używane w tym temacie
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR w wersji 2
+> - Sygnalizujący wersja 2
 >
 >
 >
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
 >
-> Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
+> Aby uzyskać informacje o wcześniejszych wersjach programu sygnalizującego, zobacz sekcję [sygnalizujące starsze wersje](../older-versions/index.md).
 >
-> ## <a name="questions-and-comments"></a>Pytania i komentarze
+> ## <a name="questions-and-comments"></a>Pytania i Komentarze
 >
-> Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
+> Prosimy o opinię na temat sposobu, w jaki lubię ten samouczek, i co możemy ulepszyć w komentarzach w dolnej części strony. Jeśli masz pytania, które nie są bezpośrednio związane z samouczkiem, możesz je ogłosić na [forum ASP.NET](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 ## <a name="overview"></a>Omówienie
 
 Ten dokument zawiera następujące sekcje:
 
-- [Pojęcia dotyczące zabezpieczeń SignalR](#concepts)
+- [Pojęcia dotyczące zabezpieczeń sygnałów](#concepts)
 
     - [Uwierzytelnianie i autoryzacja](#authentication)
     - [Token połączenia](#connectiontoken)
-    - [Ponowne przyłączanie grup, gdy ponowne łączenie](#rejoingroup)
-- [Jak SignalR zapobiega Cross-Site Request Forgery](#csrf)
-- [Zalecenia dotyczące zabezpieczeń SignalR](#recommendations)
+    - [Ponowne łączenie grup po ponownym połączeniu](#rejoingroup)
+- [Jak sygnalizujący zapobiega podrabianiu żądań między lokacjami](#csrf)
+- [Zalecenia dotyczące zabezpieczeń sygnałów](#recommendations)
 
-    - [Bezpieczny protokół gniazda warstwy SSL)](#ssl)
-    - [Nie należy używać grup jako mechanizmu zabezpieczeń](#groupsecurity)
-    - [Bezpiecznie Obsługa danych wejściowych od klientów](#input)
-    - [Uzgadnianie zmian stanu użytkownika z aktywnym połączeniem](#reconcile)
-    - [Automatycznie generowanych plików serwera proxy JavaScript](#autogen)
+    - [Protokół SSL (Secure Sockets)](#ssl)
+    - [Nie używaj grup jako mechanizmu zabezpieczeń](#groupsecurity)
+    - [Bezpieczne obsługiwanie danych wejściowych z klientów](#input)
+    - [Uzgadnianie zmiany stanu użytkownika z aktywnym połączeniem](#reconcile)
+    - [Automatycznie generowane pliki proxy JavaScript](#autogen)
     - [Wyjątki](#exceptions)
 
 <a id="concepts"></a>
 
-## <a name="signalr-security-concepts"></a>Pojęcia dotyczące zabezpieczeń SignalR
+## <a name="signalr-security-concepts"></a>Pojęcia dotyczące zabezpieczeń sygnałów
 
 <a id="authentication"></a>
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
-SignalR nie zapewnia żadnych funkcji do uwierzytelniania użytkowników. Zamiast tego możesz zintegrować funkcje SignalR istniejącej struktury uwierzytelniania dla aplikacji. Uwierzytelnianie użytkowników, jak będą normalnie w aplikacji oraz pracy z wynikami uwierzytelniania w sieci SignalR kodu. Na przykład mogą uwierzytelniać użytkowników za pomocą uwierzytelniania formularzy programu ASP.NET, a następnie w Centrum, wymuszanie użytkowników, którzy lub role są uprawnione do wywołania metody. W Centrum można również przekazać informacje o uwierzytelnianiu, takie jak nazwa użytkownika lub tego, czy użytkownik należy do roli, do klienta.
+Usługa sygnalizująca nie udostępnia żadnych funkcji uwierzytelniania użytkowników. Zamiast tego należy zintegrować funkcje sygnalizujące z istniejącą strukturą uwierzytelniania dla aplikacji. Użytkownicy są uwierzytelniani jako zwykle w aplikacji i pracują z wynikami uwierzytelniania w kodzie sygnalizującym. Można na przykład uwierzytelniać użytkowników za pomocą uwierzytelniania ASP.NET Forms, a następnie w centrum, wymusić, którzy użytkownicy lub które role mają autoryzację, aby wywołać metodę. W centrum można także przekazać informacje uwierzytelniania, takie jak nazwa użytkownika lub czy użytkownik należy do roli, do klienta programu.
 
-Biblioteka SignalR udostępnia [Autoryzuj](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) atrybutu, aby określić, którzy użytkownicy mają dostęp do koncentratora lub metody. Zastosuj atrybut autoryzacji do koncentratora lub konkretnej metody koncentratora. Bez atrybutu autoryzacji wszystkich metod publicznych w Centrum są dostępne dla klienta, który jest podłączony do koncentratora. Aby uzyskać więcej informacji na temat koncentratorów, zobacz [uwierzytelnianie i autoryzacja dla centrów SignalR](hub-authorization.md).
+Sygnalizujący udostępnia atrybut [Autoryzuj](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) , aby określić, którzy użytkownicy mają dostęp do centrum lub metody. Należy zastosować atrybut Autoryzuj do koncentratora lub określonych metod w centrum. Bez atrybutu Autoryzuj wszystkie metody publiczne w centrum są dostępne dla klienta, który jest podłączony do centrum. Aby uzyskać więcej informacji na temat centrów, zobacz [uwierzytelnianie i autoryzacja dla centrów sygnałów](hub-authorization.md).
 
-Należy zastosować `Authorize` atrybutu do koncentratorów, ale nie trwałego połączenia. Aby wymusić reguł autoryzacji, korzystając z `PersistentConnection` konieczne jest przesłonięcie `AuthorizeRequest` metody. Aby uzyskać więcej informacji na temat połączeń trwałych zobacz [uwierzytelnianie i autoryzacja połączeń trwałych SignalR](persistent-connection-authorization.md).
+Należy zastosować atrybut `Authorize` do centrów, ale nie połączeń trwałych. Aby wymusić reguły autoryzacji przy użyciu `PersistentConnection` należy zastąpić metodę `AuthorizeRequest`. Aby uzyskać więcej informacji na temat połączeń trwałych, zobacz [uwierzytelnianie i autoryzacja dla połączeń trwałych](persistent-connection-authorization.md).
 
 <a id="connectiontoken"></a>
 
 ### <a name="connection-token"></a>Token połączenia
 
-SignalR zmniejsza ryzyko wykonywania poleceń złośliwego przez weryfikację tożsamości nadawcy. Dla każdego żądania klienta i serwera przekazać token połączenia, który zawiera identyfikator połączenia i nazwę użytkownika dla uwierzytelnionych użytkowników. Identyfikator połączenia, który unikatowo identyfikuje każdy klient połączonych. Serwer przykład obejmuje losowe wygenerowanie identyfikatora połączenia, gdy nowe połączenie, zostanie utworzona i będzie się powtarzać ten identyfikator na czas trwania połączenia. Mechanizm uwierzytelniania dla aplikacji sieci web zawiera nazwę użytkownika. SignalR używa szyfrowania i podpis cyfrowy do ochrony token połączenia.
+Program sygnalizujący zmniejsza ryzyko wykonania złośliwych poleceń przez zweryfikowanie tożsamości nadawcy. Dla każdego żądania klient i serwer przekażą token połączenia, który zawiera identyfikator połączenia i nazwę użytkownika dla uwierzytelnionych użytkowników. Identyfikator połączenia jednoznacznie identyfikuje każdego połączonego klienta. Serwer losowo generuje identyfikator połączenia podczas tworzenia nowego połączenia i utrzymuje ten identyfikator na czas trwania połączenia. Mechanizm uwierzytelniania dla aplikacji sieci Web zapewnia nazwę użytkownika. W celu ochrony tokenu połączenia program sygnalizujący używa szyfrowania i podpisu cyfrowego.
 
 ![](introduction-to-security/_static/image2.png)
 
-Dla każdego żądania serwer sprawdza poprawność zawartości tokenu, aby upewnić się, że żądanie pochodzi z określonego użytkownika. Nazwa użytkownika musi odpowiadać identyfikator połączenia. Weryfikując zarówno identyfikator połączenia, jak i nazwę użytkownika, SignalR zapobiega złośliwemu użytkownikowi łatwo personifikacja innego użytkownika. Jeśli serwer nie może sprawdzić poprawności tokenu połączenia, żądanie kończy się niepowodzeniem.
+Dla każdego żądania serwer sprawdza zawartość tokenu, aby upewnić się, że żądanie pochodzi od określonego użytkownika. Nazwa użytkownika musi odpowiadać identyfikatorowi połączenia. Sprawdzając poprawność zarówno identyfikatora połączenia, jak i nazwy użytkownika, sygnalizujący uniemożliwia złośliwemu użytkownikowi łatwe personifikowanie innego użytkownika. Jeśli serwer nie może zweryfikować tokenu połączenia, żądanie nie powiedzie się.
 
 ![](introduction-to-security/_static/image4.png)
 
-Ponieważ identyfikator połączenia, który jest częścią procesu weryfikacji, nie należy ujawnić identyfikatora połączenia jednego użytkownika do innych użytkowników lub przechowywania wartości na kliencie, takie jak w pliku cookie.
+Ponieważ identyfikator połączenia jest częścią procesu weryfikacji, nie należy ujawniać identyfikatora połączenia jednego użytkownika innym użytkownikom ani przechowywać wartości na komputerze klienckim, na przykład w pliku cookie.
 
-#### <a name="connection-tokens-vs-other-token-types"></a>Tokeny połączenia, a inne typy tokenów
+#### <a name="connection-tokens-vs-other-token-types"></a>Tokeny połączenia a inne typy tokenów
 
-Tokeny połączenia od czasu do czasu są oznaczane za pomocą narzędzi zabezpieczeń, ponieważ wydają się być tokeny sesji lub tokenów uwierzytelniania, które stanowi zagrożenie, jeśli widoczne.
+Tokeny połączenia są czasami oflagowane przez narzędzia zabezpieczeń, ponieważ pojawiają się one jako tokeny sesji lub tokeny uwierzytelniania, które stanowią zagrożenie, jeśli są uwidocznione.
 
-Token połączenia SignalR nie jest token uwierzytelniania. Służy do upewnij się, że użytkownika zgłaszającego żądanie jest taka sama, jedną, która utworzyła połączenie. Token połączenia jest konieczne, ponieważ biblioteki SignalR platformy ASP.NET umożliwia nawiązywanie połączeń przenieść między serwerami. Token połączenia zostanie skojarzony z określonym użytkownikiem, ale nie potwierdzenia tożsamości użytkownika zgłaszającego żądanie. Żądanie SignalR uwierzytelniali się poprawnie musi on mieć inne token, który potwierdza tożsamość użytkownika, takich jak plik cookie lub tokenu elementu nośnego. Jednak połączenie token sam sprawia, że brak oświadczenia, że żądanie zostało utworzone przez tego użytkownika, tylko że Identyfikatora połączenia zawartych w tokenie jest skojarzony z tym użytkownikiem.
+Token połączenia sygnalizującego nie jest tokenem uwierzytelniania. Służy do potwierdzenia, że użytkownik wykonujący to żądanie jest tym samym, który utworzył połączenie. Token połączenia jest niezbędny, ponieważ sygnał ASP.NET umożliwia nawiązywanie połączeń między serwerami. Token kojarzy połączenie z określonym użytkownikiem, ale nie potwierdza tożsamości użytkownika zgłaszającego żądanie. Aby żądanie sygnału zostało prawidłowo uwierzytelnione, musi mieć inny token, który potwierdza tożsamość użytkownika, na przykład plik cookie lub token okaziciela. Jednak sam token połączenia nie zgłasza żadnego żądania przez tego użytkownika, tylko że identyfikator połączenia zawarty w tokenie jest skojarzony z tym użytkownikiem.
 
-Ponieważ token połączenia zapewnia brak oświadczenia uwierzytelniania własnych, jego nie jest określana jako "sesja" lub "uwierzytelnianie" tokenu. Biorąc token połączenia dla danego użytkownika i odtworzenie jego żądania uwierzytelnienia się jako inny użytkownik (lub nieuwierzytelnione żądania) zakończy się niepowodzeniem, ponieważ nie pasuje do żądania tożsamości użytkownika i tożsamości przechowywanych w tokenie.
+Ponieważ token połączenia nie zapewnia własnego oświadczenia uwierzytelniania, nie jest traktowany jako token "Session" lub "Authentication". Pobranie tokenu połączenia danego użytkownika i jego odtworzenie w żądaniu uwierzytelnianym jako inny użytkownik (lub nieuwierzytelnione żądanie) zakończy się niepowodzeniem, ponieważ tożsamość użytkownika żądania i tożsamość przechowywana w tokenie nie będą zgodne.
 
 <a id="rejoingroup"></a>
 
-### <a name="rejoining-groups-when-reconnecting"></a>Ponowne przyłączanie grup, gdy ponowne łączenie
+### <a name="rejoining-groups-when-reconnecting"></a>Ponowne łączenie grup po ponownym połączeniu
 
-Domyślnie aplikacji SignalR zostanie automatycznie ponownie przypisać użytkownika do odpowiednich grup przy ponownym łączeniu zakłóceniach tymczasowej, np. podczas połączenia jest usunięty i ponownie nawiązane przed upływem limitu czasu połączenia. Przy ponownym łączeniu, klient przekazuje token grupy, który zawiera identyfikator połączenia i przypisanych grup. Token grup jest cyfrowo podpisane i szyfrowane. Klient zachowuje ten sam identyfikator połączenia po ponowne nawiązanie połączenia; w związku z tym przekazany z klienta ponownie połączony identyfikator połączenia musi być zgodna poprzedniego identyfikator połączenia używany przez klienta. Ta weryfikacja uniemożliwia przekazanie żądania dołączenia do grupy nieautoryzowanych przy ponownym łączeniu złośliwy użytkownik.
+Domyślnie aplikacja sygnalizująca automatycznie ponownie przypisze użytkownika do odpowiednich grup podczas ponownego nawiązywania połączenia po tymczasowym przerwaniu, na przykład w przypadku porzucenia i ponownego ustanowienia połączenia przed upływem limitu czasu połączenia. Po ponownym nawiązaniu połączenia klient przekazuje token grupy zawierający identyfikator połączenia i przypisane grupy. Token grupy jest podpisany cyfrowo i szyfrowany. Klient zachowuje ten sam identyfikator połączenia po ponownej nawiązaniu połączenia; w związku z tym identyfikator połączenia przekazaną przez ponownie podłączony klient musi być zgodny z poprzednim identyfikatorem połączenia używanym przez klienta. Ta weryfikacja uniemożliwia złośliwemu użytkownikowi przekazanie żądań dołączenia do nieautoryzowanych grup podczas ponownego nawiązywania połączenia.
 
-Jest jednak należy pamiętać, grupy token nie wygaśnie. Jeśli użytkownik należał do grupy w przeszłości, ale został zablokowany w tej grupie, ten użytkownik może mieć do naśladowania token grupy, która zawiera zabronione grupę. Jeśli musisz bezpiecznie zarządzać użytkowników, którzy należą do grupy, które należy do przechowywania danych na serwerze, takie jak w bazie danych. Następnie należy dodać logikę do swojej aplikacji, która sprawdza na serwerze, czy użytkownik należy do grupy. Na przykład sprawdzania, czy członkostwo w grupie, zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
+Należy jednak pamiętać, że token grupy nie wygasa. Jeśli użytkownik należy do grupy w przeszłości, ale został zabroniony z tej grupy, może być w stanie naśladować token grupy zawierający zabronioną grupę. Jeśli musisz bezpiecznie zarządzać użytkownikami należącymi do grup, musisz przechowywać te dane na serwerze, na przykład w bazie danych. Następnie należy dodać logikę do aplikacji, która weryfikuje na serwerze, czy użytkownik należy do grupy. Aby zapoznać się z przykładem weryfikowania członkostwa w grupie, zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
 
-Automatyczne ponowne przyłączanie grup tylko wtedy, gdy połączenie jest zakończone po przerwaniu tymczasowe. Jeśli użytkownik rozłączy się przez przechodzenia poza aplikacji lub ponownego uruchomienia aplikacji, aplikacja musi obsługiwać jak dodać tego użytkownika do grupy poprawne. Aby uzyskać więcej informacji, zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
+Automatyczne Ponowne przyłączanie grup ma zastosowanie tylko wtedy, gdy połączenie jest ponownie nawiązywane po tymczasowym przerwie. Jeśli użytkownik odłączy się przez przejście do aplikacji lub ponowne uruchomienie aplikacji, aplikacja musi obsłużyć procedurę dodawania tego użytkownika do odpowiednich grup. Aby uzyskać więcej informacji, zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
 
 <a id="csrf"></a>
 
-## <a name="how-signalr-prevents-cross-site-request-forgery"></a>Jak SignalR zapobiega Cross-Site Request Forgery
+## <a name="how-signalr-prevents-cross-site-request-forgery"></a>Jak sygnalizujący zapobiega podrabianiu żądań między lokacjami
 
-Cross-Site fałszowaniu żądań Międzywitrynowych to atak, w którym złośliwych witryn wysyła żądanie do lokacji narażony, gdzie użytkownik jest aktualnie zalogowany. SignalR zapobiega CSRF, dzięki czemu bardzo mało prawdopodobne do złośliwych witryn utworzyć prawidłowy żądanie aplikacji SignalR.
+Fałszerstwo żądania między lokacjami (CSRF) to atak polegający na tym, że złośliwa witryna wysyła żądanie do zagrożonej lokacji, w której użytkownik jest aktualnie zalogowany. Program sygnalizujący uniemożliwia CSRF, uniemożliwiając złośliwej lokacji utworzenie prawidłowego żądania dla aplikacji sygnalizującej.
 
-### <a name="description-of-csrf-attack"></a>Opis CSRF ataku
+### <a name="description-of-csrf-attack"></a>Opis ataku CSRF
 
-Oto przykład ataku typu CSRF:
+Oto przykład ataku CSRF:
 
-1. Uwierzytelnianie za pomocą formularzy zalogowaniu się użytkownika do www.example.com.
-2. Serwer uwierzytelnia użytkownika. Odpowiedź z serwera zawiera pliku cookie uwierzytelniania.
-3. Bez wylogowanie, użytkownik odwiedzi złośliwą witrynę sieci web. Ta witryna złośliwego zawiera poniższy formularz HTML:
+1. Użytkownik loguje się do www.example.com przy użyciu uwierzytelniania formularzy.
+2. Serwer uwierzytelnia użytkownika. Odpowiedź z serwera zawiera plik cookie uwierzytelniania.
+3. Bez wylogowywania użytkownik odwiedza złośliwą witrynę sieci Web. Ta złośliwa witryna zawiera następującą postać HTML:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
-   Należy zauważyć, że akcji formularza publikuje lokacji narażony, nie do złośliwych witryn. Jest to część "cross-site" CSRF.
-4. Użytkownik klika przycisk Prześlij. Przeglądarka zawiera pliku cookie uwierzytelniania z żądaniem.
-5. Żądanie jest uruchomiony na serwerze example.com z kontekstu uwierzytelniania użytkownika i mogą wykonywać wszystkie uwierzytelniony użytkownik może wykonywać.
+   Należy zauważyć, że w ramach akcji formularza są umieszczane wpisy w zagrożonej witrynie, a nie w złośliwej witrynie. To jest część "wiele witryn" z CSRF.
+4. Użytkownik klika przycisk Prześlij. Przeglądarka zawiera plik cookie uwierzytelniania z żądaniem.
+5. Żądanie jest uruchamiane na serwerze example.com z kontekstem uwierzytelniania użytkownika i może wykonywać wszystkie czynności, które mogą wykonać uwierzytelnionego użytkownika.
 
-Mimo że w tym przykładzie wymaga od użytkownika, kliknij przycisk formularz, złośliwy strony można tak samo jak w prosty sposób uruchamiaj skryptu, który wysyła żądanie AJAX do aplikacji SignalR. Ponadto przy użyciu protokołu SSL nie atak CSRF, ponieważ złośliwa witryna może wysłać żądanie "https://".
+Mimo że ten przykład wymaga, aby użytkownik klikał przycisk formularza, złośliwa strona może jak równie łatwo uruchomić skrypt wysyłający żądanie AJAX do aplikacji sygnalizującej. Ponadto użycie protokołu SSL nie uniemożliwia ataku CSRF, ponieważ złośliwa witryna może wysłać żądanie "https://".
 
-Zazwyczaj ataków CSRF możliwe są względem witryny sieci web, które używają plików cookie uwierzytelniania, ponieważ przeglądarek wysyłać wszystkie odpowiednie pliki cookie do docelowej witryny sieci web. Jednak ataków CSRF nie są ograniczone do wykorzystania plików cookie. Na przykład uwierzytelnianie podstawowe i szyfrowane są również narażone. Po użytkownik zaloguje się za pomocą uwierzytelniania podstawowe lub szyfrowane, przeglądarka automatycznie wysyła poświadczenia zakończenia sesji.
+Zazwyczaj ataki CSRF są dostępne dla witryn sieci Web, które używają plików cookie do uwierzytelniania, ponieważ przeglądarki wysyłają wszystkie odpowiednie pliki cookie do docelowej witryny sieci Web. Jednak ataki CSRF nie ograniczają się do korzystania z plików cookie. Na przykład uwierzytelnianie podstawowe i szyfrowane jest również zagrożone. Gdy użytkownik zaloguje się przy użyciu uwierzytelniania podstawowego lub szyfrowanego, przeglądarka automatycznie wyśle poświadczenia do momentu zakończenia sesji.
 
-### <a name="csrf-mitigations-taken-by-signalr"></a>Środki zaradcze CSRF podjęte przez SignalR
+### <a name="csrf-mitigations-taken-by-signalr"></a>CSRF środki zaradcze wykonywane przez sygnalizującego
 
-SignalR wykonuje następujące czynności, aby uniemożliwić złośliwym tworzenie prawidłowych żądań do aplikacji. SignalR wykonuje te czynności domyślnie, nie trzeba podejmować żadnych działań w kodzie.
+Program sygnalizujący wykonuje poniższe kroki, aby uniemożliwić złośliwym lokacjom Tworzenie prawidłowych żądań do aplikacji. Program sygnalizujący domyślnie wykonuje te kroki, nie trzeba podejmować żadnych działań w kodzie.
 
-- **Wyłącz żądania obejmujące różne domeny** SignalR wyłącza żądania obejmujące różne domeny, aby uniemożliwić użytkownikom wywoływanie punktu końcowego SignalR z domeny zewnętrznej. SignalR blokach żądania i uwzględnia każde żądanie z domeny zewnętrznej jest nieprawidłowy. Zaleca się utrzymywanie to domyślne zachowanie; w przeciwnym razie złośliwych witryn można nakłonienia użytkowników do wysyłania poleceń do swojej witryny. Jeśli musisz użyć żądania obejmujące różne domeny, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Przekaż token połączenia w ciągu zapytania, nie jest to plik cookie** SignalR przekazuje token połączenia jako wartość ciągu zapytania, a nie jako pliku cookie. Zapisanie tokena połączenia w pliku cookie jest niebezpieczne, ponieważ przeglądarka może przypadkowo przekazywać token połączenia po napotkaniu złośliwego kodu. Przekazując token połączenia w ciągu zapytania zapobiega także token połączenia utrwalanie poza bieżącym połączeniu. W związku z tym złośliwy użytkownik nie może zgłosić wniosek w ramach poświadczeń uwierzytelniania innego użytkownika.
-- **Weryfikuj token połączenia** zgodnie z opisem w [token połączenia](#connectiontoken) sekcji serwera zna identyfikator połączenia, z którym jest skojarzony z każdego uwierzytelnionego użytkownika. Serwer nie przetwarza każde żądanie pochodzące od identyfikator połączenia, który nie jest zgodna z nazwą użytkownika. Jest mało prawdopodobne, złośliwy użytkownik może odgadnięcia prawidłowemu żądaniu, ponieważ złośliwy użytkownik musi wiedzieć, nazwę użytkownika i bieżący identyfikator generowany losowo połączenia. Ten identyfikator połączenia staje się nieprawidłowy, tak szybko, jak połączenie zostanie zakończona. Użytkownicy anonimowi nie powinna mieć dostępu do żadnych poufnych informacji.
+- **Wyłącz żądania między domenami** Sygnalizujący wyłącza żądania między domenami, aby uniemożliwić użytkownikom wywoływanie punktu końcowego sygnalizującego z domeny zewnętrznej. Sygnał traktuje wszystkie żądania z domeny zewnętrznej jako nieprawidłowe i blokuje żądanie. Zalecamy zachowanie tego zachowania domyślnego; w przeciwnym razie złośliwa witryna może dowolnych użytkowników do wysyłania poleceń do witryny. Jeśli konieczne jest użycie żądań między domenami, zobacz [jak ustanowić połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Przekaż token połączenia w ciągu zapytania, a nie w pliku cookie** Sygnał przekazuje token połączenia jako wartość ciągu zapytania, a nie jako plik cookie. Przechowywanie tokenu połączenia w pliku cookie jest niebezpieczne, ponieważ przeglądarka może przypadkowo przesłać token połączenia w przypadku napotkania złośliwego kodu. Ponadto przekazywanie tokenu połączenia w ciągu zapytania uniemożliwia utrzymywanie tokenu połączenia poza bieżącym połączeniem. W związku z tym złośliwy użytkownik nie może wykonać żądania w ramach poświadczeń uwierzytelniania innego użytkownika.
+- **Weryfikuj token połączenia** Zgodnie z opisem w sekcji [token połączenia](#connectiontoken) serwer wie, który identyfikator połączenia jest skojarzony z każdym uwierzytelnionym użytkownikiem. Serwer nie przetwarza żadnych żądań z identyfikatora połączenia, który nie jest zgodny z nazwą użytkownika. Jest mało prawdopodobne, że złośliwy użytkownik może odgadnąć prawidłowe żądanie, ponieważ złośliwy użytkownik musi znać nazwę użytkownika i bieżący wygenerowany losowo identyfikator połączenia. Ten identyfikator połączenia będzie nieprawidłowy, gdy tylko zakończy się połączenie. Użytkownicy anonimowi nie powinni mieć dostępu do żadnych poufnych informacji.
 
 <a id="recommendations"></a>
 
-## <a name="signalr-security-recommendations"></a>Zalecenia dotyczące zabezpieczeń SignalR
+## <a name="signalr-security-recommendations"></a>Zalecenia dotyczące zabezpieczeń sygnałów
 
 <a id="ssl"></a>
 
-### <a name="secure-socket-layers-ssl-protocol"></a>Bezpieczny protokół gniazda warstwy SSL)
+### <a name="secure-socket-layers-ssl-protocol"></a>Protokół SSL (Secure Sockets)
 
-Protokół SSL używa szyfrowania do zabezpieczenia transportu danych między klientem i serwerem. Jeśli aplikacja SignalR przesyła poufnych informacji między klientem i serwerem, należy używać protokołu SSL dla transportu. Aby uzyskać więcej informacji na temat konfigurowania protokołu SSL, zobacz [sposób konfigurowania protokołu SSL w usługach IIS 7](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Protokół SSL używa szyfrowania w celu zabezpieczenia transportu danych między klientem i serwerem. Jeśli aplikacja sygnalizująca przesyła poufne informacje między klientem a serwerem, należy użyć protokołu SSL do transportu. Aby uzyskać więcej informacji o konfigurowaniu protokołu SSL, zobacz [jak skonfigurować protokół SSL w usługach IIS 7](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 <a id="groupsecurity"></a>
 
-### <a name="do-not-use-groups-as-a-security-mechanism"></a>Nie należy używać grup jako mechanizmu zabezpieczeń
+### <a name="do-not-use-groups-as-a-security-mechanism"></a>Nie używaj grup jako mechanizmu zabezpieczeń
 
-Grupy to wygodny sposób zbierania powiązanych użytkowników, ale nie są one bezpieczne mechanizm ograniczania dostępu do poufnych informacji. Jest to szczególnie istotne w przypadku, gdy użytkownicy automatycznie ponownie dołączyć do grup podczas ponownego połączenia. Zamiast tego należy rozważyć dodanie uprzywilejowanych użytkowników do roli i ograniczenie dostępu do metody koncentratora do tylko członków tej roli. Aby uzyskać przykład ograniczanie dostępu na podstawie roli, zobacz [uwierzytelnianie i autoryzacja dla centrów SignalR](hub-authorization.md). Na przykład sprawdzania dostępu użytkowników do grup przy ponownym łączeniu zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
+Grupy to wygodny sposób zbierania powiązanych użytkowników, ale nie są bezpiecznym mechanizmem ograniczania dostępu do poufnych informacji. Jest to szczególnie prawdziwe, gdy użytkownicy mogą automatycznie odłączać grupy podczas ponownego nawiązywania połączenia. Zamiast tego należy rozważyć dodanie uprzywilejowanych użytkowników do roli i ograniczenie dostępu do metody centrum tylko do członków tej roli. Aby uzyskać przykład ograniczenia dostępu na podstawie roli, zobacz [uwierzytelnianie i autoryzacja dla centrów sygnałów](hub-authorization.md). Aby zapoznać się z przykładem sprawdzania dostępu użytkowników do grup podczas ponownego nawiązywania połączenia, zobacz [Praca z grupami](../guide-to-the-api/working-with-groups.md).
 
 <a id="input"></a>
 
-### <a name="safely-handling-input-from-clients"></a>Bezpiecznie Obsługa danych wejściowych od klientów
+### <a name="safely-handling-input-from-clients"></a>Bezpieczne obsługiwanie danych wejściowych z klientów
 
-Aby upewnić się, że złośliwy użytkownik nie będzie przesyłał skryptu do innych użytkowników, musisz zakodować wszystkie dane wejściowe od klientów, które jest przeznaczone do emisji do innych klientów. Wiadomości na odbieranie klientów, a nie na serwerze, należy kodowania, ponieważ aplikacja SignalR może mieć wiele różnych typów klientów. W związku z tym kodowanie HTML działa dla klienta sieci web, ale nie dla innych typów klientów. Na przykład metoda klienta sieci web do wyświetlenia wiadomości rozmowy będzie bezpiecznie obsługiwać nazwy użytkownika i komunikat przez wywołanie metody `html()` funkcji.
+Aby upewnić się, że złośliwy użytkownik nie wyśle skryptu do innych użytkowników, należy zakodować wszystkie dane wejściowe od klientów przeznaczonych do emisji do innych klientów. Należy kodować komunikaty na klientach otrzymujących zamiast na serwerze, ponieważ aplikacja sygnalizująca może mieć wiele różnych typów klientów. W związku z tym kodowanie HTML działa dla klienta sieci Web, ale nie dla innych typów klientów. Na przykład Metoda klienta sieci Web, aby wyświetlić komunikat rozmowy, bezpiecznie obsłużyć nazwę użytkownika i komunikat, wywołując funkcję `html()`.
 
 [!code-html[Main](introduction-to-security/samples/sample2.html?highlight=3-4)]
 
 <a id="reconcile"></a>
 
-### <a name="reconciling-a-change-in-user-status-with-an-active-connection"></a>Uzgadnianie zmian stanu użytkownika z aktywnym połączeniem
+### <a name="reconciling-a-change-in-user-status-with-an-active-connection"></a>Uzgadnianie zmiany stanu użytkownika z aktywnym połączeniem
 
-Jeśli stan uwierzytelniania użytkownika zmieni się, gdy istnieje aktywne połączenie, użytkownik otrzyma komunikat o błędzie informujący, że "tożsamość użytkownika nie można zmienić podczas aktywnego połączenia SignalR". W takim przypadku aplikacja powinna ponownym połączeniu się z serwera, aby upewnić się, że połączenia identyfikator i nazwa użytkownika są koordynowane. Na przykład jeśli aplikacja umożliwia użytkownikowi Wyloguj się, gdy istnieje aktywne połączenie, nazwa użytkownika dla połączenia nie będzie już zgodny nazwę, która jest przekazywana do następnego żądania. Będzie chcesz przerwać połączenie przed wylogowaniem użytkownika, a następnie uruchom go ponownie.
+Jeśli stan uwierzytelnienia użytkownika zostanie zmieniony, gdy istnieje aktywne połączenie, użytkownik otrzyma komunikat o błędzie z informacją "tożsamość użytkownika nie może ulec zmianie podczas aktywnego połączenia sygnalizującego". W takim przypadku aplikacja powinna ponownie połączyć się z serwerem, aby upewnić się, że identyfikator połączenia i nazwa użytkownika są skoordynowane. Na przykład jeśli aplikacja zezwala użytkownikowi na wylogowanie się, gdy istnieje aktywne połączenie, nazwa użytkownika dla połączenia nie będzie już zgodna z nazwą przekazaną dla następnego żądania. Należy zatrzymać połączenie przed wylogowaniem użytkownika, a następnie uruchomić go ponownie.
 
-Jest jednak należy pamiętać, że większość aplikacji nie trzeba ręcznie uruchamiać i zatrzymywać połączenia. Jeśli aplikacja przekierowuje użytkowników do oddzielnej strony po zalogowaniu, takie jak domyślne zachowanie w aplikacji formularzy sieci Web lub aplikacji MVC lub Odświeża bieżącą stronę po wylogowaniu, aktywne połączenie jest automatycznie rozłączany i nie wymaga dodatkowych działań.
+Należy jednak pamiętać, że większość aplikacji nie będzie musiała ręcznie zatrzymać i uruchomić połączenia. Jeśli aplikacja przekierowuje użytkowników do osobnej strony po wylogowaniu, takiej jak domyślne zachowanie w aplikacji formularzy sieci Web lub aplikacji MVC, lub odświeża bieżącą stronę po wylogowaniu, aktywne połączenie zostanie automatycznie rozłączone i nie Wymagaj wszelkich dodatkowych akcji.
 
-Poniższy przykład pokazuje, jak zatrzymać i uruchomić połączenia, gdy stan użytkownika został zmieniony.
+Poniższy przykład pokazuje, jak zatrzymać i uruchomić połączenie, gdy stan użytkownika został zmieniony.
 
 [!code-html[Main](introduction-to-security/samples/sample3.html)]
 
-Lub stanu uwierzytelniania użytkownika mogą ulec zmianie, jeśli Twoja witryna wymaga wygaśniecie za pomocą uwierzytelniania formularzy i nie ma żadnych działań, aby zachować pliku cookie uwierzytelniania jest prawidłowy. W takiej sytuacji użytkownik zostanie wylogowany, a nazwa użytkownika nie będzie już zgodny nazwę użytkownika w tokenie połączenia. Aby rozwiązać ten problem, dodając kilka skrypt, który okresowo żąda zasobu na serwerze sieci web, aby zachować pliku cookie uwierzytelniania jest prawidłowy. Poniższy przykład przedstawia sposób zażądać zasobu co 30 minut.
+Można również zmienić stan uwierzytelniania użytkownika, jeśli w lokacji jest używane okresowe wygaśnięcie z uwierzytelnianiem formularzy i nie ma aktywności, aby zachować prawidłowy plik cookie uwierzytelniania. W takim przypadku użytkownik zostanie wylogowany, a nazwa użytkownika nie będzie już zgodna z nazwą użytkownika w tokenie połączenia. Ten problem można rozwiązać, dodając jakiś skrypt, który okresowo żąda zasobu na serwerze sieci Web, aby zachować prawidłowy plik cookie uwierzytelniania. Poniższy przykład pokazuje, jak zażądać zasobu co 30 minut.
 
 [!code-javascript[Main](introduction-to-security/samples/sample4.js)]
 
 <a id="autogen"></a>
 
-### <a name="automatically-generated-javascript-proxy-files"></a>Automatycznie generowanych plików serwera proxy JavaScript
+### <a name="automatically-generated-javascript-proxy-files"></a>Automatycznie generowane pliki proxy JavaScript
 
-Jeśli nie mają zawierać wszystkich koncentratorów i metod w pliku serwera proxy JavaScript dla każdego użytkownika, możesz wyłączyć automatyczne generowanie pliku. Możesz wybrać tę opcję, jeśli masz wiele koncentratorów i metod, ale nie ma pod uwagę wszystkie metody każdego użytkownika. Wyłącz automatyczne generowanie, ustawiając **EnableJavaScriptProxies** do **false**.
+Jeśli nie chcesz uwzględniać wszystkich centrów i metod w pliku proxy JavaScript dla każdego użytkownika, możesz wyłączyć automatyczne generowanie pliku. Możesz wybrać tę opcję, jeśli masz wiele centrów i metod, ale nie chcesz, aby każdy użytkownik miał świadomość wszystkich metod. Aby wyłączyć generowanie automatyczne, należy ustawić **EnableJavaScriptProxies** na **false**.
 
 [!code-csharp[Main](introduction-to-security/samples/sample5.cs)]
 
-Aby uzyskać więcej informacji na temat plików serwera proxy JavaScript zobacz [wygenerowany serwer proxy i przeznaczenie dla Ciebie](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy). <a id="exceptions"></a>
+Aby uzyskać więcej informacji na temat plików serwera proxy języka JavaScript, zobacz [wygenerowany serwer proxy i jego zawartość](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy). <a id="exceptions"></a>
 
 ### <a name="exceptions"></a>Wyjątki
 
-Należy unikać przekazywania obiektów wyjątków do klientów, ponieważ obiekty może spowodować ujawnienie poufnych informacji do klientów. Zamiast tego należy wywołać metodę na komputerze klienckim, który wyświetla komunikat o błędzie istotne.
+Należy unikać przekazywania obiektów wyjątków do klientów, ponieważ obiekty mogą uwidaczniać klientom poufne informacje. Zamiast tego należy wywołać metodę na kliencie, który wyświetla odpowiedni komunikat o błędzie.
 
 [!code-csharp[Main](introduction-to-security/samples/sample6.cs)]

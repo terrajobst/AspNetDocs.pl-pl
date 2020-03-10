@@ -9,15 +9,15 @@ ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
 ms.openlocfilehash: 4235f4fe666cdeb7d0821127a2b349f2ff30cd6e
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057032"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539439"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co nowego we wzorcu ASP.NET MVC 4
 
-Przez [zespół Camp sieci Web](https://twitter.com/webcamps)
+przez [zespół Camp sieci Web](https://twitter.com/webcamps)
 
 [Pobierz zestaw szkoleniowy dla sieci Web Camp](https://aka.ms/webcamps-training-kit)
 
@@ -57,7 +57,7 @@ Aby ukończyć to laboratorium, musisz mieć następujące elementy:
 <a id="Setup"></a>
 
 <a id="Setup"></a>
-### <a name="setup"></a>Konfiguracja
+### <a name="setup"></a>Konfigurowanie
 
 W całym dokumencie laboratoryjnym pojawi się monit o wstawienie bloków kodu. Dla wygody większość tego kodu jest udostępniana jako fragmenty Visual Studio Code, których można użyć w programie Visual Studio, aby uniknąć konieczności ręcznego dodawania go.
 
@@ -203,12 +203,12 @@ ASP.NET MVC 4 ułatwia opracowywanie witryn sieci Web na potrzeby przeglądarek 
 
         Szablon projektu aplikacji mobilnej zawiera bibliotekę platformy jQuery Mobile, która jest biblioteką Open Source w celu zachowania zgodności z przeglądarką mobilną. jQuery Mobile stosuje udoskonalenia progresywne dla przeglądarek mobilnych, które obsługują CSS i JavaScript. Rozszerzenie progresywne umożliwia wszystkim przeglądarkom wyświetlanie podstawowej zawartości strony sieci Web, a jednocześnie umożliwia tylko najbardziej wydajnym przeglądarkom wyświetlanie zawartości bogatej. Pliki JavaScript i CSS, zawarte w stylu jQuery Mobile, ułatwiają przeglądarkom mobilnym dopasowanie zawartości ekranu bez wprowadzania jakichkolwiek zmian w znacznikach strony.
 
-        ![jQuery-Mobile-Library-dołączona-w-szablonie](whats-new-in-aspnet-mvc-4/_static/image12.png)
+        ![jQuery-mobile-library-included-in-the-template](whats-new-in-aspnet-mvc-4/_static/image12.png)
 
         *Biblioteka jQuery Mobile dołączona do szablonu*
     - **Znaczniki języka HTML5**
 
-        ![Mobile-Application-Template-Using-HTML5-Markup](whats-new-in-aspnet-mvc-4/_static/image13.png)
+        ![Mobile-application-template-using-HTML5-markup](whats-new-in-aspnet-mvc-4/_static/image13.png)
 
         *Szablon aplikacji mobilnej z użyciem znaczników HTML5 (login. cshtml i index. cshtml)*
 4. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie.
@@ -318,7 +318,7 @@ To zadanie spowoduje utworzenie makiety usługi fotografii w celu pobrania zawar
 
     *Testowanie usługi z fotografiami*
 
-W prawdziwej implementacji można użyć [interfejsu API sieci Web ASP.NET](../../../../web-api/index.md) w celu zaimplementowania usługi Photo Gallery. Interfejs API sieci Web ASP.NET to struktura, która ułatwia tworzenie usług HTTP, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. Interfejs API sieci Web ASP.NET to idealna platforma służąca do tworzenia aplikacji RESTful na .NET Framework.
+W prawdziwej implementacji można użyć [interfejsu API sieci Web ASP.NET](../../../../web-api/index.md) w celu zaimplementowania usługi Photo Gallery. Składnik Web API platformy ASP.NET to środowisko ułatwiające tworzenie usług HTTP, które można udostępniać dla wielu różnych klientów, takich jak przeglądarki i urządzenia przenośne. Składnik Web API platformy ASP.NET jest idealną platformą do tworzenia aplikacji o architekturze REST na platformie .NET Framework.
 
 <a id="Task_2_-_Displaying_the_Photo_Gallery"></a>
 #### <a name="task-2---displaying-the-photo-gallery"></a>Zadanie 2 — Wyświetlanie galerii zdjęć
@@ -397,7 +397,7 @@ Jedną z najważniejszych aktualizacji w ASP.NET MVC 4 jest wsparcie dla opracow
 
     - **Widoki/Shared/\_Layout. Mobile. cshtml**: to układ platformy jQuery oparty na urządzeniach przenośnych zoptymalizowany pod kątem mniejszego ekranu. Gdy witryna sieci Web otrzyma żądanie od przeglądarki mobilnej, zamieni oryginalny układ (\_Layout. cshtml) na ten.
     - Składnik przełącznika widoku: składa się z widoku częściowego **widoków/Shared/\_ViewSwitcher. cshtml** i kontrolera **ViewSwitcherController.cs** . Ten składnik będzie zawierać link w przeglądarkach mobilnych, aby umożliwić użytkownikom przechodzenie do wersji klasycznej strony.  
-        ![Projekt galerii zdjęć z obsługą urządzeń przenośnych](whats-new-in-aspnet-mvc-4/_static/image23.png "Phprojekt galerii Oto z obsługą urządzeń przenośnych ")
+        ![Projekt galerii zdjęć z obsługą urządzeń przenośnych](whats-new-in-aspnet-mvc-4/_static/image23.png "Projekt galerii zdjęć z obsługą urządzeń przenośnych")
 
         *Projekt galerii zdjęć z obsługą urządzeń przenośnych*
 4. Zarejestruj zbiory mobilne. Aby to zrobić, Otwórz plik **Global.asax.cs** i Dodaj następujący wiersz.
@@ -516,7 +516,7 @@ W tym zadaniu przedstawiono przykładową implementację przełącznika widoku d
 
     - Metoda **HttpContext. ClearOverriddenBrowser ()** usuwa dowolnego przesłoniętego agenta użytkownika dla bieżącego żądania.
     - Metoda **HttpContext. SetOverriddenBrowser ()** przesłania rzeczywistą wartość agenta użytkownika żądania przy użyciu określonego agenta użytkownika.  
-        ![Kontroler ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image31.png "ViKontroler ewSwitcher ")  
+        ![Kontroler ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image31.png "Kontroler ViewSwitcher")  
 *Kontroler ViewSwitcher*
 
         Zastępowanie przeglądarki jest podstawową funkcją ASP.NET MVC 4, która jest również dostępna, nawet jeśli nie instalujesz pakietu jQuery. Mobile. MVC. Jednak ta funkcja ma wpływ tylko na widok, układ i widok częściowy i nie ma wpływu na żadne funkcje, które zależą od obiektu request. browser.
@@ -538,7 +538,7 @@ W tym zadaniu zostanie zaktualizowany układ pulpitu w celu uwzględnienia prze�
     ![Wyświetl przełącznik renderowany w widoku pulpitu](whats-new-in-aspnet-mvc-4/_static/image32.png "Wyświetl przełącznik renderowany w widoku pulpitu")
 
     *Wyświetl przełącznik renderowany w widoku pulpitu*
-7. Przełącz się do widoku Mobile i przejdź do strony **informacje** (http://localhost [port]/Home/about). Zwróć uwagę, że nawet jeśli widok informacje o. Mobile. cshtml nie został utworzony, Strona informacje jest wyświetlana przy użyciu układu mobilnego (\_Layout. Mobile. cshtml).
+7. Przełącz się do widoku Mobile i przejdź do strony **informacje** (http://localhost[port]/Home/about). Zwróć uwagę, że nawet jeśli widok informacje o. Mobile. cshtml nie został utworzony, Strona informacje jest wyświetlana przy użyciu układu mobilnego (\_Layout. Mobile. cshtml).
 
     ![Informacje o stronie](whats-new-in-aspnet-mvc-4/_static/image33.png "Informacje o stronie")
 
@@ -589,7 +589,7 @@ Teraz masz 3 układy w aplikacji ASP.NET MVC 4:
 7. Naciśnij klawisz **F5** , aby uruchomić aplikację i przeglądać witrynę w **emulatorze Windows Phone**.
 8. Otwórz **symulator telefonu iPhone** (zobacz [dodatek C](#AppendixC) , aby uzyskać instrukcje dotyczące sposobu instalowania i konfigurowania symulatora dla telefonu iPhone), i przejdź do witryny. Zauważ, że każdy telefon używa określonego szablonu.
 
-    ![Używanie — różne-widoki-for-each-Mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Korzystanie z różnych widoków dla każdego urządzenia przenośnego*
 
@@ -1010,7 +1010,7 @@ Jeśli aplikacja korzysta z baz danych SQL Server, należy utworzyć SQL Databas
     ![Tworzenie bazy danych](whats-new-in-aspnet-mvc-4/_static/image78.png "Tworzenie ciągu bazy danych")
 
     *Tworzenie bazy danych*
-7. Parametry połączenia, które będą używane do nawiązywania połączenia z SQL Database w systemie Windows Azure, są wyświetlane w domyślnym polu tekstowym połączenie. Następnie kliknij przycisk **Dalej**.
+7. Parametry połączenia, które będą używane do nawiązywania połączenia z SQL Database w systemie Windows Azure, są wyświetlane w domyślnym polu tekstowym połączenie. Następnie kliknij przycisk **Next** (Dalej).
 
     ![Parametry połączenia wskazujące SQL Database](whats-new-in-aspnet-mvc-4/_static/image79.png "Parametry połączenia wskazujące SQL Database")
 

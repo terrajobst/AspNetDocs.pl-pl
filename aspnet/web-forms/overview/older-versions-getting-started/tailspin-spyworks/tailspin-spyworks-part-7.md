@@ -1,234 +1,234 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: Część 7. Dodawanie funkcji | Dokumentacja firmy Microsoft
+title: 'Część 7: Dodawanie funkcji | Microsoft Docs'
 author: JoeStagner
-description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 7 dodaje dodatkowe funkcje, takie jak okienko konta...
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 7 dodaje dodatkowe funkcje, takie jak Revie konta...
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: ffd2b862c727db9572c272b7b21bcc33c822fffa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126869"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641996"
 ---
 # <a name="part-7-adding-features"></a>Część 7. Dodawanie funkcji
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
+> Tailspin Spyworks ilustruje, w jaki sposób bardzo jest prosta, aby tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. W tym artykule przedstawiono sposób korzystania z doskonałych nowych funkcji w programie ASP.NET 4 do tworzenia sklepu online, w tym zakupów, wyewidencjonowywania i administrowania.
 > 
-> W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 7 dodaje dodatkowe funkcje, takie jak konta przeglądu, recenzje produktów i "Najpopularniejsze pozycje" i formanty użytkownika "również zakupione".
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 7 dodaje dodatkowe funkcje, takie jak przegląd konta, przeglądy produktów i "popularne elementy" oraz "zakupione również" kontrolki użytkownika.
 
-## <a id="_Toc260221673"></a>  Dodawanie funkcji
+## <a id="_Toc260221673"></a>Dodawanie funkcji
 
-Chociaż użytkownicy mogą przeglądać naszego wykazu, umieść elementy w swoich koszyka zakupów i ukończenie procesu realizowania zamówienia, istnieje szereg obsługi funkcji, że firma Microsoft dołącza do udoskonalać naszą witrynę.
+Chociaż użytkownicy mogą przeglądać nasz katalog, umieszczać elementy w koszyku zakupów i dokończyć proces wyewidencjonowania, można dołączać do nich wiele funkcji pomocniczych w celu ulepszania naszej witryny.
 
-1. Przegląd konta (Lista zamówień umieszczone i wyświetlić szczegółowe informacje).
-2. Dodaj część zawartości określonego kontekstu do pierwszej strony.
-3. Dodaj funkcję, aby umożliwić użytkownikom przeglądanie produktów, w katalogu.
-4. Tworzenie kontrolki użytkownika do wyświetlania na pierwszej stronie Najpopularniejsze pozycje i miejsce, które kontrolują.
-5. Tworzenie kontrolki użytkownika "Również zakupione" i dodaj go do strony szczegółów produktu.
-6. Dodaj kontakt strony.
-7. Dodaj informacje o stronie.
-8. Błąd globalne
+1. Przegląd konta (Lista zamówień umieszczonych i Wyświetl szczegóły).
+2. Dodaj zawartość specyficzną dla kontekstu do strony frontonu.
+3. Dodaj funkcję, aby umożliwić użytkownikom przeglądanie produktów w wykazie.
+4. Utwórz kontrolkę użytkownika, aby wyświetlić popularne elementy i umieścić tę kontrolkę na stronie frontonu.
+5. Utwórz "zakupione również" kontrolkę użytkownika i Dodaj ją do strony szczegółów produktu.
+6. Dodaj stronę kontaktu.
+7. Dodaj stronę informacje.
+8. Błąd globalny
 
-## <a id="_Toc260221674"></a>  Przegląd konta
+## <a id="_Toc260221674"></a>Przegląd konta
 
-W folderze "Konto" Utwórz dwie strony .aspx, jeden o nazwie OrderList.aspx i nazwanych OrderDetails.aspx
+W folderze "Account" Utwórz dwie strony. aspx o nazwie OrderList. aspx, a drugie o nazwie OrderDetails. aspx
 
-OrderList.aspx będzie korzystać z kontrolki GridView i EntityDataSource, ile mamy wcześniej.
+OrderList. aspx będzie korzystać z kontrolek GridView i EntityDataSource, tak jak wcześniej.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample1.aspx)]
 
-EntityDataSource wybiera rekordy z tabeli Orders filtrowane według nazwy użytkownika (zobacz WhereParameter), które możemy ustawić w zmiennej sesji użytkownikowi logowanie użytkownika.
+Obiekt EntityDataSource wybiera rekordy z tabeli Orders filtrowanej według nazwy użytkownika (zobacz WhereParameter), która została ustawiona w zmiennej sesji podczas logowania użytkownika.
 
-Należy pamiętać, również tych parametrów w pole hiperłącza HyperlinkField GridView:
+Zwróć uwagę na to, że te parametry HyperlinkField widoku GridView:
 
 [!code-xml[Main](tailspin-spyworks-part-7/samples/sample2.xml)]
 
-Określają one łącze do widoku szczegółów zamówienia dla każdego produktu, określając pole OrderID jako parametr QueryString na stronie OrderDetails.aspx.
+Określają one łącze do widoku szczegółów zamówienia dla każdego produktu, określając pole IDZamówienia jako parametr QueryString na stronie OrderDetails. aspx.
 
-## <a id="_Toc260221675"></a>  OrderDetails.aspx
+## <a id="_Toc260221675"></a>OrderDetails. aspx
 
-Użyjemy EntityDataSource kontroli dostępu do zamówienia i FormView wyświetlane dane zamówień i innym EntityDataSource przy użyciu GridView do wyświetlenia wszystkich kolejności pozycji.
+Użyjemy kontrolki EntityDataSource do uzyskiwania dostępu do zamówień i FormView, aby wyświetlić dane zamówienia i inny obiekt EntityDataSource z elementem GridView, aby wyświetlić wszystkie elementy wiersza zamówienia.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample3.aspx)]
 
-W pliku kodu za (OrderDetails.aspx.cs) mamy dwa bity nieco celów.
+W pliku związanym z kodem (OrderDetails.aspx.cs) mamy dwa małe bity dla gospodarstw domowych.
 
-Najpierw musimy upewnić się, że OrderDetails zawsze pobiera OrderId.
+Najpierw musimy upewnić się, że OrderDetails zawsze otrzymuje IDZamówienia.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample4.cs)]
 
-Musimy również obliczają i wyświetlają kolejności całkowitej z elementów wiersza.
+Musimy również obliczyć i wyświetlić sumę zamówień z elementów wiersza.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>  Strona główna
+## <a id="_Toc260221676"></a>Strona główna
 
-Dodajmy zawartości statycznej do strony Default.aspx.
+Dodajmy zawartość statyczną do domyślnej strony. aspx.
 
-Najpierw będzie utworzyć folderu "Zawartość" i wewnątrz tego folderu obrazów (i będzie umieścić obraz ma być używany na stronie głównej)
+Najpierw utworzymy folder "Content" (zawartość), a w tym folderze obrazów (i dodamy obraz do użycia na stronie głównej).
 
-Do symbolu zastępczego dolnej części strony Default.aspx Dodaj następujący kod znaczników.
+Na dolny symbol zastępczy domyślnej strony. aspx Dodaj następujący znacznik.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>  Recenzje produktów
+## <a id="_Toc260221677"></a>Przeglądy produktu
 
-Najpierw dodamy przycisk za pomocą łącza do formularza, które firma Microsoft może służyć do wprowadzania Recenzja produktu.
+Najpierw dodamy przycisk z linkiem do formularza, za pomocą którego możemy wprowadzić przegląd produktu.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample7.aspx)]
 
 ![](tailspin-spyworks-part-7/_static/image1.jpg)
 
-Należy pamiętać, firma Microsoft przekazywanie ProductID w ciągu zapytania
+Zwróć uwagę, że przekazujemy klucz ProductID w ciągu zapytania
 
-Dalej Dodajmy stronę o nazwie ReviewAdd.aspx
+Dodaj stronę o nazwie ReviewAdd. aspx
 
-Ta strona będzie używać ASP.NET AJAX Control Toolkit. Jeśli użytkownik jeszcze tego nie zrobiono, aby pobrać go z [DevExpress](http://devexpress.com/act) i wskazówki dotyczące konfigurowania zestawu narzędzi do użytku z programem Visual Studio tutaj [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Ta strona będzie używać zestawu narzędzi ASP.NET AJAX Control. Jeśli jeszcze tego nie zrobiono, możesz pobrać go z [subskrypcja DevExpress](http://devexpress.com/act) i uzyskać wskazówki dotyczące konfigurowania zestawu narzędzi do użycia z programem Visual Studio tutaj [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
 
-W trybie projektowania przeciągnij formanty i modułów weryfikacji z przybornika i budowania formularza podobny do poniższego.
+W trybie projektowania przeciągnij kontrolki i moduły walidacji z przybornika i Utwórz formularz podobny do przedstawionego poniżej.
 
 ![](tailspin-spyworks-part-7/_static/image2.jpg)
 
-Znaczniki będą wyglądać mniej więcej tak.
+Oznakowanie będzie wyglądać podobnie do tego.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample8.aspx)]
 
-Teraz, że możemy wprowadzić recenzje, pozwala wyświetlać te przeglądy na stronie produktu.
+Teraz, gdy możemy wprowadzić przeglądy, umożliwia wyświetlenie tych przeglądów na stronie produkt.
 
-Na stronie ProductDetails.aspx, Dodaj ten kod znaczników.
+Dodaj tę adiustację do strony ProductDetails. aspx.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample9.aspx)]
 
-Uruchomione obecnie nasza aplikacja i przechodząc do produktu zawiera informacje o produkcie, łącznie z przeglądy wykonywane przez klientów.
+Uruchomienie naszej aplikacji teraz i przechodzenie do produktu powoduje wyświetlenie informacji o produkcie, w tym przeglądów klientów.
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>  Najpopularniejsze pozycje kontroli (Tworzenie kontrolki użytkownika)
+## <a id="_Toc260221678"></a>Kontrolka popularne elementy (Tworzenie formantów użytkownika)
 
-Aby zwiększyć sprzedaż w witrynie sieci web dodamy kilka funkcji "dwuznaczne sell" popularnych lub powiązanych produktów.
+Aby zwiększyć sprzedaż w witrynie sieci Web, dodamy kilka funkcji do popularnych lub powiązanych produktów "z sugestiami".
 
-Pierwsza z tych funkcji będzie lista więcej popularnych produktów w naszym katalogu produktów.
+Pierwszy z tych funkcji będzie listą bardziej popularnego produktu w naszym katalogu produktów.
 
-Utworzymy "Kontrolkę użytkownika" Aby wyświetlić najlepiej sprzedające elementów na stronie głównej naszej aplikacji. Ponieważ są to kontrolki, możemy użyć go na dowolnej stronie usługi, po prostu przeciąganie i upuszczanie formantu w projektancie programu Visual Studio na każdej stronie, które firma Microsoft, takich jak.
+Utworzymy "kontrolkę użytkownika" w celu wyświetlenia najważniejszych elementów sprzedaży na stronie głównej naszej aplikacji. Ponieważ będzie to formant, można go używać na dowolnej stronie przez przeciąganie i upuszczanie kontrolki w projektancie programu Visual Studio na dowolną stronę, którą lubimy.
 
-W Eksploratorze rozwiązań programu Visual Studio kliknij prawym przyciskiem myszy nazwę rozwiązania, a następnie utwórz nowy katalog o nazwie "Controls". Mimo że nie jest to konieczne to zrobić, firma Microsoft ułatwi naszego projektu, tworząc naszych kontrolki użytkownika w katalogu "Controls".
+W Eksploratorze rozwiązań programu Visual Studio kliknij prawym przyciskiem myszy nazwę rozwiązania i Utwórz nowy katalog o nazwie "Controls" (kontrolki). Chociaż nie jest to konieczne, pomożemy nam zorganizować projekt, tworząc wszystkie formanty użytkownika w katalogu "Controls".
 
-Kliknij prawym przyciskiem myszy w folderze kontroli i wybierz pozycję "Nowy element":
+Kliknij prawym przyciskiem myszy folder Controls i wybierz pozycję "nowy element":
 
 ![](tailspin-spyworks-part-7/_static/image4.jpg)
 
-Określ nazwę dla naszych formantu "PopularItems". Należy pamiętać, że rozszerzenie pliku, w przypadku kontrolek użytkownika .ascx nie .aspx.
+Określ nazwę naszej kontroli "PopularItems". Należy zauważyć, że rozszerzenie pliku dla kontrolek użytkownika to. ascx not. aspx.
 
-Nasze kontrolki popularne użytkownika elementy będą zdefiniowane w następujący sposób.
+Nasze popularne elementy formant użytkownika zostanie zdefiniowany w następujący sposób.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample10.aspx)]
 
-Tutaj używamy metody, które firma Microsoft nie ma jeszcze używane w tej aplikacji. Używamy kontrolce elementu powtarzanego i zamiast korzystać z kontroli źródła danych możemy konieczności utworzenia powiązania w kontrolce elementu powtarzanego z wynikami zapytaniu składnika LINQ to Entities.
+W tym miejscu korzystamy z metody, która nie została jeszcze użyta w tej aplikacji. Używamy formantu wzmacniania, a nie za pomocą kontroli źródła danych, aby powiązać formant wzmacnia z wynikami zapytania LINQ to Entitiesowego.
 
-W kodzie naszej kontroli czynność tę możemy wykonać w następujący sposób.
+W kodzie związanym z naszym formantem Wykonujemy poniższe czynności.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample11.cs)]
 
-Należy też zauważyć ten wiersz ważne w górnej części naszych kontroli znaczników.
+Pamiętaj również, że ten ważny wiersz znajduje się w górnej części znacznika kontrolki.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample12.aspx)]
 
-Ponieważ najpopularniejszych elementów, nie będzie zmiana na podstawie minutę na minutę możemy dodać dyrektywę bóle, aby poprawić wydajność aplikacji. Ta dyrektywa spowoduje, że kod formantów, aby wykonać tylko po wygaśnięciu pamięci podręcznej danych wyjściowych formantu. W przeciwnym razie będą używane w pamięci podręcznej wersji wyjście formantu.
+Ze względu na to, że najpopularniejsze elementy nie zostaną zmienione na minutę, możemy dodać dyrektywę aching, aby zwiększyć wydajność naszej aplikacji. Ta dyrektywa spowoduje, że kod kontrolny zostanie wykonany tylko po wygaśnięciu zbuforowanego danych wyjściowych formantu. W przeciwnym razie zostanie użyta buforowana wersja danych wyjściowych kontrolki.
 
-Teraz musimy to zrobić będzie zawierać naszej nowej kontrolki na naszej stronie Default.aspx.
+Teraz wszystko, co należy zrobić, obejmuje nasz nowy formant na stronie Default. aspx.
 
-Użyj przeciągnij i upuść do umieszczenia wystąpienie formantu w kolumnie Otwórz naszych domyślnego formularza.
+Użyj przeciągania i upuszczania, aby umieścić wystąpienie kontrolki w kolumnie Otwórz w naszym formularzu domyślnym.
 
 ![](tailspin-spyworks-part-7/_static/image5.jpg)
 
-Firma Microsoft uruchamiania naszej aplikacji na stronie głównej wyświetli teraz najpopularniejszych elementów.
+Teraz podczas uruchamiania naszej aplikacji na stronie głównej są wyświetlane najbardziej popularne elementy.
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>  "Również zakupione" sterowania (kontrolek użytkownika za pomocą parametrów)
+## <a id="_Toc260221679"></a>Kontrolka "kupione również" (kontrolki użytkownika z parametrami)
 
-Drugi formant użytkownika, który utworzymy potrwa dwuznaczne sprzedaży na wyższy poziom, dodając kontekstu szczegółowością.
+Druga kontrolka użytkownika, którą utworzymy, zajmie się sugerowanym sprzedażą do następnego poziomu, dodając specyficzność kontekstu.
 
-Logiki można obliczyć pierwszych elementów "Również zakupione" jest trywialny.
+Logika służąca do obliczania elementów Top "zakupionych" jest nieprosta.
 
-Mamy kontroli "Również zakupione" będzie wybrać rekordy OrderDetails (wcześniej kupił) dla aktualnie wybranego elementu ProductID i Pobierz OrderIDs dla każdego zamówienia unikatowy, która znajduje się.
+Nasz "zakupiony" formant wybierze rekordy OrderDetails (wcześniej zakupione) dla aktualnie wybranego identyfikatora ProductID i odnalezienie identyfikatorów unikatowych dla każdego unikatowego zamówienia.
 
-Następnie firma Microsoft będzie wybrać al produkty z tych zamówień i sumę ilości zakupu. Utworzymy posortować produkty według tej sumy liczby i wyświetlić pięć pierwszych elementów.
+Następnie wybierzemy pozycję Al produkty ze wszystkich tych zamówień i zasumujesz zakupione ilości. Posortujemy produkty według tej ilości sum i wyświetlamy pięć pierwszych elementów.
 
-Biorąc pod uwagę złożoność tę logikę, wprowadzimy ten algorytm jako procedurę przechowywaną.
+Ze względu na złożoność tej logiki zaimplementujmy ten algorytm jako procedurę składowaną.
 
-T-SQL dla procedury składowanej jest w następujący sposób.
+Język T-SQL dla procedury składowanej jest następujący:
 
 [!code-sql[Main](tailspin-spyworks-part-7/samples/sample13.sql)]
 
-Należy pamiętać, że tej procedury składowanej (SelectPurchasedWithProducts) istniał w bazie danych podczas dołączyliśmy w naszej aplikacji i możemy generowane określonej, oprócz tabele i widoki, które Musieliśmy, modelu Entity Data Model modelu Entity Data Model powinien zawierać tę procedurę składowaną.
+Należy zauważyć, że ta procedura składowana (SelectPurchasedWithProducts) istniała w bazie danych, gdy została ona uwzględniona w naszej aplikacji, a w przypadku wygenerowania Entity Data Model określić, że oprócz tabel i widoków, które są niezbędne, Entity Data Model powinna zawierać tę procedurę składowaną.
 
-Dostęp do procedury składowanej z modelu Entity Data Model należy zaimportować funkcji.
+Aby uzyskać dostęp do procedury składowanej z Entity Data Model musimy zaimportować funkcję.
 
-Kliknij dwukrotnie modelu Entity Data Model w Eksploratorze rozwiązań, aby otworzyć go w Projektancie i Otwórz przeglądarkę modelu, a następnie prawym przyciskiem myszy projektanta i wybierz pozycję "Dodaj funkcję Import".
+Kliknij dwukrotnie Entity Data Model w Eksploratorze rozwiązań, aby otworzyć go w Projektancie i otworzyć przeglądarkę modelu, a następnie kliknij prawym przyciskiem myszy w Projektancie i wybierz pozycję "Dodaj Import funkcji".
 
 ![](tailspin-spyworks-part-7/_static/image1.png)
 
-To spowoduje otwarcie tego okna dialogowego.
+Spowoduje to otwarcie tego okna dialogowego.
 
 ![](tailspin-spyworks-part-7/_static/image2.png)
 
-Wypełnij pola jak pokazano powyżej, wybierając "SelectPurchasedWithProducts", a następnie użyj nazwy procedury nazwa naszej funkcji zaimportowane.
+Wypełnij pola, jak widać powyżej, wybierając "SelectPurchasedWithProducts" i użyj nazwy procedury dla nazwy naszej funkcji zaimportowanej.
 
-Kliknij przycisk "Ok".
+Kliknij przycisk "OK".
 
-To to, którą firma Microsoft może po prostu programować przy użyciu procedury składowanej, ponieważ firma Microsoft może być inny element w modelu.
+Po wykonaniu tej czynności można po prostu programować w odniesieniu do procedury składowanej, ponieważ możemy użyć dowolnego innego elementu w modelu.
 
-Tak w folderze naszych "Controls" Utwórz nową kontrolkę użytkownika o nazwie AlsoPurchased.ascx.
+W naszym folderze "Controls" Utwórz nową kontrolkę użytkownika o nazwie AlsoPurchased. ascx.
 
-Kod znaczników dla tej kontrolki będzie wyglądać bardzo podobnie do kontroli PopularItems.
+Znaczniki dla tej kontrolki będą wyglądały na bardzo zaznajomione z kontrolką PopularItems.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample14.aspx)]
 
-Godne uwagi różnica polega na tym, które są nie pamięci podręcznej danych wyjściowych od czasu do renderowania elementu różnią się według produktu.
+Istotną różnicą jest to, że nie buforowanie danych wyjściowych, ponieważ element, który ma być renderowany, będzie różnić się w zależności od produktu.
 
-Identyfikator produktu będzie "property" do formantu.
+Identyfikator ProductId będzie "właściwości" kontrolki.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample15.cs)]
 
-W obsłudze zdarzenie PreRender kontrolki firma Microsoft eed, aby wykonać trzy czynności.
+W programie obsługi zdarzeń zdarzenia PreRender EED do wykonania trzy rzeczy.
 
-1. Upewnij się, że ustawiono ProductID.
-2. Zobacz, czy wszystkie produkty, w których została zakupiona z bieżącej subskrypcji.
-3. Dane wyjściowe niektóre elementy, jak określono w #2.
+1. Upewnij się, że identyfikator ProductID jest ustawiony.
+2. Sprawdź, czy istnieją jakieś produkty, które zostały zakupione w ramach bieżącego.
+3. Wyprowadzanie niektórych elementów jako określonych w #2.
 
-Należy pamiętać o tym, jak łatwo jest wywołanie procedury składowanej za pomocą modelu.
+Zwróć uwagę na to, jak łatwo jest wywołać procedurę składowaną za pomocą modelu.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample16.cs)]
 
-Po ustaleniu, które są "również zakupione" możemy po prostu powiązać powtarzanego wyników zwróconych przez zapytanie.
+Po ustaleniu, że istnieje również "zakup", można po prostu powiązać wzmacniak z wynikami zwróconymi przez zapytanie.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample17.cs)]
 
-Jakby nie było żadnych elementów "również zakupione" będzie wyświetlana po prostu innych popularnych elementów z naszego wykazu.
+Jeśli nie zostały jeszcze zakupione elementy, po prostu wyświetlamy inne popularne elementy z naszego katalogu.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample18.cs)]
 
-Aby wyświetlić elementy "Również zakupione", otwórz stronę ProductDetails.aspx, a następnie przeciągnij formant AlsoPurchased z poziomu Eksploratora rozwiązań, aby była ona wyświetlana w tym miejscu w znaczniku.
+Aby wyświetlić elementy "kupione również", Otwórz stronę ProductDetails. aspx i przeciągnij kontrolkę AlsoPurchased z Eksploratora rozwiązań, aby była wyświetlana w tym miejscu w znaczniku.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample19.aspx)]
 
-Ten sposób utworzyć odwołanie do formantu w górnej części strony ProductDetails.
+Spowoduje to utworzenie odwołania do kontrolki w górnej części strony ProductDetails.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample20.aspx)]
 
-Ponieważ AlsoPurchased kontrolki użytkownika musi zawierać cyfry ProductId, firma Microsoft ustawi właściwości ProductID naszych formantu przy użyciu instrukcji Eval względem bieżącego elementu modelu danych strony.
+Ponieważ kontrolka użytkownika AlsoPurchased wymaga numeru ProductId, ustawimy Właściwość ProductID formantu przy użyciu instrukcji eval względem bieżącego elementu modelu danych strony.
 
 ![](tailspin-spyworks-part-7/_static/image3.png)
 
-Gdy do skompilowania i uruchom teraz i przejdź do produktu widzimy elementów "Również zakupione".
+Po skompilowaniu i uruchomieniu teraz i przejściu do produktu zobaczysz "kupione również elementy".
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 

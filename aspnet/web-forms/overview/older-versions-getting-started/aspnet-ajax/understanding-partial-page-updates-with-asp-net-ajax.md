@@ -9,11 +9,11 @@ ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
 ms.openlocfilehash: 4b87cb8f58dbd7f27b16bcb0d488ff361770d4fe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74622960"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545970"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
 
@@ -103,42 +103,42 @@ W programie Visual Studio 2008 nie jest wyświetlany wstępnie zdefiniowany szab
 
 Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Wprowadź** | **Opis** |
+| **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AllowCustomErrors — przekierowanie | Logiczna | Określa, czy w pliku Web. config ma być używana sekcja błędu niestandardowego do obsługi błędów. |
-| AsyncPostBackError — komunikat | String | Pobiera lub ustawia komunikat o błędzie wysyłany do klienta w przypadku zgłoszenia błędu. |
-| AsyncPostBack — limit czasu | Int32 | Pobiera lub ustawia domyślną ilość czasu, przez który klient powinien czekać na ukończenie żądania asynchronicznego. |
-| EnableScript — globalizacja | Logiczna | Pobiera lub ustawia czy jest włączone globalizacja skryptu. |
-| EnableScript — lokalizacja | Logiczna | Pobiera lub ustawia, czy lokalizacja skryptu jest włączona. |
+| AllowCustomErrors-Redirect | Bool | Określa, czy w pliku Web. config ma być używana sekcja błędu niestandardowego do obsługi błędów. |
+| AsyncPostBackError-Message | Ciąg | Pobiera lub ustawia komunikat o błędzie wysyłany do klienta w przypadku zgłoszenia błędu. |
+| AsyncPostBack-Timeout | Int32 | Pobiera lub ustawia domyślną ilość czasu, przez który klient powinien czekać na ukończenie żądania asynchronicznego. |
+| EnableScript-Globalization | Bool | Pobiera lub ustawia czy jest włączone globalizacja skryptu. |
+| EnableScript-Localization | Bool | Pobiera lub ustawia, czy lokalizacja skryptu jest włączona. |
 | ScriptLoadTimeout | Int32 | Określa liczbę sekund, przez jaką można załadować skrypty do klienta programu. |
 | ScriptMode | Wyliczenie (Auto, Debug, Release, Inherit) | Pobiera lub ustawia, czy mają być renderowane wersje skryptów |
-| scriptPath | String | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów, które mają być wysłane do klienta. |
+| ScriptPath | Ciąg | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów, które mają być wysłane do klienta. |
 
 Właściwości tylko do kodu:
 
-| **Nazwa właściwości** | **Wprowadź** | **Opis** |
+| **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AuthenticationService | AuthenticationService — Menedżer | Pobiera szczegółowe informacje o serwerze proxy usługi ASP.NET Authentication, który zostanie wysłany do klienta programu. |
-| IsDebuggingEnabled | Logiczna | Pobiera czy debugowanie skryptu i kodu jest włączone. |
-| IsInAsyncPostback | Logiczna | Pobiera czy strona jest obecnie w asynchronicznym żądaniu post. |
-| ProfileService | ProfileService — Menedżer | Pobiera szczegółowe informacje o serwerze proxy usługi profilowania ASP.NET, który zostanie wysłany do klienta. |
-| Znajduj | Kolekcja&lt;skrypt-dokumentacja&gt; | Pobiera kolekcję odwołań do skryptów, które zostaną wysłane do klienta. |
+| AuthenticationService | AuthenticationService-Manager | Pobiera szczegółowe informacje o serwerze proxy usługi ASP.NET Authentication, który zostanie wysłany do klienta programu. |
+| IsDebuggingEnabled | Bool | Pobiera czy debugowanie skryptu i kodu jest włączone. |
+| IsInAsyncPostback | Bool | Pobiera czy strona jest obecnie w asynchronicznym żądaniu post. |
+| ProfileService | ProfileService-Manager | Pobiera szczegółowe informacje o serwerze proxy usługi profilowania ASP.NET, który zostanie wysłany do klienta. |
+| Scripts | Kolekcja&lt;skrypt-dokumentacja&gt; | Pobiera kolekcję odwołań do skryptów, które zostaną wysłane do klienta. |
 | Usługi | &lt;usługi kolekcji — dokumentacja&gt; | Pobiera kolekcję odwołań serwera proxy usługi sieci Web, które zostaną wysłane do klienta. |
-| SupportsPartialRendering | Logiczna | Pobiera czy bieżący klient obsługuje renderowanie częściowe. Jeśli ta właściwość zwraca **wartość false**, wszystkie żądania stron będą standardowe ogłaszanie zwrotne. |
+| SupportsPartialRendering | Bool | Pobiera czy bieżący klient obsługuje renderowanie częściowe. Jeśli ta właściwość zwraca **wartość false**, wszystkie żądania stron będą standardowe ogłaszanie zwrotne. |
 
 Metody kodu publicznego:
 
-| **Nazwa metody** | **Wprowadź** | **Opis** |
+| **Nazwa metody** | **Typ** | **Opis** |
 | --- | --- | --- |
 | SetFocus (ciąg) | Pozycję | Ustawia fokus klienta na określoną kontrolkę, gdy żądanie zostało zakończone. |
 
 Elementy potomne znaczników:
 
-| **Seryjn** | **Opis** |
+| **Tag** | **Opis** |
 | --- | --- |
 | &lt;AuthenticationService&gt; | Zawiera szczegółowe informacje o serwerze proxy usługi uwierzytelniania ASP.NET. |
 | &lt;ProfileService&gt; | Zawiera szczegółowe informacje o serwerze proxy w usłudze profilowania ASP.NET. |
-| &gt; skryptów &lt; | Zawiera dodatkowe odwołania do skryptów. |
+| &lt;Skrypty&gt; | Zawiera dodatkowe odwołania do skryptów. |
 | &lt;ASP: odwołanie do skryptu&gt; | Oznacza odwołanie do określonego skryptu. |
 | &lt;Usługa&gt; | Zawiera dodatkowe odwołania usługi sieci Web, które będą miały klasy proxy. |
 | &lt;ASP: ServiceReference&gt; | Wskazuje określone odwołanie do usługi sieci Web. |
@@ -177,7 +177,7 @@ Formant ScriptManager zawiera rozbudowaną obsługę lokalizowania ciągów skry
 
 Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Wprowadź** | **Opis** |
+| **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | Określa, czy kontrolki potomne automatycznie wywołują odświeżanie przy ogłaszaniu zwrotnym. |
 | RenderMode | Wyliczenie (blok, wbudowany) | Określa sposób wizualizacji zawartości. |
@@ -185,7 +185,7 @@ Właściwości z włączoną obsługą znaczników:
 
 Właściwości tylko do kodu:
 
-| **Nazwa właściwości** | **Wprowadź** | **Opis** |
+| **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | Pobiera czy element UpdatePanel obsługuje renderowanie częściowe dla bieżącego żądania. |
 | ContentTemplate | ITemplate | Pobiera szablon znaczników dla żądania aktualizacji. |
@@ -194,13 +194,13 @@ Właściwości tylko do kodu:
 
 Metody kodu publicznego:
 
-| **Nazwa metody** | **Wprowadź** | **Opis** |
+| **Nazwa metody** | **Typ** | **Opis** |
 | --- | --- | --- |
 | Update () | Pozycję | Aktualizuje określony element UpdatePanel programowo. Zezwala na żądanie serwera wyzwalające częściowe renderowanie elementu UpdatePanel niewyzwalanego w inny sposób. |
 
 Elementy potomne znaczników:
 
-| **Seryjn** | **Opis** |
+| **Tag** | **Opis** |
 | --- | --- |
 | &lt;ContentTemplate&gt; | Określa adiustację, która ma być używana do renderowania wyniku częściowego renderowania. Element podrzędny &lt;ASP: UpdatePanel&gt;. |
 | &lt;Wyzwalacze&gt; | Określa kolekcję *n* kontrolek skojarzonych z aktualizacją tego elementu UpdatePanel. Element podrzędny &lt;ASP: UpdatePanel&gt;. |
@@ -267,15 +267,15 @@ Na koniec Jeśli aplikacja wymaga zastosowania elementu UpdatePanel, następują
 
 Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Wprowadź** | **Opis** |
+| **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AssociatedUpdate-PanelID | String | Określa identyfikator elementu UpdatePanel, który ma być zgłaszany przez ten UpdateProgress. |
+| AssociatedUpdate-PanelID | Ciąg | Określa identyfikator elementu UpdatePanel, który ma być zgłaszany przez ten UpdateProgress. |
 | DisplayAfter | int | Określa limit czasu (w milisekundach), po którym zostanie wyświetlony ten formant po rozpoczęciu żądania asynchronicznego. |
 | DynamicLayout | bool | Określa, czy postęp jest renderowany dynamicznie. |
 
 Elementy potomne znaczników:
 
-| **Seryjn** | **Opis** |
+| **Tag** | **Opis** |
 | --- | --- |
 | &lt;element ProgressTemplate&gt; | Zawiera zestaw szablonów formantów dla zawartości, która będzie wyświetlana z tą kontrolką. |
 
@@ -302,4 +302,4 @@ Wspólnie te narzędzia ułatwiają tworzenie rozbudowanego i bezproblemowego ś
 Scott Cate pracował z technologiami sieci Web firmy Microsoft od 1997 i jest prezydentem myKB.com ([www.myKB.com](http://www.myKB.com)), w którym wyspecjalizowany jest pisanie aplikacji opartych na ASP.NET, które są zgodne z podstawowymi rozwiązaniami oprogramowania. W witrynie Scotta można skontaktować się z pocztą e-mail na [scott.cate@myKB.com](mailto:scott.cate@myKB.com) lub w blogu w witrynie [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
-> [Next](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [Dalej](understanding-asp-net-ajax-updatepanel-triggers.md)

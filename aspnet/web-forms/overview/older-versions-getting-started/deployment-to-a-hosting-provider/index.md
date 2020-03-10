@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: ASP.NET 4 — wdrażanie w Internecie przy użyciu programu SQL Server Compact przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft
+title: ASP.NET 4 — wdrażanie w sieci Web SQL Server Compact za pomocą programu Visual Studio | Microsoft Docs
 author: rick-anderson
-description: W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server Compact dostępne za pośrednictwem Internetu przez wdrożenie jej h firm...
+description: W tej serii samouczków pokazano, jak utworzyć aplikację sieci Web ASP.NET, która używa SQL Server Compact dostępne przez Internet, wdrażając ją na stronie trzeciej...
 ms.author: riande
 ms.date: 11/29/2011
 ms.assetid: 6798c7e4-f08e-4802-9fa5-443f67d5df62
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider
 msc.type: chapter
 ms.openlocfilehash: bb9a47eeb4197348e85bb469b68c0055e7c696a0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119440"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633981"
 ---
 # <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 — wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio
 
-> W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server Compact dostępne za pośrednictwem Internetu przez wdrożenie jej u dostawcy hostingu innych firm. Wymaga programu Visual Studio 2012 RC lub Visual Studio 2010. Więcej aktualności informacji na temat funkcji wdrażania lub informacji o sposobie wdrażania wersjach programu SQL Server, innym niż SQL Server Compact, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> W tej serii samouczków pokazano, jak utworzyć aplikację sieci Web ASP.NET, która używa SQL Server Compact dostępne przez Internet, wdrażając ją na zewnętrznym dostawcy hostingu. Wymaga programu Visual Studio 2012 RC lub Visual Studio 2010. Aby uzyskać więcej informacji na temat funkcji wdrażania lub informacji o sposobie wdrażania SQL Server innych niż SQL Server Compact, zobacz [ASP.NET Web Deployment using Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 - [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wprowadzenie](deployment-to-a-hosting-provider-introduction-1-of-12.md)
 - [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie baz danych programu SQL Server Compact](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

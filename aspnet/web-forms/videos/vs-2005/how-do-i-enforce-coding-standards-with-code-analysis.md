@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
-title: '[Jak mogę] Wymuszanie norm kodowania za pomocą analizy kodu? | Microsoft Docs'
+title: '[Jak:] Czy wymuszać standardy kodowania za pomocą analizy kodu? | Microsoft Docs'
 author: rick-anderson
-description: Za pomocą programu Visual Studio Team System masz szczegółową kontrolę reguł analizy kodu, które mają zastosowanie do projektów biblioteki klas, projektów witryny sieci web i co kodu źródłowego...
+description: Za pomocą programu Visual Studio Team System masz precyzyjną kontrolę nad regułami analizy kodu, które są stosowane do projektów biblioteki klas, projektów witryny sieci Web i kodu źródłowego co...
 ms.author: riande
 ms.date: 07/09/2007
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
 ms.openlocfilehash: 1a9cf8ac7e8618dd3733080ba6a065e14f1cb68c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417146"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641219"
 ---
-# <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Jak mogę] Wymuszanie norm kodowania za pomocą analizy kodu?
+# <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Jak:] Czy wymuszać standardy kodowania za pomocą analizy kodu?
 
-przez [Chris Menegay](https://twitter.com/CMenegay)
+[Krzysztof Menegay](https://twitter.com/CMenegay)
 
-Za pomocą programu Visual Studio Team System masz szczegółową kontrolę reguł analizy kodu, które mają zastosowanie do projektów biblioteki klas, projektów witryny sieci web i kontroli kodu źródłowego. W tym filmie wideo, firma Microsoft Dowiedz się, jak określić błędów i ostrzeżeń, które będą miały zastosowanie, podczas projektu kompilacji i kodu zaewidencjonowania i zobaczymy, jak pominąć określoną regułę zastosowanie do określonej składowej klasy. To konfigurowalne, jakie mogą zostać wymuszone przez norm kodowania, aby poprawić jakość kodu, przy jednoczesnym zapewnieniu niemający zastosowania reguły nigdy nie uzyskać Ci.
+Za pomocą programu Visual Studio Team System masz precyzyjną kontrolę nad regułami analizy kodu, które są stosowane do projektów biblioteki klas, projektów witryny sieci Web i kontroli kodu źródłowego. W tym filmie wideo dowiesz się, jak określać błędy i ostrzeżenia, które będą stosowane podczas kompilacji projektu i sprawdzanie kodu, a ponadto widzimy, jak pominąć określoną regułę od zastosowania do określonej składowej klasy. Dzięki temu określając można wymusić stosowanie standardów kodowania w celu poprawy jakości kodu, zapewniając nieodpowiednie reguły w sposób niezgodny z oczekiwaniami.
 
-[&#9654;Obejrzyj film wideo (6 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enforce-coding-standards-with-code-analysis)
+[&#9654;Obejrzyj wideo (6 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enforce-coding-standards-with-code-analysis)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-set-up-distributed-load-testing-for-high-volume-tests.md)

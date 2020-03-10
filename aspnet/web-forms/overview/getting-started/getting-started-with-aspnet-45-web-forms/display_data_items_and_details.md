@@ -1,176 +1,176 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: Wyświetlanie elementów danych i szczegółowych informacji | Dokumentacja firmy Microsoft
+title: Wyświetlanie elementów danych i szczegółów | Microsoft Docs
 author: Erikre
-description: W tej serii samouczków opisano podstawy tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu ASP.NET 4.7 i Microsoft Visual Studio 2017
+description: W tej serii samouczków przedstawiono podstawowe informacje na temat tworzenia aplikacji ASP.NET Web Forms z ASP.NET 4,7 i Microsoft Visual Studio 2017
 ms.author: riande
 ms.date: 1/04/2019
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
 ms.openlocfilehash: 130c9ffd29df612dac5bb954830a2eb9b738aaf0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109625"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641114"
 ---
-# <a name="display-data-items-and-details"></a>Wyświetlanie elementów danych i szczegóły
+# <a name="display-data-items-and-details"></a>Wyświetlanie elementów danych i szczegółów
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-> W tej serii samouczków dowiesz się, podstawy tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu ASP.NET 4.7 i Microsoft Visual Studio 2017.
+> Ta seria samouczków uczy się podstaw tworzenia aplikacji ASP.NET Web Forms z ASP.NET 4,7 i Microsoft Visual Studio 2017.
 
-W tym samouczku dowiesz się, jak wyświetlać elementy danych i szczegóły elementu danych przy użyciu formularzy sieci Web ASP.NET i Entity Framework Code First. Ten samouczek opiera się na poprzednim samouczku "Interfejsu użytkownika i Nawigacja" jako części serii samouczków o nazwie Wingtip zabawki Store. Po ukończeniu tego samouczka, zobaczysz produktów na *ProductsList.aspx* strony i szczegóły na temat produktu *ProductDetails.aspx* strony.
+W tym samouczku dowiesz się, jak wyświetlać elementy danych i szczegóły elementów danych za pomocą formularzy sieci Web ASP.NET i Code First Entity Framework. Ten samouczek jest oparty na poprzednim samouczku "interfejs użytkownika i Nawigacja" w ramach serii samouczków Wingtip. Po ukończeniu tego samouczka zobaczysz produkty na stronie *ProductsList. aspx* oraz szczegóły produktu na stronie *ProductDetails. aspx* .
 
-## <a name="youll-learn-how-to"></a>Dowiesz się, jak:
+## <a name="youll-learn-how-to"></a>Omawiane tematy:
 
-- Dodaj formant do wyświetlania produktów z bazy danych
-- Połącz kontrolki danych do wybranych danych
-- Dodaj formant danych, aby wyświetlić szczegółowe informacje z bazy danych
-- Pobieranie wartości z ciągu zapytania i użyć tej wartości, aby ograniczyć dane, które są pobierane z bazy danych
+- Dodaj kontrolkę danych, aby wyświetlić produkty z bazy danych
+- Połącz formant danych z wybranymi danymi
+- Dodaj kontrolkę danych, aby wyświetlić szczegóły produktu z bazy danych
+- Pobierz wartość z ciągu zapytania i Użyj tej wartości, aby ograniczyć dane pobierane z bazy danych
 
 ### <a name="features-introduced-in-this-tutorial"></a>Funkcje wprowadzone w tym samouczku:
 
 - Powiązanie modelu
-- Dostawców wartości
+- Dostawcy wartości
 
 ## <a name="add-a-data-control"></a>Dodawanie kontrolki danych
 
-Jest kilka różnych opcji można użyć, aby powiązać dane z kontrolką serwera. Najbardziej typowe obejmują:
+Możesz użyć kilku różnych opcji, aby powiązać dane z kontrolką serwera. Najpopularniejsze obejmują:
 
-* Dodawanie kontroli źródła danych
+* Dodawanie kontrolki źródła danych
 * Ręczne dodawanie kodu
-* Przy użyciu wiązania modelu
+* Korzystanie z powiązania modelu
 
-### <a name="use-a-data-source-control-to-bind-data"></a>Użyj kontroli źródła danych, aby powiązać dane
+### <a name="use-a-data-source-control-to-bind-data"></a>Używanie kontroli źródła danych do wiązania danych
 
-Dodawanie kontroli źródła danych umożliwia połączenie kontroli źródła danych do formantu, który wyświetla dane. W przypadku tej metody użytkownik może w sposób deklaratywny, a nie programowo, łączenie kontrolek po stronie serwera ze źródłami danych.
+Dodanie kontroli źródła danych umożliwia połączenie kontroli źródła danych z kontrolką wyświetlającą dane. Dzięki temu można deklaratywnie, a nie programowo, łączyć kontrolki po stronie serwera ze źródłami danych.
 
-### <a name="code-by-hand-to-bind-data"></a>Kod ręcznie, aby powiązać dane
+### <a name="code-by-hand-to-bind-data"></a>Zakoduj ręcznie, aby powiązać dane
 
-Kodowanie ręcznie obejmuje:
+Ręczne kodowanie obejmuje:
 
 1. Odczytywanie wartości
-2. Sprawdzanie, jeśli ma wartość null
-3. Podczas konwertowania go do odpowiedniego typu
-4. Sprawdzanie, czy Powodzenie konwersji
-5. Przy użyciu wartości w zapytaniu 
+2. Sprawdzanie, czy jest to wartość zerowa
+3. Konwertowanie na odpowiedni typ
+4. Sprawdzanie powodzenia konwersji
+5. Używanie wartości w zapytaniu 
 
-Takie podejście umożliwia pełną kontrolę nad logika dostępu do danych.
+Takie podejście umożliwia pełną kontrolę nad logiką dostępu do danych.
 
-### <a name="use-model-binding-to-bind-data"></a>Użyj wiązania modelu do powiązania danych
+### <a name="use-model-binding-to-bind-data"></a>Użyj powiązania modelu, aby powiązać dane
 
-Wiązanie modelu pozwala powiązać wyniki z znacznie mniejszej ilości kodu i daje możliwość ponownego użycia funkcji w całej aplikacji. Jego upraszcza pracę z logiki skoncentrowane na kodzie dostępu do danych przy jednoczesnym dalszym zapewnianiu framework rozbudowane, powiązanie danych.
+Powiązanie modelu pozwala powiązać wyniki z znacznie mniejszym kodem i umożliwia ponowne używanie funkcji w całej aplikacji. Upraszcza ona pracę z logiką dostępu do danych ukierunkowanych na kod, zapewniając jednocześnie rozbudowaną strukturę powiązań danych.
 
 ## <a name="display-products"></a>Wyświetl produkty
 
-W tym samouczku użyjesz wiązania modelu do powiązania danych. Aby skonfigurować kontrolkę danych na potrzeby tworzenia powiązania modelu wybierz dane, należy ustawić formantu `SelectMethod` właściwość na nazwę metody w kodzie strony. Kontrolki danych wywołuje metodę w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwracanych danych. Nie trzeba jawnie wywołać `DataBind` metody.
+W tym samouczku użyjesz powiązania modelu, aby powiązać dane. Aby skonfigurować kontrolkę danych do używania powiązania modelu w celu wybrania danych, należy ustawić właściwość `SelectMethod` formantu na nazwę metody w kodzie strony. Kontrola danych wywołuje metodę w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwrócone dane. Nie trzeba jawnie wywoływać metody `DataBind`.
 
-1. W **Eksploratora rozwiązań**, otwórz *ProductList.aspx*.
-2. Zastąp istniejący kod znaczników ten kod znaczników:   
+1. W **Eksplorator rozwiązań**Otwórz *ProductList. aspx*.
+2. Zastąp istniejące znaczniki tym znacznikiem:   
 
     [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample1.aspx)]
 
-Ten kod używa **ListView** formantu o nazwie `productList` do wyświetlania produktów.
+Ten kod używa kontrolki **ListView** o nazwie `productList` do wyświetlania produktów.
 
 [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample2.aspx)]
 
-Za pomocą szablonów i stylów, możesz zdefiniować sposób, w jaki **ListView** kontrolka wyświetla dane. Jest to przydatne dla danych w każdej powtarzające się struktury. Chociaż to **ListView** przykład po prostu wyświetla dane z bazy danych, można także bez konieczności pisania kodu i umożliwianie użytkownikom edytowanie, wstawianie i usuwanie danych i aby i sortowanie danych strony.
+Za pomocą szablonów i stylów definiujesz sposób wyświetlania danych w formancie **ListView** . Jest to przydatne w przypadku danych w każdej powtarzającej się strukturze. Chociaż ten **element ListView** przykład po prostu wyświetla dane bazy danych, można również bez kodu, umożliwić użytkownikom edytowanie, wstawianie i usuwanie danych oraz sortowanie i dane stronicowe.
 
-Ustawiając `ItemType` właściwości w **ListView** kontrolować wyrażenia wiązania danych `Item` jest dostępny i kontrolki staje się silnie typizowane. Jak wspomniano w poprzednim samouczku, możesz wybrać element Szczegóły obiektu za pomocą funkcji IntelliSense, takich jak określanie `ProductName`:
+Ustawienie właściwości `ItemType` w formancie **ListView** powoduje, że wyrażenie powiązania danych `Item` jest dostępne, a kontrolka będzie silnie wpisana. Jak wspomniano w poprzednim samouczku, można wybrać szczegóły obiektu elementu z technologią IntelliSense, na przykład określając `ProductName`:
 
-![Wyświetlanie danych elementów i szczegóły — funkcja IntelliSense](display_data_items_and_details/_static/image1.png)
+![Wyświetlanie elementów danych i szczegółów — IntelliSense](display_data_items_and_details/_static/image1.png)
 
-Jest również przy użyciu wiązania modelu, aby określić `SelectMethod` wartość. Ta wartość (`GetProducts`) odnosi się do metody, należy dodać do kodu opóźnienie do wyświetlania produktów w następnym kroku.
+Używasz również powiązania modelu, aby określić wartość `SelectMethod`. Ta wartość (`GetProducts`) odnosi się do metody, która zostanie dodana do kodu, aby wyświetlić produkty w następnym kroku.
 
-### <a name="add-code-to-display-products"></a>Dodaj kod do wyświetlania produktów
+### <a name="add-code-to-display-products"></a>Dodaj kod, aby wyświetlić produkty
 
-W tym kroku dodasz kod, aby wypełnić **ListView** kontrolki z danymi produktów z bazy danych. Kod obsługuje wyświetlanie wszystkich produktów i produktów poszczególnych kategorii.
+W tym kroku dodasz kod, aby wypełnić formant **ListView** danymi produktu z bazy danych. Kod obsługuje wyświetlanie wszystkich produktów i produktów poszczególnych kategorii.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *ProductList.aspx* , a następnie wybierz **Wyświetl kod**.
-2. Zastąp istniejący kod w *ProductList.aspx.cs* pliku, w tym:   
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy *ProductList. aspx* , a następnie wybierz polecenie **Wyświetl kod**.
+2. Zastąp istniejący kod w pliku *ProductList.aspx.cs* :   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample3.cs)]
 
-Ten kod zawiera `GetProducts` metody, **ListView** kontrolki `ItemType` odwołuje się do właściwości w *ProductList.aspx* strony. Aby ograniczyć wyniki do kategorii konkretnej bazy danych, ustawia kod `categoryId` wartość wartość ciągu zapytania, które są przekazywane do *ProductList.aspx* gdy *ProductList.aspx* strona to przejście. `QueryStringAttribute` Klasy w `System.Web.ModelBinding` przestrzeń nazw jest używana do pobrania wartości zmiennej ciągu zapytania `id`. To powoduje, że wiązanie modelu do wypróbowania można powiązać wartości z ciągu zapytania do `categoryId` parametru w czasie wykonywania.
+Ten kod przedstawia metodę `GetProducts`, do której odwołuje się Właściwość `ItemType` formantu **ListView** na stronie *ProductList. aspx* . Aby ograniczyć wyniki do określonej kategorii bazy danych, kod ustawia wartość `categoryId` z wartości ciągu zapytania przesłanej do strony *ProductList. aspx* po przejściu do strony *ProductList. aspx* . Klasa `QueryStringAttribute` w przestrzeni nazw `System.Web.ModelBinding` służy do pobierania wartości zmiennej ciągu zapytania `id`. Powoduje to, że powiązanie modelu próbuje powiązać wartość z ciągu zapytania do parametru `categoryId` w czasie wykonywania.
 
-Jeśli prawidłową kategorię jest przekazywany jako ciąg zapytania do strony, wyniki zapytania są ograniczone do tych produktów w bazie danych, które odpowiadają `categoryId` wartość. Na przykład jeśli *ProductsList.aspx* to jest adres URL strony:
+Gdy poprawna kategoria jest przenoszona jako ciąg zapytania do strony, wyniki zapytania są ograniczone do tych produktów w bazie danych, które pasują do wartości `categoryId`. Na przykład jeśli adres URL strony *ProductsList. aspx* jest następujący:
 
 [!code-console[Main](display_data_items_and_details/samples/sample4.cmd)]
 
-Na stronie są wyświetlane tylko produkty gdzie `categoryId` jest równa `1`.
+Na stronie są wyświetlane tylko te produkty, dla których `categoryId` jest równa `1`.
 
-Wszystkie produkty są wyświetlane, jeśli nie ciągu zapytania jest dołączony, kiedy *ProductList.aspx* nosi nazwę strony.
+Wszystkie produkty są wyświetlane, jeśli nie zostanie uwzględniony ciąg zapytania po wywołaniu strony *ProductList. aspx* .
 
-Źródła wartości dla tych metod są określane jako *wartość dostawców* (takie jak *QueryString*), i są określane atrybuty parametrów, wskazujące, której dostawca wartości do użycia jako *wartości atrybutów dostawcy* (takie jak `id`). Program ASP.NET zawiera dostawców wartości i odpowiednie atrybuty wszystkie typowe źródła danych wejściowych użytkownika w aplikacji formularzy sieci Web, takich jak ciąg zapytania, plików cookie, wartości formularza, formanty, stan widoku, stan sesji i właściwości profilu. Można także napisać dostawców wartości niestandardowych.
+Źródła wartości dla tych metod są określane jako *dostawcy wartości* (takie jak *QueryString*) i atrybuty parametrów wskazujące, który dostawca wartości ma być używany, jest określany jako *atrybuty dostawcy wartości* (takie jak `id`). ASP.NET obejmuje dostawców wartości i odpowiadające im atrybuty dla wszystkich typowych źródeł danych wejściowych użytkownika w aplikacji formularzy sieci Web, takich jak ciąg zapytania, pliki cookie, wartości formularzy, kontrolki, stan widoku, stan sesji i właściwości profilu. Możesz również pisać dostawców wartości niestandardowych.
 
 ### <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Uruchom aplikację teraz wyświetlić wszystkie produkty lub produkty z kategorii.
+Uruchom aplikację teraz, aby wyświetlić wszystkie produkty lub produkty kategorii.
 
-1. Naciśnij klawisz **F5** podczas gdy w programie Visual Studio, aby uruchomić aplikację.  
-   Przeglądarki otwiera się i pokazuje *Default.aspx* strony.
+1. Naciśnij klawisz **F5** w programie Visual Studio, aby uruchomić aplikację.  
+   Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
 
-2. Wybierz **samochodów** menu nawigacji Kategoria produktu.  
-   *ProductList.aspx* stronie wyświetlane tylko **samochodów** kategorii produktów. W dalszej części tego samouczka wyświetlisz informacje szczegółowe.  
+2. Wybierz pozycję **samochody** z menu nawigacji kategorii produktów.  
+   Na stronie *ProductList. aspx* wyświetlane są tylko produkty kategorii **samochodów** . W dalszej części tego samouczka zostaną wyświetlone szczegółowe informacje o produkcie.  
 
-    ![Wyświetlanie danych elementów i szczegóły — samochodów](display_data_items_and_details/_static/image2.png)
+    ![Wyświetlanie elementów danych i szczegółów — samochody](display_data_items_and_details/_static/image2.png)
 
-3. Wybierz **produktów** z menu nawigacji u góry.  
-   Ponownie *ProductList.aspx* zostanie wyświetlona strona, jednak tym razem pokazuje całą listę produktów.   
+3. Wybierz pozycję **produkty** z menu nawigacji u góry.  
+   Ponownie zostanie wyświetlona strona *ProductList. aspx* , jednak spowoduje to wyświetlenie całej listy produktów.   
 
-    ![Wyświetlanie danych elementów i szczegóły — produkty](display_data_items_and_details/_static/image3.png)
+    ![Wyświetlanie elementów danych i szczegółów — produkty](display_data_items_and_details/_static/image3.png)
 
 4. Zamknij przeglądarkę i wróć do programu Visual Studio.
 
-### <a name="add-a-data-control-to-display-product-details"></a>Dodaj formant danych, aby wyświetlić szczegółowe informacje o produkcie
+### <a name="add-a-data-control-to-display-product-details"></a>Dodaj kontrolkę danych, aby wyświetlić szczegóły produktu
 
-Następnie zmodyfikujesz kod znaczników w *ProductDetails.aspx* strony, które dodano w poprzednim samouczku, aby wyświetlić informacje o określonym produktem.
+Następnie zmodyfikujesz znaczniki na stronie *ProductDetails. aspx* , która została dodana w poprzednim samouczku, aby wyświetlić określone informacje o produkcie.
 
-1. W **Eksploratora rozwiązań**, otwórz *ProductDetails.aspx*.
+1. W **Eksplorator rozwiązań**Otwórz *ProductDetails. aspx*.
 
-2. Zastąp istniejący kod znaczników ten kod znaczników:
+2. Zastąp istniejące znaczniki tym znacznikiem:
 
     [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample5.aspx)] 
 
-    Ten kod używa **FormView** formantu, aby wyświetlić szczegóły określonego produktu. Ten kod znaczników używa metod, takich jak metody używane do wyświetlania danych w *ProductList.aspx* strony. **FormView** formant jest używany do wyświetlania jeden rekord jednocześnie ze źródła danych. Kiedy używasz **FormView** kontrolki, tworzenie szablonów, aby wyświetlić i edytować wartości powiązanych z danymi. Te szablony zawierają kontrolek, powiązań wyrażenia i formatowanie zdefiniować wygląd formularza i nowe funkcje.
+    Ten kod używa kontrolki **FormView** do wyświetlania szczegółowych informacji o produkcie. Ten znacznik używa metod, takich jak metody używane do wyświetlania danych na stronie *ProductList. aspx* . Kontrolka **FormView** służy do wyświetlania pojedynczego rekordu w czasie ze źródła danych. Gdy używasz kontrolki **FormView** , tworzysz szablony, aby wyświetlać i edytować wartości powiązane z danymi. Szablony te zawierają kontrolki, wyrażenia powiązań i formatowanie, które definiują wygląd i funkcjonalność formularza.
 
-Połączenie poprzedniego znaczników do bazy danych wymaga dodatkowego kodu.
+Połączenie z poprzednim znacznikiem do bazy danych wymaga dodatkowego kodu.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *ProductDetails.aspx* a następnie kliknij przycisk **Wyświetl kod**.  
-   *ProductDetails.aspx.cs* pliku jest wyświetlany.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy *ProductDetails. aspx* , a następnie kliknij polecenie **Wyświetl kod**.  
+   Zostanie wyświetlony plik *ProductDetails.aspx.cs* .
 
-2. Zastąp istniejący kod przy użyciu tego kodu:   
+2. Zastąp istniejący kod tym kodem:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
 
-Ten kod sprawdza, czy "`productID`" wartość ciągu zapytania. Jeśli wartość nieprawidłowy ciąg zapytania zostanie znaleziony, zostanie wyświetlony zgodnego produktu. Jeśli ciąg zapytania nie zostanie odnaleziony lub jego wartość nie jest prawidłowa, jest wyświetlany żaden produkt.
+Ten kod sprawdza wartość ciągu zapytania "`productID`". Jeśli zostanie znaleziona prawidłowa wartość ciągu zapytania, zostanie wyświetlony pasujący produkt. Jeśli nie można odnaleźć ciągu zapytania lub jego wartość jest nieprawidłowa, nie jest wyświetlany żaden produkt.
 
 ### <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Teraz można uruchomić aplikacji, aby zobaczyć indywidualnych produktów, wyświetlane oparte na identyfikator produktu.
+Teraz możesz uruchomić aplikację, aby zobaczyć pojedynczy produkt wyświetlany na podstawie identyfikatora produktu.
 
-1. Naciśnij klawisz **F5** podczas gdy w programie Visual Studio, aby uruchomić aplikację.  
-   Przeglądarki otwiera się i pokazuje *Default.aspx* strony.
+1. Naciśnij klawisz **F5** w programie Visual Studio, aby uruchomić aplikację.  
+   Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
 
-2. Wybierz **łodzi** z menu nawigacji kategorii.  
-   *ProductList.aspx* zostanie wyświetlona strona.
+2. Wybierz pozycję **łodzie** w menu nawigacji kategorii.  
+   Zostanie wyświetlona strona *ProductList. aspx* .
 
-3. Wybierz **łodzi dokument** na liście produktów.
-   *ProductDetails.aspx* zostanie wyświetlona strona.
+3. Wybierz pozycję **papierowa łodzi** z listy produkt.
+   Zostanie wyświetlona strona *ProductDetails. aspx* .
 
-    ![Wyświetlanie danych elementów i szczegóły — produkty](display_data_items_and_details/_static/image4.png)
+    ![Wyświetlanie elementów danych i szczegółów — produkty](display_data_items_and_details/_static/image4.png)
     
-4. Zamknij przeglądarkę.
+4. Zamknij okno przeglądarki.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Pobieranie i wyświetlanie danych za pomocą wiązania modelu i formularzy sieci web](../../presenting-and-managing-data/model-binding/retrieving-data.md)
+[Pobieranie i wyświetlanie danych przy użyciu powiązania modelu i formularzy sieci Web](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dodano znaczników i kodu do wyświetlania produktów oraz szczegóły produktów. Wiesz już o silnie typizowane kontrolki danych, tworzenia powiązania modelu i dostawców wartości. W następnym samouczku dodasz koszyka do przykładowej aplikacji Wingtip Toys. 
+W tym samouczku dodano znaczniki i kod, aby wyświetlić produkty i informacje o produkcie. Informacje o silnych typach kontroli danych, powiązaniach modelu i dostawcach wartości. W następnym samouczku dodasz koszyk do przykładowej aplikacji Wingtip zabawki. 
 
 > [!div class="step-by-step"]
 > [Poprzednie](ui_and_navigation.md)

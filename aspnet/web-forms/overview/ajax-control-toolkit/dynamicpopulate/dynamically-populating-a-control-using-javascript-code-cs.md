@@ -9,11 +9,11 @@ ms.assetid: cc4c2def-e88c-4456-ae8b-a6ae0ff8cc2d
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 24dc358427dec3ffcba16d00041c9a2db657e7e2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599263"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78535743"
 ---
 # <a name="dynamically-populating-a-control-using-javascript-code-c"></a>Dynamiczne wypełnianie kontrolki przy użyciu kodu JavaScript (C#)
 

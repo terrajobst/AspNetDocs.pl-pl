@@ -9,11 +9,11 @@ ms.assetid: e57f8c7c-3940-4bc0-9468-3a0ca69158ea
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8875d750d57c5f4e362bdf461826130a881ab1d4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599935"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536380"
 ---
 # <a name="animating-an-updatepanel-control-c"></a>Animowanie kontrolki UpdatePanel (C#)
 

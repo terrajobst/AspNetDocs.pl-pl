@@ -9,11 +9,11 @@ ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
 ms.openlocfilehash: ddc3d15f0436c4c3a24491cf0377111768da67df
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617644"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632784"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie w środowisku produkcyjnym
 
@@ -33,7 +33,7 @@ Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie d
 
 ## <a name="get-a-microsoft-azure-account"></a>Pobierz konto Microsoft Azure
 
-Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 ## <a name="create-a-staging-environment"></a>Tworzenie środowiska przejściowego
 
@@ -72,7 +72,7 @@ W tej części samouczka utworzysz aplikację sieci Web i bazę danych do użyci
 9. W polu **serwer** wybierz pozycję **nowy serwer SQL Database**.
 10. Wprowadź nazwę i hasło administratora.
 
-    Nie wprowadzasz tutaj istniejącej nazwy i hasła. Wprowadzasz nową nazwę i hasło, które będziesz teraz definiować do późniejszego użycia podczas uzyskiwania dostępu do bazy danych.
+    Nie wprowadzasz tutaj istniejącej nazwy i hasła. Podajesz nową nazwę i hasło, które definiujesz teraz do użycia w przyszłości podczas uzyskiwania dostępu do bazy danych.
 11. W polu **region** wybierz ten sam region, który został wybrany dla aplikacji sieci Web.
 
     Utrzymywanie serwera sieci Web i serwera bazy danych w tym samym regionie zapewnia najlepszą wydajność i minimalizuje wydatki.
@@ -118,7 +118,7 @@ Po utworzeniu aplikacji sieci Web i bazy danych dla środowiska przejściowego m
 
     Zostanie otwarty Kreator **publikowania w sieci Web** .
 2. Kliknij kartę **profil** .
-3. Kliknij pozycję **Importuj**.
+3. Kliknij przycisk **Importuj**.
 4. Przejdź do pliku *publishsettings* , który został pobrany wcześniej, a następnie kliknij przycisk **Otwórz**.
 
     ![Importowanie ustawień publikowania — okno dialogowe](deploying-to-production/_static/image7.png)
@@ -198,11 +198,11 @@ W tym samouczku utworzysz plik *robots. txt* .
 
     Aby aparaty wyszukiwania mogli wykazać aplikację produkcyjną, należy wykluczyć ten plik z wdrożenia produkcyjnego. W tym celu skonfigurujesz ustawienie w profilu publikowania produkcji podczas jego tworzenia.
 
-### <a name="deploy-to-staging"></a>Wdróż do przemieszczania
+### <a name="deploy-to-staging"></a>Wdrażanie w środowisku przejściowym
 
 1. Otwórz kreatora **publikacji w sieci Web** , klikając prawym przyciskiem myszy projekt Contoso University i klikając pozycję **Publikuj**.
 2. Upewnij się, że wybrano profil **przemieszczania** .
-3. Kliknij przycisk **Publikuj**.
+3. Kliknij przycisk **Opublikuj**.
 
     W oknie **danych wyjściowych** znajdują się informacje o wykonywaniu akcji wdrażania i raporty o pomyślnym zakończeniu wdrożenia. Domyślna przeglądarka automatycznie otwiera adres URL wdrożonej aplikacji sieci Web.
 
@@ -224,7 +224,7 @@ Zażądaj nieprawidłowego adresu URL, aby spowodować błąd, który będzie ś
 
 Utworzona aplikacja jest teraz uruchomiona w chmurze w aplikacji sieci Web, która jest taka sama jak ta, która będzie używana w środowisku produkcyjnym. Ponieważ wszystko działa prawidłowo, następnym krokiem jest wdrożenie w środowisku produkcyjnym.
 
-## <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
+## <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
 Proces tworzenia produkcyjnej aplikacji sieci Web i wdrażania jej w środowisku produkcyjnym jest taki sam jak w przypadku przemieszczania, z tą różnicą, że należy wykluczyć *plik robots. txt* z wdrożenia. Aby edytować plik profilu publikacji.
 
@@ -265,7 +265,7 @@ Plik *. pubxml* zawiera ustawienia, które odnoszą się do określonego profilu
 
     Aby uzyskać więcej informacji na temat wykluczania plików i folderów, zobacz [czy można wykluczać określone pliki lub foldery z wdrożenia?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) w artykule **wdrażanie w sieci Web — często zadawane pytania dotyczące programu Visual Studio i ASP.NET** w witrynie MSDN.
 
-### <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
+### <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
 1. Otwórz kreatora **publikacji w sieci Web** , upewnij się, że wybrano opcję profil publikowania **produkcyjnego** , a następnie kliknij przycisk **Uruchom podgląd** na karcie **Podgląd** , aby sprawdzić, czy plik *robots. txt* nie zostanie skopiowany do aplikacji produkcyjnej.
 
@@ -287,7 +287,7 @@ Pomyślnie wdrożono i przetestowasz aplikację internetową, która jest dostę
 W następnym samouczku należy zaktualizować kod aplikacji i wdrożyć zmiany w środowiskach testowych, przejściowych i produkcyjnych.
 
 > [!NOTE]
-> Gdy aplikacja jest używana w środowisku produkcyjnym, należy wykonać wdrożenie planu odzyskiwania. Oznacza to, że należy okresowo tworzyć kopie zapasowe baz danych z aplikacji produkcyjnej w bezpiecznej lokalizacji magazynu i należy zachować kilka generacji takich kopii zapasowych. Podczas aktualizowania bazy danych należy wykonać kopię zapasową od razu przed zmianą. Następnie, jeśli wystąpi błąd i nie wykryjesz go, dopóki nie zostanie wdrożony w środowisku produkcyjnym, nadal będzie można odzyskać bazę danych do stanu, w którym była przed uszkodzeniem. Aby uzyskać więcej informacji, zobacz [Azure SQL Database kopia zapasowa i przywracanie](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
+> Gdy aplikacja jest używana w środowisku produkcyjnym, należy wykonać wdrożenie planu odzyskiwania. Oznacza to, że należy okresowo tworzyć kopie zapasowe baz danych z aplikacji produkcyjnej w bezpiecznej lokalizacji magazynu i należy zachować kilka generacji takich kopii zapasowych. Podczas aktualizowania bazy danych należy wykonać kopię zapasową od razu przed zmianą. Następnie, jeśli wystąpi błąd i nie wykryjesz go, dopóki nie zostanie wdrożony w środowisku produkcyjnym, nadal będzie można odzyskać bazę danych do stanu, w którym była przed uszkodzeniem. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej i przywracanie bazy danych SQL na platformie Azure](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 > 
 > 
 > [!NOTE]

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
-title: Jak zmienić sposobu renderowania pól | Microsoft Docs
+title: Jak mogę zmienić sposób renderowania pól? | Microsoft Docs
 author: shanselman
-description: W tym filmie wideo dowiesz się, jak zmienić sposób, w jaki są renderowane pola danych. Formanty innych firm, w przypadku niektórych pól będzie dodatku.
+description: W tym filmie wideo dowiesz się, jak zmienić sposób renderowania pól danych. W przypadku niektórych pól można podłączyć formanty innych firm.
 ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: f99da654-2148-4e66-867c-6e837b84e9d0
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
 ms.openlocfilehash: d0ee7dc47c6ec5ffd76baa6827b81a9ff02c6bfc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381019"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624923"
 ---
-# <a name="how-do-i-change-how-my-fields-render"></a>Jak zmienić sposobu renderowania pól
+# <a name="how-do-i-change-how-my-fields-render"></a>Jak mogę zmienić sposób renderowania pól?
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-W tym filmie wideo dowiesz się, jak zmienić sposób, w jaki są renderowane pola danych. Formanty innych firm, w przypadku niektórych pól będzie dodatku.
+W tym filmie wideo dowiesz się, jak zmienić sposób renderowania pól danych. W przypadku niektórych pól można podłączyć formanty innych firm.
 
-[&#9654;Obejrzyj film wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
+[&#9654;Obejrzyj wideo (13 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-enable-inline-gridview-editing.md)

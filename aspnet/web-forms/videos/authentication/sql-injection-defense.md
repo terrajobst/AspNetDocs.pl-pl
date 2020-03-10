@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/sql-injection-defense
-title: Obrona przed iniekcją kodu SQL | Dokumentacja firmy Microsoft
+title: Ochrona wstrzykiwania kodu SQL | Microsoft Docs
 author: JoeStagner
-description: Luki w zabezpieczeniach wstrzyknięcie kodu SQL w aplikacji można przeszukiwanie całego dnia. W tym filmie Stagner Jan firmy Microsoft opisano, jak ataki przez wstrzyknięcie kodu SQL może happ...
+description: Luka w zabezpieczeniach iniekcji kodu SQL w aplikacji może ruin cały dzień. W tym filmie wideo firma Microsoft Stagnere, w jaki sposób ataki iniekcji SQL mogą Happ...
 ms.author: riande
 ms.date: 10/29/2009
 ms.assetid: b9fb1e01-06d9-43d9-9e8f-5fa1e4c6a211
 msc.legacyurl: /web-forms/videos/authentication/sql-injection-defense
 msc.type: video
 ms.openlocfilehash: 2ba52c94737dfc165831ef094d04a333c4fcf133
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414117"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525439"
 ---
 # <a name="sql-injection-defense"></a>Obrona przed wstrzyknięciem kodu SQL
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Luki w zabezpieczeniach wstrzyknięcie kodu SQL w aplikacji można przeszukiwanie całego dnia. W tym filmie Stagner Jan firmy Microsoft wyjaśniono, jak ataki przez wstrzyknięcie kodu SQL może się zdarzyć, zły chłopak czynności z nimi i sposobu ochrony aplikacji ASP.NET przed lukami w zabezpieczeniach wstrzyknięcie kodu SQL.
+Luka w zabezpieczeniach iniekcji kodu SQL w aplikacji może ruin cały dzień. W tym filmie wideo firma Microsoft Stagnero, jak mogą wystąpić ataki związane z iniekcją kodu SQL, co to jest niewłaściwy Guy i jak chronić aplikację ASP.NET przed lukami w zabezpieczeniach iniekcji SQL.
 
-[&#9654;Obejrzyj film wideo (25 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
+[&#9654;Obejrzyj wideo (25 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
 
 > [!div class="step-by-step"]
-> [Poprzednie](creating-inactive-users.md)
+> [Wstecz](creating-inactive-users.md)

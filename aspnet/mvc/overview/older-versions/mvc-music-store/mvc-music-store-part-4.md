@@ -1,153 +1,153 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
-title: Część 4. Modele i dostęp do danych | Dokumentacja firmy Microsoft
+title: 'Część 4: modele i dostęp do danych | Microsoft Docs'
 author: jongalloway
-description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 4 obejmuje modele i dostęp do danych.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 4 obejmuje modele i dostęp do danych.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: ab55ca81-ab9b-44a0-8700-dc6da2599335
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
 ms.openlocfilehash: 402be340f1ea3344675e7b859cea8c5130cfc8ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129651"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559676"
 ---
 # <a name="part-4-models-and-data-access"></a>Część 4. Modele i dostęp do danych
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
+> Sklep MVC Music jest aplikacją samouczka, która wprowadza i objaśnia krok po kroku, jak używać ASP.NET MVC i Visual Studio do programowania w sieci Web.  
 >   
-> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.
+> Sklep MVC Music jest lekkim przykładowym wdrożeniem magazynu, który sprzedaje Albumy muzyczne w trybie online i implementuje podstawowe funkcje administracyjne, logowania użytkownika i koszyka.
 > 
-> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 4 obejmuje modele i dostęp do danych.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 4 obejmuje modele i dostęp do danych.
 
-Do tej pory firma Microsoft została tylko zostały przekazywanie "fikcyjne dane" z naszych kontrolerów do nasze szablony widoku. Teraz jesteśmy gotowi zaczepić rzeczywista baza danych. W tym samouczku będzie dotyczyć sposób używania programu SQL Server Compact Edition (często nazywanej SQL CE) jako naszego aparatu bazy danych. SQL CE jest bezpłatna, plik osadzony na podstawie bazy danych, która nie wymaga instalacji ani konfiguracji, która sprawia, że naprawdę wygodne do tworzenia aplikacji lokalnej.
+Do tej pory właśnie przekazano "fikcyjne dane" z naszych kontrolerów do naszego szablonu widoku. Teraz jesteśmy gotowi do podłączania rzeczywistej bazy danych. W tym samouczku opisano sposób korzystania z wersji SQL Server Compact (często nazywanej standardem SQL CE) jako aparatu bazy danych. SQL CE to bezpłatna, osadzona baza danych oparta na plikach, która nie wymaga żadnej instalacji ani konfiguracji, co sprawia, że jest ona naprawdę wygodna do lokalnego tworzenia.
 
-## <a name="database-access-with-entity-framework-code-first"></a>Dostęp do bazy danych za pomocą Entity Framework najpierw kod
+## <a name="database-access-with-entity-framework-code-first"></a>Dostęp do bazy danych z kodem Entity Framework — pierwszy
 
-Użyjemy obsługi Entity Framework (EF), który znajduje się w projektach ASP.NET MVC 3 do wykonywania zapytań i aktualizacji bazy danych. EF jest obiektem elastyczne, relacyjne mapowanie danych (ORM) interfejsu API, który umożliwia deweloperom zapytania i aktualizację danych przechowywanych w bazie danych w sposób zorientowane obiektowo.
+Użyjemy obsługi Entity Framework (EF), która jest dołączona do projektów ASP.NET MVC 3 do wykonywania zapytań i aktualizacji bazy danych. Dr to elastyczny interfejs API danych relacyjnego mapowania obiektów (ORM), który umożliwia deweloperom wykonywanie zapytań i aktualizowanie danych przechowywanych w bazie danych w sposób zorientowany obiektowo.
 
-Entity Framework w wersji 4 obsługuje paradygmat programowania, o nazwie najpierw kod. Najpierw kod umożliwia utworzenie obiektu modelu, pisząc klasy proste (znany także jako POCO z obiektów CLR "zwykły stary"), a nawet utworzyć bazy danych na bieżąco z klas.
+Entity Framework w wersji 4 obsługuje model programistyczny o nazwie Code-First. Kod — w pierwszej kolejności można utworzyć obiekt modelu, pisząc proste klasy (znane również jako POCO z "zwykłych-starych" obiektów CLR) i można nawet utworzyć bazę danych na bieżąco z klas.
 
-### <a name="changes-to-our-model-classes"></a>Zmiany w naszych zajęć modelu
+### <a name="changes-to-our-model-classes"></a>Zmiany naszych klas modelu
 
-Firma Microsoft będzie się korzystanie z funkcji tworzenia bazy danych platformy Entity Framework w ramach tego samouczka. Zanim do tego, jednak upewnijmy się kilka drobne zmiany do naszych zajęć modelu, aby dodać niektóre czynności, które będzie używana później.
+W ramach tego samouczka będziemy korzystać z funkcji tworzenia bazy danych w Entity Framework. Przed wykonaniem tej czynności należy wprowadzić kilka drobnych zmian w naszych klasach modelu w celu dodania ich do innych elementów, które będą używane później.
 
-#### <a name="adding-the-artist-model-classes"></a>Dodawanie klasy modelu wykonawcy
+#### <a name="adding-the-artist-model-classes"></a>Dodawanie klas modelu wykonawcy
 
-Nasze albumów, zostanie skojarzona z artyści, dlatego dodamy klasę modelu proste do opisania wykonawcy. Dodaj nową klasę do folderu modeli o nazwie Artist.cs przy użyciu kodu pokazany poniżej.
+Nasze albumy zostaną skojarzone z artyści, dlatego dodamy prostą klasę modelu do opisania wykonawcy. Dodaj nową klasę do folderu models o nazwie Artist.cs przy użyciu kodu pokazanego poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample1.cs)]
 
-#### <a name="updating-our-model-classes"></a>Aktualizowanie naszych zajęć modelu
+#### <a name="updating-our-model-classes"></a>Aktualizowanie naszych klas modelu
 
-Aktualizacja klasy fotograficzne, jak pokazano poniżej.
+Zaktualizuj klasę albumu, jak pokazano poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample2.cs)]
 
-Następnie wprowadź następujące aktualizacje do klasy gatunku.
+Następnie wprowadź następujące aktualizacje klasy gatunek.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample3.cs)]
 
-### <a name="adding-the-appdata-folder"></a>Dodawanie aplikacji\_folderu danych
+### <a name="adding-the-app_data-folder"></a>Dodawanie folderu danych\_aplikacji
 
-Dodamy aplikacji\_katalog danych do naszego projektu do przechowywania plików bazy danych programu SQL Server Express. Aplikacja\_dane są specjalne katalogu w programie ASP.NET, który już ma poprawne uprawnienia dostępu dla dostępu do bazy danych. Menu projektu i wybierz polecenie Dodaj Folder programu ASP.NET, a następnie aplikacja\_danych.
+Dodamy\_katalogu danych aplikacji do naszego projektu, aby przechowywać pliki bazy danych SQL Server Express. \_danych aplikacji jest specjalnym katalogiem w ASP.NET, który ma już odpowiednie uprawnienia dostępu do bazy danych. W menu Projekt wybierz pozycję Dodaj folder ASP.NET, a następnie kliknij pozycję Aplikacja\_dane.
 
 ![](mvc-music-store-part-4/_static/image1.png)
 
-### <a name="creating-a-connection-string-in-the-webconfig-file"></a>Tworzenie parametrów połączenia w pliku web.config
+### <a name="creating-a-connection-string-in-the-webconfig-file"></a>Tworzenie parametrów połączenia w pliku Web. config
 
-Dodamy kilka wierszy do pliku konfiguracji witryny internetowej tak aby wie, jak połączyć się z naszym bazy danych platformy Entity Framework. Kliknij dwukrotnie plik Web.config znajduje się w folderze głównym projektu.
+Dodamy kilka wierszy do pliku konfiguracji witryny sieci Web, aby Entity Framework wie, jak nawiązać połączenie z bazą danych. Kliknij dwukrotnie plik Web. config znajdujący się w katalogu głównym projektu.
 
 ![](mvc-music-store-part-4/_static/image2.png)
 
-Przewiń w dół tego pliku i Dodaj &lt;connectionStrings&gt; sekcji bezpośrednio nad ostatni wiersz, jak pokazano poniżej.
+Przewiń w dół tego pliku i Dodaj sekcję &lt;connectionStrings&gt; bezpośrednio nad ostatnim wierszem, jak pokazano poniżej.
 
 [!code-xml[Main](mvc-music-store-part-4/samples/sample4.xml)]
 
 ### <a name="adding-a-context-class"></a>Dodawanie klasy kontekstu
 
-Kliknij prawym przyciskiem myszy folderu modeli i Dodaj nową klasę o nazwie MusicStoreEntities.cs.
+Kliknij prawym przyciskiem myszy folder modele i Dodaj nową klasę o nazwie MusicStoreEntities.cs.
 
 ![](mvc-music-store-part-4/_static/image3.png)
 
-Tej klasy będzie reprezentują kontekstu bazy danych programu Entity Framework, będzie obsłużyć nasz tworzenia, odczytu, aktualizacji i operacje usuwania dotyczące nam. Poniżej przedstawiono kod dla tej klasy.
+Ta klasa będzie reprezentować kontekst bazy danych Entity Framework i będzie obsługiwać nasze operacje tworzenia, odczytywania, aktualizowania i usuwania. Kod dla tej klasy pokazano poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample5.cs)]
 
-To wszystko — Brak nie innych konfiguracji specjalnych interfejsów, itp. Rozszerzając klasy bazowej typu DbContext, klasy Nasze MusicStoreEntities będzie mogło obsłużyć nasz operacji bazy danych dla nas. Skoro mamy podłączyłeś, Dodajmy kilka innych właściwości do naszych zajęć na model, aby móc korzystać z niektórych dodatkowych informacji w naszej bazie danych.
+To nie istnieje inna konfiguracja, interfejsy specjalne itp. Rozszerzając klasę bazową DbContext, Nasza Klasa MusicStoreEntities może obsługiwać nasze operacje bazy danych. Teraz, gdy mamy już podłączane, dodajmy kilka więcej właściwości do naszych klas modelu, aby korzystać z niektórych dodatkowych informacji w naszej bazie danych.
 
-### <a name="adding-our-store-catalog-data"></a>Dodawanie magazynu danych katalogu
+### <a name="adding-our-store-catalog-data"></a>Dodawanie naszych danych katalogu sklepu
 
-Firma Microsoft będzie korzystać z funkcji platformy Entity Framework, który dodaje dane "seed" nowo utworzoną bazę danych. Spowoduje to wstępnie wypełnić nasz katalog sklepu za pomocą listy gatunki, artystów i albumów. Pobrania MvcMusicStore Assets.zip - uwzględnione naszych plików projektu lokacji używanych wcześniej w tym samouczku — zawiera plik klasy z tymi danymi inicjatora, znajduje się w folderze o nazwie kodu.
+Będziemy korzystać z funkcji w Entity Framework, która dodaje dane "inicjatora" do nowo utworzonej bazy danych. Spowoduje to wstępne wypełnienie naszego katalogu sklepu listą gatunków, artystów i albumów. Pobieranie pliku MvcMusicStore-Assets. zip — który zawiera pliki projektu witryny używane wcześniej w tym samouczku — zawiera plik klasy z danymi tego inicjatora znajdującą się w folderze o nazwie Code.
 
-W kodzie / folderu modeli, zlokalizuj plik SampleData.cs i upuść go w folderze modeli w projekcie, jak pokazano poniżej.
+W folderze Code/models Znajdź plik SampleData.cs i upuść go do folderu models w naszym projekcie, jak pokazano poniżej.
 
 ![](mvc-music-store-part-4/_static/image4.png)
 
-Teraz należy dodać jeden wiersz kodu, aby poinformować Entity Framework o tej klasy SampleData. Kliknij dwukrotnie plik Global.asax w katalogu głównym projektu, aby otworzyć go i Dodaj następujący wiersz u góry aplikacji\_Uruchom metodę.
+Teraz musimy dodać jeden wiersz kodu, aby poinformować Entity Framework o tej klasie SampleData. Kliknij dwukrotnie plik Global. asax w folderze głównym projektu, aby go otworzyć, a następnie Dodaj następujący wiersz do początku metody\_uruchamiania aplikacji.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample6.cs)]
 
-W tym momencie możemy ukończono pracę niezbędne do skonfigurowania programu Entity Framework naszego projektu wygląda.
+W tym momencie wykonamy czynności niezbędne do skonfigurowania Entity Framework dla naszego projektu.
 
 ## <a name="querying-the-database"></a>wykonywanie zapytania w bazie danych
 
-Teraz zaktualizujmy naszych StoreController tak, aby zamiast "fikcyjny dane" zamiast niego w naszej bazie danych do wykonywania zapytań, wszystkie jej informacje. Rozpoczniemy od zadeklarowania pola na **StoreController** zawierającą wystąpienia klasy MusicStoreEntities o nazwie storeDB:
+Teraz zaktualizujmy nasze StoreController, tak aby zamiast korzystania z "fikcyjnych danych" zamiast tego wywoływać do naszej bazy danych zapytania dotyczące wszystkich informacji. Zaczniemy od zadeklarowania pola na **StoreController** , aby pomieścić wystąpienie klasy MusicStoreEntities o nazwie storeDB:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample7.cs)]
 
-### <a name="updating-the-store-index-to-query-the-database"></a>Aktualizowanie indeksu Store do wykonywania zapytań w bazie danych
+### <a name="updating-the-store-index-to-query-the-database"></a>Aktualizowanie indeksu magazynu w celu wysyłania zapytań do bazy danych
 
-Klasa MusicStoreEntities jest obsługiwany przez program Entity Framework i ujawnia właściwość kolekcji, dla każdej tabeli w naszej bazie danych. Zaktualizujmy naszych StoreController akcji indeksu można pobrać wszystkich gatunki w naszej bazie danych. Wcześniej zrobiliśmy to zakodowane na stałe danych ciągu. Teraz możemy zamiast tego użyć kontekstu platformy Entity Framework Generes kolekcji:
+Klasa MusicStoreEntities jest obsługiwana przez Entity Framework i uwidacznia Właściwość kolekcji dla każdej tabeli w bazie danych. Zaktualizujmy akcję indeksu StoreController w celu pobrania wszystkich gatunków w naszej bazie danych. Wcześniej było to spowodowane przez stałe kodowanie danych ciągu. Teraz możemy używać kolekcji generes kontekstu Entity Framework:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample8.cs)]
 
-Nie zmiany muszą zostać przeprowadzona do naszych szablon widoku, ponieważ firma Microsoft nadal zwracany tego samego StoreIndexViewModel, firma Microsoft zwrócone, zanim — firma Microsoft jest po prostu zwracanie danych na żywo z naszej bazie danych teraz.
+W naszym szablonie widoku nie trzeba zmieniać żadnych zmian, ponieważ nadal zwracamy ten sam StoreIndexViewModel, który zwróciłeś wcześniej — teraz zwracamy dane na żywo z naszej bazy danych.
 
-Jeśli firma Microsoft Uruchom projekt ponownie, odwiedź adres URL "/ Store" teraz zobaczymy listę wszystkich gatunki w naszej bazie danych:
+Po ponownym uruchomieniu projektu i odwiedzeniu adresu URL "/Store" zostanie teraz wyświetlona lista wszystkich gatunków w bazie danych:
 
 ![](mvc-music-store-part-4/_static/image1.jpg)
 
-### <a name="updating-store-browse-and-details-to-use-live-data"></a>Aktualizowanie Przeglądaj Store i szczegółowe informacje na korzystanie z danych na żywo
+### <a name="updating-store-browse-and-details-to-use-live-data"></a>Aktualizowanie przeglądania i szczegółów sklepu w celu korzystania z danych na żywo
 
-Za pomocą/Store/przeglądania? gatunku =*[niektóre gatunek]* metody akcji, Trwa przeszukiwanie dla określonego rodzaju według nazwy. Tylko oczekujemy, że jeden wynik, ponieważ firma Microsoft nigdy nie powinny mieć dwóch wpisów dla tej samej nazwie gatunku, więc możemy użyć. Funkcja Single() rozszerzenia w składniku LINQ do kwerendy do odpowiedniego obiektu gatunku następująco (nie należy umieszczać to jeszcze):
+Za pomocą metody akcji/Store/Browse? gatunek = *[część-gatunek]* szukamy gatunku według nazwy. Oczekiwany jest tylko jeden wynik, ponieważ nie będziemy musieli mieć dwóch wpisów dla tej samej nazwy gatunku i dlatego możemy użyć. Pojedyncze () rozszerzenie w LINQ do zapytania dla odpowiedniego obiektu gatunku, takiego jak ten (nie należy jeszcze wpisywać):
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample9.cs)]
 
-Pojedyncza metoda przyjmuje wyrażenia Lambda jako parametr, który określa, że chcemy, aby pojedynczy obiekt gatunku taki sposób, że jego nazwa pasuje do wartości, który zdefiniowaliśmy. W przypadku powyższych ładujemy pojedynczy obiekt gatunku dopasowania Najdywania wartości nazw.
+Pojedyncza Metoda przyjmuje wyrażenie lambda jako parametr, który określa, że chcemy, aby obiekt o pojedynczym gatunku był zgodny z określoną wartością. W powyższym przypadku ładujemy pojedynczy obiekt typu gatunek z wartością nazwy zgodną z disco.
 
-Firma Microsoft będzie korzystać z to funkcja programu Entity Framework, która pozwala nam w celu wskazania innych powiązanych jednostek, które chcemy, aby załadować także po pobraniu obiektu gatunku. Ta funkcja jest wywoływana, kształtowanie wynik zapytania i pozwala na zmniejszenie liczby potrzebujemy dostępu do bazy danych, aby pobrać wszystkie informacje potrzebne. Chcemy wstępnego pobierania albumów dla gatunku Pobieramy, dlatego zaktualizujemy naszego zapytania do dołączenia z Genres.Include("Albums"), aby wskazać, że chcemy także powiązane ze zdjęciami. Może to być bardziej efektywne, ponieważ pobierze dane naszych gatunku i albumów w żądaniu pojedynczej bazy danych.
+Będziemy korzystać z funkcji Entity Framework, która umożliwia wskazanie innych powiązanych jednostek, które chcemy załadować, a także po pobraniu obiektu gatunku. Ta funkcja jest nazywana kształtem wyników zapytania i umożliwia nam skrócenie liczby potrzeb dostępu do bazy danych w celu pobrania wszystkich potrzebnych informacji. Chcemy wstępnie pobrać albumy dla gatunku, który pobieramy, dlatego będziemy aktualizować zapytanie w celu uwzględnienia z gatunku. Dołącz ("albumy"), aby wskazać, że chcemy również mieć powiązane albumy. Jest to bardziej wydajne, ponieważ spowoduje to pobranie zarówno naszego gatunku, jak i danych z albumu w ramach pojedynczego żądania bazy danych.
 
-Wraz z wyjaśnieniem na bok poniżej przedstawiono, jak wygląda naszej zaktualizowane akcji kontrolera przeglądania:
+Dzięki wyjaśnieniu z metody, Oto jak wygląda zaktualizowana akcja przeglądania kontrolera:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample10.cs)]
 
-Firma Microsoft jest teraz zaktualizować widoku Przeglądaj Store, aby wyświetlić ze zdjęciami, które są dostępne w każdego gatunku. Otwórz szablon widoku (znaleziony w /Views/Store/Browse.cshtml), a następnie Dodaj listę punktowaną ze zdjęciami, jak pokazano poniżej.
+Teraz można zaktualizować Widok przeglądania sklepu, aby wyświetlić albumy, które są dostępne w każdym gatunku. Otwórz szablon widoku (znaleziony w/Views/Store/Browse.cshtml) i Dodaj listę punktowaną z listy Albumy, jak pokazano poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-4/samples/sample11.cshtml)]
 
-Uruchamianie aplikacji i przechodząc do/Store/przeglądania? gatunku = pokazują Jazz naszych wyników są teraz pochodzi z bazy danych, wyświetlanie albumów wszystkich naszych wybranego rodzaju.
+Uruchamiając aplikację i przechodząc do/Store/Browse? gatunek = Jazz pokazuje, że nasze wyniki są teraz ściągane z bazy danych, wyświetlając wszystkie albumy w naszym wybranym gatunku.
 
 ![](mvc-music-store-part-4/_static/image2.jpg)
 
-Wybierzemy taką samą Zmień/Store/szczegóły / [id] adresu URL i Zamień zastępczy danych zapytanie bazy danych, która ładuje albumu o identyfikatorze pasuje do wartości parametru.
+Wprowadzimy tę samą zmianę w adresie URL/Store/Details/[ID] i zamienimy nasze fikcyjne dane z zapytaniem bazy danych, które ładuje album, którego identyfikator pasuje do wartości parametru.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample12.cs)]
 
-Uruchamianie aplikacji i przechodząc do /Store/Details/1 pokazuje, że naszych wyników są teraz pobierane z bazy danych.
+Uruchomienie naszej aplikacji i przechodzenie do/Store/Details/1 pokazuje, że nasze wyniki są teraz ściągane z bazy danych.
 
 ![](mvc-music-store-part-4/_static/image5.png)
 
-Teraz, że nasza strona szczegółów Store jest skonfigurowany do wyświetlania albumu według Identyfikatora fotograficzne, zaktualizujmy **Przeglądaj** widok, aby utworzyć łącze do widoku szczegółów. Firma Microsoft użyje Html.ActionLink, dokładnie tak, jak zrobiliśmy się połączyć z indeksu Store Przeglądaj Store na końcu w poprzedniej sekcji. Pełne źródło widoku przeglądania pojawia się poniżej.
+Teraz, gdy strona szczegółów sklepu została skonfigurowana do wyświetlania albumu przez identyfikator albumu, zaktualizujmy widok **przeglądania** , aby połączyć się z widokiem szczegółów. Będziemy używać języka HTML. ActionLink dokładnie tak samo jak w przypadku linków z indeksu magazynu, aby przechować wyszukiwanie na końcu poprzedniej sekcji. Pełne Źródło dla widoku przeglądania jest wyświetlane poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-4/samples/sample13.cshtml)]
 
-Teraz możemy przejść z poziomu strony Store do strony gatunku, którym jest wyświetlana lista dostępnych ze zdjęciami, i klikając albumu możemy wyświetlić szczegóły dotyczące danego albumu.
+Teraz można przeglądać stronę ze swoim sklepem na stronie z gatunku, która zawiera listę dostępnych albumów, a następnie klikając album, aby wyświetlić szczegółowe informacje o tym albumie.
 
 ![](mvc-music-store-part-4/_static/image6.png)
 

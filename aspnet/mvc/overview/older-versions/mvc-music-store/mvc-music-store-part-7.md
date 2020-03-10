@@ -1,110 +1,110 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
-title: Część 7. Członkostwo i autoryzacja | Dokumentacja firmy Microsoft
+title: 'Część 7: członkostwo i autoryzacja | Microsoft Docs'
 author: jongalloway
-description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 7 obejmuje członkostwo i autoryzacja.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 7 obejmuje członkostwo i autoryzację.
 ms.author: riande
 ms.date: 10/13/2010
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: a6a1a936e0ea29ea36721ba78f35845401f74c01
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112464"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539201"
 ---
 # <a name="part-7-membership-and-authorization"></a>Część 7. Członkostwo i autoryzacja
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
+> Sklep MVC Music jest aplikacją samouczka, która wprowadza i objaśnia krok po kroku, jak używać ASP.NET MVC i Visual Studio do programowania w sieci Web.  
 >   
-> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> Sklep MVC Music jest lekkim przykładowym wdrożeniem magazynu, który sprzedaje Albumy muzyczne w trybie online i implementuje podstawowe funkcje administracyjne, logowania użytkownika i koszyka.  
 >   
-> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 7 obejmuje członkostwo i autoryzacja.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 7 obejmuje członkostwo i autoryzację.
 
-Nasze kontroler Menedżera Store jest obecnie dostępna dla każdego, kto odwiedzenie naszej witryny. Zmieńmy ten element, aby ograniczyć uprawnienia do administratorów witryny.
+Nasz kontroler Menedżera sklepu jest obecnie dostępny dla wszystkich osób odwiedzających naszą witrynę. Zmieńmy ten sposób, aby ograniczyć uprawnienia do administratorów lokacji.
 
 ## <a name="adding-the-accountcontroller-and-views"></a>Dodawanie elementu AccountController i widoków
 
-Jedną różnicą między pełnym szablonem znajdującym się aplikacja sieci Web programu ASP.NET MVC 3 i szablonu platformy ASP.NET MVC 3 pusta aplikacja sieci Web jest, że pusty szablon nie zawiera konta kontrolera. Dodamy kontroler kont przez skopiowanie kilka plików utworzenie nowej aplikacji platformy ASP.NET MVC z pełnym szablonem znajdującym się aplikacja sieci Web programu ASP.NET MVC 3.
+Jedną z różnic między pełnym szablonem aplikacji sieci Web ASP.NET MVC 3 a szablonem pustej aplikacji sieci Web ASP.NET MVC 3 jest to, że pusty szablon nie zawiera kontrolera konta. Dodamy kontroler konta przez skopiowanie kilku plików z nowej aplikacji ASP.NET MVC utworzonej na podstawie szablonu aplikacji sieci Web ASP.NET MVC 3.
 
-Tworzenie nowej aplikacji platformy ASP.NET MVC przy użyciu pełnej szablonu aplikacji sieci Web programu ASP.NET MVC 3 i skopiuj następujące pliki w tych samych katalogach w projekcie:
+Utwórz nową aplikację ASP.NET MVC przy użyciu pełnego szablonu aplikacji sieci Web ASP.NET MVC 3 i skopiuj następujące pliki do tych samych katalogów w naszym projekcie:
 
-1. Skopiuj AccountController.cs w katalogu kontrolerów
-2. Skopiuj AccountModels w katalogu modeli
-3. Tworzenie katalogu kont w katalogu Views i skopiuj wszystkie cztery widoki w
+1. Kopiuj AccountController.cs w katalogu controllers
+2. Kopiuj AccountModels w katalogu models
+3. Utwórz katalog konta w katalogu widoki i skopiuj wszystkie cztery widoki w
 
-Zmień przestrzeń nazw dla klasy kontrolera i Model, aby ich zaczynają się od MvcMusicStore. Klasa elementu AccountController powinny używać przestrzeni nazw MvcMusicStore.Controllers i klasy AccountModels powinny używać przestrzeni nazw MvcMusicStore.Models.
+Zmień przestrzeń nazw dla kontrolera i klasy modelu, aby zaczynać się od MvcMusicStore. Klasa elementu AccountController powinna używać przestrzeni nazw MvcMusicStore. controllers, a Klasa AccountModels powinna używać przestrzeni nazw MvcMusicStore. models.
 
-*Uwaga: Te pliki są również dostępne do pobrania MvcMusicStore Assets.zip, z którego możemy skopiowane pliki projektu naszej witryny na początku tego samouczka. Pliki członkostwa znajdują się w katalogu kodu.*
+*Uwaga: te pliki są również dostępne na stronie pobierania MvcMusicStore-Assets. zip, z której zostały skopiowane pliki projektu witryny na początku samouczka. Pliki członkostwa znajdują się w katalogu kodu.*
 
 Zaktualizowane rozwiązanie powinno wyglądać następująco:
 
 ![](mvc-music-store-part-7/_static/image1.png)
 
-## <a name="adding-an-administrative-user-with-the-aspnet-configuration-site"></a>Dodawanie użytkownika administracyjnego z lokacją konfiguracja platformy ASP.NET
+## <a name="adding-an-administrative-user-with-the-aspnet-configuration-site"></a>Dodawanie użytkownika administracyjnego przy użyciu lokacji konfiguracji ASP.NET
 
-Zanim wymagamy autoryzacji w naszej witryny sieci Web, musimy utworzyć użytkownika z dostępem. Najprostszym sposobem utworzenia użytkownika jest użyć wbudowanego witryny sieci Web Konfiguracja platformy ASP.NET.
+Przed wymaganiem autoryzacji w naszej witrynie sieci Web należy utworzyć użytkownika z dostępem. Najprostszym sposobem utworzenia użytkownika jest użycie wbudowanej witryny sieci Web ASP.NET Configuration.
 
-Uruchom witrynę sieci Web Konfiguracja platformy ASP.NET, klikając następujące ikony w Eksploratorze rozwiązań.
+Uruchom witrynę konfiguracji ASP.NET, klikając ikonę w Eksplorator rozwiązań.
 
 ![](mvc-music-store-part-7/_static/image2.png)
 
-Spowoduje to uruchomienie konfiguracji witryny sieci Web. Kliknij kartę Zabezpieczenia na ekranie głównym, a następnie kliknij link "Włącz role" w środku ekranu.
+Spowoduje to uruchomienie witryny sieci Web konfiguracji. Kliknij kartę Zabezpieczenia na ekranie głównym, a następnie kliknij link "Włącz role" w centrum ekranu.
 
 ![](mvc-music-store-part-7/_static/image3.png)
 
-Kliknij link "Utwórz i Zarządzaj rolami".
+Kliknij link "Utwórz role lub zarządzaj nimi".
 
 ![](mvc-music-store-part-7/_static/image4.png)
 
-Wpisz "Administrator" jako nazwę roli, a następnie naciśnij przycisk Dodaj rolę.
+Wprowadź wartość "Administrator" jako nazwę roli i naciśnij przycisk Dodaj rolę.
 
 ![](mvc-music-store-part-7/_static/image5.png)
 
-Kliknij przycisk Wstecz, a następnie kliknij łącze Utwórz użytkownika po lewej stronie.
+Kliknij przycisk Wstecz, a następnie kliknij link Utwórz użytkownika po lewej stronie.
 
 ![](mvc-music-store-part-7/_static/image6.png)
 
-Wypełnij pola informacji po lewej stronie, korzystając z poniższych informacji:
+Wypełnij pola informacje o użytkowniku po lewej stronie, używając następujących informacji:
 
 | **Pole** | **Wartość** |
 | --- | --- |
 | **Nazwa użytkownika** | Administrator |
-| **Hasło** | / password123! |
-| **Potwierdź hasło** | / password123! |
-| **Wiadomości e-mail** | (dowolny adres e-mail będzie działać) |
-| **Pytanie zabezpieczające** | (dowolną) |
-| **Odpowiedź zabezpieczeń** | (dowolną) |
+| **Hasło** | password123! |
+| **Potwierdź hasło** | password123! |
+| **E-mail** | (dowolny adres e-mail będzie działał) |
+| **Pytanie zabezpieczeń** | (dowolne z nich) |
+| **Odpowiedź zabezpieczeń** | (dowolne z nich) |
 
-*Uwaga: Oczywiście można użyć dowolnego hasło, które mają być. Domyślne ustawienia zabezpieczeń haseł wymagają hasła 7 znaków, która zawiera jeden znak inny niż alfanumeryczny.*
+*Uwaga: możesz użyć dowolnego hasła, które chcesz. Domyślne ustawienia zabezpieczeń hasła wymagają hasła o długości 7 znaków i zawierają jeden znak inny niż alfanumeryczny.*
 
 Wybierz rolę administratora dla tego użytkownika, a następnie kliknij przycisk Utwórz użytkownika.
 
 ![](mvc-music-store-part-7/_static/image7.png)
 
-W tym momencie powinien zostać wyświetlony komunikat informujący, że użytkownik został pomyślnie utworzony.
+W tym momencie powinien zostać wyświetlony komunikat informujący o tym, że użytkownik został utworzony pomyślnie.
 
 ![](mvc-music-store-part-7/_static/image8.png)
 
-Możesz teraz zamknąć okna przeglądarki.
+Teraz możesz zamknąć okno przeglądarki.
 
 ## <a name="role-based-authorization"></a>Autoryzacja oparta na rolach
 
-Teraz możemy ograniczyć dostęp do StoreManagerController przy użyciu atrybutu [Authorize], określając, czy użytkownik musi być członkiem roli administratora do dostępu do żadnych akcji kontrolera w klasie.
+Teraz możemy ograniczyć dostęp do StoreManagerController przy użyciu atrybutu [autoryzuje], określając, że użytkownik musi należeć do roli administratora, aby uzyskać dostęp do dowolnej akcji kontrolera w klasie.
 
 [!code-csharp[Main](mvc-music-store-part-7/samples/sample1.cs)]
 
-*Uwaga: Atrybut [Authorize] można umieścić w metodach określonej akcji, a także na poziomie klasy kontrolera.*
+*Uwaga: atrybut [autoryzuje] może być umieszczony w określonych metodach akcji, a także na poziomie klasy kontrolera.*
 
-Teraz Przechodzenie do /StoreManager Wyświetla okno dialogowe logowania:
+Teraz przechodzenie do/StoreManager powoduje wyświetlenie okna dialogowego logowania:
 
 ![](mvc-music-store-part-7/_static/image9.png)
 
-Po zalogowaniu się za pomocą naszego nowego konta administratora, jesteśmy w stanie przejść do ekranu edycja albumu w formie przed.
+Po zalogowaniu się przy użyciu nowego konta administratora można przejść do ekranu edycji albumu jako poprzednio.
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-6.md)

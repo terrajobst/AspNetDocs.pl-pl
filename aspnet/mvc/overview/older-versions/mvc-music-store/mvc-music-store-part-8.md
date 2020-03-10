@@ -1,160 +1,160 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
-title: Część 8. Koszyk z aktualizacjami Ajax | Dokumentacja firmy Microsoft
+title: 'Część 8: koszyk z aktualizacjami AJAX | Microsoft Docs'
 author: jongalloway
-description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 8 obejmuje koszyk z aktualizacjami Ajax.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 8 obejmuje koszyk z aktualizacjami AJAX.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
 ms.openlocfilehash: 89897ad41b217764cbd17317d4bf5d6a5c5d488f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112905"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539257"
 ---
-# <a name="part-8-shopping-cart-with-ajax-updates"></a>Część 8. Koszyk z aktualizacjami AJAX
+# <a name="part-8-shopping-cart-with-ajax-updates"></a>Część 8. koszyk z aktualizacjami AJAX
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
+> Sklep MVC Music jest aplikacją samouczka, która wprowadza i objaśnia krok po kroku, jak używać ASP.NET MVC i Visual Studio do programowania w sieci Web.  
 >   
-> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> Sklep MVC Music jest lekkim przykładowym wdrożeniem magazynu, który sprzedaje Albumy muzyczne w trybie online i implementuje podstawowe funkcje administracyjne, logowania użytkownika i koszyka.  
 >   
-> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 8 obejmuje koszyk z aktualizacjami Ajax.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 8 obejmuje koszyk z aktualizacjami AJAX.
 
-Firma Microsoft będzie Zezwalaj użytkownikom na umieszczenie albumów w ich koszyka bez rejestrowania, ale należy zarejestrować się jako goście zakończyć proces realizacji transakcji. Proces zakupów i wyewidencjonowywania będą można podzielić na dwa kontrolery: kontroler ShoppingCart, co pozwala anonimowo Dodawanie elementów do koszyka i kontroler wyewidencjonowania, która obsługuje rozpoczęcie procesu realizowania zamówienia. Firma Microsoft będzie rozpoczynać koszyka w tej sekcji, a następnie tworzenie rozpoczęcie procesu realizowania zamówienia w poniższej sekcji.
+Zezwolimy użytkownikom na umieszczenie albumów w ich koszyku bez rejestrowania się, ale konieczne będzie zarejestrowanie się jako gościa w celu ukończenia wyewidencjonowania. Proces zakupów i wyewidencjonowywania zostanie podzielony na dwa kontrolery: kontroler ShoppingCart, który umożliwia anonimowe Dodawanie elementów do koszyka, oraz kontroler wyewidencjonowania obsługujący proces wyewidencjonowania. Zaczniemy od koszyka w tej sekcji, a następnie kompilować proces wyewidencjonowania w poniższej sekcji.
 
-## <a name="adding-the-cart-order-and-orderdetail-model-classes"></a>Dodawanie klasy modelu koszyka, kolejność i OrderDetail
+## <a name="adding-the-cart-order-and-orderdetail-model-classes"></a>Dodawanie klas modeli koszyk, zamówienie i OrderDetail
 
-Nasze procesów koszyk i wyewidencjonowania spowoduje, że korzystanie z niektórych nowych klas. Kliknij prawym przyciskiem myszy folderu modeli i dodać klasę koszyka (Cart.cs) z następującym kodem.
+Nasze koszyki i procesy wyewidencjonowywania będą korzystać z nowych klas. Kliknij prawym przyciskiem myszy folder modele i Dodaj klasę koszyka (Cart.cs) z poniższym kodem.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample1.cs)]
 
-Ta klasa jest bardzo podobne do innych osób, które była używana do tej pory, z wyjątkiem atrybutu [klucz] dla właściwości identyfikator rekordu. Elementy naszego koszyka ma identyfikator ciągu o nazwie CartID, aby zezwolić na anonimowy zakupów, ale tabela zawiera klucz podstawowy liczbą całkowitą o nazwie identyfikator rekordu. Zgodnie z Konwencją najpierw z programem Entity Framework kod oczekuje klucz podstawowy dla tabeli o nazwie koszyka będzie CartId lub Identyfikatora, że firma Microsoft można łatwo zastąpić, za pośrednictwem adnotacje lub kod Jeśli chcemy. Jest to przykład jak możemy użyć konwencji proste w Entity Framework najpierw kod po ich własnych nam, ale firma Microsoft jest nie ograniczona przez nich Jeśli tak nie jest.
+Ta klasa jest całkiem podobna do innych, z których korzystamy dotąd, z wyjątkiem atrybutu [Key] dla właściwości RecordId. Nasze elementy koszyka będą miały identyfikator ciągu o nazwie CartID, aby umożliwić anonimowe zakupy, ale tabela zawiera klucz podstawowy Integer o nazwie RecordId. Zgodnie z Konwencją, Entity Framework kod — najpierw oczekuje, że klucz podstawowy dla tabeli o nazwie Koszyk będzie miał wartość CartId lub identyfikator, ale możemy łatwo przesłonić ten element za pośrednictwem adnotacji lub kodu, jeśli chcemy. Jest to przykład, w jaki sposób możemy używać prostych Konwencji w Entity Framework kodzie — najpierw w przypadku, gdy są one zgodne, ale nie są ograniczone przez nie.
 
-Następnie Dodaj klasę zamówienia (Order.cs) z następującym kodem.
+Następnie Dodaj klasę Order (Order.cs) z poniższym kodem.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample2.cs)]
 
-Ta klasa śledzi informacje o kolejności Podsumowanie i dostarczania. **Nie będzie jeszcze skompilować**, ponieważ ma ona właściwość nawigacji OrderDetails, która zależy od klasy, firma Microsoft nie został jeszcze utworzony. Teraz ustalić, że teraz, dodając klasę o nazwie OrderDetail.cs, dodając następujący kod.
+Ta klasa śledzi podsumowanie i informacje o dostarczaniu dla zamówienia. **Nie będzie jeszcze kompilować**, ponieważ ma właściwość nawigacji OrderDetails, która zależy od klasy, która nie została jeszcze utworzona. Naprawmy, że teraz dodając klasę o nazwie OrderDetail.cs, dodając następujący kod.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample3.cs)]
 
-Wybierzemy jedną Ostatnia aktualizacja do klasy naszych MusicStoreEntities w taki sposób, aby uwzględnić DbSets, który udostępnić te nowe klasy modelu dotyczy to również DbSet&lt;wykonawcy&gt;. Zaktualizowano klasa MusicStoreEntities jest wyświetlany jako poniżej.
+Wprowadzimy jedną ostatnią aktualizację do naszej klasy MusicStoreEntities, która będzie zawierać zestawy dbsets, które uwidaczniają te nowe klasy modelu, łącznie z&gt;wykonawcą&lt;Nieogólnymi. Zaktualizowana Klasa MusicStoreEntities zostanie wyświetlona poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample4.cs)]
 
-## <a name="managing-the-shopping-cart-business-logic"></a>Zarządzanie logikę biznesową koszyka
+## <a name="managing-the-shopping-cart-business-logic"></a>Zarządzanie logiką biznesową koszyka zakupów
 
-Następnie utworzymy klasy ShoppingCart w folderze modeli. ShoppingCart model obsługuje dostęp do danych do tabeli koszyka. Ponadto obsłuży logikę biznesową w celu dodawania i usuwania elementów z koszyka.
+Następnie utworzymy klasę ShoppingCart w folderze models. Model ShoppingCart obsługuje dostęp do danych do tabeli koszyka. Ponadto będzie obsługiwał logikę biznesową w celu dodawania i usuwania elementów z koszyka.
 
-Ponieważ nie chcemy wymagać od użytkowników założyć konto tak dodać elementy do ich koszyka, przypiszemy użytkowników tymczasowe Unikatowy identyfikator (przy użyciu identyfikatora GUID lub Unikatowy identyfikator globalny) podczas uzyskiwania dostępu do koszyka. Przechowujemy będzie ten identyfikator przy użyciu klasy sesji programu ASP.NET.
+Ponieważ nie chcemy wymagać od użytkowników rejestrowania się w celu dodania elementów do koszyka zakupów, przypiszemy użytkownikom tymczasowy unikatowy identyfikator (przy użyciu identyfikatora GUID lub unikatowego identyfikatora globalnego) podczas uzyskiwania dostępu do koszyka. Ten identyfikator zostanie zapisany przy użyciu klasy sesji ASP.NET.
 
-*Uwaga: Sesja programu ASP.NET jest wygodne miejsce do przechowywania informacji o użytkowniku, która wygaśnie po opuszczania witryny. Gdy nieuprawnione użycie stanu sesji mogą mieć wpływ na wydajność w witrynach większe, nasze światła użycia będzie działać również w celach demonstracyjnych.*
+*Uwaga: sesja ASP.NET jest wygodnym miejscem do przechowywania informacji specyficznych dla użytkownika, które wygasną po opuszczeniu witryny. W przypadku nieprawidłowego stanu sesji może to mieć wpływ na wydajność większych lokacji. nasze jasne użycie będzie dobrze działało do celów demonstracyjnych.*
 
-Klasa ShoppingCart udostępnia następujące metody:
+Klasa ShoppingCart uwidacznia następujące metody:
 
-**AddToCart** albumu jako parametr przyjmuje i dodaje go do koszyka użytkownika. Ponieważ w tabeli koszyka śledzi ilości dla każdego albumu, zawiera logikę w celu utworzenia nowego wiersza, jeśli to konieczne lub po prostu zwiększyć ilość, jeśli użytkownik ma już uporządkowane jedną kopię albumu.
+**AddToCart** pobiera album jako parametr i dodaje go do koszyka użytkownika. Ponieważ tabela koszyka śledzi liczbę dla każdego albumu, zawiera logikę umożliwiającą utworzenie nowego wiersza w razie potrzeby lub po prostu zwiększenie ilości, jeśli użytkownik zamówił już jedną kopię albumu.
 
-**RemoveFromCart** przyjmuje identyfikator albumu i usuwa go z koszyka użytkownika. Jeśli użytkownik ma tylko jedną kopię album w ich koszyka, wiersza są usuwane.
+**RemoveFromCart** Pobiera identyfikator albumu i usuwa go z koszyka użytkownika. Jeśli użytkownik ma tylko jedną kopię albumu w swoim koszyku, wiersz zostanie usunięty.
 
-**EmptyCart** spowoduje usunięcie wszystkich elementów z koszyka użytkownika.
+**EmptyCart** usuwa wszystkie elementy z koszyka użytkownika.
 
-**GetCartItems** umożliwia pobranie listy CartItems w celu wyświetlania lub przetwarzania.
+**GetCartItems** pobiera listę CartItems do wyświetlania lub przetwarzania.
 
-**GetCount** pobiera całkowita liczba albumów użytkownika powoduje ich koszyk sklepowy.
+**GetCount** pobiera łączną liczbę albumów, które użytkownik ma w swoim koszyku.
 
-**GetTotal** oblicza łączny koszt wszystkich elementów w koszyku.
+Wartość **gettotal** oblicza łączny koszt wszystkich elementów w koszyku.
 
-**CreateOrder** konwertuje koszyka zamówienia w fazie wyewidencjonowania.
+**Porządek** jest konwertowany na zamówienie w ramach fazy wyewidencjonowania.
 
-**GetCart** jest metoda statyczna, co pozwala naszym kontrolerów, aby uzyskać obiekt koszyka. Używa ona **GetCartId** metody, aby obsłużyć odczyt CartId z sesji użytkownika. Metoda GetCartId wymaga element HttpContextBase przeczytasz CartId użytkownika z sesji użytkownika.
+**Getkoszyk** to metoda statyczna, która umożliwia naszym kontrolerom uzyskanie obiektu koszyka. Używa metody **GetCartId** , aby obsłużyć odczyt CartId z sesji użytkownika. Metoda GetCartId wymaga HttpContextBase, aby mógł odczytać CartId użytkownika z sesji użytkownika.
 
-Poniżej przedstawiono pełne **klasy ShoppingCart**:
+Oto kompletna **Klasa ShoppingCart**:
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample5.cs)]
 
 ## <a name="viewmodels"></a>Modele widoków
 
-Nasze kontroler koszyka zakupów należy do komunikowania się niektórych złożone informacje do jego widoków, który nie jest mapowany nie pozostawia żadnych śladów naszych obiekty modelu. Nie chcemy zmodyfikować naszych modeli do potrzeb naszych widoków; Klasy modeli powinny reprezentować naszej domenie nie interfejs użytkownika. Jedno rozwiązanie będzie mógł przekazać informacje do naszych widoków przy użyciu klasy obiekt ViewBag postępowanie z informacje listy rozwijanej Menedżera Store, ale przekazywanie dużej ilości informacji za pomocą elementów ViewBag pobiera trudny do zarządzania.
+Nasz kontroler koszyka zakupów będzie musiał komunikować się ze swoimi widokami, które nie są prawidłowo mapowane do naszych obiektów modelu. Nie chcemy modyfikować naszych modeli zgodnie z naszymi widokami. Klasy modelu powinny reprezentować naszą domenę, a nie interfejs użytkownika. Jednym z rozwiązań jest przekazanie informacji do naszych widoków przy użyciu klasy ViewBag, podobnie jak w przypadku listy rozwijanej Menedżera sklepu, ale przekazywanie wielu informacji za pośrednictwem ViewBag jest trudne do zarządzania.
 
-To rozwiązanie jest użycie *ViewModel* wzorca. Korzystając z tego wzorca, możemy utworzyć silnie typizowanych klas, które są zoptymalizowane pod kątem scenariuszy określonego widoku, a które udostępnianie właściwości dla zawartości dynamicznej, wartości/wymagane przez naszych szablonów widoku. Naszych zajęć kontrolera można wypełnić i przekazać te zoptymalizowane pod kątem widoku klasy do naszych Wyświetl szablon do użycia. Dzięki temu, bezpieczeństwo typów, sprawdzanie w czasie kompilacji i Edytor technologii IntelliSense w szablonach widoku.
+Rozwiązaniem do tego jest użycie wzorca *ViewModel* . W przypadku korzystania z tego wzorca tworzymy klasy o jednoznacznie określonym typie, które są zoptymalizowane pod kątem naszych scenariuszy widoku, i które uwidaczniają właściwości wartości dynamicznych/zawartości wymaganej przez nasze szablony widoków. Nasze klasy kontrolera mogą następnie wypełnić i przekazać te klasy zoptymalizowane pod kątem widoku do naszego szablonu widoku. Zapewnia to bezpieczeństwo typu, sprawdzanie czasu kompilacji i IntelliSense w edytorze w szablonach widoków.
 
-Utworzymy dwa modele widok do użycia w naszym kontroler koszyka: ShoppingCartViewModel będzie przechowywać zawartość koszyka użytkownika i ShoppingCartRemoveViewModel będzie służyć do wyświetlania informacji potwierdzenie, gdy użytkownik usunie coś z ich koszyka.
+Utworzymy dwa modele widoku do użycia w naszym kontrolerze koszyka: ShoppingCartViewModel będzie przechowywać zawartość koszyka zakupów użytkownika, a ShoppingCartRemoveViewModel będzie służyć do wyświetlania informacji o potwierdzeniach, gdy użytkownik usunie coś z koszyka.
 
-Utwórz nowy folder modele widoków w folderze głównym nasz projekt, aby zachować zorganizowane. Kliknij prawym przyciskiem myszy projekt, wybierz opcję Dodaj / nowy Folder.
+Utwórzmy nowy folder modele widoków w katalogu głównym naszego projektu, aby zachować zorganizowane elementy. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie Dodaj/nowy folder.
 
 ![](mvc-music-store-part-8/_static/image1.jpg)
 
-Nazwa folderu modele widoków.
+Nazwij folder modele widoków.
 
 ![](mvc-music-store-part-8/_static/image1.png)
 
-Następnie Dodaj klasę ShoppingCartViewModel w folderze modele widoków. Posiada dwie właściwości: lista elementów z koszyka, a wartość dziesiętną, aby pomieścić całkowita cena dla wszystkich elementów w koszyku.
+Następnie Dodaj klasę ShoppingCartViewModel w folderze modele widoków. Ma dwie właściwości: listę elementów koszyka oraz wartość dziesiętną, aby pomieścić całkowitą cenę dla wszystkich elementów w koszyku.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample6.cs)]
 
-Teraz Dodaj ShoppingCartRemoveViewModel do folderu modele widoków z następującymi właściwościami cztery.
+Teraz Dodaj ShoppingCartRemoveViewModel do folderu modele widoków, używając następujących czterech właściwości.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample7.cs)]
 
-## <a name="the-shopping-cart-controller"></a>Kontroler koszyka
+## <a name="the-shopping-cart-controller"></a>Kontroler koszyka zakupów
 
-Kontroler koszyka ma trzy główne funkcje: Dodawanie elementów do koszyka, usunięcie elementów z koszyka i wyświetlania elementów w koszyku. Użyj trzech klas, firma Microsoft wprowadzi właśnie utworzony: ShoppingCartViewModel ShoppingCartRemoveViewModel i ShoppingCart. Tak jak w przypadku StoreController i StoreManagerController dodasz pole do przechowywania wystąpienie MusicStoreEntities.
+Kontroler koszyka zakupów ma trzy główne cele: Dodawanie elementów do koszyka, usuwanie elementów z koszyka i wyświetlanie elementów w koszyku. Spowoduje to użycie trzech klas, które właśnie utworzyliśmy: ShoppingCartViewModel, ShoppingCartRemoveViewModel i ShoppingCart. Podobnie jak w przypadku StoreController i StoreManagerController, dodamy pole do przechowywania wystąpienia MusicStoreEntities.
 
-Dodaj nowy kontroler koszyka do projektu przy użyciu szablonu pusty kontroler.
+Dodaj nowy kontroler koszyka zakupów do projektu przy użyciu szablonu pustego kontrolera.
 
 ![](mvc-music-store-part-8/_static/image2.png)
 
-Oto kompletny kontrolera ShoppingCart. Akcje indeksu i Dodaj kontroler powinien wyglądać znajomo. Akcji kontrolera Remove i CartSummary obsługiwać dwa przypadki specjalne, które omówimy w poniższej sekcji.
+Oto kompletny kontroler ShoppingCart. Akcje indeks i Dodaj kontroler powinny wyglądać bardzo dobrze. Operacje kontrolera Remove i CartSummary obsługują dwa specjalne przypadki, które omówiono w poniższej sekcji.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample8.cs)]
 
-## <a name="ajax-updates-with-jquery"></a>Aktualizacje interfejsu AJAX przy użyciu jQuery
+## <a name="ajax-updates-with-jquery"></a>Aktualizacje AJAX z użyciem jQuery
 
-Następnie utworzymy strony indeksu koszyka zakupów, zdecydowanie jest wpisane w ShoppingCartViewModel, która używa tego szablonu w widoku listy przy użyciu tej samej metody przed.
+Będziemy dalej tworzyć stronę indeksu koszyka zakupów, która jest silnie wpisana do ShoppingCartViewModel i używa szablonu widoku listy przy użyciu tej samej metody jak wcześniej.
 
 ![](mvc-music-store-part-8/_static/image3.png)
 
-Jednak zamiast Html.ActionLink do usuwanie elementów z koszyka, użyjemy jQuery do "Podłączanie" Zdarzenie kliknięcia dla wszystkich łączy w tym widoku, które mają klas kodu HTML biznesowych — właścicieli. Zamiast Publikowanie formularza, ta procedura obsługi zdarzeń kliknij właśnie wprowadzi wywołania zwrotnego AJAX naszej RemoveFromCart akcji kontrolera. RemoveFromCart zwraca wynik Zserializowany do ciągu JSON, które naszym wywołania zwrotnego jQuery następnie analizuje i wykonuje czterech szybkich aktualizacji do strony, przy użyciu jQuery:
+Jednak zamiast używania pliku HTML. ActionLink do usuwania elementów z koszyka będziemy używać platformy jQuery do "podłączania" dla wszystkich linków w tym widoku, które mają klasę HTML RemoveLink. Zamiast ogłaszać formularz, ten program obsługi zdarzeń kliknij po prostu wywołanie zwrotne AJAX do naszej akcji kontrolera RemoveFromCart. RemoveFromCart zwraca wynik Zserializowany w formacie JSON, który następnie jest analizowany przez wywołanie zwrotne jQuery i wykonuje cztery szybkie aktualizacje strony przy użyciu jQuery:
 
-- 1. Usuwa albumu usuniętych z listy
-- 2. Aktualizuje liczba koszyka w nagłówku
-- 3. Wyświetla komunikat o aktualizacji dla użytkownika
-- 4. Aktualizuje cena łączna koszyka
+- 1. Usuwa z listy usunięty album
+- 2. Aktualizuje liczbę koszyków w nagłówku
+- 3. Wyświetla komunikat aktualizacji dla użytkownika
+- 4. Aktualizuje łączną cenę koszyka
 
-Ponieważ scenariusz Usuń jest obsługiwane przez wywołanie zwrotne Ajax w widoku indeksu, nie potrzebujemy dodatkowy widok RemoveFromCart akcji. Oto kompletny kod dla widoku /ShoppingCart/Index:
+Ze względu na to, że scenariusz usuwania jest obsługiwany przez wywołanie zwrotne AJAX w widoku indeksu, nie jest potrzebny dodatkowy widok dla akcji RemoveFromCart. Oto kompletny kod widoku/ShoppingCart/Index:
 
 [!code-cshtml[Main](mvc-music-store-part-8/samples/sample9.cshtml)]
 
-Aby przetestować tę możliwość, musimy mieć możliwość dodawania elementów do naszego koszyka. Zaktualizujemy naszych **szczegóły Store** widok ma zawierać przycisk "Dodaj do koszyka". Są nam na tym, firma Microsoft może obejmować niektóre spośród albumu dodatkowe informacje, które dodaliśmy od czasu ostatniej aktualizacji firma w tym widoku: Gatunku wykonawcy, ceny i albumów. Zaktualizowany kod widoku szczegółów Store pojawi się, jak pokazano poniżej.
+Aby przetestować ten limit, musimy móc dodać elementy do naszego koszyka zakupów. Zaktualizujemy nasz widok **szczegółów sklepu** , aby uwzględnić przycisk "Dodaj do koszyka". Na bieżąco możemy uwzględnić niektóre informacje dodatkowe dotyczące albumu, które zostały dodane od czasu ostatniej aktualizacji tego widoku: gatunek, wykonawca, Cena i album. Zostanie wyświetlony zaktualizowany kod widoku szczegółów sklepu, jak pokazano poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-8/samples/sample10.cshtml)]
 
-Teraz możemy kliknij za pośrednictwem sklepu i przetestować, dodając i usuwając ze zdjęciami do i z naszego koszyka. Uruchom aplikację, a następnie przejdź do indeksu Store.
+Teraz możemy klikać w sklepie i testować Dodawanie i usuwanie albumów do i z naszego koszyka zakupów. Uruchom aplikację i przejdź do indeksu magazynu.
 
 ![](mvc-music-store-part-8/_static/image4.png)
 
-Następnie kliknij na określonego rodzaju, aby wyświetlić listę albumów.
+Następnie kliknij gatunek, aby wyświetlić listę albumów.
 
 ![](mvc-music-store-part-8/_static/image5.png)
 
-Teraz kliknięcie tytuł pokazuje nasz zaktualizowane widoku Szczegóły albumu, w tym przycisk "Dodaj do koszyka".
+Kliknięcie tytułu albumu zawiera teraz nasz zaktualizowany widok szczegółów albumu, w tym przycisk "Dodaj do koszyka".
 
 ![](mvc-music-store-part-8/_static/image6.png)
 
-Kliknięcie przycisku "Dodaj do koszyka" przedstawiono naszych koszyk sklepowy indeksu za pomocą lista podsumowania koszyka zakupów.
+Kliknięcie przycisku "Dodaj do koszyka" pokazuje widok indeksu koszyka zakupów z listą podsumowania koszyka zakupów.
 
 ![](mvc-music-store-part-8/_static/image7.png)
 
-Po załadowaniu usługi koszyka, możesz kliknąć Usuń z koszyka łącza w celu wyświetlenia aktualizacji interfejsu Ajax do koszyka.
+Po załadowaniu koszyka zakupów możesz kliknąć link Usuń z koszyka, aby zobaczyć aktualizację AJAX do koszyka.
 
 ![](mvc-music-store-part-8/_static/image8.png)
 
-Utworzyliśmy się działającego koszyk, co pozwala niezarejestrowanym użytkownikom dodać elementy do ich koszyka. W poniższej sekcji firma Microsoft będzie zezwolić im na rejestrowanie i ukończenie procesu realizowania zamówienia.
+Utworzyliśmy roboczy koszyk, który umożliwia niezarejestrowanim użytkownikom dodawanie elementów do ich koszyka. W poniższej sekcji zezwolimy im na zarejestrowanie i zakończenie procesu wyewidencjonowania.
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-7.md)

@@ -9,11 +9,11 @@ ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
 ms.openlocfilehash: cf3c65ef95528173eed3fb08984035b2512861c4
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457040"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78617839"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 

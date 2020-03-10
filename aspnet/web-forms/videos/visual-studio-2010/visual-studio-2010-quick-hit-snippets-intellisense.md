@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
-title: Visual Studio 2010 szybkie trafień — funkcje IntelliSense fragmentów kodu | Dokumentacja firmy Microsoft
+title: Visual Studio 2010 — szybkie trafienia — fragmenty kodu IntelliSense | Microsoft Docs
 author: JoeStagner
-description: W tym filmie wideo dowiesz się o Visual Studio Obsługa fragmentów kodu HTML znaczniki ASP.NET i JavaScript.
+description: W tym filmie wideo znajdziesz informacje na temat obsługi fragmentów kodu w języku HTML, znaczników ASP.NET i języka JavaScript w programie Visual Studio.
 ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 142b51ae-0f6a-4433-8b92-f827ce9c209c
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
 msc.type: video
 ms.openlocfilehash: b048413b03c9f0b915dc5d64fcf85e2425a890fc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380967"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634730"
 ---
-# <a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>Program Visual Studio 2010 "Strzał szybkiego" — funkcje IntelliSense fragmentów kodu
+# <a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>Visual Studio 2010 "szybkie trafienie" — funkcja IntelliSense fragmentów kodu
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie wideo dowiesz się o Visual Studio Obsługa fragmentów kodu HTML znaczniki ASP.NET i JavaScript.
+W tym filmie wideo znajdziesz informacje na temat obsługi fragmentów kodu w języku HTML, znaczników ASP.NET i języka JavaScript w programie Visual Studio.
 
-[&#9654;Obejrzyj film wideo (4 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
+[&#9654;Obejrzyj wideo (4 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
 
 > [!div class="step-by-step"]
-> [Poprzednie](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
+> [Wstecz](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)

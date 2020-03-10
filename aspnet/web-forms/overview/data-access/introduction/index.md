@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/introduction/index
-title: Wprowadzenie | Dokumentacja firmy Microsoft
+title: Wprowadzenie | Microsoft Docs
 author: rick-anderson
-description: Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.
+description: W tym podręczniku wprowadzającym opisano sposób tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI biznesowej) i spójnego wyglądu witryny.
 ms.author: riande
 ms.date: 11/11/2011
 ms.assetid: 74f3a86b-81fa-4d64-820a-304613f72caa
 msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
 ms.openlocfilehash: a62b473993804312021725642a102c1eeff20f74
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132201"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78530913"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-> Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.
+> W tym podręczniku wprowadzającym opisano sposób tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI biznesowej) i spójnego wyglądu witryny.
 
 - [Tworzenie warstwy dostępu do danych (C#)](creating-a-data-access-layer-cs.md)
 - [Tworzenie warstwy logiki biznesowej (C#)](creating-a-business-logic-layer-cs.md)

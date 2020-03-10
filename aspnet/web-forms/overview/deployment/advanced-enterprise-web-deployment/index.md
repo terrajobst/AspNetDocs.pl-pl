@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 4 Tematy zaawansowane | Dokumentacja firmy Microsoft
+title: ASP.NET 4-Enterprise Deployment Series 4 — Tematy zaawansowane | Microsoft Docs
 author: rick-anderson
-description: Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie.
+description: W tym samouczku przedstawiono sposób wykonywania różnych zadań wymaganych lub pożądanych w wielu scenariuszach wdrażania w przedsiębiorstwie.
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: eacf0e3a-c2e9-4f77-a676-249146f393e8
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
 ms.openlocfilehash: f72ec780623b4240762f35e479b36895db42cee0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127114"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574971"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 4: tematy zaawansowane
 
-> Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie.
+> W tym samouczku przedstawiono sposób wykonywania różnych zadań wymaganych lub pożądanych w wielu scenariuszach wdrażania w przedsiębiorstwie.
 
 - [Zaawansowane wdrażanie w Internecie w przedsiębiorstwie](advanced-enterprise-web-deployment.md)
 - [Wykonywanie wdrożenia z użyciem analizy warunkowej](performing-a-what-if-deployment.md)

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
-title: '[Jak mogę] Rozpoczynanie pracy przy użyciu rozszerzeń ASP.NET AJAX? | Microsoft Docs'
+title: '[Jak:] Zacznij korzystać z ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Należy pamiętać, że ASP.NET AJAX dołączane jako część .NET 3.5, dzięki czemu instalacja część tego pliku wideo jest tylko istotne, jeśli używasz platformy .NET Framework w wersji 2...
+description: Należy zauważyć, że ASP.NET AJAX jest dołączony jako część programu .NET 3,5, więc część instalacji tego wideo ma zastosowanie tylko w przypadku korzystania z .NET Framework wersji 2...
 ms.author: riande
 ms.date: 01/23/2007
 ms.assetid: 75707a81-244f-4fdc-aab3-eaefd9300e43
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 msc.type: video
 ms.openlocfilehash: e3e70c0d43c2f2db13180342730156728fa03cc2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399973"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78629095"
 ---
-# <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Jak mogę] Rozpoczynanie pracy przy użyciu rozszerzeń ASP.NET AJAX?
+# <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Jak:] Zacznij korzystać z ASP.NET AJAX?
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Należy pamiętać, że ASP.NET AJAX dołączane jako część .NET 3.5, dzięki czemu instalacja część tego pliku wideo jest tylko istotne, jeśli używasz programu .NET Framework w wersji 2.0.
+Należy zauważyć, że ASP.NET AJAX jest dołączony jako część programu .NET 3,5, dlatego część instalacji tego wideo ma zastosowanie tylko w przypadku korzystania z .NET Framework wersji 2,0.
 
-[&#9654;Obejrzyj film wideo (minuty 7)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
+[&#9654;Obejrzyj wideo (7 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
 
 > [!div class="step-by-step"]
-> [Next](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)
+> [Dalej](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

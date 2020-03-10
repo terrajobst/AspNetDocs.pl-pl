@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 92fa428608d4ac2bf56d3c6dc9c50f1449295869
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074920"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544514"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 
@@ -22,7 +22,7 @@ ms.locfileid: "77074920"
 >
 > Usługa Microsoft Ajax CDN nie ma umowy SLA powyżej i poza nią przy użyciu Azure CDN.
 >
-> [Ten problem](https://github.com/aspnet/AspNetDocs/issues/116) w usłudze GitHub służy do zgłaszania problemów z usługą Microsoft Ajax CDN.
+> [Ten problem](https://github.com/dotnet/AspNetDocs/issues/116) w usłudze GitHub służy do zgłaszania problemów z usługą Microsoft Ajax CDN.
 
 ## <a name="table-of-contents"></a>Spis treści
 
@@ -777,7 +777,7 @@ Następujące wersje [globalizacji](https://github.com/jquery/globalize "Globali
 
 ### <a name="respond-releases-on-the-cdn"></a>Odpowiedz na wydania w sieci CDN
 
-W sieci CDN są hostowane następujące wersje [odpowiedzi](https://github.com/scottjehl/Respond "Reakcja") :
+W sieci CDN są hostowane następujące wersje [odpowiedzi](https://github.com/scottjehl/Respond "Odpowiedz") :
 
 #### <a name="respond-version-142"></a>Odpowiedz w wersji 1.4.2
 

@@ -1,284 +1,284 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
-title: Włączanie automatycznych testów jednostkowych | Dokumentacja firmy Microsoft
+title: Włącz automatyczne testowanie jednostek | Microsoft Docs
 author: microsoft
-description: Krok 12 pokazuje, jak tworzyć pakiet testów automatycznych jednostkowych, Sprawdź nasze funkcje NerdDinner, a które zapewniło zaufania, aby wprowadzić zmiany...
+description: Krok 12 pokazuje, jak opracować pakiet zautomatyzowanych testów jednostkowych, które weryfikują funkcje NerdDinner, co zapewni nam zaufanie do wprowadzania zmian...
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
 ms.openlocfilehash: 09a7aa186605a6cce48ee94028425ded957c00d3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117354"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541679"
 ---
 # <a name="enable-automated-unit-testing"></a>Włączanie automatycznych testów jednostkowych
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 12 bezpłatnych [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 12 bezpłatnego [samouczka dotyczącego aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , który zawiera instrukcje tworzenia niewielkiej, ale kompletnej aplikacji sieci Web przy użyciu ASP.NET MVC 1.
 > 
-> Kroku 12 pokazuje, jak opracować pakiet testów automatycznych jednostkowych, Sprawdź nasze funkcje NerdDinner, a które zapewniło zaufania do wprowadzania zmian i usprawnień do aplikacji w przyszłości.
+> Krok 12 pokazuje, jak opracować pakiet zautomatyzowanych testów jednostkowych, które weryfikują nasze funkcje NerdDinner, dzięki czemu firma Microsoft będzie mieć pewność, że zmiany i usprawnienia aplikacji w przyszłości zostaną wprowadzone.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
+> Jeśli używasz ASP.NET MVC 3, zalecamy użycie [wprowadzenie ze samouczkami ze sklepu MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) .
 
-## <a name="nerddinner-step-12-unit-testing"></a>NerdDinner krok 12: Testowanie jednostkowe
+## <a name="nerddinner-step-12-unit-testing"></a>NerdDinner Krok 12: testowanie jednostkowe
 
-Możemy tworzyć pakiet testów automatycznych jednostkowych, Sprawdź nasze funkcje NerdDinner, a które zapewniło zaufania do wprowadzania zmian i usprawnień do aplikacji w przyszłości.
+Opracowujmy pakiet zautomatyzowanych testów jednostkowych, które weryfikują nasze funkcje NerdDinner, co zapewni nam pewność, że zmienią się i ulepszają aplikacje w przyszłości.
 
-### <a name="why-unit-test"></a>Dlaczego Test jednostkowy?
+### <a name="why-unit-test"></a>Dlaczego test jednostkowy?
 
-Na dysku do pracy jednym rano masz nagłe flash programu o aplikacji, którą pracujesz. Zorientujesz się, że w przypadku zmiany, które można zaimplementować, aby ułatwić aplikacji znacznie lepiej. Może to być refaktoryzacji, która czyści kod, dodaje nową funkcję lub naprawia błąd.
+Na dysku do pracy o jeden dzień rano masz nagłe błyskanie inspiracji dotyczącej aplikacji, nad którą pracujesz. Istnieje zmiana, którą można zaimplementować, aby zwiększyć jej wydajność. Może to być Refaktoryzacja, która czyści kod, dodaje nową funkcję lub naprawia usterkę.
 
-To pytanie, na które confronts, po przyjeździe do komputera — "jak bezpieczne jest zapewnienie to ulepszenie?" Co w przypadku wprowadzania zmian ma efekty uboczne lub przerywa coś? Zmiany mogą być proste i trwać tylko kilka minut, aby zaimplementować, ale co zrobić, jeśli zajmuje godzin, aby ręcznie przetestować wszystkie scenariusze aplikacji? Co zrobić, Jeśli zapomnisz obejmuje scenariusz i niedziałająca aplikacja przechodzi w środowisku produkcyjnym? Sprawia to ulepszenie naprawdę warto wszystkich wysiłków?
+Pytanie, które ponosisz, gdy przytrzesz do komputera, to "jak bezpiecznie jest to ulepszenie?" Co zrobić, jeśli wprowadzanie zmian ma efekty uboczne lub przerywa coś? Ta zmiana może być prosta i trwa tylko kilka minut, ale co zrobić, aby ręcznie przetestować wszystkie scenariusze aplikacji? Co należy zrobić, jeśli zapomnisz o tym scenariuszu, a uszkodzona aplikacja zacznie działać w środowisku produkcyjnym? Czy zwiększa to nakład pracy?
 
-Automatyczne testy jednostkowe można podać projektowi, która pozwala na stale udoskonalaj swoje aplikacje i uniknąć obawiasz się kod, którą pracujesz. Posiadanie testy automatyczne, które szybko sprawdzić, czy funkcje umożliwiają pomogła Ci w celu ulepszenia, użytkownik może w przeciwnym razie nie mają uznało, doświadczenia i kodu bez obaw — wykonywanie. Ułatwiają również tworzenie rozwiązania, które będzie łatwiejszy w utrzymaniu i dłuższy okres istnienia — które potencjalnych klientów, aby znacznie wyższa zwrotu z inwestycji.
+Zautomatyzowane testy jednostkowe mogą zapewniać bezpieczeństwo sieci, które umożliwiają ciągłe ulepszanie aplikacji oraz uniknięcie boisz kodu, nad którym pracujesz. Dzięki automatycznym testom, które szybko weryfikują funkcje, umożliwiają łatwe zakodowanie i umożliwienie wprowadzenia ulepszeń. Ułatwiają one również tworzenie rozwiązań, które są bardziej utrzymywane i mają dłuższy okres istnienia, co prowadzi do znacznie większego zwrotu z inwestycji.
 
-Platforma ASP.NET MVC ułatwia naturalna funkcji aplikacji testów jednostkowych. Umożliwia ona także testów opartych na rozwój (TDD) przepływu pracy, który umożliwia oparte na rozwoju pierwszego badania.
+Platforma ASP.NET MVC umożliwia łatwe i naturalne działanie aplikacji testów jednostkowych. Umożliwia także przepływ pracy programowania testowego (TDD), który umożliwia tworzenie na podstawie testów w pierwszej kolejności.
 
 ### <a name="nerddinnertests-project"></a>NerdDinner.Tests Project
 
-Wtedy stworzyliśmy naszej aplikacji NerdDinner na początku tego samouczka będziemy pojawiał się monit z pytaniem, czy Chcieliśmy, aby utworzyć projekt testu jednostkowego nikogo projekt aplikacji do okna dialogowego:
+Po utworzeniu naszej aplikacji NerdDinner na początku tego samouczka zostanie wyświetlony monit z oknem dialogowym z pytaniem, czy chcemy utworzyć projekt testu jednostkowego, aby przejść do projektu aplikacji:
 
 ![](enable-automated-unit-testing/_static/image1.png)
 
-Firma Microsoft przechowywane "Tak, Utwórz projekt testu jednostkowego" zaznaczony przycisk radiowy — co spowodowało w projekcie "NerdDinner.Tests" dodawany do naszego rozwiązania:
+Pozostawiono przycisk radiowy "tak, Utwórz projekt testu jednostkowego", który spowodował dodanie projektu "NerdDinner. Tests" do naszego rozwiązania:
 
 ![](enable-automated-unit-testing/_static/image2.png)
 
-Projekt NerdDinner.Tests odwołuje się do zestawu projektów aplikacji NerdDinner i pozwala na łatwe dodawanie testów automatycznych, aby sprawdzić działanie aplikacji.
+Projekt NerdDinner. Tests odwołuje się do zestawu projektu aplikacji NerdDinner i umożliwia łatwe dodawanie do niego zautomatyzowanych testów, które weryfikują funkcjonalność aplikacji.
 
-### <a name="creating-unit-tests-for-our-dinner-model-class"></a>Tworzenie testów jednostkowych dla naszych obiad klasy modelu
+### <a name="creating-unit-tests-for-our-dinner-model-class"></a>Tworzenie testów jednostkowych dla naszej klasy modelu obiadu
 
-Dodajmy niektóre testy do naszego projektu NerdDinner.Tests, który zweryfikować obiad klasy, którą utworzyliśmy, gdy opracowaliśmy nasze warstwy modelu.
+Dodajmy kilka testów do naszego projektu NerdDinner. Tests, który weryfikuje klasę obiadu utworzoną podczas tworzenia naszej warstwy modelu.
 
-Zaczniemy, tworząc nowy folder w projekcie testu o nazwie "Modele", gdzie będzie umieszczać Nasze testy związane z modelu. Następnie utworzymy kliknij prawym przyciskiem myszy w folderze i wybierz **Add -&gt;nowy Test** polecenia menu. Zostanie wyświetlone okno dialogowe "Dodaj nowy Test".
+Zaczniemy od utworzenia nowego folderu w naszym projekcie testowym o nazwie "models", gdzie umieścimy testy związane z modelem. Następnie kliknij prawym przyciskiem myszy folder i wybierz polecenie **dodaj&gt;nowego testu** . Spowoduje to wyświetlenie okna dialogowego "Dodawanie nowego testu".
 
-Wybraliśmy tworzenie "Testu jednostkowego" i nadaj mu nazwę "DinnerTest.cs":
+Utworzymy "test jednostkowy" i nadaj mu nazwę "DinnerTest.cs":
 
 ![](enable-automated-unit-testing/_static/image3.png)
 
-Po kliknięciu przycisku "ok" Visual Studio Dodaj (i otworzyć) DinnerTest.cs plik do projektu:
+Po kliknięciu przycisku "OK" program Visual Studio doda (i otworzy) plik DinnerTest.cs do projektu:
 
 ![](enable-automated-unit-testing/_static/image4.png)
 
-Domyślny szablon testu jednostki programu Visual Studio zawiera bunch kodu kocioł tablicy znajdujący się w nim, który można znaleźć nieco nieuporządkowane. Teraz oczyścić je tylko zawierać poniższy kod:
+Domyślny szablon testu jednostkowego programu Visual Studio zawiera wiele kodów płyt kotłów w tym samym czasie. Wyczyśćmy go, aby dokładnie zawierał Poniższy kod:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample1.cs)]
 
-Atrybut [TestClass] w klasie DinnerTest powyżej identyfikuje je jako klasę, która będzie zawierać testów, oraz opcjonalne badanie inicjowania i kod wirtualnego. Firma Microsoft może zdefiniować testy w nim, przez dodanie metody publiczne, których atrybut [TestMethod].
+Atrybut [TestClass] w powyższej klasie DinnerTest identyfikuje go jako klasę, która będzie zawierać testy, a także opcjonalne inicjalizacje testu i kod usuwania. Możemy definiować testy w ramach tego programu, dodając do nich metody publiczne, które mają atrybut [TestMethod].
 
-Poniżej przedstawiono to pierwsza z dwóch testów, które dodamy, które korzystają z naszych klasy firmy Dinner. Pierwszy test sprawdza, nasze obiad jest nieprawidłowy, jeśli nowe obiad została utworzona bez wszystkich właściwości prawidłowo ustawione. Drugi test sprawdza, czy naszych obiad prawidłowe po obiad ma wszystkie właściwości ustaw prawidłowymi wartościami:
+Poniżej znajdują się pierwsze dwa testy, które dodamy do naszej klasy obiadu. Pierwszy test sprawdza, czy nasz obiad jest nieprawidłowy, jeśli zostanie utworzony nowy obiad bez poprawnego ustawiania wszystkich właściwości. Drugi test sprawdza, czy nasz obiad jest ważny, gdy kolacja ma wszystkie właściwości ustawione z prawidłowymi wartościami:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample2.cs)]
 
-Powyżej zauważysz, że nasze nazwy testu są bardzo jawne (i nieco pełne). Robimy to, ponieważ firma Microsoft może się to zakończyć tworzenie setek lub tysięcy testów małych i chcemy ułatwić szybko określić przeznaczenie i zachowanie każdego z nich (szczególnie w przypadku czekamy na liście błędów w programie test runner). Powinien zostać nazwany nazwy testów po funkcje, które poddawanego testom. Powyżej użyto "rzeczownik\_powinien\_czasownik" wzorca nazewnictwa.
+Należy zauważyć, że nasze nazwy testów są bardzo jawne (i nieco pełne). Możemy to zrobić, ponieważ możemy utworzyć setki lub tysiące małych testów i chcemy ułatwić szybkie ustalenie założeń i zachowań dla każdego z nich (zwłaszcza w przypadku przeszukiwania listy błędów w module uruchamiającego testy). Nazwy testów należy nazwać po testowaniu funkcji. W powyższym przypadku użyto wzorca nazewnictwa "rzeczownik\_powinien\_".
 
-Firma Microsoft struktury testów za pomocą testowania wzorca — co znaczyło "Rozmieść, Act, Asercja" "AAA":
+Prowadzimy do tworzenia struktury testów przy użyciu wzorca testowania "AAA" — który oznacza "porządkowanie, działanie, potwierdzenie":
 
-- Rozmieść: Konfigurowanie jednostki poddawana testom
-- Działanie: Wykonuje jednostki w ramach testu i przechwytywania wyników
-- Assert: Sprawdź działanie
+- Rozmieść: konfiguruje testowaną jednostkę
+- Działanie: wykonywanie testu i wyników przechwytywania
+- Potwierdzenie: sprawdzenie zachowania
 
-Podczas pisania testów, które chcemy, aby uniknąć indywidualnych testów są zbyt dużo. Zamiast tego każdy test powinien sprawdzić tylko jednego koncepcja (co spowoduje, że jej znacznie łatwiejsze w określeniu przyczyny awarii). Dobrą praktyką jest spróbuj i może zawierać tylko jeden assert instrukcji dla każdego testu. Jeśli masz więcej niż jedną asercję instrukcji w metodzie testowej, upewnij się, że są one wszystkie używane do testowania tego samego pojęcia. W razie wątpliwości należy innego testu.
+Podczas pisania testów, które chcemy uniknąć, że poszczególne testy są zbyt duże. Zamiast tego każdy test powinien weryfikować tylko pojedyncze koncepcje (co znacznie ułatwia identyfikowanie przyczyn błędów). Dobrym warunkiem jest wypróbowanie i posiadanie tylko jednej instrukcji Assert dla każdego testu. Jeśli masz więcej niż jedną instrukcję Assert w metodzie testowej, upewnij się, że są one używane do testowania tego samego pojęcia. W razie wątpliwości wykonaj inny test.
 
 ### <a name="running-tests"></a>Uruchamianie testów
 
-Visual Studio 2008 Professional (i nowsze wersje) zawiera wbudowane uruchamiający, który może służyć do uruchamiania jednostki Test programu Visual Studio projektów związanych z poziomu środowiska IDE. Można wybrać **Test -&gt;Uruchom -&gt;wszystkie testy w rozwiązaniu** polecenia menu (lub typu Ctrl R, A) należy uruchomić wszystkie nasze testy jednostkowe. Lub też firma Microsoft Ustaw naszych kursor wewnątrz metody klasy lub test testów określonych i użyj **Test -&gt;Uruchom -&gt;testy z bieżącego kontekstu** polecenia menu (lub typu Ctrl R, T) do uruchamiania podzestaw testów jednostkowych.
+Program Visual Studio 2008 Professional (i nowsze wersje) zawiera wbudowany moduł uruchamiający testy, który może służyć do uruchamiania projektów testów jednostkowych programu Visual Studio w środowisku IDE. Aby uruchomić wszystkie testy jednostkowe, możemy wybrać polecenie **test-&gt;Run-&gt;wszystkie testy w rozwiązaniu** . Alternatywnie możemy umieścić kursor w ramach konkretnej klasy testowej lub metody testowej, a następnie użyć **test-&gt;Run-&gt;testy w bieżącym menu kontekstowym** (lub wpisać Ctrl R, t), aby uruchomić podzestaw testów jednostkowych.
 
-Umożliwia umieszczanie naszych kursora w obrębie klasy DinnerTest i wpisz "Ctrl R, T", aby testy wykonywania dwóch, które właśnie zdefiniowane. Gdy odbywa się to okno "Wyniki testu" będą wyświetlane w programie Visual Studio, a zobaczymy wyników naszego testu wymienionych w nim:
+Umieść kursor w klasie DinnerTest i wpisz ciąg "Ctrl R, T", aby uruchomić dwa testy, które właśnie zostały zdefiniowane. Gdy to zrobisz, okno "Wyniki testów" pojawi się w programie Visual Studio i zobaczymy wyniki naszego przebiegu testu w ramach tego elementu:
 
 ![](enable-automated-unit-testing/_static/image5.png)
 
-*Uwaga: Okno wyników testów programu VS nie są wyświetlane w kolumnie Nazwa klasy domyślnie. Możesz dodać dziennik, kliknij prawym przyciskiem myszy w oknie wyników badań i za pomocą polecenia menu Dodaj/Usuń kolumny.*
+*Uwaga: w oknie wyników testów programu VS nie jest domyślnie wyświetlana kolumna Nazwa klasy. Możesz to zrobić, klikając prawym przyciskiem myszy w oknie Wyniki testów i korzystając z menu Dodaj/Usuń kolumny.*
 
-Nasze dwa testy trwały za ułamek chwilę, aby uruchomić — i jak można znaleźć zarówno przekazywały. Firma Microsoft jest teraz przejść na i rozszerzać je, tworząc dodatkowe testy, które sprawdzić poprawności określonej reguły, a także obejmują dwie metody pomocnika - IsUserHost() i IsUserRegistered() — dodaną do klasy firmy Dinner. Posiadanie tych testów w miejscu dla klasy firmy Dinner, spowoduje to znacznie łatwiejsze i bezpieczniejsze dodać nowe reguły biznesowe i sprawdzania poprawności do niego w przyszłości. Firma Microsoft Dodaj naszej nowej logiki reguły do obiad, a następnie w ciągu kilku sekund Sprawdź, czy go nie zostało przerwane żadnego z naszych poprzedniej funkcji logic.
+Nasze dwa testy miały tylko część sekundową do uruchomienia — i są widoczne w obu przypadkach. Możemy teraz przejść i rozszerzyć je przez utworzenie dodatkowych testów, które weryfikują określone walidacje reguł, a także obejmują dwie metody pomocnika-IsUserHost () i IsUserRegistered () — dodawane do klasy obiadu. Wszystkie te testy dla klasy obiadu znacznie ułatwiają i bezpiecznie dodają do nich nowe reguły biznesowe oraz ich walidacje. Możemy dodać nową logikę reguł do obiadu, a następnie w ciągu kilku sekund Sprawdź, czy nie zainstalowano żadnej z poprzednich funkcji logiki.
 
-Zwróć uwagę, jak przy użyciu nazwy, opisu testu można łatwo szybko zrozumieć, co sprawdza każdy test. Zaleca się **narzędzia -&gt;opcje** polecenia menu, otwierając Test Tools —&gt;ekran konfiguracji wykonywania testów i sprawdzanie, czy "dwukrotne kliknięcie wyniku testu jednostkowego nie powiodło się lub niejednoznaczny Wyświetla pole wyboru punktu awarii w teście". Pozwoli to kliknij dwukrotnie błąd w oknie wyników testu i przejść od razu z niepowodzeniem asercji.
+Zwróć uwagę, jak za pomocą opisowej nazwy testu ułatwić szybkie zapoznanie się z każdym testem. Zaleca się użycie polecenia **Narzędzia-&gt;opcje** menu, otwarcie ekranu narzędzia testowe —&gt;konfiguracja wykonywania testu, a zaznaczenie pola wyboru "podwójna kliknięcie wyniku testu jednostkowego zakończonego niepowodzeniem lub niejednoznacznego spowoduje wyświetlenie punktu awarii w teście". Umożliwi to dwukrotne kliknięcie błędu w oknie wyników testu i natychmiastowe przechodzenie do błędu potwierdzenia.
 
 ### <a name="creating-dinnerscontroller-unit-tests"></a>Tworzenie testów jednostkowych DinnersController
 
-Utwórzmy teraz niektóre testy jednostkowe, które Sprawdź nasze funkcje DinnersController. Firma Microsoft będzie uruchomić, klikając prawym przyciskiem myszy w folderze "Kontrolerów" w projekcie testów, a następnie kliknij **Add -&gt;nowy Test** polecenia menu. Utworzymy "Unit Test" i nadaj mu nazwę "DinnersControllerTest.cs".
+Utwórzmy teraz testy jednostkowe, które weryfikują funkcje DinnersController. Rozpocznie się po kliknięciu prawym przyciskiem myszy folderu "controllers" w naszym projekcie testowym, a następnie wybierz polecenie **Add-&gt;New test** menu. Utworzymy "test jednostkowy" i nadaj mu nazwę "DinnersControllerTest.cs".
 
-Utworzymy dwie metody testowe, weryfikujące metody akcji Details() na DinnersController. Pierwszy sprawdzi, czy widok jest zwracany zleconą obiad z istniejących. Drugi sprawdzi, czy widok "NotFound" jest zwracany, gdy zażądano obiad nieistniejącej:
+Utworzymy dwie metody testowe, które weryfikują metodę Action () na DinnersController. Pierwsza z nich sprawdzi, czy widok jest zwracany po zażądaniu istniejącego obiadu. Drugi sprawdzi, czy widok "NotFound" jest zwracany, gdy zażądano nieistniejącego obiadu:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample3.cs)]
 
-Powyższy kod kompiluje się czyszczenie. Uruchamiania testów, jednak także zakończyć się niepowodzeniem:
+Powyższy kod kompiluje czysty. Gdy uruchamiamy testy, to oba z nich kończą się niepowodzeniem:
 
 ![](enable-automated-unit-testing/_static/image6.png)
 
-Jeśli przyjrzymy się komunikaty o błędach, zobaczymy, że został powodu testy nie powiodło się, ponieważ klasy Nasze DinnersRepository nie nawiązał połączenia z bazą danych. Nasza aplikacja NerdDinner używa parametrów połączenia do lokalnego pliku programu SQL Server Express, który znajduje się w obszarze \App\_danych katalogu projektu aplikacji NerdDinner. Ponieważ projekcie NerdDinner.Tests kompiluje i uruchamia w innym katalogu następnie projekt aplikacji, lokalizację ścieżki względnej nasze parametry połączenia jest niepoprawny.
+Jeśli przejdziesz do komunikatów o błędach, zobaczymy, że przyczyna niepowodzenia testów była spowodowana tym, że nasze klasy DinnersRepository nie mogły nawiązać połączenia z bazą danych. Nasza aplikacja NerdDinner korzysta z parametrów połączenia do lokalnego pliku SQL Server Express, który znajduje się w katalogu \app\_danych projektu aplikacji NerdDinner. Ponieważ nasze projekty NerdDinner. Tests kompilują i uruchamiają się w innym katalogu, projekt aplikacji, lokalizacja ścieżki względnej naszego ciągu połączenia jest niepoprawna.
 
-Firma Microsoft *można* rozwiązać ten problem przez skopiowanie pliku bazy danych programu SQL Express do naszego projektu testu, a następnie dodać do niego parametry połączenia usługi odpowiednich testów w pliku App.config projektu testu w naszym. To otrzymamy powyższych testów zostało odblokowane i uruchomione.
+Możemy *rozwiązać* ten problem, kopiując plik bazy danych SQL Express do naszego projektu testowego, a następnie Dodaj do niego odpowiednie parametry połączenia testowego w pliku App. config naszego projektu testowego. Powyższe testy zostaną odblokowane i uruchomione.
 
-Testy jednostkowe kodu przy użyciu rzeczywistego bazy danych, jednak wnosi wiele wyzwań. W szczególności:
+Kod testu jednostkowego korzystający z rzeczywistej bazy danych, mimo że oferuje mu wiele wyzwań. Są to:
 
-- Znacznie zmniejsza czas wykonania testów jednostkowych. Tym dłużej trwa do uruchomienia testów, mniej prawdopodobne, zostaną wykonane za pomocą często. Najlepiej ma testy jednostkowe, aby można było można uruchomić w ciągu kilku sekund — i być coś, co możesz zrobić, naturalny sposób jako kompilowania projektu.
-- Utrudnia to logiki instalacyjne i czyszczące w ramach testów. Chcesz, aby każdy test jednostkowy być izolowane, niezależnie od innych (z nie efektów ubocznych lub zależności). Podczas pracy w bazie danych rzeczywistych należy zachować ostrożność, stanu i zresetowanie jej między testami.
+- Znacznie spowalnia czas wykonywania testów jednostkowych. Im dłużej trwa uruchamianie testów, tym mniej najprawdopodobniej są one wykonywane często. Najlepiej, aby testy jednostkowe mogły być uruchamiane w ciągu kilku sekund — i mieć coś, co w przypadku kompilowania projektu.
+- Powoduje to skomplikowanie logiki instalacji i czyszczenia w ramach testów. Każdy test jednostkowy ma być odizolowany i niezależny od innych (bez efektów ubocznych ani zależności). Podczas pracy z rzeczywistą bazą danych należy mieć na uwadze stan i zresetować ją między testami.
 
-Przyjrzyjmy się wzorca projektowego o nazwie "wstrzykiwanie zależności", które mogą pomóc nam obejścia tych problemów i uniknąć konieczności rzeczywistego bazy danych za pomocą naszych testach.
+Przyjrzyjmy się wzorowi projektu o nazwie "iniekcja zależności", który może pomóc nam w obejść te problemy i uniknąć konieczności używania rzeczywistej bazy danych z naszymi testami.
 
 ### <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-Teraz DinnersController jest "ściśle" do klasy DinnerRepository. "Sprzężenia" odwołuje się do sytuacji, w których klasa jawnie opiera się na innej klasy do działania:
+Teraz DinnersController jest ściśle "sprzężone" z klasą DinnerRepository. "Sprzęganie" odnosi się do sytuacji, w której Klasa jawnie opiera się na innej klasie w celu pracy:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample4.cs)]
 
-Ponieważ klasa DinnerRepository wymaga dostępu do bazy danych, ściśle sprzężonych zależności DinnersController klasa ma na końcach DinnerRepository się konieczności byliśmy bazy danych w kolejności dla metody akcji DinnersController, który ma zostać przetestowana.
+Ponieważ Klasa DinnerRepository wymaga dostępu do bazy danych, ściśle sprzężona zależność klasy DinnersController ma na DinnerRepository, co pozwala na przetestowanie metod akcji DinnersController.
 
-Firma Microsoft można uzyskać wokół tego zatrudniająca wzorca projektowego o nazwie "wstrzykiwanie zależności" — czyli podejścia, gdzie (na przykład klasy repozytorium, które zapewniają dostęp do danych) nie jest już niejawnie tworzenia zależności w obrębie klasy, które z nich korzystają. Zamiast tego zależności mogą być jawnie przekazywane do klasy, która korzysta z nich przy użyciu argumentów konstruktora. Jeśli zależności są zdefiniowane przy użyciu interfejsów, następnie mamy elastyczność, aby przekazać zależności "fałszywych" implementacje dla scenariuszy testowania jednostek. Pozwala to nam do utworzenia implementacji specyficznych dla testu zależności, które faktycznie nie wymagają dostępu do bazy danych.
+Można to zrobić, wykorzystując Wzorzec projektowy nazywany "iniekcją zależności", który jest podejściem, w którym zależności (takie jak klasy repozytorium, które zapewniają dostęp do danych), nie są już niejawnie tworzone w ramach klas, które z nich korzystają. Zamiast tego zależności mogą być jawnie przekazane do klasy, która używa ich przy użyciu argumentów konstruktora. Jeśli zależności są zdefiniowane przy użyciu interfejsów, zapewniamy elastyczność przekazywania "fałszywych" implementacji zależności dla scenariuszy testów jednostkowych. Dzięki temu możemy tworzyć specyficzne dla testów implementacje zależne, które nie wymagają dostępu do bazy danych.
 
-Aby to zobaczyć w działaniu, umożliwia Implementowanie wstrzykiwanie zależności za pomocą naszych DinnersController.
+Aby zobaczyć to w działaniu, zaimplementujmy iniekcję zależności z naszymi DinnersController.
 
 #### <a name="extracting-an-idinnerrepository-interface"></a>Wyodrębnianie interfejsu IDinnerRepository
 
-Naszym pierwszym krokiem będzie utworzenie nowego interfejsu IDinnerRepository, który hermetyzuje kontrakt repozytorium, który naszym kontrolery wymagają pobierania i aktualizowania kolacji.
+Pierwszym krokiem jest utworzenie nowego interfejsu IDinnerRepository, który hermetyzuje kontrakt repozytorium wymagane przez naszych kontrolerów do pobierania i aktualizowania obiadów.
 
-Firma Microsoft można zdefiniować ten kontrakt interfejsu ręcznie, klikając prawym przyciskiem myszy w folderze \Models, a następnie wybierając **Add -&gt;nowy element** polecenia menu i tworzenie nowego interfejsu o nazwie IDinnerRepository.cs.
+Możemy zdefiniować ten kontrakt interfejsu ręcznie, klikając prawym przyciskiem myszy folder \Models, a następnie wybierając polecenie menu **&gt;Dodaj nowy element** i tworząc nowy interfejs o nazwie IDinnerRepository.cs.
 
-Możemy również extract refaktoryzację narzędzia wbudowana w program Visual Studio Professional (i nowsze wersje) automatycznie używać i tworzenia interfejsu dla nas z naszej istniejącej klasy DinnerRepository. Aby wyodrębnić ten interfejs, za pomocą programu VS, po prostu umieść kursor w edytorze tekstów w klasie DinnerRepository, a następnie kliknij prawym przyciskiem myszy i wybierz **Zrefaktoryzuj -&gt;Wyodrębnij interfejs** polecenia menu:
+Alternatywnie możemy użyć narzędzi refaktoryzacji wbudowanych Visual Studio Professional (i wyższych) do automatycznego wyodrębniania i tworzenia interfejsu dla nas z istniejącej klasy DinnerRepository. Aby wyodrębnić ten interfejs przy użyciu programu VS, po prostu umieść kursor w edytorze tekstu na klasie DinnerRepository, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie **&gt;"Wyodrębnij interfejs menu interfejsu** :
 
 ![](enable-automated-unit-testing/_static/image7.png)
 
-To spowoduje uruchomienie okna dialogowego "Wyodrębnij interfejs" i Monituj nas o nazwa interfejsu, aby utworzyć. Zostanie domyślnie IDinnerRepository i automatycznie wybiera wszystkich metod publicznych w istniejącej klasie DinnerRepository do dodania do interfejsu:
+Spowoduje to uruchomienie okna dialogowego "wyodrębnienie interfejsu" i wyświetlenie monitu o podanie nazwy interfejsu do utworzenia. Zostanie ona domyślnie IDinnerRepository i automatycznie wybierze wszystkie metody publiczne z istniejącej klasy DinnerRepository w celu dodania do interfejsu:
 
 ![](enable-automated-unit-testing/_static/image8.png)
 
-Kliknięcie przycisku "ok", programu Visual Studio doda nowy interfejs IDinnerRepository do naszej aplikacji:
+Po kliknięciu przycisku "OK" program Visual Studio doda do naszej aplikacji nowy interfejs IDinnerRepository:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample5.cs)]
 
-I naszej istniejącej klasy DinnerRepository zostanie zaktualizowana tak, aby go implementuje interfejs:
+I istniejąca Klasa DinnerRepository zostanie zaktualizowana w celu zaimplementowania interfejsu:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample6.cs)]
 
-#### <a name="updating-dinnerscontroller-to-support-constructor-injection"></a>Aktualizowanie DinnersController w celu obsługi iniekcji konstruktora
+#### <a name="updating-dinnerscontroller-to-support-constructor-injection"></a>Aktualizowanie DinnersController na potrzeby obsługi iniekcji konstruktorów
 
-Teraz zaktualizujemy klasy DinnersController, aby korzystać z nowego interfejsu.
+Teraz zaktualizujemy klasę DinnersController, aby korzystała z nowego interfejsu.
 
-Obecnie DinnersController zostało zakodowane taki sposób, że jego pole "dinnerRepository" jest zawsze klasy DinnerRepository:
+Obecnie DinnersController jest zakodowana w taki sposób, że pole "dinnerRepository" zawsze jest klasą DinnerRepository:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample7.cs)]
 
-Zmienimy je, tak aby pole "dinnerRepository" jest typu IDinnerRepository zamiast DinnerRepository. Następnie dodamy dwa publiczne konstruktory DinnersController. Jednym z konstruktorów umożliwia IDinnerRepository został przekazany jako argument. Domyślny konstruktor używający naszej istniejącej implementacji DinnerRepository drugi to:
+Zmienimy ją tak, aby pole "dinnerRepository" było typu IDinnerRepository zamiast DinnerRepository. Następnie dodamy dwa publiczne konstruktory DinnersController. Jeden z konstruktorów umożliwia przekazanie IDinnerRepository jako argumentu. Drugi jest konstruktorem domyślnym, który używa naszej istniejącej implementacji DinnerRepository:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample8.cs)]
 
-Ponieważ platformy ASP.NET MVC, domyślnie tworzy klasy kontrolera przy użyciu domyślnych konstruktorów, nasze DinnersController w czasie wykonywania będzie korzystanie z klasy DinnerRepository przeprowadzić dostępu do danych.
+Ponieważ ASP.NET MVC domyślnie tworzy klasy kontrolerów przy użyciu konstruktorów domyślnych, nasze DinnersController w środowisku uruchomieniowym nadal będzie używać klasy DinnerRepository do wykonywania dostępu do danych.
 
-Możemy teraz zaktualizować Nasze testy jednostkowe, jednak do przekazania w implementacji repozytorium obiad z "fałszywą" za pomocą konstruktora parametru. To repozytorium obiad z "fałszywą" nie będzie wymagać dostępu do rzeczywistego bazy danych, a zamiast tego użyje danych przykładowych w pamięci.
+Teraz możemy zaktualizować nasze testy jednostkowe, aby przekazać "fałszywą" implementację repozytorium obiadu przy użyciu konstruktora parametrów. To "fałszywe" repozytorium obiadu nie będzie wymagało dostępu do rzeczywistej bazy danych, a zamiast tego będzie używać danych przykładowych w pamięci.
 
 #### <a name="creating-the-fakedinnerrepository-class"></a>Tworzenie klasy FakeDinnerRepository
 
-Utwórz klasę FakeDinnerRepository.
+Utwórzmy klasę FakeDinnerRepository.
 
-Firma Microsoft będzie Rozpocznij od utworzenia katalogu "Substytuty" w projekcie NerdDinner.Tests, a następnie dodaj nową klasę FakeDinnerRepository do niego (kliknij prawym przyciskiem myszy w folderze, a następnie wybierz **Add -&gt;nową klasę**):
+Zaczniemy od utworzenia katalogu "sztuczne" w projekcie NerdDinner. Tests, a następnie dodania do niego nowej klasy FakeDinnerRepository (kliknij prawym przyciskiem myszy folder i wybierz polecenie **Dodaj-&gt;nową klasę**):
 
 ![](enable-automated-unit-testing/_static/image9.png)
 
-Tak, aby klasa FakeDinnerRepository implementuje interfejs IDinnerRepository kodu zostaną zaktualizowane. Firma Microsoft następnie kliknij prawym przyciskiem myszy na nim i wybierz polecenie "Implementuj interfejs IDinnerRepository" z menu kontekstowego:
+Zaktualizujemy kod, tak aby Klasa FakeDinnerRepository implementuje interfejs IDinnerRepository. Następnie możemy kliknąć prawym przyciskiem myszy i wybrać polecenie menu kontekstowego "Implementuj interfejs IDinnerRepository":
 
 ![](enable-automated-unit-testing/_static/image10.png)
 
-To spowoduje, że Visual Studio, aby automatycznie dodać wszyscy członkowie interfejsu IDinnerRepository klasy Nasze FakeDinnerRepository przy użyciu domyślnej implementacji "namiastki":
+Spowoduje to, że program Visual Studio automatycznie doda wszystkie elementy członkowskie interfejsu IDinnerRepository do klasy FakeDinnerRepository z domyślnymi implementacjami "szczątkowego":
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample9.cs)]
 
-Firma Microsoft może uaktualnić wdrożenia FakeDinnerRepository pracę zniżki w stosunku do listy w pamięci&lt;obiad&gt; kolekcji przekazany jako argument konstruktora:
+Następnie możemy zaktualizować implementację FakeDinnerRepository, aby mogła zostać wykorzystana z listy znajdującej się w pamięci&lt;obiad&gt; przekazanej do niego jako argument konstruktora:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample10.cs)]
 
-W efekcie powstał fałszywych implementację IDinnerRepository, która nie wymaga bazy danych, a zamiast tego mogą pracować poza w pamięci listę obiektów obiad.
+Mamy teraz fałszywą implementację IDinnerRepository, która nie wymaga bazy danych, i można w zamian wprowadzić ją na liście obiektów obiadu znajdujących się w pamięci.
 
-#### <a name="using-the-fakedinnerrepository-with-unit-tests"></a>Za pomocą FakeDinnerRepository przy użyciu testów jednostkowych
+#### <a name="using-the-fakedinnerrepository-with-unit-tests"></a>Używanie FakeDinnerRepository z testami jednostkowymi
 
-Powrócimy do testów jednostkowych DinnersController, które nie powiodły się wcześniej, ponieważ baza danych nie była dostępna. Aktualizujemy metody testowe, aby użyć FakeDinnerRepository wypełniona przykładowymi danymi o obiad w pamięci do DinnersController przy użyciu poniższego kodu:
+Wróćmy do testów jednostkowych DinnersController, które nie powiodły się wcześniej, ponieważ baza danych nie była dostępna. Możemy zaktualizować metody testowe, aby użyć FakeDinnerRepository wypełnionego przykładowymi danymi obiadu w pamięci do DinnersController przy użyciu poniższego kodu:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample11.cs)]
 
-A teraz możemy uruchamiania tych testów zarówno przekazują:
+Teraz, gdy uruchomimy te testy w obu przebiegach:
 
 ![](enable-automated-unit-testing/_static/image11.png)
 
-Przede wszystkim mogą zająć jedynie ułamek sekund do uruchomienia i nie wymagają wszelka logika skomplikowane instalacji/czyszczenia. Możemy teraz testów jednostkowych wszystkich naszych DinnersController akcji kodu metody (takie jak listy, stronicowanie i uzyskać szczegółowe informacje, tworzenie, aktualizowanie i usuwanie) bez połączenia z prawdziwą bazą danych.
+Najlepszym rozwiązaniem jest użycie tylko części sekundy do uruchomienia i nie wymaga skomplikowanej logiki instalacji/oczyszczania. Możemy teraz testować jednostkowo cały kod metody akcji DinnersController (w tym wyświetlanie, stronicowanie, szczegóły, tworzenie, aktualizowanie i usuwanie) bez konieczności nawiązywania połączenia z rzeczywistą bazą danych.
 
-| **Temat po stronie: Struktury wstrzykiwania zależności** |
+| **Temat boczny: struktury iniekcji zależności** |
 | --- |
-| Wykonywanie wstrzykiwanie zależności ręczne (np. Firma Microsoft znajdują się powyżej) działa poprawnie, ale stać się trudniejsze do utrzymania jako liczba zależności i zwiększa składników w aplikacji. Istnieje kilka środowisk iniekcji zależności dla platformy .NET, która pomaga zapewnić jeszcze większą elastyczność zarządzania zależności. Te struktury, czasami nazywane "Inwersja kontroli" (IoC) kontenerów, zapewniają mechanizmy, umożliwiających dodatkowy poziom obsługi konfiguracji dotyczące określania i przekazanie zależności do obiektów w czasie wykonywania (w większości przypadków przy użyciu iniekcji konstruktora ). Niektóre z najpopularniejszych wstrzykiwanie zależności OSS / include IOC platform na platformie .NET: AutoFac Ninject, Spring.NET, StructureMap i Windsor. ASP.NET MVC udostępnia rozszerzalności interfejsów API, które deweloperzy mogą uczestniczyć w rozdzielczości i tworzenia wystąpień kontrolerów i umożliwiająca wstrzykiwanie zależności / platform IoC powinny zostać prawidłowo włączone w ramach tego procesu. Za pomocą platformy DI/IOC będzie również pozwalają nam można usunąć domyślnego konstruktora z naszych DinnersController — która całkowicie usunąć sprzężenia między nim a DinnerRepository. Firma Microsoft nie będzie można za pomocą iniekcji zależności / framework IOC z naszej aplikacji NerdDinner. Ale to coś, które firma Microsoft może wziąć pod uwagę na przyszłość Jeśli zwiększył bazy kodu NerdDinner i możliwości. |
+| Ręczne wstrzyknięcie zależności (na przykład powyżej) działa prawidłowo, ale staje się trudniejsze do utrzymania w miarę zwiększania liczby zależności i składników w aplikacji. Istnieje kilka struktur iniekcji zależności dla platformy .NET, które mogą pomóc zapewnić jeszcze większą elastyczność zarządzania zależnościami. Te struktury, czasami nazywane kontenerami "Inversion of Control" (IoC), zapewniają mechanizmy, które umożliwiają obsługę dodatkowego poziomu konfiguracji do określania i przekazywania zależności do obiektów w czasie wykonywania (najczęściej przy użyciu iniekcji konstruktorów ). Niektóre z najpopularniejszych struktur iniekcji/IOC w programie .NET obejmują: AutoFac, Ninject, Spring.NET, StructureMap i Windsor. ASP.NET MVC uwidacznia interfejsy API rozszerzalności, które umożliwiają deweloperom uczestnictwo w rozwiązywaniu i tworzeniu wystąpień kontrolerów, co pozwala na czystą integrację funkcji iniekcji/IoC w ramach tego procesu. Przy użyciu platformy DI/IOC można również usunąć konstruktora domyślnego z naszego DinnersController — spowoduje to całkowite usunięcie sprzężenia między nim i DinnerRepository. Nie będziemy używać platformy iniekcji/IOC z naszą aplikacją NerdDinner. Jest to jednak coś, co możemy wziąć pod uwagę w przyszłości, jeśli NerdDinner kod — podstawowy i możliwości. |
 
 ### <a name="creating-edit-action-unit-tests"></a>Tworzenie testów jednostkowych akcji edycji
 
-Utwórzmy teraz niektóre testy jednostkowe, które sprawdzają funkcje edycji DinnersController. Zaczniemy od testowania wersji HTTP GET naszej akcji edycji:
+Utwórz teraz testy jednostkowe, które weryfikują funkcje edycji DinnersController. Zaczniemy od przetestowania wersji HTTP-GET operacji edycji:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample12.cs)]
 
-Utworzymy test, który sprawdza renderowania widoku, wspierane przez obiekt DinnerFormViewModel ponownie w przypadku, gdy wymagane jest prawidłowe obiad:
+Utworzymy test, który sprawdza, czy widok, którego kopia zapasowa jest obiektem DinnerFormViewModel, jest renderowany z powrotem po zażądaniu prawidłowego obiadu:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample13.cs)]
 
-Uruchomienie testu, jednak firma Microsoft znajdują się to niemożliwe, ponieważ wyjątek odwołania o wartości null jest zgłaszany, gdy właściwość User.Identity.Name sprawdzania Dinner.IsHostedBy() uzyskuje dostęp do funkcji edycji.
+Gdy uruchamiamy test, okaże się, że nie powiedzie się, ponieważ wyjątek odwołania o wartości null jest generowany, gdy metoda Edytuj uzyskuje dostęp do właściwości User.Identity.Name w celu wykonania sprawdzenia obiadu. IsHostedBy ().
 
-Obiekt użytkownika w klasie bazowej kontrolera hermetyzuje szczegóły dotyczące zalogowanego użytkownika i jest wypełniana przez platformę ASP.NET MVC, podczas tworzenia kontrolera w czasie wykonywania. Ponieważ testujemy DinnersController poza środowiskiem serwera sieci web, obiekt użytkownika nie jest ustawiony (dlatego wyjątek pustej referencji).
+Obiekt User w klasie bazowej kontrolera hermetyzuje szczegóły dotyczące zalogowanego użytkownika i jest wypełniany przez ASP.NET MVC, gdy tworzy kontroler w czasie wykonywania. Ponieważ testujemy DinnersController poza środowiskiem serwera sieci Web, obiekt User nie jest ustawiony (w związku z tym wyjątek odwołania o wartości null).
 
-### <a name="mocking-the-useridentityname-property"></a>Pozorowanie właściwość User.Identity.Name
+### <a name="mocking-the-useridentityname-property"></a>Imitacja właściwości User.Identity.Name
 
-Struktury pozorowania ułatwić, testowanie, dzięki czemu możemy umożliwia dynamiczne tworzenie fałszywych wersje obiektów zależnych, które obsługują Nasze testy. Na przykład możemy użyć pozorowania framework w naszym teście akcji edycji umożliwia dynamiczne tworzenie obiektu użytkownika, używanego przez naszych DinnersController do wyszukiwania symulowane nazwy użytkownika. Zapobiegnie to odwołanie o wartości null z zgłaszane, gdy Uruchamiamy nasze badania.
+Tworzenie struktur ułatwia testowanie dzięki umożliwieniu nam dynamicznego tworzenia fałszywych wersji obiektów zależnych, które obsługują nasze testy. Na przykład możemy użyć struktury imitacji w naszym teście edycji akcji, aby dynamicznie utworzyć obiekt użytkownika, którego nasza DinnersController może użyć do wyszukiwania symulowanej nazwy użytkownika. Spowoduje to uniknięcie zgłoszenia pustego odwołania podczas wykonywania testu.
 
-Istnieje wiele .NET pozorowanie struktur, które mogą być używane z platformy ASP.NET MVC (zobaczysz listę je tutaj: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Na potrzeby testowania naszych aplikacji NerdDinner, użyjemy pozorowanie o nazwie "Moq" open source, który można pobrać bezpłatnie z [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
+Istnieje wiele struktur szkieletowych platformy .NET, które mogą być używane z ASP.NET MVC (w tym miejscu można zobaczyć listę poniżej: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). W celu przetestowania naszej aplikacji NerdDinner będziemy używać struktury "MOQ" o nazwie "open source", którą można pobrać bezpłatnie z [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
 
-Po pobraniu, dodamy odwołanie w projekcie NerdDinner.Tests do zestawu Moq.dll:
+Po pobraniu należy dodać odwołanie w naszym projekcie NerdDinner. Tests do zestawu MOQ. dll:
 
 ![](enable-automated-unit-testing/_static/image12.png)
 
-Następnie dodamy metody pomocnika "CreateDinnersControllerAs(username)" nasze klasy testowej, który przyjmuje nazwę użytkownika jako parametr i które, a następnie "mocks" Właściwość User.Identity.Name wystąpieniu DinnersController:
+Następnie dodamy metodę pomocnika "CreateDinnersControllerAs (username)" do klasy testowej, która przyjmuje nazwę użytkownika jako parametr, a następnie "imitacje" właściwości User.Identity.Name w wystąpieniu DinnersController:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample14.cs)]
 
-Powyżej użyto Moq można utworzyć obiektu projekt, który elementów sztucznych obiekt kontekstem ControllerContext (czyli platformy ASP.NET MVC przekazuje do klas kontrolera do udostępnienia środowiska uruchomieniowego obiektów, takich jak użytkownik, żądania, odpowiedzi i sesji). Wywołania metody "SetupGet" na projekt, aby wskazać, że właściwość HttpContext.User.Identity.Name kontekstem ControllerContext powinna zwrócić ciąg nazwy użytkownika, który możemy przekazać do metody pomocnika.
+Powyżej korzystamy z MOQ do utworzenia obiektu przypominającego, który jest obiektem ControllerContext (który jest przekazywanym przez ASP.NET MVC do klas kontrolera, aby uwidocznić obiekty środowiska uruchomieniowego, takie jak użytkownik, żądanie, odpowiedź i sesja). Wywołujemy metodę "SetupGet" na potrzeby makiety, aby wskazać, że Właściwość HttpContext.User.Identity.Name w ControllerContext powinna zwracać ciąg username, który został przesłany do metody pomocnika.
 
-Firma Microsoft jest testowanie dowolną liczbę kontekstem ControllerContext właściwości i metody. Aby zilustrować to ja dodałem również wywołanie SetupGet() dla właściwości Request.IsAuthenticated (który nie jest faktycznie potrzebny do testów poniżej — ale pozwalającemu pokazują, jak można testowanie właściwości żądania). Gdy gotowe możemy przypisać wystąpienie pozorny kontekstem ControllerContext DinnersController zwraca naszych metody pomocnika.
+Możemy zasymulować dowolną liczbę właściwości i metod ControllerContext. Aby zilustrować to, dodaliśmy również wywołanie SetupGet () dla właściwości Request. IsAuthenticated (która nie jest w rzeczywistości wymagana dla testów poniżej, ale które ułatwiają zilustrowanie sposobu tworzenia właściwości żądania). Po wykonaniu tych czynności przypiszemy wystąpienie makiety ControllerContext do DinnersController metody pomocnika.
 
-Firma Microsoft jest teraz pisanie testów jednostkowych, korzystających z tej metody pomocnika do testowania scenariuszy edycji obejmujące różnych użytkowników:
+Teraz możemy napisać testy jednostkowe, które używają tej metody pomocnika do testowania scenariuszy edycji obejmujących różnych użytkowników:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample15.cs)]
 
-A teraz możemy uruchamiania testów przekazują:
+Teraz, gdy uruchamiamy testy, które przechodzą:
 
 ![](enable-automated-unit-testing/_static/image13.png)
 
-### <a name="testing-updatemodel-scenarios"></a>UpdateModel() scenariuszy testowania
+### <a name="testing-updatemodel-scenarios"></a>Testowanie scenariuszy UpdateModel ()
 
-Utworzyliśmy testy, które obejmują HTTP GET wersję akcji edycji. Utwórzmy teraz niektóre testy weryfikujące wersji żądania HTTP POST akcji edycji:
+Utworzyliśmy testy, które obejmują wersję HTTP-GET akcji edycji. Teraz Utwórz kilka testów, które weryfikują wersję HTTP-POST akcji Edytuj:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample16.cs)]
 
-Interesujące nowy scenariusz testowania w firmie Microsoft w celu obsługi przy użyciu tej metody akcji jest jej użycie metody pomocnika UpdateModel() w klasie bazowej kontrolera. Używamy tej metody pomocnika do powiązania wartości post formularza do naszych obiad wystąpienia obiektu.
+Interesujący nowy scenariusz testowania dla nas do obsługi tej metody działania jest jego użycie metody pomocnika UpdateModel () w klasie podstawowej kontrolera. Używamy tej metody pomocnika do powiązania wartości formularza post z naszym wystąpieniem obiektu obiadu.
 
-Poniżej przedstawiono dwa testy, które pokazuje, jak firma Microsoft mogła dostarczyć opublikowane wartości metodę pomocnika używaną UpdateModel() do formularza. Firma Microsoft będzie to zrobić, tworzenie i wypełnianie obiektu FormCollection, a następnie przypisać ją do właściwości "ValueProvider" na kontrolerze.
+Poniżej znajdują się dwa testy, które pokazują, w jaki sposób możemy dostarczyć wartości z formularza dla metody pomocnika UpdateModel () do użycia. W tym celu należy utworzyć i wypełnić obiekt FormCollection, a następnie przypisać go do właściwości "ValueProvider" na kontrolerze.
 
-Pierwszy test sprawdza, czy na pomyślne Zapisz przeglądarka jest przekierowywana do akcji details. Drugi test sprawdza, czy po opublikowaniu nieprawidłowe dane wejściowe akcji zostanie ponownie widoku edycji, ponownie komunikatu o błędzie.
+Pierwszy test weryfikuje, że po pomyślnym zapisaniu przeglądarka zostanie przekierowana do akcji szczegóły. Drugi test weryfikuje, że po opublikowaniu nieprawidłowych danych wejściowych Akcja ponownie wyświetla widok edycji z komunikatem o błędzie.
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample17.cs)]
 
-### <a name="testing-wrap-up"></a>Testowanie Wrap-Up
+### <a name="testing-wrap-up"></a>Zawinięcie testów
 
-Omówiliśmy podstawowe pojęcia związane z klas kontrolera testów jednostek. Z łatwością tworzyć setki proste testy weryfikujące działanie naszej aplikacji możemy użyć tych metod.
+Zostały omówione podstawowe koncepcje związane z klasami kontrolera testów jednostkowych. Możemy używać tych technik do łatwego tworzenia setek prostych testów, które weryfikują zachowanie naszej aplikacji.
 
-Ponieważ naszych kontrolera i testy modelu nie wymagają rzeczywista baza danych, są one bardzo szybkie i łatwe do uruchomienia. Firma Microsoft będzie można wykonać setki zautomatyzowanych testów w ciągu kilku sekund i natychmiast uzyskuj opinie dotyczące tego, czy zmiany, jakie wprowadziliśmy Przerwano coś. Ułatwi to przekazać nam zaufanie, stale poprawić, Refaktoryzacja, i dostosowywać naszej aplikacji.
+Ponieważ nasze testy kontrolera i modelu nie wymagają rzeczywistej bazy danych, są one niezwykle szybkie i łatwe do uruchomienia. Będziemy mogli wykonywać setki zautomatyzowanych testów w ciągu kilku sekund i natychmiast uzyskać informacje o tym, czy wprowadzono zmianę. Dzięki temu firma Microsoft zapewnia zaufanie do ciągłego ulepszania, refaktoryzacji i udoskonalania naszej aplikacji.
 
-Omówiono testowanie jako ostatni temat w tym rozdziale —, ale nie, ponieważ testowanie jest coś, co należy zrobić, na końcu procesu opracowywania! Przeciwnie należy wpisać zautomatyzowane testy możliwie najwcześniejszym etapie procesu rozwoju. Takie działanie umożliwia więc natychmiast otrzymać opinię podczas opracowywania, pomaga odnoszącej zastanów się, scenariuszy przypadków użycia aplikacji i przeprowadzi Cię do projektowania aplikacji przy użyciu czystego, Układanie warstwowo i sprzęgania na uwadze.
+Omawiamy testy jako ostatni temat w tym rozdziale, ale nie ponieważ testowanie jest coś, co należy zrobić na końcu procesu opracowywania. W przeciwieństwie do tego należy pisać zautomatyzowane testy tak szybko, jak to możliwe w procesie tworzenia oprogramowania. Dzięki temu można uzyskać natychmiastową opinię podczas opracowywania aplikacji, a tym samym Thoughtfully się na temat scenariuszy przypadków użycia i przeprowadzisz projektowanie aplikacji przy użyciu czystych warstw i sprzężeń.
 
-Nowsze rozdziału w książce przedstawimy testów opartych na rozwój (TDD) i jak z niej korzystać ze wzorca ASP.NET MVC. Projektowanie oparte na testach jest iteracyjne kodowania najpierw pisze się testy, które będzie spełniać wynikowy kod. Za pomocą TDD rozpoczęciem każdej funkcji, tworząc test, który weryfikuje funkcjonalność, którą chcesz wdrożyć. Zapisywanie jednostki testu najpierw pomaga upewnić się, że wyraźnie rozumiesz funkcja i jak powinien pracować. Tylko wtedy, gdy test jest zapisywany (i upewnieniu się, że nie jest on) czy, a następnie zaimplementować rzeczywiste funkcje, które ten test sprawdza. Ponieważ został już spędzony czas zastanawiać się, jak funkcja powinien działać przypadek użycia, trzeba będzie lepiej zrozumieć wymagania i jest to najlepszy sposób ich implementacji. Po zakończeniu wdrożenia można ponownie uruchomić test — i natychmiast otrzymać opinię w do tego, czy funkcja działa prawidłowo. Omówimy TDD więcej w rozdziale 10.
+W dalszej części książki w książce omówiono projektowanie na podstawie testów (TDD) i sposób korzystania z niego z ASP.NET MVC. TDD to iteracyjna metoda kodowania, w której należy najpierw napisać testy, które będą spełniały otrzymany kod. Przy użyciu funkcji TDD Rozpocznij każdą funkcję, tworząc test, który weryfikuje funkcjonalność, która ma zostać zaimplementowana. Pisząc test jednostkowy, należy zadbać o to, aby dobrze zrozumieć funkcję i jak powinna ona zostać zadziałała. Dopiero po zapisaniu testu (i sprawdzeniu, że nie powiodło się), można zaimplementować rzeczywiste funkcje sprawdzane przez test. Ponieważ już poświęcasz sobie nad przypadkiem użycia, w jaki sposób funkcja powinna być działała, będziesz mieć lepszy wgląd w wymagania i jak najlepiej wdrożyć je. Po wykonaniu tej czynności możesz ponownie uruchomić test — i natychmiast uzyskać opinię na temat tego, czy funkcja działa prawidłowo. Zajmiemy się tym, że będziemy więcej w rozdziale 10.
 
 ### <a name="next-step"></a>Następny krok
 
-Niektóre końcowego zawijania komentarze.
+Niektóre końcowe zawinięte Komentarze.
 
 > [!div class="step-by-step"]
 > [Poprzednie](use-ajax-to-implement-mapping-scenarios.md)

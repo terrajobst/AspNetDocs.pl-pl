@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid
-title: Jak ręcznie powiązanie zestawu danych z elementem Datagrid | Dokumentacja firmy Microsoft
+title: Jak ręcznie powiązać zestaw danych z elementem DataGrid | Microsoft Docs
 author: JoeStagner
-description: W tym filmie pokazano, część 2 z 3, Stagner Jan używa przykładowej aplikacji ASP, utworzony w części pierwszej, aby zademonstrować ręczne powiązanie zestawu danych z elementem datagrid. Aby uzyskać...
+description: W tym filmie wideo część 2 z 3, Jan Stagner używa przykładowej aplikacji ASP utworzonej w części pierwszej, aby pokazać, jak ręcznie powiązać zestaw danych z elementem DataGrid. Dla...
 ms.author: riande
 ms.date: 08/07/2008
 ms.assetid: 1e339f8a-72ea-463a-b186-c09dd7b12993
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid
 msc.type: video
 ms.openlocfilehash: 5ce22e24160269c225d8497f31b64809ede93c71
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389300"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637929"
 ---
-# <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a>Jak ręcznie powiązanie zestawu danych z elementem Datagrid
+# <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a>Jak ręcznie powiązać zestaw danych z elementem DataGrid
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie pokazano, część 2 z 3, Stagner Jan używa przykładowej aplikacji ASP, utworzony w części pierwszej, aby zademonstrować ręczne powiązanie zestawu danych z elementem datagrid. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj [Tworzenie warstwy dostępu do danych](../../../overview/data-access/introduction/creating-a-data-access-layer-vb.md) samouczek dostępu do danych.
+W tym filmie wideo część 2 z 3, Jan Stagner używa przykładowej aplikacji ASP utworzonej w części pierwszej, aby pokazać, jak ręcznie powiązać zestaw danych z elementem DataGrid. Aby uzyskać dodatkowe informacje na temat tego wideo, przeczytaj samouczek dotyczący tworzenia dostępu do danych [warstwy dostępu do danych](../../../overview/data-access/introduction/creating-a-data-access-layer-vb.md) .
 
-[&#9654;Obejrzyj film wideo (minuty 7)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-manually-bind-a-dataset-to-a-datagrid)
+[&#9654;Obejrzyj wideo (7 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-manually-bind-a-dataset-to-a-datagrid)
 
 > [!div class="step-by-step"]
 > [Poprzednie](data-access-layers-in-aspnet-applications.md)

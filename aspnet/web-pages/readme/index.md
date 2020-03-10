@@ -1,19 +1,19 @@
 ---
 uid: web-pages/readme/index
-title: Plik Readme programu WebMatrix | Dokumentacja firmy Microsoft
+title: Plik Readme WebMatrix | Microsoft Docs
 author: rick-anderson
-description: Program WebMatrix i plik Readme programu ASP.NET Web Pages (Razor) wersji 1.0
+description: Informacje o wersji programu WebMatrix i ASP.NET Web Pages (Razor) 1,0
 ms.author: riande
 ms.date: 01/06/2011
 ms.assetid: 9ded2fdb-ac4c-448f-9774-10bff657514c
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 197aadb65bb68d8cdb9d32ff5f98104de366447d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407799"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637005"
 ---
 # <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
 

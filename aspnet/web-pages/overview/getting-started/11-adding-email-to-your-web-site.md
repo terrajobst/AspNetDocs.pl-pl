@@ -1,137 +1,137 @@
 ---
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
-title: Wysyłanie wiadomości E-mail z sieci Web platformy ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
+title: Wysyłanie wiadomości E-mail z witryny ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym rozdziale wyjaśniono, jak wysyłać wiadomości e-mail automatycznych w witrynie sieci Web.
+description: W tym rozdziale wyjaśniono, jak wysłać zautomatyzowaną wiadomość e-mail z witryny sieci Web.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
 ms.openlocfilehash: 23e9717329525fb5a0ed505c9dc94505d4f9dbbe
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130546"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634716"
 ---
-# <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Wysyłanie wiadomości E-mail z witrynie ASP.NET Web Pages (Razor)
+# <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Wysyłanie wiadomości E-mail z witryny ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano sposób wysyłania wiadomości e-mail z witryny sieci Web, korzystając z ASP.NET Web Pages (Razor).
+> W tym artykule wyjaśniono, jak wysłać wiadomość e-mail z witryny internetowej w przypadku używania stron sieci Web ASP.NET (Razor).
 > 
 > Zawartość:
 > 
 > - Jak wysłać wiadomość e-mail z witryny sieci Web.
 > - Jak dołączyć plik do wiadomości e-mail.
 > 
-> Jest to ASP.NET wprowadzonej w artykule:
+> Jest to funkcja ASP.NET wprowadzona w artykule:
 > 
-> - `WebMail` Pomocnika.
+> - Pomocnik `WebMail`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
 <a id="Sending_Email_Messages"></a>
 ## <a name="sending-email-messages-from-your-website"></a>Wysyłanie wiadomości E-mail z witryny sieci Web
 
-Istnieje wiele powodów dlaczego może być konieczne wysyłanie wiadomości e-mail z witryny sieci Web. Potwierdzenie wiadomości może wysłać do użytkowników lub może wysyłać powiadomienia do siebie (na przykład, że nowy użytkownik został zarejestrowany.) `WebMail` Pomocnika ułatwia Ci na wysyłanie wiadomości e-mail.
+Istnieje wiele powodów, dla których może być konieczne wysłanie wiadomości e-mail z witryny sieci Web. Użytkownik może wysyłać wiadomości potwierdzające do użytkowników lub wysyłać do siebie powiadomienia (na przykład o zarejestrowaniu nowego użytkownika). Pomocnik `WebMail` ułatwia wysyłanie wiadomości e-mail.
 
-Aby użyć `WebMail` pomocnika, musisz mieć dostęp do serwera SMTP. (Oznacza SMTP *Simple Mail Transfer Protocol*.) Serwer SMTP to serwer poczty e-mail, który tylko przekazuje dalej wiadomości do serwera adresata &#8212; jest stronie wychodzących wiadomości e-mail. Jeśli używasz dostawcy usług hosta dla witryny sieci Web, prawdopodobnie skonfigurowane możesz za pomocą adresu e-mail i ich może powiadomić co to jest nazwa serwera SMTP. Jeśli pracujesz w sieci firmowej, administratorem lub działem IT można zwykle zapewniają informacje dotyczące serwera SMTP, który można użyć. Jeśli pracujesz w domu, nawet można przetestować za pomocą dostawcy zwykłej poczty e-mail, który można podać nazwę serwera SMTP. Zazwyczaj są potrzebne:
+Aby korzystać z pomocnika `WebMail`, musisz mieć dostęp do serwera SMTP. (Protokół SMTP ma *Simple Mail Transfer Protocol*.) Serwer SMTP jest serwerem poczty e-mail, który przesyła dalej komunikaty do serwera &#8212; odbiorcy, jest to wychodząca Strona poczty e-mail. Jeśli używasz dostawcy hostingu dla witryny sieci Web, prawdopodobnie skonfigurujesz go za pomocą poczty e-mail i poinformujemy o tym, co to jest nazwa serwera SMTP. Jeśli pracujesz w sieci firmowej, administrator lub dział IT zazwyczaj mogą uzyskać informacje o serwerze SMTP, którego można użyć. Jeśli pracujesz w domu, możesz nawet sprawdzić za pomocą zwykłego dostawcy poczty e-mail, który będzie mógł poinformować o nazwie serwera SMTP. Zazwyczaj potrzebne są:
 
 - Nazwa serwera SMTP.
-- Numer portu. Prawie zawsze wynosi 25. Usługodawcy mogą jednak wymagać używają portu 587. Jeśli używasz protokołu secure sockets layer (SSL) do obsługi poczty e-mail, możesz potrzebować innego portu. Skontaktuj się z dostawcy poczty e-mail.
-- Poświadczenia (nazwę użytkownika, hasło).
+- Numer portu. To prawie zawsze 25. Jednak usługodawca internetowy może wymagać użycia portu 587. Jeśli używasz protokołu SSL (Secure Sockets Layer) do obsługi poczty e-mail, może być potrzebny inny port. Skontaktuj się z dostawcą poczty e-mail.
+- Poświadczenia (nazwa użytkownika, hasło).
 
-W tej procedurze utworzysz dwie strony. Pierwsza strona zawiera formularz, który umożliwia użytkownikom, podaj opis, tak, jakby były wypełnianie formularza wsparcia technicznego. Pierwsza strona przesyła jego informacje do drugiej strony. Na drugiej stronie kod wyodrębnia informacje o użytkowniku i wysyła wiadomość e-mail. Wyświetla komunikat potwierdzający, że otrzymał raporcie dotyczącym problemu.
+W tej procedurze utworzysz dwie strony. Pierwsza strona zawiera formularz, który umożliwia użytkownikom wprowadzanie opisu, tak jakby był wypełniany w formularzu technicznym. Na pierwszej stronie przesyłane są informacje do drugiej strony. Na drugiej stronie kod wyodrębnia informacje o użytkowniku i wysyła wiadomość e-mail. Zostanie również wyświetlony komunikat potwierdzający, że został odebrany raport o problemach.
 
-![[image]](11-adding-email-to-your-web-site/_static/image1.jpg)
+![Image](11-adding-email-to-your-web-site/_static/image1.jpg)
 
 > [!NOTE]
-> W celu uproszczenia w tym przykładzie inicjuje kod `WebMail` pomocnika po prawej stronie na stronie, których używasz. Jednak rzeczywiste witryn sieci Web, jest lepiej zrozumieć, należy umieścić kod inicjowania w pliku globalnego, dzięki czemu można zainicjować `WebMail` pomocnika dla wszystkich plików w witrynie sieci Web. Aby uzyskać więcej informacji, zobacz [Dostosowywanie zachowania dla całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers).
+> Aby zachować ten przykład prosty, kod inicjuje `WebMail` pomocnika bezpośrednio na stronie, w której jest używana. Jednak w przypadku rzeczywistych witryn sieci Web lepiej jest umieścić kod inicjujący podobny do tego w pliku globalnym, aby zainicjować pomocnika `WebMail` dla wszystkich plików w witrynie sieci Web. Aby uzyskać więcej informacji, zobacz [Dostosowywanie zachowania całej witryny dla stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers).
 
 1. Utwórz nową witrynę sieci Web.
-2. Dodaj nową stronę o nazwie *EmailRequest.cshtml* i Dodaj następujący kod: 
+2. Dodaj nową stronę o nazwie *EmailRequest. cshtml* i Dodaj następujące znaczniki: 
 
     [!code-html[Main](11-adding-email-to-your-web-site/samples/sample1.html)]
 
-    Należy zauważyć, że `action` ustawiono atrybut elementu form *ProcessRequest.cshtml*. Oznacza to, że formularz zostanie przesłany do tej strony, zamiast wstecz do bieżącej strony.
-3. Dodaj nową stronę o nazwie *ProcessRequest.cshtml* do witryny sieci Web i Dodaj następujący kod i znaczników:   
+    Zwróć uwagę, że atrybut `action` elementu form został ustawiony na *ProcessRequest. cshtml*. Oznacza to, że formularz zostanie przesłany do tej strony zamiast z powrotem do bieżącej strony.
+3. Dodaj nową stronę o nazwie *ProcessRequest. cshtml* do witryny sieci Web i Dodaj następujący kod i znacznik:   
 
     [!code-cshtml[Main](11-adding-email-to-your-web-site/samples/sample2.cshtml)]
 
-    W kodzie uzyskasz wartości pól formularza, które zostały przesłane do strony. Następnie wywołaj `WebMail` Pomocnika `Send` metody do tworzenia i wysyłania wiadomości e-mail. W tym przypadku wartości, które składają się z tekstu, który łączenie z wartościami, które zostały przesłane z formularza.
+    W kodzie otrzymujesz wartości pól formularza, które zostały przesłane do strony. Następnie należy wywołać metodę `Send` pomocnika `WebMail`, aby utworzyć i wysłać wiadomość e-mail. W takim przypadku wartości, które mają być używane, składają się z tekstu połączonego z wartościami, które zostały przesłane z formularza.
 
-    Kod na tej stronie znajduje się wewnątrz `try/catch` bloku. Jeśli z jakiegokolwiek powodu próby wysłania wiadomości e-mail nie działa (na przykład ustawienia nie są odpowiednie), kod w `catch` bloku uruchamia i ustawia `errorMessage` zmienną błędu, który wystąpił. (Aby uzyskać więcej informacji na temat `try/catch` bloków lub `<text>` tagów, zobacz [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587#ID_HandlingErrors).)
+    Kod tej strony znajduje się w bloku `try/catch`. Jeśli z jakiegoś powodu próba wysłania wiadomości e-mail nie działa (na przykład ustawienia nie są prawidłowe), kod w bloku `catch` jest uruchamiany i ustawia zmienną `errorMessage` na błąd, który wystąpił. (Aby uzyskać więcej informacji na temat bloków `try/catch` lub tagu `<text>`, zobacz [wprowadzenie do ASP.NET stron sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587#ID_HandlingErrors)).
 
-    W treści strony Jeśli `errorMessage` zmiennej jest pusty (ustawienie domyślne), użytkownik zobaczy komunikat, który została wysłana wiadomość e-mail. Jeśli `errorMessage` zmienna jest ustawiona na wartość true, użytkownik widzi na komunikat, że wystąpił problem podczas wysyłania wiadomości.
+    W treści strony, jeśli zmienna `errorMessage` jest pusta (wartość domyślna), użytkownik zobaczy komunikat informujący o wysłaniu wiadomości e-mail. Jeśli zmienna `errorMessage` ma wartość true, użytkownik zobaczy komunikat, że wystąpił problem podczas wysyłania komunikatu.
 
-    Zwróć uwagę, że w części strony, która wyświetla komunikat o błędzie, jest dodatkowy test: `if(debuggingFlag)`. Jest to zmienna, którego można ustawić wartość true, jeśli wystąpiły problemy podczas wysyłania wiadomości e-mail. Gdy `debuggingFlag` ma wartość true, a jeśli występuje problem podczas wysyłania wiadomości e-mail, komunikat o błędzie dodatkowe są wyświetlane pokazujący, niezależnie od platformy ASP.NET został zgłoszony podczas próby wysłania wiadomości e-mail. Ostrzeżenie podejście, jednak: komunikaty o błędach, które ASP.NET raportów, gdy nie jest w stanie wysyłać wiadomości e-mail może być ogólna. Na przykład jeśli ASP.NET nie może skontaktować się z serwerem SMTP, (na przykład dlatego, że wprowadzone błąd w nazwie serwera), błąd jest `Failure sending mail`.
+    Zwróć uwagę, że w części strony, na której jest wyświetlany komunikat o błędzie, istnieje dodatkowy test: `if(debuggingFlag)`. Jest to zmienna, którą można ustawić na wartość true, jeśli masz problemy z wysyłaniem poczty e-mail. Gdy `debuggingFlag` ma wartość true, a jeśli wystąpi problem z wysłaniem wiadomości e-mail, zostanie wyświetlony dodatkowy komunikat o błędzie z informacjami o tym, co ASP.NET zgłosiła podczas próby wysłania wiadomości e-mail. Ostrzeżenie uczciwe, chociaż: komunikaty o błędach, które ASP.NETą raporty, gdy nie można wysłać wiadomości e-mail mogą być ogólne. Na przykład jeśli ASP.NET nie może skontaktować się z serwerem SMTP (na przykład z powodu błędu w nazwie serwera), błąd jest `Failure sending mail`.
 
     > [!NOTE] 
     > 
-    > **Ważne** gdy otrzymasz komunikat o błędzie z obiektu wyjątku (`ex` w kodzie), czy *nie* rutynowo przekazać ten komunikat za pośrednictwem dla użytkowników. Obiekty wyjątków często zawierają informacje, nie powinni widzieć użytkownicy i które może być nawet luki w zabezpieczeniach. Dlatego ten kod zawiera zmienną `debuggingFlag` który jest używany jako przełącznik, aby wyświetlić komunikat o błędzie i dlaczego zmiennej, domyślnie jest ustawiona na wartość false. Należy ustawić tej zmiennej na wartość true (i w związku z tym wyświetlony komunikat o błędzie) *tylko* potrzebne do debugowania, jeśli występuje problem z wysyłaniem wiadomości e-mail. Po rozwiązaniu problemów, ustaw `debuggingFlag` ponownie na wartość false.
+    > **Ważne** Po otrzymaniu komunikatu o błędzie z obiektu wyjątku (`ex` w kodzie *) nie należy rutynowo* przekazywać tego komunikatu do użytkowników. Obiekty wyjątków często zawierają informacje, które nie powinny być widoczne dla użytkowników i które mogą nawet stanowić lukę w zabezpieczeniach. Dlatego ten kod zawiera zmienną `debuggingFlag`, która jest używana jako przełącznik do wyświetlania komunikatu o błędzie i dlaczego zmienna domyślnie ma wartość false. Należy ustawić tę zmienną na true (i w związku z tym wyświetlić komunikat o błędzie) *tylko* wtedy, gdy występuje problem z wysyłaniem poczty e-mail i należy debugować. Po usunięciu wszelkich problemów Ustaw `debuggingFlag` z powrotem na wartość false.
 
-    Zmodyfikuj następujące e-mail powiązane ustawienia w kodzie:
+    Zmodyfikuj następujące ustawienia związane z pocztą e-mail w kodzie:
 
-   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
-   - Ustaw `your-user-name-here` nazwę użytkownika dla konta serwera SMTP.
-   - Ustaw `your-account-password` hasło dla konta serwera SMTP.
-   - Ustaw `your-email-address-here` na adres e-mail. To jest adres e-mail, który komunikat jest wysyłany z. (Niektórzy dostawcy poczty e-mail nie pozwalają określić inną `From` adresem, a następnie użyje nazwy użytkownika jako `From` adresu.)
+   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, do którego masz dostęp.
+   - Ustaw `your-user-name-here` na nazwę użytkownika dla konta serwera SMTP.
+   - Ustaw `your-account-password` na hasło dla konta serwera SMTP.
+   - Ustaw `your-email-address-here` na własny adres e-mail. Jest to adres e-mail, z którego wiadomość jest wysyłana. (Niektórzy dostawcy poczty e-mail nie umożliwiają określania innego adresu `From` i będą używać nazwy użytkownika jako adresu `From`).
 
      > [!TIP] 
      > 
      > <a id="configuring_email_settings"></a>
      > ### <a name="configuring-email-settings"></a>Konfigurowanie ustawień poczty E-mail
      > 
-     > Może być wyzwaniem wymagającym czasami upewnij się, że masz odpowiednie ustawienia serwera SMTP, numer portu i tak dalej. Poniżej przedstawiono kilka wskazówek:
+     > Może być wyzwaniem czasami, aby upewnić się, że masz odpowiednie ustawienia dla serwera SMTP, numeru portu i tak dalej. Oto kilka porad:
      > 
-     > - Nazwa serwera SMTP jest często podobny `smtp.provider.com` lub `smtp.provider.net`. Jeśli jednak publikowania witryny dostawcy usług hostingowych, nazwę serwera SMTP w tym momencie może być `localhost`. Jest to spowodowane po opublikowaniu i witryna jest hostowana na serwerze dostawcy, serwer poczty e-mail może być lokalne z perspektywy aplikacji. Ta zmiana nazwy serwera może oznaczać, że trzeba zmienić nazwę serwera SMTP w ramach procesu publikowania.
-     > - Numer portu jest zwykle 25. Jednakże niektórzy dostawcy wymagają użycia portu 587 lub niektórych innych portów.
-     > - Upewnij się, że używasz właściwych poświadczeń dostępu. Po opublikowaniu witryny dostawcy usług hostingowych, Użyj poświadczeń z dostawcy specjalnie wskazuje, czy do obsługi poczty e-mail. Mogą być inne niż poświadczenia, których używasz do publikowania.
-     > - Czasami nie potrzebujesz poświadczeń w ogóle. Przy wysyłaniu wiadomości e-mail za pomocą osobistego usługodawcę internetowego dostawcy poczty e-mail może już znasz swoje poświadczenia. Po opublikowaniu, może być konieczne użycie innych poświadczeń niż podczas testowania na komputerze lokalnym.
-     > - Jeśli dostawcy poczty e-mail używa szyfrowania, należy ustawić `WebMail.EnableSsl` do `true`.
-4. Uruchom *EmailRequest.cshtml* strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.)
-5. Wprowadź nazwę i opis problemu, a następnie kliknij przycisk **przesyłania** przycisku. Są przekierowywane do *ProcessRequest.cshtml* strony, który potwierdza wiadomości i który wyśle do Ciebie wiadomość e-mail. 
+     > - Nazwa serwera SMTP często jest taka sama jak `smtp.provider.com` lub `smtp.provider.net`. Jednak w przypadku opublikowania lokacji w ramach dostawcy hostingu nazwa serwera SMTP może być `localhost`. Jest to spowodowane tym, że po opublikowaniu i uruchomieniu lokacji na serwerze dostawcy serwer poczty e-mail może być lokalnym z perspektywy aplikacji. Ta zmiana nazw serwerów może oznaczać konieczność zmiany nazwy serwera SMTP w ramach procesu publikowania.
+     > - Numer portu to zwykle 25. Jednak niektórzy dostawcy wymagają użycia portu 587 lub innego portu.
+     > - Upewnij się, że używasz odpowiednich poświadczeń. Jeśli witryna została opublikowana w ramach dostawcy hostingu, Użyj poświadczeń, które zostały wskazane przez dostawcę jako wiadomości e-mail. Mogą się one różnić od poświadczeń używanych do publikowania.
+     > - Czasami nie potrzebujesz poświadczeń. W przypadku wysyłania wiadomości e-mail przy użyciu osobistego usługodawcy internetowego Twój dostawca poczty e-mail może już znać Twoje poświadczenia. Po opublikowaniu programu może być konieczne użycie innych poświadczeń niż podczas testowania na komputerze lokalnym.
+     > - Jeśli Twój dostawca poczty e-mail używa szyfrowania, musisz ustawić `WebMail.EnableSsl`, aby `true`.
+4. Uruchom stronę *EmailRequest. cshtml* w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem).
+5. Wprowadź nazwę i opis problemu, a następnie kliknij przycisk **Prześlij** . Nastąpi przekierowanie do strony *ProcessRequest. cshtml* , która potwierdzi komunikat, a następnie wyśle wiadomość e-mail. 
 
-    ![[image]](11-adding-email-to-your-web-site/_static/image2.jpg)
+    ![Image](11-adding-email-to-your-web-site/_static/image2.jpg)
 
 <a id="Sending_a_File"></a>
-## <a name="sending-a-file-using-email"></a>Wysłanie pliku za pomocą poczty E-mail
+## <a name="sending-a-file-using-email"></a>Wysyłanie pliku przy użyciu poczty E-mail
 
-Można również wysłać pliki, które są dołączone do wiadomości e-mail. W tej procedurze utworzysz plik tekstowy i dwie strony HTML. Użyjesz pliku tekstowego jako załącznik wiadomości e-mail.
+Możesz również wysyłać pliki dołączone do wiadomości e-mail. W tej procedurze utworzysz plik tekstowy i dwie strony HTML. Plik tekstowy będzie używany jako załącznik wiadomości e-mail.
 
-1. W witrynie sieci Web, Dodaj nowy plik tekstowy i nadaj mu nazwę *mójplik.txt*.
+1. W witrynie sieci Web Dodaj nowy plik tekstowy i nadaj mu nazwę plik *. txt*.
 2. Skopiuj poniższy tekst i wklej go w pliku: 
 
     `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`
-3. Utwórz stronę o nazwie *SendFile.cshtml* i Dodaj następujący kod: 
+3. Utwórz stronę o nazwie *SendFile. cshtml* i Dodaj następujące znaczniki: 
 
     [!code-html[Main](11-adding-email-to-your-web-site/samples/sample3.html)]
-4. Utwórz stronę o nazwie *ProcessFile.cshtml* i Dodaj następujący kod: 
+4. Utwórz stronę o nazwie *ProcessFile. cshtml* i Dodaj następujące znaczniki: 
 
     [!code-cshtml[Main](11-adding-email-to-your-web-site/samples/sample4.cshtml)]
-5. Zmodyfikuj następujące e-mail powiązanych ustawień w kod z przykładu:
+5. Zmodyfikuj następujące ustawienia związane z pocztą e-mail w kodzie z przykładu:
 
-    - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
-    - Ustaw `your-user-name-here` nazwę użytkownika dla konta serwera SMTP.
-    - Ustaw `your-email-address-here` na adres e-mail. To jest adres e-mail, który komunikat jest wysyłany z.
-    - Ustaw `your-account-password` hasło dla konta serwera SMTP.
-    - Ustaw `target-email-address-here` na adres e-mail. (Jak wcześniej, jak zwykle wysyłając wiadomość e-mail do innej osoby, ale do testowania, możesz go wysłać do siebie).
-6. Uruchom *SendFile.cshtml* strony w przeglądarce.
-7. Wprowadź nazwę, wiersz tematu i nazwę pliku tekstowego, aby dołączyć (*mójplik.txt*).
-8. Kliknij przycisk `Submit` przycisku. Jak poprzednio, są przekierowywane do *ProcessFile.cshtml* stronę, potwierdzenie wiadomości i który wyśle do Ciebie wiadomość e-mail za pomocą dołączonego pliku.
+    - Ustaw `your-SMTP-host` na nazwę serwera SMTP, do którego masz dostęp.
+    - Ustaw `your-user-name-here` na nazwę użytkownika dla konta serwera SMTP.
+    - Ustaw `your-email-address-here` na własny adres e-mail. Jest to adres e-mail, z którego wiadomość jest wysyłana.
+    - Ustaw `your-account-password` na hasło dla konta serwera SMTP.
+    - Ustaw `target-email-address-here` na własny adres e-mail. (Tak jak wcześniej, zazwyczaj wysyłamy wiadomość e-mail do kogoś innego, ale w celu testowania można wysłać ją do siebie).
+6. Uruchom stronę *SendFile. cshtml* w przeglądarce.
+7. Wprowadź swoje imię i nazwisko, wiersz tematu oraz nazwę pliku tekstowego do dołączenia (*plik. txt*).
+8. Kliknij przycisk `Submit`. Jak wcześniej, nastąpi przekierowanie do strony *ProcessFile. cshtml* , która potwierdzi komunikat, a następnie wysyła wiadomość e-mail z dołączonym plikiem.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
 - [Simple Mail Transfer Protocol](https://msdn.microsoft.com/library/aa480435.aspx)
-- [Dostosowywanie zachowania dla całej witryny dla stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Dostosowywanie zachowania całej witryny dla stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)

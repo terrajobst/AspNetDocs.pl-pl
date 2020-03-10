@@ -1,90 +1,90 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
-title: Weryfikowanie z użyciem interfejsu IDataErrorInfo (C#) | Dokumentacja firmy Microsoft
+title: Weryfikowanie przy użyciu interfejsu IDataErrorInfoC#() | Microsoft Docs
 author: StephenWalther
-description: 'Autor: Stephen Walther dowiesz się, jak wyświetlać komunikaty o błędach niestandardowego sprawdzania poprawności poprzez implementację interfejsu IDataErrorInfo w klasie modelu.'
+description: Stephen Walther pokazuje, jak wyświetlać niestandardowe komunikaty o błędach walidacji, implementując interfejs IDataErrorInfo w klasie modelu.
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 4733b9f1-9999-48fb-8b73-6038fbcc5ecb
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 938b180da02b1963acffd021d18621d75d1d0447
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117558"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78542561"
 ---
 # <a name="validating-with-the-idataerrorinfo-interface-c"></a>Walidacja z użyciem interfejsu IDataErrorInfo (C#)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-> Autor: Stephen Walther dowiesz się, jak wyświetlać komunikaty o błędach niestandardowego sprawdzania poprawności poprzez implementację interfejsu IDataErrorInfo w klasie modelu.
+> Stephen Walther pokazuje, jak wyświetlać niestandardowe komunikaty o błędach walidacji, implementując interfejs IDataErrorInfo w klasie modelu.
 
-Celem tego samouczka jest wyjaśnić jedno z podejść do przeprowadzania weryfikacji w aplikacji ASP.NET MVC. Dowiesz się, jak zapobiec ktoś przesyłania formularza HTML bez podawania wartości wymaganych pól formularza. W tym samouczku dowiesz się, jak przeprowadzić weryfikacji za pomocą interfejsu IErrorDataInfo.
+Celem tego samouczka jest wyjaśnienie jednego podejścia do wykonywania walidacji w aplikacji ASP.NET MVC. Dowiesz się, jak uniemożliwić komuś przesłanie formularza HTML bez podawania wartości dla wymaganych pól formularza. W tym samouczku dowiesz się, jak przeprowadzić walidację za pomocą interfejsu IErrorDataInfo.
 
 ## <a name="assumptions"></a>Założenia
 
-W tym samouczku czy mogę użyć MoviesDB bazy danych i tabeli bazy danych filmów. Ta tabela zawiera następujące kolumny:
+W tym samouczku użyjemy bazy danych MoviesDB i tabeli bazy danych filmów. Ta tabela zawiera następujące kolumny:
 
 <a id="0.5_table01"></a>
 
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
-| Id | int | False |
-| Tytuł | Nvarchar(100) | False |
-| Dyrektor ds. | Nvarchar(100) | False |
-| DateReleased | DataGodzina | False |
+| Identyfikator | int | Fałsz |
+| Tytuł | Nvarchar(100) | Fałsz |
+| Dyrektor ds. | Nvarchar(100) | Fałsz |
+| DateReleased | DateTime | Fałsz |
 
-W tym samouczku używam Microsoft Entity Framework do generowania klasy modelu mojej bazy danych. Klasa filmu generowane przez program Entity Framework jest wyświetlany na rysunku 1.
+W tym samouczku użyjemy Entity Framework firmy Microsoft do wygenerowania klas modelu bazy danych. Klasa filmu wygenerowana przez Entity Framework zostanie wyświetlona na rysunku 1.
 
-[![Jednostki filmu](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
+[![jednostki filmu](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
 
-**Rysunek 01**: Jednostki Movie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))
+**Ilustracja 01**: jednostka filmu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))
 
 > [!NOTE] 
 > 
-> Aby dowiedzieć się więcej o korzystaniu z programu Entity Framework do generowania klasy modelu z bazy danych, zobacz temat zatytułowany Moje samouczek: Tworzenie klas modelu za pomocą programu Entity Framework.
+> Aby dowiedzieć się więcej o używaniu Entity Framework do generowania klas modelu bazy danych, zobacz mój Samouczek zatytułowany Tworzenie klas modelu z Entity Framework.
 
 ## <a name="the-controller-class"></a>Klasa kontrolera
 
-Używane kontrolera głównego do filmów z listy i tworzenia nowych filmów. Kod dla tej klasy są zawarte w ofercie 1.
+Używamy kontrolera macierzystego do wyświetlania filmów i tworzenia nowych filmów. Kod dla tej klasy znajduje się na liście 1.
 
-**Wyświetlanie listy 1 - Controllers\HomeController.cs**
+**Lista 1 — Controllers\HomeController.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample1.cs)]
 
-Klasa kontrolera głównej w ofercie 1 zawiera dwie akcje Create(). Pierwszą akcją Wyświetla formularza HTML do tworzenia nowych filmów. Drugiej akcji Create() przeprowadza rzeczywiste Wstaw nowy film do bazy danych. Drugiej akcji Create() jest wywoływana po przesłaniu formularza wyświetlany przez pierwszą akcją Create() do serwera.
+Klasa kontrolera macierzystego na liście 1 zawiera dwie akcje create (). Pierwsza akcja wyświetla formularz HTML służący do tworzenia nowego filmu. Druga akcja Create () wykonuje rzeczywiste wstawianie nowego filmu do bazy danych. Druga akcja Create () jest wywoływana, gdy formularz wyświetlany przez pierwszą akcję Utwórz () zostanie przesłany do serwera.
 
-Zwróć uwagę, że druga Akcja Create() zawiera następujące wiersze kodu:
+Należy zauważyć, że druga akcja Create () zawiera następujące wiersze kodu:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample2.cs)]
 
-Właściwość IsValid zwraca wartość false, gdy występuje błąd weryfikacji. W takim przypadku widok Utwórz, który zawiera formularza HTML do tworzenia film zostanie wyświetlony ponownie.
+Właściwość IsValid zwraca wartość false, jeśli wystąpił błąd walidacji. W takim przypadku zostanie wyświetlony widok tworzenie, który zawiera formularz HTML służący do tworzenia filmu.
 
-## <a name="creating-a-partial-class"></a>Tworzenie klasy częściowe
+## <a name="creating-a-partial-class"></a>Tworzenie klasy częściowej
 
-Klasa film jest generowany przez program Entity Framework. Widać kod klasy filmu, jeśli Rozwiń plik MoviesDBModel.edmx w oknie Eksploratora rozwiązań i Otwórz plik MoviesDBModel.Designer.cs w edytorze kodu (patrz rysunek 2).
+Klasa filmu jest generowana przez Entity Framework. Kod dla klasy filmów można zobaczyć, jeśli rozwiniesz plik MoviesDBModel. edmx w oknie Eksplorator rozwiązań i otworzysz plik MoviesDBModel.Designer.cs w edytorze kodu (patrz rysunek 2).
 
-[![Kod dla jednostki filmu](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
+[![kod dla jednostki filmu](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
 
-**Rysunek 02**: Kod dla jednostki Movie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))
+**Ilustracja 02**. kod dla jednostki filmu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))
 
-Klasa film jest klasy częściowej. Oznacza to, że możemy dodać innej klasy częściowej o takiej samej nazwie, aby rozszerzyć funkcjonalność klasy filmu. Dodamy naszych logikę walidacji do nowej klasy częściowej.
+Klasa filmu jest klasą częściową. Oznacza to, że można dodać kolejną klasę częściową o tej samej nazwie, aby zwiększyć funkcjonalność klasy filmu. Będziemy dodawać nasze logiki walidacji do nowej klasy częściowej.
 
-Dodaj klasę w ofercie 2 do folderu modeli.
+Dodaj klasę z listy 2 do folderu modele.
 
-**Wyświetlanie listy 2 - Models\Movie.cs**
+**Lista 2 — Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample3.cs)]
 
-Należy zauważyć, że klasa w ofercie 2 obejmuje *częściowe* modyfikator. Wszelkie metody lub właściwości, które możesz dodać do tej klasy stają się częścią klasy filmu generowane przez program Entity Framework.
+Należy zauważyć, że Klasa na liście 2 zawiera modyfikator *częściowy* . Wszelkie metody lub właściwości dodawane do tej klasy stają się częścią klasy filmu wygenerowanej przez Entity Framework.
 
-## <a name="adding-onchanging-and-onchanged-partial-methods"></a>Dodawanie OnChanging i metod OnChanged częściowego
+## <a name="adding-onchanging-and-onchanged-partial-methods"></a>Dodawanie metod OnChanging i onchangeed
 
-Gdy platforma Entity Framework generuje klasę jednostki, platformy Entity Framework metod częściowych do klasy automatycznie dodaje. Entity Framework generuje OnChanging i OnChanged metod częściowych, które odpowiadają każdej właściwości klasy.
+Gdy Entity Framework generuje klasę jednostki, Entity Framework automatycznie dodaje metody częściowe do klasy. Entity Framework generuje OnChanged i OnChanged metody, które odpowiadają każdej właściwości klasy.
 
-W przypadku klasy filmu programu Entity Framework tworzy następujące metody:
+W przypadku klasy film Entity Framework tworzy następujące metody:
 
 - OnIdChanging
 - OnIdChanged
@@ -95,57 +95,57 @@ W przypadku klasy filmu programu Entity Framework tworzy następujące metody:
 - OnDateReleasedChanging
 - OnDateReleasedChanged
 
-Metoda OnChanging jest wywoływana prawo, przed zmianą odpowiadającą właściwość. Metoda OnChanged jest wywoływana prawej, po zmianie właściwości.
+Metoda onzmiana jest wywoływana bezpośrednio przed zmianą odpowiedniej właściwości. Metoda OnChanged jest wywoływana bezpośrednio po zmianie właściwości.
 
-Możesz korzystać z zalet tych metod częściowych, aby dodać logikę walidacji do klasy filmu. Aktualizacja klasy filmu w ofercie 3 sprawdza, czy tytuł i dyrektor ds. właściwości są przypisywane niepustych wartości.
+Możesz skorzystać z tych metod częściowych, aby dodać logikę walidacji do klasy film. Klasa aktualizacji filmów na liście 3 sprawdza, czy tytuł i właściwości dyrektora mają przypisane niepuste wartości.
 
 > [!NOTE] 
 > 
-> Metoda częściowa jest metoda zdefiniowana w klasie, które nie są wymagane do wdrożenia. Jeśli nie implementować metodę częściową kompilator usuwa podpis metody i wszystkie wywołania do metody, więc są bez kosztów czasu wykonywania skojarzony z metody częściowej. W edytorze programu Visual Studio Code można dodać metody częściowej, wpisując słowa kluczowego *częściowe* następuje spacja, aby wyświetlić listę częściowych do zaimplementowania.
+> Metoda częściowa to metoda zdefiniowana w klasie, która nie jest wymagana do wdrożenia. Jeśli nie zaimplementujesz metody częściowej, kompilator usunie sygnaturę metody i wszystkie wywołania metody, aby nie było kosztów wykonywania skojarzonych z metodą częściową. W edytorze Visual Studio Code można dodać metodę częściową, wpisując słowo kluczowe *częściowe* , po którym następuje spacja, aby wyświetlić listę części do wdrożenia.
 
-**Wyświetlanie listy 3 - Models\Movie.cs**
+**Lista 3 — Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample4.cs)]
 
-Na przykład, jeśli użytkownik podejmie próbę przypisania pustego ciągu do właściwości tytułu, komunikat o błędzie jest przypisywany do słownika o nazwie \_błędy.
+Na przykład w przypadku próby przypisania pustego ciągu do właściwości title, komunikat o błędzie zostanie przypisany do słownika o nazwie błędy \_.
 
-W tym momencie faktycznie nie powoduje żadnych zmian przypisania pustego ciągu do właściwości tytułu, a błąd jest dodawany do prywatnego \_pola błędy. Musimy zaimplementować interfejsu IDataErrorInfo, aby udostępnić te błędy sprawdzania poprawności, platforma ASP.NET MVC.
+W tym momencie nic się nie dzieje, gdy przypiszesz pusty ciąg do właściwości title i zostanie dodany błąd do pola prywatne błędy \_. Musimy zaimplementować interfejs IDataErrorInfo, aby uwidocznić te błędy walidacji w strukturze ASP.NET MVC.
 
 ## <a name="implementing-the-idataerrorinfo-interface"></a>Implementowanie interfejsu IDataErrorInfo
 
-Interfejsu IDataErrorInfo było częścią programu .NET framework od pierwszej wersji. Ten interfejs jest bardzo prosty interfejs:
+Interfejs IDataErrorInfo został częścią programu .NET Framework od momentu pierwszej wersji. Ten interfejs jest bardzo prostym interfejsem:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample5.cs)]
 
-Jeśli klasa implementuje interfejsu IDataErrorInfo, platforma ASP.NET MVC użyje tego interfejsu, podczas tworzenia wystąpienia klasy. Na przykład kontrolera głównego działania Create() akceptuje wystąpienia klasy film:
+Jeśli klasa implementuje interfejs IDataErrorInfo, platforma MVC ASP.NET będzie używać tego interfejsu podczas tworzenia wystąpienia klasy. Na przykład akcja Create () na kontrolerze głównym akceptuje wystąpienie klasy Movie:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample6.cs)]
 
-Platforma ASP.NET MVC tworzy wystąpienie filmu przekazywane do działania Create() za pomocą integratora modelu (DefaultModelBinder). Integrator modelu jest odpowiedzialny za utworzenie wystąpienia obiektu filmu przez powiązanie pola formularza HTML do wystąpienia obiektu filmu.
+Struktura ASP.NET MVC tworzy wystąpienie filmu przesłane do akcji Create () przy użyciu spinacza modelu (DefaultModelBinder). Model spinacza jest odpowiedzialny za tworzenie wystąpienia obiektu filmu przez powiązanie pól formularza HTML z wystąpieniem obiektu filmu.
 
-DefaultModelBinder wykrywa, czy klasa implementuje interfejsu IDataErrorInfo. Jeśli klasa implementuje ten interfejs integratora modelu wywołuje indeksatora IDataErrorInfo.this dla każdej właściwości klasy. Jeśli indeksatora zwróci komunikat o błędzie integratora modelu dodaje ten komunikat o błędzie do modelowania stanu automatycznie.
+DefaultModelBinder wykrywa, czy Klasa implementuje interfejs IDataErrorInfo. Jeśli klasa implementuje ten interfejs, spinacz modelu wywoła IDataErrorInfo. ten indeksator dla każdej właściwości klasy. Jeśli indeksator zwróci komunikat o błędzie, spinacz modelu automatycznie dodaje ten komunikat o błędzie do stanu modelu.
 
-DefaultModelBinder sprawdza również właściwość IDataErrorInfo.Error. Ta właściwość jest przeznaczona do reprezentowania błędy sprawdzania poprawności określonego inną niż właściwość skojarzony z klasą. Na przykład możesz chcieć wymusić regułę poprawności, który zależy od wartości wielu właściwości klasy filmu. W takiej sytuacji zwróci błąd sprawdzania poprawności z właściwości błędu.
+DefaultModelBinder również sprawdza Właściwość IDataErrorInfo. Error. Ta właściwość jest przeznaczona do reprezentowania błędów walidacji specyficznych dla niewłaściwości skojarzonych z klasą. Na przykład możesz chcieć wymusić regułę walidacji, która zależy od wartości wielu właściwości klasy filmu. W takim przypadku należy zwrócić błąd walidacji z właściwości Error.
 
-Zaktualizowano klasy filmu w ofercie 4 implementuje interfejsu IDataErrorInfo.
+Zaktualizowana Klasa filmów w liście 4 implementuje interfejs IDataErrorInfo.
 
-**Wyświetlanie listy 4 - Models\Movie.cs (implementuje IDataErrorInfo)**
+**Lista 4-Models\Movie.cs (implementuje IDataErrorInfo)**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample7.cs)]
 
-W ofercie 4, sprawdza właściwości indeksatora \_kolekcji błędów, aby zobaczyć, czy zawiera klucz, który odpowiada nazwie właściwości przekazany do indeksatora. W przypadku braku błędów weryfikacji skojarzony z właściwością, zwracany jest pusty ciąg.
+W przypadku listy 4 Właściwość indeksatora sprawdza zbieranie \_błędów, aby sprawdzić, czy zawiera on klucz odpowiadający nazwie właściwości przesłanej do indeksatora. Jeśli nie ma błędu walidacji skojarzonego z właściwością, zwracany jest pusty ciąg.
 
-Nie potrzebujesz zmodyfikować kontrolera głównego w jakikolwiek sposób, aby użyć zmodyfikowane klasy filmu. Strona wyświetlona na rysunku 3 przedstawiono, co się stanie, gdy została wprowadzona żadna wartość dla pola formularza tytuł lub dyrektor ds.
+Nie musisz modyfikować kontrolera macierzystego w dowolny sposób, aby użyć zmodyfikowanej klasy filmów. Strona wyświetlana na rysunku 3 ilustruje, co się dzieje, gdy nie wprowadzono wartości dla pól tytuł lub dyrektor.
 
-[![Automatyczne tworzenie metod akcji](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
+[![tworzenia metod akcji automatycznie](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
 
-**Rysunek 03**: Formularz z brakującymi wartościami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))
+**Ilustracja 03**: formularz z brakującymi wartościami ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))
 
-Zwróć uwagę, że wartość DateReleased jest automatycznie wykonane sprawdzanie poprawności. Ponieważ właściwość DateReleased nie akceptuje wartości NULL, DefaultModelBinder generuje błąd sprawdzania poprawności dla tej właściwości automatycznie, gdy nie ma wartości. Jeśli chcesz zmodyfikować komunikat o błędzie dla właściwości DateReleased, a następnie należy utworzyć niestandardowego integratora modelu.
+Zauważ, że wartość DateReleased jest weryfikowana automatycznie. Ponieważ właściwość DateReleased nie akceptuje wartości NULL, DefaultModelBinder generuje błąd walidacji dla tej właściwości automatycznie, gdy nie ma wartości. Jeśli chcesz zmodyfikować komunikat o błędzie dla właściwości DateReleased, musisz utworzyć spinacz modelu niestandardowego.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono sposób korzystania z użyciem interfejsu IDataErrorInfo do generowania komunikatów o błędach weryfikacji. Po pierwsze utworzyliśmy częściową klasą filmów, która rozszerza funkcjonalność klasy częściowej filmu generowane przez program Entity Framework. Następnie dodaliśmy logikę walidacji do OnTitleChanging() i OnDirectorChanging() metod częściowych dla klasy filmu. Ponadto wprowadziliśmy interfejsu IDataErrorInfo, aby udostępnić te komunikaty weryfikacji platformę ASP.NET MVC.
+W tym samouczku przedstawiono sposób użycia interfejsu IDataErrorInfo do generowania komunikatów o błędach walidacji. Najpierw tworzymy częściową klasę filmu, która rozszerza funkcjonalność częściowej klasy filmowej wygenerowanej przez Entity Framework. Następnie dodaliśmy logikę sprawdzania poprawności do klasy filmów OnTitleChanging () i OnDirectorChanging () metod częściowych. Na koniec zaimplementowano interfejs IDataErrorInfo, aby uwidocznić te komunikaty weryfikacyjne w strukturze ASP.NET MVC.
 
 > [!div class="step-by-step"]
 > [Poprzednie](performing-simple-validation-cs.md)

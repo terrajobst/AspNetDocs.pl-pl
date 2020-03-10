@@ -9,11 +9,11 @@ ms.assetid: e7700e7b-edc3-4183-a713-70e507cc7490
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3e38b91d837c65191d4b3797fa31ef6112a1f070
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606720"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578128"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-c"></a>Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (C#)
 
@@ -56,4 +56,4 @@ Teraz każdy element w źródle danych wyświetla okno podręczne z prawej stron
 Menu aktywacja pojawia się obok każdego elementu w wzmacniake ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-hovermenu-with-a-repeater-control-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](using-hovermenu-with-a-repeater-control-vb.md)
+> [Dalej](using-hovermenu-with-a-repeater-control-vb.md)

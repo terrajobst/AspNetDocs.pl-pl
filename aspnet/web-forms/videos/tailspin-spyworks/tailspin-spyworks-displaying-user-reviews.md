@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-reviews
-title: Tailspin Spyworks — wyświetlanie recenzji użytkowników | Dokumentacja firmy Microsoft
+title: Tailspin Spyworks — wyświetlanie przeglądów użytkowników | Microsoft Docs
 author: JoeStagner
-description: Jan Stagner Wyświetla recenzje klientów Tailspin Spyworks przykładowej aplikacji formularzy sieci Web.
+description: Jan Stagner wyświetla przeglądy od klientów w przykładowej aplikacji Web Forms Tailspin Spyworks.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 55d5652a-bcf3-451e-89e4-8b907d88708f
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-reviews
 msc.type: video
 ms.openlocfilehash: c8c7864a6825db99db9c942102fc6afb41b0e655
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405204"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547895"
 ---
 # <a name="tailspin-spyworks---displaying-user-reviews"></a>Tailspin Spyworks — wyświetlanie recenzji użytkowników
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Jan Stagner Wyświetla recenzje klientów Tailspin Spyworks przykładowej aplikacji formularzy sieci Web.
+Jan Stagner wyświetla przeglądy od klientów w przykładowej aplikacji Web Forms Tailspin Spyworks.
 
-[&#9654;Obejrzyj film wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-displaying-user-reviews)
+[&#9654;Obejrzyj wideo (13 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-displaying-user-reviews)
 
 > [!div class="step-by-step"]
-> [Poprzednie](tailspin-spyworks-adding-user-product-reviews.md)
+> [Wstecz](tailspin-spyworks-adding-user-product-reviews.md)

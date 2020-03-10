@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
-title: Routingu we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Routing w interfejsie API sieci Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,82 +9,82 @@ ms.assetid: 0675bdc7-282f-4f47-b7f3-7e02133940ca
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 85862c094cc54365267b1f21e68d235a15519cda
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419239"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557611"
 ---
-# <a name="routing-in-aspnet-web-api"></a>Routingu we wzorcu ASP.NET Web API
+# <a name="routing-in-aspnet-web-api"></a>Routing w składniku Web API platformy ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym artykule opisano, jak ASP.NET Web API kieruje żądania HTTP do kontrolerów.
+W tym artykule opisano sposób, w jaki interfejs API sieci Web ASP.NET kieruje żądania HTTP do kontrolerów.
 
 > [!NOTE]
-> Osoby zaznajomione z platformą ASP.NET MVC routingu internetowego interfejsu API jest bardzo podobny do routingu MVC. Główną różnicą jest to, że interfejsu API sieci Web użyto zlecenie HTTP, nie ścieżka identyfikatora URI, aby wybrać akcję. Umożliwia także MVC stylu routing w interfejsie API sieci Web. W tym artykule nie zakłada żadnej wiedzy platformy ASP.NET MVC.
+> Jeśli znasz ASP.NET MVC, routing interfejsu API sieci Web jest bardzo podobny do routingu MVC. Główną różnicą jest to, że interfejs API sieci Web używa zlecenia HTTP, a nie ścieżki identyfikatora URI, aby wybrać akcję. W interfejsie API sieci Web można również używać routingu w stylu MVC. W tym artykule nie założono żadnej znajomości ASP.NET MVC.
 
 ## <a name="routing-tables"></a>Tabele routingu
 
-W programie ASP.NET Web API *kontrolera* to klasa, która obsługuje żądania HTTP. Metody publiczne kontrolera są nazywane *metod akcji* lub po prostu *akcje*. Gdy struktury Web API odbiera żądanie, kieruje żądanie do operacji.
+W interfejsie API sieci Web ASP.NET *kontroler* jest klasą, która obsługuje żądania HTTP. Metody publiczne kontrolera są nazywane *metodami akcji* lub po prostu *akcjami*. Gdy struktura internetowego interfejsu API odbiera żądanie, kieruje żądanie do akcji.
 
-Aby ustalić, jaka akcja do wywołania, środowisko wykorzystuje *tabeli routingu*. Szablon projektu Visual Studio dla interfejsu API sieci Web tworzy trasy domyślne:
+Aby określić akcję do wywołania, struktura używa *tabeli routingu*. Szablon projektu programu Visual Studio dla interfejsu API sieci Web tworzy trasę domyślną:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample1.cs)]
 
-Ta trasa jest zdefiniowana w *WebApiConfig.cs* pliku, który jest umieszczony w *aplikacji\_Start* katalogu:
+Ta trasa jest zdefiniowana w pliku *WebApiConfig.cs* , który znajduje się w *aplikacji\_Start* Directory:
 
 ![](routing-in-aspnet-web-api/_static/image1.png)
 
-Aby uzyskać więcej informacji na temat `WebApiConfig` klasy, zobacz [Konfigurowanie ASP.NET Web API](../advanced/configuring-aspnet-web-api.md).
+Aby uzyskać więcej informacji na temat klasy `WebApiConfig`, zobacz [Konfigurowanie interfejsu API sieci Web ASP.NET](../advanced/configuring-aspnet-web-api.md).
 
-Jeśli samodzielnego hostowania interfejsu API sieci Web, musisz ustawić w tabeli routingu bezpośrednio `HttpSelfHostConfiguration` obiektu. Aby uzyskać więcej informacji, zobacz [samodzielnego hostowania interfejsu Web API](../older-versions/self-host-a-web-api.md).
+W przypadku samoobsługowego interfejsu API sieci Web należy ustawić tabelę routingu bezpośrednio na obiekcie `HttpSelfHostConfiguration`. Aby uzyskać więcej informacji, zobacz samoobsługowy [interfejs API sieci Web](../older-versions/self-host-a-web-api.md).
 
-Każdy wpis w tabeli routingu zawiera *szablon trasy*. Domyślny szablon trasy dla interfejsu API sieci Web jest &quot;interfejsu api / {controller} / {id}&quot;. W tym szablonie &quot;api&quot; jest segmentu ścieżki literału, a {controller} i {id} są zmiennymi symbol zastępczy.
+Każdy wpis w tabeli routingu zawiera *szablon trasy*. Domyślnym szablonem trasy dla interfejsu API sieci Web jest &quot;API/{Controller}/{ID}&quot;. W tym szablonie &quot;&quot; API jest segmentem ścieżki literału, a {Controller} i {ID} są zmiennymi symbolami zastępczymi.
 
-Gdy struktury Web API odbiera żądanie HTTP, próbuje dopasować identyfikatora URI na jednym z szablonów tras w tabeli routingu. Jeśli żadna trasa nie pasuje, klient odbiera błąd 404. Na przykład następujące identyfikatory URI zgodna trasy domyślnej:
+Gdy struktura internetowego interfejsu API odbiera żądanie HTTP, próbuje dopasować identyfikator URI do jednego z szablonów tras w tabeli routingu. W przypadku braku dopasowania trasy klient odbiera błąd 404. Na przykład następujące identyfikatory URI pasują do trasy domyślnej:
 
-- / api/contacts
-- /API/Contacts/1
-- /API/Products/gizmo1
+- /api/contacts
+- /api/contacts/1
+- /api/products/gizmo1
 
-Jednak następujący identyfikator URI nie jest zgodny, ponieważ brakuje &quot;api&quot; segmencie:
+Jednak następujący identyfikator URI nie jest zgodny, ponieważ brakuje segmentu &quot;interfejsu API&quot;:
 
-- / contacts/1
+- /contacts/1
 
 > [!NOTE]
-> Przyczyna przy użyciu "interfejs api" dla trasy jest uniknąć kolizji z routing na platformie ASP.NET MVC. Dzięki temu można mieć &quot;/kontaktuje się&quot; przejdź do kontrolera MVC i &quot;/api/contacts&quot; przejdź do kontrolera internetowego interfejsu API. Oczywiście jeśli ta Konwencja nie lubisz, możesz zmienić tabela routingu domyślnego.
+> Powodem korzystania z funkcji "API" w marszrucie jest uniknięcie kolizji z routingiem ASP.NET MVC. Dzięki temu można &quot;/Contacts&quot; przejść do kontrolera MVC i &quot;/API/Contacts&quot; przejdź do kontrolera interfejsu API sieci Web. Oczywiście, jeśli nie podoba Ci się ta konwencja, możesz zmienić domyślną tabelę tras.
 
-Po znalezieniu pasującego trasy interfejsu API sieci Web wybiera kontroler i akcję:
+Po znalezieniu pasującej trasy interfejs API sieci Web wybiera kontroler i akcję:
 
-- Aby odnaleźć kontrolera, dodaje interfejsu API sieci Web &quot;kontrolera&quot; wartość *{controller}* zmiennej.
-- Aby znaleźć akcję, internetowy interfejs API patrzy na zlecenie HTTP, a następnie szuka akcji, których nazwy zaczynają się o tej nazwie zlecenie HTTP. Na przykład żądanie GET, internetowy interfejs API wyszukuje prefiksem akcję &quot;uzyskać&quot;, takich jak &quot;GetContact&quot; lub &quot;GetAllContacts&quot;. Ta Konwencja dotyczy tylko GET, POST, PUT, DELETE, HEAD, opcje i stosowanie poprawek do zlecenia. Pozostałe zlecenia HTTP można włączyć za pomocą atrybutów kontrolera. Później zobaczymy przykład.
-- Inne zmienne symbol zastępczy w szablonie trasy, takich jak *{id}* są mapowane do parametrów akcji.
+- Aby znaleźć kontroler, interfejs API sieci Web dodaje&quot; kontrolera &quot;do wartości zmiennej *{Controller}* .
+- Aby znaleźć akcję, interfejs API sieci Web przegląda czasownik HTTP, a następnie szuka akcji, której nazwa zaczyna się od tej nazwy zlecenia HTTP. Na przykład przy użyciu żądania GET interfejs API sieci Web szuka akcji poprzedzonej &quot;Get&quot;, takiej jak &quot;GetContact&quot; lub &quot;&quot;. Ta konwencja ma zastosowanie tylko do czasowników GET, POST, PUT, DELETE, szef, OPTIONS i PATCH. Inne zlecenia HTTP można włączyć przy użyciu atrybutów na kontrolerze. Zobaczymy przykład tej późniejszej.
+- Inne zmienne zastępcze w szablonie trasy, takie jak *{ID},* są mapowane na parametry akcji.
 
-Przyjrzyjmy się przykładowi. Załóżmy, że należy zdefiniować następujący kontroler:
+Spójrzmy na przykład. Załóżmy, że definiujesz następujący kontroler:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample2.cs)]
 
-Poniżej przedstawiono niektóre możliwe żądania HTTP wraz z akcji, która zostanie wywołana dla każdego:
+Poniżej przedstawiono niektóre możliwe żądania HTTP wraz z akcją, która jest wywoływana dla każdego z nich:
 
 | Czasownik HTTP | Ścieżka identyfikatora URI | Akcja | Parametr |
 | --- | --- | --- | --- |
-| GET | Interfejs API/produktów | GetAllProducts | *(Brak)* |
-| GET | Interfejs API/produkty/4 | GetProductById | 4 |
-| DELETE | Interfejs API/produkty/4 | DeleteProduct | 4 |
-| POST | Interfejs API/produktów | *(Brak dopasowań)* |  |
+| GET | interfejsy API/produkty | GetAllProducts | *dawaj* |
+| GET | interfejsy API/produkty/4 | GetProductById | 4 |
+| DELETE | interfejsy API/produkty/4 | DeleteProduct | 4 |
+| POST | interfejsy API/produkty | *(brak dopasowania)* |  |
 
-Należy zauważyć, że *{id}* segmencie identyfikatora URI, jeśli jest obecny, jest mapowany na *identyfikator* parametru akcji. W tym przykładzie kontrolera definiuje dwie metody GET, jeden z *identyfikator* parametrów i bez parametrów.
+Zwróć uwagę, że segment *{ID}* identyfikatora URI (jeśli istnieje) jest mapowany na parametr *ID* akcji. W tym przykładzie kontroler definiuje dwie metody GET, jeden z parametrem *ID* i jeden bez parametrów.
 
-Ponadto dokonany wybór żądanie POST zakończy się niepowodzeniem, ponieważ kontroler nie definiują &quot;wpis... &quot; metody.
+Należy również pamiętać, że żądanie POST zakończy się niepowodzeniem, ponieważ kontroler nie definiuje metody &quot;post...&quot;.
 
-## <a name="routing-variations"></a>Zmiany routingu
+## <a name="routing-variations"></a>Różnice routingu
 
-W poprzedniej sekcji opisano podstawowy mechanizm routingu ASP.NET Web API. W tej sekcji opisano pewne różnice.
+W poprzedniej sekcji opisano mechanizm routingu podstawowego dla interfejsu API sieci Web ASP.NET. W tej sekcji opisano niektóre odmiany.
 
-### <a name="http-verbs"></a>Zlecenia HTTP
+### <a name="http-verbs"></a>czasowniki HTTP
 
-Zamiast używania konwencji nazewnictwa dla zleceń HTTP, możesz jawnie określić czasownik HTTP dla akcji przez urządzanie metodę akcji przy użyciu jednego z następujących atrybutów:
+Zamiast używać konwencji nazewnictwa dla czasowników HTTP, można jawnie określić czasownik HTTP dla akcji, dekorowania nazwy metodę akcji z jednym z następujących atrybutów:
 
 - `[HttpGet]`
 - `[HttpPut]`
@@ -94,37 +94,37 @@ Zamiast używania konwencji nazewnictwa dla zleceń HTTP, możesz jawnie określ
 - `[HttpOptions]`
 - `[HttpPatch]`
 
-W poniższym przykładzie `FindProduct` metody jest mapowany na żądania pobierania:
+W poniższym przykładzie metoda `FindProduct` jest mapowana na żądania GET:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample3.cs)]
 
-Aby umożliwić wielu poleceń HTTP dla akcji lub Zezwalaj na zlecenia HTTP inne niż GET, PUT, POST, DELETE, HEAD, opcji i poprawek, użyj `[AcceptVerbs]` atrybut, który przyjmuje listę zleceń HTTP.
+Aby zezwolić na wiele czasowników HTTP dla akcji lub zezwolić na zlecenia HTTP inne niż GET, PUT, POST, DELETE, NAGŁÓWKowy, OPTIONS i PATCH, Użyj atrybutu `[AcceptVerbs]`, który pobiera listę zleceń HTTP.
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample4.cs)]
 
 <a id="routing_by_action_name"></a>
-### <a name="routing-by-action-name"></a>Routing, dbając o Nazwa akcji
+### <a name="routing-by-action-name"></a>Routing według nazwy akcji
 
-Szablon routingu domyślnego interfejsu API sieci Web używa zlecenie HTTP, aby wybrać akcję. Jednak można również utworzyć trasę, gdy nazwa akcji znajduje się w identyfikatorze URI:
+W przypadku domyślnego szablonu routingu interfejs API sieci Web używa zlecenia HTTP do wybrania akcji. Można jednak również utworzyć trasę, w której nazwa akcji jest uwzględniona w identyfikatorze URI:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample5.cs)]
 
-W tym szablonie trasy *{action}* nazwy parametrów metody akcji kontrolera. Z tym stylem routingu umożliwia określanie dozwolonych poleceń HTTP atrybutów. Na przykład załóżmy, że dany kontroler ma następującą metodę:
+W tym szablonie trasy parametr *{Action}* nazywa metodę Action na kontrolerze. Przy użyciu tego stylu routingu użyj atrybutów, aby określić dozwolone zlecenia HTTP. Załóżmy na przykład, że kontroler ma następującą metodę:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample6.cs)]
 
-W tym przypadku żądania GET dla "interfejsu api/produkty/szczegóły/1" mapującej do `Details` metody. Ten styl routingu jest podobny do wzorca ASP.NET MVC i może być odpowiedni dla stylu RPC interfejsu API.
+W takim przypadku żądanie GET dla "API/Products/Details" zostanie zmapowane na metodę `Details`. Ten styl routingu jest podobny do ASP.NET MVC i może być odpowiedni dla interfejsu API w stylu wywołania RPC.
 
-Nazwa akcji można zastąpić za pomocą `[ActionName]` atrybutu. W poniższym przykładzie, istnieją dwie akcje, które mapują &quot;produkty/api/miniatur/*identyfikator*. Obsługuje jeden GET oraz drugi WPIS:
+Można zastąpić nazwę akcji przy użyciu atrybutu `[ActionName]`. W poniższym przykładzie istnieją dwie akcje, które mapują na &quot;API/produkty/miniaturę/*Identyfikator*. Jeden obsługuje funkcję GET, a druga obsługuje wpis:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample7.cs)]
 
-### <a name="non-actions"></a>Bez akcji
+### <a name="non-actions"></a>Akcje niedziałające
 
-Aby zapobiec sytuacji, w której metody pobierania wywołana jako akcję, należy użyć `[NonAction]` atrybutu. To sygnalizuje Framework, metoda nie jest działanie, nawet wtedy, gdy w przeciwnym razie dopasowanie nastąpi reguły routingu.
+Aby zapobiec wywołaniu metody jako akcji, Użyj atrybutu `[NonAction]`. Sygnalizuje to platformę, która nie jest akcją, nawet jeśli w przeciwnym razie będzie zgodna z regułami routingu.
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample8.cs)]
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-W tym temacie podano ogólny widok routingu. Aby uzyskać więcej informacji, zobacz [Routing i wybieranie akcji](routing-and-action-selection.md), która opisuje dokładnie tak jak struktura pasuje do identyfikatora URI do trasy, wybiera kontrolera i następnie wybiera akcję do wywołania.
+W tym temacie przedstawiono ogólny widok routingu. Aby uzyskać więcej szczegółów, zobacz [Routing i wybór akcji](routing-and-action-selection.md), który opisuje dokładnie, w jaki sposób architektura dopasowuje identyfikator URI do trasy, wybiera kontroler, a następnie wybiera akcję do wywołania.

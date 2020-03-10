@@ -9,11 +9,11 @@ ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
 ms.openlocfilehash: 08ced380f3551407d757524dbc84b5feeeb5482b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74601487"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78629508"
 ---
 # <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Objaśnienie możliwości debugowania kodu ASP.NET AJAX
 
@@ -301,7 +301,7 @@ W przypadkach, gdy ma być załadowana wersja Debug lub Release niestandardowego
 
 Odpowiednio przy użyciu właściwości ScriptMode można łatwiej debugować aplikacje i uprościć cały proces. Skrypty wydania biblioteki AJAX ASP.NET są raczej trudne do przechodzenia i odczytywane, ponieważ formatowanie kodu zostało usunięte, podczas gdy skrypty debugowania są sformatowane do celów debugowania.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Technologia ASP.NET AJAX firmy Microsoft zapewnia solidną podstawę do tworzenia aplikacji obsługujących technologię AJAX, które mogą ulepszyć ogólne środowisko użytkownika końcowego. Jednak podobnie jak w przypadku wszelkich technologii programowania, błędy i inne problemy z aplikacjami będą miały miejsce. Informacje o różnych dostępnych opcjach debugowania mogą zaoszczędzić dużo czasu i spowodować bardziej stabilny produkt.
 
@@ -314,4 +314,4 @@ Dan Wahlin (Firma Microsoft jest najbardziej cennym specjalistą dla usług ASP.
 Scott Cate pracował z technologiami sieci Web firmy Microsoft od 1997 i jest prezydentem myKB.com ([www.myKB.com](http://www.myKB.com)), w którym wyspecjalizowany jest pisanie aplikacji opartych na ASP.NET, które są zgodne z podstawowymi rozwiązaniami oprogramowania. W witrynie Scotta można skontaktować się z pocztą e-mail na [scott.cate@myKB.com](mailto:scott.cate@myKB.com) lub w blogu w witrynie [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](understanding-asp-net-ajax-web-services.md)
+> [Wstecz](understanding-asp-net-ajax-web-services.md)

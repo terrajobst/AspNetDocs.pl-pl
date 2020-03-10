@@ -9,11 +9,11 @@ ms.assetid: b9c29865-a34e-48bb-92c0-c443a72cb860
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b296f31da1c73df97175d94402b4d618df425d8d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74579307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641772"
 ---
 # <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguracja uwierzytelniania formularzy i tematy zaawansowane (C#)
 
@@ -44,12 +44,12 @@ Tabela 1 podsumowuje właściwości, które można dostosować za pomocą &lt;fo
 |           domena           | W przypadku korzystania z biletów uwierzytelniania opartych na plikach cookie to ustawienie określa wartość domeny pliku cookie. Wartość domyślna to pusty ciąg, który powoduje, że przeglądarka używa domeny, z której został wystawiony (na przykład www.yourdomain.com). W takim przypadku plik cookie <strong>nie</strong> będzie wysyłany podczas przesyłania żądań do poddomen, takich jak admin.yourdomain.com. Jeśli chcesz, aby plik cookie został przesłany do wszystkich poddomen, musisz dostosować atrybut domeny, ustawiając go na yourdomain.com. |
 |  enableCrossAppRedirects   |                                                                                                                                                                   Wartość logiczna wskazująca, czy użytkownicy uwierzytelnieni są zapamiętani w przypadku przekierowania do adresów URL w innych aplikacjach sieci Web na tym samym serwerze. Wartość domyślna to false.                                                                                                                                                                   |
 |          loginUrl          |                                                                                                                                                                                                                      Adres URL strony logowania. Wartość domyślna to login. aspx.                                                                                                                                                                                                                      |
-|            {1&gt;nazwa&lt;1}            |                                                                                                                                                                                                   W przypadku używania biletów uwierzytelniania opartych na plikach cookie nazwa pliku cookie. Wartość domyślna to. ASPXAUTH.                                                                                                                                                                                                   |
+|            name            |                                                                                                                                                                                                   W przypadku używania biletów uwierzytelniania opartych na plikach cookie nazwa pliku cookie. Wartość domyślna to. ASPXAUTH.                                                                                                                                                                                                   |
 |            ścieżka            |                                                                             W przypadku korzystania z biletów uwierzytelniania opartych na plikach cookie to ustawienie określa atrybut ścieżki pliku cookie. Atrybut path umożliwia deweloperowi ograniczenie zakresu pliku cookie do określonej hierarchii katalogów. Wartość domyślna to/, która informuje przeglądarkę o wysłaniu pliku cookie biletu uwierzytelniania do dowolnego żądania wysłanego do domeny.                                                                              |
 |         ochrona         |                                                                                                                                            Wskazuje, jakie techniki są używane do ochrony biletu uwierzytelniania formularzy. Dozwolone wartości to: ALL (wartość domyślna); Szyfrowania Dawaj i walidacja. Te ustawienia zostały szczegółowo omówione w kroku 3.                                                                                                                                            |
 |         requireSSL         |                                                                                                                                                                                Wartość logiczna wskazująca, czy do przesyłania pliku cookie uwierzytelniania jest wymagane połączenie SSL. Wartość domyślna to false.                                                                                                                                                                                |
-|     slidingExpiration      |                                                                                                 Wartość logiczna wskazująca, czy limit czasu pliku cookie uwierzytelniania jest resetowany za każdym razem, gdy użytkownik odwiedzi lokację podczas jednej sesji. Wartość domyślna to true. Zasady limitu czasu biletu uwierzytelniania zostały omówione bardziej szczegółowo w sekcji Określanie wartości limitu czasu biletu.                                                                                                 |
-|          Limit czasu           |                                                                                                                               Określa czas (w minutach), po upływie którego wygasa plik cookie biletu uwierzytelniania. Wartość domyślna to 30. Zasady limitu czasu biletu uwierzytelniania zostały omówione bardziej szczegółowo w sekcji Określanie wartości limitu czasu biletu.                                                                                                                               |
+|     slidingExpiration      |                                                                                                 Wartość logiczna wskazująca, czy limit czasu pliku cookie uwierzytelniania jest resetowany za każdym razem, gdy użytkownik odwiedzi lokację podczas jednej sesji. Wartością domyślną jest true. Zasady limitu czasu biletu uwierzytelniania zostały omówione bardziej szczegółowo w sekcji Określanie wartości limitu czasu biletu.                                                                                                 |
+|          timeout           |                                                                                                                               Określa czas (w minutach), po upływie którego wygasa plik cookie biletu uwierzytelniania. Wartość domyślna to 30. Zasady limitu czasu biletu uwierzytelniania zostały omówione bardziej szczegółowo w sekcji Określanie wartości limitu czasu biletu.                                                                                                                               |
 
 **Tabela 1**: Podsumowanie &lt;formularzy&gt; atrybutów elementu
 
@@ -248,7 +248,7 @@ ciąg userDataString = ciąg. Concat (NazwaFirmy [i], "|", titleAtCompany [i]);
 
 Następnie wywoływana jest metoda FormsAuthentication. GetAuthCookie, która tworzy bilet uwierzytelniania, szyfruje i sprawdza poprawność zgodnie z ustawieniami konfiguracji i umieszcza je w obiekcie HttpCookie.
 
-HttpCookie authCookie = FormsAuthentication. GetAuthCookie (UserName. text, kontrolka rememberMe. Checked);
+HttpCookie authCookie = FormsAuthentication.GetAuthCookie(UserName.Text, RememberMe.Checked);
 
 Aby można było współpracować z FormAuthenticationTicket osadzonym w pliku cookie, musimy wywołać [metodę odszyfrowania](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx)klasy FormAuthentication, przekazując wartość cookie.
 
@@ -260,7 +260,7 @@ FormsAuthenticationTicket newTicket = New FormsAuthenticationTicket (bilet. Wers
 
 Następnie szyfrujemy (i weryfikuje) nowe wystąpienie FormsAuthenticationTicket przez wywołanie [metody szyfrowania](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)i umieszczenie tych zaszyfrowanych (i zweryfikowanych) danych z powrotem w authCookie.
 
-authCookie. Value = FormsAuthentication. Szyfruj (newTicket);
+authCookie.Value = FormsAuthentication.Encrypt(newTicket);
 
 Na koniec authCookie jest dodawany do kolekcji Response. cookies, a metoda GetRedirectUrl jest wywoływana w celu określenia odpowiedniej strony do wysłania użytkownika.
 

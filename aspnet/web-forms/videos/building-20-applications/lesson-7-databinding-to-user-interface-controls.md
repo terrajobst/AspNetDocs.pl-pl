@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
-title: '[Lekcja 7:] Powiązanie danych z kontrolkami interfejsu użytkownika | Dokumentacja firmy Microsoft'
+title: '[Lekcja 7:] Sterowanie danymi kontrolnymi w interfejsie użytkownika | Microsoft Docs'
 author: microsoft
-description: W tej lekcji nauczysz się wyświetlać dane w swoich aplikacjach ASP.NET&#160;aplikacji za pośrednictwem niektóre z nowych formantów powiązanych z danymi w sieci web w wersji 2.0.
+description: W tej lekcji dowiesz się, jak wyświetlać dane w aplikacjach sieci Web&#160;w systemie ASP.NET 2,0 za pomocą niektórych nowych formantów powiązanych z danymi.
 ms.author: riande
 ms.date: 11/29/2005
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
 ms.openlocfilehash: bec31c6d45701e2a27c38cea066fec0d0dc908c8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378810"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630201"
 ---
 # <a name="lesson-7-databinding-to-user-interface-controls"></a>[Lekcja 7:] Powiązanie danych z kontrolkami interfejsu użytkownika
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-W tej lekcji dowiesz się, jak wyświetlać dane w aplikacji sieci web ASP.NET2.0 przez niektóre z nowych formantów powiązanych z danymi.
+W tej lekcji dowiesz się, jak wyświetlać dane w aplikacjach sieci Web ASP. NET 2.0 za pomocą niektórych nowych formantów powiązanych z danymi.
 
-[&#9654;Obejrzyj film wideo (22 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
+[&#9654;Obejrzyj wideo (22 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
 
 > [!div class="step-by-step"]
 > [Poprzednie](lesson-6-working-with-stylesheets-and-master-pages.md)

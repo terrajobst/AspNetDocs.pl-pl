@@ -2,22 +2,22 @@
 uid: web-forms/videos/how-do-i/index
 title: Jak to zrobić? | Microsoft Docs
 author: rick-anderson
-description: Jak przeprowadzić szereg typowych zadań.
+description: Jak wykonać różne typowe zadania.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 12c988e64c5b724e04b6fc5f8eddc6a181764e1d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114920"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639987"
 ---
 # <a name="how-do-i"></a>Jak to zrobić?
 
-> Jak przeprowadzić szereg typowych zadań.
+> Jak wykonać różne typowe zadania.
 
 - [Uzyskaj porady i wskazówki ekspertów](how-do-i-learn-the-tips-and-tricks-of-experts.md)
 - [Tworzenie wielojęzycznej witryny z lokalizacją](how-do-i-create-a-multi-lingual-site-with-localization.md)
@@ -73,7 +73,7 @@ ms.locfileid: "65114920"
 - [Wykrywanie możliwości przeglądarki we wzorcu ASP.NET Web Pages](how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
 - [Mapowanie kontrolki serwera platformy ASP.NET do adaptera używanego do jej renderowania](how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
 - [Przekazywanie informacji z jednej strony do innej przy użyciu ciągu zapytania](how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-- [Użyj aspnet\_merge.exe narzędzie do scalania zestawów](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+- [Scalanie zestawów przy użyciu narzędzia ASPNET\_merge. exe](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
 - [Implementowanie ogłaszania zwrotnego między stronami na platformie ASP.NET](how-do-i-implement-a-cross-page-postback-in-aspnet.md)
 - [Programowe dodawanie kontrolek do strony internetowej ASP.NET](how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
 - [Przechowywanie informacji po stronie klienta i manipulowanie nimi przy użyciu ukrytego pola](how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)

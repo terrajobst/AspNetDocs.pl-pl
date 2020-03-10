@@ -9,11 +9,11 @@ ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f33936dd4d71f6bbf08f02966eefe44c8c152eba
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606455"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554013"
 ---
 # <a name="creating-mutually-exclusive-checkboxes-vb"></a>Tworzenie wzajemnie wykluczających się pól wyboru (VB)
 
@@ -50,4 +50,4 @@ Zapisz i Uruchom stronę: można zaznaczyć i usunąć zaznaczenie obu pól wybo
 Tylko jedno pole wyboru może być zaznaczone naraz ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](creating-mutually-exclusive-checkboxes-cs.md)
+> [Wstecz](creating-mutually-exclusive-checkboxes-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
 ms.openlocfilehash: 410525bb2e3f6e5a0be6d7d6b33fb3a40509041a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614941"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576063"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Ustawianie uprawnień do folderów
 
@@ -50,7 +50,7 @@ Teraz uruchom *ELMAH. axd* , aby zobaczyć raport o błędach. Po zalogowaniu si
 Uprawnienia do folderów można ustawiać ręcznie lub w ramach procesu wdrażania. Automatyczne wymaganie złożonego kodu MSBuild jest wymagane, a ponieważ trzeba to zrobić przy pierwszym wdrożeniu, należy wykonać następujące czynności, aby zrobić to ręcznie. (Aby uzyskać informacje na temat sposobu wykonywania tej części procesu wdrażania, zobacz [Ustawianie uprawnień do folderu w blogu publikowanie w sieci Web](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) na Sayed Hashimi).
 
 1. W **Eksploratorze plików**przejdź do *C:\inetpub\wwwroot\ContosoUniversity*. Kliknij prawym przyciskiem myszy folder *ELMAH* , wybierz polecenie **Właściwości**, a następnie wybierz kartę **zabezpieczenia** .
-2. Kliknij przycisk **Edytuj**.
+2. Kliknij pozycję **Edytuj**.
 3. W oknie dialogowym **uprawnienia dla programu ELMAH** wybierz pozycję **Domyślna pula aplikacji**, a następnie zaznacz pole wyboru **zapis** w kolumnie **Zezwalaj** .
 
     ![Uprawnienia dla folderu ELMAH](setting-folder-permissions/_static/image3.png)
