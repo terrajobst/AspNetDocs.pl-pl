@@ -1,724 +1,724 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
-title: What's New in sieci Web formularzy w programie ASP.NET 4.5 | Dokumentacja firmy Microsoft
+title: Co nowego w formularzach sieci Web w programie ASP.NET 4,5 | Microsoft Docs
 author: rick-anderson
-description: Nowa wersja ASP.NET Web Forms wprowadzono szereg ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi. W poprzednich wersjach...
+description: Nowa wersja ASP.NET Web Forms zawiera kilka ulepszeń, które koncentrują się na ulepszaniu środowiska użytkownika podczas pracy z danymi. W poprzednich wersjach programu...
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
 ms.openlocfilehash: 301af8ed877b58624e419c04f605c41f27dbdd0c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132087"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525733"
 ---
 # <a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
 
-Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
+przez [zespół Camp sieci Web](https://twitter.com/webcamps)
 
-> Nowa wersja ASP.NET Web Forms wprowadzono szereg ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi.
+> Nowa wersja ASP.NET Web Forms zawiera kilka ulepszeń, które koncentrują się na ulepszaniu środowiska użytkownika podczas pracy z danymi.
 > 
-> W poprzednich wersjach programu formularzy sieci Web, emisji wartość elementu członkowskiego obiektu za pomocą powiązania danych użyto wyrażenia wiązania danych Bind() lub Eval(). W nowej wersji programu ASP.NET jest możliwe do deklarowania, jakiego typu dane formant będzie powiązać za pomocą nowych właściwości typu ItemType. Ustawienie tej właściwości spowoduje włączenie użyć zmiennej silnie typizowane uzyskania pełnych korzyści programu Visual Studio środowisko programistyczne, takie jak IntelliSense, nawigowanie elementu członkowskiego i sprawdzanie w czasie kompilacji.
+> W poprzednich wersjach formularzy sieci Web, gdy przy użyciu powiązania danych do emisji wartości elementu członkowskiego obiektu użyto wyrażeń powiązania danych bind () lub eval (). W nowej wersji ASP.NET można zadeklarować typ danych, z którymi formant ma być powiązany, przy użyciu nowej właściwości ItemType. Ustawienie tej właściwości umożliwi użycie zmiennej o jednoznacznie określonym typie w celu uzyskania pełnych korzyści związanych z programowaniem Visual Studio, takich jak IntelliSense, Nawigacja członków i sprawdzanie w czasie kompilacji.
 > 
-> Za pomocą kontrolek powiązanych z danymi można teraz również określić własne niestandardowe metody wybierając, aktualizowanie, usuwanie i wstawianie danych, upraszczanie interakcji między kontrolkami strony i logika aplikacji. Ponadto zostały dodane możliwości wiązania modelu programu ASP.NET, co oznacza, że dane ze strony można mapować bezpośrednio do parametrów typu w metodzie.
+> Formanty powiązane z danymi umożliwiają teraz również określanie własnych metod niestandardowych do wybierania, aktualizowania, usuwania i wstawiania danych, uproszczenia interakcji między kontrolkami stron i logiką aplikacji. Ponadto możliwości powiązania modelu zostały dodane do ASP.NET, co oznacza, że można mapować dane ze strony bezpośrednio do parametrów typu metody.
 > 
-> Walidacja danych wejściowych użytkownika należy również łatwiej z najnowszą wersją formularzy sieci Web. Teraz możesz dodawać adnotacje do klas modelu za pomocą atrybutów sprawdzania poprawności z **System.ComponentModel.DataAnnotations** przestrzeni nazw i żądania, który kontroluje witryny sieci Sprawdź poprawność danych wejściowych przy użyciu tych informacji użytkownika. Weryfikacja po stronie klienta w formularzach sieci Web jest teraz zintegrowana z jQuery, zapewniając oczyszczarkę plików kodu po stronie klienta i funkcje dyskretnego kodu JavaScript.
+> Sprawdzanie poprawności danych wejściowych użytkownika powinno być również łatwiejsze przy użyciu najnowszej wersji formularzy sieci Web. Teraz można dodać adnotacje do klas modelu z atrybutami walidacji z przestrzeni nazw **System. ComponentModel. DataAnnotations** i zażądać, aby wszystkie formanty lokacji sprawdzali poprawność danych wejściowych użytkownika przy użyciu tych informacji. Sprawdzanie poprawności po stronie klienta w formularzach sieci Web jest teraz zintegrowane z platformą jQuery, dostarczając kod po stronie klienta i niedyskretne funkcje języka JavaScript.
 > 
-> W obszarze żądania weryfikacji wprowadzono ulepszenia ułatwiają selektywnie wyłączyć sprawdzanie poprawności żądań dla poszczególnych części aplikacji lub odczytać danych unieważniany żądania.
+> W obszarze Walidacja żądania wprowadzono ulepszenia ułatwiające wybiórcze Wyłączanie sprawdzania poprawności żądań dla określonych części aplikacji lub odczytywanie unieważnionych danych żądania.
 > 
-> Niektóre udoskonalenia formularzy sieci Web formanty serwera, aby móc korzystać z nowych funkcji języków HTML5:
+> Wprowadzono kilka ulepszeń w kontrolkach serwera formularzy sieci Web, aby korzystać z nowych funkcji języka HTML5:
 > 
-> - Tryb tekstowy własności formant pola tekstowego został zaktualizowany do obsługi nowych typów wejściowych HTML5, takie jak wiadomości e-mail, daty/godziny i tak dalej.
-> - Sterowanie FileUpload teraz obsługuje wiele przekazywania plików z przeglądarki, które obsługują tę funkcję HTML5.
-> - Moduł sprawdzania poprawności steruje teraz obsługi sprawdzania poprawności HTML5 elementów wejściowych.
-> - Nowe elementy HTML5, które mają atrybuty, które reprezentują adresu URL teraz obsługuje runat =&quot;serwera&quot;. Co w efekcie można używać konwencji platformy ASP.NET w ścieżki adresu URL, takie jak ~ operatora do reprezentowania katalog główny aplikacji (na przykład &lt;wideo runat =&quot;serwera&quot; src =&quot;~/myVideo.wmv&quot; &gt; &lt;/video&gt;).
-> - Kontrolki UpdatePanel został rozwiązany do obsługi pól wejściowych ogłaszania HTML5.
+> - Właściwość TextMode kontrolki TextBox została zaktualizowana w celu obsługi nowych typów danych wejściowych HTML5, takich jak wiadomości e-mail, DateTime i tak dalej.
+> - Kontrolka FileUpload obsługuje teraz wiele operacji przekazywania plików z przeglądarek, które obsługują tę funkcję HTML5.
+> - Kontrolki walidatora obsługują teraz sprawdzanie poprawności elementów wejściowych HTML5.
+> - Nowe elementy HTML5, które mają atrybuty reprezentujące adres URL, obsługują teraz&quot;runat =&quot;Server. W związku z tym można używać konwencji ASP.NET w ścieżkach URL, takich jak operator ~, aby reprezentować katalog główny aplikacji (na przykład &lt;Video runat =&quot;Server&quot; src =&quot;~/myVideo.wmv&quot;&gt;&lt;/Video&gt;).
+> - Kontrolka UpdatePanel została naprawiona w celu obsługi publikowania pól wejściowych HTML5.
 > 
-> W portalu oficjalne platformy ASP.NET można znaleźć więcej przykładów dotyczących nowych funkcji w programie ASP.NET 4.5 formularzy sieci Web: [Co nowego na platformie ASP.NET 4.5 i w programie Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
+> W oficjalnym portalu ASP.NET znajdziesz więcej przykładów nowych funkcji w ASP.NET WebForms 4,5: [co nowego w ASP.NET 4,5 i Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Wszystkie przykładowe kod i fragmenty kodu są zawarte w zestawie szkoleń w sieci Web Camp, które są dostępne w [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
 
-W tym praktyczne laboratorium dowiesz się jak:
+W tym ćwiczeniu dowiesz się, jak:
 
-- Użyj wyrażenia wiązania danych silnie typizowane
-- Korzystać z nowych funkcji wiązania modelu w formularzach sieci Web
-- Korzystanie z dostawców wartości do mapowania danych ze strony metody związanym z kodem
-- Adnotacje danych na użytek walidacji danych wejściowych użytkownika
-- Korzystać z zalet dyskretny kod weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
-- Implementowanie weryfikacji żądań szczegółowe
-- Implementowanie strony asynchronicznego przetwarzania w formularzach sieci Web
+- Używanie wyrażeń z powiązaniem danych o jednoznacznie określonym typie
+- Korzystanie z nowych funkcji powiązania modelu w formularzach sieci Web
+- Korzystanie z dostawców wartości na potrzeby mapowania danych strony do metod związanych z kodem
+- Używanie adnotacji danych do sprawdzania poprawności danych wejściowych użytkownika
+- Korzystaj z niezauważalnej weryfikacji po stronie klienta za pomocą technologii jQuery w formularzach sieci Web
+- Zaimplementuj szczegółowe sprawdzanie poprawności żądania
+- Implementuj asynchroniczne przetwarzanie stron w formularzach sieci Web
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Należy dysponować następującymi elementami do przygotowania tego laboratorium:
+Aby ukończyć to laboratorium, musisz mieć następujące elementy:
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub wyższego poziomu (odczyt [dodatek a.](#AppendixA) instrukcje dotyczące sposobu jego instalacji).
+- [Microsoft Visual Studio Express 2012 dla sieci Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub nadrzędnych (Przeczytaj [dodatek A,](#AppendixA) Aby uzyskać instrukcje na temat sposobu jego instalacji).
 
 <a id="Setup"></a>
-### <a name="setup"></a>Konfiguracja
+### <a name="setup"></a>Konfigurowanie
 
 **Instalowanie fragmentów kodu**
 
-Dla wygody większość kodu, który będzie zarządzany wzdłuż tego laboratorium jest dostępna jako fragmenty kodu programu Visual Studio. Aby zainstalować fragmenty kodu, uruchom **.\Source\Setup\CodeSnippets.vsi** pliku.
+Dla wygody większość kodu, który będzie zarządzany w tym laboratorium, jest dostępna jako fragmenty kodu programu Visual Studio. Aby zainstalować plik fragmentów kodu, uruchom **.\Source\Setup\CodeSnippets.VSI** .
 
-Jeśli nie jesteś zaznajomiony z fragmentów kodu w usłudze Visual Studio i chcesz dowiedzieć się, jak z nich korzystać, możesz zapoznać się z dodatku z tego dokumentu &quot; [dodatek C: Za pomocą fragmentów kodu](#AppendixC)&quot;.
+Jeśli nie znasz fragmentów kodu Visual Studio Code i chcesz dowiedzieć się, jak z nich korzystać, możesz odwołać się do dodatku z tego dokumentu &quot;[dodatku C: Using fragmenty kodu](#AppendixC)&quot;.
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Ćwiczenia
+## <a name="exercises"></a>Symulacyjn
 
-To ćwiczenie praktyczne obejmuje następujących czynnościach:
+To laboratorium praktyczne obejmuje następujące ćwiczenia:
 
-1. [Ćwiczenie 1: Wiązanie modelu w formularzach sieci Web platformy ASP.NET](#Exercise1)
-2. [Ćwiczenie 2: Sprawdzanie poprawności danych](#Exercise2)
-3. [Ćwiczenie 3: Strona asynchroniczne przetwarzanie we wzorcu ASP.NET Web Forms](#Exercise3)
+1. [Ćwiczenie 1: powiązanie modelu w formularzach sieci Web ASP.NET](#Exercise1)
+2. [Ćwiczenie 2: sprawdzanie poprawności danych](#Exercise2)
+3. [Ćwiczenie 3: asynchroniczne przetwarzanie stron w formularzach sieci Web ASP.NET](#Exercise3)
 
 > [!NOTE]
-> Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
+> Każdemu ćwiczeniu towarzyszy folder **końcowy** zawierający rozwiązanie, które należy uzyskać po zakończeniu ćwiczenia. Tego rozwiązania można użyć jako przewodnika, jeśli potrzebujesz dodatkowej pomocy w pracy przez ćwiczenia.
 
-Szacowany czas do ukończenia tego laboratorium: **60 minut**.
+Szacowany czas wykonywania tego laboratorium: **60 minut**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Model_Binding_in_ASPNET_Web_Forms"></a>
-### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>Ćwiczenie 1: Wiązanie modelu w formularzach sieci Web platformy ASP.NET
+### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>Ćwiczenie 1: powiązanie modelu w formularzach sieci Web ASP.NET
 
-Nowa wersja ASP.NET Web Forms wprowadzono wiele ulepszeń skoncentrowane na ułatwieniu doświadczenia podczas pracy z danymi. W tym ćwiczeniu będzie Dowiedz się więcej o silnie typizowane kontrolki danych i wiązanie modelu.
+Nowa wersja ASP.NET Web Forms wprowadza szereg ulepszeń, które koncentrują się na ulepszaniu środowiska podczas pracy z danymi. W tym ćwiczeniu dowiesz się więcej na temat kontroli danych o jednoznacznie określonym typie i powiązania modelu.
 
 <a id="Task_1_-_Using_Strongly-Typed_Data-Bindings"></a>
-#### <a name="task-1---using-strongly-typed-data-bindings"></a>Zadanie 1. Używanie powiązania danych silnie Typizowane
+#### <a name="task-1---using-strongly-typed-data-bindings"></a>Zadanie 1 — Używanie powiązań danych o jednoznacznie określonym typie
 
-W tym zadaniu wykryje nowe powiązania silnie typizowane dostępne w programie ASP.NET 4.5.
+W tym zadaniu zostaną wykryte nowe powiązania o jednoznacznie określonym typie dostępne w ASP.NET 4,5.
 
-1. Otwórz **rozpocząć** rozwiązania znajdujący się w **źródło/Ex1 — metodyModelBinding/rozpoczęcia/** folderu.
+1. Otwórz rozwiązanie **BEGIN** znajdujące się w lokalizacji **Source/Ex1-ModelBinding/BEGIN/** folder.
 
-   1. Musisz pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu, a następnie wybierz **Zarządzaj pakietami NuGet**.
-   2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
-   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Przed kontynuowaniem musisz pobrać brakujące pakiety NuGet. W tym celu kliknij menu **projekt** i wybierz polecenie **Zarządzaj pakietami NuGet**.
+   2. W oknie dialogowym **Zarządzanie pakietami NuGet** kliknij przycisk **Przywróć** , aby pobrać brakujące pakiety.
+   3. Na koniec Skompiluj rozwiązanie, klikając pozycję **kompiluj** | **Kompiluj rozwiązanie**.
 
       > [!NOTE]
-      > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
-2. Otwórz **Customers.aspx** strony. Umieść nienumerowane listy w główną kontrolką i zawierać kontrolką elementu powtarzanego wewnątrz do wyświetlania listy każdego klienta. Ustaw nazwę elementu powtarzanego na **customersRepeater** jak pokazano w poniższym kodzie.
+      > Jedną z zalet korzystania z NuGet jest to, że nie trzeba dostarczać wszystkich bibliotek w projekcie, zmniejszając rozmiar projektu. Przy użyciu narzędzi NuGet PowerShell, określając wersje pakietu w pliku Packages. config, będzie można pobrać wszystkie wymagane biblioteki przy pierwszym uruchomieniu projektu. To dlatego, że trzeba będzie wykonać te kroki po otwarciu istniejącego rozwiązania z tego laboratorium.
+2. Otwórz stronę **Customers. aspx** . Umieść nienumerowaną listę w formancie głównym i Dołącz do niej kontrolkę wzmacniak, aby wyświetlić listę poszczególnych klientów. Ustaw nazwę wzmacniak na **customersRepeater** , jak pokazano w poniższym kodzie.
 
-    W poprzednich wersjach programu formularzy sieci Web po używanie powiązania danych do emitowania wartość elementu członkowskiego w obiekcie masz powiązanie danych w celu, należy użyć wyrażenia wiązania danych oraz wywołanie metody Eval, przekazywanie nazwę elementu członkowskiego jako ciąg.
+    W poprzednich wersjach formularzy sieci Web przy użyciu powiązania danych do emisji wartości elementu członkowskiego obiektu, do którego jest powiązane dane, należy użyć wyrażenia powiązania danych oraz wywołania metody Eval, przekazując nazwę elementu członkowskiego jako ciąg.
 
-    W czasie wykonywania te wywołania Eval będzie używać odbicia względem aktualnie powiązany obiekt ma zostać odczytana wartość elementu członkowskiego o podanej nazwie i wyświetlić wyniki w formacie HTML. To podejście sprawia, że bardzo proste powiązanie danych względem dowolnego unshaped danych.
+    W czasie wykonywania te wywołania oceny będą używać odbicia względem aktualnie powiązanego obiektu, aby odczytać wartość elementu członkowskiego o podaną nazwę, a następnie wyświetlić wynik w kodzie HTML. Takie podejście ułatwia powiązanie danych z dowolnymi, niekształtnymi danymi.
 
-    Niestety tracisz wiele funkcji wspaniałego środowiska czasu projektowania w programie Visual Studio, w tym funkcji IntelliSense dla nazwy elementów członkowskich, obsługę nawigacji (np. Przejdź do definicji) i sprawdzanie w czasie kompilacji.
+    Niestety, stracisz wiele doskonałych funkcji środowiska programistycznego w programie Visual Studio, w tym IntelliSense dla nazw członków, obsługę nawigacji (na przykład przejdź do definicji) i sprawdzanie czasu kompilacji.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample1.aspx)]
-3. Otwórz **Customers.aspx.cs** pliku.
+3. Otwórz plik **Customers.aspx.cs** .
 4. Dodaj następującą instrukcję using.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample2.cs)]
-5. W **strony\_obciążenia** metody, Dodaj kod, aby wypełnić elementu powtarzanego z listą klientów.
+5. Na **stronie\_Metoda ładowania** Dodaj kod, aby wypełnić wzmacniak listą klientów.
 
-    (Code Snippet — *sieci Web źródła danych klientów powiązania laboratorium — Ex01 — formularze*)
+    (Fragment kodu- *Web Forms Lab-Ex01 — źródło danych powiązanych klientów*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample3.cs)]
 
-    Rozwiązanie używa platformy EntityFramework, wraz z CodeFirst do tworzenia i dostęp do bazy danych. W poniższym kodzie customersRepeater jest powiązany z zmaterializowany zapytania, które zwraca wszystkich klientów z bazy danych.
-6. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie, a następnie przejdź do **klientów** strony, aby zobaczyć powtarzanego w działaniu. Jako rozwiązanie korzysta z CodeFirst, baza danych zostanie utworzona i wypełnione w lokalnym wystąpieniu programu SQL Express, po uruchomieniu aplikacji.
+    Do tworzenia bazy danych i uzyskiwania dostępu do niej jest stosowane rozwiązanie EntityFramework razem z CodeFirst. W poniższym kodzie customersRepeater jest powiązany z zapytaniem z materiałami, które zwraca wszystkich klientów z bazy danych.
+6. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie, a następnie przejdź do strony **klienci** , aby zobaczyć wzmacniak w akcji. Ponieważ rozwiązanie korzysta z usługi CodeFirst, baza danych zostanie utworzona i wypełniona w lokalnym wystąpieniu programu SQL Express podczas uruchamiania aplikacji.
 
-    ![Listę klientów z repeater](whats-new-in-web-forms-in-aspnet-45/_static/image1.png "listę klientów z repeater")
+    ![Wyświetlanie listy klientów z wzmacniaką](whats-new-in-web-forms-in-aspnet-45/_static/image1.png "Wyświetlanie listy klientów z wzmacniaką")
 
-    *Listę klientów z repeater*
+    *Wyświetlanie listy klientów z wzmacniaką*
 
     > [!NOTE]
-    > W programie Visual Studio 2012 usług IIS Express jest domyślny serwer programowanie sieci Web.
-7. Zamknij przeglądarkę i przejdź wstecz do programu Visual Studio.
-8. Teraz Zastąp wdrożenia do użycia w silnie typizowany powiązania. Otwórz **Customers.aspx** strony i użyj nowych **ItemType** atrybutu w elemencie powtarzanym można ustawić **klienta** typ jako typ powiązania.
+    > W programie Visual Studio 2012 IIS Express jest domyślnym serwerem programu Web Development.
+7. Zamknij przeglądarkę i wróć do programu Visual Studio.
+8. Teraz Zastąp implementację, aby używać powiązań silnie wpisanych. Otwórz stronę **Customers. aspx** i Użyj nowego atrybutu **ItemType** w wzmacniake, aby ustawić typ **klienta** jako typ powiązania.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample4.aspx)]
 
-    Właściwość ItemType można zadeklarować typy danych wkrótce może być powiązane z formantem i pozwala na używanie silnie typizowaną powiązania wewnątrz kontrolki powiązania danych.
-9. Zastąp zawartość następującym kodem ItemTemplate.
+    Właściwość ItemType umożliwia zadeklarować typ danych, z którymi formant ma być powiązany, i umożliwia użycie wiązania z jednoznacznie określonymi typami wewnątrz kontrolki powiązanej z danymi.
+9. Zastąp zawartość ItemTemplate następującym kodem.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample5.aspx)]
 
-    Wadą jednej z powyższych podejść jest możliwość wywołania Eval() i Bind() z późnym wiązaniem - co oznacza, że przekazujesz ciągów do reprezentowania nazwy właściwości. Oznacza to, że nie korzystania z funkcji Intellisense dla nazwy elementów członkowskich, obsługa nawigowanie po kodzie (na przykład przejdź do definicji) ani obsługi sprawdzanie, czy w czasie kompilacji.
+    Jeden minusem z powyższymi metodami polega na tym, że wywołania metody Eval () i bind () są z opóźnieniem, co oznacza, że są przekazywane ciągi do reprezentowania nazw właściwości. Oznacza to, że nie otrzymujesz funkcji IntelliSense dla nazw składowych, obsługi nawigacji w kodzie (np. Przejdź do definicji) ani do sprawdzania dostępności w czasie kompilacji.
 
-    Ustawienie właściwości ItemType powoduje, że dwie nowe wpisane zmienne do wygenerowania w zakresie wyrażenia wiązania danych: **Element** i **BindItem**. Można użyć tych silnie typizowaną zmiennych w wyrażeniach wiązania danych i korzyści pełne środowisko programistyczne programu Visual Studio.
+    Ustawienie właściwości ItemType powoduje generowanie dwóch nowych zmiennych wpisanych w zakresie wyrażeń powiązania danych: **Item** i **binditem**. Możesz użyć tych zmiennych silnie wpisanych w wyrażeniach powiązania danych i uzyskać pełne zalety środowiska programistycznego Visual Studio.
 
-    &quot; **:** &quot; Wyrażenia będzie automatycznie kodowanie HTML dane wyjściowe, aby uniknąć problemów z zabezpieczeniami (na przykład między lokacjami ataki z użyciem skryptów). Ten zapis była dostępna od wersji .NET 4 Zapisywanie odpowiedzi, ale teraz jest również dostępna w wyrażeniach wiązania danych.
+    &quot; **:** &quot; użyte w wyrażeniu automatycznie koduje dane wyjściowe, aby uniknąć problemów z zabezpieczeniami (na przykład ataki skryptów między lokacjami). Ta notacja była dostępna od wersji .NET 4 do zapisu odpowiedzi, ale teraz jest również dostępna w wyrażeniach powiązań danych.
 
     > [!NOTE]
-    > Element członkowski elementu działa w przypadku powiązania jednokierunkowe. Jeśli chcesz przeprowadzić użycia określają powiązanie dwukierunkowe **BindItem** elementu członkowskiego.
+    > Element członkowski elementu działa dla jednokierunkowego powiązania. Jeśli chcesz wykonać dwukierunkowe powiązanie, użyj elementu członkowskiego **binditem** .
 
-    ![Obsługa funkcji IntelliSense w powiązaniu silnie typizowane](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "obsługę funkcji IntelliSense w powiązaniu silnie typizowane")
+    ![Obsługa technologii IntelliSense w przypadku powiązania o jednoznacznie określonym typie](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "Obsługa technologii IntelliSense w przypadku powiązania o jednoznacznie określonym typie")
 
-    *Obsługa funkcji IntelliSense w powiązaniu silnie typizowane*
-10. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie, a następnie przejdź do strony klientów, aby upewnić się, czy zmiany działają zgodnie z oczekiwaniami.
+    *Obsługa technologii IntelliSense w przypadku powiązania o jednoznacznie określonym typie*
+10. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie, a następnie przejdź do strony Klienci, aby upewnić się, że zmiany działają zgodnie z oczekiwaniami.
 
-    ![Wyświetlanie szczegółów odbiorcy](whats-new-in-web-forms-in-aspnet-45/_static/image3.png "ofercie szczegóły klienta")
+    ![Wyświetlanie szczegółów klienta](whats-new-in-web-forms-in-aspnet-45/_static/image3.png "Wyświetlanie szczegółów klienta")
 
     *Wyświetlanie szczegółów klienta*
-11. Zamknij przeglądarkę i przejdź wstecz do programu Visual Studio.
+11. Zamknij przeglądarkę i wróć do programu Visual Studio.
 
 <a id="Task_2_-_Introducing_Model_Binding_in_Web_Forms"></a>
-#### <a name="task-2---introducing-model-binding-in-web-forms"></a>Zadanie 2 — wprowadzenie do modelu powiązania w formularzach sieci Web
+#### <a name="task-2---introducing-model-binding-in-web-forms"></a>Zadanie 2 — wprowadzenie powiązania modelu w formularzach sieci Web
 
-W poprzednich wersjach programu ASP.NET Web Forms gdy chcesz wykonać dwukierunkowego wiązania danych, pobieranie i aktualizowanie danych, trzeba było używać obiektu źródła danych. Może to być źródło danych obiektu, źródło danych SQL, źródła danych LINQ i tak dalej. Jednak w razie potrzeby danego scenariusza niestandardowego kodu do obsługi danych potrzebnych do korzystania z obiektu źródła danych, a to wprowadzone pewne wady. Na przykład konieczne unikanie typów złożonych i potrzebny do obsługi wyjątków, podczas wykonywania logiki weryfikacji.
+W poprzednich wersjach formularzy sieci Web ASP.NET, gdy chciałem wykonać dwukierunkowe powiązanie danych, pobierając i aktualizując dane, musisz użyć obiektu źródła danych. Może to być źródło danych obiektu, źródło danych SQL, źródło danych LINQ i tak dalej. Jeśli jednak scenariusz wymaga niestandardowego kodu do obsługi danych, konieczne jest użycie źródła danych obiektu i nastąpiło kilka wad. Na przykład konieczne jest uniknięcie typów złożonych i wymaganie obsługi wyjątków podczas wykonywania logiki walidacji.
 
-W nowej wersji wzorca ASP.NET Web Forms, formanty powiązane z danymi obsługują wiązanie modelu. Oznacza to, że możesz określić wybierz, aktualizacji, wstawiania i usunięcie metod bezpośrednio w kontrolce powiązanych z danymi do wywołania logiki z pliku związanego z kodem lub z innej klasy.
+W nowej wersji ASP.NET Web Forms formanty powiązane z danymi obsługują powiązania modelu. Oznacza to, że można określić metody Select, Update, INSERT i DELETE bezpośrednio w kontrolce powiązanej z danymi, aby wywoływać logikę z pliku związanego z kodem lub z innej klasy.
 
-Aby dowiedzieć się więcej na ten temat, użyjesz GridView, aby wyświetlić listę kategorii produktów, za pomocą nowego **metody SelectMethod** atrybutu. Ten atrybut można określić metodę pobierania danych widoku GridView.
+Aby dowiedzieć się więcej o tym, będziesz używać widoku GridView do wyświetlania kategorii produktów przy użyciu nowego atrybutu **SelectMethod** . Ten atrybut umożliwia określenie metody pobierania danych GridView.
 
-1. Otwórz **Products.aspx** strony i obejmują **GridView**. Skonfiguruj widoku GridView, jak pokazano poniżej silnie typizowane powiązań oraz włączyć sortowanie i stronicowanie.
+1. Otwórz stronę **Products. aspx** i Dołącz widok **GridView**. Skonfiguruj widok GridView, jak pokazano poniżej, aby użyć powiązań z silną typem i włączyć sortowanie i stronicowanie.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample6.aspx)]
-2. Użyj nowego **metody SelectMethod** atrybutu, aby skonfigurować GridView wywołać **GetCategories** metodę, aby wybrać dane.
+2. Użyj nowego atrybutu **SelectMethod** , aby skonfigurować widok GridView do wywoływania metody **GetCategories** w celu wybrania danych.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample7.aspx)]
-3. Otwórz **Products.aspx.cs** związanym z kodem i dodaj następujące za pomocą instrukcji.
+3. Otwórz plik związany z kodem **Products.aspx.cs** i Dodaj następujące instrukcje using.
 
-    (Code Snippet — *Web Forms laboratorium — Ex01 — w przestrzeni nazw*)
+    (Fragment kodu — *Web Forms Lab-Ex01-Namespaces*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample8.cs)]
-4. Dodaj od prywatnej składowej w **produktów** klasy i przypisać nowe wystąpienie klasy **ProductsContext**. Ta właściwość będzie przechowywać kontekstu danych narzędzia Entity Framework, która umożliwia nawiązanie połączenia z bazą danych.
+4. Dodaj prywatny element członkowski w klasie **Products** i przypisz nowe wystąpienie elementu **ProductsContext**. Ta właściwość będzie przechowywać kontekst danych Entity Framework, który umożliwia nawiązanie połączenia z bazą danych.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample9.cs)]
-5. Tworzenie **GetCategories** metody do pobierania listy kategorii za pomocą LINQ. Kwerenda będzie zawierała **produktów** właściwości, więc widoku GridView można wyświetlić ilość produktów dla każdej kategorii. Należy zauważyć, że metoda zwraca obiekt IQueryable raw, który reprezentuje zapytanie, aby być wykonywane później cyklu życia strony.
+5. Utwórz metodę **GetCategories** , aby pobrać listę kategorii za pomocą LINQ. Zapytanie będzie zawierać właściwość **Products (produkty** ), aby wyświetlić ilość produktów dla każdej kategorii. Zwróć uwagę, że metoda zwraca nieprzetworzony obiekt IQueryable reprezentujący zapytanie, które ma zostać wykonane później na cyklu życia strony.
 
-    (Code Snippet — *Web Forms laboratorium - Ex01 - GetCategories*)
+    (Fragment kodu — *Web Forms Lab-Ex01-GetCategories*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample10.cs)]
 
     > [!NOTE]
-    > W poprzednich wersjach programu ASP.NET Web Forms Włączanie sortowanie i stronicowanie za pomocą własnej logiki repozytorium w kontekście źródło danych obiektu musieli napisać własny kod niestandardowy i otrzymywać wszystkie niezbędne parametry. Teraz, jako metody powiązanie danych może zwrócić IQueryable i reprezentuje zapytanie nadal do wykonania, ASP.NET zająć się modyfikowanie zapytanie, aby dodać prawidłowe sortowanie i stronicowanie parametrów.
-6. Naciśnij klawisz **F5** aby rozpocząć debugowanie witryny i przejdź do strony produktów. Powinien zostać wyświetlony, widoku GridView jest wypełniana kategorie zwracany przez metodę GetCategories.
+    > W poprzednich wersjach formularzy sieci Web ASP.NET Włączanie sortowania i stronicowania przy użyciu własnej logiki repozytorium w kontekście źródła danych obiektów, co jest wymagane do pisania własnego niestandardowego kodu i uzyskiwania wszystkich wymaganych parametrów. Teraz, ponieważ metody wiązania danych mogą zwracać interfejs IQueryable, a to oznacza, że zapytanie jest nadal wykonywane, ASP.NET może zadbać o modyfikację zapytania, aby dodać odpowiednie parametry sortowania i stronicowania.
+6. Naciśnij klawisz **F5** , aby rozpocząć debugowanie witryny i przejdź do strony produkty. Powinien zostać wyświetlony widok GridView z kategoriami zwracanymi przez metodę GetCategories.
 
-    ![Wypełnianie GridView przy użyciu wiązania modelu](whats-new-in-web-forms-in-aspnet-45/_static/image4.png "wypełnianie GridView przy użyciu wiązania modelu")
+    ![Wypełnianie widoku GridView przy użyciu powiązania modelu](whats-new-in-web-forms-in-aspnet-45/_static/image4.png "Wypełnianie widoku GridView przy użyciu powiązania modelu")
 
-    *Wypełnianie GridView przy użyciu wiązania modelu*
-7. Naciśnij klawisz **SHIFT**+**F5** zatrzymać debugowanie.
+    *Wypełnianie widoku GridView przy użyciu powiązania modelu*
+7. Naciśnij klawisz **SHIFT**+**F5** Zatrzymaj debugowanie.
 
 <a id="Task_3_-_Value_Providers_in_Model_Binding"></a>
-#### <a name="task-3---value-providers-in-model-binding"></a>Zadanie 3 - dostawców wartości w wiązanie modelu
+#### <a name="task-3---value-providers-in-model-binding"></a>Zadanie 3 — dostawcy wartości w powiązaniu modelu
 
-Wiązanie modelu nie tylko umożliwia określenie niestandardowych metod do pracy z danymi bezpośrednio w kontrolce powiązanych z danymi, ale również pozwala na mapowanie danych ze strony do parametrów przy użyciu tych metod. Dla parametru metody można użyć atrybuty dostawcy wartości, aby określić źródło danych tej wartości. Na przykład:
+Powiązanie modelu nie tylko pozwala określić niestandardowe metody do pracy z danymi bezpośrednio w kontrolce powiązanej z danymi, ale również umożliwia mapowanie danych ze strony na parametry z tych metod. W parametrze metody można użyć atrybutów dostawcy wartości, aby określić źródło danych wartości. Na przykład:
 
-- Formanty na stronie
+- Kontrolki na stronie
 - Wartości ciągu zapytania
 - Wyświetlanie danych
 - Stan sesji
-- Pliki cookie
-- Przesłanego formularza danych
+- Cookie
+- Dane formularza ogłoszonego
 - Wyświetl stan
-- Wartość niestandardowa obsługiwani są także
+- Niestandardowi dostawcy wartości są również obsługiwani
 
-Jeśli używasz platformy ASP.NET MVC 4, zauważymy, że przypomina obsługi powiązania modelu. W rzeczywistości te funkcje zostały pobrane z platformy ASP.NET MVC i przenoszony do **System.Web** zestawu, aby móc używać ich również w formularzach sieci Web.
+Jeśli korzystasz z ASP.NET MVC 4, zobaczysz, że obsługa powiązań modelu jest podobna. W rzeczywistości te funkcje zostały wykonane z ASP.NET MVC i przeniesiono do zestawu **System. Web** , aby można było używać ich również w formularzach sieci Web.
 
-W tym zadaniu zostanie zaktualizowana GridView, aby filtrować wyniki według ilości produktów dla każdej kategorii, odbieranie parametru filtru za wiązania modelu.
+W tym zadaniu zostanie zaktualizowany widok GridView, aby przefiltrować wyniki według ilości produktów dla każdej kategorii, pobierając parametr filtru z powiązaniem modelu.
 
-1. Wróć do **Products.aspx** strony.
-2. W górnej części widoku GridView Dodaj **etykiety** i **ComboBox** wybierz liczbę produktów dla każdej kategorii, jak pokazano poniżej.
+1. Wróć do strony **Products. aspx** .
+2. W górnej części widoku GridView Dodaj **etykietę** i **pole kombi** , aby wybrać liczbę produktów dla każdej kategorii, jak pokazano poniżej.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample11.aspx)]
-3. Dodaj **EmptyDataTemplate** do kontrolki GridView, aby wyświetlić komunikat, gdy nie ma kategorii z wybraną liczbę produktów.
+3. Dodaj **EmptyDataTemplate** do widoku GridView, aby wyświetlić komunikat, gdy nie ma kategorii z wybraną liczbą produktów.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample12.aspx)]
-4. Otwórz **Products.aspx.cs** związanym z kodem i dodaj następującą instrukcję using.
+4. Otwórz kod **Products.aspx.cs** i Dodaj następującą instrukcję using.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample13.cs)]
-5. Modyfikowanie **GetCategories** metodę, aby otrzymywać całkowitą **minProductsCount** argumentu i filtrowanie zwróconych wyników. Aby to zrobić, należy zastąpić metodę z następującym kodem.
+5. Zmodyfikuj metodę **GetCategories** , aby otrzymać argument **minProductsCount** integer i odfiltrować zwrócone wyniki. Aby to zrobić, Zastąp metodę poniższym kodem.
 
-    (Code Snippet — *Web Forms laboratorium - Ex01 - GetCategories 2*)
+    (Fragment kodu — *Web Forms Lab-Ex01-GetCategories 2*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample14.cs)]
 
-    Nowy **[kontrola]** atrybutu na **minProductsCount** argument umożliwi wiedzieć, jego wartość muszą być wypełnione za pomocą kontrolki na stronie ASP.NET. ASP.NET będzie szukać dowolną kontrolkę pasujące do nazwy argumentu (minProductsCount) i wykonywać niezbędne mapowania i konwersji, aby wypełnić parametr wartości kontrolki.
+    Nowy atrybut **[Control]** w argumencie **minProductsCount** umożliwia ASP.NET znać jego wartość musi zostać wypełniona przy użyciu kontrolki na stronie. ASP.NET będzie szukać dowolnej kontrolki zgodnej z nazwą argumentu (minProductsCount) i wykonać niezbędne mapowanie i konwersję, aby wypełnić parametr wartością kontrolną.
 
-    Alternatywnie ten atrybut zapewnia przeciążonego konstruktora, który pozwala na określenie kontroli, skąd pobrać wartości.
+    Alternatywnie, atrybut zawiera przeciążony Konstruktor, który umożliwia określenie formantu, z którego ma zostać pobrana wartość.
 
     > [!NOTE]
-    > Pierwszym celem funkcji wiązania danych jest skrócenie kod, który ma zostać zapisany do interakcji z strony. Oprócz [kontrola] dostawcy wartości można użyć innych dostawców wiązania modelu w parametry metody. Niektóre z nich są wymienione w wprowadzenie zadań.
-6. Naciśnij klawisz **F5** aby rozpocząć debugowanie witryny i przejdź do strony produktów. Wybierz z listy rozwijanej wiele produktów i zwróć uwagę, jak widoku GridView został zaktualizowany.
+    > Jednym z celów funkcji powiązania danych jest zmniejszenie ilości kodu, który należy napisać w celu interakcji ze strony. Oprócz dostawcy wartości [Control] można używać innych dostawców powiązań modelu w parametrach metody. Niektóre z nich są wymienione w temacie Wprowadzenie do zadania.
+6. Naciśnij klawisz **F5** , aby rozpocząć debugowanie witryny i przejdź do strony produkty. Wybierz z listy rozwijanej liczbę produktów i zwróć uwagę na sposób, w jaki widok GridView został zaktualizowany.
 
-    ![Filtrowanie widoku GridView o wartości listy rozwijanej](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "filtrowania widoku GridView o wartości listy rozwijanej")
+    ![Filtrowanie widoku GridView przy użyciu wartości listy rozwijanej](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "Filtrowanie widoku GridView przy użyciu wartości listy rozwijanej")
 
-    *Filtrowanie widoku GridView o wartości listy rozwijanej*
+    *Filtrowanie widoku GridView przy użyciu wartości listy rozwijanej*
 7. Zatrzymaj debugowanie.
 
 <a id="Task_4_-_Using_Model_Binding_for_Filtering"></a>
-#### <a name="task-4---using-model-binding-for-filtering"></a>Zadanie 4 — przy użyciu modelu powiązania w celu filtrowania
+#### <a name="task-4---using-model-binding-for-filtering"></a>Zadanie 4 — Używanie powiązania modelu do filtrowania
 
-W tym zadaniu należy dodać chwilę podrzędnych GridView, aby pokazać produktów należących do wybranej kategorii.
+W tym zadaniu dodasz drugi, podrzędny element GridView, aby wyświetlić produkty należące do wybranej kategorii.
 
-1. Otwórz **Products.aspx** strony i GridView, aby automatycznie wygenerować przycisku Wybierz kategorie aktualizacji.
+1. Otwórz stronę **Products. aspx** i zaktualizuj kategorię GridView, aby automatycznie wygenerować przycisk Wybierz.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample15.aspx)]
-2. Dodaj drugą **GridView** o nazwie **productsGrid** u dołu. Ustaw **ItemType** do **WebFormsLab.Model.Product**, **DataKeyNames** do **ProductId** i **metody SelectMethod**  do **GetProducts**. Ustaw **właściwość AutoGenerateColumns miała** do **false** i Dodaj kolumny ProductId, ProductName, opis i cena jednostkowa.
+2. Dodaj drugi element **GridView** o nazwie **productsGrid** w dolnej części strony. Ustaw **ItemType** na **WebFormsLab. model. Product**, **DataKeyNames ustawionej** na **ProductID** i **SelectMethod** dla **getProducts**. Ustaw **AutoGenerateColumns** na **false** i Dodaj kolumny dla ProductID, ProductName, Description i CenaJednostkowa.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample16.aspx)]
-3. Otwórz **Products.aspx.cs** pliku CodeBehind. Implementowanie **GetProducts** metodę, aby otrzymywać identyfikator kategorii z kategorii GridView i filtrowania produktów. Wiązanie modelu spowoduje ustawienie wartości parametru za pomocą wybranego wiersza w **categoriesGrid**. Ponieważ nazwy argumentu i nazwa formantu nie są zgodne, należy określić nazwę formantu w dostawcy wartości kontrolki.
+3. Otwórz plik związany z kodem **Products.aspx.cs** . Zaimplementuj metodę **getProducts** , aby otrzymać identyfikator kategorii z kategorii GridView i przesączyć produkty. Powiązanie modelu ustawi wartość parametru przy użyciu wybranego wiersza w **categoriesGrid**. Ponieważ nazwa argumentu i nazwa kontrolki nie są zgodne, należy określić nazwę kontrolki w dostawcy wartości formantu.
 
-    (Code Snippet — *Web Forms laboratorium - Ex01 - GetProducts*)
+    (Fragment kodu — *Web Forms Lab-Ex01-getProducts*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample17.cs)]
 
     > [!NOTE]
-    > Takie podejście ułatwia to jednostka tych metod testowych. W kontekście testu jednostki, której formularzy sieci Web nie jest wykonywany, atrybut [nazwa kontrolki] nie wykonuje żadnych określonych działań.
-4. Otwórz **Products.aspx** strony, a następnie zlokalizuj produktów GridView. Aktualizuj produkty GridView, aby wyświetlić łącza do edytowania wybranego produktu.
+    > Takie podejście ułatwia testowanie jednostkowe tych metod. W kontekście testu jednostkowego, w którym formularze sieci Web nie są wykonywane, atrybut [Control] nie będzie wykonywał żadnej konkretnej akcji.
+4. Otwórz stronę **Products. aspx** i Znajdź produkty GridView. Zaktualizuj widok GridView produktów, aby wyświetlić link do edytowania wybranego produktu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample18.aspx)]
-5. Otwórz **ProductDetails.aspx** strony związanym z kodem, a następnie zastąp **SelectProduct** metoda następującym kodem.
+5. Otwórz kod strony **ProductDetails. aspx** i Zastąp metodę **SelectProduct** następującym kodem.
 
-    (Code Snippet — *metodę SelectProduct laboratorium - Ex01 - formularzy sieci Web*)
+    (Fragment kodu- *Web Forms Lab-Ex01-SelectProduct Metoda*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample19.cs)]
 
     > [!NOTE]
-    > Należy zauważyć, że **[QueryString]** atrybut jest używany do wypełniania parametru metody z parametrem productId w ciągu zapytania.
-6. Naciśnij klawisz **F5** aby rozpocząć debugowanie witryny i przejdź do strony produktów. Wybierz odpowiednią kategorię z listy kategorii GridView i zwróć uwagę, że produkty GridView został zaktualizowany.
+    > Zwróć uwagę, że atrybut **[QueryString]** jest używany do wypełniania parametru Method z parametru ProductID w ciągu zapytania.
+6. Naciśnij klawisz **F5** , aby rozpocząć debugowanie witryny i przejdź do strony produkty. Wybierz dowolną kategorię z kategorii GridView i zwróć uwagę na to, że produkty GridView zostały zaktualizowane.
 
-    ![Wyświetlanie produktów z wybranej kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "przedstawiający produkty z wybranej kategorii")
+    ![Wyświetlanie produktów z wybranej kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "Wyświetlanie produktów z wybranej kategorii")
 
     *Wyświetlanie produktów z wybranej kategorii*
-7. Kliknij przycisk **widoku** łącze na produkt, aby otworzyć stronę ProductDetails.aspx.
+7. Kliknij link **Wyświetl** w produkcie, aby otworzyć stronę ProductDetails. aspx.
 
-    Należy zauważyć, że strony pobierania produktu, za pomocą metody SelectMethod za pomocą parametru productId z ciągu zapytania.
+    Zwróć uwagę, że Strona pobiera produkt za pomocą metody SelectMethod przy użyciu parametru productId z ciągu zapytania.
 
-    ![Wyświetlanie szczegółów produktu](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "wyświetlanie szczegółów produktu")
+    ![Wyświetlanie szczegółów produktu](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "Wyświetlanie szczegółów produktu")
 
     *Wyświetlanie szczegółów produktu*
 
     > [!NOTE]
-    > W następnym ćwiczeniu zostanie wprowadzone możliwość wpisz opis w formacie HTML.
+    > Możliwość wpisania opisu HTML zostanie zaimplementowana w następnym ćwiczeniu.
 
 <a id="Task_5_-_Using_Model_Binding_for_Update_Operations"></a>
-#### <a name="task-5---using-model-binding-for-update-operations"></a>Zadanie 5. za pomocą modelu powiązania dla operacji aktualizacji
+#### <a name="task-5---using-model-binding-for-update-operations"></a>Zadanie 5 — Używanie powiązania modelu dla operacji aktualizacji
 
-W poprzednim zadaniu użyto wiązania modelu głównie do wybierania danych, w ramach tego zadania zostanie dowiesz się, jak używać wiązania modelu w operacji aktualizowania.
+W poprzednim zadaniu użyto powiązania modelu głównie do wybierania danych. w tym zadaniu dowiesz się, jak używać powiązania modelu w operacjach aktualizacji.
 
-Zaktualizuje kategorie GridView, aby zezwolić użytkownikom na aktualizowanie kategorii.
+Zobaczysz aktualizację kategorii GridView, aby umożliwić użytkownikom aktualizowanie kategorii.
 
-1. Otwórz **Products.aspx** strony i Aktualizuj kategorie GridView do automatycznego generowania przycisk Edytuj i korzystać z nowych **operacji UpdateMethod** atrybutu, aby określić **UpdateCategory**metodę, aby zaktualizować wybranego elementu.
+1. Otwórz stronę **Products. aspx** i zaktualizuj kategorię GridView, aby automatycznie wygenerować przycisk Edytuj i użyć nowego atrybutu **UpdateMethod** , aby określić metodę **UpdateCategory** w celu zaktualizowania wybranego elementu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample20.aspx)]
 
-    Atrybut DataKeyNames w widoku GridView zdefiniować służą do elementów członkowskich, które identyfikują w obiekcie powiązanym ze modelu i w związku z tym, które są parametrami metody aktualizacji co najmniej powinien zostać wyświetlony.
-2. Otwórz **Products.aspx.cs** pliku związanego z kodem i implementowanie **UpdateCategory** metody. Metoda powinna zostać dostarczona identyfikator kategorii w bieżącej kategorii obciążenia, wypełnij wartości z kontrolki GridView, a następnie zaktualizować kategorii.
+    Atrybut DataKeyNames ustawionej w widoku GridView definiuje, które są elementami członkowskimi, które jednoznacznie identyfikują obiekt powiązany z modelem i w związku z tym, które są parametrami, metoda Update powinna mieć co najmniej wartość Receive.
+2. Otwórz plik związany z kodem **Products.aspx.cs** i Zaimplementuj metodę **UpdateCategory** . Metoda powinna odebrać identyfikator kategorii w celu załadowania bieżącej kategorii, wypełnić wartości z widoku GridView, a następnie zaktualizować kategorię.
 
-    (Code Snippet — *Web Forms laboratorium - Ex01 - UpdateCategory*)
+    (Fragment kodu — *Web Forms Lab-Ex01-UpdateCategory*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample21.cs)]
 
-    Nowy **TryUpdateModel** metody w klasie strony odpowiada zapełnianie obiekt modelu, używając wartości z kontrolek na stronie. W tym przypadku zostanie zastąpiony zaktualizowanymi wartościami z bieżącego wiersza GridView edytowany w **kategorii** obiektu.
+    Nowa metoda **TryUpdateModel** w klasie Page jest odpowiedzialna za wypełnianie obiektu modelu przy użyciu wartości z formantów na stronie. W takim przypadku zastępuje zaktualizowane wartości z bieżącego wiersza GridView edytowanego do obiektu **kategorii** .
 
     > [!NOTE]
-    > Następnym ćwiczeniu będzie zawierał wyjaśnienie użycie ModelState.IsValid sprawdzania poprawności danych wprowadzonych przez użytkownika podczas edycji obiektu.
-3. Uruchamianie witryny, a następnie przejdź do strony produktów. Edytuj kategorię. Wpisz nową nazwę, a następnie kliknij przycisk **aktualizacji** aby utrwalić zmiany.
+    > Następne ćwiczenie wyjaśnia użycie ModelState. IsValid do sprawdzania poprawności danych wprowadzonych przez użytkownika podczas edytowania obiektu.
+3. Uruchom witrynę i przejdź do strony produkty. Edytuj kategorię. Wpisz nową nazwę, a następnie kliknij przycisk **Aktualizuj** , aby zachować zmiany.
 
-    ![Edytowanie kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "edytowanie kategorii")
+    ![Edytowanie kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "Edytowanie kategorii")
 
     *Edytowanie kategorii*
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Data_Validation"></a>
-### <a name="exercise-2-data-validation"></a>Ćwiczenie 2: Sprawdzanie poprawności danych
+### <a name="exercise-2-data-validation"></a>Ćwiczenie 2: sprawdzanie poprawności danych
 
-W tym ćwiczeniu dowiesz się o nowych funkcjach sprawdzania poprawności danych w programie ASP.NET 4.5. Wyewidencjonuje nowe funkcje sprawdzania poprawności dyskretnego kodu w formularzach sieci Web. Do sprawdzania poprawności danych wejściowych użytkownika użyje adnotacje danych w klasach modelu aplikacji i na koniec będzie dowiesz się, jak włączyć lub wyłączyć weryfikację żądań do poszczególnych formantów na stronie.
+W tym ćwiczeniu dowiesz się więcej o nowych funkcjach sprawdzania poprawności danych w programie ASP.NET 4,5. W formularzach sieci Web znajdziesz nowe niezauważalne funkcje sprawdzania poprawności. Będziesz używać adnotacji danych w klasach modelu aplikacji do sprawdzania poprawności danych wejściowych użytkownika, a wreszcie dowiesz się, jak włączyć lub wyłączyć weryfikację żądań do poszczególnych kontrolek na stronie.
 
 <a id="Task_1_-_Unobtrusive_Validation"></a>
-#### <a name="task-1---unobtrusive-validation"></a>Zadanie 1 — sprawdzania poprawności dyskretnego kodu
+#### <a name="task-1---unobtrusive-validation"></a>Zadanie 1 — niezauważalne sprawdzenie poprawności
 
-Zwykle formularzy za pomocą złożonych danych, w tym moduły weryfikacji do generowania zbyt dużej ilości kodu JavaScript na stronie, które mogą reprezentować około 60% kodu. Za pomocą włączone sprawdzania poprawności dyskretnego kodu kod HTML będzie wyglądać bardziej przejrzyste i pisma odręcznego.
+Formularze zawierające złożone dane, w tym moduły walidacji, w celu wygenerowania zbyt dużej ilości kodu JavaScript na stronie, które mogą reprezentować około 60% kodu. Po włączeniu dyskretnej weryfikacji kod HTML będzie wyglądał w sposób estetyczny i tidier.
 
-W tej sekcji spowoduje włączenie poprawności dyskretnego kodu na platformie ASP.NET do porównywania kodu HTML, generowane przez obie konfiguracje.
+W tej sekcji zostanie włączona niezauważalna weryfikacja w programie ASP.NET, aby porównać kod HTML wygenerowany przez obie konfiguracje.
 
-1. Otwórz **programu Visual Studio 2012** , a następnie otwórz **rozpocząć** rozwiązanie znajduje się w **Source\Ex2 Validation\Begin** folder w tym laboratorium. Alternatywnie można kontynuować pracę na istniejące rozwiązanie z poprzednim ćwiczeniu.
+1. Otwórz **program Visual Studio 2012** i Otwórz rozwiązanie **BEGIN** znajdujące się w folderze **Source\Ex2-Validation\Begin** w tym laboratorium. Alternatywnie możesz kontynuować pracę na istniejącym rozwiązaniu w poprzednim ćwiczeniu.
 
-   1. Jeśli został otwarty dołączonym **rozpocząć** rozwiązania, należy pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projektu **Zarządzaj pakietami NuGet**.
-   2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
-   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Jeśli otwarto **udostępnione rozwiązanie** , należy pobrać brakujące pakiety NuGet przed kontynuowaniem. W tym celu w Eksplorator rozwiązań kliknij projekt **WebFormsLab** **Zarządzanie pakietami NuGet**.
+   2. W oknie dialogowym **Zarządzanie pakietami NuGet** kliknij przycisk **Przywróć** , aby pobrać brakujące pakiety.
+   3. Na koniec Skompiluj rozwiązanie, klikając pozycję **kompiluj** | **Kompiluj rozwiązanie**.
 
       > [!NOTE]
-      > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
-2. Naciśnij klawisz **F5** do uruchomienia aplikacji sieci web. Przejdź do klientów strony, a następnie kliknij przycisk **dodać nowego klienta** łącza.
-3. Kliknij prawym przyciskiem myszy na stronie przeglądarki, a następnie wybierz pozycję **Wyświetl źródło** opcję, aby otworzyć kod HTML wygenerowanymi przez aplikację.
+      > Jedną z zalet korzystania z NuGet jest to, że nie trzeba dostarczać wszystkich bibliotek w projekcie, zmniejszając rozmiar projektu. Przy użyciu narzędzi NuGet PowerShell, określając wersje pakietu w pliku Packages. config, będzie można pobrać wszystkie wymagane biblioteki przy pierwszym uruchomieniu projektu. To dlatego, że trzeba będzie wykonać te kroki po otwarciu istniejącego rozwiązania z tego laboratorium.
+2. Naciśnij klawisz **F5** , aby uruchomić aplikację sieci Web. Przejdź do strony klienci i kliknij link **Dodaj nowego klienta** .
+3. Kliknij prawym przyciskiem myszy na stronie przeglądarki i wybierz opcję **Wyświetl źródło** , aby otworzyć kod HTML wygenerowany przez aplikację.
 
-    ![Wyświetlanie strony kod HTML](whats-new-in-web-forms-in-aspnet-45/_static/image9.png "przedstawiający stronę kodu HTML")
+    ![Wyświetlanie kodu HTML strony](whats-new-in-web-forms-in-aspnet-45/_static/image9.png "Wyświetlanie kodu HTML strony")
 
-    *Wyświetlanie strony kod HTML*
-4. Przewiń stronę kodu źródłowego i zwróć uwagę, czy program ASP.NET ma wprowadzony JavaScript kod i dane modułów sprawdzania poprawności na stronie można wykonywać operacje sprawdzania poprawności i Pokaż listę błędów.
+    *Wyświetlanie kodu HTML strony*
+4. Przewiń kod źródłowy strony i zwróć uwagę, że ASP.NET wprowadza kod JavaScript i moduły sprawdzania poprawności danych na stronie, aby wykonać walidacje i wyświetlić listę błędów.
 
-    ![Sprawdzanie poprawności kodu JavaScript na stronie CustomerDetails](whats-new-in-web-forms-in-aspnet-45/_static/image10.png "kod JavaScript sprawdzania poprawności na stronie CustomerDetails")
+    ![Walidacja kodu JavaScript na stronie CustomerDetails](whats-new-in-web-forms-in-aspnet-45/_static/image10.png "Walidacja kodu JavaScript na stronie CustomerDetails")
 
-    *Sprawdzanie poprawności kodu JavaScript na stronie CustomerDetails*
-5. Zamknij przeglądarkę i przejdź wstecz do programu Visual Studio.
-6. Teraz spowoduje włączenie sprawdzania poprawności dyskretnego kodu. Otwórz **Web.Config** i Znajdź **ValidationSettings:UnobtrusiveValidationMode** w **AppSettings** sekcji **.** Ustaw wartość klucza **WebForms**.
+    *Walidacja kodu JavaScript na stronie CustomerDetails*
+5. Zamknij przeglądarkę i wróć do programu Visual Studio.
+6. Teraz będzie można włączyć niezauważalną weryfikację. Otwórz **plik Web. config** i Znajdź klucz **Właściwość: UnobtrusiveValidationMode** w sekcji AppSettings **.** Ustaw wartość klucza na **WebForms**.
 
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample22.xml)]
 
     > [!NOTE]
-    > Można również ustawić tę właściwość &quot; **strony\_obciążenia** &quot; zdarzeń w przypadku chcesz włączyć sprawdzania poprawności dyskretnego kodu tylko w przypadku niektórych stron.
-7. Otwórz **CustomerDetails.aspx** i naciśnij klawisz **F5** do uruchomienia aplikacji sieci Web.
-8. Naciśnij klawisz F12, aby otworzyć narzędzi deweloperskich programu Internet Explorer. Po otwarciu narzędzia deweloperskie, wybierz kartę skryptu. Wybierz **CustomerDetails.aspx** menu i wypełnij należy pamiętać, że skrypty wymagane do uruchomienia jQuery na stronie zostały załadowane do przeglądarki z lokacją lokalną.
+    > Możesz również ustawić tę właściwość na **stronie &quot;\_** zdarzenia&quot; obciążenia, jeśli chcesz włączyć niedyskretną weryfikację tylko dla niektórych stron.
+7. Otwórz **CustomerDetails. aspx** i naciśnij klawisz **F5** , aby uruchomić aplikację sieci Web.
+8. Naciśnij klawisz F12, aby otworzyć narzędzia deweloperskie dla programu IE. Po otwarciu narzędzi programistycznych wybierz kartę skrypt. Wybierz **CustomerDetails. aspx** z menu i zwróć uwagę na to, że skrypty wymagane do uruchomienia platformy jQuery na stronie zostały załadowane do przeglądarki z lokacji lokalnej.
 
-    ![Trwa ładowanie jQuery JavaScript pliki bezpośrednio z lokalnego serwera IIS](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "ładowania jQuery JavaScript pliki bezpośrednio z lokalnego serwera IIS")
+    ![Ładowanie plików JavaScript w języku jQuery bezpośrednio z lokalnego serwera usług IIS](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "Ładowanie plików JavaScript w języku jQuery bezpośrednio z lokalnego serwera usług IIS")
 
-    *Ładowanie plików JavaScript jQuery bezpośrednio z lokalnego serwera IIS*
-9. Zamknij przeglądarkę, aby powrócić do programu Visual Studio. Otwórz **Site.Master** ponownie plik i Znajdź **ScriptManager**. Dodaj atrybut **EnableCdn** właściwość z wartością **True**. Spowoduje to wymuszenie jQuery zostać załadowane z adresu URL w trybie online, a nie z lokacji lokalnej adresu URL.
-10. Otwórz **CustomerDetails.aspx** w programie Visual Studio. Naciśnij klawisz F5, aby uruchomić witryny. Po otwarciu programu Internet Explorer, naciśnij klawisz F12, aby otworzyć narzędzia dla deweloperów. Wybierz **skryptu** karcie, a następnie zapoznaj się z listy rozwijanej. Należy zauważyć, że pliki JavaScript jQuery już ładowanych z lokacji lokalnej, ale raczej z jQuery online usługi CDN.
+    *Ładowanie plików JavaScript w języku jQuery bezpośrednio z lokalnego serwera usług IIS*
+9. Zamknij przeglądarkę, aby powrócić do programu Visual Studio. Otwórz ponownie plik **site. Master** i Znajdź element **ScriptManager**. Dodaj właściwość **EnableCdn** atrybutu o wartości **true**. Spowoduje to wymuszenie załadowania platformy jQuery z adresu URL online, a nie adresu URL witryny lokalnej.
+10. Otwórz **CustomerDetails. aspx** w programie Visual Studio. Naciśnij klawisz F5, aby uruchomić lokację. Po otwarciu programu Internet Explorer naciśnij klawisz F12, aby otworzyć narzędzia deweloperskie. Wybierz kartę **skrypt** , a następnie zapoznaj się z listą rozwijaną. Zwróć uwagę, że pliki JavaScript w języku jQuery nie są już ładowane z lokacji lokalnej, ale nie z sieci CDN online jQuery.
 
-    ![Trwa ładowanie jQuery JavaScript pliki z usługi CDN](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "jQuery JavaScript ładowanie plików z usługi CDN")
+    ![Ładowanie plików JavaScript języka jQuery z sieci CDN](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "Ładowanie plików JavaScript języka jQuery z sieci CDN")
 
-    *Ładowanie plików JavaScript jQuery z sieci CDN*
-11. Otwórz kod źródłowy strony HTML, ponownie, używając opcji źródła widoku w przeglądarce. Zwróć uwagę, że przez włączenie sprawdzania poprawności dyskretnego kodu ASP.NET została wymieniona wprowadzonego kodu JavaScript przy użyciu danych — \*atrybutów.
+    *Ładowanie plików JavaScript języka jQuery z sieci CDN*
+11. Ponownie otwórz kod źródłowy strony HTML przy użyciu opcji Wyświetl źródło w przeglądarce. Należy zauważyć, że umożliwienie niezauważalnego sprawdzania poprawności ASP.NET zastąpiło wstrzykiwany kod JavaScript z atrybutami \*danych.
 
-    ![Kod sprawdzania poprawności dyskretnego kodu](whats-new-in-web-forms-in-aspnet-45/_static/image13.png "kod sprawdzania poprawności dyskretnego kodu")
+    ![Niedyskretny kod weryfikacyjny](whats-new-in-web-forms-in-aspnet-45/_static/image13.png "Niedyskretny kod weryfikacyjny")
 
-    *Kod sprawdzania poprawności dyskretnego kodu*
+    *Niedyskretny kod weryfikacyjny*
 
     > [!NOTE]
-    > W tym przykładzie pokazano, jak podsumowania przy użyciu adnotacji danych weryfikacji została uproszczona do tylko kilka języków HTML i JavaScript wierszy. Wcześniej bez sprawdzania poprawności dyskretnego kodu, więcej kontrolek weryfikacji, który dodajesz, tym większe kod sprawdzania poprawności języka JavaScript rośnie.
+    > W tym przykładzie przedstawiono sposób, w jaki podsumowanie walidacji z adnotacjami danych było uproszczone tylko do kilku wierszy HTML i JavaScript. Wcześniej, bez niezauważalnego sprawdzania poprawności, im więcej kontrolek weryfikacyjnych, tym większa, tym większy kod weryfikacyjny języka JavaScript zostanie powiększony.
 
 <a id="Task_2_-_Validating_the_Model_with_Data_Annotations"></a>
-#### <a name="task-2---validating-the-model-with-data-annotations"></a>Zadanie 2 — Sprawdzanie poprawności modelu przy użyciu adnotacji danych
+#### <a name="task-2---validating-the-model-with-data-annotations"></a>Zadanie 2 — Walidacja modelu przy użyciu adnotacji danych
 
-Program ASP.NET 4.5 wprowadza weryfikacji adnotacji danych w formularzach sieci Web. Zamiast sprawdzania poprawności formantu w poszczególnych danych wejściowych, można zdefiniować ograniczenia w klasach modeli i używać ich w aplikacji sieci web. W tej sekcji dowiesz się, jak używać adnotacji danych sprawdzania poprawności formularz nowy/Edycja klienta.
+ASP.NET 4,5 wprowadza weryfikację adnotacji danych dla formularzy sieci Web. Zamiast mieć kontrolę weryfikacji dla poszczególnych danych wejściowych, można teraz definiować ograniczenia w klasach modelu i używać ich we wszystkich aplikacjach sieci Web. W tej sekcji dowiesz się, jak używać adnotacji danych do sprawdzania poprawności nowego/edytowania formularza klienta.
 
-1. Otwórz **CustomerDetail.aspx** strony. Należy zauważyć, że klient nazwij pierwszy i drugi w **EditItemTemplate** i **InsertItemTemplate** sekcje są weryfikowane przy użyciu kontrolki RequiredFieldValidator. Każdy moduł sprawdzania poprawności jest skojarzona z określonego warunku, dlatego należy dołączyć dowolną liczbę modułów weryfikacji jako warunki sprawdzające.
-2. Dodaj adnotacje danych można zweryfikować klasy modelu klienta. Otwórz **Customer.cs** klasy w **modelu** folder i *dekoracji* każdej właściwości, za pomocą atrybutów adnotacji danych.
+1. Otwórz stronę **CustomerDetail. aspx** . Zwróć uwagę, że imię i nazwisko klienta w sekcjach **EditItemTemplate** i **InsertItemTemplate** są weryfikowane przy użyciu kontrolek RequiredFieldValidator. Każdy moduł walidacji jest skojarzony z określonym warunkiem, dlatego należy dołączyć dowolną liczbę modułów sprawdzania poprawności jako warunki do sprawdzenia.
+2. Dodaj adnotacje danych, aby sprawdzić poprawność klasy modelu klienta. Otwórz klasę **Customer.cs** w folderze **model** i *dekorować* każdą właściwość przy użyciu atrybutów adnotacji danych.
 
-    (Code Snippet — *Web adnotacje danych na formularzach laboratorium - Ex02 -*)
+    (Fragment kodu- *Web Forms Lab-Ex02-adnotacje danych*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 ma rozszerzyć istniejącą kolekcję adnotacji danych. Poniżej przedstawiono niektóre adnotacje danych, możesz użyć: [CreditCard], [Phone] [EmailAddress], [zakres], [porównać], [Url] [FileExtensions], [wymagane] [Key], [wyrażenia regularnego].
+    > .NET Framework 4,5 rozszerza istniejącą kolekcję adnotacji danych. Oto niektóre adnotacje danych, których można użyć: [CreditCard], [Phone], [EmailAddress], [zakres], [Compare], [URL], [FileExtensions], [wymagane], [klucz], [RegularExpression].
     > 
-    > Niektóre przykłady użycia:
+    > Przykłady użycia:
     > 
-    > [Key]: Specifies that an attribute is the unique identifier
+    > [Klucz]: Specifies that an attribute is the unique identifier
     > 
     > [Range(0.4, 0.5, ErrorMessage=&quot;{Write an error message}&quot;]: Double range
     > 
     > [EmailAddress(ErrorMessage=&quot;Invalid Email&quot;), MaxLength(56)]: Two annotations in the same line.
     > 
-    > Można również definiować własne komunikaty o błędach w ramach każdego atrybutu.
-3. Otwórz **CustomerDetails.aspx** i Usuń wszystkie RequiredFieldValidators dla pól Imię i nazwisko w w sekcjach EditItemTemplate i InsertItemTemplate kontroli FormView.
+    > Można także definiować własne komunikaty o błędach w ramach każdego atrybutu.
+3. Otwórz **CustomerDetails. aspx** i Usuń wszystkie RequiredFieldValidators dla pól First i last name w sekcjach in EditItemTemplate i InsertItemTemplate formantu FormView.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample24.aspx)]
 
     > [!NOTE]
-    > Jedną z zalet przy użyciu adnotacji danych jest logikę weryfikacji nie są zduplikowane na stronach aplikacji. Zdefiniuj go jeden raz w modelu i użyć go na wszystkich stronach aplikacji, które manipulowanie danymi.
-4. Otwórz **CustomerDetails.aspx** związanym z kodem i zlokalizuj metodę SaveCustomer. Ta metoda jest wywoływana podczas wstawiania nowego klienta i odbiera parametru klienta od wartości kontrolki FormView. W przypadku Określa mapowanie między stroną i obiekcie parametru występuje ASP.NET będzie wykonać sprawdzanie poprawności modelu względem wszystkich atrybutów adnotacji danych i wypełnienie słownika ModelState wystąpiły błędy. Jeśli istnieje.
+    > Jedną z zalet używania adnotacji z danymi jest to, że logika walidacji nie jest duplikowana na stronach aplikacji. Definiujesz ją raz w modelu i używają jej na wszystkich stronach aplikacji, które manipulują danymi.
+4. Otwórz za pomocą kodu **CustomerDetails. aspx** i Znajdź metodę SaveCustomer. Ta metoda jest wywoływana podczas wstawiania nowego klienta i odbiera parametr klienta z wartości kontrolki FormView. Gdy występuje mapowanie między kontrolkami strony a obiektem parametru, ASP.NET będzie wykonywać walidację modelu względem wszystkich atrybutów adnotacji danych i wypełnić słownik ModelState błędami, które wystąpiły.
 
-    ModelState.IsValid tylko zwróci wartość true, jeśli wszystkie pola w modelu są prawidłowe po przeprowadzeniu weryfikacji.
+    ModelState. IsValid zwróci wartość true tylko wtedy, gdy wszystkie pola w modelu są prawidłowe po przeprowadzeniu walidacji.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample25.cs)]
-5. Dodaj **podsumowania walidacji** kontroli na końcu strony CustomerDetails, aby wyświetlić listę błędów modelu.
+5. Dodaj kontrolkę **podsumowania walidacji** na końcu strony CustomerDetails, aby wyświetlić listę błędów modelu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample26.aspx)]
 
-    **ShowModelStateErrors** jest nową właściwość na podsumowania walidacji kontrolkę, która po ustawieniu **true**, kontrolka będzie wyświetlać błędy ze słownika ModelState. Te błędy pochodzą z weryfikacji adnotacji danych.
-6. Naciśnij klawisz **F5** do uruchamiania aplikacji sieci Web. Wypełnij formularz z niektóre błędne wartości, a następnie kliknij przycisk **Zapisz** do wykonywania sprawdzania poprawności. Zwróć uwagę, podsumowanie u dołu błędów.
+    **ShowModelStateErrors** to nowa właściwość kontrolki podsumowania walidacji, która po ustawieniu na **wartość true**kontrolka będzie wyświetlać Błędy ze słownika ModelState. Te błędy pochodzą z walidacji adnotacji danych.
+6. Naciśnij klawisz **F5** , aby uruchomić aplikację sieci Web. Wypełnij formularz, podając błędne wartości, a następnie kliknij przycisk **Zapisz** , aby wykonać walidację. Zwróć uwagę na podsumowanie błędu u dołu.
 
-    ![Weryfikacja przy użyciu adnotacji danych](whats-new-in-web-forms-in-aspnet-45/_static/image14.png "weryfikacji przy użyciu adnotacji danych")
+    ![Walidacja przy użyciu adnotacji danych](whats-new-in-web-forms-in-aspnet-45/_static/image14.png "Walidacja przy użyciu adnotacji danych")
 
-    *Weryfikacja przy użyciu adnotacji danych*
+    *Walidacja przy użyciu adnotacji danych*
 
 <a id="Task_3_-_Handling_Custom_Database_Errors_with_ModelState"></a>
-#### <a name="task-3---handling-custom-database-errors-with-modelstate"></a>Zadanie 3 — Obsługa błędów niestandardowej bazy danych, przy użyciu ModelState
+#### <a name="task-3---handling-custom-database-errors-with-modelstate"></a>Zadanie 3 — Obsługa niestandardowych błędów bazy danych za pomocą ModelState
 
-W poprzednich wersjach formularzy sieci Web Obsługa błędów bazy danych, takie jak zbyt długi ciąg lub naruszenie unikatowego klucza może obejmować zgłaszanie wyjątków w kodzie repozytorium, a następnie obsługi wyjątków na usługi związane z kodem, aby wyświetlić błąd. Dużą ilość kodu, co jest wymagane do czymś stosunkowo proste.
+W poprzedniej wersji formularzy sieci Web obsługa błędów bazy danych, takich jak zbyt długi ciąg lub naruszenie klucza unikatowego, może polegać na wyrzucaniu wyjątków w kodzie repozytorium, a następnie obsłudze wyjątków w kodzie w celu wyświetlenia błędu. Aby coś było stosunkowo proste, wymagane jest doskonałe ilości kodu.
 
-W 4.5 formularzy sieci Web obiekt ModelState może służyć do wyświetlania błędów na stronie z modelu lub bazy danych i w sposób ciągły.
+W formularzach sieci Web 4,5 obiekt ModelState może służyć do wyświetlania błędów na stronie z modelu lub bazy danych w spójny sposób.
 
-To zadanie dodasz kod, aby prawidłowo obsługiwać wyjątki bazy danych i wyświetlić odpowiedni komunikat dla użytkownika za pomocą obiektu ModelState.
+W tym zadaniu dodasz kod do prawidłowego obsłużenia wyjątków bazy danych i zostanie wyświetlony odpowiedni komunikat dla użytkownika przy użyciu obiektu ModelState.
 
-1. Gdy aplikacja jest nadal uruchomione, spróbuj zaktualizować nazwę kategorii, używając zduplikowane wartości.
+1. Gdy aplikacja jest nadal uruchomiona, spróbuj zaktualizować nazwę kategorii, używając zduplikowanej wartości.
 
-    ![Aktualizowanie kategorię o nazwie zduplikowane](whats-new-in-web-forms-in-aspnet-45/_static/image15.png "aktualizowanie zduplikowana nazwa kategorii")
+    ![Aktualizowanie kategorii o zduplikowanej nazwie](whats-new-in-web-forms-in-aspnet-45/_static/image15.png "Aktualizowanie kategorii o zduplikowanej nazwie")
 
-    *Aktualizowanie zduplikowana nazwa kategorii*
+    *Aktualizowanie kategorii o zduplikowanej nazwie*
 
-    Należy zauważyć, że wyjątek jest generowany ze względu na &quot;unikatowy&quot; ograniczenie **CategoryName** kolumny.
+    Należy zauważyć, że wyjątek jest zgłaszany z powodu &quot;unikatowego ograniczenia&quot; kolumny **CategoryName** .
 
-    ![Wyjątek dla nazwy kategorii zduplikowane](whats-new-in-web-forms-in-aspnet-45/_static/image16.png "wyjątek dla kategorii zduplikowane nazwy")
+    ![Wyjątek zduplikowanych nazw kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image16.png "Wyjątek zduplikowanych nazw kategorii")
 
-    *Wyjątek dla kategorii zduplikowane nazwy*
-2. Zatrzymaj debugowanie. W **Products.aspx.cs** pliku związanego z kodem, aktualizacji **UpdateCategory** metody, aby obsłużyć wyjątki generowane przez bazy danych. Metoda SaveChanges() wywołania i błędu, aby dodać **ModelState** obiektu.
+    *Wyjątek zduplikowanych nazw kategorii*
+2. Zatrzymaj debugowanie. W pliku związanym z kodem **Products.aspx.cs** zaktualizuj metodę **UpdateCategory** , aby obsługiwała wyjątki zgłoszone przez bazę danych. Metody SaveChanges () Metoda wywołuje i dodaje błąd do obiektu **ModelState** .
 
-    Nowy **TryUpdateModel** metoda aktualizuje obiekt kategorii, pobierane z bazy danych, przy użyciu danych formularza, dostarczone przez użytkownika.
+    Nowa metoda **TryUpdateModel** aktualizuje obiekt kategorii pobrany z bazy danych przy użyciu danych formularza dostarczonych przez użytkownika.
 
-    (Code Snippet — *sieci Web formularzy laboratorium - Ex02 - uchwyt UpdateCategory błędy*)
+    (Fragment kodu- *Web Forms Lab-Ex02-UpdateCategory obsługi błędów*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample27.cs)]
 
     > [!NOTE]
-    > W idealnym przypadku trzeba zidentyfikować przyczynę DbUpdateException i sprawdź, czy głównej przyczyny naruszenia unikatowego ograniczenia klucza.
-3. Otwórz **Products.aspx** i Dodaj **podsumowania walidacji** kontroli poniżej kategorie GridView, aby wyświetlić listę błędów modelu.
+    > W idealnym przypadku trzeba zidentyfikować przyczynę dbupdateexception i sprawdzić, czy przyczyną problemu głównego jest naruszenie ograniczenia UNIQUE Key.
+3. Otwórz **produkt Products. aspx** i Dodaj formant **podsumowania walidacji** poniżej kategorii GridView, aby wyświetlić listę błędów modelu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample28.aspx)]
-4. Uruchamianie witryny, a następnie przejdź do strony produktów. Spróbuj zaktualizować nazwę kategorii, używając zduplikowane wartości.
+4. Uruchom witrynę i przejdź do strony produkty. Spróbuj zaktualizować nazwę kategorii, używając zduplikowanej wartości.
 
-    Należy zauważyć, że wyjątek został obsłużony i komunikat o błędzie pojawia się w **podsumowania walidacji** kontroli.
+    Zwróć uwagę, że wyjątek został obsłużony, a komunikat o błędzie pojawia się w kontrolce **podsumowania walidacji** .
 
-    ![Zduplikowane kategorii błędów](whats-new-in-web-forms-in-aspnet-45/_static/image17.png "zduplikowane kategorii błędów")
+    ![Błąd zduplikowanej kategorii](whats-new-in-web-forms-in-aspnet-45/_static/image17.png "Błąd zduplikowanej kategorii")
 
-    *Błąd zduplikowanych kategorii*
+    *Błąd zduplikowanej kategorii*
 
 <a id="Task_4_-_Request_Validation_in_ASPNET_Web_Forms_45"></a>
-#### <a name="task-4---request-validation-in-aspnet-web-forms-45"></a>Zadanie 4. żądanie weryfikacji w formularzach sieci Web platformy ASP.NET 4.5
+#### <a name="task-4---request-validation-in-aspnet-web-forms-45"></a>Zadanie 4 — Walidacja żądania w programie ASP.NET Web Forms 4,5
 
-Funkcję weryfikacji żądania w programie ASP.NET zapewnia pewien stopień domyślną ochronę przed atakami skryptów między witrynami (XSS). W poprzednich wersjach programu ASP.NET Weryfikacja żądania zostało włączone domyślnie i może być wyłączona dla całej strony. W nowej wersji wzorca ASP.NET Web Forms można teraz wyłączono weryfikację żądań dla pojedynczego kontrola, wykonać sprawdzanie poprawności żądań z opóźnieniem lub uzyskać dostęp do danych niesprawdzone żądania (należy zachować ostrożność, jeśli możesz to zrobić!).
+Funkcja walidacji żądania w programie ASP.NET zapewnia określony poziom ochrony domyślnej przed atakami na skrypty między lokacjami (XSS). W poprzednich wersjach programu ASP.NET sprawdzanie poprawności żądania zostało włączone domyślnie i można ją wyłączyć tylko dla całej strony. Za pomocą nowej wersji formularzy sieci Web ASP.NET można teraz wyłączyć weryfikację żądania dla jednej kontrolki, przeprowadzić weryfikację żądań z opóźnieniem lub uzyskać dostęp do niezweryfikowanych danych żądania (należy zachować ostrożność, jeśli to zrobisz).
 
-1. Naciśnij klawisz **kombinację klawiszy Ctrl + F5** uruchomić witrynę bez debugowania i przejdź do strony produktów. Wybierz kategorię, a następnie kliknij przycisk **Edytuj** łącze na każdy z produktów.
-2. Podaj opis zawierający potencjalnie niebezpieczną treść, na przykład włączając tagi HTML. Zwróć uwagę na wyjątek z powodu weryfikacji żądań.
+1. Naciśnij **kombinację klawiszy CTRL + F5** , aby uruchomić lokację bez debugowania i przejdź do strony produkty. Wybierz kategorię, a następnie kliknij link **Edytuj** na dowolnym z produktów.
+2. Wpisz opis zawierający potencjalnie niebezpieczną zawartość, na przykład, w tym Tagi HTML. Zwróć uwagę na wyjątek zgłoszony z powodu weryfikacji żądania.
 
-    ![Edytowanie produkt o potencjalnie niebezpieczną treść](whats-new-in-web-forms-in-aspnet-45/_static/image18.png "edycji produkt o potencjalnie niebezpieczną treść")
+    ![Edytowanie produktu z potencjalnie niebezpieczną zawartością](whats-new-in-web-forms-in-aspnet-45/_static/image18.png "Edytowanie produktu z potencjalnie niebezpieczną zawartością")
 
-    *Edytowanie produkt o potencjalnie niebezpieczną treść*
+    *Edytowanie produktu z potencjalnie niebezpieczną zawartością*
 
-    ![Wyjątek zgłoszony z powodu weryfikacji żądań](whats-new-in-web-forms-in-aspnet-45/_static/image19.png "wyjątek z powodu weryfikacji żądań")
+    ![Zgłoszono wyjątek z powodu weryfikacji żądania](whats-new-in-web-forms-in-aspnet-45/_static/image19.png "Zgłoszono wyjątek z powodu weryfikacji żądania")
 
-    *Wyjątek zgłoszony z powodu weryfikacji żądań*
-3. Zamknij stronę, a w programie Visual Studio, naciśnij klawisz **SHIFT + F5** Aby zatrzymać debugowanie.
-4. Otwórz **ProductDetails.aspx** strony, a następnie zlokalizuj **opis** pola tekstowego.
-5. Dodaj nowy **ValidateRequestMode** właściwości pola tekstowego i ustawić jej wartość na **wyłączone**.
+    *Zgłoszono wyjątek z powodu weryfikacji żądania*
+3. Zamknij stronę i w programie Visual Studio naciśnij klawisze **Shift + F5** , aby zatrzymać debugowanie.
+4. Otwórz stronę **ProductDetails. aspx** i Znajdź pole tekstowe **Opis** .
+5. Dodaj nową właściwość **ValidateRequestMode** do pola tekstowego i ustaw jej wartość na **Disabled**.
 
-    Nowy **ValidateRequestMode** atrybut pozwala wyłączyć sprawdzanie poprawności żądań dokładnością na każdy formant. Jest to przydatne, gdy użytkownik chce użyć danych wejściowych, które mogą odbierać kodu HTML, ale chce zachować weryfikacji pracy pozostałej części strony.
+    Nowy atrybut **ValidateRequestMode** pozwala na szczegółowe wyłączenie sprawdzania poprawności żądania w każdej kontrolce. Jest to przydatne, gdy chcesz użyć danych wejściowych, które mogą otrzymać kod HTML, ale chcesz zachować weryfikację w pozostałej części strony.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample29.aspx)]
-6. Naciśnij klawisz **F5** do uruchamiania aplikacji sieci web. Ponownie otwórz stronę produktu edycji i wypełnij opis produktu, włączając tagi HTML. Należy zauważyć, że możesz teraz dodać zawartość HTML w opisie.
+6. Naciśnij klawisz **F5** , aby uruchomić aplikację sieci Web. Otwórz ponownie stronę Edytuj produkt i uzupełnij Opis produktu, w tym Tagi HTML. Zauważ, że teraz możesz dodać zawartość HTML do opisu.
 
-    ![Żądanie weryfikacji wyłączone opisu produktu](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "żądanie weryfikacji wyłączone opis produktu")
+    ![Weryfikacja żądania została wyłączona dla opisu produktu](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "Weryfikacja żądania została wyłączona dla opisu produktu")
 
-    *Żądanie weryfikacji wyłączone opis produktu*
-
-    > [!NOTE]
-    > W przypadku aplikacji produkcyjnych należy oczyszczenia kodu HTML, wprowadzonej przez użytkownika, aby upewnić się, są wprowadzane tylko bezpiecznych tagów HTML (na przykład istnieją nie &lt;skryptu&gt; tagów). Aby to zrobić, można użyć [Biblioteka ochrony sieci Web firmy Microsoft](https://www.nuget.org/packages/AntiXSS).
-7. Edytuj ponownie produkt. W polu nazwy wpisz kod HTML, a następnie kliknij przycisk **Zapisz**. Zauważ, że żądanie weryfikacji tylko jest wyłączona dla pola Opis, a pozostałe pola re nadal weryfikowany pod kątem potencjalnie niebezpieczną treść.
-
-    ![Żądanie weryfikacji włączone w pozostałych polach](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "żądanie weryfikacji w pozostałych polach włączone")
-
-    *Żądanie weryfikacji w pozostałych polach włączone*
-
-    Formularze sieci Web platformy ASP.NET 4.5 zawiera nowy tryb weryfikacji żądania opóźnieniem przeprowadzić weryfikacji żądań. Tryb weryfikacji żądania ustawiono na **4.5**, jeśli fragment kodu uzyskuje dostęp do *Request.Form [&quot;klucz&quot;]*, wyzwalacza tylko ASP.NET 4.5 żądania weryfikacji będzie żądanie weryfikacji dla tego określonego elementu w kolekcji formularza.
-
-    Ponadto ASP.NET 4.5 zawiera teraz podstawowe procedury kodowania z biblioteki Anti-XSS firmy Microsoft w wersji 4.0. XSS chroniących kodowanie procedury są wykonywane przez nowy *AntiXssEncoder* odnaleźć typu w nowym **System.Web.Security.AntiXss** przestrzeni nazw. Za pomocą **encoderType** skonfigurowany do używania parametru *AntiXssEncoder*, wszystkie dane wyjściowe kodowania w programie ASP.NET automatycznie używa nowej procedury kodowania.
-8. Program ASP.NET 4.5 żądania weryfikacji obsługuje również niesprawdzone dostęp do danych żądania. Program ASP.NET 4.5 dodaje nową właściwość kolekcji do **HttpRequest** obiektu o nazwie **Unvalidated**. Po przejściu do **HttpRequest.Unvalidated** mają dostęp do wszystkich typowych rodzajów danych żądanie, w tym formularzy, ciągami zapytań, pliki cookie, adresy URL i tak dalej.
-
-    ![Obiekt Request.Unvalidated](whats-new-in-web-forms-in-aspnet-45/_static/image22.png "Request.Unvalidated obiektu")
-
-    *Obiekt Request.Unvalidated*
+    *Weryfikacja żądania została wyłączona dla opisu produktu*
 
     > [!NOTE]
-    > **Użyj właściwości HttpRequest.Unvalidated ostrożnie!** Upewnij się, że dokładnie wykonywania niestandardowego sprawdzania poprawności na danych pierwotnych żądania, upewnij się, że tekst niebezpiecznych jest nie-zwrotnego renderowania do klientów podejrzewający!
+    > W aplikacji produkcyjnej należy oczyszczać kod HTML wprowadzony przez użytkownika, aby upewnić się, że są wprowadzane tylko bezpieczne Tagi HTML (na przykład nie ma &lt;tagów&gt; skryptów). W tym celu można użyć [biblioteki ochrony sieci Web firmy Microsoft](https://www.nuget.org/packages/AntiXSS).
+7. Edytuj produkt ponownie. Wpisz kod HTML w polu Nazwa, a następnie kliknij przycisk **Zapisz**. Należy zauważyć, że sprawdzanie poprawności żądania jest wyłączone tylko dla pola Opis, a pozostałe pola nadal są weryfikowane pod kątem potencjalnie niebezpiecznej zawartości.
+
+    ![Sprawdzanie poprawności żądania zostało włączone w pozostałej części pól](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "Sprawdzanie poprawności żądania zostało włączone w pozostałej części pól")
+
+    *Sprawdzanie poprawności żądania zostało włączone w pozostałej części pól*
+
+    ASP.NET Web Forms 4,5 zawiera nowy tryb walidacji żądania w celu przeprowadzenia walidacji żądania opóźnieniem. W trybie walidacji żądania ustawionej na **4,5**, jeśli element kodu uzyskuje dostęp do *żądania. formularz [&quot;Key&quot;]* , walidacja żądania ASP.NET 4.5 będzie wyzwalać tylko weryfikację żądania dla tego konkretnego elementu w kolekcji formularzy.
+
+    Ponadto ASP.NET 4,5 zawiera teraz podstawowe procedury kodowania z biblioteki Microsoft Anti-XSS Library v 4.0. Procedury kodowania antyxss są implementowane przez nowy typ *AntiXssEncoder* znaleziony w nowej przestrzeni nazw **System. Web. Security. AntiXSS** . Przy użyciu parametru **kodertype** skonfigurowanego do korzystania z *AntiXssEncoder*, wszystkie kodowanie danych wyjściowych w programie ASP.NET automatycznie używa nowych procedur kodowania.
+8. Weryfikacja żądania ASP.NET 4,5 również obsługuje niezweryfikowany dostęp do danych żądania. ASP.NET 4,5 dodaje nową właściwość kolekcji do obiektu **HttpRequest** o nazwie **unvalidated**. Gdy przejdziesz do **żądania HttpRequest** , masz dostęp do wszystkich wspólnych fragmentów danych żądania, w tym formularzy, QueryString, plików cookie, adresów URL itd.
+
+    ![Żądanie. niezweryfikowany obiekt](whats-new-in-web-forms-in-aspnet-45/_static/image22.png "Żądanie. niezweryfikowany obiekt")
+
+    *Żądanie. niezweryfikowany obiekt*
+
+    > [!NOTE]
+    > **Użyj właściwości HttpRequest. unvalidated z przestrogą!** Upewnij się, że masz ostrożną weryfikację niestandardową danych żądania, aby upewnić się, że niebezpieczne teksty nie są wyskakujące i renderowane z powrotem do niepodejrzanych klientów.
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Asynchronous_Page_Processing_in_ASPNET_Web_Forms"></a>
-### <a name="exercise-3-asynchronous-page-processing-in-aspnet-web-forms"></a>Ćwiczenie 3: Strona asynchroniczne przetwarzanie we wzorcu ASP.NET Web Forms
+### <a name="exercise-3-asynchronous-page-processing-in-aspnet-web-forms"></a>Ćwiczenie 3: asynchroniczne przetwarzanie stron w formularzach sieci Web ASP.NET
 
-W tym ćwiczeniu zostaną wprowadzone do nowej strony asynchronicznego przetwarzania funkcji w formularzach sieci Web platformy ASP.NET.
+W tym ćwiczeniu nastąpi wprowadzenie do nowych funkcji asynchronicznych przetwarzania stron w formularzach sieci Web ASP.NET.
 
 <a id="Task_1_-_Updating_the_Product_Details_Page_to_Upload_and_Show_Images"></a>
-#### <a name="task-1---updating-the-product-details-page-to-upload-and-show-images"></a>Zadanie 1 — aktualizowanie produktu szczegóły strony, aby przekazać i wyświetlanie obrazów
+#### <a name="task-1---updating-the-product-details-page-to-upload-and-show-images"></a>Zadanie 1 — Aktualizowanie strony szczegółów produktu w celu przekazywania i wyświetlania obrazów
 
-To zadanie zaktualizuje stronę szczegółów produktu, aby umożliwić użytkownikowi określić adres URL obrazu dla produktu i wyświetlania ich w widoku tylko do odczytu. Utworzysz lokalną kopię określonego obrazu, pobierając synchronicznie. W ramach następnego zadania spowoduje zaktualizowanie tej implementacji, aby umożliwić jej pracę asynchronicznie.
+W tym zadaniu zostanie zaktualizowana Strona szczegóły produktu, aby umożliwić użytkownikowi określenie adresu URL obrazu dla produktu i wyświetlenie go w widoku tylko do odczytu. Zostanie utworzona kopia lokalna określonego obrazu przez pobranie go synchronicznie. W następnym zadaniu zostanie zaktualizowana Ta implementacja, aby działała asynchronicznie.
 
-1. Otwórz **programu Visual Studio 2012** i załadować **rozpocząć** rozwiązanie znajduje się w **Source\Ex3 Async\Begin** z folderu w tym laboratorium. Alternatywnie można kontynuować pracę na istniejące rozwiązanie z poprzedniego ćwiczenia.
+1. Otwórz **program Visual Studio 2012** i Załaduj rozwiązanie **BEGIN** znajdujące się w **Source\Ex3-Async\Begin** z folderu tego laboratorium. Alternatywnie możesz kontynuować pracę na istniejącym rozwiązaniu z poprzednich ćwiczeń.
 
-   1. Jeśli został otwarty dołączonym **rozpocząć** rozwiązania, należy pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projektu, a następnie wybierz **Zarządzaj pakietami NuGet**.
-   2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
-   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Jeśli otwarto **udostępnione rozwiązanie** , należy pobrać brakujące pakiety NuGet przed kontynuowaniem. W tym celu w Eksplorator rozwiązań kliknij projekt **WebFormsLab** i wybierz pozycję **Zarządzaj pakietami NuGet**.
+   2. W oknie dialogowym **Zarządzanie pakietami NuGet** kliknij przycisk **Przywróć** , aby pobrać brakujące pakiety.
+   3. Na koniec Skompiluj rozwiązanie, klikając pozycję **kompiluj** | **Kompiluj rozwiązanie**.
 
       > [!NOTE]
-      > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
-2. Otwórz **ProductDetails.aspx** strony źródła, a następnie dodaj pole w ItemTemplate FormView, aby wyświetlić obraz produktu.
+      > Jedną z zalet korzystania z NuGet jest to, że nie trzeba dostarczać wszystkich bibliotek w projekcie, zmniejszając rozmiar projektu. Przy użyciu narzędzi NuGet PowerShell, określając wersje pakietu w pliku Packages. config, będzie można pobrać wszystkie wymagane biblioteki przy pierwszym uruchomieniu projektu. To dlatego, że trzeba będzie wykonać te kroki po otwarciu istniejącego rozwiązania z tego laboratorium.
+2. Otwórz źródło strony **ProductDetails. aspx** i Dodaj pole w ItemTemplate FormView, aby wyświetlić obraz produktu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
 3. Dodaj pole, aby określić adres URL obrazu w EditTemplate FormView.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample31.aspx)]
-4. Otwórz **ProductDetails.aspx.cs** związanym z kodem i dodaj następujące dyrektywy przestrzeni nazw.
+4. Otwórz plik związany z kodem **ProductDetails.aspx.cs** i Dodaj następujące dyrektywy przestrzeni nazw.
 
-    (Code Snippet — *Web Forms laboratorium — Ex03 — w przestrzeni nazw*)
+    (Fragment kodu — *Web Forms Lab-Ex03-Namespaces*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample32.cs)]
-5. Tworzenie **UpdateProductImage** metodę, aby przechowywać obrazy w zdalnym w lokalnym **obrazów** folderu i zaktualizuj jednostkę produktu z nową wartość obrazu w lokalizacji.
+5. Utwórz metodę **UpdateProductImage** , aby przechowywać obrazy zdalne w folderze Local **images** i zaktualizować jednostkę produktu przy użyciu wartości Nowa lokalizacja obrazu.
 
-    (Code Snippet — *Web Forms laboratorium - Ex03 - UpdateProductImage*)
+    (Fragment kodu — *Web Forms Lab-Ex03-UpdateProductImage*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample33.cs)]
-6. Aktualizacja **UpdateProduct** metodę do wywołania **UpdateProductImage** metody.
+6. Zaktualizuj metodę **UpdateProduct** , aby wywołać metodę **UpdateProductImage** .
 
-    (Code Snippet — *sieci Web formularzy laboratorium - Ex03 - UpdateProductImage wywołanie*)
+    (Fragment kodu- *Web Forms Lab-Ex03-UpdateProductImage Call*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Uruchom aplikację i spróbuj przekazać obraz dla produktu. Na przykład można użyć następującego adresu URL obrazu z sztuka klipu pakietu Office: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Uruchom aplikację i spróbuj przekazać obraz dla produktu. Na przykład można użyć następującego adresu URL obrazu z programu Office clipart: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
-    ![Ustawienie obrazu dla produktu](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "ustawienie obrazu dla produktu")
+    ![Ustawianie obrazu dla produktu](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "Ustawianie obrazu dla produktu")
 
-    *Ustawienie obrazu dla produktu*
+    *Ustawianie obrazu dla produktu*
 
 <a id="Task_2_-_Adding_Asynchronous_Processing_to_the_Product_Details_Page"></a>
-#### <a name="task-2---adding-asynchronous-processing-to-the-product-details-page"></a>Zadanie 2 — Dodawanie asynchroniczne, przetwarzanie na stronie szczegółów produktu
+#### <a name="task-2---adding-asynchronous-processing-to-the-product-details-page"></a>Zadanie 2 — Dodawanie przetwarzania asynchronicznego do strony szczegółów produktu
 
-To zadanie zaktualizuje stronę szczegółów produktu, aby umożliwić jej pracę asynchronicznie. Długotrwałe zadanie — proces pobierania obrazu - ulepszenie przy użyciu przetwarzania asynchronicznego strony ASP.NET 4.5.
+W tym zadaniu zostanie zaktualizowana Strona szczegóły produktu, aby działała asynchronicznie. Zostanie zwiększona długotrwałe zadanie — proces pobierania obrazu — za pomocą asynchronicznego przetwarzania stron ASP.NET 4,5.
 
-Metody asynchroniczne w aplikacjach sieci web można zoptymalizować sposób, w jaki są używane w puli wątków programu ASP.NET. W programie ASP.NET: są wnioski o ograniczonej liczbie wątków w puli wątków dla uczestnictwa, w związku z tym, gdy wszystkie wątki są zajęte, ASP.NET zaczyna odrzucać żądania nowego, wysyła komunikaty o błędach aplikacji i sprawia, że witryna jest niedostępny.
+Metody asynchroniczne w aplikacjach sieci Web mogą służyć do optymalizowania sposobu używania pul wątków ASP.NET. W ASP.NET istnieje ograniczona liczba wątków w puli wątków na potrzeby uczestniczenia w żądaniach, więc gdy wszystkie wątki są zajęte, ASP.NET zaczyna odrzucać nowe żądania, wysyła komunikaty o błędach aplikacji i sprawia, że witryna jest niedostępna.
 
-Czas operacji w witrynie sieci web są doskonałymi kandydatami dla programowania asynchronicznego, ponieważ zajmują przypisany wątek przez długi czas. Obejmuje to długo wykonywanych żądań z dużą liczbą różnych elementów i stron, które wymagają operacji w trybie offline, takich zapytań bazy danych lub uzyskiwania dostępu do zewnętrznego serwera sieci web. Zaletą jest to, że jeśli dla tych operacji można używać metod asynchronicznych, podczas przetwarzania strony wątek jest zwolniony i zwrócony do wątku puli i może służyć do udziału na nowe żądanie strony. Oznacza to strona rozpocznie przetwarzanie w jednym wątku z puli wątków i może zakończyć przetwarzanie w innym, po zakończeniu przetwarzania asynchronicznego.
+Czasochłonne operacje w witrynie sieci Web są doskonałymi kandydatami do programowania asynchronicznego, ponieważ zajmują przydzielony wątek przez długi czas. Obejmuje to długotrwałe żądania, strony z wieloma różnymi elementami i stronami, które wymagają operacji offline, takich jak wykonywanie zapytań do bazy danych lub uzyskiwanie dostępu do zewnętrznego serwera sieci Web. Ta korzyść polega na tym, że jeśli używasz metod asynchronicznych dla tych operacji, podczas przetwarzania strony wątek jest zwalniany i zwracany do puli wątków i może służyć do wzięcia udziału w nowym żądaniu strony. Oznacza to, że strona rozpocznie przetwarzanie w jednym wątku z puli wątków i może zakończyć przetwarzanie w innym, po zakończeniu przetwarzania asynchronicznego.
 
-1. Otwórz **ProductDetails.aspx** strony. Dodaj **Async** atrybutu w **strony** element i ustaw ją na **true**. Ten atrybut informuje platformę ASP.NET w celu implementacji interfejsu IHttpAsyncHandler.
+1. Otwórz stronę **ProductDetails. aspx** . Dodaj atrybut **Async** w elemencie **Page** i ustaw dla niego **wartość true**. Ten atrybut nakazuje ASP.NET zaimplementowanie interfejsu IHttpAsyncHandler.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
-2. Dodaj etykietę w dolnej części strony Aby wyświetlić jego szczegóły wątki uruchomione na stronie.
+2. Dodaj etykietę w dolnej części strony, aby wyświetlić szczegóły wątków, na których działa strona.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
-3. Otwórz **ProductDetails.aspx.cs** i dodaj następujące dyrektywy przestrzeni nazw.
+3. Otwórz **ProductDetails.aspx.cs** i Dodaj następujące dyrektywy przestrzeni nazw.
 
-    (Code Snippet — *sieci Web formularzy laboratorium - Ex03 - nazw 2*)
+    (Fragment kodu — *Web Forms Lab-Ex03-przestrzenie nazw 2*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample37.cs)]
-4. Modyfikowanie **UpdateProductImage** metody do pobierania obrazu o zadaniu asynchronicznym. Spowoduje zastąpienie **WebClient** **DownloadFile** metody z **DownloadFileTaskAsync** metody i obejmują **await** — słowo kluczowe.
+4. Zmodyfikuj metodę **UpdateProductImage** , aby pobrać obraz z zadania asynchronicznego. Metoda **DownloadFile** **WebClient** jest zastępowana metodą **DownloadFileTaskAsync** i zawiera słowo kluczowe **await** .
 
-    (Code Snippet — *sieci Web formularzy laboratorium - Ex03 - UpdateProductImage Async*)
+    (Fragment kodu — *Web Forms Lab-Ex03-UpdateProductImage Async*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample38.cs)]
 
-    RegisterAsyncTask rejestruje nowe zadanie asynchroniczne strony do wykonania w innym wątku. Wyrażenie lambda z zadań (t) do wykonania, odbiera. **Await** — słowo kluczowe w **DownloadFileTaskAsync** metoda konwertuje pozostałą część metody wywołania zwrotnego, które jest wywoływane asynchronicznie po **DownloadFileTaskAsync** metoda została zakończona. ASP.NET zostanie wznowiona wykonywanie metody automatycznie utrzymując wszystkie żądania oryginalnej wartości HTTP. Nowy model programowania asynchronicznego w .NET 4.5 można napisać kod asynchroniczny, który wygląda bardzo podobnie synchroniczny kod i pozwolić kompilatorowi obsługi kompilacji funkcji wywołania zwrotnego lub kod kontynuacji.
+    RegisterAsyncTask rejestruje nowe zadanie asynchroniczne strony, które ma zostać wykonane w innym wątku. Otrzymuje wyrażenie lambda z zadaniem (t), które ma zostać wykonane. Słowo kluczowe **await** w metodzie **DownloadFileTaskAsync** konwertuje resztę metody do wywołania zwrotnego, które jest wywoływane asynchronicznie po zakończeniu metody **DownloadFileTaskAsync** . ASP.NET wznowi wykonywanie metody przez automatyczne zachowanie wszystkich oryginalnych wartości żądania HTTP. Nowy asynchroniczny model programowania w programie .NET 4,5 pozwala pisać kod asynchroniczny, który wygląda bardzo podobnie do kodu synchronicznego i pozwala kompilatorowi obsłużyć komplikacje funkcji wywołania zwrotnego lub kodu kontynuacji.
     > [!NOTE]
-    > RegisterAsyncTask i PageAsyncTask były dostępne już od .NET 2.0. Await — słowo kluczowe jest nowa w .NET 4.5 asynchronicznego modelu programowania i może być używane razem z nowych metod TaskAsync z obiektu .NET WebClient.
-5. Dodaj kod, aby wyświetlić wątki, na których kod uruchomienia i zakończenia. Aby to zrobić, należy zaktualizować **UpdateProductImage** metoda następującym kodem.
+    > RegisterAsyncTask i PageAsyncTask były już dostępne od czasu .NET 2,0. Słowo kluczowe await jest nowe z modelu programowania asynchronicznego .NET 4,5 i może być używane razem z nowymi metodami TaskAsync z obiektu WebClient programu .NET.
+5. Dodaj kod, aby wyświetlić wątki, na których uruchomiono i zakończono wykonywanie kodu. W tym celu należy zaktualizować metodę **UpdateProductImage** przy użyciu następującego kodu.
 
-    (Code Snippet — *wątków Web Forms Lab - Ex03 - Show*)
+    (Fragment kodu — *Web Forms Lab-Ex03-show Threads*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample39.cs)]
-6. Otwórz witrynę sieci web **Web.config** pliku. Dodaj następującą zmienną appSetting.
+6. Otwórz plik **Web. config** witryny sieci Web. Dodaj następującą zmienną element appSetting.
 
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample40.xml)]
-7. Naciśnij klawisz **F5** do uruchamiania aplikacji i przekazać obraz dla produktu. Zwróć uwagę na identyfikator wątków, w których kod rozpoczęcia i zakończenia mogą być różne. Jest to spowodowane asynchronicznej zadania są uruchamiane w oddzielnym wątku z puli wątków programu ASP.NET. Po zakończeniu zadania, ASP.NET umieszcza zadania w kolejce i przypisuje żadnego z dostępnych wątków.
+7. Naciśnij klawisz **F5** , aby uruchomić aplikację i przekazać obraz dla produktu. Zwróć uwagę na identyfikator wątków, w których kod został uruchomiony i zakończony może być inny. Wynika to z faktu, że zadania asynchroniczne są uruchamiane w osobnym wątku z puli wątków ASP.NET. Po zakończeniu zadania ASP.NET umieszcza zadanie z powrotem w kolejce i przypisuje dowolny z dostępnych wątków.
 
-    ![Pobieranie obrazu asynchronicznie](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "asynchronicznie pobieranie obrazu")
+    ![Asynchroniczne pobieranie obrazu](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "Asynchroniczne pobieranie obrazu")
 
-    *Pobieranie obrazu asynchronicznie*
+    *Asynchroniczne pobieranie obrazu*
 
 > [!NOTE]
-> Ponadto można wdrożyć tę aplikację do platformy Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
+> Ponadto możesz wdrożyć tę aplikację na platformie Azure w [dodatku B: publikowanie aplikacji ASP.NET MVC 4 przy użyciu Web Deploy](#AppendixB).
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie
 
-W tym laboratorium praktycznego zostały rozwiązane i przedstawiono następujące pojęcia:
+W tym ćwiczeniu ćwiczenia zostały opisane następujące koncepcje:
 
-- Użyj wyrażenia wiązania danych silnie typizowane
-- Korzystać z nowych funkcji wiązania modelu w formularzach sieci Web
-- Korzystanie z dostawców wartości do mapowania danych ze strony metody związanym z kodem
-- Adnotacje danych na użytek walidacji danych wejściowych użytkownika
-- Korzystać z zalet dyskretny kod weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
-- Implementowanie weryfikacji żądań szczegółowe
-- Implementowanie strony asynchronicznego przetwarzania w formularzach sieci Web
+- Używanie wyrażeń z powiązaniem danych o jednoznacznie określonym typie
+- Korzystanie z nowych funkcji powiązania modelu w formularzach sieci Web
+- Korzystanie z dostawców wartości na potrzeby mapowania danych strony do metod związanych z kodem
+- Używanie adnotacji danych do sprawdzania poprawności danych wejściowych użytkownika
+- Korzystaj z niezauważalnej weryfikacji po stronie klienta za pomocą technologii jQuery w formularzach sieci Web
+- Zaimplementuj szczegółowe sprawdzanie poprawności żądania
+- Implementuj asynchroniczne przetwarzanie stron w formularzach sieci Web
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Installing Visual Studio Express 2012 for Web
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie Visual Studio Express 2012 dla sieci Web
 
-Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** lub inne &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe wskazówki ułatwiają kroki wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 dla sieci Web** lub innej &quot;Express&quot; wersji za pomocą **[Instalator platformy Microsoft Web](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przeprowadzą Cię przez kroki wymagane do zainstalowania *programu Visual Studio Express 2012 for Web* przy użyciu *Instalator platformy Microsoft Web*.
 
-1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Azure SDK</em>&quot;.
-2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
-3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
+1. Przejdź do [[https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli wcześniej zainstalowano Instalatora platformy sieci Web, można go otworzyć i wyszukać produkt &quot;<em>Visual Studio Express 2012 for Web przy użyciu zestawu Azure SDK</em>&quot;.
+2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** , nastąpi przekierowanie do pobrania i zainstalowania go w pierwszej kolejności.
+3. Po otwarciu **Instalatora platformy sieci Web** kliknij przycisk **Zainstaluj** , aby rozpocząć instalację.
 
-    ![Install Visual Studio Express](whats-new-in-web-forms-in-aspnet-45/_static/image25.png "Install Visual Studio Express")
+    ![Zainstaluj Visual Studio Express](whats-new-in-web-forms-in-aspnet-45/_static/image25.png "Zainstaluj Visual Studio Express")
 
-    *Install Visual Studio Express*
-4. Odczytywanie wszystkich produktów licencji oraz warunki, a następnie kliknij przycisk **akceptuję** aby kontynuować.
+    *Zainstaluj Visual Studio Express*
+4. Przeczytaj wszystkie licencje i postanowienia produktów, a następnie kliknij przycisk **Akceptuję** , aby kontynuować.
 
-    ![Akceptowanie umowy licencyjnej](whats-new-in-web-forms-in-aspnet-45/_static/image26.png)
+    ![Akceptowanie postanowień licencyjnych](whats-new-in-web-forms-in-aspnet-45/_static/image26.png)
 
-    *Akceptowanie umowy licencyjnej*
-5. Zaczekaj, aż do zakończenia procesu pobierania i instalacji.
+    *Akceptowanie postanowień licencyjnych*
+5. Poczekaj na zakończenie procesu pobierania i instalacji.
 
     ![Postęp instalacji](whats-new-in-web-forms-in-aspnet-45/_static/image27.png)
 
     *Postęp instalacji*
 6. Po zakończeniu instalacji kliknij przycisk **Zakończ**.
 
-    ![Instalacja została zakończona](whats-new-in-web-forms-in-aspnet-45/_static/image28.png)
+    ![Instalacja zakończona](whats-new-in-web-forms-in-aspnet-45/_static/image28.png)
 
-    *Instalacja została zakończona*
-7. Kliknij przycisk **zakończenia** zamknąć Instalatora platformy sieci Web.
-8. Aby otworzyć program Visual Studio Express for Web, przejdź do **Start** ekranu, a następnie zacznij pisać &quot; **VS Express**&quot;, następnie kliknij pozycję **VS Express for Web** Kafelek.
+    *Instalacja zakończona*
+7. Kliknij przycisk **Zakończ** , aby zamknąć Instalatora platformy sieci Web.
+8. Aby otworzyć Visual Studio Express dla sieci Web, przejdź do ekranu **startowego** i zacznij pisać &quot;**vs Express**&quot;, a następnie kliknij kafelek **vs Express for Web** .
 
-    ![VS Express for Web tile](whats-new-in-web-forms-in-aspnet-45/_static/image29.png)
+    ![Kafelek VS Express for Web](whats-new-in-web-forms-in-aspnet-45/_static/image29.png)
 
-    *VS Express for Web tile*
+    *Kafelek VS Express for Web*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Dodatek B: publikowanie aplikacji ASP.NET MVC 4 przy użyciu Web Deploy
 
-Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w witrynie Azure Portal i publikowanie aplikacji, uzyskany postępując zgodnie z laboratorium, korzystając z zalet funkcji publikowania narzędzia Web Deploy udostępnianych przez platformę Azure.
+W tym dodatku pokazano, jak utworzyć nową witrynę sieci Web w witrynie Azure Portal i opublikować aplikację uzyskaną w wyniku działania laboratorium, korzystając z funkcji publikowania Web Deploy oferowanej przez platformę Azure.
 
 <a id="ApxBTask1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-azure-portal"></a>Zadanie 1. Tworzenie nowej witryny sieci Web w witrynie Azure Portal
+#### <a name="task-1---creating-a-new-web-site-from-the-azure-portal"></a>Zadanie 1 — Tworzenie nowej witryny sieci Web w witrynie Azure Portal
 
-1. Przejdź do [portalu zarządzania systemu Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
+1. Przejdź do [usługi Azure Portal zarządzania](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft skojarzonych z Twoją subskrypcją.
 
     > [!NOTE]
-    > Za pomocą platformy Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
+    > Dzięki platformie Azure możesz bezpłatnie hostować 10 ASP.NET witryn sieci Web, a następnie skalować je w miarę wzrostu ruchu. Możesz utworzyć konto w [tym miejscu](https://aka.ms/aspnet-hol-azure).
 
-    ![Zaloguj się do portalu usługi Windows Azure](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Zaloguj się do portalu usługi Windows Azure")
+    ![Zaloguj się do systemu Windows Azure Portal](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Zaloguj się do systemu Windows Azure Portal")
 
     *Zaloguj się do portalu*
-2. Kliknij przycisk **New** na pasku poleceń.
+2. Na pasku poleceń kliknij pozycję **Nowy** .
 
-    ![Tworzenie nowej witryny sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image31.png "tworzenia nowej witryny sieci Web")
+    ![Tworzenie nowej witryny sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image31.png "Tworzenie nowej witryny sieci Web")
 
     *Tworzenie nowej witryny sieci Web*
-3. Kliknij przycisk **obliczenia** | **witryny sieci Web**. Następnie wybierz pozycję **szybkie tworzenie** opcji. Podaj adres URL dostępny dla nowej witryny sieci web, a następnie kliknij przycisk **Utwórz witrynę sieci Web**.
+3. Kliknij pozycję **obliczeniowe** | **witrynie sieci Web**. Następnie wybierz opcję **szybkie tworzenie** . Podaj dostępny adres URL dla nowej witryny sieci Web i kliknij pozycję **Utwórz witrynę sieci Web**.
 
     > [!NOTE]
-    > Platforma Azure to hosta dla aplikacji sieci web działające w chmurze, które można kontrolować i zarządzać nimi. Opcja szybkie tworzenie umożliwia wdrażanie ukończonej aplikacji sieci web na platformie Azure z poza portalem. Nie obejmuje kroki konfigurowania bazy danych.
+    > Platforma Azure jest hostem aplikacji sieci Web działającej w chmurze, którą można kontrolować i zarządzać nią. Opcja szybkie tworzenie umożliwia wdrożenie ukończonej aplikacji sieci Web na platformie Azure spoza portalu. Nie obejmuje to kroków związanych z konfigurowaniem bazy danych.
 
-    ![Tworzenie nowej witryny sieci Web przy użyciu szybkiego tworzenia](whats-new-in-web-forms-in-aspnet-45/_static/image32.png "tworzenia nowej witryny sieci Web przy użyciu szybkie tworzenie")
+    ![Tworzenie nowej witryny sieci Web przy użyciu funkcji szybkiego tworzenia](whats-new-in-web-forms-in-aspnet-45/_static/image32.png "Tworzenie nowej witryny sieci Web przy użyciu funkcji szybkiego tworzenia")
 
-    *Tworzenie nowej witryny sieci Web przy użyciu szybkie tworzenie*
-4. Poczekaj, aż nowe **witryny sieci Web** zostanie utworzony.
-5. Po utworzeniu witryny sieci Web kliknij link w obszarze **adresu URL** kolumny. Sprawdź, czy działa nową witrynę sieci Web.
+    *Tworzenie nowej witryny sieci Web przy użyciu funkcji szybkiego tworzenia*
+4. Poczekaj na utworzenie nowej **witryny sieci Web** .
+5. Po utworzeniu witryny sieci Web kliknij link pod kolumną **adres URL** . Sprawdź, czy nowa witryna sieci Web działa.
 
-    ![Przejście do nowej witryny sieci web](whats-new-in-web-forms-in-aspnet-45/_static/image33.png "przejście do nowej witryny sieci web")
+    ![Przeglądanie w nowej witrynie sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image33.png "Przeglądanie w nowej witrynie sieci Web")
 
-    *Przejście do nowej witryny sieci web*
+    *Przeglądanie w nowej witrynie sieci Web*
 
-    ![Witryna sieci Web działa](whats-new-in-web-forms-in-aspnet-45/_static/image34.png "witryna sieci Web działa")
+    ![Uruchomiona witryna sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image34.png "Uruchomiona witryna sieci Web")
 
-    *Witryna sieci Web działa*
-6. Wróć do portalu i kliknij nazwę witryny sieci web w obszarze **nazwa** kolumny do wyświetlenia strony zarządzania.
+    *Uruchomiona witryna sieci Web*
+6. Wróć do portalu i kliknij nazwę witryny sieci Web pod kolumną **Nazwa** , aby wyświetlić strony zarządzania.
 
-    ![Otwieranie strony zarządzania witryny sieci web](whats-new-in-web-forms-in-aspnet-45/_static/image35.png "otwieranie stron zarządzania witryny sieci web")
+    ![Otwieranie stron zarządzania witryną sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image35.png "Otwieranie stron zarządzania witryną sieci Web")
 
-    *Otwieranie strony zarządzania witryny sieci Web*
-7. W **pulpit nawigacyjny** w obszarze **Przegląd** kliknij **Pobierz profil publikowania** łącza.
+    *Otwieranie stron zarządzania witryną sieci Web*
+7. Na stronie **pulpit nawigacyjny** w sekcji **szybki przegląd** kliknij link **Pobierz profil publikowania** .
 
     > [!NOTE]
-    > *Profil publikowania* zawiera wszystkie informacje wymagane do publikowania aplikacji sieci web na platformie Azure dla poszczególnych metod włączone publikacji. Profil publikowania zawiera adresy URL, poświadczenia użytkownika i parametry bazy danych wymagane do łączenia się i uwierzytelnianie w odniesieniu do każdego z punktów końcowych, dla których włączono metoda publikacji. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** i **Microsoft Visual Studio 2012** Obsługa odczytywania profili publikowania do automatyzowania konfiguracji tych programów dla Publikowanie aplikacji sieci web na platformie Azure.
+    > *Profil publikowania* zawiera wszystkie informacje wymagane do opublikowania aplikacji sieci Web na platformie Azure dla każdej z włączonych metod publikacji. Profil publikowania zawiera adresy URL, poświadczenia użytkownika i ciągi bazy danych wymagane do nawiązania połączenia i uwierzytelniania dla każdego punktu końcowego, dla którego jest włączona metoda publikacji. **Firma Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** i **Microsoft Visual Studio 2012** obsługują odczytywanie profilów publikowania w celu zautomatyzowania konfiguracji tych programów na potrzeby publikowania aplikacji sieci Web na platformie Azure.
 
-    ![Pobieranie witryny sieci web profil publikowania](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "pobierania witryny sieci web profilu publikowania")
+    ![Pobieranie profilu publikowania witryny sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "Pobieranie profilu publikowania witryny sieci Web")
 
-    *Pobieranie witryny sieci Web profilu publikowania*
-8. Pobierz plik profilu publikowania w znanej lokalizacji. Dodatkowo w tym ćwiczeniu zostanie zobaczysz, jak publikować aplikację sieci web na platformie Azure z programu Visual Studio za pomocą tego pliku.
+    *Pobieranie profilu publikowania witryny sieci Web*
+8. Pobierz plik profilu publikowania do znanej lokalizacji. W tym ćwiczeniu zobaczysz, jak używać tego pliku do publikowania aplikacji sieci Web na platformie Azure z programu Visual Studio.
 
-    ![Zapisywanie pliku profilu publikowania](whats-new-in-web-forms-in-aspnet-45/_static/image37.png "zapisywanie profilu publikowania")
+    ![Zapisywanie pliku profilu publikowania](whats-new-in-web-forms-in-aspnet-45/_static/image37.png "Zapisywanie profilu publikowania")
 
     *Zapisywanie pliku profilu publikowania*
 
@@ -727,19 +727,19 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w witrynie
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
 #### <a name="task-2---configuring-the-database-server"></a>Zadanie 2 — Konfigurowanie serwera bazy danych
 
-Jeśli aplikacja korzysta z programu SQL Server baz danych, musisz utworzyć serwer bazy danych SQL. Jeśli chcesz wdrożyć prostą aplikację, która nie korzysta z programu SQL Server może pominąć to zadanie.
+Jeśli aplikacja korzysta z baz danych SQL Server, należy utworzyć SQL Database serwer. Jeśli chcesz wdrożyć prostą aplikację, która nie używa SQL Server można pominąć to zadanie.
 
-1. Należy serwera usługi SQL Database do przechowywania bazy danych aplikacji. Możesz wyświetlić serwery baz danych SQL z subskrypcji w portalu zarządzania platformy Azure w **baz danych Sql** | **serwerów** | **pulpitu nawigacyjnego serwera**. Jeśli nie masz serwer, który został utworzony, można utworzyć ją przy użyciu **Dodaj** przycisk na pasku poleceń. Zwróć uwagę na **nazwę serwera i adres URL, nazwę logowania administratora i hasła**, ponieważ będziesz ich używać w kolejne zadania podrzędne. Nie należy tworzyć bazy danych, ponieważ zostanie on utworzony w późniejszym terminie.
+1. Do przechowywania bazy danych aplikacji potrzebny jest serwer SQL Database. Możesz wyświetlić SQL Database serwery z subskrypcji w portalu zarządzania Azure w obszarze **bazy danych SQL** | **serwery** | **pulpicie nawigacyjnym serwera**. Jeśli nie masz utworzonego serwera, możesz go utworzyć przy użyciu przycisku **Dodaj** na pasku poleceń. Zanotuj **nazwę serwera i adres URL, nazwę logowania administratora i hasło**, ponieważ zostaną one użyte w następnych zadaniach. Nie Twórz jeszcze bazy danych, ponieważ zostanie ona utworzona na późniejszym etapie.
 
-    ![Pulpit nawigacyjny z serwera bazy danych SQL](whats-new-in-web-forms-in-aspnet-45/_static/image38.png "pulpitu nawigacyjnego serwera bazy danych SQL")
+    ![Pulpit nawigacyjny serwera SQL Database](whats-new-in-web-forms-in-aspnet-45/_static/image38.png "Pulpit nawigacyjny serwera SQL Database")
 
-    *Pulpit nawigacyjny z serwera bazy danych SQL*
-2. W ramach następnego zadania spowoduje przetestowanie połączenia z bazą danych z programu Visual Studio, dlatego trzeba uwzględnić adres IP lokalnego serwera liście **dozwolone adresy IP**. Aby to zrobić, kliknij przycisk **Konfiguruj**, wybierz adres IP z **bieżący adres IP klienta** i wklej go na **początkowy adres IP** i **końcowy adres IP** pola tekstowe i kliknij przycisk ![add-client-ip-address-ok-button](whats-new-in-web-forms-in-aspnet-45/_static/image39.png) przycisku.
+    *Pulpit nawigacyjny serwera SQL Database*
+2. W następnym zadaniu zostanie przetestowane połączenie z bazą danych z programu Visual Studio. z tego powodu należy uwzględnić lokalny adres IP na liście **dozwolonych adresów IP**serwera. W tym celu kliknij pozycję **Konfiguruj**, wybierz adres IP z **bieżącego adresu IP klienta** i wklej go w polach tekstowych **początkowy adres IP** i **końcowy adres IP** , a następnie kliknij przycisk ![Dodaj-Client-IP-Address-OK-Button](whats-new-in-web-forms-in-aspnet-45/_static/image39.png).
 
     ![Dodawanie adresu IP klienta](whats-new-in-web-forms-in-aspnet-45/_static/image40.png)
 
     *Dodawanie adresu IP klienta*
-3. Raz **adres IP klienta** jest dodawany do dozwolonych adresów IP listy, kliknij pozycję **Zapisz** aby potwierdzić zmiany.
+3. Po dodaniu **adresu IP klienta** do listy dozwolone adresy IP kliknij pozycję **Zapisz** , aby potwierdzić zmiany.
 
     ![Potwierdź zmiany](whats-new-in-web-forms-in-aspnet-45/_static/image41.png)
 
@@ -748,98 +748,98 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, musisz utworzyć ser
 <a id="ApxBTask3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Zadanie 3 — Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Zadanie 3 — publikowanie aplikacji ASP.NET MVC 4 przy użyciu Web Deploy
 
-1. Wróć do rozwiązania ASP.NET MVC 4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt witryny sieci web i wybierz **Publikuj**.
+1. Wróć do rozwiązania ASP.NET MVC 4. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt witryny sieci Web i wybierz polecenie **Publikuj**.
 
-    ![Publikowanie aplikacji](whats-new-in-web-forms-in-aspnet-45/_static/image42.png "publikowania aplikacji")
+    ![Publikowanie aplikacji](whats-new-in-web-forms-in-aspnet-45/_static/image42.png "Publikowanie aplikacji")
 
-    *Publikowanie witryny sieci web*
-2. Importuj profil publikowania, zapisaną w pierwszym zadaniem.
+    *Publikowanie witryny sieci Web*
+2. Zaimportuj profil publikowania zapisany w pierwszym zadaniu.
 
-    ![Trwa importowanie profilu publikowania](whats-new-in-web-forms-in-aspnet-45/_static/image43.png "importowania profilu publikowania")
+    ![Importowanie profilu publikowania](whats-new-in-web-forms-in-aspnet-45/_static/image43.png "Importowanie profilu publikowania")
 
     *Importowanie profilu publikowania*
-3. Kliknij przycisk **sprawdzanie poprawności połączenia**. Po zakończeniu sprawdzania kliknij **dalej**.
+3. Kliknij pozycję **Weryfikuj połączenie**. Po zakończeniu walidacji kliknij przycisk **dalej**.
 
     > [!NOTE]
-    > Sprawdzanie poprawności zostało ukończone, gdy zostanie wyświetlony z zielonym znacznikiem wyboru pojawiają się obok przycisku Waliduj połączenie.
+    > Walidacja jest ukończona po wyświetleniu zielonego znacznika wyboru obok przycisku Weryfikuj połączenie.
 
-    ![Sprawdzanie poprawności połączenia](whats-new-in-web-forms-in-aspnet-45/_static/image44.png "sprawdzanie poprawności połączenia")
+    ![Weryfikowanie połączenia](whats-new-in-web-forms-in-aspnet-45/_static/image44.png "Weryfikowanie połączenia")
 
-    *Sprawdzanie poprawności połączenia*
-4. W **ustawienia** w obszarze **baz danych** sekcji, kliknij przycisk obok pola tekstowego połączenia bazy danych (czyli **DefaultConnection**).
+    *Weryfikowanie połączenia*
+4. Na stronie **Ustawienia** w sekcji **bazy danych** kliknij przycisk obok pola tekstowego połączenie z bazą danych (np. **DefaultConnection**).
 
-    ![Konfiguracja narzędzia Web deploy](whats-new-in-web-forms-in-aspnet-45/_static/image45.png "Konfiguracja narzędzia Web deploy")
+    ![Konfiguracja narzędzia Web Deploy](whats-new-in-web-forms-in-aspnet-45/_static/image45.png "Konfiguracja narzędzia Web Deploy")
 
-    *Konfiguracja narzędzia Web deploy*
+    *Konfiguracja narzędzia Web Deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-   - W **nazwy serwera** wpisz swoją bazę danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-   - W **nazwa_użytkownika** wpisz nazwę logowania administratora serwera.
-   - W **hasło** wpisz hasło logowania administratora serwera.
-   - Wpisz nazwę nowej bazy danych.
+   - W polu **Nazwa serwera** wpisz adres URL serwera SQL Database przy użyciu prefiksu *TCP:* .
+   - W polu **Nazwa użytkownika** wpisz nazwę logowania administratora serwera.
+   - W polu **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nową nazwę bazy danych.
 
-     ![Konfigurowanie parametrów połączenia z docelowym](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Konfigurowanie parametrów połączenia z docelowym")
+     ![Konfigurowanie parametrów połączenia docelowego](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Konfigurowanie parametrów połączenia docelowego")
 
-     *Konfigurowanie parametrów połączenia z docelowym*
-6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu, aby utworzyć kliknij bazę danych **tak**.
+     *Konfigurowanie parametrów połączenia docelowego*
+6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu o utworzenie bazy danych kliknij przycisk **tak**.
 
-    ![Tworzenie bazy danych](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "Tworzenie parametrów bazy danych")
+    ![Tworzenie bazy danych](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "Tworzenie ciągu bazy danych")
 
     *Tworzenie bazy danych*
-7. Parametry połączenia, które będą używane do łączenia z bazą danych SQL na platformie Azure jest wyświetlana w polu tekstowym połączenia domyślne. Następnie kliknij przycisk **Dalej**.
+7. Parametry połączenia, które będą używane do łączenia się z SQL Database na platformie Azure, są wyświetlane w domyślnym polu tekstowym połączenie. Następnie kliknij przycisk **Next** (Dalej).
 
-    ![Ciąg połączenia wskazujący bazę danych SQL](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "ciąg połączenia wskazujący bazę danych SQL")
+    ![Parametry połączenia wskazujące SQL Database](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "Parametry połączenia wskazujące SQL Database")
 
-    *Ciąg połączenia wskazujący bazę danych SQL*
-8. W **Podgląd** kliknij **Publikuj**.
+    *Parametry połączenia wskazujące SQL Database*
+8. Na stronie **Podgląd** kliknij przycisk **Publikuj**.
 
-    ![Publikowanie aplikacji sieci web](whats-new-in-web-forms-in-aspnet-45/_static/image49.png "publikowania aplikacji sieci web")
+    ![Publikowanie aplikacji sieci Web](whats-new-in-web-forms-in-aspnet-45/_static/image49.png "Publikowanie aplikacji sieci Web")
 
-    *Publikowanie aplikacji sieci web*
-9. Po zakończeniu procesu publikowania domyślnej przeglądarce otworzy opublikowanej witryny sieci web.
+    *Publikowanie aplikacji sieci Web*
+9. Po zakończeniu procesu publikowania w domyślnej przeglądarce zostanie otwarta opublikowana witryna sieci Web.
 
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>Dodatek C: Za pomocą fragmentów kodu
+## <a name="appendix-c-using-code-snippets"></a>Dodatek C: używanie fragmentów kodu
 
-Za pomocą wstawek kodu masz kod, czego potrzebujesz w zasięgu ręki. Dokument laboratorium informuje o dokładnie podczas korzystania z nich, jak pokazano na poniższej ilustracji.
+Za pomocą fragmentów kodu masz cały kod, którego potrzebujesz na wyręką. Dokument laboratoryjny powiedzie się dokładnie wtedy, gdy można z nich korzystać, jak pokazano na poniższej ilustracji.
 
-![Za pomocą wstawek kodu programu Visual Studio, aby wstawić kod do projektu](whats-new-in-web-forms-in-aspnet-45/_static/image50.png "fragmenty kodu za pomocą programu Visual Studio, aby wstawić kod do projektu")
+![Wstawianie kodu do projektu za pomocą fragmentów kodu programu Visual Studio](whats-new-in-web-forms-in-aspnet-45/_static/image50.png "Wstawianie kodu do projektu za pomocą fragmentów kodu programu Visual Studio")
 
-*Za pomocą wstawek kodu programu Visual Studio, aby wstawić kod do projektu*
+*Wstawianie kodu do projektu za pomocą fragmentów kodu programu Visual Studio*
 
-***Aby dodać wstawki kodu za pomocą klawiatury (tylko język C#)***
+***Aby dodać fragment kodu przy użyciu klawiatury (C# tylko)***
 
 1. Umieść kursor, w którym chcesz wstawić kod.
-2. Rozpocznij wpisywanie nazwy fragmentu kodu (bez spacji i łączniki).
-3. Obejrzyj, jak technologia IntelliSense wyświetla zgodne z nazwami fragmenty kodu.
-4. Wybierz prawidłowy fragment kodu lub pisz dalej do momentu wybrania debugowanej nazwy całego fragmentu kodu.
-5. Naciśnij klawisz Tab dwa razy, aby wstawić fragment kodu w lokalizacji kursora.
+2. Zacznij wpisywać nazwę fragmentu kodu (bez spacji lub łączników).
+3. Obejrzyj jako IntelliSense wyświetla pasujące nazwy fragmentów kodu.
+4. Wybierz poprawny fragment kodu (lub Kontynuuj wpisywanie, dopóki nie zostanie zaznaczona cała nazwa fragmentu kodu).
+5. Naciśnij dwukrotnie klawisz Tab, aby wstawić fragment kodu w lokalizacji kursora.
 
-![Rozpocznij wpisywanie nazwy fragmentu kodu](whats-new-in-web-forms-in-aspnet-45/_static/image51.png "Rozpocznij wpisywanie nazwy fragmentu kodu")
+![Zacznij wpisywać nazwę fragmentu kodu](whats-new-in-web-forms-in-aspnet-45/_static/image51.png "Zacznij wpisywać nazwę fragmentu kodu")
 
-*Rozpocznij wpisywanie nazwy fragmentu kodu*
+*Zacznij wpisywać nazwę fragmentu kodu*
 
-![Naciśnij klawisz Tab, aby zaznaczyć fragment wyróżnione](whats-new-in-web-forms-in-aspnet-45/_static/image52.png "naciśnij klawisz Tab, aby wybrać wyróżnione fragmentu kodu")
+![Naciśnij klawisz Tab, aby zaznaczyć wyróżniony fragment kodu](whats-new-in-web-forms-in-aspnet-45/_static/image52.png "Naciśnij klawisz Tab, aby zaznaczyć wyróżniony fragment kodu")
 
-*Naciśnij klawisz Tab, aby wybrać wyróżnione fragment kodu*
+*Naciśnij klawisz Tab, aby zaznaczyć wyróżniony fragment kodu*
 
-![Ponownie naciśnij klawisz Tab i fragment kodu zostanie rozwinięte](whats-new-in-web-forms-in-aspnet-45/_static/image53.png "rozwinie ponownie naciśnij klawisz Tab i fragment kodu")
+![Naciskaj klawisz Tab ponownie i wstawka zostanie rozwinięta](whats-new-in-web-forms-in-aspnet-45/_static/image53.png "Naciskaj klawisz Tab ponownie i wstawka zostanie rozwinięta")
 
-*Ponownie naciśnij klawisz Tab i fragment kodu zostanie rozwinięte.*
+*Naciskaj klawisz Tab ponownie i wstawka zostanie rozwinięta*
 
-***Aby dodać wstawki kodu za pomocą myszy (C#, Visual Basic i XML)*** 1. Kliknij prawym przyciskiem myszy, gdy chcesz wstawić fragment kodu.
+***Aby dodać fragment kodu przy użyciu myszy (C#, Visual Basic i XML)*** jedno. Kliknij prawym przyciskiem myszy miejsce, w którym chcesz wstawić fragment kodu.
 
-1. Wybierz **Wstaw fragment kodu** następuje **Moje fragmenty kodu**.
-2. Wybierz odpowiedni fragment z listy, klikając go.
+1. Wybierz **Wstaw fragment** kodu, po którym następuje **Moje fragmenty kodów**.
+2. Wybierz odpowiedni fragment kodu z listy, klikając go.
 
-![Kliknij prawym przyciskiem myszy, które chcesz wstawić fragment kodu i wybierz opcję Wstaw fragment kodu](whats-new-in-web-forms-in-aspnet-45/_static/image54.png "kliknij prawym przyciskiem myszy, które chcesz wstawić fragment kodu i wybierz opcję Wstaw fragment kodu")
+![Kliknij prawym przyciskiem myszy miejsce, w którym chcesz wstawić fragment kodu, a następnie wybierz Wstaw fragment](whats-new-in-web-forms-in-aspnet-45/_static/image54.png "Kliknij prawym przyciskiem myszy miejsce, w którym chcesz wstawić fragment kodu, a następnie wybierz Wstaw fragment")
 
-*Kliknij prawym przyciskiem myszy, które chcesz wstawić fragment kodu i wybierz opcję Wstaw fragment kodu*
+*Kliknij prawym przyciskiem myszy miejsce, w którym chcesz wstawić fragment kodu, a następnie wybierz Wstaw fragment*
 
-![Wybierz odpowiedni fragment z listy, klikając go](whats-new-in-web-forms-in-aspnet-45/_static/image55.png "wybierz odpowiedni fragment z listy, klikając go")
+![Wybierz odpowiedni fragment kodu z listy, klikając go](whats-new-in-web-forms-in-aspnet-45/_static/image55.png "Wybierz odpowiedni fragment kodu z listy, klikając go")
 
-*Wybierz odpowiedni fragment z listy, klikając go*
+*Wybierz odpowiedni fragment kodu z listy, klikając go*

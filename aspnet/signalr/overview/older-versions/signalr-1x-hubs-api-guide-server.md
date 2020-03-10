@@ -1,179 +1,179 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
-title: Podręcznik interfejsu API centrów SignalR platformy ASP.NET — serwer (SignalR 1.x) | Dokumentacja firmy Microsoft
+title: Przewodnik interfejsu API centrów sygnałów ASP.NET — serwer (sygnalizujący 1. x) | Microsoft Docs
 author: bradygaster
-description: Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów SignalR platformy ASP.NET dla elementu SignalR w wersji 1.1, za pomocą demonstratin przykładów kodu...
+description: Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów ASP.NET sygnalizującego w wersji 1,1, z przykładami kodu...
 ms.author: bradyg
 ms.date: 04/17/2013
 ms.assetid: 03e4b9f5-0fea-4d94-959f-014b2762a301
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
 ms.openlocfilehash: d9cd3fad36c0300d96c6dbdc61291ef119da2327
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113031"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579640"
 ---
-# <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — serwer (SignalR 1.x)
+# <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>Przewodnik interfejsu API centrów sygnałów ASP.NET — serwer (sygnalizujący 1. x)
 
-przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+[Fletcher Patryk](https://github.com/pfletcher), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów SignalR platformy ASP.NET dla elementu SignalR w wersji 1.1, przy użyciu przykładów kodu, demonstrując typowe opcje.
+> Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów ASP.NET sygnalizującego w wersji 1,1, z przykładami kodu pokazującymi typowe opcje.
 > 
-> Interfejsu API centrów SignalR umożliwia zdalne wywołania procedur (RPC) z serwera do połączonych klientów i od klientów z serwerem. W kodzie serwera należy zdefiniować metody, które mogą być wywoływane przez klientów, a wywołanie metody, które są uruchamiane na komputerze klienckim. W kodzie klienta definiowania metod, które mogą być wywoływane z serwera, a wywołanie metody, które są uruchamiane na serwerze. SignalR zajmuje się wszystkie nadmiar klient serwer dla Ciebie.
+> Interfejs API centrów sygnałów umożliwia wykonywanie zdalnych wywołań procedur (RPC) z serwera do podłączonych klientów i od klientów do serwera programu. W polu kod serwera można zdefiniować metody, które mogą być wywoływane przez klientów, i wywoływanie metod uruchamianych na kliencie. W kodzie klienta należy zdefiniować metody, które mogą być wywoływane z serwera programu, i wywoływanie metod, które są uruchamiane na serwerze. Sygnalizujący, że wszystkie instalacje z klientem do serwera są obsługiwane.
 > 
-> SignalR oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Wprowadzenie do SignalR, centra i połączenia trwałego lub samouczek, w którym przedstawiono sposób tworzenia kompletnej aplikacji SignalR, patrz [SignalR — wprowadzenie](index.md).
+> Sygnalizujący oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Aby zapoznać się z wprowadzeniem do sygnałów, centrów i połączeń trwałych lub samouczka, w którym pokazano, jak utworzyć kompletną aplikację sygnalizującą, zobacz [sygnalizującer-wprowadzenie](index.md).
 
 ## <a name="overview"></a>Omówienie
 
 Ten dokument zawiera następujące sekcje:
 
-- [Jak się zarejestrować trasę SignalR i skonfiguruj opcje SignalR](#route)
+- [Jak zarejestrować trasę sygnałów i skonfigurować opcje sygnałów](#route)
 
-    - [Adres URL /signalr](#signalrurl)
-    - [Konfigurowanie opcji SignalR](#options)
-- [Jak utworzyć i używać klas Centrum](#hubclass)
+    - [Adres URL/SignalR](#signalrurl)
+    - [Konfigurowanie opcji sygnalizujących](#options)
+- [Tworzenie i używanie klas centrów](#hubclass)
 
-    - [Okres istnienia obiektu Centrum](#transience)
-    - [Wielkości liter pisane Centrum nazw klientów języka JavaScript](#hubnames)
-    - [Multiple Hubs](#multiplehubs)
-- [Sposób definiowania metody w klasie Centrum, który można wywoływać klientów](#hubmethods)
+    - [Okres istnienia obiektu centrum](#transience)
+    - [Notacji CamelCase — wielkość liter w nazwach centrów w klientach JavaScript](#hubnames)
+    - [Wiele centrów](#multiplehubs)
+- [Jak zdefiniować metody w klasie centrów, które mogą być wywoływane przez klientów](#hubmethods)
 
-    - [Pisane-wielkość liter w wyrazie nazwy metod w klientów języka JavaScript](#methodnames)
-    - [Kiedy są wykonywane asynchronicznie](#asyncmethods)
-    - [Definiowanie przeciążenia](#overloads)
-- [Sposób wywoływania metody z klasy koncentratora klienta](#callfromhub)
+    - [Notacji CamelCase — wielkość liter w nazwach metod w klientach JavaScript](#methodnames)
+    - [Kiedy wykonać asynchronicznie](#asyncmethods)
+    - [Definiowanie przeciążeń](#overloads)
+- [Jak wywołać metody klienta z klasy Hub](#callfromhub)
 
-    - [Wybieranie klientów, którzy będą otrzymywać RPC](#selectingclients)
-    - [Nazwy metod weryfikacji kompilacji](#dynamicmethodnames)
-    - [Dopasowywanie nazw bez uwzględniania wielkości liter — metoda](#caseinsensitive)
-    - [Wykonanie asynchroniczne](#asyncclient)
-- [Sposób zarządzania członkostwa w grupie z klasy koncentratora](#groupsfromhub)
+    - [Wybieranie klientów, którzy będą otrzymywać wywołania RPC](#selectingclients)
+    - [Brak weryfikacji w czasie kompilacji dla nazw metod](#dynamicmethodnames)
+    - [Dopasowanie nazw metod bez uwzględniania wielkości liter](#caseinsensitive)
+    - [Wykonywanie asynchroniczne](#asyncclient)
+- [Zarządzanie członkostwem w grupie z klasy centrów](#groupsfromhub)
 
-    - [Asynchroniczne wykonywanie metody dodawania i usuwania](#asyncgroupmethods)
-    - [Trwałość członkostwa grupy](#grouppersistence)
+    - [Asynchroniczne wykonywanie metod Add i Remove](#asyncgroupmethods)
+    - [Trwałość członkostwa w grupie](#grouppersistence)
     - [Grupy pojedynczego użytkownika](#singleusergroups)
-- [Jak obsługiwać zdarzenia okresu istnienia połączenia w klasie Centrum](#connectionlifetime)
+- [Jak obsłużyć zdarzenia okresu istnienia połączenia w klasie centrów](#connectionlifetime)
 
-    - [Kiedy są wywoływane onconnected elementu ondisconnected elementu i onreconnected elementu](#onreconnected)
-    - [Stan elementu wywołującego, pusta](#nocallerstate)
-- [Jak uzyskać informacji o kliencie z właściwości kontekstu](#contextproperty)
-- [Jak przekazać stanu między klientami a klasy koncentratora](#passstate)
-- [Sposób obsługi błędów w klasie Centrum](#handleErrors)
-- [Jak wywołać metody klienta grup i zarządzanie nimi z poza klasy koncentratora](#callfromoutsidehub)
+    - [Gdy są wywoływane metody OnConnected, ondisconnected i OnReconnected](#onreconnected)
+    - [Stan wywołującego nie został wypełniony](#nocallerstate)
+- [Jak uzyskać informacje o kliencie z właściwości kontekstu](#contextproperty)
+- [Jak przekazać stan między klientami a klasą centrum](#passstate)
+- [Jak obsłużyć błędy w klasie centrów](#handleErrors)
+- [Jak wywoływać metody klienta i zarządzać grupami spoza klasy Hub](#callfromoutsidehub)
 
-    - [Wywoływanie metody klienta](#callingclientsoutsidehub)
-    - [Członkostwo w grupie zarządzania](#managinggroupsoutsidehub)
+    - [Wywoływanie metod klienta](#callingclientsoutsidehub)
+    - [Zarządzanie członkostwem w grupie](#managinggroupsoutsidehub)
 - [Jak włączyć śledzenie](#tracing)
-- [Jak dostosować potoku koncentratory](#hubpipeline)
+- [Jak dostosować potok centrów](#hubpipeline)
 
-Dokumentacja na temat klientów programu na ten temat można znaleźć w następujących zasobach:
+Aby uzyskać dokumentację dotyczącą sposobu programowania klientów, zobacz następujące zasoby:
 
-- [Podręcznik interfejsu API centrów SignalR — klient JavaScript](index.md)
-- [Podręcznik interfejsu API centrów SignalR — klient modelu .NET](index.md)
+- [Przewodnik interfejsu API centrów sygnałów — klient JavaScript](index.md)
+- [Przewodnik interfejsu API centrów sygnałów — klient platformy .NET](index.md)
 
-Łącza do tematów, dokumentacja interfejsu API są .NET 4.5 wersję interfejsu API. Jeśli używasz programu .NET 4, zobacz [tematy interfejsu API w wersji .NET 4](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
+Łącza do tematów dotyczących odwołań do interfejsów API znajdują się w wersji programu .NET 4,5 interfejsu API. Jeśli używasz programu .NET 4, zobacz [temat wersja interfejsu API w wersji .NET 4](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="route"></a>
 
-## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>Jak się zarejestrować trasę SignalR i skonfiguruj opcje SignalR
+## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>Jak zarejestrować trasę sygnałów i skonfigurować opcje sygnałów
 
-Aby zdefiniować trasę, którego klienci będą używać, aby nawiązać połączenie z Centrum, należy wywołać [MapHubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) metoda podczas uruchamiania aplikacji. `MapHubs` jest [— metoda rozszerzenia](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) dla `System.Web.Routing.RouteCollection` klasy. Poniższy przykład pokazuje jak zdefiniować trasy centrów SignalR w *Global.asax* pliku.
+Aby zdefiniować trasę, która będzie używana przez klientów do łączenia się z centrum, należy wywołać metodę [MapHubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) podczas uruchamiania aplikacji. `MapHubs` jest [metodą rozszerzającą](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) dla klasy `System.Web.Routing.RouteCollection`. Poniższy przykład pokazuje, jak zdefiniować trasę centrów sygnałów w pliku *Global. asax* .
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample1.cs)]
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample2.cs?highlight=5)]
 
-W przypadku dodawania funkcji SignalR do aplikacji ASP.NET MVC, upewnij się, że trasa SignalR jest dodawana przed innych tras. Aby uzyskać więcej informacji, zobacz [samouczka: Wprowadzenie do SignalR i MVC 4](index.md).
+Jeśli dodajesz funkcję sygnalizującą do aplikacji ASP.NET MVC, upewnij się, że trasa sygnalizująca jest dodawana przed innymi trasami. Aby uzyskać więcej informacji, zobacz [Samouczek: wprowadzenie z sygnalizującer i MVC 4](index.md).
 
 <a id="signalrurl"></a>
 
-### <a name="the-signalr-url"></a>Adres URL /signalr
+### <a name="the-signalr-url"></a>Adres URL/SignalR
 
-Domyślnie jest adres URL trasy, której klienci będą używać, aby nawiązać połączenie z Centrum "/ signalr". (Nie należy mylić tego adresu URL za pomocą adresu URL "/ signalr/centra", który jest automatycznie wygenerowanego pliku JavaScript. Aby uzyskać więcej informacji na temat wygenerowany serwer proxy, zobacz [Podręcznik interfejsu API centrów SignalR — klient JavaScript — wygenerowany serwer proxy i przeznaczenie dla Ciebie](index.md).)
+Domyślnie adres URL trasy używany przez klientów do łączenia się z centrum to "/SignalR". (Nie należy mylić tego adresu URL z adresem URL "/SignalR/Hubs", który jest przeznaczony dla automatycznie generowanego pliku języka JavaScript. Aby uzyskać więcej informacji na temat wygenerowanego serwera proxy, zobacz [Przewodnik interfejsu API centrów sygnałów — klient JavaScript — wygenerowany serwer proxy i jego zawartość](index.md).
 
-Może to być nadzwyczajne okoliczności, które to podstawowy adres URL nie można używać dla elementu SignalR; na przykład masz folder z projektu o nazwie *signalr* i nie chcesz zmienić nazwę. W takim przypadku można zmienić podstawowy adres URL, jak pokazano w poniższych przykładach (Zastąp "/ signalr" w przykładowym kodzie za pomocą żądany adres URL).
+Mogą występować nadzwyczajne sytuacje, w których ten podstawowy adres URL nie może być użyteczny dla sygnalizującego; na przykład w projekcie znajduje się folder o nazwie *sygnalizujący* i nie chcesz zmieniać nazwy. W takim przypadku można zmienić podstawowy adres URL, jak pokazano w poniższych przykładach (Zastąp "/SignalR" w przykładowym kodzie z żądanym adresem URL).
 
 **Kod serwera, który określa adres URL**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample3.cs?highlight=1)]
 
-**Kod klienta JavaScript, który określa adres URL (z wygenerowany serwer proxy)**
+**Kod klienta JavaScript, który określa adres URL (z wygenerowanym serwerem proxy)**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample4.js?highlight=1)]
 
-**Kod klienta JavaScript, który określa adres URL (bez wygenerowany serwer proxy)**
+**Kod klienta JavaScript, który określa adres URL (bez wygenerowanego serwera proxy)**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample5.js?highlight=1)]
 
-**Kod klienta platformy .NET, który określa adres URL**
+**Kod klienta .NET, który określa adres URL**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample6.cs?highlight=1)]
 
 <a id="options"></a>
 
-### <a name="configuring-signalr-options"></a>Konfigurowanie opcji SignalR
+### <a name="configuring-signalr-options"></a>Konfigurowanie opcji sygnalizujących
 
-Przeciążenia `MapHubs` metody umożliwiają określenie niestandardowego adresu URL, mechanizm rozpoznawania zależności niestandardowej i następujących opcji:
+Przeciążenia metody `MapHubs` umożliwiają określenie niestandardowego adresu URL, niestandardowego programu rozpoznawania zależności oraz następujących opcji:
 
-- Włącz międzydomenowe wywołania z klientów przeglądarek.
+- Włącz wywołania międzydomenowe z klientów przeglądarek.
 
-    Zazwyczaj, gdy przeglądarka ładuje stronę z `http://contoso.com`, połączenia SignalR jest w tej samej domenie, w `http://contoso.com/signalr`. Jeśli strona z `http://contoso.com` nawiązuje połączenie `http://fabrikam.com/signalr`, oznacza to połączenie między domenami. Ze względów bezpieczeństwa połączeń między domenami są domyślnie wyłączone. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR Podręcznik interfejsu API centrów — klient JavaScript — jak nawiązać połączenie między domenami](index.md).
+    Zazwyczaj Jeśli przeglądarka ładuje stronę `http://contoso.com`, połączenie sygnalizujące znajduje się w tej samej domenie, w `http://contoso.com/signalr`. Jeśli strona z `http://contoso.com` nawiązać połączenie z `http://fabrikam.com/signalr`, to jest połączenie między domenami. Ze względów bezpieczeństwa połączenia między domenami są domyślnie wyłączone. Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący interfejsu API centrów ASP.NET Signals — JavaScript Client — jak ustanowić połączenie między domenami](index.md).
 - Włącz szczegółowe komunikaty o błędach.
 
-    Jeśli wystąpią błędy, domyślne zachowanie SignalR jest wysyłania do klientów komunikat z powiadomieniem bez szczegółowe informacje o co się stało. Szczegółowe informacje o błędzie, wysyłają do klientów nie jest zalecane w środowisku produkcyjnym, ponieważ złośliwi użytkownicy mogą być w stanie użycie informacji o ataku na aplikację. Na potrzeby rozwiązywania problemów można użyć tej opcji tymczasowo włączyć bardziej szczegółowy raportowanie błędów.
-- Wyłącz automatycznie generowanych plików serwera proxy JavaScript.
+    Gdy wystąpią błędy, domyślne zachowanie sygnalizującego jest wysyłane do klientów komunikat powiadomienia bez szczegółowych informacji o tym, co się stało. Wysyłanie szczegółowych informacji o błędach do klientów nie jest zalecane w środowisku produkcyjnym, ponieważ Złośliwi użytkownicy mogą korzystać z informacji w przypadku ataków na aplikację. W przypadku rozwiązywania problemów można użyć tej opcji, aby tymczasowo włączyć bardziej informacyjne raportowanie błędów.
+- Wyłącz automatycznie generowane pliki proxy JavaScript.
 
-    Domyślnie plik języka JavaScript przy użyciu serwera proxy dla Twoich zajęciach Centrum jest generowany w odpowiedzi na adres URL "/ signalr/centra". Jeśli nie chcesz używać serwery proxy JavaScript lub jeśli chcesz ręcznie wygenerować ten plik i odnoszą się do pliku fizycznego w klientach, można użyć tej opcji można wyłączyć generowania serwera proxy. Aby uzyskać więcej informacji, zobacz [Podręcznik interfejsu API centrów SignalR — klient JavaScript — sposobu tworzenia pliku fizycznego dla elementu SignalR wygenerowany serwer proxy](index.md).
+    Domyślnie plik JavaScript z serwerami proxy dla klas centrów jest generowany w odpowiedzi na adres URL "/SignalR/Hubs". Jeśli nie chcesz używać serwerów proxy języka JavaScript lub chcesz wygenerować ten plik ręcznie i zapoznaj się z plikiem fizycznym na klientach, możesz użyć tej opcji, aby wyłączyć generowanie serwera proxy. Aby uzyskać więcej informacji, zobacz [Przewodnik interfejsu API centrów sygnałów — JavaScript Client — jak utworzyć plik fizyczny dla generowanego przez program sygnalizującego serwera proxy](index.md).
 
-Poniższy przykład pokazuje, jak określić te opcje i adres URL połączenia SignalR w wywołaniu `MapHubs` metody. Aby określić niestandardowy adres URL, zastąp "/ signalr" w przykładzie, za pomocą adresu URL, którego chcesz używać.
+Poniższy przykład pokazuje, jak określić adres URL połączenia sygnalizującego i te opcje w wywołaniu metody `MapHubs`. Aby określić niestandardowy adres URL, Zastąp ciąg "/SignalR" w przykładzie adresem URL, którego chcesz użyć.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample7.cs)]
 
 <a id="hubclass"></a>
 
-## <a name="how-to-create-and-use-hub-classes"></a>Jak utworzyć i używać klas Centrum
+## <a name="how-to-create-and-use-hub-classes"></a>Tworzenie i używanie klas centrów
 
-Aby utworzyć Centrum, należy utworzyć klasę, która jest pochodną [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Poniższy przykład pokazuje prosty klasę Centrum aplikacji rozmów.
+Aby utworzyć centrum, należy utworzyć klasę, która pochodzi od elementu [Microsoft. ASPNET. signaler. Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). W poniższym przykładzie przedstawiono prostą klasę centrów dla aplikacji czatu.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample8.cs)]
 
-W tym przykładzie podłączony klient może wywołać `NewContosoChatMessage` metody, a jeśli tak jest, dane otrzymane jest wysłano do wszyscy połączeni klienci.
+W tym przykładzie połączony klient może wywoływać metodę `NewContosoChatMessage`, a w przypadku, gdy dane są wysyłane do wszystkich połączonych klientów.
 
 <a id="transience"></a>
 
-### <a name="hub-object-lifetime"></a>Okres istnienia obiektu Centrum
+### <a name="hub-object-lifetime"></a>Okres istnienia obiektu centrum
 
-Nie utworzyć wystąpienia klasy koncentratora lub wywołać jego metody w kodzie na serwerze; wszystko jest wykonywane przez potok koncentratorów SignalR. SignalR tworzy nowe wystąpienie klasy koncentratora każdej potrzebny do obsługi operacji koncentratora, np. kiedy klient nawiązuje połączenie, odłącza lub sprawia, że wywołanie metody do serwera.
+Nie można utworzyć wystąpienia klasy centrum ani wywołać jej metod z własnego kodu na serwerze; wszystko to wykonywane przez potok centrów sygnałów. Program sygnalizujący tworzy nowe wystąpienie klasy centrów za każdym razem, gdy musi obsłużyć operację centrum, taką jak gdy klient łączy się, rozłącza lub wywołuje metodę wywołania do serwera.
 
-Ponieważ wystąpienia klasy koncentratora przejściowy, nie możesz użyć ich do zarządzania stanem z jednego wywołania metody do następnego. Każdorazowo serwer odbiera wywołania metody od klienta, nowe wystąpienie klasy procesów Centrum wiadomości. Do zarządzania stanem przez wiele połączeń i wywołania metody, należy użyć innej metody takie jak bazy danych lub zmienna statyczna klasy koncentratora lub inną klasę, która nie pochodzi od `Hub`. Jeśli będzie się powtarzać dane w pamięci, za pomocą innej metody takie jak zmienna statyczna klasy koncentratora dane zostaną utracone podczas odtwarzania domen aplikacji.
+Ponieważ wystąpienia klasy centrów są przejściowe, nie można ich używać do utrzymania stanu z jednego wywołania metody do następnego. Za każdym razem, gdy serwer odbiera wywołanie metody z klienta, nowe wystąpienie klasy Hub przetwarza komunikat. Aby zachować stan za pośrednictwem wielu połączeń i wywołań metod, należy użyć innej metody, takiej jak baza danych lub zmienna statyczna w klasie Hub, lub innej klasy, która nie pochodzi od `Hub`. W przypadku utrwalania danych w pamięci przy użyciu metody takiej jak zmienna statyczna w klasie centrów dane zostaną utracone podczas odtwarzania domeny aplikacji.
 
-Jeśli chcesz wysyłać komunikaty do klientów z własnego kodu, który działa poza klasy koncentratora, nie przez utworzenie wystąpienia klasy wystąpienie koncentratora, ale możesz to zrobić poprzez odwołanie do obiektu kontekstu SignalR dla swojej klasy koncentratora. Aby uzyskać więcej informacji, zobacz [jak wywołać metody klienta grup i zarządzanie nimi z poza klasy koncentratora](#callfromoutsidehub) w dalszej części tego tematu.
+Jeśli chcesz wysyłać komunikaty do klientów z własnego kodu, który jest uruchamiany poza klasą Hub, nie można tego zrobić przez utworzenie wystąpienia klasy centrum, ale można to zrobić, pobierając odwołanie do obiektu kontekstu sygnalizującego dla klasy centrum. Aby uzyskać więcej informacji, zobacz [jak wywoływać metody klienta i zarządzać grupami spoza klasy Hub](#callfromoutsidehub) w dalszej części tego tematu.
 
 <a id="hubnames"></a>
 
-### <a name="camel-casing-of-hub-names-in-javascript-clients"></a>Wielkości liter pisane Centrum nazw klientów języka JavaScript
+### <a name="camel-casing-of-hub-names-in-javascript-clients"></a>Notacji CamelCase — wielkość liter w nazwach centrów w klientach JavaScript
 
-Domyślnie klientów języka JavaScript dotyczą Hubs przy użyciu wersji formacie camelcase nazwy klasy. SignalR automatycznie sprawia, że ta zmiana tak, aby kod JavaScript można jest zgodna z konwencjami języka JavaScript. Poprzedni przykład może być traktowana jako `contosoChatHub` w kodzie JavaScript.
+Domyślnie klienci języka JavaScript odwołują się do centrów przy użyciu notacji camelcaseej wersji klasy. Program sygnalizujący automatycznie wprowadza tę zmianę, aby kod JavaScript mógł być zgodny z konwencjami języka JavaScript. Poprzedni przykład jest określany jako `contosoChatHub` w kodzie JavaScript.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample9.cs?highlight=1)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample10.js?highlight=1)]
 
-Jeśli chcesz określić inną nazwę dla klientów użyć, należy dodać `HubName` atrybutu. Kiedy używasz `HubName` atrybutu, nastąpiła żadna zmiana nazwy na format camelcase na klientów języka JavaScript.
+Jeśli chcesz określić inną nazwę dla klientów do użycia, Dodaj atrybut `HubName`. W przypadku korzystania z atrybutu `HubName` nie jest zmieniana nazwa notacji CamelCase przypadku na klientach JavaScript.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample11.cs?highlight=1)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample12.js?highlight=1)]
 
@@ -181,104 +181,104 @@ Jeśli chcesz określić inną nazwę dla klientów użyć, należy dodać `HubN
 
 ### <a name="multiple-hubs"></a>Multiple Hubs
 
-W aplikacji, można zdefiniować wiele klas koncentratora. Po wykonaniu tej czynności, połączenie jest udostępniane, ale są osobne grupy:
+W aplikacji można definiować wiele klas centrów. Po wykonaniu tej czynności połączenie jest udostępniane, ale grupy są osobne:
 
-- Wszyscy klienci będą używać tego samego adresu URL do nawiązania połączenia SignalR z usługą ("/ signalr" lub adres URL niestandardowej, jeśli została określona), i czy połączenie jest używany przez wszystkie centra zdefiniowane przez usługę.
+- Wszyscy klienci będą używać tego samego adresu URL, aby nawiązać połączenie sygnalizujące z usługą ("/SignalR" lub niestandardowy adres URL, jeśli został określony) i że połączenie jest używane dla wszystkich centrów zdefiniowanych przez usługę.
 
-    Nie ma żadnej różnicy wydajności, dla wielu centrów w porównaniu do definiowania wszystkich funkcji w Centrum w jednej klasie.
-- Wszystkie centra uzyskać te same informacje o żądaniu HTTP.
+    Nie ma różnicy wydajności dla wielu centrów w porównaniu do definiowania wszystkich funkcji centrum w jednej klasie.
+- Wszystkie centra uzyskują te same informacje o żądaniu HTTP.
 
-    Ponieważ wszystkie centra udostępnianie tego samego połączenia, tylko informacje żądania HTTP, który serwer jest, co składa się z oryginalnego żądania HTTP, który nawiązuje połączenia SignalR. Jeśli używasz żądanie połączenia do przekazywania informacji z klienta do serwera, określając ciąg zapytania nie może dostarczyć różne ciągi kwerend do różnych centrów. Wszystkie centra będą otrzymywać te same informacje.
-- Wygenerowany plik serwery proxy JavaScript będzie zawierać serwerów proxy do wszystkich centrów w jednym pliku.
+    Ponieważ wszystkie centra korzystają z tego samego połączenia, jedyną informacją o żądaniu HTTP, którą pobiera serwer, jest to, co znajduje się w oryginalnym żądaniu HTTP, które nawiązuje połączenie sygnalizujące. W przypadku użycia żądania połączenia w celu przekazania informacji z klienta do serwera przez określenie ciągu zapytania nie można podać różnych parametrów zapytania do różnych centrów. Wszystkie centra będą otrzymywać te same informacje.
+- Wygenerowany plik proxy języka JavaScript będzie zawierać serwery proxy dla wszystkich centrów w jednym pliku.
 
-    Aby uzyskać informacje o serwery proxy JavaScript, zobacz [Podręcznik interfejsu API centrów SignalR — klient JavaScript — wygenerowany serwer proxy i przeznaczenie dla Ciebie](index.md).
-- Grupy są definiowane w obrębie centrów.
+    Aby uzyskać informacje na temat serwerów proxy języka JavaScript, zobacz [Przewodnik interfejsu API centrów sygnałów-JavaScript Client-wygenerowany serwer proxy i jego zawartość](index.md).
+- Grupy są zdefiniowane w centrach.
 
-    W SignalR, które można zdefiniować nazwę grupy do emisji przeznaczonych do podzestawów połączonych klientów. Grupy są przechowywane osobno dla każdego Centrum. Na przykład utworzyć grupę o nazwie "Administratorzy" zawierałoby jeden zbiór klientów do Twojej `ContosoChatHub` klasy i tej samej nazwy grupy może odwołać się do innego zestawu klientów dla Twojej `StockTickerHub` klasy.
+    W programie Sygnalizującer można zdefiniować nazwane grupy do emisji do podzestawów połączonych klientów. Grupy są utrzymywane osobno dla każdego centrum. Na przykład grupa o nazwie "Administratorzy" będzie zawierać jeden zestaw klientów dla klasy `ContosoChatHub`, a ta sama nazwa grupy odwołuje się do innego zestawu klientów dla klasy `StockTickerHub`.
 
 <a id="hubmethods"></a>
 
-## <a name="how-to-define-methods-in-the-hub-class-that-clients-can-call"></a>Sposób definiowania metody w klasie Centrum, który można wywoływać klientów
+## <a name="how-to-define-methods-in-the-hub-class-that-clients-can-call"></a>Jak zdefiniować metody w klasie centrów, które mogą być wywoływane przez klientów
 
-Aby udostępnić metody koncentratora, który ma być wywoływane z klienta, należy zadeklarować metodę publiczną, jak pokazano w poniższych przykładach.
+Aby uwidocznić metodę w centrum, która ma być wywoływana z klienta, zadeklaruj metodę publiczną, jak pokazano w poniższych przykładach.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample13.cs?highlight=3)]
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample14.cs?highlight=3)]
 
-Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak jak w dowolnej metody języka C#. Wszelkie dane, które wystąpią w parametrach lub zwróć się do obiektu wywołującego jest przekazywana między klientem a serwerem przy użyciu pliku JSON, a SignalR obsługuje wiązania złożone obiekty i tablice obiektów automatycznie.
+Można określić typ zwracany i parametry, w tym typy złożone i tablice, tak jak w przypadku dowolnej C# metody. Wszystkie dane, które są odbierane w parametrach lub zwracane do obiektu wywołującego, są przekazywane między klientem a serwerem przy użyciu JSON, a sygnalizujący obsługuje powiązanie obiektów złożonych i tablic obiektów automatycznie.
 
 <a id="methodnames"></a>
 
-### <a name="camel-casing-of-method-names-in-javascript-clients"></a>Pisane-wielkość liter w wyrazie nazwy metod w klientów języka JavaScript
+### <a name="camel-casing-of-method-names-in-javascript-clients"></a>Notacji CamelCase — wielkość liter w nazwach metod w klientach JavaScript
 
-Domyślnie klientów JavaScript dotyczą metod koncentratora za pomocą wersji formacie camelcase nazwy metody. SignalR automatycznie sprawia, że ta zmiana tak, aby kod JavaScript można jest zgodna z konwencjami języka JavaScript.
+Domyślnie klienci języka JavaScript odwołują się do metod centrów przy użyciu notacji camelcaseej wersji metody. Program sygnalizujący automatycznie wprowadza tę zmianę, aby kod JavaScript mógł być zgodny z konwencjami języka JavaScript.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample15.cs?highlight=1)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample16.js?highlight=1)]
 
-Jeśli chcesz określić inną nazwę dla klientów użyć, należy dodać `HubMethodName` atrybutu.
+Jeśli chcesz określić inną nazwę dla klientów do użycia, Dodaj atrybut `HubMethodName`.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample17.cs?highlight=1)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample18.js?highlight=1)]
 
 <a id="asyncmethods"></a>
 
-### <a name="when-to-execute-asynchronously"></a>Kiedy są wykonywane asynchronicznie
+### <a name="when-to-execute-asynchronously"></a>Kiedy wykonać asynchronicznie
 
-Jeśli metoda będzie mieć długotrwałych albo do pracy, będzie obejmować oczekiwania, takich jak wyszukiwania w bazie danych lub wywołanie usługi sieci web, upewnij metody koncentratora asynchronicznych, zwracając [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (zamiast `void` zwracają) lub [ Zadanie&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) obiektu (zamiast `T` zwracany typ). Po powrocie `Task` oczekuje obiektu z metody SignalR `Task` do ukończenia, a następnie wysyła nieopakowane wynik do klienta, więc nie ma żadnej różnicy w jak kod jest wywołanie metody w kliencie.
+Jeśli metoda będzie długotrwała lub musi wykonywać zadania, które mogą być zależne, takie jak wyszukiwanie bazy danych lub wywołanie usługi sieci Web, ustaw metodę Hub asynchronicznie, zwracając [zadanie](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (zamiast elementu `void` Return) lub [zadania&lt;t&gt;](https://msdn.microsoft.com/library/dd321424.aspx) obiektu (zamiast `T` zwracanego typu). Po powrocie obiektu `Task` z metody, sygnalizujący czeka na ukończenie `Task`, a następnie wysyła nieopakowany wynik z powrotem do klienta, więc nie ma żadnych różnic w sposobie kodowania wywołania metody na kliencie.
 
-Tworzenie metody koncentratora asynchronicznego pozwala uniknąć blokuje połączenia, gdy używa ona transportu protokołu WebSocket. Gdy metoda Centrum jest wykonywana synchronicznie i transport jest WebSocket, kolejnych wywołań metod koncentratora, z tego samego klienta są blokowane, dopiero po zakończeniu metody koncentratora.
+Stosowanie metody centrum asynchronicznie zapobiega blokowaniu połączenia w przypadku korzystania z transportu WebSocket. Gdy metoda centrum jest wykonywana synchronicznie, a transport jest w trybie WebSocket, kolejne wywołania metod znajdujących się w koncentratorze z tego samego klienta są blokowane do momentu zakończenia metody centrum.
 
-W poniższym przykładzie pokazano taką samą metodę jak kodowane, aby były uruchamiane synchronicznie lub asynchronicznie, a następnie kod klienta JavaScript, który działa w przypadku wywoływania danej wersji.
+Poniższy przykład pokazuje tę samą metodę, która jest zakodowana do uruchamiania synchronicznie lub asynchronicznie, po którym następuje kod klienta JavaScript, który działa w przypadku wywoływania jednej wersji.
 
-**Synchroniczne**
+**Wykonywane**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample19.cs)]
 
-**Asynchroniczne — ASP.NET 4.5**
+**Asynchronicznie-ASP.NET 4,5**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample20.cs?highlight=1,7-8)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample21.js)]
 
-Aby uzyskać więcej informacji o sposobie używania metod asynchronicznych w programie ASP.NET 4.5, zobacz [przy użyciu metod asynchronicznych w ASP.NET MVC 4](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
+Aby uzyskać więcej informacji o sposobach używania metod asynchronicznych w ASP.NET 4,5, zobacz [Używanie metod asynchronicznych w ASP.NET MVC 4](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
 
 <a id="overloads"></a>
 
-### <a name="defining-overloads"></a>Definiowanie przeciążenia
+### <a name="defining-overloads"></a>Definiowanie przeciążeń
 
-Jeśli chcesz zdefiniować przeciążenia metody, liczba parametrów w każdym przeciążenia musi być różne. W przypadku przeciążenia różnicuje się tylko, określając typy różnych parametrów, zostanie skompilowana klasa Centrum, ale usługi SignalR spowoduje zgłoszenie wyjątku w czasie wykonywania, gdy klienci spróbują do wywołania, jednego z przeciążeń.
+Jeśli chcesz zdefiniować przeciążenia dla metody, liczba parametrów w każdym przeciążeniu musi się różnić. W przypadku odróżnienia przeciążenia po określeniu różnych typów parametrów, Klasa centrum zostanie skompilowana, ale usługa sygnalizująca zgłosi wyjątek w czasie wykonywania, gdy klienci spróbują wywołać jedno z przeciążeń.
 
 <a id="callfromhub"></a>
 
-## <a name="how-to-call-client-methods-from-the-hub-class"></a>Sposób wywoływania metody z klasy koncentratora klienta
+## <a name="how-to-call-client-methods-from-the-hub-class"></a>Jak wywołać metody klienta z klasy Hub
 
-Aby wywołać metody klienta, z serwera, należy użyć `Clients` właściwość w metodę w klasie koncentratora. W poniższym przykładzie pokazano kod serwera, który wywołuje `addNewMessageToPage` na wszystkich połączonych klientów i kod klienta, który definiuje metodę w kliencie języka JavaScript.
+Aby wywołać metody klienta z serwera, użyj właściwości `Clients` w metodzie klasy Hub. Poniższy przykład przedstawia kod serwera, który wywołuje `addNewMessageToPage` na wszystkich połączonych klientach i kod klienta, który definiuje metodę w kliencie JavaScript.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample22.cs?highlight=5)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-html[Main](signalr-1x-hubs-api-guide-server/samples/sample23.html?highlight=1)]
 
-Nie można uzyskać wartość zwracaną z metody klienta; Składnia takich jak `int x = Clients.All.add(1,1)` nie działa.
+Nie można uzyskać wartości zwracanej z metody klienta; Składnia, taka jak `int x = Clients.All.add(1,1)`, nie działa.
 
-Można określić typy złożone i tablice parametrów. Poniższy przykład przekazuje typu złożonego do klienta w parametrze metody.
+Można określić typy złożone i tablice dla parametrów. Poniższy przykład przekazuje typ złożony do klienta w parametrze metody.
 
 **Kod serwera, który wywołuje metodę klienta przy użyciu obiektu złożonego**
 
@@ -288,62 +288,62 @@ Można określić typy złożone i tablice parametrów. Poniższy przykład prze
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample25.cs?highlight=1)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample26.js?highlight=2-3)]
 
 <a id="selectingclients"></a>
 
-### <a name="selecting-which-clients-will-receive-the-rpc"></a>Wybieranie klientów, którzy będą otrzymywać RPC
+### <a name="selecting-which-clients-will-receive-the-rpc"></a>Wybieranie klientów, którzy będą otrzymywać wywołania RPC
 
-Zwraca właściwości klientów [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) obiektu, który zawiera kilka opcji umożliwiających określenie, którzy klienci otrzymają RPC:
+Właściwość klienci zwraca obiekt [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) , który udostępnia kilka opcji określania klientów, którzy będą otrzymywać wywołania RPC:
 
 - Wszyscy połączeni klienci.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample27.cs)]
-- Tylko klienta wywołującego.
+- Tylko klient wywołujący.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample28.cs)]
-- Wszyscy klienci oprócz klienta wywołującego.
+- Wszyscy klienci z wyjątkiem klienta wywołującego.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample29.cs)]
-- Klientowi szczególne identyfikowane przez identyfikator połączenia.
+- Określony klient identyfikowany przez identyfikator połączenia.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample30.css)]
 
-    Ten przykład wywołuje `addContosoChatMessageToPage` na klienta wywołującego i ma ten sam efekt jak użycie `Clients.Caller`.
-- Wszyscy połączeni klienci oprócz określonych klientów, identyfikowany przez identyfikator połączenia.
+    Ten przykład wywołuje `addContosoChatMessageToPage` na kliencie wywołującym i ma ten sam efekt, co użycie `Clients.Caller`.
+- Wszyscy połączeni klienci z wyjątkiem określonych klientów identyfikowane przez identyfikator połączenia.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample31.cs)]
 - Wszyscy połączeni klienci w określonej grupie.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample32.css)]
-- Wszyscy połączeni klienci, w określonej grupie oprócz określonych klientów, identyfikowany przez identyfikator połączenia.
+- Wszyscy połączeni klienci w określonej grupie z wyjątkiem określonych klientów identyfikowane przez identyfikator połączenia.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample33.cs)]
-- Wszyscy połączeni klienci, w określonej grupie oprócz klienta wywołującego.
+- Wszyscy połączeni klienci w określonej grupie z wyjątkiem klienta wywołującego.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample34.css)]
 
 <a id="dynamicmethodnames"></a>
 
-### <a name="no-compile-time-validation-for-method-names"></a>Nazwy metod weryfikacji kompilacji
+### <a name="no-compile-time-validation-for-method-names"></a>Brak weryfikacji w czasie kompilacji dla nazw metod
 
-Nazwa metody, które określisz, jest interpretowany jako obiekt dynamiczny, co oznacza, że brak funkcji IntelliSense i weryfikacji kompilacji. Wyrażenie jest obliczane w czasie wykonywania. Podczas wywołania metody które wykonuje, SignalR wysyła nazwę metody i wartości parametrów do klienta, a jeśli klient ma metodę, który pasuje do nazwy, że metoda jest wywoływana i wartości parametrów są przekazywane do niego. Jeśli odpowiadającej metody znajduje się na komputerze klienckim, zgłaszany jest błąd braku. Aby uzyskać informacje o formacie dane, które SignalR przesyła do klientów w tle po wywołaniu metody klienta, zobacz [wprowadzenie do SignalR](index.md).
+Określona nazwa metody jest interpretowana jako obiekt dynamiczny, co oznacza, że nie istnieje funkcja IntelliSense ani weryfikacja w czasie kompilacji. Wyrażenie jest oceniane w czasie wykonywania. Gdy wywołanie metody jest wykonywane, sygnalizujący wysyła nazwę metody i wartości parametrów do klienta, a jeśli klient ma metodę zgodną z nazwą, ta metoda jest wywoływana i są do niej przenoszone wartości parametrów. Jeśli na kliencie nie zostanie znaleziona zgodna Metoda, żaden błąd nie zostanie zgłoszony. Aby uzyskać informacje na temat formatu danych przesyłanych do klienta przez program sygnalizujący w tle podczas wywoływania metody klienta, zobacz [wprowadzenie do usługi sygnalizującej](index.md).
 
 <a id="caseinsensitive"></a>
 
-### <a name="case-insensitive-method-name-matching"></a>Dopasowywanie nazw bez uwzględniania wielkości liter — metoda
+### <a name="case-insensitive-method-name-matching"></a>Dopasowanie nazw metod bez uwzględniania wielkości liter
 
-Dopasowywaniu nazwy metody nie jest rozróżniana wielkość liter. Na przykład `Clients.All.addContosoChatMessageToPage` będą wykonywane na serwerze `AddContosoChatMessageToPage`, `addcontosochatmessagetopage`, lub `addContosoChatMessageToPage` na komputerze klienckim.
+W dopasowaniu nazw metod nie jest rozróżniana wielkość liter. Na przykład `Clients.All.addContosoChatMessageToPage` na serwerze wykona `AddContosoChatMessageToPage`, `addcontosochatmessagetopage`lub `addContosoChatMessageToPage` na kliencie.
 
 <a id="asyncclient"></a>
 
-### <a name="asynchronous-execution"></a>Wykonanie asynchroniczne
+### <a name="asynchronous-execution"></a>Wykonywanie asynchroniczne
 
-Asynchronicznie wykonuje metodę, która wywołania. Wszelki kod, który jest dostarczany po wywołania metody, aby klient wykona się natychmiast bez oczekiwania na SignalR zakończyć przesyłania danych do klientów, chyba że określisz, że kolejne wiersze kodu powinna czekać na ukończenie metody. W poniższych przykładach kodu pokazano, jak wykonać dwie metody klienta po kolei: jeden, za pomocą kod, który działa w .NET 4.5 i jeden przy użyciu kod, który działa w .NET 4.
+Wywoływana metoda jest wykonywana asynchronicznie. Każdy kod, który jest wywoływany po wywołaniu metody do klienta, będzie wykonywany natychmiast bez oczekiwania na zakończenie przesyłania danych do klientów przez program sygnalizujący, chyba że określisz, że kolejne wiersze kodu powinny czekać na ukończenie metody. W poniższym przykładzie kodu pokazano, jak wykonać dwie metody klienta sekwencyjnie, przy użyciu kodu, który działa w programie .NET 4,5 i jeden przy użyciu kodu, który działa w programie .NET 4.
 
-**Przykład .NET 4.5**
+**Przykład .NET 4,5**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample35.cs?highlight=1,3)]
 
@@ -351,43 +351,43 @@ Asynchronicznie wykonuje metodę, która wywołania. Wszelki kod, który jest do
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample36.cs?highlight=3-4)]
 
-Jeśli używasz `await` lub `ContinueWith` poczekać, aż metodę klienta zakończy się przed wykonaniem następnego wiersza kodu, który nie oznacza to, czy klienci będą otrzymywać komunikat faktycznie, przed wykonaniem następnego wiersza kodu. "Wykonanie" wywołania metody klienta oznacza jedynie, że SignalR zrobił wszystko, co jest niezbędne do wysyłania wiadomości. Weryfikacji, czy klienci się komunikat, należy mieć program ten mechanizm samodzielnie. Na przykład można kod `MessageReceived` metody koncentratora, w `addContosoChatMessageToPage` metody na kliencie, można wywołać `MessageReceived` po wykonaniu niezależnie od pracy należy wykonać na kliencie. W `MessageReceived` Centrum można wykonać pracę zależy od klienta faktycznie odbierania i przetwarzania wywołania metody oryginalnym.
+Jeśli używasz `await` lub `ContinueWith`, aby poczekać, aż Metoda klienta zakończy się przed ukończeniem następnego wiersza kodu, nie oznacza to, że klienci otrzymają komunikat przed wykonaniem kolejnego wiersza kodu. "Uzupełnianie" wywołania metody klienta oznacza tylko, że sygnalizujący zrobił wszystko niezbędne do wysłania wiadomości. Jeśli potrzebujesz weryfikacji, że klienci otrzymali komunikat, musisz samodzielnie programować ten mechanizm. Można na przykład zakodować metodę `MessageReceived` w centrum, a w metodzie `addContosoChatMessageToPage` na kliencie można wywołać `MessageReceived` po wykonaniu jakiejkolwiek czynności, którą trzeba wykonać na kliencie. W `MessageReceived` w centrum można wykonać dowolną czynność, która zależy od rzeczywistego odbioru klienta i przetwarzania oryginalnego wywołania metody.
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Jak używać zmiennej ciągu jako nazwy metody
 
-Jeśli chcesz wywołać metodę klienta przy użyciu zmiennej ciągu jako nazwy metody rzutowania `Clients.All` (lub `Clients.Others`, `Clients.Caller`, itp.) do `IClientProxy` , a następnie wywołać [Invoke (methodName, argumenty...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Jeśli chcesz wywołać metodę klienta przy użyciu zmiennej ciągu jako nazwy metody, Cast `Clients.All` (lub `Clients.Others`, `Clients.Caller`itd.), aby `IClientProxy`, a następnie wywołać wywołania [(MethodName, args...)](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample37.cs)]
 
 <a id="groupsfromhub"></a>
 
-## <a name="how-to-manage-group-membership-from-the-hub-class"></a>Sposób zarządzania członkostwa w grupie z klasy koncentratora
+## <a name="how-to-manage-group-membership-from-the-hub-class"></a>Zarządzanie członkostwem w grupie z klasy centrów
 
-Grupami w SignalR udostępnia metody emisji komunikatów określony podzbiór połączonych klientów. Grupa może zawierać dowolną liczbę klientów, a klient może należeć do dowolnej liczby grup.
+Grupy w sygnalizacji zapewniają metodę rozgłaszania komunikatów do określonych podzestawów połączonych klientów. Grupa może mieć dowolną liczbę klientów, a klient może być członkiem dowolnej liczby grup.
 
-Aby zarządzanie członkostwem w grupie, należy użyć [Dodaj](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) i [Usuń](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metod dostarczonych przez `Groups` właściwość klasy koncentratora. W poniższym przykładzie przedstawiono `Groups.Add` i `Groups.Remove` metody używane w metodach koncentratora, które są wywoływane przez kod klienta, a następnie kod klienta JavaScript, która je wywołuje.
+Aby zarządzać członkostwem w grupie, użyj metod [Add](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) i [Remove](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) dostarczonych przez właściwość `Groups` klasy Hub. W poniższym przykładzie przedstawiono metody `Groups.Add` i `Groups.Remove` używane w metodach centralnych, które są wywoływane przez kod klienta, a następnie kod klienta JavaScript, który je wywołuje.
 
 **Serwer**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample38.cs?highlight=5,10)]
 
-**Klient JavaScript za pomocą wygenerowanego serwera proxy**
+**Klient JavaScript korzystający z wygenerowanego serwera proxy**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample39.js)]
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample40.js)]
 
-Nie trzeba jawnie tworzyć grupy. Obowiązuje grupy jest automatycznie tworzony po raz pierwszy należy określić jego nazwę w wywołaniu `Groups.Add`, i zostanie usunięta po usunięciu ostatniego połączenia z członkostwa w nim.
+Nie musisz jawnie tworzyć grup. W efekcie Grupa jest tworzona automatycznie przy pierwszym określeniu jej nazwy w wywołaniu `Groups.Add`i zostanie usunięta po usunięciu ostatniego połączenia z członkostwa w nim.
 
-Nie ma żadnych interfejsów API w celu uzyskania listy członkostwa grupy lub Podaj listę grup. SignalR wysyła wiadomości do klientów i grup na podstawie [model pub/sub](http://en.wikipedia.org/wiki/Publish/subscribe), a serwer nie przechowuje listę grup lub członkostwa w grupach. Pozwala to zmaksymalizować skalowalność, ponieważ po każdym dodaniu węzła w farmie sieci web, stan, który przechowuje SignalR są propagowane do nowego węzła.
+Brak interfejsu API do uzyskiwania listy członkostwa w grupie lub listy grup. Program sygnalizujący wysyła komunikaty do klientów i grup na podstawie [modelu pub/sub](http://en.wikipedia.org/wiki/Publish/subscribe), a serwer nie zachowuje list grup ani członkostw w grupach. Pozwala to zmaksymalizować skalowalność, ponieważ po dodaniu węzła do kolektywu serwerów sieci Web, każdy stan, który utrzymuje usługa sygnalizująca, musi być propagowany do nowego węzła.
 
 <a id="asyncgroupmethods"></a>
 
-### <a name="asynchronous-execution-of-add-and-remove-methods"></a>Asynchroniczne wykonywanie metody dodawania i usuwania
+### <a name="asynchronous-execution-of-add-and-remove-methods"></a>Asynchroniczne wykonywanie metod Add i Remove
 
-`Groups.Add` i `Groups.Remove` metody są wykonywane asynchronicznie. Jeśli chcesz dodać do grupy klienta i natychmiast wysłać wiadomość do klienta przy użyciu grupy, należy upewnić się, że `Groups.Add` metoda zakończy się pierwsza. W poniższych przykładach kodu pokazano, jak to zrobić, za pomocą kodu, który działa w .NET 4.5 i za pomocą kodu, który działa w programie .NET 4
+Metody `Groups.Add` i `Groups.Remove` wykonują asynchronicznie. Jeśli chcesz dodać klienta do grupy i natychmiast wysłać komunikat do klienta przy użyciu grupy, musisz upewnić się, że metoda `Groups.Add` została najpierw ukończona. Poniższe przykłady kodu pokazują, jak to zrobić, przy użyciu kodu, który działa w programie .NET 4,5 i jeden przy użyciu kodu, który działa w programie .NET 4
 
-**Przykład .NET 4.5**
+**Przykład .NET 4,5**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample41.cs?highlight=1,3)]
 
@@ -397,210 +397,210 @@ Nie ma żadnych interfejsów API w celu uzyskania listy członkostwa grupy lub P
 
 <a id="grouppersistence"></a>
 
-### <a name="group-membership-persistence"></a>Trwałość członkostwa grupy
+### <a name="group-membership-persistence"></a>Trwałość członkostwa w grupie
 
-SignalR śledzi połączenia, nie dla użytkowników, więc jeśli użytkownik ma znajdować się w tej samej grupie za każdym razem, gdy użytkownik nawiązuje połączenie, musisz wywołać `Groups.Add` za każdym razem, gdy użytkownik nawiązuje nowe połączenie.
+Program sygnalizujący śledzi połączenia, a nie użytkowników, dlatego jeśli chcesz, aby użytkownik znajdował się w tej samej grupie za każdym razem, gdy użytkownik nawiąże połączenie, należy wywołać `Groups.Add` za każdym razem, gdy użytkownik ustanowi nowe połączenie.
 
-Po do tymczasowej utraty łączności czasami biblioteki SignalR można przywrócić połączenia automatycznie. W takim przypadku SignalR jest przywrócenie tego samego połączenia, nie ustanawiania nowego połączenia, a więc członkostwa w grupie klienta zostanie automatycznie przywrócony. Jest to możliwe nawet, jeśli tymczasowe przerwanie jest wynikiem ponownego rozruchu serwera lub awarii, ponieważ stan połączenia dla każdego klienta, w tym członkostwa w grupach jest zwrotnego do klienta. Jeśli serwer ulegnie awarii, został zastąpiony nowym serwerze, zanim upłynie limit czasu połączenia klienta można automatycznie ponownie połączenie z nowym serwerem i ponownego rejestrowania się w grupach, które jest członkiem.
+Po tymczasowej utracie łączności czasami program sygnalizujący może automatycznie przywrócić połączenie. W takim przypadku sygnalizujący przywraca to samo połączenie, nie ustanawia nowego połączenia, a więc członkostwo w grupie klienta zostanie automatycznie przywrócone. Jest to możliwe nawet wtedy, gdy tymczasowy przerwanie jest wynikiem ponownego uruchomienia serwera lub błędu, ponieważ stan połączenia dla każdego klienta, w tym członkostwa w grupie, jest przełączany do klienta. Jeśli serwer ulegnie awarii i zostanie zastąpiony przez nowy serwer przed przekroczeniem limitu czasu, klient będzie mógł automatycznie połączyć się z nowym serwerem i ponownie zarejestrować w grupach, które jest członkiem.
 
-Jeśli połączenie nie będzie można przywrócić automatycznie po utracie łączności, lub gdy upłynie limit czasu połączenia lub gdy klient odłączy się (na przykład, gdy przeglądarka wraca do nowej strony), członkostwa w grupie zostaną utracone. Następnym razem, gdy użytkownik nawiąże połączenie będzie nowe połączenie. Aby zachować członkostwa w grupach, gdy ten sam użytkownik nawiązuje nowe połączenie, aplikacja musi śledzić skojarzenia między użytkownikami i grupami w celu przywrócenia członkostwa w grupach za każdym razem użytkownik ustanawia nowego połączenia.
+Gdy połączenie nie może zostać przywrócone automatycznie po utracie łączności lub gdy upłynął limit czasu połączenia lub gdy klient odłączy się (na przykład gdy przeglądarka nawiguje do nowej strony), członkostwo w grupach zostanie utracone. Następnym razem, gdy użytkownik łączy się z nowym połączeniem. Aby zachować członkostwo w grupach, gdy ten sam użytkownik ustanowi nowe połączenie, aplikacja musi śledzić skojarzenia między użytkownikami i grupami oraz przywracać członkostwa w grupach za każdym razem, gdy użytkownik ustanowi nowe połączenie.
 
-Aby uzyskać więcej informacji na temat połączeń i ponowne łączenie, zobacz [sposób obsługi zdarzenia okresu istnienia połączenia w klasie Centrum](#connectionlifetime) w dalszej części tego tematu.
+Więcej informacji o połączeniach i repołączeniach znajduje się [w temacie jak obsłużyć zdarzenia okresu istnienia połączenia w klasie centrów](#connectionlifetime) w dalszej części tego tematu.
 
 <a id="singleusergroups"></a>
 
 ### <a name="single-user-groups"></a>Grupy pojedynczego użytkownika
 
-Aplikacje, które zwykle używanie biblioteki SignalR mieć do śledzenia skojarzenia między użytkownikami i połączeń, aby dowiedzieć się, użytkownika, który wysłał wiadomość, a które użytkownicy powinni otrzymywać wiadomości. Grupy są używane w jednym z dwóch często używane wzorce dla tych czynności.
+Aplikacje korzystające z programu sygnalizującego zwykle muszą śledzić skojarzenia między użytkownikami i połączeniami, aby wiedzieć, który użytkownik wysłał komunikat i które użytkownicy powinni otrzymywać wiadomości. Grupy są używane w jednym z dwóch często używanych wzorców w celu wykonania tej operacji.
 
 - Grupy pojedynczego użytkownika.
 
-    Określ nazwę użytkownika jako nazwę grupy i dodać do grupy bieżący identyfikator połączenia, za każdym razem, gdy użytkownik nawiązuje połączenie, lub ponownie nawiąże połączenie. Aby wysyłać komunikaty do użytkownika Wyślij do grupy. Wadą tej metody jest to, że grupa nie zapewniają sposób, aby sprawdzić, czy użytkownik jest w trybie online lub offline.
-- Śledź skojarzenia między nazwami użytkowników i identyfikatorów połączeń.
+    Możesz określić nazwę użytkownika jako nazwę grupy i dodać bieżący identyfikator połączenia do grupy za każdym razem, gdy użytkownik łączy się lub ponownie nawiązuje połączenie. Wysyłanie komunikatów do użytkownika, który jest wysyłany do grupy. Wadą tej metody jest to, że grupa nie pozwala na ustalenie, czy użytkownik jest w trybie online, czy offline.
+- Śledź skojarzenia między nazwami użytkowników i identyfikatorami połączeń.
 
-    Przechowywanie skojarzenie między każdej nazwy użytkownika i jeden lub więcej identyfikatorów połączeń słownika lub bazy danych i zaktualizować przechowywanych danych za każdym razem, użytkownik połączeniu lub rozłączeniu. Aby wysyłać komunikaty do użytkownika, należy określić identyfikatorów połączeń. Wadą tej metody jest to, że zajmuje więcej pamięci.
+    Można przechowywać skojarzenie między nazwami użytkowników i co najmniej jednym identyfikatorem połączenia w słowniku lub bazie danych i aktualizować przechowywane dane za każdym razem, gdy użytkownik nawiązuje połączenie lub rozłącza. Aby wysyłać komunikaty do użytkownika, należy określić identyfikatory połączeń. Wadą tej metody jest to, że zajmuje więcej pamięci.
 
 <a id="connectionlifetime"></a>
 
-## <a name="how-to-handle-connection-lifetime-events-in-the-hub-class"></a>Jak obsługiwać zdarzenia okresu istnienia połączenia w klasie Centrum
+## <a name="how-to-handle-connection-lifetime-events-in-the-hub-class"></a>Jak obsłużyć zdarzenia okresu istnienia połączenia w klasie centrów
 
-Typowe przyczyny Obsługa zdarzeń okresu istnienia połączenia są do śledzenia, czy użytkownik jest połączony, czy nie, a także do śledzenia skojarzenie między nazwy użytkowników i identyfikatorów połączeń. Aby uruchomić własny kod, gdy klienci łączyć i rozłączać, Zastąp `OnConnected`, `OnDisconnected`, i `OnReconnected` metod wirtualnych Centrum klasy, jak pokazano w poniższym przykładzie.
+Typowymi przyczynami obsługi zdarzeń okresu istnienia połączenia są śledzenie tego, czy użytkownik jest połączony, i śledzenie skojarzenia między nazwami użytkowników i identyfikatorami połączeń. Aby uruchomić własny kod, gdy klienci nawiązują połączenie lub rozłączają, Zastąp metody wirtualne `OnConnected`, `OnDisconnected`i `OnReconnected` klasy Hub, jak pokazano w poniższym przykładzie.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample43.cs?highlight=3,14,22)]
 
 <a id="onreconnected"></a>
 
-### <a name="when-onconnected-ondisconnected-and-onreconnected-are-called"></a>Kiedy są wywoływane onconnected elementu ondisconnected elementu i onreconnected elementu
+### <a name="when-onconnected-ondisconnected-and-onreconnected-are-called"></a>Gdy są wywoływane metody OnConnected, ondisconnected i OnReconnected
 
-Każdorazowo, przeglądarka wraca do nowej strony, nowe połączenie ma zostać nawiązane, co oznacza, że zostanie wykonana SignalR `OnDisconnected` metody następuje `OnConnected` metody. Po nawiązaniu nowego połączenia SignalR zawsze tworzy nowy identyfikator połączenia.
+Za każdym razem, gdy przeglądarka nawiguje do nowej strony, należy nawiązać nowe połączenie, co oznacza, że sygnalizujący wykona metodę `OnDisconnected`, a następnie metodę `OnConnected`. Sygnalizujący zawsze tworzy nowy identyfikator połączenia po nawiązaniu nowego połączenia.
 
-`OnReconnected` Metoda jest wywoływana, gdy nastąpiła tymczasowe przerwanie w łączności, SignalR automatyczne odzyskiwanie, takie jak kiedy kabla jest tymczasowo odłączony i ponowne łączenie zakończone przed upływem limitu czasu połączenia. `OnDisconnected` Metoda jest wywoływana, gdy klient został odłączony SignalR nie automatycznie ponownie połączyć, np. gdy przeglądarka wraca do nowej strony. Dlatego jest możliwe sekwencji zdarzeń dla danego klienta `OnConnected`, `OnReconnected`, `OnDisconnected`; lub `OnConnected`, `OnDisconnected`. Nie będziesz widzieć sekwencji `OnConnected`, `OnDisconnected`, `OnReconnected` dla danego połączenia.
+Metoda `OnReconnected` jest wywoływana, gdy nastąpiło tymczasowe przerwanie łączności, z której sygnalizujący mogą automatycznie odzyskiwać dane, na przykład gdy kabel jest tymczasowo odłączony i ponownie połączony przed upływem limitu czasu połączenia. Metoda `OnDisconnected` jest wywoływana, gdy klient zostanie odłączony, a sygnalizujący nie może automatycznie ponownie nawiązać połączenia, na przykład gdy przeglądarka nawiguje do nowej strony. W związku z tym możliwe jest `OnConnected`, `OnReconnected`, `OnDisconnected`; lub `OnConnected`, `OnDisconnected`. Nie zobaczysz sekwencji `OnConnected`, `OnDisconnected``OnReconnected` dla danego połączenia.
 
-`OnDisconnected` Metoda nie jest wywoływana w niektórych scenariuszach, na przykład jeśli serwer ulegnie awarii lub domena aplikacji zostanie odtworzona. Gdy inny serwer, który jest dostarczany w wierszu lub domena aplikacji kończy jego odtwarzanie, niektórzy klienci można ponownie połączyć i szybko `OnReconnected` zdarzeń.
+Metoda `OnDisconnected` nie jest wywoływana w niektórych scenariuszach, na przykład w przypadku awarii serwera lub odtworzenia domeny aplikacji. Gdy inny serwer jest w trybie online lub domena aplikacji zakończy jego odtwarzanie, niektórzy klienci mogą być w stanie ponownie nawiązać połączenie i uruchomić zdarzenie `OnReconnected`.
 
-Aby uzyskać więcej informacji, zobacz [zrozumienia i obsługa zdarzeń okresu istnienia połączenia w SignalR](index.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie i obsługa zdarzeń okresu istnienia połączenia w programie sygnalizującym](index.md).
 
 <a id="nocallerstate"></a>
 
-### <a name="caller-state-not-populated"></a>Stan elementu wywołującego, pusta
+### <a name="caller-state-not-populated"></a>Stan wywołującego nie został wypełniony
 
-Metody obsługi zdarzeń okresu istnienia połączenia są nazywane z serwera, co oznacza, że stan, aby umieścić w `state` obiektu na kliencie nie zostanie wypełniony w `Caller` właściwości na serwerze. Aby uzyskać informacje o `state` obiektu i `Caller` właściwości, zobacz [sposób przekazywania stanu między klientami a klasy koncentratora](#passstate) w dalszej części tego tematu.
+Metody obsługi zdarzeń okresu istnienia połączenia są wywoływane z serwera, co oznacza, że każdy stan umieszczony w obiekcie `state` na kliencie nie zostanie wypełniony we właściwości `Caller` na serwerze. Aby uzyskać informacje na temat obiektu `state` i właściwości `Caller`, zobacz [jak przekazać stan między klientami a klasą centrum](#passstate) w dalszej części tego tematu.
 
 <a id="contextproperty"></a>
 
-## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Jak uzyskać informacji o kliencie z właściwości kontekstu
+## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Jak uzyskać informacje o kliencie z właściwości kontekstu
 
-Aby uzyskać informacje dotyczące klienta, użyj `Context` właściwość klasy koncentratora. `Context` Właściwość zwraca [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) obiektu, który zapewnia dostęp do następujących informacji:
+Aby uzyskać informacje o kliencie, użyj właściwości `Context` klasy Hub. Właściwość `Context` zwraca obiekt [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) , który zapewnia dostęp do następujących informacji:
 
 - Identyfikator połączenia klienta wywołującego.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample44.cs?highlight=1)]
 
-    Identyfikator połączenia, który jest identyfikatorem GUID, który jest przypisywany przez SignalR (we własnym kodzie nie można określić wartości). Istnieje jeden identyfikator połączenia dla poszczególnych połączeń i tego samego połączenia, którego identyfikator jest używany przez wszystkie centra, jeśli masz wiele centrów w aplikacji.
-- HTTP header data.
+    Identyfikator połączenia jest identyfikatorem GUID, który jest przypisany przez sygnalizujący (nie można określić wartości w własnym kodzie). Istnieje jeden identyfikator połączenia dla każdego połączenia, a ten sam identyfikator połączenia jest używany przez wszystkie centra, jeśli w aplikacji znajduje się wiele centrów.
+- Dane nagłówka HTTP.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample45.cs?highlight=1)]
 
-    Możesz też pobrać nagłówki HTTP od `Context.Headers`. Przyczyna wiele odwołań do tak samo jest fakt, że `Context.Headers` utworzono najpierw `Context.Request` właściwość została dodana później i `Context.Headers` został zachowany na potrzeby zgodności z poprzednimi wersjami.
-- Wykonywanie zapytań dotyczących danych ciągu.
+    Można również uzyskać nagłówki HTTP z `Context.Headers`. Przyczyną wielu odwołań do tego samego elementu jest to, że `Context.Headers` został utworzony jako pierwszy, właściwość `Context.Request` została dodana później i `Context.Headers` została zachowana w celu zapewnienia zgodności z poprzednimi wersjami.
+- Dane ciągu zapytania.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample46.cs?highlight=1)]
 
-    Możesz też pobrać dane ciągu zapytania z `Context.QueryString`.
+    Możesz również uzyskać dane ciągu zapytania z `Context.QueryString`.
 
-    Ciąg zapytania, które otrzymujesz w tej właściwości jest tą, która została użyta z żądania HTTP, które nawiązaniu połączenia SignalR. Aby dodać parametry ciągu zapytania w kliencie, konfigurowanie połączenia z to wygodny sposób przekazywania danych dotyczących klienta z klienta do serwera. Poniższy przykład przedstawia sposób dodać ciąg zapytania w kliencie JavaScript, korzystając z wygenerowanego serwera proxy.
+    Ciąg zapytania, który jest pobierany w tej właściwości, jest używany z żądaniem HTTP, które ustanowiło połączenie sygnalizujące. Parametry ciągu zapytania można dodać do klienta przez skonfigurowanie połączenia, które jest wygodnym sposobem przekazywania danych dotyczących klienta z klienta do serwera programu. W poniższym przykładzie pokazano jeden ze sposobów dodawania ciągu zapytania do klienta JavaScript w przypadku korzystania z wygenerowanego serwera proxy.
 
     [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample47.js?highlight=1)]
 
-    Aby uzyskać więcej informacji na temat ustawiania parametrów ciągu zapytania, zapoznaj się z przewodnikami interfejsu API, aby uzyskać [JavaScript](index.md) i [.NET](index.md) klientów.
+    Aby uzyskać więcej informacji na temat ustawiania parametrów ciągu zapytania, zobacz Przewodniki interfejsu API dla klientów [JavaScript](index.md) i [.NET](index.md) .
 
-    Można znaleźć metody transportu używane dla połączeń w dane ciągu zapytania wraz z innymi wartościami, używane wewnętrznie przez element SignalR:
+    Metodę transportu używaną w połączeniu można znaleźć w danych ciągu zapytania, wraz z innymi wartościami używanymi wewnętrznie przez program sygnalizujący:
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample48.cs)]
 
-    Wartość `transportMethod` będzie "webSockets", "serverSentEvents", "foreverFrame" lub "longPolling". Należy pamiętać, że jeśli zaznaczysz tę wartość `OnConnected` metody obsługi zdarzeń, w niektórych scenariuszach może być początkowo uzyskać wartość transportu, która nie jest to metoda końcowego wynegocjowanym transport dla połączenia. W tym przypadku metoda spowoduje zgłoszenie wyjątku i zostanie wywołana ponownie później po nawiązaniu metoda końcowego transportu.
-- Pliki cookie.
+    Wartość `transportMethod` będzie równa "WebSockets", "serverSentEvents", "foreverFrame" lub "longPolling". Należy pamiętać, że jeśli ta wartość zostanie sprawdzona w metodzie obsługi zdarzeń `OnConnected`, w niektórych scenariuszach można początkowo uzyskać wartość transportu, która nie jest ostateczną negocjowaną metodą transportu dla połączenia. W takim przypadku Metoda zgłosi wyjątek i zostanie wywołana ponownie później podczas ustanowienia końcowej metody transportu.
+- Cookie.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample49.cs?highlight=1)]
 
-    Możesz też pobrać pliki cookie z `Context.RequestCookies`.
+    Możesz również pobrać pliki cookie z `Context.RequestCookies`.
 - Informacje o użytkowniku.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample50.cs?highlight=1)]
-- Obiekt kontekstu HTTP dla żądania:
+- Obiekt HttpContext dla żądania:
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample51.cs?highlight=1)]
 
-    Użyj tej metody, zamiast `HttpContext.Current` można pobrać `HttpContext` obiektu dla połączenia SignalR.
+    Użyj tej metody zamiast uzyskać `HttpContext.Current`, aby uzyskać obiekt `HttpContext` dla połączenia sygnalizującego.
 
 <a id="passstate"></a>
 
-## <a name="how-to-pass-state-between-clients-and-the-hub-class"></a>Jak przekazać stanu między klientami a klasy koncentratora
+## <a name="how-to-pass-state-between-clients-and-the-hub-class"></a>Jak przekazać stan między klientami a klasą centrum
 
-Udostępnia serwer proxy klienta `state` obiekt, w którym można przechowywać dane, które mają być przekazywane do serwera z każdego wywołania metody. Na serwerze mają dostęp do danych, to w `Clients.Caller` właściwości w metodach koncentratora, które są wywoływane przez klientów. `Clients.Caller` Właściwość jest pusta dla metody obsługi zdarzeń okresu istnienia połączenia `OnConnected`, `OnDisconnected`, i `OnReconnected`.
+Serwer proxy klienta udostępnia obiekt `state`, w którym można przechowywać dane, które mają być przesyłane do serwera przy użyciu każdego wywołania metody. Na serwerze można uzyskać dostęp do tych danych we właściwości `Clients.Caller` w metodach centralnych wywoływanych przez klientów. Właściwość `Clients.Caller` nie jest wypełniona dla metod obsługi zdarzeń okresu istnienia połączenia `OnConnected`, `OnDisconnected`i `OnReconnected`.
 
-Tworzenie lub aktualizowanie danych w `state` obiektu i `Clients.Caller` właściwości działa w obu kierunkach. Można zaktualizować wartości na serwerze i są one przekazywane do klienta.
+Tworzenie lub aktualizowanie danych w obiekcie `state` i Właściwość `Clients.Caller` działa w obu kierunkach. Można aktualizować wartości na serwerze i są one przesyłane z powrotem do klienta programu.
 
-Poniższy przykład pokazuje kod klienta JavaScript, który zapisuje stan w celu przesłania go do serwera z każdego wywołania metody.
+Poniższy przykład przedstawia kod klienta JavaScript, który przechowuje stan przesyłania do serwera przy każdym wywołaniu metody.
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample52.js?highlight=1-2)]
 
-Poniższy przykład przedstawia równoważny kod w klienta platformy .NET.
+Poniższy przykład pokazuje odpowiedni kod w kliencie .NET.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample53.cs?highlight=1-2)]
 
-W klasie Centrum uzyskujesz dostęp do tych danych w `Clients.Caller` właściwości. Poniższy przykład pokazuje kod, który pobiera stan określonego w poprzednim przykładzie.
+W klasie centrów możesz uzyskać dostęp do tych danych we właściwości `Clients.Caller`. Poniższy przykład pokazuje kod, który pobiera stan, do którego odwołuje się w poprzednim przykładzie.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample54.cs?highlight=3-4)]
 
 > [!NOTE]
-> Ten mechanizm utrwalanie stanu nie jest przeznaczony dla dużych ilości danych, ponieważ wszystko, co umieścić w `state` lub `Clients.Caller` właściwość jest zwrotnego z każdego wywołania metody. Jest to przydatne dla mniejszych elementów, takich jak nazwy użytkowników lub liczniki.
+> Ten mechanizm dla stanu utrwalania nie jest przeznaczony dla dużych ilości danych, ponieważ wszystkie elementy, które zostały umieszczone w `state` lub właściwości `Clients.Caller`, są wyłączane z każdym wywołaniem metody. Jest to przydatne w przypadku mniejszych elementów, takich jak nazwy użytkowników lub liczniki.
 
 <a id="handleErrors"></a>
 
-## <a name="how-to-handle-errors-in-the-hub-class"></a>Sposób obsługi błędów w klasie Centrum
+## <a name="how-to-handle-errors-in-the-hub-class"></a>Jak obsłużyć błędy w klasie centrów
 
-Do obsługi błędów występujących w Twoich metodach klasy koncentratora, użyj jedno lub oba z następujących metod:
+Aby obsłużyć błędy występujące w metodach klasy centrum, należy użyć jednej lub obu następujących metod:
 
-- Zabalit kodzie metoda bloków try-catch, a następnie zaloguj się obiekt wyjątku. Dla celów debugowania wyjątku można wysłać do klienta, ale zabezpieczeń przyczyny wysyłanie szczegółowych informacji do klientów w środowisku produkcyjnym nie jest zalecane.
-- Utwórz moduł potoku koncentratorów, który obsługuje [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metody. Poniższy przykład pokazuje moduł potoku, który rejestruje błędy, kod w pliku Global.asax, która wprowadza moduł potokiem koncentratorów.
+- Zawiń kod metody w blokach try-catch i zarejestruj obiekt wyjątku. Na potrzeby debugowania można wysłać wyjątek do klienta, ale ze względów bezpieczeństwa nie zaleca się wysyłania szczegółowych informacji do klientów w środowisku produkcyjnym.
+- Utwórz moduł potoków centrów, który obsługuje metodę [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) . W poniższym przykładzie przedstawiono moduł potoku, który rejestruje błędy, a następnie kod w Global. asax, który wprowadza moduł do potoku centrów.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample55.cs)]
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample56.cs?highlight=3)]
 
-Aby uzyskać więcej informacji na temat modułów potoku koncentratora, zobacz [sposobu dostosowywania potoku koncentratory](#hubpipeline) w dalszej części tego tematu.
+Więcej informacji o modułach potoku centrów znajduje się w sekcji [jak dostosować potok centrów](#hubpipeline) w dalszej części tego tematu.
 
 <a id="tracing"></a>
 
 ## <a name="how-to-enable-tracing"></a>Jak włączyć śledzenie
 
-Aby włączyć śledzenie po stronie serwera, należy dodać system.diagnostics element do pliku Web.config, jak pokazano w poniższym przykładzie:
+Aby włączyć śledzenie po stronie serwera, Dodaj element System. Diagnostics do pliku Web. config, jak pokazano w tym przykładzie:
 
 [!code-html[Main](signalr-1x-hubs-api-guide-server/samples/sample57.html?highlight=17-72)]
 
-Po uruchomieniu aplikacji w programie Visual Studio możesz wyświetlić dzienniki w **dane wyjściowe** okna.
+Po uruchomieniu aplikacji w programie Visual Studio można wyświetlić dzienniki w oknie **danych wyjściowych** .
 
 <a id="callfromoutsidehub"></a>
 
-## <a name="how-to-call-client-methods-and-manage-groups-from-outside-the-hub-class"></a>Jak wywołać metody klienta grup i zarządzanie nimi z poza klasy koncentratora
+## <a name="how-to-call-client-methods-and-manage-groups-from-outside-the-hub-class"></a>Jak wywoływać metody klienta i zarządzać grupami spoza klasy Hub
 
-Do wywołania metody klienta, z innej klasy niż klasa koncentratora, Pobierz odwołanie do obiektu context SignalR dla koncentratora i używać go wywoływać metody na kliencie lub zarządzać grupami.
+Aby wywołać metody klienta z innej klasy niż Klasa Hub, Pobierz odwołanie do obiektu kontekstu sygnalizującego dla centrum i użyj go do wywołania metod na kliencie lub zarządzania grupami.
 
-Poniższy przykład `StockTicker` klasy pobiera obiekt kontekstu, zapisuje go w wystąpieniu klasy, przechowuje wystąpienia klasy statycznej właściwości i używa kontekstu z pojedyncze wystąpienie klasy w celu wywołania `updateStockPrice` metody na komputerach klienckich, które są podłączone do koncentratora o nazwie `StockTickerHub`.
+Poniższa przykładowa Klasa `StockTicker` pobiera obiekt kontekstu, zapisuje go w wystąpieniu klasy, zapisuje wystąpienie klasy w statycznej właściwości i używa kontekstu z wystąpienia klasy pojedynczej w celu wywołania metody `updateStockPrice` na klientach podłączonych do centrum o nazwie `StockTickerHub`.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample58.cs?highlight=8,24)]
 
-Jeśli musisz używać kontekstu wielu i godziny w obiekcie długotrwałe raz Uzyskaj odwołanie i zapisz go, a nie wprowadzenie go ponownie za każdym razem. Pobieranie kontekstu po zapewnia SignalR i wysyła wiadomości do klientów w tej samej kolejności, w której metody koncentratora wprowadzić klienta wywołania metody. Aby uzyskać samouczek, który pokazuje, jak używać kontekstu SignalR dla koncentratora, zobacz [emisje serwera z użyciem ASP.NET SignalR](index.md).
+Jeśli konieczne jest wielokrotne użycie kontekstu w obiekcie długim czasie, Pobierz odwołanie raz i Zapisz je, a nie ponownie za każdym razem. Uzyskanie kontekstu polega na tym, że sygnalizujący wyśle komunikaty do klientów w tej samej kolejności, w której metody centrum umożliwiają wywoływanie metody klienta. Aby zapoznać się z samouczkiem, który pokazuje, jak używać kontekstu sygnalizującego dla centrum, zobacz [serwer Broadcast with ASP.NET signaler](index.md).
 
 <a id="callingclientsoutsidehub"></a>
 
-### <a name="calling-client-methods"></a>Wywoływanie metody klienta
+### <a name="calling-client-methods"></a>Wywoływanie metod klienta
 
-Można określić, którzy klienci otrzymają RPC, ale ma mniej opcji niż pod numerem klasy koncentratora. Przyczyną jest to, że kontekst nie jest skojarzony z określonym wywołania klienta, więc żadnych metod wymagających znajomości bieżący identyfikator połączenia, takie jak `Clients.Others`, lub `Clients.Caller`, lub `Clients.OthersInGroup`, nie są dostępne. Dostępne są następujące opcje:
+Można określić, którzy klienci będą otrzymywać wywołania RPC, ale jest mniej opcji niż w przypadku wywołania z klasy centrum. Przyczyną tego jest to, że kontekst nie jest skojarzony z konkretnym wywołaniem z klienta, dlatego wszelkie metody, które wymagają znajomości bieżącego identyfikatora połączenia, takiego jak `Clients.Others`, `Clients.Caller`lub `Clients.OthersInGroup`, nie są dostępne. Dostępne są następujące opcje:
 
 - Wszyscy połączeni klienci.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample59.cs)]
-- Klientowi szczególne identyfikowane przez identyfikator połączenia.
+- Określony klient identyfikowany przez identyfikator połączenia.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample60.css)]
-- Wszyscy połączeni klienci oprócz określonych klientów, identyfikowany przez identyfikator połączenia.
+- Wszyscy połączeni klienci z wyjątkiem określonych klientów identyfikowane przez identyfikator połączenia.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample61.cs)]
 - Wszyscy połączeni klienci w określonej grupie.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample62.css)]
-- Wszystkich połączonych klientów w określonej grupie oprócz określonych klientów, identyfikowany przez identyfikator połączenia.
+- Wszyscy połączeni klienci w określonej grupie z wyjątkiem określonych klientów identyfikowane przez identyfikator połączenia.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample63.cs)]
 
-W przypadku wywołania do klasy-Hub metody w klasie koncentratora, możesz przekazać identyfikator bieżącego połączenia i używać go z `Clients.Client`, `Clients.AllExcept`, lub `Clients.Group` do symulacji `Clients.Caller`, `Clients.Others`, lub `Clients.OthersInGroup`. W poniższym przykładzie `MoveShapeHub` klasy przekazuje identyfikator połączenia, aby `Broadcaster` klasy tak, aby `Broadcaster` klasy można symulować `Clients.Others`.
+Jeśli wywołujesz klasę niebędącą centrami z metod w klasie centrów, możesz przekazać bieżący identyfikator połączenia i użyć go z `Clients.Client`, `Clients.AllExcept`lub `Clients.Group`, aby symulować `Clients.Caller`, `Clients.Others`lub `Clients.OthersInGroup`. W poniższym przykładzie Klasa `MoveShapeHub` przekazuje identyfikator połączenia do klasy `Broadcaster`, dzięki czemu Klasa `Broadcaster` może symulować `Clients.Others`.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample64.cs?highlight=12,36)]
 
 <a id="managinggroupsoutsidehub"></a>
 
-### <a name="managing-group-membership"></a>Członkostwo w grupie zarządzania
+### <a name="managing-group-membership"></a>Zarządzanie członkostwem w grupie
 
-Do zarządzania grupami mają te same opcje tak jak w klasie koncentratora.
+W przypadku zarządzania grupami te same opcje są takie same jak w klasie centrów.
 
 - Dodawanie klienta do grupy
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample65.cs)]
-- Usunięcie klienta z grupy
+- Usuwanie klienta z grupy
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample66.css)]
 
 <a id="hubpipeline"></a>
 
-## <a name="how-to-customize-the-hubs-pipeline"></a>Jak dostosować potoku koncentratory
+## <a name="how-to-customize-the-hubs-pipeline"></a>Jak dostosować potok centrów
 
-Biblioteki SignalR można wstawić własny kod do potoku koncentratora. Poniższy przykład przedstawia niestandardowego modułu potoku koncentratora, który rejestruje każdego przychodzące wywołania metody, odebrane od klienta i wychodzące wywołanie metody wywoływane na komputerze klienckim:
+Sygnalizujący umożliwia wprowadzanie własnego kodu do potoku centrum. W poniższym przykładzie przedstawiono niestandardowy moduł potoku, który rejestruje każde wywołanie metody przychodzącej odebrane od klienta i wywołania metody wychodzącej wywołanego na kliencie:
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample67.cs)]
 
-Poniższy kod w *Global.asax* pliku rejestruje moduł do działania w potoku koncentratora:
+Następujący kod w pliku *Global. asax* rejestruje moduł do uruchomienia w potoku centrum:
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample68.cs?highlight=3)]
 

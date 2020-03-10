@@ -1,39 +1,39 @@
 ---
 uid: webhooks/receiving/handlers
-title: Programy obsługi elementów Webhook programu ASP.NET | Dokumentacja firmy Microsoft
+title: Programy obsługi elementów webhook ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Sposób obsługi żądań w elementów Webhook programu ASP.NET.
+description: Jak obsługiwać żądania w elementach webhook ASP.NET.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
 ms.openlocfilehash: 01c9a283d105c4a0973ff88c8de646c5f49a34db
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067643"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637873"
 ---
-# <a name="aspnet-webhooks-handlers"></a>Programy obsługi elementów Webhook programu ASP.NET
+# <a name="aspnet-webhooks-handlers"></a>Procedury obsługi elementów webhook ASP.NET
 
-Gdy elementy Webhook żądania została zweryfikowana przez odbiorcę elementu WebHook, jest gotowe do przetworzenia przez kod użytkownika. Jest to miejsce *obsługi* pochodzą. Programy obsługi pochodzić od [IWebHookHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandler.cs) interfejs, ale zazwyczaj używa [WebHookHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandler.cs) klasy zamiast wywodzić się bezpośrednio z interfejsu.
+Po zweryfikowaniu żądań elementów webhook przez odbiornik elementu webhook jest on gotowy do przetworzenia przez kod użytkownika. Jest to miejsce, w którym są one *obsługiwane* . Procedury obsługi pochodzą z interfejsu [IWebHookHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandler.cs) , ale zazwyczaj używają klasy [WebHookHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandler.cs) zamiast wyprowadzania bezpośrednio z interfejsu.
 
-Żądanie elementu WebHook, mogą być przetwarzane przez jeden lub więcej programów obsługi. Programy obsługi są wywoływane w kolejności, w oparciu o ich odpowiednich *kolejności* właściwość przesyłane z najniższej do najwyższej gdzie kolejność jest liczbą całkowitą proste (sugerowany należeć do zakresu od 1 do 100):
+Żądanie elementu webhook może być przetwarzane przez jeden lub więcej programów obsługi. Procedury obsługi są wywoływane w kolejności na podstawie ich właściwości *Order* , która przechodzą z najmniejszego do najwyższego, gdzie Order jest prostą liczbą całkowitą (sugerowaną dla zakresu od 1 do 100):
 
-![Procedura obsługi elementu WebHook kolejność właściwości diagramu](_static/Handlers.png)
+![Diagram właściwości kolejności obsługi elementu webhook](_static/Handlers.png)
 
-Opcjonalnie możesz ustawić programu obsługi *odpowiedzi* właściwość WebHookHandlerContext, co będzie prowadzić przetwarzania do zatrzymania i odpowiedź do wysłania jako odpowiedzi HTTP do elementu WebHook. W przypadku powyższych obsługi języka C nie będzie wywoływana, ponieważ ma ona wyższego rzędu niż B i B ustawia odpowiedź.
+Program obsługi może opcjonalnie ustawić właściwość *Response* w WebHookHandlerContext, co spowoduje zatrzymanie przetwarzania i wysłanie odpowiedzi z powrotem jako odpowiedzi HTTP do elementu webhook. W powyższym przypadku procedura obsługi C nie zostanie wywołana, ponieważ ma wyższą kolejność niż B i B ustawia odpowiedź.
 
-Ustawienie odpowiedzi jest zwykle tylko istotne dla elementów Webhook, gdzie odpowiedzi mogą przenosić informacji do źródłowego interfejsu API. Jest to na przykład w przypadku elementów Webhook Slack, gdy odpowiedź opublikowaniu powrót do kanału, skąd pochodzą elementu WebHook. Programy obsługi można ustawić właściwości odbiorcy, jeśli chcą odbierać elementy Webhook z tego określonego odbiornika. Jeśli nie ustawiają odbiorcy, gdy są wywoływane dla wszystkich z nich.
+Ustawienie odpowiedzi jest zazwyczaj odpowiednie dla elementów webhook, w których odpowiedź może przenosić informacje z powrotem do źródłowego interfejsu API. Dotyczy to na przykład przypadku elementu webhook zapasowych, gdzie odpowiedź jest księgowana z powrotem do kanału, z którego pochodzi element webhook. Programy obsługi mogą ustawiać właściwość Receiver, jeśli chcą otrzymywać tylko elementy webhook z tego konkretnego odbiorcy. Jeśli nie ustawili odbiorcy, są one wywoływane dla wszystkich z nich.
 
-Jeden innym typowym zastosowaniem odpowiedź jest użycie *410 Gone* odpowiedzi, aby wskazać, czy element WebHook nie jest już aktywne i powinny być przesyłane więcej żądań.
+Innym typowym wykorzystaniem odpowiedzi jest użycie *410* nieistniejącej odpowiedzi, aby wskazać, że element webhook nie jest już aktywny i nie powinny być przesyłane żadne dalsze żądania.
 
-Domyślnie program obsługi zostanie wywołana przez wszystkich odbiorców elementu WebHook. Jednak jeśli *odbiorcy* właściwość jest ustawiona na nazwę programu obsługi, a następnie ten program obsługi subskrybent otrzyma tylko żądania elementu WebHook z tego odbiornika.
+Domyślnie program obsługi będzie wywoływany przez wszystkie odbiorniki elementu webhook. Jeśli jednak właściwość *Receiver* jest ustawiona na nazwę programu obsługi, to program obsługi będzie odbierać tylko żądania elementu webhook z tego odbiorcy.
 
-## <a name="processing-a-webhook"></a>Przetwarzanie elementu WebHook
+## <a name="processing-a-webhook"></a>Przetwarzanie elementu webhook
 
-Gdy program obsługi jest wywoływana, pobiera [WebHookHandlerContext](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandlerContext.cs) zawierający informacje o żądanie elementu WebHook. Dane, zwykle treści żądania HTTP, są dostępne z *danych* właściwości.
+Gdy wywoływana jest procedura obsługi, pobiera [WebHookHandlerContext](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookHandlerContext.cs) zawierający informacje o żądaniu elementu webhook. Dane, zazwyczaj treść żądania HTTP, są dostępne na podstawie właściwości *Data* .
 
-Typ danych jest zazwyczaj dane formularza JSON lub HTML, ale można rzutować do bardziej określonego typu, w razie potrzeby. Na przykład niestandardowych elementów Webhook, generowane przez elementy Webhook ASP.NET mogą być rzutowane na typ [CustomNotifications](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers.Custom/WebHooks/CustomNotifications.cs) w następujący sposób:
+Typ danych to zwykle dane JSON lub HTML formularza, ale w razie potrzeby można rzutować na bardziej konkretny typ. Na przykład niestandardowe elementy webhook wygenerowane przez elementy webhook ASP.NET mogą być rzutowane na typ [CustomNotifications](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers.Custom/WebHooks/CustomNotifications.cs) w następujący sposób:
 
 ```csharp
 public class MyWebHookHandler : WebHookHandler
@@ -55,13 +55,13 @@ public class MyWebHookHandler : WebHookHandler
 }
 ```
 
-  ## <a name="queued-processing"></a>Przetwarzanie umieszczonych w kolejce
+  ## <a name="queued-processing"></a>Przetwarzanie w kolejce
 
-Większość nadawców elementu WebHook wyśle element WebHook, jeśli odpowiedź nie są generowane w ciągu kilku sekund. Oznacza to, że programu obsługi, należy wykonać przetwarzanie w tym przedziale czasu, w kolejności, nie na jego ponownie wywołana.
+Większość nadawców elementu webhook wyśle ponownie element webhook, jeśli odpowiedź nie zostanie wygenerowana w ciągu kilku sekund kilku. Oznacza to, że program obsługi musi zakończyć przetwarzanie w tym przedziale czasowym, aby nie był on ponownie wywoływany.
 
-Jeśli przetwarzanie zajmuje więcej czasu lub lepszego obsługiwane osobno, a następnie [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) może służyć do przesyłania żądania elementu WebHook do kolejki, na przykład [usługi Azure Storage Queue](https://msdn.microsoft.com/library/azure/dd179353.aspx).
+Jeśli przetwarzanie trwa dłużej lub jest lepiej obsługiwane oddzielnie, [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) można użyć do przesłania żądania elementu webhook do kolejki, na przykład z [kolejki usługi Azure Storage](https://msdn.microsoft.com/library/azure/dd179353.aspx).
 
-Zarys [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) wdrożenia można znaleźć tu:
+Konspekt implementacji [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) jest dostępny tutaj:
 
 ```csharp
 public class QueueHandler : WebHookQueueHandler

@@ -1,77 +1,77 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
-title: Dodawanie kontrolera | Dokumentacja firmy Microsoft
+title: Dodawanie kontrolera | Microsoft Docs
 author: shanselman
-description: Zaktualizowaną wersję, jeśli w tym samouczku jest dostępna w tym miejscu za pomocą programu Visual Studio 2013. Nowe samouczku ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z t...
+description: Zaktualizowana wersja, jeśli ten samouczek jest dostępny w tym miejscu przy użyciu Visual Studio 2013. W nowym samouczku jest używany ASP.NET MVC 5, który zapewnia wiele ulepszeń w porównaniu do t...
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
 ms.openlocfilehash: e2a298584473f57c2b14edf507f0f6886d906ea3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123064"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543982"
 ---
 # <a name="adding-a-controller"></a>Dodawanie kontrolera
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
-> > Zaktualizowanej wersji, jeśli w tym samouczku jest dostępny [tutaj](../../getting-started/introduction/getting-started.md) przy użyciu [programu Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Nowe samouczku ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z tego samouczka.
+> > Zaktualizowana wersja, jeśli ten samouczek jest dostępny w [tym miejscu](../../getting-started/introduction/getting-started.md) przy użyciu [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). W nowym samouczku jest używany ASP.NET MVC 5, który zapewnia wiele ulepszeń w tym samouczku.
 >
 >
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-MVC to Model, widok i kontroler. MVC to wzorzec do tworzenia aplikacji w taki sposób, że każda część ma odpowiedzialność, która różni się od siebie.
+MVC to model, widok, kontroler. MVC to wzorzec służący do tworzenia aplikacji w taki sposób, aby każda część była obowiązkiem innym niż inne.
 
-- Model: Dane aplikacji
-- Widoki: Pliki szablonów, aplikacja będzie używać do dynamicznego generowania odpowiedzi HTML.
-- Kontrolery: Klasy, które obsługują przychodzące żądania adres URL do aplikacji, pobrać modelu danych, a następnie określ Przeglądanie szablonów, które renderują odpowiedź z powrotem do klienta
+- Model: dane aplikacji
+- Widoki: pliki szablonów używane przez aplikację do dynamicznego generowania odpowiedzi HTML.
+- Kontrolery: klasy obsługujące przychodzące żądania adresów URL do aplikacji, pobieranie danych modelu, a następnie określanie szablonów wyświetlania, które renderują odpowiedzi z powrotem do klienta
 
-Firma Microsoft będzie obejmujące wszystkie te pojęcia, w tym samouczku a pokazują, jak ich używać do tworzenia aplikacji.
+Będziemy omawiać wszystkie te koncepcje w tym samouczku i pokazują, jak używać ich do kompilowania aplikacji.
 
-Utworzymy nowy kontroler, klikając prawym przyciskiem myszy folder kontrolerów w Eksploratorze rozwiązania i wybierając polecenie Dodaj kontroler.
+Utwórz nowy kontroler, klikając prawym przyciskiem myszy folder controllers w Eksploratorze rozwiązań i wybierając polecenie Dodaj kontroler.
 
 [![AddControllerRightClick](getting-started-with-mvc-part2/_static/image2.png)](getting-started-with-mvc-part2/_static/image1.png)
 
-Nadaj nazwę nowemu kontrolerowi "HelloWorldController", a następnie kliknij przycisk Dodaj.
+Nazwij nowy kontroler "HelloWorldController" i kliknij przycisk Dodaj.
 
-[![Dodaj kontroler, okno dialogowe](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
+[Okno dialogowe Dodawanie kontrolera ![](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
 
-Zwróć uwagę, w Eksploratorze rozwiązań po prawej stronie, który został utworzony nowy plik o nazwie HelloWorldController.cs, i teraz otworzyć tego pliku w **IDE**.
+Zwróć uwagę na Eksplorator rozwiązań po prawej stronie, że został utworzony nowy plik o nazwie HelloWorldController.cs i ten plik jest teraz otwarty w środowisku **IDE**.
 
 [![HelloWorldControllerCode](getting-started-with-mvc-part2/_static/image6.png)](getting-started-with-mvc-part2/_static/image5.png)
 
-Utworzyć dwie nowe metody, które wyglądają następująco wewnątrz nowej klasy publicznej HelloWorldController. Na przykład zostanie zwrócona ciąg HTML bezpośrednio z poziomu kontrolera.
+Utwórz dwie nowe metody, które wyglądają podobnie jak w przypadku nowej klasy publicznej HelloWorldController. Na przykład będziemy zwracać ciąg HTML bezpośrednio z naszego kontrolera.
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample1.cs)]
 
-Twój kontroler o nazwie HelloWorldController i nową metodę nosi nazwę indeksu. Uruchom aplikację ponownie, tak jak wcześniej (kliknij przycisk Odtwórz, lub naciśnij klawisz F5, aby to zrobić). Zmień ścieżkę w pasku adresu, po uruchomieniu przeglądarki `http://localhost:xx/HelloWorld` wybrał gdzie xx jest numer niezależnie od komputera. Przeglądarka powinna wyglądać tak jak poniższy zrzut ekranu. W naszym powyższej metody możemy zwracane, ciąg przekazywany do metody o nazwie "Zawartość". Powiedzieliśmy systemu po prostu zwraca kod HTML i tak!
+Twój kontroler ma nazwę HelloWorldController, a nowa metoda jest nazywana indeksem. Uruchom aplikację ponownie, tak jak wcześniej (kliknij przycisk Odtwórz lub naciśnij klawisz F5, aby to zrobić). Po rozpoczęciu pracy przeglądarki zmień ścieżkę na pasku adresu, aby `http://localhost:xx/HelloWorld`, gdzie XX jest dowolną liczbą wybraną przez komputer. Teraz Twoja przeglądarka powinna wyglądać jak na poniższym zrzucie ekranu. W naszej metodzie zwracamy ciąg przesłany do metody o nazwie "Content". Firma Microsoft informuje o tym, że system zwróci jakiś kod HTML.
 
-ASP.NET MVC wywołuje różne klasy kontrolera (i różnych metod akcji w nich), w zależności od przychodzącego adresu URL. Domyślne mapowanie logikę używaną przez platformę ASP.NET MVC używa formatu to kontrolować, jaki kod jest uruchamiany:
+ASP.NET MVC wywołuje różne klasy kontrolera (i różne metody akcji w nich) w zależności od przychodzącego adresu URL. Domyślna logika mapowania używana przez ASP.NET MVC używa formatu, takiego jak ten, aby kontrolować kod, który jest uruchamiany:
 
-/[Controller]/[ActionName]/[Parameters]
+/[Controller]/[ActionName]/[parametry]
 
-Pierwszą część adresu URL określa klasę kontrolera do wykonania. Dlatego /HelloWorld mapuje klasy HelloWorldController. Druga część adresu URL określa metody akcji w klasie, do wykonania. Dlatego /HelloWorld/Index spowoduje, że metoda indeks() klasy HelloWorldController do wykonania. Należy zauważyć, że mieliśmy do odwiedzenia /HelloWorld powyżej i metodę, która została niejawnego indeksu. Jest to spowodowane metodę o nazwie "Index" jest to domyślna metoda, która zostanie wywołana na kontrolerze, jeśli nie jest jawnie określona.
+Pierwsza część adresu URL określa klasę kontrolera do wykonania. Dlatego/HelloWorld mapuje do klasy HelloWorldController. Druga część adresu URL określa metodę akcji dla klasy, która ma zostać wykonana. Dlatego/HelloWorld/Index mógłby spowodować wykonanie metody index () klasy HelloWorldController. Zwróć uwagę, że mamy tylko odwiedzić/HelloWorld powyżej, a indeks metody został implikowany. Wynika to z faktu, że metoda o nazwie "index" jest metodą domyślną, która zostanie wywołana na kontrolerze, jeśli nie została określona jawnie.
 
-[![To jest Moja Akcja domyślna](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![to jest moja Akcja domyślna](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
-Teraz przejdźmy do `http://localhost:xx/HelloWorld/Welcome.` teraz naszych powitalnej metody wykonywane i zwrócony jego ciągu HTML.
+Teraz przyjrzyjmy się `http://localhost:xx/HelloWorld/Welcome.` teraz nasze metody powitalnej zostały wykonane i zwrócone przez nią ciąg HTML.
 
-Ponownie / [Controller] / [Nazwa akcji] / [parametry] kontroler zostanie HelloWorld i Witaj w tym przypadku jest to metoda. Mamy jeszcze nie parametry to jeszcze zrobione.
+Ponownie,/[Controller]/[ActionName]/[Parameters], więc Controller to HelloWorld, a Welcome to metoda w tym przypadku. Jeszcze nie wykonano żadnych parametrów.
 
-[![Jest to metoda akcji-Zapraszamy!](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![to jest metoda akcji powitalnej](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
-Zmodyfikujmy naszego przykładu nieco tak, że możemy przekazać niektóre informacje z adresu URL do kontrolera, na przykład następująco: / HelloWorld/Witaj? nazwa = Scott&amp;numtimes = 4. Zmienić metodę powitalnej obejmujący dwa parametry i aktualizacji, takich jak go poniżej. Należy pamiętać, aby wskazać, że numTimes parametr powinien domyślnie 1, jeśli nie zostanie przekazany w używaliśmy funkcji opcjonalny parametr języka C#.
+Zmodyfikujmy przykład w nieco inny sposób, aby można było przekazać niektóre informacje z adresu URL do naszego kontrolera, na przykład takie:/HelloWorld/Welcome? Name = Scott&amp;numtimes = 4. Zmień metodę powitalną, aby uwzględnić dwa parametry i zaktualizować ją jak poniżej. Należy zauważyć, że użyto C# opcjonalnej funkcji parametru, aby wskazać, że parametr numTimes ma domyślnie wartość 1, jeśli nie została przeniesiona.
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample2.cs)]
 
-Uruchom aplikację i odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` zmiana wartości nazwy i numtimes, jak chcesz. System automatycznie mapowane nazwane parametry ciągu zapytania w pasku adresu do parametrów w metodzie.
+Uruchom aplikację i odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` zmienić wartość Nazwa i numtimes. System automatycznie zmapowan nazwane parametry z ciągu zapytania na pasku adresu do parametrów w metodzie.
 
-W obu tych przykładach kontroler zostało, wykonując całą pracę i ma zostać zwracanie HTML bezpośrednio. Zwykle nie chcemy naszych kontrolerów zwracanie HTML bezpośrednio — od czasu, który kończy się on bardzo skomplikowane, aby kod. Zamiast tego zazwyczaj użyjemy oddzielny plik szablonu widoku ułatwiający Generowanie odpowiedzi HTML. Przyjrzyjmy się jak możemy to zrobić. Zamknij przeglądarkę i powrócić do IDE.
+W obu tych przykładach kontroler wykonywał całą służbę i zwraca kod HTML bezpośrednio. Zwykle nie chcemy, aby nasze kontrolery zwracają kod HTML bezpośrednio — ponieważ nie są one bardzo uciążliwe w kodzie. Zamiast tego zwykle użyjesz osobnego pliku szablonu widoku, aby ułatwić generowanie odpowiedzi HTML. Przyjrzyjmy się, jak to zrobić. Zamknij przeglądarkę i wróć do środowiska IDE.
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part1.md)

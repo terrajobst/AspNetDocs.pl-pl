@@ -9,11 +9,11 @@ ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 11f4a7cae8d425873b1828a9e5f51471def954fb
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457157"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582195"
 ---
 # <a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
 
@@ -49,7 +49,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 <a id="azure"></a>
 
-## <a name="microsoft-azure"></a>Microsoft Azure
+## <a name="microsoft-azure"></a>{1&gt;Microsoft Azure&lt;1}
 
 - [Największy pokaz platformy Azure na świecie](http://www.troyhunt.com/2014/03/the-worlds-greatest-azure-demo.html)
 - [Wideo z//build/2014](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (Azure i Visual Studio)
@@ -80,7 +80,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 <a id="security"></a>
 
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 - [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem w serwisie Facebook i Google OAuth2](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
@@ -274,7 +274,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>Komórkowy
+## <a name="mobile"></a>Telefon komórkowy
 
 - [Samouczek dla urządzeń przenośnych ASP.NET MVC 4](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [Plików Tworzenie przyjaznych witryn sieci Web za pomocą MVC 4](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)

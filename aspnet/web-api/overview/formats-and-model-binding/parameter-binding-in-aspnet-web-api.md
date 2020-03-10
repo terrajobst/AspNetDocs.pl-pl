@@ -10,11 +10,11 @@ ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 464cb9b45dc0b62c4da38b7cf612934808854d32
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074907"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557198"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>Powiązanie parametrów w interfejsie API sieci Web ASP.NET
 
@@ -203,7 +203,7 @@ Cały proces wiązania parametrów jest kontrolowany przez podłączane usługi 
 
 Jeśli chcesz, możesz zastąpić całą usługę **IActionValueBinder** z implementacją niestandardową.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [Przykład powiązania parametru niestandardowego](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
 

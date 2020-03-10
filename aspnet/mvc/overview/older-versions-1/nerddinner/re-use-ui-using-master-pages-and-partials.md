@@ -1,73 +1,73 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
-title: Ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych | Dokumentacja firmy Microsoft
+title: Ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych | Microsoft Docs
 author: microsoft
-description: Krok 7 analizuje sposób możemy zastosować zasady susz w ramach naszych szablonów widok, aby wyeliminować zduplikowania kodu, przy użyciu szablonów widok częściowy i stron wzorcowych.
+description: Krok 7. analizujemy sposoby zastosowania "zasady SUCHEj" w naszych szablonach widoków w celu wyeliminowania duplikowania kodu przy użyciu częściowych szablonów widoków i stron wzorcowych.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: d4243a4a-e91c-4116-9ae0-5c08e5285677
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
 ms.openlocfilehash: 0b17cb6ac14b7f187bf1f175097a37907689d46e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128356"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78580333"
 ---
 # <a name="re-use-ui-using-master-pages-and-partials"></a>Ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 7 bezpłatne [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 7 bezpłatnego [samouczka dotyczącego aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , który zawiera instrukcje tworzenia niewielkiej, ale kompletnej aplikacji sieci Web przy użyciu ASP.NET MVC 1.
 > 
-> Krok 7 analizuje sposób możemy zastosować "Zasadą susz" w ramach naszych szablonów widok, aby wyeliminować zduplikowania kodu, przy użyciu szablonów widok częściowy i stron wzorcowych.
+> Krok 7. analizujemy sposoby zastosowania "zasady SUCHEj" w naszych szablonach widoków w celu wyeliminowania duplikowania kodu przy użyciu częściowych szablonów widoków i stron wzorcowych.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
+> Jeśli używasz ASP.NET MVC 3, zalecamy użycie [wprowadzenie ze samouczkami ze sklepu MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) .
 
-## <a name="nerddinner-step-7-partials-and-master-pages"></a>NerdDinner krok 7: Częściowe i stronami wzorcowymi
+## <a name="nerddinner-step-7-partials-and-master-pages"></a>NerdDinner krok 7: części i strony wzorcowe
 
-Jeden filozofię projekt, który korzysta z platformy ASP.NET MVC jest zasada "Czy nie Powtórz samodzielnie" (powszechnie znane jako "Suchych"). Projekt susz, pomaga wyeliminować sytuację duplikowania kodu i logiki, co ostatecznie sprawia, że aplikacje szybciej tworzyć i łatwiejsze w utrzymaniu.
+Jednym z projektów filozofiami ASP.NET MVC to "nie powtarzaj sobie" (powszechnie określany jako "SUCHy"). SUCHy projekt pomaga wyeliminować duplikowanie kodu i logiki, co ostatecznie sprawia, że aplikacje są szybciej kompilowane i łatwiejsze w obsłudze.
 
-Widzieliśmy już susz zasady stosowane w kilku scenariuszy NerdDinner. Kilka przykładów: naszych logikę weryfikacji jest zaimplementowana w naszej warstwie modelu umożliwia wymuszane dla obu edytowanie i tworzenie scenariuszy w kontrolera; ponownie używamy "NotFound" Wyświetl szablon różnych metod akcji Edytuj, szczegóły i Delete; użyto konwencji nazewnictwa wzorzec za pomocą naszych szablonów widoku, które eliminuje potrzebę jawnie określić nazwę, jeśli możemy wywołać metody pomocnika View(); i możemy ponowne wykorzystanie klasy DinnerFormViewModel do obu edycji i tworzenia akcji scenariuszy.
+Ta zasada została już zastosowana w kilku naszych scenariuszach NerdDinner. Kilka przykładów: Nasza logika walidacji jest implementowana w ramach naszej warstwy modelu, co umożliwia wymuszanie jej w ramach obu scenariuszy edycji i tworzenia w naszym kontrolerze; Używamy szablonu widoku "NotFound" w ramach metod edycji, szczegółów i usuwania. korzystamy ze wzorca nazewnictwa Konwencji z naszymi szablonami widoków, co eliminuje konieczność jawnego określenia nazwy podczas wywoływania metody pomocnika view (). i ponownie korzystamy z klasy DinnerFormViewModel dla scenariuszy akcji Edytuj i Utwórz.
 
-Teraz Spójrzmy na sposób możemy zastosować "Zasadą susz" w ramach naszych szablonów widok, aby wyeliminować zduplikowania kodu, ma także.
+Teraz przyjrzyjmy się sposobom zastosowania "zasady SUCHEj" w naszych szablonach widoków, aby wyeliminować również duplikaty kodu.
 
-### <a name="re-visiting-our-edit-and-create-view-templates"></a>Ponownego odwiedzania naszej edycji i tworzenie szablonów widoków
+### <a name="re-visiting-our-edit-and-create-view-templates"></a>Odwiedzanie naszych szablonów edycji i tworzenia widoków
 
-Obecnie używamy dwa szablony inny widok — "Edit.aspx" i "Create.aspx" — do wyświetlania formularza obiad interfejsu użytkownika. Szybkie visual porównania ich wyróżnia, podobnie jak są one. Poniżej znajduje się formularz Utwórz wygląda następująco:
+Obecnie korzystamy z dwóch różnych szablonów widoku — "Edit. aspx" i "Create. aspx" — aby wyświetlić nasz interfejs użytkownika formularza obiadu. Szybkie wizualne porównywanie ich pokazuje, jak przypominają one podobne. Poniżej przedstawiono wygląd formularza:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image1.png)
 
-A Oto formularza "Edit" wygląda następująco:
+Poniżej przedstawiono wygląd formularza "Edytuj":
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image2.png)
 
-Nie ma wiele różnic jest? Inne niż tekst tytułu i nagłówek kontrolek formularza układ i dane wejściowe są identyczne.
+Czy istnieje zbyt wiele różnic? Oprócz tytułu i tekstu nagłówka, układ formularza i kontrolki wprowadzania są identyczne.
 
-Otwieramy "Edit.aspx" i "Create.aspx" Przeglądanie szablonów, które firma Microsoft znajdziesz, które zawierają kod sterowania układ i dane wejściowe formularza identyczne. Ta duplikacja oznacza, że firma Microsoft znajdą się konieczności wprowadzania zmian, dwa razy w dowolnym możemy wprowadzić lub zmienić nową właściwość obiad — który nie jest dobra.
+Jeśli otworzysz szablony widoków "Edit. aspx" i "Create. aspx", zobaczymy, że zawierają one identyczny układ formularza i kod kontroli wejścia. To duplikowanie oznacza, że chcemy, aby zmiany były wprowadzane dwa razy, gdy wprowadzimy lub zmienimy nową właściwość obiadu, która nie jest dobra.
 
-### <a name="using-partial-view-templates"></a>Za pomocą szablonów widoku częściowego
+### <a name="using-partial-view-templates"></a>Korzystanie z szablonów widoku częściowego
 
-ASP.NET MVC obsługuje możliwość definiowania szablonów "widoku częściowego", które może być użyty do hermetyzacji logiki renderowania widoku podrzędnego części strony. "Częściowych" wygodny sposób, aby zdefiniować logikę do renderowania widoku raz, a następnie użyć go ponownie w wielu miejscach w aplikacji.
+ASP.NET MVC obsługuje możliwość definiowania szablonów "widok częściowy", których można użyć do hermetyzacji logiki renderowania widoku dla podczęści strony. "Częściowe" zapewniają przydatny sposób definiowania logiki renderowania widoku, a następnie ponownie używać jej w wielu miejscach w aplikacji.
 
-Aby ułatwić "PRÓBNEGO w górę" nasze Edit.aspx i Duplikowanie szablonu widoku Create.aspx, możemy utworzyć szablon widoku częściowego o nazwie "DinnerForm.ascx", który hermetyzuje układu formularza i elementów wejściowych, które są wspólne dla obu. Możemy to zrobić, klikając prawym przyciskiem myszy na naszych/widoków lub kolacji katalogu i wybierając pozycję "Add -&gt;widok" polecenie menu:
+Aby pomóc "w wyschnięciu" z naszymi szablonami Edit. aspx i Create. aspx, można utworzyć szablon widoku częściowego o nazwie "DinnerForm. ascx", który hermetyzuje układ formularza i elementy wejściowe wspólne dla obu tych elementów. W tym celu należy kliknąć prawym przyciskiem myszy katalog/Views/Dinners i wybrać polecenie menu "Dodawanie&gt;":
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image3.png)
 
-Spowoduje to wyświetlenie okna dialogowego "Dodaj widok". Firma Microsoft będzie nazwa nowy widok, firma Microsoft do utworzenia "DinnerForm", zaznacz pole wyboru "Utwórz widok częściowy", w oknie dialogowym i wskazuje, czy będzie przekazywany jej klasę DinnerFormViewModel:
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie widoku". Zmienimy nazwę nowego widoku, który chcemy utworzyć "DinnerForm", zaznacz pole wyboru "Utwórz widok częściowy" w oknie dialogowym i wskaż, że przekażemy go do klasy DinnerFormViewModel:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image4.png)
 
-Kliknięcie przycisku "Dodaj", programu Visual Studio Utwórz nowy szablon widoku "DinnerForm.ascx" dla nas w katalogu "\Views\Dinners".
+Po kliknięciu przycisku "Dodaj" program Visual Studio utworzy nowy szablon widoku "DinnerForm. ascx" dla nas w katalogu "\Views\Dinners".
 
-Firma Microsoft może następnie kopiowania/wklejania układu formularza zduplikowane / wprowadzić kod sterowania z naszych szablonów widoku Edit.aspx/ Create.aspx do naszego nowego szablonu widoku częściowego "DinnerForm.ascx":
+Następnie możemy skopiować/wkleić zduplikowany układ formularza/kod kontroli danych wejściowych z naszego szablonu Edytuj. aspx/Create. aspx w nowym szablonie widoku "DinnerForm. ascx":
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample1.aspx)]
 
-Firma Microsoft jest następnie zaktualizuj nasze szablony widoku Edit and Create wywołać DinnerForm częściowy szablon i wyeliminować duplikaty, w formularzu. Możemy to zrobić przez wywołującego Html.RenderPartial("DinnerForm") w ramach naszych szablonów widoku:
+Następnie możemy zaktualizować nasze szablony edycji i tworzenia widoków w celu wywołania częściowego szablonu DinnerForm i wyeliminowania duplikowania formularzy. Możemy to zrobić, wywołując plik HTML. RenderPartial ("DinnerForm") w naszych szablonach widoków:
 
 ##### <a name="createaspx"></a>Create.aspx
 
@@ -77,61 +77,61 @@ Firma Microsoft jest następnie zaktualizuj nasze szablony widoku Edit and Creat
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample3.aspx)]
 
-Można jawnie kwalifikujesz się do ścieżki częściowy szablon chcesz, aby podczas wywoływania Html.RenderPartial (na przykład: ~ Views/Dinners/DinnerForm.ascx "). W naszym kodzie powyżej, jesteśmy zalet oparty na konwencji nazewnictwa wzorcu w ramach platformy ASP.NET MVC i po prostu określenie "DinnerForm" jako nazwę częściowego do renderowania. W takim przypadku to platformy ASP.NET MVC będzie szukać pierwszy w katalogu views oparty na Konwencji (będzie to/widoków/kolacji DinnersController). Jeśli nie znajdzie częściowy szablon ma ona będzie szukać go w katalogu /Views/Shared.
+Można jawnie zakwalifikować ścieżkę częściowego szablonu podczas wywoływania kodu HTML. RenderPartial (na przykład: ~ widoki/obiady/DinnerForm. ascx "). W naszym powyżej kodzie firma Microsoft korzysta ze wzorca nazewnictwa opartego na Konwencji w ramach ASP.NET MVC i po prostu określa "DinnerForm" jako nazwę częściowej do renderowania. Gdy to zrobimy, ASP.NET MVC będzie wyglądał najpierw w katalogu widoków opartych na konwencji (w przypadku DinnersController to/Views/Dinners). Jeśli nie znajdzie częściowego szablonu, będzie on następnie szukać w katalogu/Views/Shared.
 
-Gdy Html.RenderPartial() jest wywoływana za pomocą tylko nazwę widoku częściowego, platformy ASP.NET MVC zostanie przekazany do widoku częściowego do tego samego modelu ViewData słownika obiektów i używane przez wywołującego szablon widoku. Alternatywnie są przeciążone wersje Html.RenderPartial() umożliwiające przekazać alternatywne obiekt modelu i/lub słownika ViewData widoku częściowego do użycia. Jest to przydatne w scenariuszach, gdzie tylko chcesz przekazać podzestaw pełny Model/ViewModel.
+Gdy plik HTML. RenderPartial () jest wywoływany przy użyciu tylko nazwy widoku częściowego, ASP.NET MVC przejdzie do widoku częściowego tego samego modelu i obiektów słownika ViewData, które są używane przez szablon widoku wywołującego. Alternatywnie istnieją przeciążone wersje języka HTML. RenderPartial (), które umożliwiają przekazywanie alternatywnego obiektu modelu i/lub słownika ViewData dla widoku częściowego do użycia. Jest to przydatne w scenariuszach, w których chcesz tylko przekazać podzestaw pełnego modelu/ViewModel.
 
-| **Temat po stronie: Dlaczego &lt;%%&gt; zamiast &lt;% = %&gt;?** |
+| **Temat po stronie: Dlaczego &lt;%%&gt; zamiast &lt;% =%&gt;?** |
 | --- |
-| Jedną z rzeczy subtelne, być może Zauważyłeś, za pomocą powyższego kodu jest, że &lt;%%&gt; block zamiast &lt;% = %&gt; blokowania podczas wywoływania Html.RenderPartial(). &lt;% = %&gt; bloków na platformie ASP.NET wskazują, że deweloper chce renderowania określona wartość (na przykład: &lt;% = "Hello" %&gt; będzie renderować "Hello"). &lt;%%&gt; bloki zamiast tego wskazują, że deweloper chce wykonać kod, i że dowolne renderowania danych wyjściowych w ramach ich musi odbywać się jawnie (na przykład: &lt;Response.Write("Hello") %&gt;. Dlatego używamy &lt;%%&gt; jest blok dzięki naszemu kodowi Html.RenderPartial powyżej, ponieważ metoda Html.RenderPartial() nie zwraca ciąg, a zamiast tego Wyświetla zawartość bezpośrednio do wywoływania szablon widoku danych wyjściowych strumienia. Robi to wydajność ze względu na wydajność i wykonując, aby uniknąć konieczności tworzenia obiektu string tymczasowego (potencjalnie bardzo duże). Zmniejsza użycie pamięci i zwiększa przepływność cała aplikacja. Jeden powszechnym podczas używania Html.RenderPartial() jest dodanie średnika na końcu wywołania, gdy znajduje się w &lt;%%&gt; bloku. Na przykład, ten kod powoduje błąd kompilatora: &lt;Html.RenderPartial("DinnerForm") %&gt; zamiast tego trzeba było pisać: &lt;% Html.RenderPartial("DinnerForm"); %&gt; jest to spowodowane &lt;%%&gt; bloki są instrukcje niezależna kodu i w przypadku korzystania z C# instrukcje kodu, które muszą być zakończone znakiem średnika. |
+| Jednym z delikatnych cech, z którymi może być zauważalny kod, jest użycie bloku &lt;%%&gt; zamiast &lt;% =%&gt; podczas wywoływania pliku HTML. RenderPartial (). &lt;% =%&gt; bloki w ASP.NET wskazują, że programista chce renderować określoną wartość (na przykład: &lt;% = "Hello"%&gt; będzie renderować "Hello"). &lt;%%&gt; zamiast tego wskazują, że deweloper chce wykonać kod i że wszystkie renderowane dane wyjściowe muszą zostać wykonane jawnie (na przykład: &lt;% Response. Write ("Witaj")%&gt;. Powód użycia bloku &lt;%%&gt; z naszym kodem HTML. RenderPartial powyżej jest to spowodowane tym, że metoda html. RenderPartial () nie zwraca ciągu, a zamiast tego wyprowadza zawartość bezpośrednio do strumienia wyjściowego szablonu widoku wywołującego. Ma to na celu zwiększenie wydajności i pozwala uniknąć konieczności tworzenia obiektu ciągu tymczasowego (potencjalnie bardzo dużego). Zmniejsza to użycie pamięci i zwiększa ogólną przepływność aplikacji. Jeden typowy błąd podczas korzystania z języka HTML. RenderPartial () polega na dodaniu średnika na końcu wywołania, gdy znajduje się w bloku &lt;%%&gt;. Na przykład ten kod spowoduje błąd kompilatora: &lt;% html. RenderPartial ("DinnerForm")%&gt; zamiast tego należy napisać: &lt;% html. RenderPartial ("DinnerForm"); %&gt; jest to spowodowane tym, że &lt;%%&gt; są niezależnymi instrukcjami kodu i w C# przypadku używania instrukcji Code należy kończyć średnikami. |
 
-### <a name="using-partial-view-templates-to-clarify-code"></a>Za pomocą szablonów widoku częściowego, aby wyjaśnić, kod
+### <a name="using-partial-view-templates-to-clarify-code"></a>Korzystanie z szablonów widoku częściowego w celu wyjaśnienia kodu
 
-Utworzyliśmy szablon widoku częściowego "DinnerForm", aby uniknąć duplikowania logiki renderowania widoku w kilku miejscach. To jest Najczęstszym powodem tworzenia szablonów widoku częściowego.
+Utworzyliśmy szablon widoku częściowego "DinnerForm", aby uniknąć duplikowania logiki renderowania widoku w wielu miejscach. Jest to najbardziej typowy powód tworzenia szablonów widoku częściowego.
 
-Czasami nadal warto tworzyć widoki częściowe, nawet wtedy, gdy są one wywoływana tylko w jednym miejscu. Szablony widoku bardzo skomplikowane często może stać się znacznie łatwiejsze do odczytania podczas logikę renderowania widoku jest wyodrębniony i podzielona na partycje w jednym lub więcej również o nazwie częściowe szablonów.
+Czasami nadal warto tworzyć częściowe widoki nawet wtedy, gdy są one wywoływane tylko w jednym miejscu. Bardzo skomplikowane szablony widoków często stają się znacznie łatwiejsze do odczytania, gdy logika renderowania widoku jest wyodrębniana i partycjonowana do jednego lub większej liczby dobrze wymienionych szablonów częściowych.
 
-Rozważmy na przykład poniżej fragment kodu z pliku Site.master w projekcie (które firma Microsoft będzie sprawdzane wkrótce). Kod jest względnie proste — można odczytać — częściowo, ponieważ logika do wyświetlenia logowania/wylogowania link u góry po prawej stronie ekranu jest hermetyzowane w części "LogOnUserControl":
+Rozważmy na przykład poniższy fragment kodu z pliku site. Master w naszym projekcie (wkrótce będzie on wyświetlany). Kod jest relatywnie prosty do odczytu — częściowo, ponieważ logika wyświetlania linku logowania/wylogowania w prawym górnym rogu ekranu jest hermetyzowana w części "LogOnUserControl":
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample4.aspx)]
 
-Zawsze, gdy okaże się, że pobieranie mylić próby zrozumieć kod html/znaczników w ramach szablonu widoku, należy wziąć pod uwagę, czy w takich sytuacjach przydałaby się bardziej zrozumiałe, jeśli część z nich został wyodrębniony i zrefaktoryzowany do dobrze nazwane widoki częściowe.
+Za każdym razem, gdy znajdziesz odmylić, spróbuj zrozumieć kod HTML/znacznik w szablonie widoku, rozważ, czy nie będzie to wyraźniejsze, jeśli niektóre z nich zostały wyodrębnione i wdrożone w dobrze nazwanych widokach częściowych.
 
 ### <a name="master-pages"></a>Strony wzorcowe
 
-Oprócz obsługi widoków częściowych, ASP.NET MVC obsługuje również możliwość tworzenia szablonów "strony wzorcowej", które mogą służyć do definiowania układu typowe i html najwyższego poziomu lokacji. Symbol zastępczy, który następnie można dodać formanty do strony wzorcowej do identyfikowania regionów wymienne, które mogą być zastąpione, lub "wypełnione" przy użyciu funkcji widoków zawartości. Zapewnia to bardzo efektywny (i susz) sposób stosowania wspólnego układu dla aplikacji.
+Oprócz obsługi widoków częściowych, ASP.NET MVC obsługuje również możliwość tworzenia szablonów "Strona wzorcowa", których można użyć do zdefiniowania wspólnego układu i pliku HTML najwyższego poziomu. Kontrolki symbol zastępczy zawartości można następnie dodać do strony wzorcowej, aby identyfikować regiony, które mogą zostać zastąpione lub wypełnione przez widoki. Zapewnia to bardzo efektywny (i SUCHy) sposób zastosowania wspólnego układu w aplikacji.
 
-Domyślnie nowe projekty ASP.NET MVC ma szablonu strony wzorcowej automatycznie dodawane do nich. Ta strona wzorcowa nosi nazwę "Site.master" i życie w folderze \Views\Shared\:
+Domyślnie nowe projekty ASP.NET MVC mają automatycznie dodawane do nich szablon strony głównej. Ta strona wzorcowa ma nazwę "site. master" i znajduje się w folderze \Views\Shared\:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image5.png)
 
-Domyślny plik Site.master wygląda jak poniżej. Definiuje zewnętrzne html witryny, wraz z menu nawigacji u góry. Zawiera dwie kontrolki wymienne symbolu zastępczego zawartości — jeden dla tytułu i innych, dla której powinna zostać zastąpiona głównej zawartość strony:
+Domyślny plik site. Master wygląda jak poniżej. Definiuje on zewnętrzny kod HTML witryny wraz z menu nawigacji w górnej części strony. Zawiera dwie kontrolki symbolu zastępczego zawartości — jeden dla tytułu, a drugi, dla którego należy zastąpić podstawową zawartość strony:
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample5.aspx)]
 
-Wszystkie szablony widoku, którą utworzyliśmy dla naszej aplikacji NerdDinner ("List", "Szczegóły", "Edytuj", "Utwórz", "NotFound" itp.) mają został oparty na tym szablonie Site.master. Jest to wskazywane przez atrybut "MasterPageFile", który został dodany domyślnie u góry &lt;% @ % strony&gt; dyrektywy wtedy stworzyliśmy naszych widoków, korzystając z okna dialogowego "Dodaj widok":
+Wszystkie szablony widoków utworzone dla naszej aplikacji NerdDinner ("list", "Details", "Edit", "Create", "NotFound" itp.) zostały oparte na tym szablonie witryny. Master. Jest to wskazywane za pośrednictwem atrybutu "MasterPageFile", który został domyślnie dodany do górnej &lt;% @ Page%&gt; dyrektywy podczas tworzenia widoków przy użyciu okna dialogowego "Dodaj widok":
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample6.aspx)]
 
-Oznacza to, że możemy zmienić zawartość Site.master i mają zmiany automatycznie stosowane i używany, gdy firma Microsoft renderowania jednego z naszych szablonów widoku.
+Oznacza to, że możemy zmienić zawartość witryny. Master i spowodować, że zmiany są automatycznie stosowane i używane podczas renderowania dowolnego z naszych szablonów widoków.
 
-Zaktualizujmy naszych Site.master nagłówka sekcji, aby nagłówek nasza aplikacja jest "NerdDinner" zamiast "Moja aplikacja MVC". Również zaktualizujmy nasze menu nawigacji, aby pierwsza karta jest "Znajdź obiad" (obsługiwane przez metodę akcji indeks() HomeController) i możemy dodać nową kartę o nazwie "Host obiad" (obsługiwane przez metodę akcji Create() DinnersController):
+Zaktualizujmy sekcję nagłówkową witryny. Master, aby nagłówek naszej aplikacji miał wartość "NerdDinner", a nie "moja aplikacja MVC". Zaktualizujmy również nasze menu nawigacji, tak aby pierwsza karta "znalazła się na obiad" (obsługiwana przez metodę akcji index () HomeController () i dodamy nową kartę o nazwie "host a obiad" (obsłużoną przez metodę akcji Create () DinnersController):
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample7.aspx)]
 
-Podczas oszczędzamy plik Site.master i odświeżania przeglądarki zobaczymy nasz nagłówek zmiany show we wszystkich widokach w ramach naszej aplikacji. Na przykład:
+W przypadku zapisania pliku site. Master i odświeżenia naszej przeglądarki zobaczymy, że nasze zmiany w nagłówku będą widoczne dla wszystkich widoków w naszej aplikacji. Na przykład:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image6.png)
 
-I */Dinners/Edit / [id]* adresu URL:
+I z adresem URL */Dinners/Edit/[ID]* :
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image7.png)
 
 ### <a name="next-step"></a>Następny krok
 
-Częściowe i stron wzorcowych zapewnia bardzo elastyczne opcje, które umożliwiają organizowanie nie pozostawia żadnych śladów widoków. Znajdziesz się, że pomagają uniknąć duplikowania widok zawartości / kodu i ułatwiają odczytywanie i Obsługa szablonów widoku.
+Części i strony wzorcowe zapewniają bardzo elastyczne opcje umożliwiające przejrzyste organizowanie widoków. Zobaczysz, że pomogą Ci uniknąć duplikowania zawartości widoku/kodu i ułatwić odczytywanie i konserwowanie szablonów widoku.
 
-Przejdźmy teraz ponownie scenariusza listy, który wcześniej został skompilowany i włączyć obsługę stronicowania skalowalne.
+Przejdźmy teraz do utworzonej wcześniej scenariusza tworzenia listy i włączania skalowalnej obsługi stronicowania.
 
 > [!div class="step-by-step"]
 > [Poprzednie](use-viewdata-and-implement-viewmodel-classes.md)

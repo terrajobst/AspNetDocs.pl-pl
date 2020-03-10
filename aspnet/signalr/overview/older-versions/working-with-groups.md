@@ -1,83 +1,83 @@
 ---
 uid: signalr/overview/older-versions/working-with-groups
-title: Praca z grupami w SignalR 1.x | Dokumentacja firmy Microsoft
+title: Praca z grupami w sygnalizacji 1. x | Microsoft Docs
 author: bradygaster
-description: W tym temacie opisano, jak można utrwalić informacje o członkostwie w grupie przy użyciu interfejsu API Centrum.
+description: W tym temacie opisano sposób utrwalania informacji o członkostwie w grupie za pomocą interfejsu API centrum.
 ms.author: bradyg
 ms.date: 10/21/2013
 ms.assetid: 22929efd-68c9-4609-b76d-f8ba42fda01e
 msc.legacyurl: /signalr/overview/older-versions/working-with-groups
 msc.type: authoredcontent
 ms.openlocfilehash: 5f50dc162d6cdcfbf2261e6a751f5f99078d5c54
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113703"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579367"
 ---
 # <a name="working-with-groups-in-signalr-1x"></a>Praca z grupami w usłudze SignalR 1.x
 
-przez [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+[Fletcher Patryk](https://github.com/pfletcher), [Tomasz FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> W tym temacie opisano, jak dodać użytkowników do grup i zachować informacje o członkostwie w grupie.
+> W tym temacie opisano sposób dodawania użytkowników do grup i utrwalania informacji o członkostwie w grupach.
 
 ## <a name="overview"></a>Omówienie
 
-Grupami w SignalR udostępnia metody emisji komunikatów określony podzbiór połączonych klientów. Grupa może zawierać dowolną liczbę klientów, a klient może należeć do dowolnej liczby grup. Nie trzeba jawnie tworzyć grupy. W efekcie grupa zostanie utworzona automatycznie określić jego nazwę w wywołaniu Groups.Add po raz pierwszy, a zostanie usunięta po usunięciu ostatniego połączenia z członkostwa w nim. Wprowadzenie do korzystania z grup, zobacz [sposób zarządzania członkostwa w grupie z klasy koncentratora](index.md) w interfejsie API centrów — serwer przewodnik.
+Grupy w sygnalizacji zapewniają metodę rozgłaszania komunikatów do określonych podzestawów połączonych klientów. Grupa może mieć dowolną liczbę klientów, a klient może być członkiem dowolnej liczby grup. Nie musisz jawnie tworzyć grup. W efekcie Grupa jest tworzona automatycznie przy pierwszym określeniu jej nazwy w wywołaniu groups. Add i jest usuwana po usunięciu ostatniego połączenia z członkostwa w nim. Aby zapoznać się z wprowadzeniem do korzystania z grup, zobacz [jak zarządzać członkostwem w grupie z klasy Hub](index.md) w podręczniku API Hubs-Server.
 
-Nie ma żadnych interfejsów API w celu uzyskania listy członkostwa grupy lub Podaj listę grup. SignalR wysyła wiadomości do klientów i grup oparty na modelu publikowania/subskrybowania, a serwer nie przechowuje listę grup lub członkostwa w grupach. Pozwala to zmaksymalizować skalowalność, ponieważ po każdym dodaniu węzła w farmie sieci web, stan, który przechowuje SignalR są propagowane do nowego węzła.
+Brak interfejsu API do uzyskiwania listy członkostwa w grupie lub listy grup. Program sygnalizujący wysyła komunikaty do klientów i grup na podstawie modelu pub/sub, a serwer nie zachowuje list grup ani członkostw w grupach. Pozwala to zmaksymalizować skalowalność, ponieważ po dodaniu węzła do kolektywu serwerów sieci Web, każdy stan, który utrzymuje usługa sygnalizująca, musi być propagowany do nowego węzła.
 
-Po dodaniu użytkownika do grupy przy użyciu `Groups.Add` metody, użytkownik otrzymuje wiadomości kierowane do tej grupy na czas trwania bieżącego połączenia, ale członkostwo użytkownika w tej grupie nie jest trwały poza bieżącym połączeniu. Jeśli chcesz trwale przechowywane informacje o grupach oraz członkostwa w grupie, dane muszą być przechowywane w repozytorium, takich jak bazy danych lub usługi Azure table storage. Następnie każdorazowo, gdy użytkownik łączy się z aplikacją, możesz pobrać z repozytorium użytkownik należy do grupy i ręcznie dodać tego użytkownika do tych grup.
+Po dodaniu użytkownika do grupy przy użyciu metody `Groups.Add` użytkownik otrzymuje komunikaty skierowane do tej grupy na czas trwania bieżącego połączenia, ale członkostwo użytkownika w tej grupie nie jest utrwalane poza bieżącym połączeniem. Jeśli chcesz trwale zachować informacje o grupach i członkostwie w grupie, musisz przechowywać te dane w repozytorium, takim jak baza danych lub Azure Table Storage. Następnie za każdym razem, gdy użytkownik nawiązuje połączenie z aplikacją, pobiera z repozytorium, do którego należy Grupa, i ręcznie Dodaj tego użytkownika do tych grup.
 
-Podczas ponownego łączenia po przerwaniu tymczasowe, użytkownik automatycznie ponownie łączy wcześniej przypisane grupy. Automatyczne ponowne przyłączanie grup tylko wtedy, gdy ponowne nawiązywanie połączenia, nie ustanawiania nowego połączenia. Token podpisane cyfrowo są przekazywane z klienta, który zawiera listy uprzednio przypisanych grup. Jeśli chcesz sprawdzić, czy użytkownik należy do żądanej grupy, można zastąpić domyślne zachowanie.
+Po ponownym nawiązaniu połączenia po tymczasowym zakłóceniu użytkownik automatycznie ponownie przyłącza do wcześniej przypisanych grup. Automatyczne ponowne sprzęganie grupy ma zastosowanie tylko w przypadku ponownego połączenia, a nie podczas ustanawiania nowego połączenia. Token podpisany cyfrowo jest przesyłany z klienta, który zawiera listę wcześniej przypisanych grup. Jeśli chcesz sprawdzić, czy użytkownik należy do żądanych grup, można zastąpić zachowanie domyślne.
 
 Ten temat zawiera następujące sekcje:
 
 - [Dodawanie i usuwanie użytkowników](#add)
 - [Wywoływanie elementów członkowskich grupy](#call)
 - [Przechowywanie członkostwa w grupie w bazie danych](#storedatabase)
-- [Zapisywanie członkostwa w grupach w usłudze Azure table storage](#storeazuretable)
-- [Sprawdzanie członkostwa w grupie przy ponownym łączeniu](#verify)
+- [Przechowywanie członkostwa w grupie w usłudze Azure Table Storage](#storeazuretable)
+- [Weryfikowanie członkostwa w grupie podczas ponownego nawiązywania połączenia](#verify)
 
 <a id="add"></a>
 
 ## <a name="adding-and-removing-users"></a>Dodawanie i usuwanie użytkowników
 
-Aby dodać lub usunąć użytkowników z grupy, należy wywołać [Dodaj](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) lub [Usuń](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metod i przekaż identyfikator połączenia użytkownika oraz nazwę grupy jako parametry. Nie trzeba ręcznie usunąć użytkownika z grupy, po zakończeniu połączenia.
+Aby dodać lub usunąć użytkowników z grupy, należy wywołać metody [dodawania](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) lub [usuwania](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) , a także przekazać identyfikator połączenia użytkownika i nazwę grupy jako parametry. Po zakończeniu połączenia nie trzeba ręcznie usuwać użytkownika z grupy.
 
-W poniższym przykładzie przedstawiono `Groups.Add` i `Groups.Remove` metody używane w metodach koncentratora.
+W poniższym przykładzie przedstawiono metody `Groups.Add` i `Groups.Remove` używane w metodach centrum.
 
 [!code-csharp[Main](working-with-groups/samples/sample1.cs?highlight=5,10)]
 
-`Groups.Add` i `Groups.Remove` metody są wykonywane asynchronicznie.
+Metody `Groups.Add` i `Groups.Remove` wykonują asynchronicznie.
 
-Jeśli chcesz dodać do grupy klienta i natychmiast wysłać wiadomość do klienta przy użyciu grupy, należy upewnić się, że metoda Groups.Add zakończy się pierwsza. W poniższych przykładach kodu pokazano, jak to zrobić, za pomocą kodu, który działa w .NET 4.5 i za pomocą kodu, który działa w programie .NET 4.
+Aby dodać klienta do grupy i natychmiast wysłać komunikat do klienta przy użyciu grupy, należy się upewnić, że metoda Groups. Add została najpierw ukończona. Poniższe przykłady kodu pokazują, jak to zrobić, przy użyciu kodu, który działa w programie .NET 4,5 i jeden przy użyciu kodu, który działa w programie .NET 4.
 
-#### <a name="asynchronous-net-45-example"></a>Asynchroniczne .NET 4.5 przykład
+#### <a name="asynchronous-net-45-example"></a>Przykład asynchronicznej platformy .NET 4,5
 
 [!code-csharp[Main](working-with-groups/samples/sample2.cs?highlight=1,3)]
 
-#### <a name="asynchronous-net-4-example"></a>Asynchroniczne .NET 4 przykład
+#### <a name="asynchronous-net-4-example"></a>Przykład asynchronicznej platformy .NET 4
 
 [!code-csharp[Main](working-with-groups/samples/sample3.cs?highlight=3-4)]
 
-Ogólnie rzecz biorąc, nie należy używać `await` podczas wywoływania `Groups.Remove` metody, ponieważ identyfikator połączenia, który próbujesz usunąć przestaną być dostępne. W takim przypadku `TaskCanceledException` jest zgłaszany po upłynie limit czasu żądania. Jeśli aplikacja musi zapewnić, że użytkownik został usunięty z grupy przed wysłaniem wiadomości do grupy, możesz dodać `await` przed Groups.Remove, a następnie catch `TaskCanceledException` wyjątek, który może zostać wygenerowany.
+Ogólnie rzecz biorąc nie należy uwzględniać `await` podczas wywoływania metody `Groups.Remove`, ponieważ identyfikator połączenia, który próbujesz usunąć, nie jest już dostępny. W takim przypadku `TaskCanceledException` jest generowany po upływie limitu czasu żądania. Jeśli aplikacja musi upewnić się, że użytkownik został usunięty z grupy przed wysłaniem komunikatu do grupy, można dodać `await` przed grupą. Usuń, a następnie wychwycić wyjątek `TaskCanceledException`, który może zostać wygenerowany.
 
 <a id="call"></a>
 
 ## <a name="calling-members-of-a-group"></a>Wywoływanie elementów członkowskich grupy
 
-Wiadomości można wysyłać do wszystkich członków grupy lub tylko członkowie określonej grupy, jak pokazano w poniższych przykładach.
+Można wysyłać wiadomości do wszystkich członków grupy lub tylko do określonych członków grupy, jak pokazano w poniższych przykładach.
 
-- **Wszystkie** połączonych klientów w określonej grupie. 
+- **Wszyscy** połączeni klienci w określonej grupie. 
 
     [!code-css[Main](working-with-groups/samples/sample4.css)]
-- Wszyscy połączeni klienci w określonej grupie **oprócz określonych klientów**, zidentyfikowane przez identyfikator połączenia. 
+- Wszyscy połączeni klienci w określonej grupie **z wyjątkiem określonych klientów**identyfikowane przez identyfikator połączenia. 
 
     [!code-csharp[Main](working-with-groups/samples/sample5.cs)]
-- Wszyscy połączeni klienci w określonej grupie **oprócz klienta wywołującego**. 
+- Wszyscy połączeni klienci w określonej grupie **z wyjątkiem klienta wywołującego**. 
 
     [!code-css[Main](working-with-groups/samples/sample6.css)]
 
@@ -85,38 +85,38 @@ Wiadomości można wysyłać do wszystkich członków grupy lub tylko członkowi
 
 ## <a name="storing-group-membership-in-a-database"></a>Przechowywanie członkostwa w grupie w bazie danych
 
-Następujące przykłady przedstawiają sposób przechowywania informacji grupy i użytkownika w bazie danych. Możesz użyć dowolnej technologii dostępu do danych; Jednak w poniższym przykładzie pokazano sposób definiowania modeli za pomocą platformy Entity Framework. Modele te jednostki odpowiadają tabel bazy danych i pola. Do struktury danych może być bardzo zróżnicowana w zależności od wymagań aplikacji. Ten przykład zawiera klasę o nazwie `ConversationRoom` będzie unikatowy dla aplikacji, która pozwala użytkownikom na dołączanie do rozmowy dotyczące różnych tematów, takich jak sportu lub ogród. W tym przykładzie zawiera również klasy dla połączeń. Klasa połączenia nie jest bezwzględnie wymagane dla śledzenia członkostwa w grupie, ale często jest częścią niezawodne rozwiązanie do śledzenia użytkowników.
+W poniższych przykładach pokazano, jak zachować informacje o grupach i użytkownikach w bazie danych. Możesz użyć dowolnej technologii dostępu do danych. w poniższym przykładzie pokazano, jak definiować modele przy użyciu Entity Framework. Te modele jednostek odpowiadają tabelom i polom bazy danych. Struktura danych może się znacznie różnić w zależności od wymagań aplikacji. Ten przykład zawiera klasę o nazwie `ConversationRoom`, która może być unikatowa dla aplikacji, która umożliwia użytkownikom dołączanie do konwersacji dotyczących różnych tematów, takich jak sport lub ogród. Ten przykład zawiera również klasę dla połączeń. Klasa połączenia nie jest absolutnie wymagana do śledzenia członkostwa w grupach, ale jest często częścią niezawodnego rozwiązania do śledzenia użytkowników.
 
 [!code-csharp[Main](working-with-groups/samples/sample7.cs)]
 
-Następnie w piaście, możesz pobrać grupy i użytkownika informacji z bazy danych i ręcznie dodać użytkownika do odpowiednich grup. Przykład zawiera kod śledzenia połączeń użytkowników. W tym przykładzie `await` — słowo kluczowe nie jest stosowane przed `Groups.Add` ponieważ wiadomość nie są natychmiast wysyłane do członków grupy. Jeśli chcesz wysłać wiadomość do wszystkich elementów członkowskich grupy bezpośrednio po dodaniu nowego elementu członkowskiego, będzie chciała zastosować `await` — słowo kluczowe, aby upewnić się, operacja asynchroniczna została zakończona.
+Następnie w centrum można pobrać informacje o grupach i użytkownikach z bazy danych i ręcznie dodać użytkownika do odpowiednich grup. Przykład nie zawiera kodu do śledzenia połączeń użytkownika. W tym przykładzie słowo kluczowe `await` nie jest stosowane przed `Groups.Add`, ponieważ komunikat nie jest natychmiast wysyłany do członków grupy. Jeśli chcesz wysłać wiadomość do wszystkich członków grupy natychmiast po dodaniu nowego elementu członkowskiego, należy zastosować słowo kluczowe `await`, aby upewnić się, że operacja asynchroniczna została ukończona.
 
 [!code-csharp[Main](working-with-groups/samples/sample8.cs)]
 
 <a id="storeazuretable"></a>
 
-## <a name="storing-group-membership-in-azure-table-storage"></a>Zapisywanie członkostwa w grupach w usłudze Azure table storage
+## <a name="storing-group-membership-in-azure-table-storage"></a>Przechowywanie członkostwa w grupie w usłudze Azure Table Storage
 
-Za pomocą usługi Azure table storage do przechowywania informacji o grupy i użytkownika jest podobne do bazy danych. Poniższy przykład pokazuje jednostkę tabeli, która przechowuje nazwę użytkownika i nazwę grupy.
+Korzystanie z usługi Azure Table Storage do przechowywania informacji o grupach i użytkownikach jest podobne do korzystania z bazy danych. Poniższy przykład pokazuje jednostkę tabeli przechowującą nazwę użytkownika i nazwę grupy.
 
 [!code-csharp[Main](working-with-groups/samples/sample9.cs)]
 
-W Centrum możesz pobrać przypisanych grup, gdy użytkownik nawiązuje połączenie.
+W centrum należy pobrać przypisane grupy, gdy użytkownik nawiązuje połączenie.
 
 [!code-csharp[Main](working-with-groups/samples/sample10.cs)]
 
 <a id="verify"></a>
 
-## <a name="verifying-group-membership-when-reconnecting"></a>Sprawdzanie członkostwa w grupie przy ponownym łączeniu
+## <a name="verifying-group-membership-when-reconnecting"></a>Weryfikowanie członkostwa w grupie podczas ponownego nawiązywania połączenia
 
-Domyślnie SignalR automatycznie ponownie przypisuje użytkownika do odpowiednich grup przy ponownym łączeniu zakłóceniach tymczasowej, np. podczas połączenia jest usunięty i ponownie nawiązane przed upływem limitu czasu połączenia. Informacje o grupie użytkowników jest przekazywany w tokenie, gdy ponowne nawiązywanie połączenia, a ten token jest weryfikowany na serwerze. Aby dowiedzieć się, proces weryfikacji przystąpienie użytkowników do grup, zobacz [ponowne przyłączanie grup przy ponownym łączeniu](index.md).
+Domyślnie program sygnalizujący automatycznie ponownie przypisuje użytkownika do odpowiednich grup podczas ponownego nawiązywania połączenia po tymczasowym przerwaniu, na przykład w przypadku porzucenia i ponownego ustanowienia połączenia przed upływem limitu czasu. Informacje o grupie użytkownika są przesyłane w tokenie podczas ponownego nawiązywania połączenia, a ten token jest weryfikowany na serwerze. Aby uzyskać informacje na temat procesu weryfikacji dla ponownych dołączania użytkowników do grup, zobacz [ponowne łączenie grup po ponownym połączeniu](index.md).
 
-Ogólnie rzecz biorąc należy użyć domyślne zachowanie automatyczne ponowne przyłączanie, ponowne łączenie grup na. SignalR grup nie jest przeznaczona mechanizmu zabezpieczeń w celu ograniczania dostępu do poufnych danych. Jednak w przypadku aplikacji należy dokładnie sprawdzić członkostwa w grupie użytkowników, przy ponownym łączeniu, zachowanie domyślne można przesłonić. Zmiana domyślnego zachowania można dodać obciążenie do bazy danych, ponieważ członkostwo w grupie użytkownika musi zostać pobrany dla każdego ponowne nawiązanie połączenia, a nie tylko wtedy, gdy użytkownik połączy się.
+Ogólnie rzecz biorąc, należy użyć domyślnego zachowania automatycznego ponownego przyłączania grup przy ponownym połączeniu. Grupy sygnałów nie stanowią mechanizmu zabezpieczeń w celu ograniczenia dostępu do poufnych danych. Jeśli jednak aplikacja musi mieć podwójne sprawdzenie członkostwa w grupie użytkownika podczas ponownego nawiązywania połączenia, można zastąpić zachowanie domyślne. Zmiana domyślnego zachowania może zwiększyć obciążenie bazy danych, ponieważ członkostwo w grupie użytkownika musi być pobrane dla każdego ponownego połączenia, a nie tylko wtedy, gdy użytkownik nawiązuje połączenie.
 
-Jeśli musisz sprawdzić członkostwa w grupie na ponowne łączenie, utworzyć nowy moduł potoku koncentratora, zwracającej listę przypisanych grup, jak pokazano poniżej.
+Jeśli konieczne jest zweryfikowanie członkostwa w grupie przy ponownym nawiązaniu połączenia, Utwórz nowy moduł potoku centrum, który zwraca listę przypisanych grup, jak pokazano poniżej.
 
 [!code-csharp[Main](working-with-groups/samples/sample11.cs)]
 
-Następnie dodaj ten moduł do potoku koncentratora, jak wyróżniono poniżej.
+Następnie Dodaj ten moduł do potoku centrum, jak pokazano poniżej.
 
 [!code-csharp[Main](working-with-groups/samples/sample12.cs?highlight=10)]

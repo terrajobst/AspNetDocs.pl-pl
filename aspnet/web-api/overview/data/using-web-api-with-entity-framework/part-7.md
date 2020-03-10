@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-7
-title: Tworzenie widoku (UI) | Dokumentacja firmy Microsoft
+title: Utwórz widok (interfejs użytkownika) | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,47 +9,47 @@ ms.assetid: b2445062-a1fe-4133-8994-f510280f6d9a
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-7
 msc.type: authoredcontent
 ms.openlocfilehash: 62c4523c2c6fb399cfbc3716309a1379996d601c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408241"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557303"
 ---
 # <a name="create-the-view-ui"></a>Tworzenie widoku (interfejs użytkownika)
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
 [Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
-W tej sekcji powoduje rozpoczęcie zdefiniować kod HTML dla aplikacji, a następnie dodać powiązanie danych pomiędzy HTML a model widoku.
+W tej sekcji rozpocznie się Definiowanie kodu HTML dla aplikacji i Dodawanie powiązania danych między kodem HTML i modelem widoku.
 
-Otwórz plik Views/Home/Index.cshtml. Zamień całą zawartość tego pliku poniżej.
+Otwórz plik widoki/Home/index. cshtml. Zastąp całą zawartość tego pliku następującym.
 
 [!code-cshtml[Main](part-7/samples/sample1.cshtml)]
 
-Większość `div` elementy są [Bootstrap](http://getbootstrap.com/) style. Ważne elementy są tymi, które z `data-bind` atrybutów. Ten atrybut łączy HTML w modelu widoku.
+Większość `div` elementów ma dla stylów [ładowania początkowego](http://getbootstrap.com/) . Ważne elementy są tymi, których atrybuty `data-bind`. Ten atrybut łączy kod HTML z modelem widoku.
 
 Na przykład:
 
 [!code-html[Main](part-7/samples/sample2.html)]
 
-W tym przykładzie &quot; `text` &quot; powoduje, że powiązanie `<p>` elementu, aby wyświetlić wartość `error` właściwości z modelu widoku. Pamiętamy `error` został zadeklarowany jako `ko.observable`:
+W tym przykładzie &quot;`text`powiązania &quot; powoduje, że element `<p>` wyświetla wartość właściwości `error` z modelu widoku. Odwołaj ten `error` został zadeklarowany jako `ko.observable`:
 
 [!code-javascript[Main](part-7/samples/sample3.js)]
 
-Zawsze, gdy nowa wartość jest przypisany do `error`, Knockout aktualizuje tekstu w `<p>` elementu.
+Za każdym razem, gdy nowa wartość jest przypisana do `error`, odcinanie aktualizuje tekst w elemencie `<p>`.
 
-`foreach` Powiązania informuje Knockout pętli zawartość `books` tablicy. Dla każdego elementu w tablicy, tworzy nową Knockout &lt;li&gt; elementu. Powiązania w kontekście `foreach` odnoszą się do właściwości dla elementu tablicy. Na przykład:
+Powiązanie `foreach` informuje odcinanie pętli przez zawartość tablicy `books`. Dla każdego elementu w tablicy odcinanie tworzy nowy element &lt;li&gt;. Powiązania wewnątrz kontekstu `foreach` odnoszą się do właściwości elementu tablicy. Na przykład:
 
 [!code-html[Main](part-7/samples/sample4.html)]
 
-W tym miejscu `text` powiązania odczytuje właściwość Autor poszczególne książki.
+W tym miejscu powiązanie `text` odczytuje właściwość Autor każdej książki.
 
-Jeśli uruchomisz aplikację teraz, jego powinien wyglądać następująco:
+Jeśli aplikacja zostanie uruchomiona teraz, powinna wyglądać następująco:
 
 ![](part-7/_static/image1.png)
 
-Listy książek ładuje asynchronicznie, po załadowaniu strony. Od razu &quot;szczegóły&quot; nie działają łącza. Ta funkcja zostanie dodany w następnej sekcji.
+Lista książek ładuje się asynchronicznie, po załadowaniu strony. Teraz linki &quot;szczegóły&quot; nie działają. Ta funkcja zostanie dodana w następnej sekcji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](part-6.md)

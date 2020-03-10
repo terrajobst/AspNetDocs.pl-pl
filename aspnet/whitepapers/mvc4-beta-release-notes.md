@@ -2,314 +2,314 @@
 uid: whitepapers/mvc4-beta-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: Ten dokument opisuje wersję platformy ASP.NET MVC 4 w wersji Beta programu Visual Studio 2010.
+description: W tym dokumencie opisano wydanie ASP.NET MVC 4 beta dla programu Visual Studio 2010.
 ms.author: riande
 ms.date: 09/09/2011
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
 ms.openlocfilehash: 17800dfe091bbb7afb25f7f41e3bd885b882edb0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108363"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523304"
 ---
-# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC w wersji 4
 
-> Ten dokument opisuje wersję platformy ASP.NET MVC 4 w wersji Beta programu Visual Studio 2010.
+> W tym dokumencie opisano wydanie ASP.NET MVC 4 beta dla programu Visual Studio 2010.
 > 
 > > [!NOTE]
-> > Nie jest najnowsza wersja. Dostępne są informacje o wersji platformy ASP.NET MVC 4 RC [tutaj](mvc4-release-notes.md).
+> > To nie jest Najnowsza wersja. Informacje o wersji ASP.NET MVC 4 RC są dostępne [tutaj](mvc4-release-notes.md).
 
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
 - [Wymagania dotyczące oprogramowania](#_Toc303253805)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
-- [Nowe funkcje w wersji Beta programu ASP.NET MVC 4](#_Toc303253807)
+- [Nowe funkcje w programie ASP.NET MVC 4 beta](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
-    - [ASP.NET pojedynczej strony aplikacji](#_Toc317096198)
-    - [Ulepszenia domyślne szablony projektów](#_Toc303253808)
-    - [Szablon projektu przenośnych](#_Toc303253809)
+    - [ASP.NET aplikacji jednostronicowej](#_Toc317096198)
+    - [Ulepszenia domyślnych szablonów projektów](#_Toc303253808)
+    - [Szablon projektu mobilnego](#_Toc303253809)
     - [Tryby wyświetlania](#_Toc303253810)
-    - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
-    - [Rozwiązania na potrzeby generowania kodu w programie Visual Studio](#_Toc303253812)
-    - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
+    - [Aplikacje jQuery Mobile, przełącznik widoku i zastępowanie przeglądarki](#_Toc303253811)
+    - [Przepisy dotyczące generowania kodu w programie Visual Studio](#_Toc303253812)
+    - [Obsługa zadań dla kontrolerów asynchronicznych](#_Toc303253813)
     - [Zestaw Azure SDK](#_Toc303253814)
-    - [Znane problemy i fundamentalne zmiany](#_Toc303253815)
+    - [Znane problemy i istotne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
 ## <a name="installation-notes"></a>Uwagi dotyczące instalacji
 
-ASP.NET MVC 4 w wersji Beta dla programu Visual Studio 2010 można zainstalować ze [strony głównej platformy ASP.NET MVC 4](../mvc/mvc4.md) za pomocą Instalatora platformy sieci Web.
+ASP.NET MVC 4 beta for Visual Studio 2010 można zainstalować ze [strony głównej ASP.NET MVC 4](../mvc/mvc4.md) przy użyciu Instalatora platformy sieci Web.
 
-Należy odinstalować wszelkie zainstalowanych wcześniej wersji zapoznawczych programu ASP.NET MVC 4, przed zainstalowaniem programu ASP.NET MVC 4 w wersji Beta.
+Przed zainstalowaniem ASP.NET MVC 4 beta należy odinstalować wszystkie wcześniej zainstalowane wersje zapoznawcze programu ASP.NET MVC 4.
 
-Ta wersja nie jest zgodny z .NET Framework 4.5 Developer Preview. Przed zainstalowaniem programu ASP.NET MVC 4 w wersji Beta, należy odinstalować .NET 4.5 Developer Preview.
+Ta wersja nie jest zgodna z .NET Framework 4,5 Developer Preview. Przed zainstalowaniem programu ASP.NET MVC 4 beta należy odinstalować program .NET 4,5 Developer Preview.
 
-ASP.NET MVC 4 można zainstalować i uruchomić side-by-side przy użyciu platformy ASP.NET MVC 3.
+ASP.NET MVC 4 można zainstalować i uruchomić go równolegle z ASP.NET MVC 3.
 
 <a id="_Toc303253803"></a>
 ## <a name="documentation"></a>Dokumentacja
 
-Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adresem URL:
+Dokumentacja usługi ASP.NET MVC jest dostępna w witrynie MSDN pod następującym adresem URL:
 
 [https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
-W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
+Samouczki i inne informacje dotyczące ASP.NET MVC są dostępne na stronie MVC 4 witryny sieci Web ASP.NET ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
 <a id="_Toc303253804"></a>
 ## <a name="support"></a>Pomoc techniczna
 
-To jest wersja zapoznawcza i nie jest oficjalnie obsługiwana. Jeśli masz pytania na temat pracy z tej wersji, opublikuj je na forum platformy ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
+To jest wersja zapoznawcza i nie jest oficjalnie obsługiwana. Jeśli masz pytania dotyczące pracy z tą wersją, Opublikuj je na forum ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie członkowie społeczności ASP.NET często mogą zapewnić nieformalne wsparcie.
 
 <a id="_Toc303253805"></a>
 ## <a name="software-requirements"></a>Wymagania programowe
 
-Składniki platformy ASP.NET MVC 4 dla programu Visual Studio wymagają programu PowerShell w wersji 2.0, a program Visual Studio 2010 z dodatkiem Service Pack 1 lub Visual Web Developer Express 2010 z dodatkiem Service Pack 1.
+Składniki ASP.NET MVC 4 dla programu Visual Studio wymagają programu PowerShell 2,0 i programu Visual Studio 2010 z dodatkiem Service Pack 1 lub Visual Web Developer Express 2010 z dodatkiem Service Pack 1.
 
 <a id="_Toc303253806"></a>
 ## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4
 
-ASP.NET MVC 4 można zainstalować równolegle z programem ASP.NET MVC 3 na tym samym komputerze, co daje elastyczności w wyborze, kiedy należy uaktualnić aplikację ASP.NET MVC 3 do ASP.NET MVC 4.
+ASP.NET MVC 4 można zainstalować równolegle z ASP.NET MVC 3 na tym samym komputerze, co zapewnia elastyczność w wyborze czasu uaktualnienia aplikacji ASP.NET MVC 3 do ASP.NET MVC 4.
 
-Najprostszym sposobem uaktualnienia jest, aby utworzyć nowy projekt ASP.NET MVC 4 i skopiuj wszystkie widoki, kontrolery, kodu i zawartość plików z istniejącego projektu MVC 3 do nowego projektu i można zaktualizować zestawu odwołuje się w nowym projekcie, aby dopasować starego projektu. Jeśli zmiany zostały wprowadzone do pliku Web.config w projekcie MVC 3, można również scalić te zmiany w pliku Web.config w projekcie MVC 4.
+Najprostszym sposobem uaktualnienia jest utworzenie nowego projektu ASP.NET MVC 4 i skopiowanie wszystkich widoków, kontrolerów, kodu i plików zawartości z istniejącego projektu MVC 3 do nowego projektu, a następnie zaktualizowanie odwołań do zestawu w nowym projekcie w celu dopasowania go do starego projektu. Jeśli wprowadzono zmiany w pliku Web. config w projekcie MVC 3, należy również scalić te zmiany w pliku Web. config w projekcie MVC 4.
 
-Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 3 w wersji 4, wykonaj następujące czynności:
+Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 3 do wersji 4, wykonaj następujące czynności:
 
-1. We wszystkich plikach Web.config w projekcie (istnieje w katalogu głównym projektu: jeden w folderze Widoki i jeden w folderze widoków dla każdego obszaru w projekcie) Zastąp każde wystąpienie następującego tekstu:
+1. We wszystkich plikach Web. config w projekcie (istnieje jeden w katalogu głównym projektu, jeden w folderze widoki i jeden w folderze widoki dla każdego obszaru w projekcie), Zastąp każde wystąpienie następującego tekstu:
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample1.cmd)]
 
-    za pomocą odpowiedniego następujący tekst:
+    z następującym odpowiednim tekstem:
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample2.cmd)]
-2. W głównym pliku Web.config, zaktualizuj *webPages:Version* elementu "2.0.0.0" i Dodaj nowy *PreserveLoginUrl* klucza, który ma wartość "true":
+2. W głównym pliku Web. config zaktualizuj elementy *Webpages: Version* do "2.0.0.0" i Dodaj nowy klucz *PreserveLoginUrl* , który ma wartość "true":
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample3.xml)]
-3. W Eksploratorze rozwiązań, usunięcie odwołania do *System.Web.Mvc* (które wskazuje do wersji 3 biblioteki DLL). Następnie dodaj odwołanie do *System.Web.Mvc* (v4.0.0.0). W szczególności należy wprowadzić następujące zmiany można zaktualizować odwołania do zestawu. Oto szczegóły:
+3. W Eksplorator rozwiązań usuń odwołanie do *System. Web. MVC* (które wskazuje na bibliotekę DLL w wersji 3). Następnie Dodaj odwołanie do elementu *System. Web. MVC* (v 4.0.0.0). W szczególności wprowadź następujące zmiany, aby zaktualizować odwołania do zestawu. Oto szczegółowe informacje:
 
-    1. W Eksploratorze rozwiązań Usuń odwołania do następujących zestawów: 
+    1. W Eksplorator rozwiązań Usuń odwołania do następujących zestawów: 
 
-        - *System.Web.Mvc*(v3.0.0.0)
-        - *System.Web.WebPages*(v1.0.0.0)
-        - *System.Web.Razor*(v1.0.0.0)
-        - *System.Web.WebPages.Deployment*(v1.0.0.0)
-        - *System.Web.WebPages.Razor*(v1.0.0.0)
+        - *System. Web. MVC*(v 3.0.0.0)
+        - *System. Web. Webpages*(v 1.0.0.0)
+        - *System. Web. Razor*(v 1.0.0.0)
+        - *System. Web. Webpages. Deployment*(v 1.0.0.0)
+        - *System. Web. Webpages. Razor*(v 1.0.0.0)
     2. Dodaj odwołania do następujących zestawów: 
 
-        - *System.Web.Mvc*(v4.0.0.0)
-        - *System.Web.WebPages*(v2.0.0.0)
-        - *System.Web.Razor*(v2.0.0.0)
-        - *System.Web.WebPages.Deployment*(v2.0.0.0)
-        - *System.Web.WebPages.Razor*(v2.0.0.0)
-4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz pozycję Edytuj *ProjectName*csproj.
-5. Znajdź *ProjectTypeGuids* i Zastąp ciąg {E53F8FEA-EAE0-44A6-8774-FFD645390401} z {E3E379DF-F4C6-4180-9B81-6769533ABE47}.
-6. Zapisz zmiany, zamknij plik projektu (.csproj), który edytowania, kliknij prawym przyciskiem myszy projekt i następnie wybierz pozycję Załaduj ponownie projekt.
-7. Jeśli projekt odwołuje się do żadnych bibliotek innych firm, które są kompilowane przy użyciu poprzedniej wersji platformy ASP.NET MVC, otwórz głównego pliku Web.config i dodaj następujące trzy *bindingRedirect* elementy w obszarze  *Konfiguracja* sekcji: 
+        - *System. Web. MVC*(v 4.0.0.0)
+        - *System. Web. Webpages*(v 2.0.0.0)
+        - *System. Web. Razor*(v 2.0.0.0)
+        - *System. Web. Webpages. Deployment*(v 2.0.0.0)
+        - *System. Web. Webpages. Razor*(v 2.0.0.0)
+4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz polecenie Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*. csproj.
+5. Znajdź element *ProjectTypeGuids* i Zastąp ciąg {E53F8FEA-EAE0-44A6-8774-FFD645390401} atrybutem {E3E379DF-F4C6-4180-9B81-6769533ABE47}.
+6. Zapisz zmiany, Zamknij edytowany plik projektu (. csproj), kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie Załaduj ponownie projekt.
+7. Jeśli projekt odwołuje się do wszystkich bibliotek innych firm, które są kompilowane przy użyciu poprzednich wersji ASP.NET MVC, Otwórz główny plik Web. config i Dodaj następujące trzy elementy *bindingRedirect* w sekcji *konfiguracji* : 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample4.xml)]
 
 <a id="_Toc303253807"></a>
-## <a name="new-features-in-aspnet-mvc-4-beta"></a>Nowe funkcje w wersji Beta programu ASP.NET MVC 4
+## <a name="new-features-in-aspnet-mvc-4-beta"></a>Nowe funkcje w programie ASP.NET MVC 4 beta
 
-W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP.NET MVC 4 w wersji Beta.
+Ta sekcja zawiera opis funkcji wprowadzonych w wersji ASP.NET MVC 4 beta.
 
 <a id="_Toc317096197"></a>
-### <a name="aspnet-web-api"></a>ASP.NET Web API
+### <a name="aspnet-web-api"></a>Składnik Web API platformy ASP.NET
 
-ASP.NET MVC 4 zawiera teraz interfejsu API sieci Web platformy ASP.NET, nowe umożliwiająca tworzenie usług HTTP, który może osiągnąć szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych. ASP.NET Web API również jest idealną platformą do tworzenia usługi RESTful.
+ASP.NET MVC 4 zawiera teraz internetowy interfejs API ASP.NET, nową strukturę tworzenia usług HTTP, która może dotrzeć do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. Interfejs API sieci Web ASP.NET jest również idealnym platformą do kompilowania usług RESTful.
 
-ASP.NET Web API obsługuje następujące funkcje:
+Interfejs API sieci Web ASP.NET zapewnia obsługę następujących funkcji:
 
-- **Nowoczesne modelu programowania protokołu HTTP:** Bezpośrednio dostępu i manipulowania żądań HTTP i odpowiedzi w interfejsy API sieci Web przy użyciu nowego, silnie typizowany model obiektów HTTP. Taki sam programowania modelu i potoku HTTP jest symetrycznie dostępne na komputerze klienckim, za pomocą nowego typu HttpClient.
-- **Pełną pomoc techniczną dla tras**: Interfejsy API sieci Web teraz obsługuje ona pełnego zestawu możliwości trasy, które były zawsze częścią stos sieci Web, w tym parametry trasy i ograniczenia. Ponadto mapowanie do akcji ma pełną obsługę konwencje, dzięki czemu nie trzeba zastosować atrybutów, takich jak [HttpPost] do metod i klas.
-- **Negocjowanie zawartości**: Klient i serwer mogą pracować razem określają prawo format danych zwracanych z interfejsu API. Firma Microsoft zapewnia domyślną obsługę formatów zakodowane w adresie URL formularza, JSON i XML i można rozszerzyć tę obsługę, dodając własne elementy formatujące lub nawet jej zastąpienie strategia domyślna negocjacji zawartości.
-- **Powiązanie modelu i sprawdzania poprawności:** Integratorów zapewniają prosty sposób wyodrębniania danych z różnych części żądania HTTP oraz przekształcać tych części komunikatu do obiektów platformy .NET, które mogą być używane przez akcje interfejsu API sieci Web.
-- **Filtry:** Interfejsy API sieci Web obsługuje teraz filtry, w tym filtry dobrze znanego, takich jak atrybutu [Authorize]. Można tworzyć i Dołącz filtry dla działania, autoryzacji i obsługi wyjątków.
-- **Tworzenia zapytania:** Powracając po prostu IQueryable&lt;T&gt;, internetowy interfejs API będzie obsługiwać zapytań za pomocą z konwencjami adresu URL OData.
-- **Ulepszone testowalność szczegółów HTTP:** Zamiast ustawienie protokołu HTTP, szczegółowe informacje w obiektach kontekstu statycznego, akcje interfejsu API sieci Web teraz pracować z wystąpień HttpRequestMessage i obiektu HttpResponseMessage. Ogólny wersje tych obiektów istnieją również pozwala pracować swoje niestandardowe typy oprócz typów protokołu HTTP.
-- **Ulepszone Inwersja kontroli (IoC) za pomocą klasy DependencyResolver:** Interfejs API sieci Web używa teraz wzorzec lokalizatora usług, które są implementowane przez mechanizm rozpoznawania zależności MVC do uzyskania wystąpienia do wielu różnych urządzeń.
-- **Konfiguracja na podstawie kodu:** Konfiguracja interfejsu API sieci Web odbywa się wyłącznie za pośrednictwem kodu, pozostawiając czyste plików konfiguracji.
-- **Samodzielnego hostowania:** Interfejsy API sieci Web może być hostowana we własnym procesie, oprócz usługi IIS podczas nadal przy użyciu pełnego zestawu funkcji tras i inne funkcje interfejsu API sieci Web.
+- **Nowoczesny model programowania http:** Bezpośredni dostęp do żądań i odpowiedzi HTTP w interfejsach API sieci Web oraz manipulowanie nimi przy użyciu nowego, silnie określonego modelu obiektów HTTP. Ten sam model programowania i potok HTTP są symetrycznie dostępne na kliencie za pośrednictwem nowego typu HttpClient.
+- **Pełna obsługa tras**: interfejsy API sieci Web obsługują teraz pełen zestaw możliwości trasy, które były zawsze częścią stosu sieci Web, w tym parametry tras i ograniczenia. Ponadto mapowanie do akcji ma pełną obsługę Konwencji, więc nie trzeba już stosować atrybutów takich jak [HttpPost] do klas i metod.
+- **Negocjowanie zawartości**: klient i serwer mogą współdziałać ze sobą, aby określić właściwy format danych zwracanych z interfejsu API. Zapewniamy domyślną obsługę formatów XML, JSON i notacji z adresami URL, a także możesz ją rozciągnąć przez dodanie własnych elementów formatujących, a nawet zastąpienie domyślnej strategii negocjowania zawartości.
+- **Powiązanie i walidacja modelu:** Powiązania modelu zapewniają łatwy sposób wyodrębniania danych z różnych części żądania HTTP i przekształcania tych części komunikatów na obiekty .NET, które mogą być używane przez akcje interfejsu API sieci Web.
+- **Filtry:** Interfejsy API sieci Web obsługują teraz filtry, w tym dobrze znane filtry, takie jak atrybut [autoryzuje]. Można tworzyć i dołączać własne filtry do akcji, autoryzacji i obsługi wyjątków.
+- **Kompozycja zapytania:** Po prostu zwracając wartość IQueryable&lt;T&gt;, internetowy interfejs API będzie obsługiwał zapytania za pośrednictwem Konwencji adresów URL OData.
+- **Ulepszono testowanie szczegółów protokołu http:** Zamiast ustawiania szczegółów protokołu HTTP w statycznych obiektach kontekstu, akcje interfejsu API sieci Web mogą teraz współdziałać z wystąpieniami HttpRequestMessage i HttpResponseMessage. Ogólne wersje tych obiektów także istnieją, aby umożliwić współpracę z typami niestandardowymi w dodatku do typów HTTP.
+- **Ulepszona wersja kontroli (IOC) za pośrednictwem DependencyResolver:** Interfejs API sieci Web używa teraz wzorca lokalizatora usługi zaimplementowanego przez program rozpoznawania zależności MVC do uzyskiwania wystąpień dla wielu różnych obiektów.
+- **Konfiguracja oparta na kodzie:** Konfiguracja interfejsu API sieci Web jest realizowana wyłącznie za poorednictwem kodu, pozostawiając czyszczenie plików konfiguracji.
+- **Samodzielne hostowanie:** Interfejsy API sieci Web mogą być hostowane we własnym procesie oprócz usług IIS i nadal korzystają z pełnych możliwości tras i innych funkcji interfejsu API sieci Web.
 
-Szczegółowe informacje na temat interfejsu API sieci Web platformy ASP.NET można znaleźć [ https://www.asp.net/web-api ](../web-api/index.md).
+Aby uzyskać więcej informacji na temat interfejsu Web API ASP.NET, odwiedź stronę [https://www.asp.net/web-api](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
-### <a name="aspnet-single-page-application"></a>ASP.NET pojedynczej strony aplikacji
+### <a name="aspnet-single-page-application"></a>ASP.NET aplikacji jednostronicowej
 
-ASP.NET MVC 4 teraz obejmuje wczesną wersję zapoznawczą środowiska do tworzenia aplikacji jednostronicowej przy użyciu znaczące interakcji po stronie klienta przy użyciu języka JavaScript i interfejsów API sieci Web. Ta obsługa obejmuje:
+ASP.NET MVC 4 zawiera teraz wczesną wersję zapoznawczą środowiska tworzenia aplikacji jednostronicowych z znaczącymi interakcjami po stronie klienta przy użyciu języka JavaScript i interfejsów API sieci Web. Ta obsługa obejmuje:
 
-- Zestaw bibliotek języka JavaScript dla bogatszych interakcji lokalnej przy użyciu danych z pamięci podręcznej
-- Dodatkowe składniki interfejsu API sieci Web dla jednostki pracy i pomocy technicznej warstwy DAL
-- Szablon projektu MVC za pomocą tworzenia szkieletu, aby szybko rozpocząć pracę
+- Zestaw bibliotek języka JavaScript na potrzeby bogatszych lokalnych interakcji z danymi buforowanymi
+- Dodatkowe składniki internetowego interfejsu API do obsługi jednostek pracy i DAL
+- Szablon projektu MVC z szkieletem umożliwiającym szybkie rozpoczynanie pracy
 
-Szczegółowe informacje na temat aplikacji jednostronicowej obsługi w technologii ASP.NET MVC 4, odwiedź [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
+Aby uzyskać więcej informacji na temat obsługi aplikacji jednostronicowych w ASP.NET MVC 4, odwiedź stronę [https://www.asp.net/single-page-application](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
-### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślne szablony projektów
+### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślnych szablonów projektów
 
-Szablon, który jest używany do tworzenia nowych projektów platformy ASP.NET MVC 4 została zaktualizowana w celu tworzenia witryny sieci Web bardziej nowoczesnym wyglądzie:
+Szablon służący do tworzenia nowych projektów ASP.NET MVC 4 został zaktualizowany w celu utworzenia bardziej nowoczesnej witryny sieci Web:
 
 ![](mvc4-beta-release-notes/_static/image1.png)
 
-Oprócz kosmetycznych ulepszenia zostały udoskonalone funkcje w nowym szablonie. Szablon wykorzystuje technikę o nazwie adaptacyjne renderowania wyglądają dobrze zarówno w przypadku przeglądarek klasycznych, jak i przeglądarki dla urządzeń przenośnych bez potrzeby dostosowywania.
+Oprócz ulepszeń kosmetycznych udoskonalono funkcjonalność nowego szablonu. Szablon wykorzystuje technikę o nazwie renderowanie adaptacyjne, aby wyglądać dobrze w przeglądarkach klasycznych i przeglądarkach dla urządzeń przenośnych bez żadnego dostosowania.
 
 ![](mvc4-beta-release-notes/_static/image2.png)
 
-Aby zobaczyć adaptacyjne renderowania w akcji, możesz użyć emulatora mobilnych lub po prostu spróbuj zmienia rozmiar okna przeglądarki na komputerze, który może być mniejszy. Gdy okno przeglądarki pobiera wystarczająco mała, zmieni się układ strony.
+Aby zobaczyć adaptacyjne renderowanie w akcji, można użyć emulatora urządzenia przenośnego lub po prostu spróbować zmienić rozmiar okna przeglądarki pulpitu, aby było mniejsze. Gdy okno przeglądarki jest wystarczająco małe, układ strony zmieni się.
 
-Innym usprawnieniem domyślny szablon projektu jest korzystanie z języka JavaScript umożliwia bogatszych interfejsu użytkownika. Logowanie i rejestrowanie łącza, które są używane w szablonie są przykłady sposobów użycia jQuery okno dialogowe interfejsu użytkownika do przedstawienia ekran logowania sformatowanego:
+Innym ulepszeniem szablonu projektu domyślnego jest użycie języka JavaScript w celu zapewnienia bogatszego interfejsu użytkownika. Linki logowania i rejestrowania, które są używane w szablonie, to przykłady użycia okna dialogowego interfejsu użytkownika jQuery do zaprezentowania rozbudowanego ekranu logowania:
 
 ![](mvc4-beta-release-notes/_static/image3.png)
 
 <a id="_Toc303253809"></a>
-### <a name="mobile-project-template"></a>Szablon projektu przenośnych
+### <a name="mobile-project-template"></a>Szablon projektu mobilnego
 
-Jeśli Trwa uruchamianie nowego projektu, aby utworzyć witryny specjalnie dla urządzeń przenośnych i tabletów przeglądarki można użyć szablonu projektu aplikacji mobilnej. Jest to oparty na technologii jQuery Mobile, biblioteka typu open source do tworzenia zoptymalizowanych pod kątem touch interfejsu użytkownika:
+Jeśli uruchamiasz nowy projekt i chcesz utworzyć witrynę specyficzną dla przeglądarek mobilnych i tabletów, możesz użyć nowego szablonu projektu aplikacji mobilnej. Jest to oparte na technologii jQuery Mobile, biblioteki Open Source do tworzenia interfejsu użytkownika zoptymalizowanego pod kątem obsługi dotykowej:
 
 ![](mvc4-beta-release-notes/_static/image4.png)
 
-Ten szablon zawiera tę samą strukturę aplikacji jako szablonu aplikacji internetowej i kodu kontrolera jest niemal identyczne, ale jest stylem, wygląd i działają prawidłowo na urządzeniach przenośnych oparte na dotyku przy użyciu jQuery Mobile. Aby dowiedzieć się więcej na temat struktury i stylem przenośnych interfejsu użytkownika, zobacz [jQuery przenośnych projektu witryny sieci Web](http://jquerymobile.com/).
+Ten szablon zawiera tę samą strukturę aplikacji, co szablon aplikacji internetowej (a kod kontrolera jest praktycznie identyczny), ale jest on w stylu przy użyciu technologii jQuery Mobile, aby uzyskać dobre i dobrze działać na urządzeniach przenośnych opartych na dotykach. Aby dowiedzieć się więcej na temat struktury i stylu mobilnego interfejsu użytkownika, zobacz [witrynę sieci Web programu jQuery Mobile](http://jquerymobile.com/).
 
-Jeśli masz już zorientowane na pulpicie lokacji, czy chcesz dodać widoki zoptymalizowane pod kątem mobile, lub jeśli chcesz tworzyć jednej lokacji, który służy inaczej ze stylem widoków do klasycznych i mobilnych przeglądarek, można użyć nowej funkcji trybów wyświetlania. (Zobacz następną sekcję).
+Jeśli masz już lokację zorientowaną na komputery stacjonarne, do której chcesz dodać widoki zoptymalizowane pod kątem urządzeń przenośnych, lub jeśli chcesz utworzyć pojedynczą lokację, która obsługuje widoki w różnych stylach, można użyć nowych trybów wyświetlania. (Zobacz następną sekcję).
 
 <a id="_Toc303253810"></a>
 ### <a name="display-modes"></a>Tryby wyświetlania
 
-Nowa funkcja trybów wyświetlania umożliwia aplikacji wybierz widoki, w zależności od przeglądarki, z której wysłano żądanie. Na przykład na stronie głównej na żądanie przeglądarki na komputerze aplikacji może być szablon Views\Home\Index.cshtml. Jeśli w przeglądarce dla urządzeń przenośnych żąda strony głównej, aplikacja może zwrócić szablonu Views\Home\Index.mobile.cshtml.
+Nowa funkcja trybów wyświetlania umożliwia aplikacji Wybieranie widoków w zależności od przeglądarki, która żąda żądania. Na przykład jeśli przeglądarka pulpitu żąda strony głównej, aplikacja może używać szablonu Views\Home\Index.cshtml. Jeśli przeglądarka mobilna żąda strony głównej, aplikacja może zwrócić szablon Views\Home\Index.mobile.cshtml.
 
-Układy i częściowych również można przesłonić dla typów w konkretnej przeglądarce. Na przykład:
+Układy i częściowe mogą być również zastępowane dla określonych typów przeglądarek. Na przykład:
 
-- Jeśli Views\Shared folder zawiera zarówno \_Layout.cshtml i \_Layout.mobile.cshtml szablonów, domyślnie aplikacja będzie używać \_Layout.mobile.cshtml podczas żądania od przeglądarki dla urządzeń przenośnych i \_Layout.cshtml podczas innych żądań.
-- Jeśli folder zawiera zarówno \_MyPartial.cshtml i \_MyPartial.mobile.cshtml, instrukcja @Html.Partial("\_MyPartial") będzie renderowany \_MyPartial.mobile.cshtml podczas żądania od mobile przeglądarki, a \_MyPartial.cshtml podczas innych żądań.
+- Jeśli folder Views\Shared zawiera zarówno szablon \_Layout. cshtml, jak i \_Layout. Mobile. cshtml, domyślnie aplikacja będzie używać \_układ. Mobile. cshtml podczas żądań z przeglądarek mobilnych i \_Layout. cshtml podczas innych żądań.
+- Jeśli folder zawiera zarówno \_. cshtml, jak i \_. Mobile. cshtml, instrukcja @Html.Partial("\_") będzie renderowana \_. Mobile. cshtml w trakcie żądań z przeglądarek mobilnych i \_część. cshtml podczas innych żądań.
 
-Jeśli chcesz utworzyć bardziej szczegółowych widoków układów i widoki częściowe, w przypadku innych urządzeń, możesz zarejestrować nową *DefaultDisplayMode* wystąpienie można określić, której nazwa do wyszukiwania, gdy żądanie spełnia warunki określonej. Na przykład można dodać następujący kod, aby *aplikacji\_Start* metody w pliku Global.asax zarejestrować się ciągiem "iPhone" jako tryb wyświetlania, która ma zastosowanie, gdy przeglądarka iPhone Apple wysyła żądanie:
+Jeśli chcesz utworzyć bardziej szczegółowe widoki, układy lub częściowe widoki dla innych urządzeń, możesz zarejestrować nowe wystąpienie usługi *DefaultDisplayMode* , aby określić, która nazwa ma być wyszukiwana, gdy żądanie spełnia określone warunki. Na przykład można dodać następujący kod do *aplikacji\_Start* metody w pliku Global. asax, aby zarejestrować ciąg "iPhone" jako tryb wyświetlania, który ma zastosowanie, gdy przeglądarka telefonu iPhone wysyła żądanie:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample5.cs)]
 
-Po uruchomieniu tego kodu, gdy przeglądarka iPhone Apple wysyła żądanie, aplikacja będzie używać Views\Shared\\_Layout.iPhone.cshtml układ (jeśli istnieje).
+Po uruchomieniu tego kodu, gdy przeglądarka telefonów iPhone firmy Apple wyśle żądanie, aplikacja użyje układu Views\Shared\\_Layout. iPhone. cshtml (jeśli istnieje).
 
 <a id="_Toc303253811"></a>
-### <a name="jquery-mobile-the-view-switcher-and-browser-overriding"></a>jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki
+### <a name="jquery-mobile-the-view-switcher-and-browser-overriding"></a>Aplikacje jQuery Mobile, przełącznik widoku i zastępowanie przeglądarki
 
-jQuery Mobile to biblioteka typu open source do tworzenia zoptymalizowanych pod kątem touch interfejsu użytkownika sieci web. Jeśli chcesz używać jQuery Mobile z aplikacją ASP.NET MVC 4 można pobrać i zainstalować pakiet NuGet, który pomoże Ci rozpocząć pracę. Aby go zainstalować z poziomu konsoli Menedżera pakietów Visual Studio, wpisz następujące polecenie:
+jQuery Mobile to Biblioteka open source służąca do tworzenia interfejsu użytkownika sieci Web zoptymalizowanej pod kątem dotyku. Jeśli chcesz używać platformy jQuery Mobile z aplikacją ASP.NET MVC 4, możesz pobrać i zainstalować pakiet NuGet, który pomoże Ci rozpocząć pracę. Aby zainstalować ją z poziomu konsoli Menedżera pakietów programu Visual Studio, wpisz następujące polecenie:
 
 [!code-powershell[Main](mvc4-beta-release-notes/samples/sample6.ps1)]
 
-Spowoduje to zainstalowanie jQuery Mobile, a niektóre pliki pomocnicze, takie jak następujące:
+Spowoduje to zainstalowanie oprogramowania jQuery Mobile i niektórych plików pomocnika, w tym następujących:
 
-- Widoki/Shared/\_Layout.Mobile.cshtml, czyli układzie jQuery Mobile.
-- Składnik przełącznikiem widoku, który składa się zwidoków/Shared/\_ViewSwitcher.cshtml widok częściowy i kontroler ViewSwitcherController.cs.
+- Widoki/Shared/\_Layout. Mobile. cshtml, który jest układem opartym na urządzeniach przenośnych jQuery.
+- Składnik-przełącznik widoku, który składa się z widoku częściowego widoków/Shared/\_ViewSwitcher. cshtml i kontrolera ViewSwitcherController.cs.
 
-Po zainstalowaniu pakietu, uruchom aplikację za pomocą przeglądarce dla urządzeń przenośnych (lub równoważne, takich jak program Firefox [przełącznik agenta użytkownika](http://chrispederick.com/work/user-agent-switcher/) dodatku). Zostaną wyświetlone strony wyglądają zupełnie inny, ponieważ jQuery Mobile obsługuje układ i style. Aby móc korzystać z tego, czy są:
+Po zainstalowaniu pakietu Uruchom aplikację przy użyciu przeglądarki mobilnej (lub równoważnej, takiej jak dodatek [User Agent agenta](http://chrispederick.com/work/user-agent-switcher/) Firefox). Zobaczysz, że strony wyglądają zupełnie inaczej, ponieważ jQuery Mobile obsługuje układ i style. Aby skorzystać z tej możliwości, można wykonać następujące czynności:
 
-- Utwórz wartości zastąpień mobile określonego widoku zgodnie z opisem w obszarze [trybów wyświetlania](#_Toc303253810) wcześniej (na przykład można utworzyć Views\Home\Index.mobile.cshtml do zastąpienia Views\Home\Index.cshtml przeglądarki dla urządzeń przenośnych).
-- Odczyt [jQuery przenośnych dokumentacji](http://jquerymobile.com/) Aby dowiedzieć się więcej o sposobie dodawania zoptymalizowane pod kątem dotykowe elementy interfejsu użytkownika w widokach dla urządzeń przenośnych.
+- Tworzenie zastąpień widoku specyficznych dla urządzeń przenośnych zgodnie z opisem w obszarze [tryby wyświetlania](#_Toc303253810) wcześniej (na przykład utwórz Views\Home\Index.Mobile.cshtml, aby zastąpić Views\Home\Index.cshtml dla przeglądarek mobilnych).
+- Zapoznaj się z [dokumentacją programu jQuery Mobile](http://jquerymobile.com/) , aby dowiedzieć się więcej na temat dodawania elementów interfejsu użytkownika zoptymalizowanych pod kątem technologii w widokach mobilnych.
 
-Konwencja zoptymalizowane pod kątem mobile stron sieci web jest dodać łącze, którego tekst jest coś, takich jak widok pulpitu lub w trybie witrynę w trybie pełnym, który umożliwia użytkownikom, przełącz się do klasycznej wersji strony. Pakiet jQuery.Mobile.MVC zawiera przykładowy składnik przełącznikiem widoku w tym celu. Jest on używany w domyślnej Views\Shared\\widoku _Layout.Mobile.cshtml i Po wyrenderowaniu strony wyglądają następująco:
+Konwencja dla stron sieci Web zoptymalizowanych pod kątem urządzeń przenośnych polega na dodaniu linku, którego tekst jest taki sam jak widok pulpitu lub tryb pełnej witryny, który umożliwia użytkownikom przełączanie do wersji klasycznej strony. Pakiet jQuery. Mobile. MVC zawiera przykładowy składnik View-przełącznik. Jest on używany w domyślnym widoku Views\Shared\\_Layout. Mobile. cshtml i wygląda następująco, gdy strona jest renderowana:
 
 ![](mvc4-beta-release-notes/_static/image5.png)
 
-Jeśli osoby odwiedzające kliknie link, są przełączone klasycznej wersji tej samej stronie.
+Jeśli Goście kliknie link, zostaną przełączeni do wersji klasycznej tej samej strony.
 
-Ponieważ układ pulpitu nie będzie zawierać przełącznikiem widoku domyślnie, goście nie będzie miał sposób, aby przejść do trybu mobilnych. Aby włączyć tę opcję, należy dodać następujące odwołanie do  *\_ViewSwitcher* do układu pulpitu, po prostu wewnątrz *&lt;treści&gt;* elementu:
+Ponieważ układ pulpitu nie obejmuje domyślnie przełącznika widoku, odwiedzający nie będą mogli przejść do trybu mobilnego. Aby włączyć tę funkcję, Dodaj następujące odwołanie do *\_ViewSwitcher* do układu pulpitu, po prostu wewnątrz *&lt;Body&gt;* elementu:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
-Przełącznik widoku używa nową funkcję o nazwie zastępowania przeglądarki. Ta funkcja umożliwia aplikacji taką obsługę żądań, tak jakby pochodziły one z innej przeglądarki (agenta użytkownika) niż są rzeczywiście z. Poniższa tabela zawiera listę metod, udostępnianych przez usługę zastępowania przeglądarki.
+Przełącznik widoku używa nowej funkcji o nazwie "zastępowanie przeglądarki". Ta funkcja umożliwia aplikacji traktowanie żądań tak, jakby znajdowały się one z innej przeglądarki (agent użytkownika) niż ta, z której pochodzą. Poniższa tabela zawiera listę metod, które zastępują w przeglądarce.
 
-| `HttpContext.SetOverriddenBrowser(userAgentString)` | Przesłania żądania rzeczywistą wartość agenta użytkownika przy użyciu określonego agenta użytkownika. |
+| `HttpContext.SetOverriddenBrowser(userAgentString)` | Przesłania rzeczywistą wartość agenta użytkownika żądania przy użyciu określonego agenta użytkownika. |
 | --- | --- |
-| `HttpContext.GetOverriddenUserAgent()` | Zwraca wartość zastąpienia agenta użytkownika żądania lub rzeczywisty ciąg agenta użytkownika, jeśli żadne przesłonięcie nie zostało określone. |
-| `HttpContext.GetOverriddenBrowser()` | Zwraca *HttpBrowserCapabilitiesBase* wystąpienie, które odnosi się do agenta użytkownika aktualnie ustawiona dla żądania (rzeczywistych lub zastąpiona). Tej wartości można użyć do pobrania właściwości, takie jak *IsMobileDevice*. |
+| `HttpContext.GetOverriddenUserAgent()` | Zwraca wartość zastąpienia agenta użytkownika żądania lub faktyczny ciąg agenta użytkownika, jeśli nie określono przesłonięcia. |
+| `HttpContext.GetOverriddenBrowser()` | Zwraca wystąpienie *HttpBrowserCapabilitiesBase* , które odnosi się do agenta użytkownika, który jest aktualnie ustawiony dla żądania (wartość rzeczywista lub zastąpiona). Możesz użyć tej wartości, aby uzyskać właściwości, takie jak *IsMobileDevice*. |
 | `HttpContext.ClearOverriddenBrowser()` | Usuwa wszelkich przesłoniętych agentów użytkownika dla bieżącego żądania. |
 
-Przesłanianie przeglądarki jest funkcją core ASP.NET MVC 4 i jest dostępna, nawet wtedy, gdy nie jest instalowany pakiet jQuery.Mobile.MVC. Ma to jednak wpływ widoku, układ i wybór widoku częściowego — nie ma wpływu na inne funkcje platformy ASP.NET, który zależy od *Request.Browser* obiektu.
+Zastępowanie przeglądarki jest podstawową funkcją ASP.NET MVC 4 i jest dostępne nawet wtedy, gdy nie zostanie zainstalowany pakiet jQuery. Mobile. MVC. Dotyczy to jednak tylko opcji Widok, układ i widok częściowy — nie ma to wpływu na żadną inną funkcję ASP.NET, która zależy od obiektu *Request. Browser* .
 
-Domyślnie zastąpienie agenta użytkownika są przechowywane przy użyciu pliku cookie. Jeśli chcesz przechowywać na przesłonięcia, gdzie indziej (na przykład w bazie danych), można zastąpić domyślny dostawca (*BrowserOverrideStores.Current*). Dokumentacja dla tego dostawcy będą dostępne dla towarzyszyć nowszej wersji platformy ASP.NET MVC.
+Domyślnie przesłonięcie agenta użytkownika jest przechowywane przy użyciu pliku cookie. Jeśli chcesz przechowywać przesłonięcie w innym miejscu (na przykład w bazie danych), możesz zastąpić domyślnego dostawcę (*BrowserOverrideStores. Current*). Dokumentacja dla tego dostawcy będzie dostępna do nowszej wersji ASP.NET MVC.
 
 <a id="_Toc303253812"></a>
-### <a name="recipes-for-code-generation-in-visual-studio"></a>Rozwiązania na potrzeby generowania kodu w programie Visual Studio
+### <a name="recipes-for-code-generation-in-visual-studio"></a>Przepisy dotyczące generowania kodu w programie Visual Studio
 
-Nowa funkcja przepisy umożliwia środowisku Visual Studio można wygenerować kodu specyficznego dla rozwiązania, oparte na pakiety, które można zainstalować za pomocą narzędzia NuGet. Framework przepisy ułatwia programistom pisanie wtyczek generowania kodu, który umożliwia także zastąpić generatorów kodu wbudowanego dodać obszaru, Dodaj kontroler i Dodaj widok. Ponieważ przepisy są wdrażane jako pakiety NuGet, można łatwo je sprawdzone w formancie źródła i automatycznie udostępniane wszystkim deweloperom rozwiązań w projekcie. Są one również dostępne na podstawie danego rozwiązania.
+Nowa funkcja przepisów umożliwia programowi Visual Studio generowanie kodu specyficznego dla rozwiązania na podstawie pakietów, które można zainstalować za pomocą narzędzia NuGet. Przepisy ramowe ułatwiają deweloperom pisanie wtyczek do generowania kodu, których można również użyć do zastępowania wbudowanych generatorów kodu dla Dodaj obszar, Dodaj kontroler i Dodaj widok. Ponieważ przepisy są wdrażane jako pakiety NuGet, można je łatwo zaewidencjonować do kontroli źródła i udostępnić wszystkim deweloperom w projekcie automatycznie. Są one również dostępne dla poszczególnych rozwiązań.
 
 <a id="_Toc303253813"></a>
-### <a name="task-support-for-asynchronous-controllers"></a>Zadanie obsługi asynchronicznego kontrolerów
+### <a name="task-support-for-asynchronous-controllers"></a>Obsługa zadań dla kontrolerów asynchronicznych
 
-Teraz możesz tworzyć metody akcji asynchronicznej jako pojedynczej metody, które zwracają obiekt typu *zadań* lub *zadań&lt;ActionResult&gt;*.
+Teraz można pisać metody akcji asynchronicznych jako pojedyncze metody, które zwracają obiekt typu *zadanie* lub *zadanie&lt;ActionResult&gt;* .
 
-Na przykład, jeśli używasz Visual C# 5 (lub za pomocą [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)), możesz utworzyć asynchronicznej metody akcji, która wygląda podobnie do następującej:
+Na przykład jeśli używasz programu Visual C# 5 (lub za pomocą [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)), możesz utworzyć asynchroniczną metodę akcji, która wygląda następująco:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 
-W metodzie akcji z poprzedniego wywołania *newsService.GetHeadlinesAsync* i *sportsService.GetScoresAsync* są wywoływane asynchronicznie, a nie blokują wątek z puli wątków.
+W poprzedniej metodzie działania wywołania do *newsService. GetHeadlinesAsync* i *sportsService. GetScoresAsync* są nazywane asynchronicznie i nie blokują wątku z puli wątków.
 
-Metody asynchroniczne akcji, które zwracają *zadań* wystąpień może również obsługiwać przekroczeń limitu czasu. Aby wprowadzić swoje metody akcji można anulować, Dodaj parametr typu *CancellationToken* w podpisie metody akcji. W poniższym przykładzie pokazano asynchronicznej metody akcji ma limit czasu równy 2500 milisekund i wyświetlającą *przekroczenie limitu czasu* wyświetlić do klienta, jeśli zostanie przekroczony limit czasu.
+Asynchroniczne metody akcji, które zwracają wystąpienia *zadań* , mogą również obsługiwać limity czasu. Aby można było anulować metodę akcji, Dodaj parametr typu *CancellationToken* do sygnatury metody akcji. W poniższym przykładzie przedstawiono metodę akcji asynchronicznej, która ma limit czasu 2500 milisekund, który wyświetla widok *TimedOut* na kliencie w przypadku wystąpienia limitu czasu.
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample9.cs)]
 
 <a id="_Toc303253814"></a>
 ### <a name="azure-sdk"></a>Azure SDK
 
-ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 r. 1.5 wersję zestawu Windows Azure SDK.
+ASP.NET MVC 4 beta obsługuje wydanie zestawu Windows Azure SDK z września 2011 1,5.
 
 <a id="_Toc303253815"></a>
-## <a name="known-issues-and-breaking-changes"></a>Znane problemy i fundamentalne zmiany
+## <a name="known-issues-and-breaking-changes"></a>Znane problemy i istotne zmiany
 
-- **Po zainstalowaniu programu ASP.NET MVC 4 w wersji Beta, Edytor CSHTML/VBHTML w edytorze programu Visual Studio 2010 Service Pack 1 CSHTML/VBHTML mogą wstrzymać przez długi czas, po wpisaniu w plikach cshtml lub vbhtml fragment kodu lub języka JavaScript.** Dzieje się tak tylko w aplikacjach ASP.NET MVC 4, które właśnie utworzony i nie został skompilowany.
+- **Po zainstalowaniu programu ASP.NET MVC 4 beta Edytor CSHTML/VBHTML w programie Visual Studio 2010 z dodatkiem Service Pack 1 lub Edytor VBHTML może wstrzymywać się przez długi czas po wpisaniu fragmentu kodu lub JavaScript w plikach cshtml lub VBHTML.** Dzieje się tak tylko w przypadku aplikacji ASP.NET MVC 4, które zostały już utworzone i nie zostały jeszcze skompilowane.
 
-    Obejście polega na skompilować projekt, aby pobrać zestawy z folderu bin. Należy zauważyć, że jeśli możesz wyczyścić projektu, który usuwa zestawy z folderu bin, problem edytora przechodzi.
+    Obejście polega na skompilowaniu projektu w celu pobrania zestawów w folderze bin. Zwróć uwagę, że jeśli wyczyścisz projekt, który usuwa zestawy z folderu bin, problem z edytorem zostanie przywrócony.
 
-    Zostanie to poprawione w następnej wersji.
-- **Szablony projektów C# dla programu Visual Studio 11 Beta zawierają nieprawidłowe parametry połączeń w Global.asax.cs.** Domyślne połączenie, określona w aplikacji\_Uruchom metodę dla projektów utworzonych w programie Visual Studio 11 Beta zawierać ciąg połączenia LocalDB, który zawiera o niezmienionym znaczeniu kreski ułamkowej odwróconej (\) znaków. Powoduje to błąd połączenia podczas próby uzyskania dostępu Entity Framework DbContext, który generuje sqlexception —.
+    Ta poprawka zostanie poprawiona w następnej wersji.
+- **C#Szablony projektów dla programu Visual Studio 11 Beta zawierają nieprawidłowe parametry połączenia w Global.asax.cs.** Domyślne połączenie określone w\_metodzie uruchamiania aplikacji dla projektów utworzonych w programie Visual Studio 11 Beta zawiera LocalDB parametry połączenia, które zawierają niezmieniony ukośnik odwrotny (\) znak. Powoduje to błąd połączenia przy próbie uzyskania dostępu do Entity Framework DbContext, który generuje SqlException.
 
-    Aby rozwiązać ten problem, znak ucieczki ukośnika odwrotnego w aplikacji\_Start metoda Global.asax.cs, tak aby wyglądało następująco:
+    Aby rozwiązać ten problem, należy użyć znaku ucieczki odwróconej kreski ułamkowej w aplikacji\_Metoda startowa Global.asax.cs, tak aby odczytana w następujący sposób:
 
     [!code-csharp[Main](mvc4-beta-release-notes/samples/sample10.cs)]
-- **Aplikacje platformy ASP.NET MVC 4, których przeznaczony dla platformy .NET 4.5 zgłosi fileloadexception — podczas próby dostępu do zestawu System.Net.Http.dll uruchamiania w ramach programu .NET 4.0.** Aplikacje platformy ASP.NET MVC 4, utworzone w ramach platformy .NET 4.5 zawierają powiązania przekierowania, które będą powodować fileloadexception —, która stwierdza, że "nie można załadować pliku lub zestawu"System.Net.Http"lub jednej z jego zależności." gdy aplikacji jest wykonywana w systemie przy użyciu programu .NET 4.0, zainstalowane. Aby rozwiązać ten problem, należy usunąć następujące przekierowanie powiązania z pliku web.config:
+- **Aplikacje ASP.NET MVC 4, które są przeznaczone dla platformy .NET 4,5, zgłaszają FileLoadException przy próbie uzyskania dostępu do zestawu System. NET. http. dll, gdy jest uruchamiany w ramach platformy .NET 4,0.** Aplikacje ASP.NET MVC 4 utworzone w ramach platformy .NET 4,5 zawierają przekierowanie powiązania, co spowoduje, że FileLoadException, którego stan "nie można załadować pliku lub zestawu" System .NET. http "lub jeden z jego zależności." gdy aplikacja jest wykonywana w systemie z zainstalowanym programem .NET 4,0. Aby rozwiązać ten problem, Usuń następujące przekierowanie powiązania z pliku Web. config:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample11.xml)]
 
-    Element powiązania zestawu w pliku web.config zmodyfikowane powinna wyglądać następująco:
+    Element powiązania zestawu w zmodyfikowanym pliku Web. config powinien wyglądać następująco:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- <strong>Szablon elementu "Dodaj kontroler" w projektach języka Visual Basic generuje nieprawidłowa przestrzeń nazw po wywołaniu</strong><strong>z wewnątrz obszaru.</strong> Po dodaniu kontrolera do obszaru w projekcie ASP.NET MVC, która używa języka Visual Basic, szablon elementu wstawia nieprawidłową przestrzeń nazw do kontrolera. Wynikiem jest błąd "nie można odnaleźć pliku" po przejściu do dowolnej akcji w kontrolerze.  
+- <strong>Szablon elementu "Dodaj kontroler" w projektach Visual Basic generuje nieprawidłową przestrzeń nazw w przypadku wywołania</strong><strong>z wnętrza obszaru.</strong> Po dodaniu kontrolera do obszaru w projekcie ASP.NET MVC, który używa Visual Basic, szablon elementu wstawia nieprawidłową przestrzeń nazw do kontrolera. W wyniku przechodzenia do dowolnej akcji w kontrolerze Wystąpił błąd "nie znaleziono pliku".  
   
-  Wygenerowany obszar nazw pomija wszystko po głównej przestrzeni nazw. Na przykład, przestrzeń nazw, generowany jest *RootNamespace* , ale powinien być *RootNamespace.Areas.AreaName.Controllers* .
-- **Istotne zmiany w aparatu widoku Razor.** W ramach nadpisania analizator Razor, następujące typy zostały usunięte z *System.Web.Mvc.Razor*: 
+  Wygenerowana przestrzeń nazw pomija wszystkie elementy po głównej przestrzeni nazw. Na przykład wygenerowana przestrzeń nazw to *RootNamespace* , ale powinna mieć wartość *RootNamespace. Areas. Areaname. controllers* .
+- **Istotne zmiany w aparacie widoku Razor.** W ramach ponownego zapisu analizatora składni Razor następujące typy zostały usunięte z elementu *System. Web. MVC. Razor*: 
 
     - *ModelSpan*
     - *MvcVBRazorCodeGenerator*
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
-  Ponadto usunięto następujące metody: 
+  Zostały również usunięte następujące metody: 
 
-    - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-    - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
-    - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **WebMatrix.WebData.dll znajduje się w katalogu/bin aplikacji ASP.NET MVC 4, zajmuje się za pośrednictwem adresu URL dla uwierzytelniania formularzy.** Trwa dodawanie zestawu WebMatrix.WebData.dll z aplikacją (np. przez wybranie "ASP.NET Web Pages o składni Razor", gdy za pomocą okna dialogowego Dodaj zależności do wdrożenia) spowoduje przesłonięcie przekierowania loginu uwierzytelnianie/konto/zalogować się zamiast / konta/logowania zgodnie z oczekiwaniami, domyślny kontroler konta programu ASP.NET MVC. Aby temu zapobiec i użyj adresu URL już określone w sekcji uwierzytelniania w pliku Web.config, możesz dodać element appSetting o nazwie PreserveLoginUrl i ustaw ją na wartość true: 
+    - *MvcCSharpRazorCodeParser. ParseInheritsStatement (System. Web. Razor. parser. CodeBlockInfo)*
+    - *MvcWebPageRazorHost. DecorateCodeGenerator (System. Web. Razor. Generator. RazorCodeGenerator)*
+    - *MvcVBRazorCodeParser. ParseInheritsStatement (System. Web. Razor. parser. CodeBlockInfo)*
+- **Gdy WebMatrix. webdata. dll znajduje się w katalogu/bin. aplikacji ASP.NET MVC 4, przejmuje adres URL uwierzytelniania formularzy.** Dodawanie zestawu WebMatrix. webdata. dll do aplikacji (na przykład przez wybranie opcji "ASP.NET strony sieci Web ze składnią Razor" w przypadku użycia okna dialogowego Dodawanie zależności do wdrożenia) spowoduje przesłonięcie przekierowania logowania uwierzytelniania do/Account/Logon, a nie/Account/Login zgodnie z oczekiwaniami przez domyślny kontroler kont ASP.NET MVC. Aby uniknąć tego zachowania i używać adresu URL określonego już w sekcji uwierzytelnianie pliku Web. config, można dodać obiekt element appSetting o nazwie PreserveLoginUrl i ustawić dla niego wartość true: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
-- **Menedżer pakietów NuGet nie zostanie zainstalowany podczas próby zainstalowania platformy ASP.NET MVC 4 dla równoległymi instalacjami programu Visual Studio 2010 i Visual Web Developer 2010.** Do uruchomienia programu Visual Studio 2010 i Visual Web Developer 2010 równolegle z programem ASP.NET MVC 4 należy zainstalować platformy ASP.NET MVC 4, gdy obie wersje programu Visual Studio ma już zainstalowany.
-- **Odinstalowywanie programu ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wstępnie wymagane składniki zostały już odinstalowane.** Aby prawidłowo odinstalować ASP.NET MVC 4you należy odinstalować ASP.NET MVC 4, przed rozpoczęciem odinstalowywania programu Visual Studio.
-- **Uruchamianie projektu domyślnego internetowego interfejsu API zawiera instrukcje, które niepoprawnie kierować użytkownikowi na dodawanie tras przy użyciu metody RegisterApis, która nie istnieje.** Trasy powinny zostać dodane w metodzie RegisterRoutes przy użyciu tabeli trasy ASP.NET.
-- **Instalowanie platformy ASP.NET MVC 4 w wersji Beta przerywa aplikacji ASP.NET MVC 3 RTM.** Aplikacje programu ASP.NET MVC 3, które zostały utworzone za pomocą wersji RTM wersji (nie w programie ASP.NET MVC 3 Tools Update) wymagają następujących zmian do działania side-by-side przy użyciu platformy ASP.NET MVC 4 w wersji Beta. Tworzenie projektu bez wprowadzania tych wyników aktualizacji błędy kompilacji. 
+- **Nie można zainstalować Menedżera pakietów NuGet podczas próby zainstalowania ASP.NET MVC 4 dla instalacji równoległych programów Visual Studio 2010 i Visual Web Developer 2010.** Aby uruchomić program Visual Studio 2010 i Visual Web Developer 2010 obok ASP.NET MVC 4, należy zainstalować ASP.NET MVC 4 po zainstalowaniu obu wersji programu Visual Studio.
+- **Odinstalowywanie ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wstępnie wymagane składniki zostały już odinstalowane.** Aby oczyścić program ASP.NET MVC 4You, należy odinstalować ASP.NET MVC 4 przed odinstalowaniem programu Visual Studio.
+- **Uruchamianie domyślnego projektu internetowego interfejsu API zawiera instrukcje, które niepoprawnie kierują użytkownika do dodawania tras przy użyciu metody RegisterApis, która nie istnieje.** Trasy należy dodać w metodzie RegisterRoutes przy użyciu tabeli tras ASP.NET.
+- **Instalowanie programu ASP.NET MVC 4 beta ASP.NET aplikacje MVC 3 RTM.** Aplikacje ASP.NET MVC 3, które zostały utworzone przy użyciu wersji RTM (nie z aktualizacją ASP.NET MVC 3 Tools Release), wymagają następujących zmian, aby działały równolegle z ASP.NET MVC 4 beta. Kompilowanie projektu bez wprowadzania tych aktualizacji powoduje błędy kompilacji. 
 
     **Wymagane aktualizacje**
 
-  1. W głównym pliku Web.config, Dodaj nowy *&lt;appSettings&gt;* wpis z kluczem *webPages:Version* i wartość *1.0.0.0*.
+  1. W głównym pliku Web. config Dodaj nowy *&lt;appSettings&gt;* wpis przy użyciu najważniejszych *stron sieci Web: wersja* i wartość *1.0.0.0*.
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-  2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz pozycję Edytuj *ProjectName*csproj.
-  3. Znajdź następujące odwołania do zestawów: 
+  2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz polecenie Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*. csproj.
+  3. Znajdź następujące odwołania do zestawu: 
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-      Zastąp je poniżej:
+      Zamień je na następujące elementy:
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-  4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
+  4. Zapisz zmiany, Zamknij edytowany plik projektu (. csproj), a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.

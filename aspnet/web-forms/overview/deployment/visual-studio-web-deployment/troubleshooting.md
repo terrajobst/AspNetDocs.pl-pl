@@ -9,11 +9,11 @@ ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
 ms.openlocfilehash: b42476fca18b04f4557a216ee205cfd9220023e8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623584"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576098"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Rozwiązywanie problemów
 
@@ -48,7 +48,7 @@ Aby umożliwić aplikacji Wyświetlanie szczegółowych komunikatów o błędach
 1. Jeśli plik Web. config aplikacji zawiera element customErrors w elemencie System. Web, Zmień atrybut Mode na "off". W przeciwnym razie Dodaj element customErrors w elemencie System. Web z atrybutem Mode ustawionym na wartość "off", jak pokazano w następującym przykładzie: 
 
     [!code-xml[Main](troubleshooting/samples/sample2.xml)]
-2. Wdrożenie aplikacji.
+2. Wdróż aplikację.
 3. Uruchom aplikację i powtórz wszystkie wcześniej, które spowodowały wystąpienie błędu. Teraz można zobaczyć, jaki jest rzeczywisty komunikat o błędzie.
 4. Po rozwiązaniu błędu Przywróć oryginalne ustawienie customErrors i ponownie Wdróż aplikację.
 
@@ -374,4 +374,4 @@ Błąd HTTP 404,17 — nie znaleziono
 Na komputerze może nie być zainstalowany ASP.NET 4,5. Zapoznaj się z instrukcjami w samouczku wdrażanie programu IIS jako środowiska testowego w tej serii, w którym wyjaśniono, jak zainstalować ASP.NET 4,5.
 
 > [!div class="step-by-step"]
-> [Ubiegł](deploying-extra-files.md)
+> [Wstecz](deploying-extra-files.md)

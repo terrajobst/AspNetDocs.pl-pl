@@ -1,41 +1,41 @@
 ---
 uid: webhooks/receiving/receivers
-title: Odbiorniki elementów Webhook programu ASP.NET | Dokumentacja firmy Microsoft
+title: Odbiorniki elementów webhook ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Odbiorniki elementów Webhook programu ASP.NET
+description: Odbiorniki elementów webhook ASP.NET
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
 ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070325"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574194"
 ---
-# <a name="aspnet-webhooks-receivers"></a>Odbiorniki elementów Webhook programu ASP.NET
+# <a name="aspnet-webhooks-receivers"></a>Odbiorniki elementów webhook ASP.NET
 
-Odbieranie elementów Webhook, zależy od tego, kto jest nadawcy. Czasami są dodatkowe kroki rejestracji elementu WebHook, weryfikowanie, czy naprawdę nasłuchuje subskrybenta. Niektóre elementy Webhook zapewnić model do wypychania, gdzie żądania HTTP POST zawiera tylko odwołanie do informacji o zdarzeniu, który jest następnie zostać pobrane niezależnie. Często model zabezpieczeń różni się jeszcze chwilę.
+Otrzymywanie elementów webhook zależy od tego, kto jest nadawcą. Czasami istnieją dodatkowe kroki polegające na zarejestrowaniu elementu webhook, który sprawdza, czy subskrybent jest naprawdę nasłuchuje. Niektóre elementy webhook zapewniają model wypychania do ściągania, w którym żądanie HTTP POST zawiera tylko odwołanie do informacji o zdarzeniu, które są następnie pobierane niezależnie. Często model zabezpieczeń jest nieco różny.
 
-Microsoft ASP.NET WebHooks ma na celu stał się prostszy i bardziej spójną w celu podłączenia do interfejsu API, nie tracąc dużo czasu na myśleniu o tym jak obsługiwać dowolnego określonego wariantu elementów Webhook.
+Celem Microsoft ASP.NET elementów webhook jest uproszczenie i bardziej spójne połączenie z interfejsem API bez poświęcania dużo czasu na sposób obsługi dowolnych wariantów elementów webhook.
 
-Odbiornik elementu WebHook jest odpowiedzialny za akceptowanie i weryfikowanie elementów Webhook od określonego nadawcy. Odbiornik elementu WebHook może obsługiwać dowolną liczbę elementów Webhook, każda z ich konfiguracją. Na przykład odbiorcy element WebHook usługi GitHub może akceptować elementów Webhook z dowolnej liczby repozytoriów GitHub.
+Odbiorca elementu webhook jest odpowiedzialny za akceptowanie i weryfikowanie elementów webhook od określonego nadawcy. Odbiornik elementu webhook może obsługiwać dowolną liczbę elementów webhook, z których każda ma własną konfigurację. Na przykład odbiornik elementu webhook usługi GitHub może akceptować elementy webhook z dowolnej liczby repozytoriów usługi GitHub.
 
-## <a name="webhook-receiver-uris"></a>Identyfikatory URI odbiorcy elementu WebHook
+## <a name="webhook-receiver-uris"></a>Identyfikatory URI odbiorników elementu webhook
 
-Po zainstalowaniu programu Microsoft ASP.NET WebHooks uzyskasz ogólne kontrolera elementu WebHook, który akceptuje żądania elementu WebHook z nieograniczoną liczbę usług. Po odebraniu żądania wybiera odpowiednie odbiorcy, zainstalowanym do obsługi określonego nadawcy elementu WebHook.
+Instalując Microsoft ASP.NET elementy webhook otrzymujesz ogólny kontroler elementu webhook, który akceptuje żądania elementu webhook z otwartej liczby usług. Po nadejściu żądania wybiera odpowiedni odbiornik, który został zainstalowany do obsługi określonego nadawcy elementu webhook.
 
-Identyfikator URI tego kontrolera jest identyfikator URI elementu WebHook, który należy zarejestrować w usłudze i ma postać:
+Identyfikator URI tego kontrolera jest identyfikatorem URI elementu webhook zarejestrowanym w usłudze i ma postać:
 
 ```
 https://<host>/api/webhooks/incoming/<receiver>/{id}
 ```
 
-Ze względów bezpieczeństwa wiele odbiorników elementu WebHook wymagają, że identyfikator URI jest *https* identyfikatora URI i w niektórych przypadkach musi zawierać parametr zapytania dodatkowych, która służy do wymuszania, które tylko zamierzony ze stron może wysyłać elementów Webhook do powyższego identyfikatora URI .
+Ze względów bezpieczeństwa wiele odbiorników elementu webhook wymaga, aby identyfikator URI był adresem URI *https* , a w niektórych przypadkach musi także zawierać dodatkowy parametr zapytania, który służy do wymuszenia, że tylko zamierzona strona może wysyłać elementy webhook do powyższego identyfikatora URI.
 
-`<receiver>` Składnik to nazwa odbiorcy, na przykład `github` lub `slack`.
+Składnik `<receiver>` jest nazwą odbiorcy, na przykład `github` lub `slack`.
 
-*{Id}* jest opcjonalny identyfikator, który może służyć do identyfikowania konkretnej konfiguracji odbiornika elementu WebHook. To może służyć do rejestrowania N elementów Webhook przy użyciu określonego odbiorcy. Na przykład następujące trzy identyfikatory URI mogą służyć do zarejestrowania dla trzech niezależnych elementy Webhook:
+*{ID}* jest opcjonalnym identyfikatorem, który może służyć do identyfikowania określonej konfiguracji odbiornika elementu webhook. Ta wartość może służyć do rejestrowania N elementów webhook z określonym odbiornikiem. Na przykład następujące trzy identyfikatory URI mogą służyć do rejestrowania trzech niezależnych elementów webhook:
 
 ```
 https://<host>/api/webhooks/incoming/github
@@ -43,35 +43,35 @@ https://<host>/api/webhooks/incoming/github/12345
 https://<host>/api/webhooks/incoming/github/54321
 ```
 
-## <a name="installing-a-webhook-receiver"></a>Instalowanie odbiorcy elementu WebHook
+## <a name="installing-a-webhook-receiver"></a>Instalowanie odbiornika elementu webhook
 
-Aby odbierać elementy Webhook przy użyciu programu Microsoft ASP.NET WebHooks, należy najpierw zainstalować pakiet Nuget dla dostawcy elementu WebHook lub dostawców, które chcesz otrzymywać elementów Webhook z. Pakiety Nuget są nazywane [Microsoft.AspNet.WebHooks.Receivers.*](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers) gdzie ostatnia część wskazuje usługi obsługiwane. Na przykład
+Aby odbierać elementy webhook przy użyciu Microsoft ASP.NET elementów webhook, należy najpierw zainstalować pakiet NuGet dla dostawcy lub dostawców elementu webhook, z którego mają być odbierane elementy webhook. Pakiety NuGet mają nazwę [Microsoft. ASPNET. webhooks. Receives. *](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers) , gdzie Ostatnia część wskazuje, że usługa jest obsługiwana. Na przykład
 
-[Microsoft.AspNet.WebHooks.Receivers.GitHub](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.GitHub) zapewnia obsługę do odbierania elementów Webhook z usługi GitHub i [Microsoft.AspNet.WebHooks.Receivers.Custom](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.Custom) zapewnia obsługę do odbierania elementów Webhook, generowane przez ASP. NET elementów Webhook.
+[Microsoft. ASPNET. webhooks. Receives. GitHub](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.GitHub) obsługuje odbieranie elementów webhook z usługi GitHub i [Microsoft. ASPNET. webhooks. Customs](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.Custom) zapewnia obsługę odbierania elementów webhook generowanych przez elementy webhook ASP.NET.
 
-Gotowych można znaleźć obsługę usługi Dropbox, GitHub, MailChimp, PayPal, usługi Pusher, Salesforce, Slack, usługi Stripe, Trello i WordPress, ale istnieje możliwość obsługi dowolnej liczby innych dostawców.
+Z usługi Box można znaleźć pomoc techniczną dla usługi Dropbox, GitHub, MailChimp, PayPal, wypychania, Salesforce, zapasowych, rozłożonych, Trello i WordPress, ale można obsługiwać dowolną liczbę innych dostawców.
 
-## <a name="configuring-a-webhook-receiver"></a>Konfigurowanie odbiornika elementu WebHook
+## <a name="configuring-a-webhook-receiver"></a>Konfigurowanie odbiornika elementu webhook
 
-Odbiorniki element WebHook można skonfigurować za pomocą [IWebHookReceiverConfig](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/IWebHookReceiverConfig.cs) interfejsem konkretnej implementacji interfejsu można rejestrować i przy użyciu dowolnego modelu iniekcji zależności. Domyślna implementacja używa ustawienia aplikacji, które można ustawić w pliku Web.config lub, jeśli za pomocą usługi Azure Web Apps, można ustawić za pomocą [witryny Azure Portal](https://portal.azure.com/).
+Odbiorniki elementu webhook są konfigurowane za pośrednictwem [IWebHookReceiverConfig](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/IWebHookReceiverConfig.cs) interfejs, a konkretne implementacje tego interfejsu mogą być rejestrowane przy użyciu dowolnego modelu iniekcji zależności. Implementacja domyślna używa ustawień aplikacji, które można ustawić w pliku Web. config lub, w przypadku korzystania z usługi Azure Web Apps, można ustawić za pośrednictwem witryny [Azure Portal](https://portal.azure.com/).
 
 ![Ustawienia aplikacji platformy Azure](_static/AzureAppSettings.png)
 
-Format klucze ustawienia aplikacji jest w następujący sposób:
+Format kluczy ustawień aplikacji jest następujący:
 
 ```
 MS_WebHookReceiverSecret_<receiver>
 ```
 
-Wartość rozdzielaną przecinkami listę wartości odpowiadających *{id}* wartości, dla których elementy Webhook zostały zarejestrowane, na przykład:
+Wartość jest rozdzielaną przecinkami listą wartości pasujących do wartości *{ID}* , dla których zarejestrowano elementy webhook, na przykład:
 
 ```
 MS_WebHookReceiverSecret_GitHub = <secret1>, 12345=<secret2>, 54321=<secret3>
 ```
 
-## <a name="initializing-a-webhook-receiver"></a>Inicjowanie odbiornika elementu WebHook
+## <a name="initializing-a-webhook-receiver"></a>Inicjowanie odbiornika elementu webhook
 
-Odbiorniki elementu WebHook są inicjowane przez zarejestrowanie ich, zazwyczaj w *WebApiConfig* statyczne klasy, na przykład:
+Odbiorniki elementu webhook są inicjowane przez zarejestrowanie ich, zazwyczaj w klasie statycznej *WebApiConfig* , na przykład:
 
 ```csharp
 namespace WebHookReceivers

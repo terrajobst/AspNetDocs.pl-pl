@@ -1,73 +1,73 @@
 ---
 uid: web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
-title: Korzystanie z mechanizmu CAPTCHA, aby uniemożliwić Boty przy użyciu usługi sieci Web platformy ASP.NET Razor) lokacji | Dokumentacja firmy Microsoft
+title: Korzystanie z CAPTCHA w celu uniemożliwienia botów korzystania z witryny ASP.NET Web Razor) | Microsoft Docs
 author: microsoft
-description: W tym artykule wyjaśniono, jak użyć ReCaptcha (miara zabezpieczeń), aby uniemożliwić automatyczne programom (robotom) z wykonywania zadań w stron ASP.NET Web Pages (Razor) firma Microsoft...
+description: W tym artykule wyjaśniono, jak używać ReCaptcha (miary zabezpieczeń), aby zapobiec wykonywaniu zadań przez automatyczne programy (botów) na stronach sieci Web ASP.NET (Razor)...
 ms.author: riande
 ms.date: 05/21/2012
 ms.assetid: 2b381a41-2cb3-40c0-8545-1d393e22877f
 msc.legacyurl: /web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
 msc.type: authoredcontent
 ms.openlocfilehash: 2647a3155893a3dfb3214795a5f9cf1e8931fa91
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128454"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547048"
 ---
-# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Korzystanie z mechanizmu CAPTCHA, aby uniemożliwić Boty przy użyciu usługi sieci Web platformy ASP.NET Razor) lokacji
+# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Korzystanie z CAPTCHA w celu uniemożliwienia botów z używania Twojej witryny ASP.NET Web Razor)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> W tym artykule wyjaśniono, jak użyć ReCaptcha (miara zabezpieczeń), aby uniemożliwić automatyczne programom (robotom) z wykonywania zadań w witrynie internetowej ASP.NET Web Pages (Razor).
+> W tym artykule wyjaśniono, jak używać ReCaptcha (miary zabezpieczeń) w celu zapobiegania wykonywaniu zadań przez automatyczne programy (botów) w witrynie sieci Web ASP.NET (Razor).
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
-> - Jak dodać CAPTCHA test do witryny.
+> - Jak dodać test CAPTCHA do lokacji.
 > 
-> Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
+> Są to funkcje ASP.NET wprowadzone w artykule:
 > 
-> - `ReCaptcha` Pomocnika.
+> - Pomocnik `ReCaptcha`.
 > 
 > > [!NOTE]
-> > Informacje przedstawione w tym artykule dotyczy 1.0 stron sieci Web platformy ASP.NET i Web Pages 2.
+> > Informacje przedstawione w tym artykule dotyczą ASP.NET Web Pages 1,0 i Web Pages 2.
 
-## <a name="about-captchas"></a>Temat CAPTCHAs
+## <a name="about-captchas"></a>Informacje o CAPTCHAs
 
-Ilekroć umożliwiają rejestrowanie osób w lokacji lub nawet po prostu wprowadź nazwę i adres URL (na przykład dla komentarza blog), możesz otrzymać nadmiernej ilości fałszywych nazwy. Pozostają one często przez automatyczne programom (robotom), których podejmowana jest próba pozostaw adresy URL w każdej witryny sieci Web, którą można znaleźć. (Typowe motywacja jest do opublikowania adresów URL produktów do sprzedaży).
+Za każdym razem, gdy zezwolisz użytkownikom na rejestrację w swojej witrynie, a nawet po prostu wprowadź nazwę i adres URL (na przykład komentarz bloga), możesz zapełnić fałszywe nazwy. Są one często pozostawiane przez zautomatyzowane programy (botów), które próbują opuścić adresy URL w każdej z witryn sieci Web, które mogą znaleźć. (Częstą motywacją jest opublikowanie adresów URL produktów do sprzedaży).
 
-Możesz pomóc, upewnij się, że użytkownik jest prawdziwa osoba, a nie program komputerowy przy użyciu *CAPTCHA* do weryfikowania użytkowników podczas rejestrowania, lub w przeciwnym razie podał swoją nazwę i witryny. CAPTCHA oznacza całkowicie zautomatyzowanego publicznych Turing test, aby stwierdzić, komputerów i ludzie od siebie. Jest CAPTCHA *odpowiedź na żądanie* test w którym użytkownik jest proszony o czymś, który umożliwia łatwe do osoby w celu ale trudne automatycznych programu w celu. Najczęściej spotykanym typem CAPTCHA jest jednym gdzie można zobaczyć niektóre litery zniekształcony, a monit o ich typu. (Zakłócenia powinien utrudnić botów do odszyfrowania litery.)
+Aby upewnić się, że użytkownik jest osobą rzeczywistą, a nie programem komputerowym, za pomocą *CAPTCHA* można sprawdzić poprawność użytkowników podczas rejestrowania lub wprowadzania ich nazwy i witryny. CAPTCHA oznacza całkowicie zautomatyzowany, publiczny test Turing do informowania komputerów i ludzi. CAPTCHA jest testem *wyzwania-odpowiedzi* , w którym użytkownik jest proszony o to, że jest to bardzo proste dla osoby, które nie jest trudne do wykonania przez zautomatyzowany program. Najczęściej spotykanym typem CAPTCHA jest to, gdzie widzisz pewne zniekształcane litery i prosisz o ich wpisywanie. (Zniekształcenie powinny być trudne do odszyfrowania liter przez botów).
 
 ## <a name="adding-a-recaptcha-test"></a>Dodawanie testu ReCaptcha
 
-Na stronach ASP.NET, można użyć `ReCaptcha` element pomocniczy służący do renderowania test CAPTCHA, który jest oparty na usłudze ReCaptcha ([http://recaptcha.net](http://recaptcha.net)). `ReCaptcha` Pomocnik wyświetli obraz dwa zniekształcony wyrazy, które użytkownicy muszą wprowadzić poprawnie, zanim zostanie zweryfikowana strony. Odpowiedź użytkownika jest weryfikowana przez usługę ReCaptcha.Net.
+Na stronach ASP.NET można użyć pomocnika `ReCaptcha`, aby renderować test CAPTCHA, który jest oparty na usłudze ReCaptcha ([http://recaptcha.net](http://recaptcha.net)). Pomocnik `ReCaptcha` wyświetla obraz dwóch zniekształconych wyrazów, które użytkownicy muszą wprowadzić poprawnie przed zweryfikowaniem strony. Odpowiedź użytkownika jest weryfikowana przez usługę ReCaptcha.Net.
 
 ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.jpg)
 
-1. Zarejestruj swoje witryny sieci Web ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Po zakończeniu rejestracji zostanie wyświetlony klucz publiczny i klucz prywatny.
-2. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze go.
-3. Jeśli nie masz jeszcze  *\_AppStart.cshtml* plików, w folderze głównym witryny sieci Web Utwórz plik o nazwie  *\_AppStart.cshtml*.
-4. Dodaj następujący kod `Recaptcha` ustawienia Pomocnika  *\_AppStart.cshtml* pliku: 
+1. Zarejestruj swoją witrynę sieci Web pod adresem ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Po zakończeniu rejestracji otrzymasz klucz publiczny i klucz prywatny.
+2. Dodaj bibliotekę pomocników sieci Web ASP.NET do witryny sieci Web zgodnie z opisem w temacie [Instalowanie pomocników w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372)(jeśli jeszcze nie zostało to zrobione).
+3. Jeśli nie masz jeszcze pliku *\_AppStart. cshtml* , w folderze głównym witryny sieci Web Utwórz plik o nazwie *\_AppStart. cshtml*.
+4. Dodaj następujące `Recaptcha` ustawienia pomocnika w pliku *\_AppStart. cshtml* : 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample1.cshtml?highlight=6-7)]
-5. Ustaw `PublicKey` i `PrivateKey` właściwości za pomocą własnych kluczy publicznych i prywatnych.
-6. Zapisz  *\_AppStart.cshtml* plik i zamknij go.
-7. W folderze głównym witryny sieci Web, należy utworzyć nową stronę o nazwie *Recaptcha.cshtml*.
-8. Zastąp istniejącą zawartość następujących czynności: 
+5. Ustaw `PublicKey` i `PrivateKey` właściwości przy użyciu własnych kluczy publicznych i prywatnych.
+6. Zapisz plik *\_AppStart. cshtml* i zamknij go.
+7. W folderze głównym witryny sieci Web Utwórz nową stronę o nazwie *reCAPTCHA. cshtml*.
+8. Zastąp istniejącą zawartość następującym: 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample2.cshtml)]
-9. Uruchom *Recaptcha.cshtml* strony w przeglądarce. Jeśli `PrivateKey` wartość jest prawidłowa, na stronie jest wyświetlany formantu ReCaptcha i przycisk. Jeśli nie było ustawić klucze globalnie w  *\_AppStart.html*, strony zostanie wyświetlony błąd. 
+9. Uruchom stronę *reCAPTCHA. cshtml* w przeglądarce. Jeśli wartość `PrivateKey` jest prawidłowa, na stronie zostanie wyświetlona kontrolka ReCaptcha i przycisk. Jeśli klucz nie został ustawiony globalnie w *\_AppStart. html*, na stronie zostanie wyświetlony komunikat o błędzie. 
 
     ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.png)
-10. Wprowadź wyrażenie dla testu. Jeśli przekażesz testu ReCaptcha, zobaczysz komunikat w tym celu. W przeciwnym razie zostanie wyświetlony komunikat o błędzie i kontroli ReCaptcha, zostanie wyświetlony ponownie.
+10. Wprowadź słowa dla testu. Jeśli przejdziesz test ReCaptcha, zobaczysz komunikat z tym efektem. W przeciwnym razie zostanie wyświetlony komunikat o błędzie, a kontrolka ReCaptcha zostanie wyświetlona ponownie.
 
 > [!NOTE]
-> Jeśli komputer znajduje się w domenie, która używa serwera proxy, może być konieczne skonfigurowanie `defaultproxy` elementu *Web.config* pliku. W poniższym przykładzie przedstawiono *Web.config* plik z `defaultproxy` element skonfigurowana w celu umożliwienia działania usługi ReCaptcha.
+> Jeśli komputer znajduje się w domenie, która używa serwera proxy, może być konieczne skonfigurowanie elementu `defaultproxy` pliku *Web. config* . W poniższym przykładzie przedstawiono plik *Web. config* z elementem `defaultproxy` skonfigurowanym tak, aby umożliwić działanie usługi reCAPTCHA.
 > 
 > [!code-xml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample3.xml)]
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Dostosowywanie zachowania dla całej witryny dla witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906)
-- [ReCaptcha lokacji](https://www.google.com/recaptcha)
+- [Dostosowywanie zachowania całej witryny dla witryn ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Witryna ReCaptcha](https://www.google.com/recaptcha)

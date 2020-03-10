@@ -9,11 +9,11 @@ ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e1ddd43524a61ff2e012171eba1a8dc8efbf8f1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587531"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78530843"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>Strony wzorcowe i nawigacja po witrynie (C#)
 
@@ -51,7 +51,7 @@ Aby utworzyć stronę wzorcową, kliknij prawym przyciskiem myszy nazwę projekt
 
 W tym miejscu Zdefiniuj układ strony dla całej witryny na stronie wzorcowej. Możesz użyć widok Projekt i dodać wszelkie wymagane przez siebie kontrolki układu lub sieci Web lub ręcznie dodać znaczniki adiustacji do widoku źródła. Na mojej stronie wzorcowej są używane [kaskadowe arkusze stylów](http://www.w3schools.com/css/default.asp) do pozycjonowania i stylów z ustawieniami CSS zdefiniowanymi w pliku zewnętrznym `Style.css`. Chociaż nie możesz powiedzieć od znaczników przedstawionych poniżej, reguły CSS są zdefiniowane w taki sposób, że zawartość `<div>`nawigacji jest pozycjonowana absolutnie, tak aby była wyświetlana po lewej stronie i ma stałą szerokość 200 pikseli.
 
-Site. Master
+Site.master
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample1.aspx)]
 
@@ -79,13 +79,13 @@ Po kliknięciu przycisku OK zostanie wyświetlona prośba o wybranie strony wzor
 
 Po wybraniu strony wzorcowej nowe strony ASP.NET będą zawierać następujące znaczniki:
 
-Default. aspx
+Default.aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample2.aspx)]
 
 W `@Page` dyrektywie istnieje odwołanie do pliku strony głównej używany (`MasterPageFile="~/Site.master"`), a znacznik strony ASP.NET zawiera kontrolkę zawartości dla każdej kontrolki elementu ContentPlaceHolder zdefiniowanej na stronie wzorcowej, przy czym `ContentPlaceHolderID` mapowania kontrolki zawartości na określony element ContentPlaceHolder. Kontrolka zawartości polega na umieszczeniu znacznika, który ma być wyświetlany w odpowiadającym mu elemencie ContentPlaceHolder. Ustaw atrybut `Title` dyrektywy `@Page` na Strona główna i Dodaj do kontrolki zawartość treść powitalną:
 
-Default. aspx
+Default.aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample3.aspx)]
 
@@ -129,7 +129,7 @@ Plik mapy witryny jest plikiem XML. Należy zauważyć, że program Visual Studi
 
 Zdefiniuj mapę witryny, aby naśladować strukturę systemu plików. Oznacza to, że należy dodać element `<siteMapNode>` dla każdego z trzech folderów i elementów podrzędnych `<siteMapNode>` dla każdej z ASP.NET stron w tych folderach, tak jak to zrobić:
 
-Web. sitemap
+Web.sitemap
 
 [!code-xml[Main](master-pages-and-site-navigation-cs/samples/sample4.xml)]
 

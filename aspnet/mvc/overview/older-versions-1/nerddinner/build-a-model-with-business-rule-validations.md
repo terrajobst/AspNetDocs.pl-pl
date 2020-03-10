@@ -1,227 +1,227 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: Budowanie modelu z weryfikacją reguł biznesowych | Dokumentacja firmy Microsoft
+title: Kompilowanie modelu przy użyciu walidacji reguł firmy | Microsoft Docs
 author: microsoft
-description: Krok 3 pokazuje, jak utworzyć model, że firma Microsoft umożliwia zarówno zapytania i aktualizują bazę danych dla naszej aplikacji NerdDinner.
+description: Krok 3 pokazuje, jak utworzyć model, za pomocą którego można wysyłać zapytania i aktualizować bazę danych dla naszej aplikacji NerdDinner.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 0bc191b2-4311-479a-a83a-7f1b1c32e6fe
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
 ms.openlocfilehash: 6ebf1b71c089229ba9139ff7dc788b8978724046
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117609"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541665"
 ---
 # <a name="build-a-model-with-business-rule-validations"></a>Budowanie modelu z walidacją reguł biznesowych
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 3 z BEZPŁATNEJ [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 3 bezpłatnego [samouczka dotyczącego aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , który zawiera instrukcje tworzenia niewielkiej, ale kompletnej aplikacji sieci Web przy użyciu ASP.NET MVC 1.
 > 
-> Krok 3 pokazuje, jak utworzyć model, że firma Microsoft umożliwia zarówno zapytania i aktualizują bazę danych dla naszej aplikacji NerdDinner.
+> Krok 3 pokazuje, jak utworzyć model, za pomocą którego można wysyłać zapytania i aktualizować bazę danych dla naszej aplikacji NerdDinner.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
+> Jeśli używasz ASP.NET MVC 3, zalecamy użycie [wprowadzenie ze samouczkami ze sklepu MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) .
 
-## <a name="nerddinner-step-3-building-the-model"></a>NerdDinner krok 3: Tworzenie modelu
+## <a name="nerddinner-step-3-building-the-model"></a>NerdDinner krok 3: kompilowanie modelu
 
-W ramach model-view-controller termin "model" odnosi się do obiektów, które reprezentują dane aplikacji, a także odpowiednie logiki domeny, która integruje się z nim sprawdzania poprawności i reguł biznesowych. Model jest pod wieloma względami "serce" aplikacji opartych na strukturze MVC i jak zajmiemy się później całkowicie dyski z zachowaniem.
+W strukturze kontrolera widoku modelu pojęcie "model" odnosi się do obiektów, które reprezentują dane aplikacji, a także odpowiedniej logiki domeny, która integruje sprawdzanie poprawności i reguły biznesowe. Model jest na wiele sposobów "serca" aplikacji opartej na MVC i w miarę jak zostanie on rozmieszczony w sposób bardziej podstawowy.
 
-Platforma ASP.NET MVC obsługuje przy użyciu dowolnej technologii dostępu do danych i deweloperzy mogą wybrać jeden z wielu zaawansowanych opcji danych .NET wdrożyć swoje modele, w tym: LINQ do jednostek oraz narzędzi LINQ to SQL, NHibernate, LLBLGen Pro, SubSonic, WilsonORM, lub po prostu pierwotne ADO.NET DataReaders i zestawów danych.
+Platforma ASP.NET MVC obsługuje używanie dowolnych technologii dostępu do danych, a deweloperzy mogą wybierać spośród różnych zaawansowanych opcji danych platformy .NET, aby zaimplementować ich modele, w tym: LINQ to Entities, LINQ to SQL, NHibernate, LLBLGen Pro, Subsonic, WilsonORM lub tylko RAW ADO. NET DataReader lub zestawy danych.
 
-Dla naszej aplikacji NerdDinner będziemy używać programu LINQ to SQL do tworzenia prostego modelu stosunkowo blisko odnosi się do naszych projekt bazy danych, która dodaje niektórych reguł biznesowych i logiki niestandardowego sprawdzania poprawności. Następnie wprowadzimy klasę repozytorium, która pomaga abstrakcyjny natychmiast implementacji trwałości danych od pozostałej części aplikacji i umożliwia nam łatwo jednostki do testowania.
+W naszej aplikacji NerdDinner będziemy używać LINQ to SQL, aby utworzyć prosty model, który jest ściśle zbliżony do naszego projektu bazy danych i dodaje niestandardową logikę sprawdzania poprawności i reguły biznesowe. Następnie zaimplementujemy klasę repozytorium, która pomaga w rozróżnieniu implementacji trwałości danych od pozostałej części aplikacji, i umożliwi nam łatwe przetestowanie go.
 
-### <a name="linq-to-sql"></a>LINQ do SQL
+### <a name="linq-to-sql"></a>LINQ to SQL
 
-LINQ do SQL jest ORM (obiektów relacyjnych mapowania), który jest dostarczany jako część .NET 3.5.
+LINQ to SQL to obiekt ORM (mapowanie relacyjne obiektów), który jest dostarczany jako część .NET 3,5.
 
-LINQ do SQL zapewnia łatwy sposób mapowania klasy .NET, których będziemy programować względem tabel bazy danych. Dla naszej aplikacji NerdDinner będziemy z niego korzystać do mapowania tabel kolacji i RSVP w naszej bazie danych obiad oraz RSVP klasy. Kolumny tabeli kolacji i RSVP odpowiada właściwości klasy obiad i RSVP. Każdy obiekt obiad i RSVP będzie reprezentować w oddzielnym wierszu w ramach kolacji lub RSVP tabel w bazie danych.
+LINQ to SQL zapewnia łatwy sposób mapowania tabel bazy danych na klasy .NET, z których możemy się odkodować. W naszej aplikacji NerdDinner będzie ona używana do mapowania obiadów i tabel RSVP w naszej bazie danych na obiad i RSVP klasy. Kolumny obiadów i tabel RSVP będą odpowiadały właściwościom na obiad i RSVP klas. Każdy obiekt obiadu i RSVP będzie reprezentował osobny wiersz w ramach obiadów lub tabel RSVP w bazie danych.
 
-LINQ do SQL pozwala uniknąć konieczności ręcznego konstruowania instrukcji SQL do pobierania i aktualizowania obiad i RSVP obiektów z bazy danych. Zamiast tego zdefiniujemy obiad i RSVP klas, w jaki sposób mapowania ich na i z niej bazy danych i relacje między nimi. LINQ do SQL bierze opieki nad Generowanie odpowiednich logiki wykonywania SQL do użycia w czasie wykonywania, gdy firma Microsoft i korzystać z nich.
+LINQ to SQL pozwala uniknąć konieczności ręcznego konstruowania instrukcji SQL w celu pobierania i aktualizowania obiektów obiadu i RSVP z danymi bazy danych. Zamiast tego zdefiniujemy klasy obiadu i RSVP, jak są one mapowane do/z bazy danych oraz relacje między nimi. LINQ to SQL następnie będzie obsługiwać generowanie odpowiedniej logiki wykonywania SQL do użycia w czasie wykonywania, gdy będziemy korzystać z nich.
 
-Możemy użyć obsługę języka programu LINQ w VB i C#, aby pisać zapytania ekspresyjna, które pobierają obiad i RSVP obiektów z bazy danych. Zmniejsza to ilość kodu danych, należy napisać, i pozwala tworzyć aplikacje naprawdę eleganckie.
+Możemy użyć obsługi języka LINQ w języku VB i C# napisać zapytania ekspresowe, które pobierają obiekty obiadu i RSVP z bazy danych. Pozwala to zminimalizować ilość kodu danych, który należy napisać, i umożliwia nam tworzenie czystych aplikacji.
 
-### <a name="adding-linq-to-sql-classes-to-our-project"></a>Dodawanie klasy programu LINQ to SQL do naszego projektu
+### <a name="adding-linq-to-sql-classes-to-our-project"></a>Dodawanie LINQ to SQL klas do naszego projektu
 
-Firma Microsoft będzie zacząć, klikając prawym przyciskiem myszy w folderze "Modele" w projekcie i wybierz **Add -&gt;nowy element** polecenia menu:
+Rozpocznie się po kliknięciu prawym przyciskiem myszy folderu "models" w naszym projekcie i wybraniu polecenia menu **dodaj&gt;nowy element** :
 
 ![](build-a-model-with-business-rule-validations/_static/image1.png)
 
-Zostanie wyświetlone okno dialogowe "Dodaj nowy element". Firma Microsoft będzie filtrować według kategorii "Dane" i wybierz szablon "LINQ do klas SQL" znajdujący się w nim:
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie nowego elementu". Będziemy filtrować według kategorii "dane" i wybieramy w niej szablon "LINQ to SQL Classes":
 
 ![](build-a-model-with-business-rule-validations/_static/image2.png)
 
-Firma Microsoft będzie nazwa elementu "NerdDinner" i kliknij przycisk "Dodaj". Program Visual Studio będzie dodać plik NerdDinner.dbml naszego katalogu \Models, a następnie otwórz LINQ to SQL obiektów relacyjnych projektanta:
+Nazwamy elementu "NerdDinner" i kliknij przycisk "Dodaj". Program Visual Studio doda plik NerdDinner. dbml w katalogu \Models, a następnie otworzy projektanta obiektów relacyjnych LINQ to SQL Object:
 
 ![](build-a-model-with-business-rule-validations/_static/image3.png)
 
 ### <a name="creating-data-model-classes-with-linq-to-sql"></a>Tworzenie klas modelu danych za pomocą LINQ to SQL
 
-LINQ to SQL oferuje nam na szybkie tworzenie klas modelu danych z istniejącego schematu bazy danych. Do wykonania to firma Microsoft będzie otworzyć NerdDinner bazy danych w Eksploratorze serwera i wybrać tabele, które chcemy modelu w nim:
+LINQ to SQL pozwala nam szybko utworzyć klasy modelu danych z istniejącego schematu bazy danych. W tym celu należy otworzyć bazę danych NerdDinner w Eksplorator serwera i wybrać tabele, które chcemy modelować:
 
 ![](build-a-model-with-business-rule-validations/_static/image4.png)
 
-Firma Microsoft można przeciągnąć tabele na LINQ, do powierzchni projektanta SQL. Podczas prowadzenia LINQ to SQL będzie automatycznie tworzył obiad i klasy RSVP przy użyciu schematu tabel (z właściwości klasy mapowane na kolumny tabeli bazy danych):
+Następnie możemy przeciągnąć tabele na powierzchnię projektanta LINQ to SQL. Gdy wykonamy tę LINQ to SQL automatycznie utworzysz klasy obiadu i RSVP przy użyciu schematu tabel (z właściwościami klasy, które są mapowane na kolumny tabeli bazy danych):
 
 ![](build-a-model-with-business-rule-validations/_static/image5.png)
 
-Domyślnie LINQ to SQL Projektant automatycznie "liczbę mnogą" nazwy tabel i kolumn podczas tworzenia klas na podstawie schematu bazy danych. Na przykład: w tabeli "Kolacji" w powyższym przykładzie spowodowało klasy "Obiad". Ta klasa nazewnictwa ułatwia naszych modeli zgodne z konwencjami nazewnictwa platformy .NET i zwykle znaleźć ten, którego poprawkę projektanta to się wygodne (szczególnie podczas dodawania wiele tabel). Jeśli nie podoba Ci się nazwa klasy lub Projektant generuje, chociaż, zawsze możesz go zastąpić i zmienić ją na dowolną nazwę, która ma właściwość. Możesz można to zrobić, edytując właściwości jednostki/nazwa wbudowane w Projektancie lub modyfikując za pośrednictwem siatki właściwości.
+Domyślnie Projektant LINQ to SQL automatycznie "zmienia" nazwy tabel i kolumn podczas tworzenia klas opartych na schemacie bazy danych. Na przykład: tabela "obiady" w naszym przykładzie powyżej spowodowało powstanie klasy "obiad". Takie nazywanie klas pomaga zapewnić spójność naszych modeli z konwencjami nazewnictwa platformy .NET, a zazwyczaj znajduje się w tym, że projektant naprawił to wygodne (szczególnie w przypadku dodawania wielu tabel). Jeśli nie podoba Ci się nazwa klasy lub właściwości, które generuje Projektant, możesz zawsze zastąpić ją i zmienić na dowolną żądaną nazwę. Można to zrobić, edytując nazwę jednostki/właściwości w obrębie projektanta lub modyfikując ją za pośrednictwem siatki właściwości.
 
-Domyślnie LINQ to SQL projektanta również sprawdza podstawowego klucza/relacje klucza obcego tabel i na podstawie ich automatycznie tworzy domyślne "relacja skojarzenia" między klasami innego modelu, który on generuje. Na przykład, kiedy możemy przeciągnąć kolacji i RSVP tabel na LINQ do SQL projektanta skojarzenia typu relacji jeden do wielu między tymi dwoma została wywnioskowana opiera się na fakcie, że tabela RSVP miał kluczy obcych do tabeli kolacji (jest to wskazywane przez strzałkę na liście Projektant):
+Domyślnie Projektant LINQ to SQL sprawdza także relacje między kluczami podstawowymi i kluczami obcym tabel, a na podstawie nich automatycznie tworzy domyślne "skojarzenia relacji" między różnymi tworzonymi przez siebie klasami modelu. Na przykład podczas przeciągania obiadów i tabel protokołu RSVP do projektanta LINQ to SQL skojarzenie relacji jeden-do-wielu między nimi zostało wywnioskowane na podstawie faktu, że tabela protokołu RSVP ma klucz obcy do tabeli obiadów (jest to wskazywane przez strzałkę w Projektant):
 
 ![](build-a-model-with-business-rule-validations/_static/image6.png)
 
-Powyżej skojarzenia spowoduje, że LINQ do SQL, aby dodać silnie typizowaną właściwość "Obiad" do klasy RSVP, która umożliwia programistom dostępu obiad skojarzone z danym RSVP. Spowoduje także klasy obiad mieć "RSVPs" właściwość kolekcji, która umożliwia deweloperom pobierania i aktualizowania obiektów RSVP skojarzonych z określonym obiad.
+Powyższe skojarzenie spowoduje, że LINQ to SQL dodać do klasy RSVP właściwość o jednoznacznie określonym typie "obiad", którą deweloperzy mogą wykorzystać w celu uzyskania dostępu do obiadu skojarzonego z daną RSVP. Spowoduje to również, że Klasa obiadu ma mieć Właściwość kolekcji "RSVP", która umożliwia deweloperom pobieranie i aktualizowanie obiektów RSVP skojarzonych z określonym obiadem.
 
-Poniżej przedstawiono przykład technologii intellisense w programie Visual Studio podczas utworzymy nowy obiekt RSVP i dodać go do kolekcji zbędne obiad. Zwróć uwagę, jak LINQ to SQL automatycznie dodawane kolekcji "Zbędne" w obiekcie obiad:
+Poniżej można zobaczyć przykład funkcji IntelliSense w programie Visual Studio podczas tworzenia nowego obiektu RSVP i dodawania go do kolekcji RSVP w Obiadie. Zwróć uwagę, jak LINQ to SQL automatycznie dodać kolekcję "RSVP" w obiekcie obiadu:
 
 ![](build-a-model-with-business-rule-validations/_static/image7.png)
 
-Dodając obiekt RSVP kolekcji zbędne obiad kolejne parametry LINQ to SQL do skojarzenia klucza obcego relacji między Dinner i wiersz RSVP w naszej bazie danych:
+Dodając obiekt RSVP do kolekcji RSVP w Obiadie, informujemy LINQ to SQL o skojarzeniu z kluczem obcym relacji między obiadem a wierszem RSVP w naszej bazie danych:
 
 ![](build-a-model-with-business-rule-validations/_static/image8.png)
 
-Jeśli nie potrzebujesz, jak projektant ma modelowane lub o nazwie skojarzenia tabeli, można ją zastąpisz. Wystarczy kliknąć strzałkę skojarzenia, w Projektancie i uzyskiwanie dostępu do jego właściwości, za pośrednictwem siatki właściwości, aby zmienić nazwę, usuń lub zmodyfikuj go. Dla naszej aplikacji NerdDinner, domyślne reguły kojarzenia zadziałać dla klasy modelu danych, które tworzymy i możemy użyć zachowanie domyślne.
+Jeśli nie chcesz, aby Projektant utworzył model lub nazwane skojarzenie tabeli, możesz go zastąpić. Po prostu kliknij strzałkę skojarzenia w Projektancie i uzyskaj dostęp do jego właściwości za pośrednictwem siatki właściwości, aby zmienić nazwę, usunąć lub zmodyfikować ją. W naszej aplikacji NerdDinner, chociaż domyślne reguły skojarzenia działają dobrze dla klas modelu danych, które tworzysz, i można po prostu użyć zachowania domyślnego.
 
 ### <a name="nerddinnerdatacontext-class"></a>Klasa NerdDinnerDataContext
 
-Program Visual Studio automatycznie utworzy klas platformy .NET, które reprezentują modeli i relacje bazy danych zdefiniowanych za pomocą LINQ to SQL projektanta. LINQ do klas SQL DataContext również jest generowany dla każdego plik LINQ to SQL projektanta dodawany do rozwiązania. Ponieważ firma Microsoft o nazwie naszych LINQ to SQL klasy: element "NerdDinner", klasy DataContext, utworzony zostanie wywołana "NerdDinnerDataContext". Ta klasa NerdDinnerDataContext jest podstawowym sposobem, w których firma Microsoft będzie wchodzić w interakcje z bazą danych.
+Program Visual Studio automatycznie utworzy klasy platformy .NET, które reprezentują modele i relacje baz danych zdefiniowane za pomocą projektanta LINQ to SQL. Klasa DataContext LINQ to SQL jest również generowana dla każdego pliku projektanta LINQ to SQL dodanego do rozwiązania. Ze względu na to, że nazywamy nasze LINQ to SQL element klasy "NerdDinner", utworzona klasa DataContext zostanie wywołana "NerdDinnerDataContext". Ta klasa NerdDinnerDataContext jest podstawowym sposobem, w jaki będziemy współdziałać z bazą danych.
 
-Klasa naszych NerdDinnerDataContext udostępnia dwie właściwości — "Kolacji" i "RSVPs -", które reprezentują dwie tabele, które firma Microsoft modelowane w bazie danych. Możemy użyć C# można zapisać zapytania LINQ w odniesieniu do tych właściwości do zapytania i pobieranie obiektów obiad i RSVP z bazy danych.
+Nasze klasy NerdDinnerDataContext udostępniają dwie właściwości — "obiad" i "RSVP" — reprezentujące dwie tabele, które są modelowane w bazie danych. Możemy użyć C# do zapisywania zapytań LINQ względem tych właściwości, aby wykonywać zapytania i pobierać obiekty obiadu i RSVP z bazy danych.
 
-Poniższy kod przedstawia sposób tworzenia wystąpienia obiektu NerdDinnerDataContext i wykonują kwerendę LINQ go uzyskać sekwencję kolacji występujących w przyszłości. Program Visual Studio zapewnia pełną obsługą technologii intellisense podczas pisania zapytań LINQ i obiektów zwróconych z niego są silnie typizowane i obsługiwać intellisense:
+Poniższy kod ilustruje sposób tworzenia wystąpienia obiektu NerdDinnerDataContext i wykonywania zapytania LINQ względem niego w celu uzyskania sekwencji obiadów występujących w przyszłości. Program Visual Studio udostępnia pełną technologię IntelliSense podczas pisania zapytania LINQ, a obiekty zwracane z tego typu są jednoznacznie wpisane i obsługują technologię IntelliSense:
 
 ![](build-a-model-with-business-rule-validations/_static/image9.png)
 
-Oprócz umożliwienia nami, aby wyszukać obiekty obiad i RSVP, NerdDinnerDataContext również automatycznie śledzi wszelkie zmiany, które możemy następnie dokonać obiad i RSVP obiekty, które możemy pobierać za jego pośrednictwem. Możemy użyć tej funkcji, można łatwo zapisać zmiany w bazie danych — bez konieczności pisania kodu jawne aktualizacji programu SQL.
+Oprócz umożliwienia nam wykonywania zapytań dotyczących obiektów obiad i RSVP, NerdDinnerDataContext automatycznie śledzi wszelkie zmiany, które następnie przejdziemy na obiad i obiekty RSVP, do których pobieramy. Za pomocą tej funkcji można łatwo zapisywać zmiany z powrotem w bazie danych — bez konieczności pisania kodu jawnej aktualizacji SQL.
 
-Na przykład poniższy kod pokazuje, jak korzystać z zapytania LINQ do pobrania pojedynczego obiektu obiad z bazy danych, dwie właściwości obiad aktualizacji i następnie zapisz zmiany w bazie danych:
+Na przykład poniższy kod pokazuje, jak używać zapytania LINQ do pobierania pojedynczego obiektu obiadu z bazy danych, aktualizować dwie właściwości obiadu, a następnie zapisywać zmiany z powrotem w bazie danych:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample1.cs)]
 
-Obiekt NerdDinnerDataContext w kodzie powyżej są automatycznie śledzone zmiany właściwości do obiektu obiad pobrane z niego. Po wywołaniu metody "SubmitChanges()" Firma Microsoft wykona odpowiednie "AKTUALIZUJ" instrukcja SQL do bazy danych, aby utrwalić ponownie zaktualizowanymi wartościami.
+Obiekt NerdDinnerDataContext w powyższym kodzie automatycznie przeprowadził automatyczne śledzenie zmian właściwości wprowadzonych do obiektu obiadu, który został przez nas pobrany. Po wywołaniu metody "SubmitChanges ()" spowoduje to wykonanie odpowiedniej instrukcji "UPDATE" programu SQL Server w bazie danych, aby zachować zaktualizowane wartości z powrotem.
 
 ### <a name="creating-a-dinnerrepository-class"></a>Tworzenie klasy DinnerRepository
 
-Dla małych aplikacji, czasami jest dobrym rozwiązaniem kontrolery pracować bezpośrednio w odniesieniu do składnika LINQ to SQL DataContext klasy, a następnie osadź zapytań LINQ w ramach kontrolerów. Jak uzyskiwania większej aplikacji, jednak takie podejście staje się problematyczne jego utrzymywanie i testowanie. Ponadto może to prowadzić do nas duplikowania tego samego zapytania LINQ w kilku miejscach.
+W przypadku małych aplikacji czasami warto mieć kontrolery działające bezpośrednio dla LINQ to SQLj klasy DataContext i osadzić zapytania LINQ na kontrolerach. Aplikacje są coraz większe, ale takie podejście jest uciążliwe do utrzymania i przetestowania. Może to również prowadzić do duplikowania tych samych zapytań LINQ w wielu miejscach.
 
-Jeden podejście, które mogą ułatwić aplikacje utrzymywanie i testowanie jest stosowany jest wzorzec "repozytorium". Klasa repozytorium pomaga hermetyzacji, wykonywanie zapytań i logikę trwałości i natychmiast Abstract, szczegóły implementacji funkcji trwałości danych z aplikacji. Oprócz tworzenia kodu aplikacji jest bardziej przejrzysty, przy użyciu wzorca repozytorium może ułatwić w przyszłości zmienić implementacje magazynu danych, a jego może ułatwić testowanie aplikacji bez konieczności rzeczywista baza danych jednostek.
+Jednym z rozwiązań, które może ułatwić zachowanie aplikacji i przetestowanie, jest użycie wzorca "Repository". Klasa repozytorium pomaga hermetyzować zapytania dotyczące danych i logikę trwałości oraz deabstrakcyjne szczegóły implementacji trwałości danych z aplikacji. Oprócz tworzenia oczyszczarki kodu aplikacji Używanie wzorca repozytorium może ułatwić zmianę implementacji usługi Data Storage w przyszłości, a także ułatwić testowanie jednostkowe aplikacji bez konieczności rzeczywistej bazy danych.
 
-Dla naszej aplikacji NerdDinner zdefiniujemy klasą DinnerRepository z poniżej podpisu:
+W naszej aplikacji NerdDinner zdefiniujemy klasę DinnerRepository z następującym podpisem:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample2.cs)]
 
-*Uwaga: Później w tym rozdziale utworzymy Wyodrębnij interfejs IDinnerRepository z tej klasy i włączyć wstrzykiwanie zależności z nim naszych kontrolerach. Najpierw jednak zamierzamy prosty sposób Rozpocznij pracę i pracują bezpośrednio z klasą DinnerRepository.*
+*Uwaga: w dalszej części tego rozdziału wyodrębnimy interfejs IDinnerRepository z tej klasy i włączysz dla niego iniekcję zależności na naszych kontrolerach. Aby zacząć od, należy zacząć proste i działać bezpośrednio z klasą DinnerRepository.*
 
-Do implementowania tej klasy, utworzymy kliknij prawym przyciskiem myszy w folderze naszych "Modele" i wybierz **Add -&gt;nowy element** polecenia menu. W oknie dialogowym "Dodaj nowy element" Firma Microsoft wybierz szablon "Class" i nazwij plik "DinnerRepository.cs":
+Aby zaimplementować tę klasę, należy kliknąć prawym przyciskiem myszy nasz folder "models" i wybrać polecenie menu **dodaj&gt;nowego elementu** . W oknie dialogowym Dodaj nowy element wybierz szablon "Klasa" i nadaj mu nazwę "DinnerRepository.cs":
 
 ![](build-a-model-with-business-rule-validations/_static/image10.png)
 
-Następnie możemy wdrożyć nasze klasy DinnerRepository, za pomocą poniższego kodu:
+Możemy wdrożyć nasze klasy DinnerRepository, korzystając z poniższego kodu:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample3.cs)]
 
-### <a name="retrieving-updating-inserting-and-deleting-using-the-dinnerrepository-class"></a>Pobierania, aktualizowania, wstawiania i usuwania, za pomocą klasy DinnerRepository
+### <a name="retrieving-updating-inserting-and-deleting-using-the-dinnerrepository-class"></a>Pobieranie, aktualizowanie, wstawianie i usuwanie przy użyciu klasy DinnerRepository
 
-Teraz, utworzyliśmy klasy Nasze DinnerRepository Spójrzmy na kilka przykładów kodu, które przedstawiają typowych zadań, które firma Microsoft może z nim zrobić:
+Teraz, po utworzeniu naszej klasy DinnerRepository, przyjrzyjmy się kilku przykładom kodu, które demonstrują typowe zadania, które możemy nam wykonać:
 
 #### <a name="querying-examples"></a>Przykłady zapytań
 
-Poniższy kod pobiera pojedynczy obiad, przy użyciu wartości DinnerID:
+Poniższy kod pobiera pojedynczy obiad przy użyciu wartości DinnerID:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample4.cs)]
 
-Poniższy kod pobiera wszystkie nadchodzące kolacji i pętle nad nimi:
+Poniższy kod pobiera wszystkie nadchodzące obiady i pętle na ich temat:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample5.cs)]
 
-#### <a name="insert-and-update-examples"></a>INSERT i Update przykłady
+#### <a name="insert-and-update-examples"></a>Przykłady wstawiania i aktualizacji
 
-Poniższy kod demonstruje, dodanie dwóch nowych kolacji. Dodatki/zmiany do repozytorium nie są zatwierdzona w bazie danych, dopóki nie jest wywoływać w nim metody "Zapisz()". LINQ do SQL jest automatycznie zawijany, wszystkie zmiany w transakcji bazy danych — dzięki czemu wszystkie zmiany warstw albo żadna z nich podczas zapisywania w naszym repozytorium:
+Poniższy kod ilustruje dodanie dwóch nowych obiadów. Dodatki/modyfikacje repozytorium nie są zatwierdzane do bazy danych do momentu wywołania metody "Save ()". LINQ to SQL automatycznie zawija wszystkie zmiany w transakcji bazy danych — w związku z tym wszystkie zmiany są wykonywane lub żadne z nich nie są wykonywane, gdy repozytorium zapisuje:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample6.cs)]
 
-Poniższy kod pobiera istniejący obiekt obiad i modyfikuje dwie właściwości na nim. Zmiany zostały zastosowane w bazie danych, gdy wywoływana jest metoda "Zapisz()" repozytorium:
+Poniższy kod pobiera istniejący obiekt obiadu i modyfikuje dwie właściwości. Zmiany są zatwierdzane z powrotem do bazy danych, gdy metoda "Save ()" jest wywoływana w naszym repozytorium:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample7.cs)]
 
-Poniższy kod pobiera obiad, a następnie dodaje odpowiedź na zaproszenie do niego. Jest to realizowane przy użyciu kolekcji zbędne na obiad utworzony obiekt LINQ to SQL dla nas (ponieważ nie istnieje podstawowy klucz/klucz obcy relacji między tymi dwoma w bazie danych). Ta zmiana jest utrwalony w bazie danych jako nowy wiersz tabeli RSVP, gdy wywoływana jest metoda "Zapisz()" w repozytorium:
+Poniższy kod pobiera obiad, a następnie dodaje do niego RSVP. Wykonuje to przy użyciu kolekcji RSVP w obiekcie obiadu, który LINQ to SQL utworzony dla nas (ponieważ istnieje relacja podstawowego klucza/klucza obcego między dwoma w bazie danych). Ta zmiana jest utrwalana w bazie danych jako nowy wiersz tabeli RSVP w przypadku wywołania metody "Save ()" w repozytorium:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample8.cs)]
 
-#### <a name="delete-example"></a>Usuwanie przykładu
+#### <a name="delete-example"></a>Usuń przykład
 
-Poniższy kod pobiera istniejący obiekt obiad i oznaczy go do usunięcia. Gdy wywoływana jest metoda "Zapisz()" w repozytorium go spowoduje to zatwierdzenie usuwania w bazie danych:
+Poniższy kod pobiera istniejący obiekt obiadu, a następnie oznacza go jako usunięty. Gdy metoda "Save ()" jest wywoływana w repozytorium, spowoduje to usunięcie z powrotem do bazy danych:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample9.cs)]
 
-### <a name="integrating-validation-and-business-rule-logic-with-model-classes"></a>Integrowanie walidację i logikę regułę biznesową, przy użyciu klasy modelu
+### <a name="integrating-validation-and-business-rule-logic-with-model-classes"></a>Integrowanie logiki reguł sprawdzania poprawności i reguły biznesowej z klasami modelu
 
-Integrowanie sprawdzania poprawności i regułę biznesową, że logika jest kluczowym elementem każdej aplikacji, która działa z danymi.
+Integrowanie logiki reguł sprawdzania poprawności i reguły biznesowej jest kluczową częścią wszystkich aplikacji, które współdziałają z danymi.
 
 #### <a name="schema-validation"></a>Sprawdzanie poprawności schematu
 
-Po zdefiniowaniu klas modelu za pomocą LINQ to SQL projektanta typy danych właściwości w klasach modeli danych odpowiadają typy danych w tabeli bazy danych. Na przykład: Jeśli kolumny "EventDate" w tabeli kolacji jest typu "datetime", klasy modelu danych, które są tworzone w składniku LINQ to SQL jest typu "DateTime" (która jest wbudowana datatype .NET). Oznacza to, że otrzymasz błędów kompilacji, Jeśli spróbujesz przypisać liczbą całkowitą lub wartość logiczną do niej z poziomu kodu, a jego zgłosi błąd automatycznie przy próbie niejawnie przekonwertować typu ciąg nie jest ważna do niej w czasie wykonywania.
+Gdy klasy modelu są definiowane przy użyciu projektanta LINQ to SQL, typy danych właściwości w klasach modelu danych odpowiadają typem danych w tabeli bazy. Na przykład: Jeśli kolumna "EventDate" w tabeli obiadów ma wartość "DateTime", Klasa modelu danych utworzona przez LINQ to SQL będzie typu "DateTime" (który jest wbudowanym typem danych .NET). Oznacza to, że podczas próby przypisania wartości całkowitej lub wartości logicznej do jej z kodu zostanie wyświetlony komunikat o błędzie, a próba niejawnego przekonwertowania nieprawidłowego typu ciągu na go w czasie wykonywania zostanie podjęta automatycznie.
 
-LINQ do SQL również automatycznie zostanie obsługuje ucieczki wartości SQL dla Ciebie, podczas korzystania z ciągów — co ułatwia ochronę przed atakami polegającymi na iniekcji SQL podczas korzystania z niego.
+LINQ to SQL również automatycznie obsługuje ucieczki wartości SQL w przypadku korzystania z ciągów, co pomaga chronić przed atakami polegającymi na iniekcji kodu SQL podczas korzystania z niego.
 
-#### <a name="validation-and-business-rule-logic"></a>Sprawdzanie poprawności i logiki reguły biznesowej
+#### <a name="validation-and-business-rule-logic"></a>Sprawdzanie poprawności i logika reguły biznesowej
 
-Sprawdzanie poprawności schematu przydaje się jako pierwszy krok, ale jest rzadko wystarczające. Większość scenariuszy w rzeczywistych warunkach muszą mieć możliwość określenia bardziej rozbudowane logikę weryfikacji, może obejmować wiele właściwości, wykonanie kodu, która często mają świadomość stan modelu (na przykład: jest ona tworzona/zaktualizować/usunięte, lub w ramach stanu specyficznego dla domeny takie jak "zarchiwizowane"). Istnieje szereg różnych wzorców i struktur, które mogą służyć do definiowania i zastosować reguły sprawdzania poprawności do modelu klas, wiąże się z kilku .NET na podstawie struktury tam, które mogą służyć do w tym pomóc. Można użyć praktycznie dowolnego z nich w aplikacjach ASP.NET MVC.
+Sprawdzanie poprawności schematu jest przydatne jako pierwszy krok, ale jest rzadko wystarczające. Najpopularniejsze scenariusze wymagają możliwości określenia bogatszej logiki walidacji, która może obejmować wiele właściwości, wykonywać kod i często ma świadomość stanu modelu (na przykład: czy jest tworzony/Updated/Deleted, czy w ramach stanu specyficznego dla domeny, takiego jak "zarchiwizowany"). Istnieją rozmaite różne wzorce i struktury, które mogą służyć do definiowania i stosowania reguł walidacji do klas modeli, a istnieje kilka platform opartych na architekturze .NET, które mogą być używane w tym celu. Możesz użyć całkiem dowolnej z nich w aplikacjach ASP.NET MVC.
 
-Dla celów naszej aplikacji NerdDinner użyjemy wzorca stosunkowo proste i proste gdzie uwidaczniamy IsValid właściwości i metody GetRuleViolations() naszych obiad modelu obiektu. Właściwość IsValid zwraca wartość PRAWDA lub FAŁSZ w zależności od tego, czy są prawidłowymi reguł biznesowych i sprawdzania poprawności. Metoda GetRuleViolations() zwróci listę wszystkich błędów, reguły.
+Na potrzeby naszej aplikacji NerdDinner będziemy używać stosunkowo prostej i prostej wzorca, w której zostanie ujawniona Właściwość IsValid i Metoda GetRuleViolations () w naszym obiekcie modelu obiadu. Właściwość IsValid zwróci wartość true lub false w zależności od tego, czy sprawdzanie poprawności i reguły biznesowe są prawidłowe. Metoda GetRuleViolations () zwróci listę błędów reguł.
 
-Firma Microsoft będzie implementować IsValid i GetRuleViolations() dla modelu Dinner przez dodanie "klasy częściowej" do naszego projektu. Klasy częściowe może służyć do dodawania metody/właściwości/zdarzenia do klasy obsługiwane przez projektanta programu VS (na przykład klasy obiad generowanej przez LINQ to SQL projektanta) i zapobiec narzędzie z poświęcana dzięki naszemu kodowi. Możemy dodać nową klasę częściowe do naszego projektu, klikając prawym przyciskiem myszy w folderze \Models, a następnie wybierz polecenie "Dodaj nowy element". Firma Microsoft następnie wybierz szablon "Klasy" w oknie dialogowym "Dodaj nowy element" i nadaj mu nazwę Dinner.cs.
+Będziemy implementować IsValid i GetRuleViolations () dla naszego modelu obiadu przez dodanie "klasy częściowej" do projektu. Klasy częściowe mogą służyć do dodawania metod/właściwości/zdarzeń do klas obsługiwanych przez projektanta VS (na przykład w przypadku klasy obiadu wygenerowanej przez projektanta LINQ to SQL) i pomóc w uniknięciu tego narzędzia w kodzie. Do projektu można dodać nową klasę częściową, klikając prawym przyciskiem myszy folder \Models, a następnie wybierając polecenie menu "Dodaj nowy element". Następnie możemy wybrać szablon "Klasa" w oknie dialogowym "Dodawanie nowego elementu" i nadaj mu nazwę Dinner.cs.
 
 ![](build-a-model-with-business-rule-validations/_static/image11.png)
 
-Kliknięcie przycisku "Dodaj". Dodaj plik Dinner.cs do naszego projektu i otwórz go w środowisku IDE. Firma Microsoft może następnie zaimplementować podstawowe/sprawdzania poprawności reguły wymuszania framework za pomocą poniższego kodu:
+Kliknięcie przycisku "Dodaj" spowoduje dodanie pliku Dinner.cs do projektu i otwarcie go w środowisku IDE. Następnie możemy zaimplementować podstawową regułę/strukturę wymuszania walidacji przy użyciu poniższego kodu:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample10.cs)]
 
-Kilka notatek dotyczących kodu powyżej:
+Kilka informacji o powyższym kodzie:
 
-- Klasa obiad jest poprzedzona słowem kluczowym "częściowej" — oznacza to, kod w nim zawarte będą połączone z klasą wygenerowanych/zachowane w składniku LINQ to SQL projektanta i skompilowane w ramach jednej klasy.
-- Klasa RuleViolation jest klasa pomocnika, który zostanie dodany do projektu, który pozwala zapewnić więcej informacji na temat naruszenie reguły.
-- Metoda Dinner.GetRuleViolations() powoduje, że nasze reguł biznesowych i sprawdzania poprawności, ma zostać obliczone (będzie wdrażamy je wkrótce). Następnie zwraca ponownie sekwencję obiektów RuleViolation, które będą dostarczać szczegółowe informacje o błędach reguły.
-- Właściwość Dinner.IsValid udostępnia właściwość wygodne pomocnika, która wskazuje, czy obiekt obiad ma żadnych aktywnych RuleViolations. On aktywne można sprawdzić przez dewelopera w dowolnym momencie za pomocą obiektu obiad (i nie zgłaszała wyjątku).
-- Metoda częściowa Dinner.OnValidate() jest hook zapewniająca LINQ to SQL umożliwiający otrzymywania powiadomień w dowolnym momencie obiekt obiad ma zostać utrwalone w bazie danych. Naszej implementacji OnValidate() powyżej gwarantuje, że Dinner ma nie RuleViolations, zanim zostaną zapisane. Jeśli jest w nieprawidłowym stanie zgłasza wyjątek, który spowoduje, że LINQ to SQL, aby przerwać transakcji.
+- Klasa obiadu jest poprzedzona słowem kluczowym "częściowe", co oznacza, że kod zawarty w nim zostanie połączony z klasą wygenerowaną/obsługiwaną przez projektanta LINQ to SQL i skompilowana w jednej klasie.
+- Klasa RuleViolation jest klasą pomocników dodawaną do projektu, który umożliwia nam dostarczenie szczegółowych informacji o naruszeniu reguły.
+- Metoda obiad. GetRuleViolations () powoduje, że nasze weryfikacje i reguły biznesowe są oceniane (wkrótce zaimplementujemy je). Następnie zwraca sekwencję obiektów RuleViolation, które zawierają więcej szczegółowych informacji o błędach reguł.
+- Właściwość obiad. IsValid udostępnia wygodną Właściwość pomocnika, która wskazuje, czy obiekt obiadu ma wszystkie aktywne RuleViolations. Może być aktywnie sprawdzana przez dewelopera przy użyciu obiektu obiadu w dowolnym momencie (i nie zgłasza wyjątku).
+- Metoda częściowa "obiad. OnValidate ()" jest punktem zaczepienia, który LINQ to SQL zapewnia, że wszyscy z nich otrzymają powiadomienie, gdy obiekt obiadu zostanie utrwalony w bazie danych. Nasze wdrożenie OnValidate () powyżej gwarantuje, że obiad nie ma RuleViolations przed jego zapisaniem. Jeśli jest w nieprawidłowym stanie, zgłasza wyjątek, co spowoduje, że LINQ to SQL przerywa transakcji.
 
-To podejście zapewnia prostą strukturę, która integrujemy sprawdzania poprawności i reguł biznesowych do. Teraz Dodajmy poniższych reguł do naszych GetRuleViolations() metody:
+To podejście zapewnia prostą strukturę, którą możemy zintegrować weryfikację i reguły biznesowe. Teraz dodajmy poniższe reguły do naszej metody GetRuleViolations ():
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample11.cs)]
 
-Używamy "yield return" funkcji języka C# w celu zwrócenia sekwencji żadnych RuleViolations. Po pierwsze sprawdza reguły sześć powyżej wymusić po prostu, czy właściwości ciągu na naszych obiad nie może być o wartości null ani być pusta. Ostatnia reguła jest nieco bardziej interesująca i wywołania metody pomocnika PhoneValidator.IsValidNumber() czy możemy dodać do naszej projektu, aby sprawdzić, czy ContactPhone numer format dopasowania Dinner w kraju.
+Używamy funkcji "yield return", C# aby zwrócić sekwencję dowolnych RuleViolations. Pierwsze sześć reguł sprawdza powyżej po prostu wymuszenie, że właściwości ciągu na Obiadie nie mogą mieć wartości null ani być puste. Ostatnia reguła jest nieco bardziej interesująca i wywołuje metodę pomocnika PhoneValidator. IsValidNumber (), którą można dodać do naszego projektu, aby sprawdzić, czy format numeru ContactPhone jest zgodny z krajem obiadu.
 
-Możemy użyć. Obsługa wyrażeń regularnych przez sieć do zaimplementowania tej weryfikacji telefonicznej pomocy technicznej. Poniżej przedstawiono proste wdrażanie PhoneValidator, które możemy dodać do naszej projektu, który pozwala na dodawanie sprawdzania wzorzec wyrażenia regularnego specyficzne dla kraju:
+Możemy użyć. Obsługa wyrażenia regularnego w sieci w celu zaimplementowania tej obsługi sprawdzania poprawności telefonu. Poniżej znajduje się prosta implementacja PhoneValidator, którą możemy dodać do naszego projektu, który pozwala nam dodawać testy wzorca wyrażenia regularnego specyficzne dla kraju:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample12.cs)]
 
-#### <a name="handling-validation-and-business-logic-violations"></a>Obsługa sprawdzania poprawności i naruszeń logiki biznesowej
+#### <a name="handling-validation-and-business-logic-violations"></a>Obsługa walidacji i naruszeń logiki biznesowej
 
-Teraz, dodaliśmy powyżej sprawdzania poprawności i firm kodu reguły, każdym razem, gdy podejmowane są próby utworzenia lub zaktualizowania obiad, nasze reguł logiki weryfikacji będzie obliczane i wymuszane.
+Teraz, po dodaniu powyższego kodu sprawdzania poprawności i reguły biznesowej, zawsze, gdy spróbujemy utworzyć lub zaktualizować obiad, zostaną ocenione i wymuszone reguły logiki walidacji.
 
-Programiści mogą pisać kod podobnie jak poniżej aktywnie ustalenia, czy obiekt obiad jest prawidłowy i pobranie listy wszystkich naruszeń w nim bez zgłaszania wyjątków:
+Deweloperzy mogą napisać kod jak poniżej, aby aktywnie określić, czy obiekt obiadu jest prawidłowy, i pobrać listę wszystkich naruszeń w nim bez ponoszenia wyjątków:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample13.cs)]
 
-Jeśli firma Microsoft podejmie próbę zapisania obiad w nieprawidłowym stanie, jeśli możemy wywołać metodę Zapisz() w DinnerRepository będzie zgłaszany wyjątek. Dzieje się tak, ponieważ LINQ to SQL automatycznie wywołuje metody częściowej naszych Dinner.OnValidate() przed zapisuje zmiany obiad i dodaliśmy kod do Dinner.OnValidate(), aby zgłosić wyjątek, jeśli ewentualne naruszenia reguły istnieje w Dinner. Możemy przechwycić ten wyjątek i reagować i odbierać listy naruszeń, aby rozwiązać problem:
+Jeśli podjęto próbę zapisania obiadu w nieprawidłowym stanie, zostanie zgłoszony wyjątek podczas wywoływania metody Save () na DinnerRepository. Dzieje się tak, ponieważ LINQ to SQL automatycznie wywołuje nasz obiad. OnValidate () — Metoda częściowa przed zapisaniem zmian obiadu i dodaliśmy kod do obiadu. OnValidate (), aby zgłosić wyjątek, jeśli jakiekolwiek naruszenia reguł istnieją na Obiadie. Możemy przechwycić ten wyjątek i ponownie pobrać listę naruszeń, które należy rozwiązać:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample14.cs)]
 
-Ponieważ naszych reguł biznesowych i sprawdzania poprawności są implementowane w ramach naszych warstwy modelu, a nie w warstwie interfejsu użytkownika, będzie można zastosować i stosować w przypadku wszystkich scenariuszy, w ramach naszej aplikacji. Firma Microsoft później zmienić lub dodać reguły biznesowe i mają cały kod działa z naszych obiektów obiad uznaje ich.
+Ponieważ nasze reguły sprawdzania poprawności i biznesowe zostały zaimplementowane w ramach naszej warstwy modelu, a nie w warstwie interfejsu użytkownika, zostaną one zastosowane i użyte we wszystkich scenariuszach w naszej aplikacji. Możemy później zmienić lub dodać reguły biznesowe oraz cały kod, który współdziała z naszymi obiektami obiadu.
 
-Może zmienić reguły biznesowe w jednym miejscu, bez konieczności zmiany emulatora ripple w całej aplikacji i logika interfejsu użytkownika jest znakiem dobrze napisane aplikacji i korzyści z platformy MVC pomaga zachęcać.
+Możliwość zmiany reguł firmy w jednym miejscu, bez konieczności wprowadzania zmian w całej aplikacji i logiki interfejsu użytkownika, jest znakiem dobrze nadanej aplikacji i korzyścią, którą może pomóc architektura MVC.
 
 ### <a name="next-step"></a>Następny krok
 
-Teraz mamy modelu, który możemy użyć do zapytania i zaktualizuj naszej bazie danych.
+Mamy już model, za pomocą którego możemy wysyłać zapytania i aktualizować bazę danych.
 
-Teraz Dodajmy kilka widoków i kontrolerów do projektu, który możemy użyć do tworzenia interfejsu użytkownika HTML środowisko wokół niej.
+Teraz Dodajmy do projektu niektóre kontrolery i widoki, których można użyć do utworzenia środowiska interfejsu użytkownika HTML.
 
 > [!div class="step-by-step"]
 > [Poprzednie](create-a-database.md)

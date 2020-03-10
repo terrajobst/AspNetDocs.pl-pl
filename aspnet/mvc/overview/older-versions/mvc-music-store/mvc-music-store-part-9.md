@@ -1,160 +1,160 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
-title: Część 9. Rejestracja i finalizacja zakupu | Dokumentacja firmy Microsoft
+title: 'Część 9: Rejestracja i wyewidencjonowywanie | Microsoft Docs'
 author: jongalloway
-description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 9 obejmuje Rejestracja i finalizacja zakupu.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 9 obejmuje rejestrację i wyewidencjonowanie.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
 ms.openlocfilehash: 040bc0ccef889fb9a7c3d9b5ce88c75b7b754248
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129625"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559536"
 ---
 # <a name="part-9-registration-and-checkout"></a>Część 9. Rejestracja i finalizacja zakupu
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
+> Sklep MVC Music jest aplikacją samouczka, która wprowadza i objaśnia krok po kroku, jak używać ASP.NET MVC i Visual Studio do programowania w sieci Web.  
 >   
-> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> Sklep MVC Music jest lekkim przykładowym wdrożeniem magazynu, który sprzedaje Albumy muzyczne w trybie online i implementuje podstawowe funkcje administracyjne, logowania użytkownika i koszyka.  
 >   
-> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 9 obejmuje Rejestracja i finalizacja zakupu.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji do sklepu ASP.NET MVC Music. Część 9 obejmuje rejestrację i wyewidencjonowanie.
 
-W tej sekcji utworzymy CheckoutController, który będzie zbierać dobierana adresu i informacji o płatności. Firma Microsoft będzie wymagać od użytkowników do rejestracji w usłudze naszą witrynę przed wyewidencjonowywanie, więc ten kontroler wymaga autoryzacji.
+W tej sekcji zostanie utworzona CheckoutController, która będzie zbierać informacje o adresie i płatnościach klientów. Wymagamy od użytkowników zarejestrowania się w naszej witrynie przed wyewidencjonowaniem, więc ten kontroler będzie wymagał autoryzacji.
 
-Użytkownicy spowoduje przejście do rozpoczęcie procesu realizowania zamówienia z ich koszyka, klikając przycisk "Wyewidencjonowania".
+Użytkownicy przejdą do procesu wyewidencjonowania w koszyku, klikając przycisk "Wyewidencjonuj".
 
 ![](mvc-music-store-part-9/_static/image1.jpg)
 
-Jeśli użytkownik nie jest zalogowany, ich zostanie wyświetlony monit.
+Jeśli użytkownik nie jest zalogowany, zostanie wyświetlony monit o podanie.
 
 ![](mvc-music-store-part-9/_static/image1.png)
 
-Po pomyślnym logowaniu użytkownika będzie wyświetlana w widoku adresu i płatności.
+Po pomyślnym zalogowaniu użytkownika zostanie wyświetlony widok adres i płatność.
 
 ![](mvc-music-store-part-9/_static/image2.png)
 
-Po ich wprowadzeniu formularza i złożeniem zamówienia, będą one wyświetlane ekranie potwierdzenia zamówienia.
+Po wypełnieniu formularza i przesłaniu zamówienia zostanie wyświetlony ekran potwierdzenie zamówienia.
 
 ![](mvc-music-store-part-9/_static/image3.png)
 
-Podjęto próbę wyświetlić kolejność nieistniejącej lub zamówienie, która nie należy do Ciebie pokaże widoku błędów.
+Próba wyświetlenia nieistniejącej kolejności lub zamówienia, które nie należy do Ciebie, spowoduje wyświetlenie widoku błędów.
 
 ![](mvc-music-store-part-9/_static/image4.png)
 
 ## <a name="migrating-the-shopping-cart"></a>Migrowanie koszyka
 
-Chociaż proces zakupów anonimowe, gdy użytkownik kliknie przycisk wyewidencjonowania, ich będą musieli zarejestrować i zaloguj się. Użytkownicy oczekują, że firma Microsoft zachowa informacjami koszyka zakupów między wizyt, dzięki czemu firma Microsoft będzie należy skojarzyć je koszyka zakupów z użytkownikiem, po ich zakończeniu rejestracji lub logowania.
+Gdy proces zakupów jest anonimowy, gdy użytkownik kliknie przycisk wyewidencjonowania, będzie wymagane zarejestrowanie i zalogowanie się. Użytkownicy będą oczekiwać, że firma Microsoft będzie obsługiwać informacje o koszyku zakupów między wizytami, więc należy skojarzyć informacje o koszyku z użytkownikiem po zakończeniu rejestracji lub zalogowaniu się.
 
-Jest to naprawdę bardzo proste, w celu klasy Nasze ShoppingCart ma już metody, która zostanie skojarzony z wszystkich elementów w koszyku bieżącego z nazwą użytkownika. Po prostu konieczne będzie wywołanie tej metody, gdy użytkownik kończy rejestracji lub logowania.
+Jest to bardzo proste, ponieważ Klasa ShoppingCart ma już metodę, która spowoduje skojarzenie wszystkich elementów w bieżącym koszyku z nazwą użytkownika. Po ukończeniu rejestracji lub zalogowania użytkownik będzie musiał wywołać tę metodę.
 
-Otwórz **elementu AccountController** klasę, która dodaliśmy przygotowując możemy zostały członkostwo i autoryzacja. Dodaj następnie za pomocą instrukcji odwołujące się do MvcMusicStore.Models, dodaj następującą metodę MigrateShoppingCart:
+Otwórz klasę **elementu AccountController** , która została dodana podczas konfigurowania członkostwa i autoryzacji. Dodaj instrukcję using odwołującą się do MvcMusicStore. Models, a następnie Dodaj następującą metodę MigrateShoppingCart:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample1.cs)]
 
-Następnie zmodyfikuj akcji po logowania, aby wywołać MigrateShoppingCart po sprawdzeniu poprawności użytkownika, jak pokazano poniżej:
+Następnie zmodyfikuj akcję post logowania w celu wywołania MigrateShoppingCart po sprawdzeniu poprawności użytkownika, jak pokazano poniżej:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample2.cs)]
 
-Należy tej samej zmiany do rejestru wpis akcji, natychmiast, po pomyślnym utworzeniu konta użytkownika:
+Wprowadź tę samą zmianę w akcji rejestracji po pomyślnym utworzeniu konta użytkownika:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample3.cs)]
 
-To wszystko — teraz anonimowe koszyka będą automatycznie przekazywane do konta użytkownika po pomyślnej rejestracji lub logowania.
+To teraz — anonimowy koszyk do zakupów zostanie automatycznie przeniesiony na konto użytkownika po pomyślnej rejestracji lub zalogowaniu się.
 
 ## <a name="creating-the-checkoutcontroller"></a>Tworzenie CheckoutController
 
-Kliknij prawym przyciskiem myszy w folderze kontrolerów i Dodaj nowy kontroler do projektu o nazwie CheckoutController przy użyciu szablonu pusty kontroler.
+Kliknij prawym przyciskiem myszy folder controllers i Dodaj nowy kontroler do projektu o nazwie CheckoutController przy użyciu szablonu pustego kontrolera.
 
 ![](mvc-music-store-part-9/_static/image5.png)
 
-Najpierw dodaj atrybut Autoryzuj nad deklaracją klasy kontrolera, aby wymagać od użytkowników zarejestrowania przed wyewidencjonowania:
+Najpierw Dodaj atrybut Autoryzuj powyżej deklaracji klasy kontrolera, aby wymagać od użytkowników rejestrowania przed wyewidencjonowaniem:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*Uwaga: Jest to podobne do zmiany, które wcześniej wprowadziliśmy StoreManagerController, ale w tym przypadku atrybut autoryzacji wymagane, aby użytkownik był w roli administratora. W kontrolerze wyewidencjonowania, firma Microsoft jest wymaganie, użytkownik jest zalogowany, ale nie wymaga, aby były one administratorów.*
+*Uwaga: jest to podobne do wprowadzonej wcześniej zmiany w StoreManagerController, ale w takim przypadku atrybut Autoryzuj wymaga, aby użytkownik miał rolę administratora. W kontrolerze wyewidencjonowania wymagamy, aby użytkownik był zalogowany, ale nie musi być administratorem.*
 
-Dla uproszczenia firma Microsoft nie będzie można zajmujących się informacje o płatności w ramach tego samouczka. Zamiast tego jest więcej użytkowników do wyewidencjonowania, przy użyciu kodu promocyjnego. Ten kod promocyjny przy użyciu stałą o nazwie PromoCode będą przechowywane.
+Ze względu na prostotę nie będziemy omawiać informacji o płatnościach w tym samouczku. Zamiast tego zezwalamy użytkownikom na wyewidencjonowywanie przy użyciu kodu promocyjnego. Ten kod promocyjny będzie przechowywany przy użyciu stałej o nazwie PromoCode.
 
-Jak StoreController firma Microsoft będzie zadeklarować pole do przechowywania wystąpienia klasy MusicStoreEntities o nazwie storeDB. Aby można było wprowadzić korzystać z klasy MusicStoreEntities, firma Microsoft będzie należy dodać, przy użyciu instrukcji dla przestrzeni nazw MvcMusicStore.Models. Górnej kontrolera wyewidencjonowania pojawia się poniżej.
+Podobnie jak w StoreController, zadeklarujemy pole, aby pomieścić wystąpienie klasy MusicStoreEntities o nazwie storeDB. Aby można było korzystać z klasy MusicStoreEntities, konieczne będzie dodanie instrukcji using dla przestrzeni nazw MvcMusicStore. models. Poniżej znajduje się Górna część naszego kontrolera wyewidencjonowania.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample5.cs)]
 
-CheckoutController będzie miała następujące akcje kontrolera:
+CheckoutController będą miały następujące akcje kontrolera:
 
-**AddressAndPayment (metoda GET)** spowoduje wyświetlenie formularza, aby umożliwić użytkownikowi wprowadzić informacje o ich.
+**AddressAndPayment (metoda Get)** wyświetli formularz umożliwiający użytkownikowi wprowadzanie informacji.
 
-**AddressAndPayment (metody POST)** będzie sprawdzanie poprawności danych wejściowych i przetworzenia zamówienia.
+**AddressAndPayment (Metoda post)** sprawdzi dane wejściowe i przetworzy zamówienie.
 
-**Pełne** zostanie wyświetlone po użytkownik zostało zakończone pomyślnie rozpoczęcie procesu realizowania zamówienia. Ten widok będzie zawierać numer zamówienia przez użytkownika, jako potwierdzenie.
+**Zakończenie** zostanie wyświetlone po pomyślnym zakończeniu procesu wyewidencjonowania przez użytkownika. Ten widok będzie zawierać numer zamówienia użytkownika w postaci potwierdzenia.
 
-Po pierwsze możemy zmienić nazwy indeksu akcji kontrolera, (który został wygenerowany podczas tworzenia kontrolera) na AddressAndPayment. Ta akcja kontrolera po prostu wyświetla formularz wyewidencjonowania, więc nie wymaga żadnych informacji o modelu.
+Najpierw Zmień nazwę akcji kontrolera indeksu (która została wygenerowana podczas tworzenia kontrolera) do AddressAndPayment. Ta akcja kontrolera po prostu wyświetla formularz wyewidencjonowania, dlatego nie wymaga żadnych informacji o modelu.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample6.cs)]
 
-Nasze metody AddressAndPayment POST będzie zgodna z tego samego wzorca użytymi w StoreManagerController: spróbuje zaakceptować przesyłania formularza i wypełnij zamówienie i ponownie spowoduje wyświetlenie formularza, jeśli zakończy się niepowodzeniem.
+Nasza metoda POST AddressAndPayment będzie zgodna z tym samym wzorcem, który został użyty w StoreManagerController: spróbuje zaakceptować przesłane formularz i zakończyć zamówienie i ponownie wyświetlić formularz, jeśli zakończy się niepowodzeniem.
 
-Po weryfikacji danych wejściowych z formularza spełnia naszych wymagań w zakresie sprawdzania poprawności dla zamówienia, firma Microsoft będzie sprawdzać wartości formularza PromoCode bezpośrednio. Przy założeniu, że wszystko jest poprawna, firma Microsoft będzie zapisywać zaktualizowane informacje o kolejności, powiedzieć obiektowi ShoppingCart, aby ukończyć proces kolejności i Przekieruj do Zakończenie akcji.
+Po sprawdzeniu poprawności formularza spełnia wymagania dotyczące weryfikacji dla zamówienia, wartość formularza PromoCode zostanie sprawdzona bezpośrednio. Przy założeniu, że wszystko jest poprawne, będziemy zapisywać zaktualizowane informacje z kolejnością, poinstruować obiekt ShoppingCart, aby dokończył proces zamówienia, i przekierować do kompletnej akcji.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample7.cs)]
 
-Po pomyślnym zakończeniu procesu realizowania zamówienia nastąpi przekierowanie do akcji kontrolera pełną użytkowników. Ta akcja wykona prostą kontrolę, aby zweryfikować, że kolejność faktycznie należą do zalogowanego użytkownika przed wyświetleniem numer zamówienia jako potwierdzenie.
+Po pomyślnym zakończeniu procesu wyewidencjonowania użytkownicy zostaną przekierowani do akcji Ukończ kontroler. Ta akcja spowoduje wykonanie prostej kontroli w celu sprawdzenia, czy zamówienie rzeczywiście należy do zalogowanego użytkownika przed pokazywaniem numeru zamówienia jako potwierdzenia.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample8.cs)]
 
-*Uwaga: Wyświetl błąd został automatycznie utworzony dla nas w folderze /Views/Shared zaczynaliśmy korzystać z projektu.*
+*Uwaga: widok błędów został automatycznie utworzony dla nas w folderze/Views/Shared po rozpoczęciu projektu.*
 
-Kompletny kod CheckoutController jest następująca:
+Kompletny kod CheckoutController jest następujący:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample9.cs)]
 
 ## <a name="adding-the-addressandpayment-view"></a>Dodawanie widoku AddressAndPayment
 
-Teraz Utwórzmy widoku AddressAndPayment. Kliknij prawym przyciskiem myszy na jednym z AddressAndPayment akcji kontrolera, a następnie Dodaj widok o nazwie AddressAndPayment jest silnie typizowane jako zamówienie, która używa tego szablonu edycji, jak pokazano poniżej.
+Teraz Utwórzmy widok AddressAndPayment. Kliknij prawym przyciskiem myszy jedną z akcji kontrolera AddressAndPayment i Dodaj widok o nazwie AddressAndPayment, który jednoznacznie wpisano jako zamówienie i używa szablonu edycji, jak pokazano poniżej.
 
 ![](mvc-music-store-part-9/_static/image6.png)
 
-W tym widoku spowoduje, że korzystanie z dwóch technik przyjrzeliśmy się podczas tworzenia widoku StoreManagerEdit:
+Ten widok umożliwia korzystanie z dwóch technik, które oglądamy podczas tworzenia widoku StoreManagerEdit:
 
-- Firma Microsoft użyje Html.EditorForModel() do wyświetlania pól formularza dla modelu zamówienia
-- Firma Microsoft będzie korzystać z reguł sprawdzania poprawności, za pomocą klasy kolejności przy użyciu atrybutów sprawdzania poprawności
+- Użyjemy html. EditorForModel () do wyświetlania pól formularza dla modelu zamówienia
+- Będziemy korzystać z reguł walidacji przy użyciu klasy Order z atrybutami walidacji
 
-Zaczniemy, aktualizując kod formularza, aby użyć Html.EditorForModel(), następuje dodatkowe pole tekstowe dla kodu promocyjnego. Kompletny kod dla widoku AddressAndPayment znajdują się poniżej.
+Zaczniemy od zaktualizowania kodu formularza do używania HTML. EditorForModel (), a następnie dodatkowego pola tekstowego dla kodu promocyjnego. Poniżej przedstawiono pełen kod widoku AddressAndPayment.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample10.cshtml)]
 
-## <a name="defining-validation-rules-for-the-order"></a>Definiowanie reguł sprawdzania poprawności dla zamówienia
+## <a name="defining-validation-rules-for-the-order"></a>Definiowanie reguł walidacji dla zamówienia
 
-Teraz, gdy skonfigurowano naszych widoku firma Microsoft ustawi reguł sprawdzania poprawności dla modelu kolejności ile My mieliśmy wcześniej dla modelu albumu. Kliknij prawym przyciskiem myszy w folderze modeli i Dodaj klasę o nazwie zamówienia. Oprócz atrybutów sprawdzania poprawności, która była wcześniej używana albumu również użyjemy wyrażeń regularnych do sprawdzania poprawności adresu e-mail użytkownika.
+Teraz, gdy nasz widok jest skonfigurowany, skonfigurujemy reguły sprawdzania poprawności dla modelu zamówienia, tak jak wcześniej dla modelu albumu. Kliknij prawym przyciskiem myszy folder modele i Dodaj klasę o nazwie Order. Oprócz atrybutów weryfikacji użytych wcześniej dla albumu należy również użyć wyrażenia regularnego do zweryfikowania adresu e-mail użytkownika.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample11.cs)]
 
-Podjęto próbę Prześlij formularz z brakującymi lub nieprawidłowe informacje będą teraz pokazywać komunikat o błędzie, za pomocą weryfikacji po stronie klienta.
+Próba przesłania formularza z brakującymi lub nieprawidłowymi informacjami spowoduje wyświetlenie komunikatu o błędzie przy użyciu walidacji po stronie klienta.
 
 ![](mvc-music-store-part-9/_static/image7.png)
 
-To wszystko firma Microsoft wykonane większość trudną pracę na rozpoczęcie procesu realizowania zamówienia; Wystarczy kilka kończy się i kolizję na zakończenie. Należy dodać dwa widoki proste i musimy zadbać o przekazywanie informacji koszyka w procesie logowania.
+Tak, większość pracy w procesie wyewidencjonowania została wykonana. Mamy tylko kilka szanse i zakończy się. Musimy dodać dwa proste widoki i będziemy musieli zadbać o przekazanie informacji o koszyku podczas procesu logowania.
 
-## <a name="adding-the-checkout-complete-view"></a>Dodawanie wyewidencjonowania pełny przegląd
+## <a name="adding-the-checkout-complete-view"></a>Dodawanie widoku ukończenia wyewidencjonowania
 
-Wyewidencjonowanie pełnego widoku jest całkiem proste, po prostu potrzeba do wyświetlenia identyfikatora zamówienia. Kliknij prawym przyciskiem myszy na akcję pełną kontrolera i dodać widok o nazwie zakończone, w którym zdecydowanie jest wpisane w formie typu int.
+Widok Kończenie wyewidencjonowywania jest bardzo prosty, ponieważ wymaga tylko wyświetlenia identyfikatora zamówienia. Kliknij prawym przyciskiem myszy akcję Ukończ kontroler i Dodaj widok o nazwie Complete, który jest silnie określony jako int.
 
 ![](mvc-music-store-part-9/_static/image8.png)
 
-Teraz zaktualizujemy kod widok, aby wyświetlić identyfikator zamówienia, jak pokazano poniżej.
+Teraz będziemy aktualizować kod widoku w celu wyświetlenia identyfikatora zamówienia, jak pokazano poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample12.cshtml)]
 
-## <a name="updating-the-error-view"></a>Trwa aktualizowanie widoku błędów
+## <a name="updating-the-error-view"></a>Aktualizowanie widoku błędów
 
-Szablon domyślny zawiera widoku błędów w folderze Widoki udostępnione, dzięki czemu może być ponownie używane gdzie indziej w lokacji. Ten widok błąd zawiera bardzo prosty błąd i nie używa naszą stronę układu, dlatego zaktualizujemy go.
+Szablon domyślny zawiera widok błędów w folderze widoki udostępnione, dzięki czemu można go ponownie używać w innym miejscu w witrynie. Ten widok błędów zawiera bardzo prosty błąd i nie używa naszego układu witryny, dlatego zaktualizujemy go.
 
-Ponieważ jest to strona błąd rodzajowy, zawartość jest bardzo proste. Firma Microsoft będzie obejmują wiadomość i łącze, aby przejść do poprzedniej strony w historii, jeśli użytkownik chce ponowić próbę ich działania.
+Ponieważ jest to ogólna strona błędu, zawartość jest bardzo prosta. Jeśli użytkownik chce ponownie spróbować wykonać tę akcję, zostanie uwzględniony komunikat i link do przechodzenia do poprzedniej strony w historii.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
 

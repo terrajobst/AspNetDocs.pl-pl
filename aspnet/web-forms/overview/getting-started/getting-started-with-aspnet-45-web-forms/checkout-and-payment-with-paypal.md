@@ -9,11 +9,11 @@ ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
 ms.openlocfilehash: 62d00a86c6c5845fb894896df65002c7086d039f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615144"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565409"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>Finalizacja zakupu i płatność w systemie PayPal
 
@@ -31,7 +31,7 @@ Istnieje kilka doświadczonych procesorów płatniczych innych firm, które są 
 > 
 > Przykładowa aplikacja Wingtip zabawki została zaprojektowana w celu pokazywania określonych koncepcji i funkcji ASP.NET dostępnych dla deweloperów sieci Web ASP.NET. Ta przykładowa aplikacja nie została zoptymalizowana ze względu na skalowalność i bezpieczeństwo.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak ograniczyć dostęp do określonych stron w folderze.
 - Jak utworzyć znany koszyk z anonimowego koszyka zakupów.
@@ -92,10 +92,10 @@ Teraz utworzysz folder *wyewidencjonowywania* i znajdujące się w nim strony, k
 6. Tak jak wcześniej, wybierz plik *site. Master* jako stronę wzorcową.
 7. Dodaj następujące dodatkowe strony do folderu *wyewidencjonowywania* , wykonując te same kroki:   
 
-    - CheckoutReview. aspx
-    - CheckoutComplete. aspx
-    - CheckoutCancel. aspx
-    - CheckoutError. aspx
+    - CheckoutReview.aspx
+    - CheckoutComplete.aspx
+    - CheckoutCancel.aspx
+    - CheckoutError.aspx
 
 ### <a name="add-a-webconfig-file"></a>Dodaj plik Web. config
 
@@ -128,7 +128,7 @@ Należy pamiętać, że konfiguracja ASP.NET jest zgodna z hierarchią, gdzie ka
 6. Zmień **adres URL projektu** tak, aby korzystał z zapisanego wcześniej **adresu URL protokołu SSL** .   
     ![właściwości sieci Web projektu](checkout-and-payment-with-paypal/_static/image5.png)
 7. Zapisz stronę, naciskając **klawisze CTRL + S**.
-8. Naciśnij **klawisze CTRL + F5** , aby uruchomić aplikację. Program Visual Studio wyświetli opcję umożliwiającą uniknięcie ostrzeżeń protokołu SSL.
+8. Naciśnij klawisze **Ctrl+F5**, aby uruchomić aplikację. Program Visual Studio wyświetli opcję umożliwiającą uniknięcie ostrzeżeń protokołu SSL.
 9. Kliknij przycisk **tak** , aby zaufać CERTYFIKATOWI protokołu SSL IIS Express i kontynuować.   
     ![IIS Express szczegóły certyfikatu protokołu SSL](checkout-and-payment-with-paypal/_static/image6.png)  
  Zostanie wyświetlone ostrzeżenie o zabezpieczeniach.
@@ -187,7 +187,7 @@ Poniższe kroki umożliwią dodanie dostawcy uwierzytelniania Google.
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
 15. Naciśnij **kombinację klawiszy CTRL + F5** , aby skompilować i uruchomić aplikację. Kliknij link **Zaloguj** .
 16. W obszarze **Użyj innej usługi do zalogowania**się kliknij pozycję **Google**.  
-    ![logowanie](checkout-and-payment-with-paypal/_static/image11.png)
+    ![Zaloguj się](checkout-and-payment-with-paypal/_static/image11.png)
 17. Jeśli musisz wprowadzić swoje poświadczenia, nastąpi przekierowanie do witryny Google, w której będą wprowadzane poświadczenia.  
     ![Google — logowanie](checkout-and-payment-with-paypal/_static/image12.png)
 18. Po wprowadzeniu poświadczeń zostanie wyświetlony monit o przyznanie uprawnień aplikacji sieci Web, która została właśnie utworzona.  
@@ -290,7 +290,7 @@ Większość kodu PayPal zostanie umieszczona w jednej klasie. Ta klasa zawiera 
    Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
 2. W **obszarze C# Wizualizacja** z **zainstalowanego** okienka po lewej stronie wybierz pozycję **kod**.
 3. W środkowym okienku wybierz pozycję **Klasa**. Nadaj tej nowej klasie nazwę **PayPalFunctions.cs**.
-4. Kliknij przycisk **Dodaj**.  
+4. Kliknij pozycję **Add** (Dodaj).  
    Nowy plik klasy zostanie wyświetlony w edytorze.
 5. Zastąp domyślny kod następującym kodem:  
 
@@ -381,7 +381,7 @@ Formant **DetailsView** służy do wyświetlania szczegółów zamówienia, któ
 
 > [!NOTE] 
 > 
-> **Wyowietlon**
+> **Porada**
 > 
 > W znaczniku strony *CheckoutReview. aspx* Zwróć uwagę, że tag `<ItemStyle>` jest używany do zmiany stylu elementów w kontrolce **DetailsView** w dolnej części strony. Wyświetlając stronę w **widoku projektu** (wybierając opcję **projekt** w lewym dolnym rogu programu Visual Studio), a następnie wybierając formant **DetailsView** i wybierając **tag inteligentny** (ikona strzałki w prawej górnej części kontrolki), będzie można zobaczyć **zadania DetailsView**.
 > 

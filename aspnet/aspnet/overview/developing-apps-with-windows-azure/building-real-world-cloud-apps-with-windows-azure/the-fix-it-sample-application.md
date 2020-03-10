@@ -9,11 +9,11 @@ ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
 ms.openlocfilehash: 896196bdb6a6b0d12a6c798ead510e37dd38a9fc
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456884"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583448"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Dodatek: przykładowa aplikacja do rozwiązywania problemów (Tworzenie rzeczywistych aplikacji w chmurze przy użyciu platformy Azure)
 
@@ -39,7 +39,7 @@ Aplikacja do rozwiązywania problemów została pierwotnie opracowana w celu zil
 
 Poniższa lista zawiera problemy, które powinny być rozwiązane w aplikacji produkcyjnej, ale z jednej przyczyny lub innym, że nie postanowili się, aby nie poradzić sobie z początkową wersją przykładowej aplikacji.
 
-### <a name="security"></a>Bezpieczeństwo
+### <a name="security"></a>Zabezpieczenia
 
 - Upewnij się, że nie możesz przypisać zadania do nieistniejącego właściciela.
 - Upewnij się, że możesz tylko wyświetlać i modyfikować zadania utworzone lub przypisane do Ciebie.

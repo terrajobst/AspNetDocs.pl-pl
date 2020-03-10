@@ -9,11 +9,11 @@ ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
 ms.openlocfilehash: c9558aca8a655071c0c94ed66433cf721f26c011
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565465"
 ---
 # <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie aplikacji ASP.NET Web Forms z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS (C#)
 
@@ -104,7 +104,7 @@ Na tym etapie dla aplikacji włączono uwierzytelnianie dwuskładnikowe. Aby uż
  Kliknięcie pola wyboru **Zapamiętaj tę przeglądarkę** spowoduje zwolnienie z konieczności używania uwierzytelniania dwuskładnikowego w celu zalogowania się przy użyciu przeglądarki i urządzenia, gdzie zaznaczono pole. Tak długo, jak Złośliwi użytkownicy nie mogą uzyskać dostępu do urządzenia, co umożliwia uwierzytelnianie dwuskładnikowe i klikanie opcji **Zapamiętaj, że ta przeglądarka** zapewnia wygodny dostęp do jednego kroku, przy jednoczesnym zachowaniu silnej ochrony uwierzytelniania dwuskładnikowego dla całego dostępu z niezaufanych urządzeń. Można to zrobić, na dowolnym urządzeniu prywatnych, regularnie używane.
 
 <a id="addRes"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 - [Linki do ASP.NET Identity zalecanych zasobów](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)

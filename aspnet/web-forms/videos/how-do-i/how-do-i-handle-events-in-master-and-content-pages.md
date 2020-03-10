@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: '[Jak mogę] Obsługa zdarzeń na stronach wzorcowych i stronach zawartości | Dokumentacja firmy Microsoft'
+title: '[Jak:] Obsługa zdarzeń na stronach głównych i zawartości | Microsoft Docs'
 author: rick-anderson
-description: W tym filmie pokazano Chris pikseli pokaże, sposób obsługi zdarzeń w głównych i poszczególnych stron zawartości. Mimo że wynik końcowy ntekstowe głównego i dla indywidualnych...
+description: W tym filmie wideo Krzysztof pikseli pokazuje, jak zdarzenia są obsługiwane na stronach głównych i poszczególnych zawartości. Mimo że wynik końcowy wzorca i poszczególnych ntekstowe...
 ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 9b5f1ca6-b394-4b33-8b60-fd0587341482
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
 msc.type: video
 ms.openlocfilehash: 8760611dd1b3680283b8d6888efabfed315bdfd5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412128"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567887"
 ---
-# <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Jak mogę] Obsługa zdarzeń na stronach wzorcowych i stronach zawartości
+# <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Jak:] Obsługa zdarzeń na stronach głównych i zawartości
 
-przez [Chris pikseli](https://twitter.com/chrispels)
+[Krzysztof pikseli](https://twitter.com/chrispels)
 
-W tym filmie pokazano Chris pikseli pokaże, sposób obsługi zdarzeń w głównych i poszczególnych stron zawartości. Mimo że wynik końcowy zawartości strony wzorcowej i dla indywidualnych to pojedyncza strona ASP.NET renderowane w przeglądarce użytkownika, którego obsługa zdarzeń w każdego typu strony jest obsługiwany osobno. Jeśli formant znajduje się na stronie głównej odpowiedni program obsługi zdarzeń znajduje się na stronie głównej domyślnie. To samo dotyczy dla formantów na stronie zawartości. Zobacz dwa podejścia do konieczności zdarzeń dla formantu, który znajduje się na stronie głównej, obsługiwane w kodzie strony zawartości. Dzięki temu "łączność" między stronę wzorcową i stronę zawartości.
+W tym filmie wideo Krzysztof pikseli pokazuje, jak zdarzenia są obsługiwane na stronach głównych i poszczególnych zawartości. Mimo że wynik końcowy strony głównej i pojedynczej zawartości jest jedną stroną ASP.NET renderowaną w przeglądarce użytkownika, obsługa zdarzeń na poszczególnych typach stron jest obsługiwana osobno. Jeśli formant znajduje się na stronie wzorcowej, odpowiednia procedura obsługi zdarzeń znajduje się na stronie wzorca domyślnie. Ta sama wartość dotyczy formantów na stronie zawartość. Zobacz dwa podejścia, aby zdarzenia dla kontrolki znajdującej się na stronie wzorcowej były obsługiwane w kodzie znajdującym się na stronie zawartości. Umożliwia to "komunikację" między stroną wzorcową a stroną zawartości.
 
-[&#9654;Obejrzyj film wideo (23 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-events-in-master-and-content-pages)
+[&#9654;Obejrzyj wideo (23 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-events-in-master-and-content-pages)

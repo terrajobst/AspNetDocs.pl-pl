@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/building-35-applications/submit-and-postback
-title: Przesyłanie i ogłaszanie zwrotne | Dokumentacja firmy Microsoft
+title: Przesyłanie i ogłaszanie zwrotne | Microsoft Docs
 author: JoeStagner
-description: W tym wideo przedstawiono co przechodzi na &quot;w sposób niewidoczny&quot; podczas interakcji przeglądarką i serwerem aplikacji ASP.NET.
+description: W tym filmie wideo dowiesz się, co się dzieje &quot;w obszarze&quot; okładek, gdy przeglądarka i serwer aplikacji ASP.NET.
 ms.author: riande
 ms.date: 04/20/2009
 ms.assetid: 8ccbfcee-a2e4-496d-aded-5a7119c54244
 msc.legacyurl: /web-forms/videos/building-35-applications/submit-and-postback
 msc.type: video
 ms.openlocfilehash: f2d27c6d624ceafbdc3f880ffc2a91cae0fddddf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392901"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563617"
 ---
 # <a name="submit-and-postback"></a>Przesyłanie i ogłaszanie zwrotne
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym wideo wyjaśnia, co jest umieszczane &quot;w sposób niewidoczny&quot; podczas interakcji przeglądarką i serwerem aplikacji ASP.NET.
+W tym filmie wideo wyjaśniono, co się dzieje &quot;w obszarze&quot; okładek, gdy przeglądarka i serwer aplikacji ASP.NET.
 
-[&#9654;Obejrzyj film wideo (minuty 19)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/submit-and-postback)
+[&#9654;Obejrzyj wideo (19 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/submit-and-postback)

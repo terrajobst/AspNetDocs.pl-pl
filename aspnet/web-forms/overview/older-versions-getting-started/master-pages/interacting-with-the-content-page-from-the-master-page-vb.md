@@ -9,11 +9,11 @@ ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5367ad1b7f2fa11c635ad95754c9bcc1edcb6c1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615559"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575447"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interakcja ze stroną zawartości z poziomu strony wzorcowej (VB)
 
@@ -79,7 +79,7 @@ Następnie określ instrukcję `SELECT` formantu źródła danych, wybierając t
 
 **Rysunek 04**: zwróć pola `ProductName` i `UnitPrice` z tabeli `Products` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png))
 
-To wszystko. Po zakończeniu działania kreatora program Visual Studio dodaje dwa BoundFields do widoku GridView, aby zdublować dwa pola zwracane przez formant kontrolki SqlDataSource. Poniższe znaczniki formantów GridView i kontrolki SqlDataSource. Rysunek 5 przedstawia wyniki wyświetlane w przeglądarce.
+To wszystko! Po zakończeniu działania kreatora program Visual Studio dodaje dwa BoundFields do widoku GridView, aby zdublować dwa pola zwracane przez formant kontrolki SqlDataSource. Poniższe znaczniki formantów GridView i kontrolki SqlDataSource. Rysunek 5 przedstawia wyniki wyświetlane w przeglądarce.
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample2.aspx)]
 

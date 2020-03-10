@@ -9,11 +9,11 @@ ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
 ms.openlocfilehash: 0fcf050474a57be9ed53ec0783a6d6b7dde2bf4c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575747"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544927"
 ---
 # <a name="create-the-data-access-layer"></a>Tworzenie warstwy dostępu do danych
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku opisano sposób tworzenia, uzyskiwania dostępu i przeglądania danych z bazy danych przy użyciu formularzy sieci Web ASP.NET i Code First Entity Framework. Ten samouczek kompiluje się w poprzednim samouczku "Tworzenie projektu" i jest częścią serii samouczków dotyczących sklepu Wingtip. Po ukończeniu tego samouczka utworzysz grupę klas dostępu do danych, które znajdują się w folderze *modele* projektu.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak utworzyć modele danych.
 - Jak zainicjować i wypełniać bazę danych.
@@ -69,7 +69,7 @@ W tym samouczku rozpocznie się dodawanie prostych klas jednostek reprezentując
 
     ![Tworzenie warstwy dostępu do danych — menu nowy element](create_the_data_access_layer/_static/image2.png)
 3. Wybierz pozycję **Klasa** w środkowym okienku i nadaj jej nazwę *Product.cs*.
-4. Kliknij przycisk **Dodaj**.  
+4. Kliknij pozycję **Add** (Dodaj).  
    Nowy plik klasy zostanie wyświetlony w edytorze.
 5. Zastąp domyślny kod następującym kodem:   
 

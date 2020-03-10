@@ -1,232 +1,232 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: 'Aplikacja jednostronicowa: Szablon KnockoutJS | Dokumentacja firmy Microsoft'
+title: 'Aplikacja jednostronicowa: szablon KnockoutJS | Microsoft Docs'
 author: MikeWasson
-description: Szablon knockout
+description: Szablon odcinania
 ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3a551db1caa9636eb7f2e04c287d3ef371263584
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113468"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578695"
 ---
 # <a name="single-page-application-knockoutjs-template"></a>Aplikacja jednostronicowa: szablon KnockoutJS
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-> Szablon MVC Knockout jest częścią platformy ASP.NET i Web Tools 2012.2
+> Odcinanie szablonu MVC jest częścią ASP.NET and Web Tools 2012,2
 > 
-> [Pobierz ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)
+> [Pobierz ASP.NET and Web Tools 2012,2](https://go.microsoft.com/fwlink/?LinkId=282650)
 
-Aktualizacja programu ASP.NET i Web Tools 2012.2 zawiera szablon aplikacji jednostronicowej (SPA) dla platformy ASP.NET MVC 4. Ten szablon jest przeznaczony do ułatwiające rozpoczęcie pracy szybkie tworzenie aplikacji sieci web interactive po stronie klienta.
+Aktualizacja ASP.NET and Web Tools 2012,2 obejmuje szablon aplikacji jednostronicowej (SPA) dla ASP.NET MVC 4. Ten szablon został zaprojektowany, aby szybko rozpocząć tworzenie interaktywnych aplikacji sieci Web po stronie klienta.
 
-"Aplikacja jednostronicowa" (SPA) jest ogólnym terminem dla aplikacji sieci web, która ładuje z pojedynczą stroną HTML, a następnie aktualizuje stronę dynamicznie, zamiast ładowanie nowych stron. Po załadowaniu strony początkowej SPA komunikuje się z serwerem za pośrednictwem żądań AJAX.
+"Aplikacja jednostronicowa" (SPA) to ogólny termin aplikacji sieci Web, który ładuje pojedynczą stronę HTML, a następnie automatycznie aktualizuje stronę, zamiast ładować nowe strony. Po początkowym załadowaniu strony SPA komunikuje się z serwerem przez żądania AJAX.
 
 ![](knockoutjs-template/_static/image1.png)
 
-AJAX to nic nowego, ale obecnie ma platformy JavaScript, które ułatwiają tworzenie i zarządzanie nimi dużej zaawansowanych aplikacji SPA. Ponadto HTML 5 i CSS3 są ułatwia tworzenie rozbudowanych interfejsów użytkownika.
+Technologia AJAX nie ma nic nowego, ale dzisiaj istnieją struktury języka JavaScript, które ułatwiają tworzenie i konserwowanie dużej zaawansowanej aplikacji SPA. Ponadto kod HTML 5 i CSS3 ułatwiają tworzenie bogatych interfejsów użytkownika.
 
-Aby ułatwić rozpoczęcie pracy, ten szablon SPA tworzy przykładową aplikację "Lista zadań do wykonania". W tym samouczku zostaną wykonane Przewodnik po szablonie. Najpierw firma Microsoft będzie Przyjrzyj się sama aplikacja listy zadań do wykonania, a następnie sprawdź elementy technologii, dzięki którym działa.
+Aby rozpocząć pracę, szablon SPA tworzy przykład aplikacji "Lista czynności do wykonania". W tym samouczku zajmiemy się szablonem. Najpierw przyjrzyjmy się aplikacji z listą zadań do wykonania, a następnie przeanalizować elementy technologii, które go działają.
 
 ## <a name="create-a-new-spa-template-project"></a>Utwórz nowy projekt szablonu SPA
 
 Wymagania:
 
-- Visual Studio 2012 or Visual Studio Express 2012 for Web
-- Narzędzia sieci Web ASP.NET 2012.2 aktualizacji. Aktualizację można zainstalować [tutaj](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2).
+- Visual Studio 2012 lub Visual Studio Express 2012 dla sieci Web
+- ASP.NET Web Tools 2012,2 Update. Tę aktualizację można zainstalować w [tym miejscu](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2).
 
-Uruchom program Visual Studio i wybierz **nowy projekt** ze strony początkowej. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
+Uruchom program Visual Studio i wybierz pozycję **Nowy projekt** na stronie startowej. Lub w menu **plik** wybierz polecenie **Nowy** , a następnie pozycję **projekt**.
 
-W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę, a następnie kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **zainstalowane szablony** i rozwiń węzeł **Wizualizacja C#**  . W **obszarze C#Wizualizacja** wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz pozycję **aplikacja sieci Web MVC 4 ASP.NET**. Nazwij projekt, a następnie kliknij przycisk **OK**.
 
 ![](knockoutjs-template/_static/image2.png)
 
-W **nowy projekt** kreatora wybierz **aplikacji jednostronicowej**.
+W kreatorze **nowego projektu** wybierz pozycję **aplikacja jednostronicowa**.
 
 ![](knockoutjs-template/_static/image3.png)
 
-Naciśnij klawisz F5, aby skompilować i uruchomić aplikację. Po pierwszym uruchomieniu aplikacji wyświetli ekran logowania.
+Naciśnij klawisz F5, aby skompilować i uruchomić aplikację. Po pierwszym uruchomieniu aplikacji zostanie wyświetlony ekran logowania.
 
 ![](knockoutjs-template/_static/image4.png)
 
-Kliknij przycisk &quot;Zarejestruj&quot; połączyć, a następnie Utwórz nowego użytkownika.
+Kliknij link &quot;Utwórz konto&quot; i Utwórz nowego użytkownika.
 
 ![](knockoutjs-template/_static/image5.png)
 
-Po zalogowaniu, aplikacja tworzy domyślnej listy zadań do wykonania z dwoma elementami. Kliknij przycisk "Dodaj listy zadań do wykonania", aby dodać nową listę.
+Po zalogowaniu aplikacja tworzy domyślną listę zadań do zrobienia z dwoma elementami. Możesz kliknąć pozycję "Dodaj listę zadań do zrobienia", aby dodać nową listę.
 
 ![](knockoutjs-template/_static/image6.png)
 
-Lista zmiany nazwy, dodać elementy do listy i sprawdź je. Możesz również usunąć elementy lub usunąć całą listę. Zmiany są automatycznie zachowywane do bazy danych na serwerze (faktycznie LocalDB w tym momencie, ponieważ aplikacja jest uruchomiony lokalnie).
+Zmień nazwę listy, Dodaj elementy do listy i sprawdź je. Możesz również usunąć elementy lub usunąć całą listę. Zmiany są automatycznie utrwalane w bazie danych na serwerze (w rzeczywistości LocalDB w tym momencie, ponieważ aplikacja jest uruchamiana lokalnie).
 
 ![](knockoutjs-template/_static/image7.png)
 
 ## <a name="architecture-of-the-spa-template"></a>Architektura szablonu SPA
 
-Ten diagram przedstawia główne bloki konstrukcyjne aplikacji.
+Ten diagram przedstawia główne bloki konstrukcyjne dla aplikacji.
 
 ![](knockoutjs-template/_static/image8.png)
 
-Po stronie serwera platformy ASP.NET MVC obsługuje kod HTML i obsługuje również uwierzytelnianie oparte na formularzach.
+Po stronie serwera ASP.NET MVC obsługuje kod HTML, a także obsługuje uwierzytelnianie oparte na formularzach.
 
-ASP.NET Web API obsługuje wszystkie żądania, które odnoszą się do ToDoLists i ToDoItems, w tym pobieranie, tworzenie, aktualizowanie i usuwanie. Klient wymienia dane z interfejsu API sieci Web w formacie JSON.
+Interfejs API sieci Web ASP.NET obsługuje wszystkie żądania, które odnoszą się do ToDoLists i ToDoItems, w tym pobieranie, tworzenie, aktualizowanie i usuwanie. Klient wymienia dane z interfejsem API sieci Web w formacie JSON.
 
-Entity Framework (EF) to warstwa Obiektowo. Jego pośredniczy między świecie zorientowane obiektowo, platformy ASP.NET i podstawowej bazy danych. Baza danych używa LocalDB, ale można to zmienić w pliku Web.config. Zwykle będzie użyć programu LocalDB do tworzenia aplikacji lokalnej, a następnie wdrożyć do bazy danych SQL na serwerze za pomocą migracji najpierw kod programem EF.
+Entity Framework (EF) to warstwa O/RM. Koryguje się między ASP.NET zorientowanym na obiekty a podstawową bazą danych. Baza danych używa LocalDB, ale można ją zmienić w pliku Web. config. Zazwyczaj można używać LocalDB do lokalnego tworzenia oprogramowania, a następnie wdrażać je w bazie danych SQL na serwerze przy użyciu programu EF Code-First Migration.
 
-Po stronie klienta biblioteki struktura Knockout.js obsługuje aktualizacje z wysyłanie żądań AJAX. Knockout używa powiązanie danych w celu synchronizowania strony przy użyciu najnowszych danych. Dzięki temu nie trzeba pisać kodu, który przeprowadzi dane JSON i aktualizuje DOM. Zamiast tego należy umieścić deklaratywne atrybuty w formacie HTML, informacje Knockout sposobu prezentowania danych.
+Po stronie klienta Biblioteka odcinania. js obsługuje aktualizacje stron z żądań AJAX. Odcinanie używa powiązania danych do synchronizowania strony z najnowszymi danymi. Dzięki temu nie trzeba pisać żadnego kodu, który przegląda dane JSON i aktualizuje DOM. Zamiast tego należy umieścić atrybuty deklaracyjne w kodzie HTML, które informują o odcinania sposobu prezentowania danych.
 
-Dużą zaletą tej architektury jest oddziela warstwy prezentacji, od logiki aplikacji. Można utworzyć części interfejsu API sieci Web bez znajomości wygląd strony sieci web. Po stronie klienta, utworzyć model"Widok" do reprezentowania danych, a model widoku używa Knockout Aby powiązać kod HTML. Która pozwala łatwo zmienić kod HTML bez wprowadzania zmian w modelu widoku. (Przyjrzymy Knockout nieco później.)
+Dużą zaletą tej architektury jest oddzielenie warstwy prezentacji od logiki aplikacji. Część internetowego interfejsu API można utworzyć bez znajomości informacji o tym, jak będzie wyglądać Strona sieci Web. Po stronie klienta utworzysz "model widoku", aby reprezentować te dane, a model widoku używa odcinania do powiązania z kodem HTML. Pozwala to łatwo zmieniać Kod HTML bez zmiany modelu widoku. (Wyszukamy nieco odcinania później).
 
 ## <a name="models"></a>Modele
 
-W projekcie programu Visual Studio folder modeli zawiera modeli, które są używane po stronie serwera. (Dostępne są także modeli po stronie klienta; przejdziemy do tych).
+W projekcie programu Visual Studio folder modele zawiera modele, które są używane po stronie serwera. (Na stronie klienta znajdują się również modele i są one dostępne).
 
 ![](knockoutjs-template/_static/image9.png)
 
-**Czynność do wykonania, listy zadań**
+**TodoItem, TodoList**
 
-Są to modele bazy danych dla programu Entity Framework Code First. Należy zauważyć, że te modele mają właściwości, które wskazują na siebie nawzajem. `ToDoList` zawiera kolekcję ToDoItems, a każdy `ToDoItem` zawiera odwołanie do nadrzędnej listy zadań. Te właściwości są nazywane właściwości nawigacji, a reprezentują one relacji jeden do wielu, listę zadań do wykonania i jego elementów do wykonania.
+Są to modele baz danych dla Code First Entity Framework. Zwróć uwagę, że te modele mają właściwości wskazujące na siebie. `ToDoList` zawiera kolekcję ToDoItems, a każda `ToDoItem` ma odwołanie z powrotem do jego nadrzędnej ToDoList. Właściwości te są nazywane właściwościami nawigacji i reprezentują relację "jeden do wielu" i "do".
 
-`ToDoItem` Klasy również używa **[klucza obcego]** atrybutu, aby określić, że `ToDoListId` to klucz obcy do `ToDoList` tabeli. Informuje EF, można dodać ograniczenia klucza obcego w bazie danych.
+Klasa `ToDoItem` używa również atrybutu **[ForeignKey]** , aby określić, że `ToDoListId` jest kluczem obcym w tabeli `ToDoList`. Oznacza to, że Dr dodaje do bazy danych ograniczenie klucza obcego.
 
 [!code-csharp[Main](knockoutjs-template/samples/sample1.cs)]
 
 **TodoItemDto, TodoListDto**
 
-Te klasy definiują dane, które zostaną wysłane do klienta. "DTO" oznacza "obiekt transferu danych." Obiekt DTO definiuje, jak jednostki będą wykonywane szeregowo w formacie JSON. Ogólnie rzecz biorąc istnieje kilka powodów, aby użyć dto:
+Te klasy definiują dane, które zostaną wysłane do klienta. "DTO" oznacza "obiekt transferu danych". DTO definiuje sposób serializacji jednostek do formatu JSON. Ogólnie rzecz biorąc, istnieje kilka powodów, dla których należy używać DTO:
 
-- Aby kontrolować, właściwości, które są serializowane. Obiekt DTO może zawierać podzbiór właściwości modelu domeny. Można to zrobić, ze względów bezpieczeństwa (w celu ukrywać dane wrażliwe) lub po prostu Aby zmniejszyć ilość danych przesyłanych.
-- Aby zmienić kształt danych, np. do spłaszczenia bardziej złożone struktury danych.
-- Aby zachować wszelka logika biznesowa poza obiekt DTO (separacji).
-- Jeśli z jakiegoś powodu, nie można serializować modeli domeny. Na przykład odwołania cykliczne może powodować problemy podczas serializacji obiektu istnieją sposoby obsługi tego problemu w interfejsie API sieci Web (zobacz [obsługi odwołań cyklicznych obiektu](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)); ale przy użyciu obiekt DTO po prostu pozwala uniknąć tego problemu całkowicie.
+- Do kontrolowania, które właściwości są serializowane. DTO może zawierać podzestaw właściwości z modelu domeny. Można to zrobić ze względów bezpieczeństwa (w celu ukrycia poufnych danych) lub po prostu zmniejszyć ilość wysyłanych danych.
+- Aby zmienić kształt danych — na przykład, aby spłaszczyć bardziej złożoną strukturę danych.
+- Aby zachować logikę biznesową z DTO (separacja problemów).
+- Jeśli z jakiegoś powodu nie można serializować modeli domeny. Na przykład odwołania cykliczne mogą spowodować problemy podczas serializacji obiektu. Istnieją sposoby obsługi tego problemu w interfejsie API sieci Web (zobacz [Obsługa cyklicznych odwołań do obiektów](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)); Jednak użycie DTO po prostu pozwala uniknąć całkowitego problemu.
 
-W szablonie SPA dto zawiera te same dane, co modeli domeny. Jednak są one nadal przydatne ponieważ one uniknąć odwołania cykliczne z właściwości nawigacji, a wykazują ogólny wzorzec DTO.
+W szablonie SPA DTO zawiera te same dane, co modele domen. Jednak nadal są przydatne, ponieważ unikają odwołań cyklicznych ze wszystkich właściwości nawigacji i pokazują ogólny wzorzec DTO.
 
 **AccountModels.cs**
 
-Ten plik zawiera modele członkostwem w witrynie. `UserProfile` Klasa definiuje schemat dla profilów użytkowników w członkostwie bazy danych. (W tym przypadku tylko informacji jest identyfikator użytkownika i nazwę użytkownika). Inne klasy modelu, w tym pliku są używane do tworzenia formularzy rejestracji i logowania użytkownika.
+Ten plik zawiera modele przynależności do lokacji. Klasa `UserProfile` definiuje schemat profilów użytkowników w bazie danych członkostwa. (W tym przypadku jedyne informacje to identyfikator użytkownika i nazwa użytkownika). Inne klasy modelu w tym pliku są używane do tworzenia formularzy rejestracji i logowania użytkownika.
 
 ## <a name="entity-framework"></a>Entity Framework
 
-Szablon SPA używa EF Code First. W rozwiązania deweloperskiego Code First należy najpierw zdefiniować te modele w kodzie i następnie EF używa modelu, aby utworzyć bazę danych. Można również użyć EF z istniejącej bazy danych ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
+Szablon SPA używa EF Code First. W programie Code First Development definiujemy modele najpierw w kodzie, a następnie w celu utworzenia bazy danych program EF korzysta z modelu. Można również użyć EF z istniejącą bazą danych ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
 
-`TodoItemContext` Pochodną klasy w folderze modeli **DbContext**. Ta klasa udostępnia "skleić" między modelami i EF. `TodoItemContext` Przechowuje `ToDoItem` kolekcji i `TodoList` kolekcji. Aby wysłać zapytanie bazy danych, po prostu napisać zapytanie LINQ do tych kolekcji. Na przykład Oto jak można wybrać wszystkie listy zadań do wykonania dla użytkownik "Alicja":
+Klasa `TodoItemContext` w folderze models pochodzi z **DbContext**. Ta klasa zawiera "Glue" między modelami i EF. `TodoItemContext` zawiera kolekcję `ToDoItem` i kolekcję `TodoList`. Aby wysłać zapytanie do bazy danych, wystarczy napisać zapytanie LINQ względem tych kolekcji. Na przykład Oto jak można wybrać wszystkie listy czynności do wykonania dla użytkownika "Alicja":
 
 [!code-csharp[Main](knockoutjs-template/samples/sample2.cs)]
 
-Można również dodawania nowych elementów do kolekcji, aktualizować elementy, lub usunąć elementy z kolekcji i utrwalenia zmiany w bazie danych.
+Możesz również dodać nowe elementy do kolekcji, zaktualizować elementy lub usunąć elementy z kolekcji i zachować zmiany w bazie danych.
 
-## <a name="aspnet-web-api-controllers"></a>Kontrolery ASP.NET Web API
+## <a name="aspnet-web-api-controllers"></a>Kontrolery interfejsu API sieci Web ASP.NET
 
-W programie ASP.NET Web API kontrolery są obiekty, które obsługują żądania HTTP. Jak wspomniano wcześniej, szablon SPA używa interfejsu API sieci Web, aby umożliwić operacji CRUD na `ToDoList` i `ToDoItem` wystąpień. Kontrolerów znajdują się w folderze kontrolery rozwiązania.
+W interfejsie Web API ASP.NET kontrolery są obiektami, które obsługują żądania HTTP. Jak wspomniano, szablon SPA używa interfejsu API sieci Web, aby włączyć operacje CRUD na wystąpieniach `ToDoList` i `ToDoItem`. Kontrolery znajdują się w folderze controllers rozwiązania.
 
 ![](knockoutjs-template/_static/image10.png)
 
-- `TodoController`: Obsługuje żądania HTTP na potrzeby wykonania
-- `TodoListController`: Obsługuje żądania HTTP do listy zadań do wykonania.
+- `TodoController`: obsługuje żądania HTTP dla elementów do wykonania
+- `TodoListController`: obsługuje żądania HTTP dla list czynności do wykonania.
 
-Te nazwy są istotne, ponieważ ścieżka identyfikatora URI, aby nazwa kontrolera jest zgodna z interfejsu API sieci Web. (Aby dowiedzieć się, jak internetowy interfejs API przekazuje żądania HTTP do kontrolerów, zobacz [routingu ASP.NET Web API](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).)
+Te nazwy są istotne, ponieważ interfejs API sieci Web dopasowuje ścieżkę identyfikatora URI do nazwy kontrolera. (Aby dowiedzieć się, jak interfejs API sieci Web kieruje żądania HTTP do kontrolerów, zobacz [Routing in Web api ASP.NET](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).)
 
-Przyjrzyjmy się `ToDoListController` klasy. Zawiera on element członkowski danych pojedynczego:
+Przyjrzyjmy się klasie `ToDoListController`. Zawiera pojedynczy element członkowski danych:
 
 [!code-csharp[Main](knockoutjs-template/samples/sample3.cs)]
 
-`TodoItemContext` Jest używany do komunikowania się z programem EF, zgodnie z wcześniejszym opisem. Metody na kontrolerze implementowania operacji CRUD. Interfejs API sieci Web mapy żądania HTTP od klienta do metod kontrolera w następujący sposób:
+`TodoItemContext` jest używany do komunikowania się z EF zgodnie z wcześniejszym opisem. Metody na kontrolerze implementują operacje CRUD. Interfejs API sieci Web mapuje żądania HTTP z klienta na metody kontrolera w następujący sposób:
 
-| Żądanie HTTP | Metoda kontrolera | Opis |
+| Żądanie HTTP | Controller — Metoda | Opis |
 | --- | --- | --- |
-| Pobierz /api/todo | `GetTodoLists` | Pobiera kolekcję listy zadań do wykonania. |
-| GET/interfejsAPI/zadania/*identyfikator* | `GetTodoList` | Pobiera listę zadań do wykonania według Identyfikatora |
-| PUT/interfejsAPI/zadania/*identyfikator* | `PutTodoList` | Aktualizuje listę zadań do wykonania. |
-| OPUBLIKUJ/api/zadań do wykonania | `PostTodoList` | Tworzy nową listę zadań do wykonania. |
-| Usuń/interfejsAPI/zadania/*identyfikator* | `DeleteTodoList` | Usuwa listy zadań do wykonania. |
+| Pobierz /api/todo | `GetTodoLists` | Pobiera kolekcję list do wykonania. |
+| Pobierz*Identyfikator* /API/TODO/ | `GetTodoList` | Pobiera listę czynności do wykonania według identyfikatora |
+| WPROWADŹ*Identyfikator* /API/TODO/ | `PutTodoList` | Aktualizuje listę czynności do wykonania. |
+| OPUBLIKUJ/api/zadań do wykonania | `PostTodoList` | Tworzy nową listę do wykonania. |
+| Usuń*Identyfikator* /API/TODO/ | `DeleteTodoList` | Usuwa listę zadań do wykonania. |
 
-Zwróć uwagę, że identyfikatory URI w przypadku niektórych operacji zawierają symbole zastępcze wartości Identyfikatora. Na przykład, aby usunąć do listy o identyfikatorze 42, identyfikator URI jest `/api/todo/42`.
+Zwróć uwagę, że identyfikatory URI dla niektórych operacji zawierają symbole zastępcze dla wartości identyfikatora. Na przykład aby usunąć listę z IDENTYFIKATORem 42, identyfikator URI jest `/api/todo/42`.
 
-Aby dowiedzieć się więcej o korzystaniu z interfejsu API sieci Web dla operacji CRUD, zobacz [Tworzenie internetowego interfejsu API tej operacji CRUD obsługuje](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md). Kod ten kontroler jest dość prosta. Poniżej przedstawiono kilka interesujących punktów:
+Aby dowiedzieć się więcej o korzystaniu z interfejsu API sieci Web dla operacji CRUD, zobacz [Tworzenie internetowego interfejsu API, który obsługuje operacje CRUD](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md). Kod dla tego kontrolera jest dość prosty. Oto kilka interesujących punktów:
 
-- `GetTodoLists` Metoda używa zapytania LINQ do filtrowania wyników w identyfikatorze zalogowanego użytkownika. Dzięki temu użytkownik widzi tylko dane, które należy do niej. Zauważ również, że instrukcja Select jest używana do konwersji `ToDoList` wystąpień do `TodoListDto` wystąpień.
-- Metody PUT i WPIS Sprawdź stan modelu przed zmodyfikowaniem bazy danych. Jeśli **ModelState.IsValid** ma wartość false, te metody zwracają HTTP 400 Niewłaściwe żądanie. Dowiedz się więcej o weryfikacji modelu w interfejsie API sieci Web w [sprawdzania poprawności modelu](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md).
-- Klasa kontrolera jest również ozdobione **[Authorize]** atrybutu. Ten atrybut umożliwia sprawdzenie, czy żądanie HTTP jest uwierzytelnione. Jeśli żądanie nie jest uwierzytelniony, klient odbierze HTTP 401 Brak autoryzacji. Przeczytaj więcej na temat uwierzytelniania na etapie [uwierzytelnianie i autoryzacja w interfejsie API sieci Web platformy ASP.NET](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md).
+- Metoda `GetTodoLists` używa zapytania LINQ do filtrowania wyników według identyfikatora zalogowanego użytkownika. W ten sposób użytkownik widzi tylko te dane, które należą do niego. Należy również zauważyć, że instrukcja SELECT służy do konwertowania wystąpień `ToDoList` na wystąpienia `TodoListDto`.
+- Metody PUT i POST sprawdzają stan modelu przed modyfikacją bazy danych. Jeśli **ModelState. IsValid** ma wartość false, te metody zwracają http 400, złe żądanie. Przeczytaj więcej na temat weryfikacji modelu w interfejsie Web API podczas [weryfikacji modelu](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md).
+- Klasa kontrolera również jest uzupełniona atrybutem **[autoryzuje]** . Ten atrybut sprawdza, czy żądanie HTTP zostało uwierzytelnione. Jeśli żądanie nie zostanie uwierzytelnione, klient odbiera protokół HTTP 401, Brak autoryzacji. Przeczytaj więcej na temat uwierzytelniania [i autoryzacji w usłudze ASP.NET Web API](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md).
 
-`TodoController` Klasy jest bardzo podobny do `TodoListController`. Największa różnica dotyczy, czy też nie definiuje żadnych metod GET, ponieważ klient otrzyma elementów do wykonania, wraz z każdej listy zadań do wykonania.
+Klasa `TodoController` jest bardzo podobna do `TodoListController`. Największą różnicą jest to, że nie definiuje żadnych metod GET, ponieważ klient uzyska elementy do wykonania wraz z każdą listą czynności do wykonania.
 
-## <a name="mvc-controllers-and-views"></a>Widoków i kontrolerów MVC
+## <a name="mvc-controllers-and-views"></a>Kontrolery MVC i widoki
 
-Kontrolerów MVC również znajdują się w folderze kontrolery rozwiązania. `HomeController` renderuje głównego pliku HTML dla aplikacji. Widok dla kontrolera głównego jest zdefiniowany w Views/Home/Index.cshtml. Widok głównej renderuje różną zawartość w zależności od tego, czy użytkownik jest zalogowany:
+Kontrolery MVC znajdują się również w folderze controllers rozwiązania. `HomeController` renderuje główny kod HTML dla aplikacji. Widok dla kontrolera głównego jest zdefiniowany w widokach/Home/index. cshtml. Widok domu służy do renderowania różnej zawartości w zależności od tego, czy użytkownik jest zalogowany:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-Po zalogowaniu użytkownicy widzą głównego interfejsu użytkownika. W przeciwnym razie użytkownik zobaczy na panelu logowania. Należy pamiętać, że to warunkowe renderowania się dzieje po stronie serwera. Nigdy nie próbuje ukryć poufnej zawartości po stronie klienta&#8212;wszystko, co wysyłać w odpowiedzi HTTP jest widoczny dla kogoś, kto ogląda nieprzetworzone komunikaty HTTP.
+Gdy użytkownicy są zalogowani, zobaczą główny interfejs użytkownika. W przeciwnym razie zobaczy panel logowania. Zauważ, że to renderowanie warunkowe występuje po stronie serwera. Nigdy nie należy próbować ukrywać poufnej zawartości po&#8212;stronie klienta, co jest widoczne w odpowiedzi HTTP, która jest widoczna dla kogoś, kto ogląda nieprzetworzone wiadomości HTTP.
 
-## <a name="client-side-javascript-and-knockoutjs"></a>JavaScript po stronie klienta i użyciem Knockout.js
+## <a name="client-side-javascript-and-knockoutjs"></a>Kod JavaScript po stronie klienta i odcinanie. js
 
-Teraz możemy włączyć po stronie serwera aplikacji do klienta. Szablon SPA używa kombinacji jQuery i struktura Knockout.js do tworzenia smooth, interaktywnego interfejsu użytkownika. Struktura Knockout.js jest bibliotekę JavaScript, który można łatwo powiązać HTML z danymi. Struktura Knockout.js korzysta ze wzorca, o nazwie "Model-View-ViewModel."
+Teraz przejdźmy po stronie serwera aplikacji do klienta programu. Szablon SPA używa kombinacji jQuery i separowania. js, aby utworzyć płynny, interaktywny interfejs użytkownika. Separowanie. js to biblioteka języka JavaScript, która ułatwia powiązanie kodu HTML z danymi. Separowanie. js używa wzorca o nazwie "Model-View-ViewModel".
 
-- Model jest danych domeny (listy zadań do wykonania i zadania do wykonania).
-- Widok jest dokument HTML.
-- Model widoku jest obiekt JavaScript, która przechowuje dane modelu. Model widoku jest abstrakcji kodu interfejsu użytkownika. Go nie zna reprezentacji w formacie HTML. Zamiast tego reprezentuje abstrakcyjnej funkcji widoku, takie jak "Lista zadań do wykonania".
+- Model to dane domeny (listy zadań do zrobienia i zadania do wykonania).
+- Widok jest dokumentem HTML.
+- Model widoku to obiekt JavaScript, który zawiera dane modelu. Model widoku jest abstrakcją kodu interfejsu użytkownika. Nie ma informacji o reprezentacji HTML. Zamiast tego reprezentuje funkcje abstrakcyjne widoku, takie jak "Lista elementów do wykonania".
 
-Widok jest powiązany z danymi model widoku. Model widoku aktualizacje są automatycznie odzwierciedlane w widoku. Powiązania działa odwrotnie także. Zdarzeń w modelu DOM (takie jak kliknięcie) są powiązane z danymi do funkcji na model widoku, które wyzwalają wywołania AJAX.
+Widok jest powiązany z danymi z modelem widoku. Aktualizacje widoku-model są automatycznie odzwierciedlane w widoku. Powiązania działają również w innym kierunku. Zdarzenia w modelu DOM (takie jak kliknięcia) są powiązane z funkcjami w modelu widoku, które wyzwalają wywołania AJAX.
 
-Szablon SPA organizuje JavaScript po stronie klienta w trzech warstwach:
+Szablon SPA organizuje kod JavaScript po stronie klienta w trzech warstwach:
 
-- todo.datacontext.js: Wysyła żądania AJAX.
-- todo.model.js: Definiuje modeli.
-- todo.viewmodel.js: Definiuje model widoku.
+- zadanie do wykonania. DataContext. js: wysyła żądania AJAX.
+- do zrobienia. model. js: definiuje modele.
+- do zrobienia. ViewModel. js: definiuje model widoku.
 
 ![](knockoutjs-template/_static/image11.png)
 
-Te pliki skryptów znajdują się w folderze Skrypty/aplikacji, rozwiązania.
+Te pliki skryptów znajdują się w folderze skrypty/aplikacja rozwiązania.
 
 ![](knockoutjs-template/_static/image12.png)
 
-**TODO.DataContext** obsługuje wszystkie wywołania AJAX do kontrolerów internetowych interfejsów API. (Wywołania AJAX do zalogowania się są definiowane w innych miejscach, w ajaxlogin.js.)
+zadanie do **wykonania obsługuje wszystkie** wywołania AJAX do kontrolerów interfejsu API sieci Web. (Wywołanie AJAX do logowania jest zdefiniowane w innym miejscu w ajaxlogin. js).
 
-**TODO.model.js** definiuje modeli po stronie klienta (przeglądarka) do listy zadań do wykonania. Istnieją dwie klasy modelu: todoItem i listy zadań.
+do **zrobienia. model. js** definiuje modele po stronie klienta (przeglądarki) dla list zadań do wykonania. Istnieją dwie klasy modelu: todoItem i todoList.
 
-Wiele właściwości w klasach modeli są typu "ko.observable". Dostrzegalne elementy są na tym, jakie Knockout jego magic. Z [dokumentacji Knockout](http://knockoutjs.com/documentation/introduction.html): Możliwość obserwowania jest "JavaScript obiekt, który może generować powiadomienia subskrybentów o zmianach." Po zmianie wartości zauważalny Knockout aktualizacji żadne elementy HTML, które są powiązane z tymi dostrzegalne elementy. Na przykład todoItem ma dostrzegalne elementy właściwości tytułu i isDone:
+Wiele właściwości w klasach modelu jest typu "ko. dostrzegalne". Observables to sposób odcinania. Z [dokumentacji odcinania](http://knockoutjs.com/documentation/introduction.html): zauważalny jest "obiekt JavaScript, który może powiadamiać subskrybentów o zmianach". Gdy wartość zauważalnych zmian, odcinanie aktualizuje wszystkie elementy HTML, które są powiązane z tymi observablesami. Na przykład todoItem ma observables dla tytułu i właściwości isdone:
 
 [!code-javascript[Main](knockoutjs-template/samples/sample5.js)]
 
-Istnieje również możliwość subskrybowania zauważalny w kodzie. Na przykład klasę todoItem subskrybuje zmian właściwości "isDone" i "title":
+Możesz również subskrybować kod. Na przykład Klasa todoItem subskrybuje zmiany we właściwościach "isdone" i "title":
 
 [!code-javascript[Main](knockoutjs-template/samples/sample6.js)]
 
-**Model widoku**
+**Wyświetl model**
 
-Model widoku jest zdefiniowany w todo.viewmodel.js. Model widoku jest centralnym miejscem, gdzie powiązana aplikacja elementy strony HTML dane domeny. W szablonie SPA modelu widoku zawiera tablicę dostrzegalnych todoLists. Poniższy kod w modelu widoku nakazuje Knockout do zastosowania powiązania:
+Model widoku jest zdefiniowany w ViewModel. js. Model widoku jest punktem centralnym, w którym aplikacja powiąże elementy strony HTML z danymi domeny. W szablonie SPA model widoku zawiera zauważalny tablicę todoLists. Poniższy kod w modelu widoku mówi odcinanie, aby zastosować powiązania:
 
 [!code-javascript[Main](knockoutjs-template/samples/sample7.js)]
 
-## <a name="html-and-data-binding"></a>HTML i powiązania danych
+## <a name="html-and-data-binding"></a>KOD HTML i powiązanie danych
 
-W Views/Home/Index.cshtml zdefiniowano głównego pliku HTML dla strony. Ponieważ używamy powiązania danych HTML jest tylko szablon co faktycznie pobiera renderowane. Używa knockout *deklaratywne* powiązania. Elementy strony jest powiązany z danymi przez dodanie atrybutu "data-bind" do elementu. Poniżej przedstawiono bardzo prosty przykład, pobierane z dokumentacji odcinania:
+Główny kod HTML strony jest zdefiniowany w widokach/Home/index. cshtml. Ze względu na to, że używamy powiązań danych, kod HTML jest tylko szablonem, co faktycznie jest renderowane. Odcinanie używa powiązań *deklaratywnych* . Elementy strony można powiązać z danymi, dodając do elementu atrybut "dane-powiązanie". Oto bardzo prosty przykład pochodzący z dokumentacji odcinania:
 
 [!code-html[Main](knockoutjs-template/samples/sample8.html)]
 
-W tym przykładzie Knockout aktualizuje **&lt;span&gt;** element z wartością `myItems.count()`. Zawsze, gdy ta wartość zmienia, Knockout aktualizuje dokument.
+W tym przykładzie odcinanie aktualizuje zawartość **&lt;span&gt;** elementu o wartości `myItems.count()`. Za każdym razem, gdy ta wartość ulegnie zmianie, odcinanie dokumentu.
 
-Knockout udostępnia wiele typów inne powiązanie. Oto niektóre powiązania, używany w szablonie SPA:
+Odcinanie zawiera różne typy powiązań. Poniżej przedstawiono niektóre powiązania używane w szablonie SPA:
 
-- **Instrukcja foreach**: Umożliwia iterację pętli i zastosować ten sam kod znaczników do każdego elementu na liście. Służy to do renderowania list zadań do wykonania i elementów do wykonania. W ramach **foreach**, powiązania są stosowane do elementów listy.
-- **widoczne**: Używane, aby przełączyć widoczność. Ukryj znaczników, gdy kolekcja jest pusta lub wyświetlić komunikat o błędzie.
-- **Wartość**: Używany do wypełniania wartości formularza.
-- **Kliknij przycisk**: Wiąże Zdarzenie kliknięcia funkcji w modelu widoku.
+- **foreach**: umożliwia przechodzenie przez pętlę i zastosowanie tego samego znacznika do każdego elementu na liście. Służy do renderowania list czynności do wykonania i elementów do wykonania. W elemencie **foreach**powiązania są stosowane do elementów listy.
+- **widoczne**: służy do przełączania widoczności. Ukryj znaczniki, gdy kolekcja jest pusta, lub wprowadź komunikat o błędzie jako widoczny.
+- **wartość**: służy do wypełniania wartości formularza.
+- **kliknięcie**: wiąże zdarzenie kliknięcia z funkcją w modelu widoku.
 
-## <a name="anti-csrf-protection"></a>Anti-CSRF Protection
+## <a name="anti-csrf-protection"></a>Ochrona przed CSRF
 
-Cross-Site fałszowaniu żądań Międzywitrynowych to atak, w którym złośliwych witryn wysyła żądanie do lokacji narażony, gdzie użytkownik jest aktualnie zalogowany. Aby zapobiec atakom CSRF, używa platformy ASP.NET MVC *tokeny zabezpieczające przed fałszerstwem*, nazywany również żądania weryfikacji tokenów. Chodzi o to, że serwer polega na spakowaniu losowo generowany token do strony sieci web. Gdy klient przesyła dane na serwerze, musi on zawierać tę wartość w komunikacie żądania.
+Fałszerstwo żądania między lokacjami (CSRF) to atak polegający na tym, że złośliwa witryna wysyła żądanie do zagrożonej lokacji, w której użytkownik jest aktualnie zalogowany. Aby zapobiec atakom CSRF, ASP.NET MVC używa *tokenów chroniących przed fałszerstwem*, nazywanych również tokenami weryfikacji żądań. Pomysłem jest to, że serwer umieszcza losowo wygenerowany token w stronie sieci Web. Gdy klient przesyła dane do serwera, musi on zawierać tę wartość w komunikacie żądania.
 
-Tokeny zabezpieczające przed fałszerstwem działać, ponieważ złośliwy strony nie może odczytać tokenów użytkownika, ze względu na zasady tego samego źródła. (Zasady tego samego źródła uniemożliwiają hostowanych w dwóch różnych witrynach dostęp do siebie nawzajem zawartości dokumentów).
+Tokeny chroniące przed fałszerstwem działają, ponieważ złośliwa strona nie może odczytać tokenów użytkownika ze względu na zasady tego samego źródła. (Zasady tego samego pochodzenia uniemożliwiają dokumentom obsługiwanym przez dwie różne lokacje uzyskiwanie dostępu do zawartości każdej z nich.)
 
-ASP.NET MVC udostępnia wbudowaną obsługę tokenów zabezpieczających przed sfałszowaniem za pośrednictwem [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) klasy i [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) atrybutu. Obecnie ta funkcja nie jest wbudowana do interfejsu API sieci Web. Jednak szablonu SPA zawiera implementację niestandardową dla interfejsu API sieci Web. Ten kod jest zdefiniowany w `ValidateHttpAntiForgeryTokenAttribute` klasy, która znajduje się w folderze filtry rozwiązania. Aby dowiedzieć się więcej na temat anti-CSRF w interfejsie API sieci Web, zobacz [ataków zapobieganie Cross-Site żądania Międzywitrynowego Międzywitrynowych](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC zapewnia wbudowaną obsługę tokenów chroniących przed fałszerstwem za pomocą klasy ochrony przed [fałszerstwem](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) i atrybutu [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) . Obecnie ta funkcja nie jest wbudowana w interfejs API sieci Web. Jednak szablon SPA zawiera niestandardową implementację interfejsu API sieci Web. Ten kod jest zdefiniowany w klasie `ValidateHttpAntiForgeryTokenAttribute`, która znajduje się w folderze filters rozwiązania. Aby dowiedzieć się więcej na temat programu Anti-CSRF w interfejsie Web API, zobacz [zapobieganie atakom w ramach żądań między witrynami (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-Szablon SPA został zaprojektowany ułatwią Ci rozpoczęcie pracy szybko pisania nowoczesnych, interaktywnych aplikacji sieci web. Używa biblioteki struktura Knockout.js do oddzielania prezentację (kod znaczników HTML) z danych i aplikacji logiki. Ale separowania na ostro nie tylko biblioteki JavaScript, których można używać do tworzenia SPA. Jeśli chcesz poznać kilka innych opcji, zapoznaj się z [szablonów utworzonych przez społeczność aplikacji JEDNOSTRONICOWYCH](../templates/index.md).
+Szablon SPA został zaprojektowany tak, aby można było szybko pisać nowoczesne, interaktywne aplikacje sieci Web. Używa biblioteki odcinania. js do oddzielenia prezentacji (znaczników HTML) z logiki danych i aplikacji. Natomiast odcinanie nie jest jedyną biblioteką JavaScript, której można użyć do utworzenia SPA. Jeśli chcesz poznać inne opcje, zapoznaj się z [szablonami Spa utworzonymi przez społeczność](../templates/index.md).

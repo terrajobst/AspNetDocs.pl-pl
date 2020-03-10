@@ -10,11 +10,11 @@ ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 73a01ed47b0935a1a9734c197377470defb1fe36
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519391"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583063"
 ---
 # <a name="tutorial-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>Samouczek: implementowanie dziedziczenia z EF w aplikacji ASP.NET MVC 5
 
@@ -22,7 +22,7 @@ W poprzednim samouczku zostały obsłużone wyjątki współbieżności. W tym s
 
 W programowaniu zorientowanym obiektowo można użyć [dziedziczenia](http://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) , aby ułatwić [ponowne użycie kodu](http://en.wikipedia.org/wiki/Code_reuse). W tym samouczku zmienisz klasy `Instructor` i `Student` tak, aby znajdowały się one w `Person` klasie bazowej, która zawiera właściwości, takie jak `LastName`, które są wspólne dla instruktorów i studentów. Nie dodasz ani nie zmienisz żadnych stron sieci Web, ale zmienisz część kodu, a zmiany zostaną automatycznie odzwierciedlone w bazie danych.
 
-W tym samouczku zostały wykonane następujące czynności:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje na temat mapowania dziedziczenia do bazy danych
@@ -149,7 +149,7 @@ Ta sekcja wymaga wykonania opcjonalnej sekcji **wdrażanie aplikacji do platform
 
 1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj** z menu kontekstowego.
 
-2. Kliknij przycisk **publikowania**.
+2. Kliknij przycisk **Opublikuj**.
 
     Aplikacja sieci Web zostanie otwarta w domyślnej przeglądarce.
 
@@ -157,7 +157,7 @@ Ta sekcja wymaga wykonania opcjonalnej sekcji **wdrażanie aplikacji do platform
 
     Przy pierwszym uruchomieniu strony, która uzyskuje dostęp do bazy danych, Entity Framework uruchamia wszystkie migracje `Up` metody wymagane w celu przeprowadzenia Aktualności bazy danych z bieżącym modelem danych.
 
-## <a name="get-the-code"></a>Uzyskaj kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
 [Pobierz ukończony projekt](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji na temat tej i innych struktur dziedziczenia, zo
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostały wykonane następujące czynności:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Zapoznaj się z mapowaniem dziedziczenia do bazy danych

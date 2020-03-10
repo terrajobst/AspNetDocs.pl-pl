@@ -1,15 +1,7 @@
----
-ms.openlocfilehash: 514b6e4894c6fdf74921eaa8b5323c6109d4d7e0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57141165"
----
-Jest dostępna zaktualizowana wersja tego samouczka [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc) przy użyciu najnowszej wersji [programu Visual Studio](https://visualstudio.microsoft.com/). Nowe samouczku [ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/mvc/), zapewniającą **wiele** ulepszenia w porównaniu z tego samouczka.
+Zaktualizowana wersja tego samouczka jest dostępna w [tym miejscu](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc) przy użyciu najnowszej wersji programu [Visual Studio](https://visualstudio.microsoft.com/). Nowy samouczek używa [ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/mvc/), który zapewnia **wiele** ulepszeń w tym samouczku.
 
-W tym samouczku pokazano ASP.NET Core MVC za pomocą kontrolerów i widoków. Strony razor jest alternatywą nowe w programie ASP.NET Core 2.0, opartej na stronach model programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajne. Zalecamy wypróbowanie [stron Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) samouczek przed wersją platformy MVC. Samouczek stron Razor:
+Ten samouczek uczy się ASP.NET Core MVC z kontrolerami i widokami. Razor Pages to nowa alternatywa w ASP.NET Core 2,0, oparty na stronach model programowania, który umożliwia łatwiejsze i wydajniejsze Tworzenie interfejsu użytkownika sieci Web. Zalecamy wypróbowanie samouczka [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) przed wersją MVC. Samouczek Razor Pages:
 
-* Łatwiej jest je wykonać.
+* Jest łatwiejsze do wykonania.
 * Obejmuje więcej funkcji.
-* Jest preferowanym podejściem w przypadku nowych wdrożeń aplikacji.
+* Jest preferowanym podejściem do tworzenia nowych aplikacji.

@@ -1,107 +1,107 @@
 ---
 uid: aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
-title: Hostowanie OWIN w roli procesu roboczego platformy Azure | Dokumentacja firmy Microsoft
+title: OWIN hosta w roli procesu roboczego platformy Azure | Microsoft Docs
 author: MikeWasson
-description: W tym samouczku pokazano, jak na potrzeby samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure. Open Web Interface for .NET (OWIN) definiuje abstrakcję między serwerem sieci web platformy .NET...
+description: W tym samouczku przedstawiono sposób samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure. Otwórz interfejs sieci Web dla platformy .NET (OWIN) definiuje abstrakcję między serwerem sieci Web platformy .NET...
 ms.author: riande
 ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
 ms.openlocfilehash: 59d2e0d549427093f8a2424b17af81169b78ef30
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118257"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584617"
 ---
 # <a name="host-owin-in-an-azure-worker-role"></a>Hostowanie interfejsu OWIN w roli procesu roboczego platformy Azure
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-> W tym samouczku pokazano, jak na potrzeby samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure.
+> W tym samouczku przedstawiono sposób samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure.
 >
-> [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (OWIN) definiuje abstrakcję między serwerami sieci web platformy .NET i aplikacji sieci web. OWIN oddziela aplikacji sieci web na serwerze, co sprawia, że OWIN jest idealnym rozwiązaniem dla hostingu samodzielnego aplikacji sieci web w swoim własnym procesie, poza programem IIS — na przykład w roli procesu roboczego platformy Azure.
+> [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (Owin) definiuje abstrakcję między serwerami sieci Web i aplikacjami sieci Web programu .NET. OWIN oddziela aplikację sieci Web od serwera, co sprawia, że OWIN jest idealnym rozwiązaniem do samodzielnego udostępniania aplikacji sieci Web we własnym procesie poza usługami IIS — na przykład w ramach roli proces roboczy platformy Azure.
 >
-> W tym samouczku dowiesz się, jak na potrzeby samodzielnego hostowania aplikacji OWIN w roli procesu roboczego Microsoft Azure. Aby dowiedzieć się więcej o rolach procesów roboczych, zobacz [modele wykonywania Azure](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
+> W tym samouczku dowiesz się, jak samoobsługowo OWIN aplikacje w ramach roli procesu roboczego Microsoft Azure. Aby dowiedzieć się więcej o rolach procesów roboczych, zobacz [modele wykonywania platformy Azure](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
-> - [Zestaw Azure SDK dla platformy .NET 2.3](https://azure.microsoft.com/downloads/)
-> - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
+> - [Zestaw Azure SDK dla programu .NET 2,3](https://azure.microsoft.com/downloads/)
+> - [Microsoft. Owin. SelfHost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
-## <a name="create-a-microsoft-azure-project"></a>Tworzenie projektu platformy Microsoft Azure
+## <a name="create-a-microsoft-azure-project"></a>Tworzenie projektu Microsoft Azure
 
-Uruchom program Visual Studio z uprawnieniami administratora. Aby debugować aplikację lokalnie, za pomocą emulatora obliczeń platformy Azure potrzebne są uprawnienia administratora.
+Uruchom program Visual Studio z uprawnieniami administratora. Uprawnienia administratora są konieczne do lokalnego debugowania aplikacji przy użyciu emulatora obliczeń platformy Azure.
 
-Na **pliku** menu, kliknij przycisk **New**, następnie kliknij przycisk **projektu**. Z **zainstalowane szablony**, w obszarze Visual C#, kliknij przycisk **chmury** a następnie kliknij przycisk **usłudze Windows Azure Cloud Services**. Nadaj projektowi nazwę "AzureApp", a następnie kliknij przycisk **OK**.
+W menu **plik** kliknij pozycję **Nowy**, a następnie kliknij pozycję **projekt**. Z **zainstalowanych szablonów**, w obszarze C#Wizualizacja, kliknij pozycję **chmura** , a następnie kliknij pozycję **Usługa w chmurze platformy Microsoft Azure**. Nadaj projektowi nazwę "plik azureapp" i kliknij przycisk **OK**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image2.png)](host-owin-in-an-azure-worker-role/_static/image1.png)
 
-W **nową usługę w chmurze Azure Windows** okno dialogowe, kliknij dwukrotnie **roli procesu roboczego**. Pozostaw nazwę domyślną ("WorkerRole1"). Ten krok powoduje dodanie roli procesu roboczego do rozwiązania. Kliknij przycisk **OK**.
+W **nowej usłudze w chmurze platformy Microsoft Azure** okno dialogowe, kliknij dwukrotnie **rolę proces roboczy**. Pozostaw nazwę domyślną ("WorkerRole1"). Ten krok powoduje dodanie roli procesu roboczego do rozwiązania. Kliknij przycisk **OK**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image4.png)](host-owin-in-an-azure-worker-role/_static/image3.png)
 
-Rozwiązanie programu Visual Studio, który jest tworzony zawiera dwa projekty:
+Utworzone rozwiązanie programu Visual Studio zawiera dwa projekty:
 
-- &quot;AzureApp&quot; definiuje ról i konfiguracji dla aplikacji platformy Azure.
-- &quot;WorkerRole1&quot; zawiera kod dla roli procesu roboczego.
+- &quot;plik azureapp&quot; definiuje role i konfigurację dla aplikacji platformy Azure.
+- &quot;WorkerRole1&quot; zawiera kod dla roli proces roboczy.
 
-Ogólnie rzecz biorąc aplikacją platformy Azure może zawierać wiele ról, chociaż w tym samouczku korzysta z jedną rolę.
+Ogólnie rzecz biorąc, aplikacja platformy Azure może zawierać wiele ról, chociaż w tym samouczku zostanie użyta jedna rola.
 
 ![](host-owin-in-an-azure-worker-role/_static/image5.png)
 
-## <a name="add-the-owin-self-host-packages"></a>Dodaj pakiety hosta samodzielnego OWIN
+## <a name="add-the-owin-self-host-packages"></a>Dodawanie pakietów samoobsługi OWIN
 
-Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
+W menu **Narzędzia** kliknij pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
 
 W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](host-owin-in-an-azure-worker-role/samples/sample1.cmd)]
 
-## <a name="add-an-http-endpoint"></a>Dodaj punkt końcowy HTTP
+## <a name="add-an-http-endpoint"></a>Dodawanie punktu końcowego HTTP
 
-W Eksploratorze rozwiązań rozwiń projekt AzureApp. Rozwiń węzeł ról, kliknij prawym przyciskiem myszy WorkerRole1, a następnie wybierz **właściwości**.
+W Eksplorator rozwiązań rozwiń projekt plik azureapp. Rozwiń węzeł role, kliknij prawym przyciskiem myszy pozycję WorkerRole1, a następnie wybierz pozycję **Właściwości**.
 
 ![](host-owin-in-an-azure-worker-role/_static/image6.png)
 
-Kliknij przycisk **punktów końcowych**, a następnie kliknij przycisk **Dodaj punkt końcowy**.
+Kliknij pozycję **punkty końcowe**, a następnie kliknij pozycję **Dodaj punkt końcowy**.
 
-W **protokołu** listy rozwijanej wybierz opcję "http". W **Port publiczny** i **Port prywatny**, wpisz 80. Te numery portów mogą być różne. Port publiczny jest o tym, co klienci używają wysłanie żądania do roli.
+Z listy rozwijanej **Protokół** wybierz pozycję "http". W polu **port publiczny** i **port prywatny**wpisz 80. Te numery portów mogą być różne. Port publiczny jest używany przez klientów podczas wysyłania żądania do roli.
 
 [![](host-owin-in-an-azure-worker-role/_static/image8.png)](host-owin-in-an-azure-worker-role/_static/image7.png)
 
-## <a name="create-the-owin-startup-class"></a>Tworzenie klasy początkowej OWIN
+## <a name="create-the-owin-startup-class"></a>Utwórz klasę uruchomieniową OWIN
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt WorkerRole1, a następnie wybierz **Dodaj** / **klasy** Aby dodać nową klasę. Nazwa klasy `Startup`.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt WorkerRole1 i wybierz polecenie **Dodaj** **klasę** / , aby dodać nową klasę. Nadaj klasie nazwę `Startup`.
 
-Zastąp cały kod standardowy następujących czynności:
+Zastąp cały kod standardowy następującymi:
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample2.cs)]
 
-`UseWelcomePage` — Metoda rozszerzenia dodaje prostą stronę HTML do aplikacji, aby sprawdzić lokacji działa.
+Metoda rozszerzenia `UseWelcomePage` dodaje prostą stronę HTML do aplikacji, aby sprawdzić, czy witryna działa.
 
 ## <a name="start-the-owin-host"></a>Uruchom hosta OWIN
 
-Otwórz plik WorkerRole.cs. Ta klasa definiuje kod, który jest uruchamiany podczas uruchamiania i zatrzymywania roli procesu roboczego.
+Otwórz plik WorkerRole.cs. Ta klasa definiuje kod, który jest uruchamiany po uruchomieniu i zatrzymaniu roli procesu roboczego.
 
 Dodaj następującą instrukcję using:
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample3.cs)]
 
-Dodaj **interfejsu IDisposable** członka do `WorkerRole` klasy:
+Dodaj element członkowski **IDisposable** do klasy `WorkerRole`:
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample4.cs)]
 
-W `OnStart` metody, Dodaj następujący kod, aby uruchomić hosta:
+W metodzie `OnStart` Dodaj następujący kod, aby uruchomić hosta:
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample5.cs?highlight=5)]
 
-**WebApp.Start** metoda uruchamia hosta OWIN. Nazwa `Startup` klasy jest parametrem typu w metodzie. Zgodnie z Konwencją, host będzie wywoływać `Configure` metody tej klasy.
+Metoda **WEBAPP. Start** uruchamia hosta Owin. Nazwa klasy `Startup` jest parametrem typu dla metody. Zgodnie z Konwencją, Host wywoła metodę `Configure` tej klasy.
 
-Zastąp `OnStop` do rozporządzania  *\_aplikacji* wystąpienie:
+Przesłoń `OnStop`, aby usunąć wystąpienie *aplikacji\_* :
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample6.cs)]
 
@@ -109,43 +109,43 @@ Oto kompletny kod dla WorkerRole.cs:
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample7.cs)]
 
-Skompiluj rozwiązanie, a następnie naciśnij klawisz F5, aby uruchomić aplikację lokalnie w emulatorze obliczeń systemu Azure. W zależności od ustawień zapory konieczne może być Zezwalaj na emulator przez zaporę.
+Skompiluj rozwiązanie i naciśnij klawisz F5, aby uruchomić aplikację lokalnie w emulatorze obliczeń platformy Azure. W zależności od ustawień zapory może być konieczne zezwolenie emulatora przez zaporę.
 
-Emulator obliczeń przypisuje lokalny adres IP punktu końcowego. Adres IP można znaleźć, wyświetlając interfejs użytkownika emulatora obliczeń. Kliknij prawym przyciskiem myszy ikonę emulatora w zadaniu paska w obszarze powiadomień, a następnie wybierz pozycję **Pokaż interfejs użytkownika emulatora obliczeń**.
+Emulator obliczeń przypisuje lokalny adres IP do punktu końcowego. Adres IP można znaleźć, wyświetlając interfejs użytkownika emulatora obliczeń. Kliknij prawym przyciskiem myszy ikonę emulatora w obszarze powiadomień paska zadań, a następnie wybierz pozycję **Pokaż interfejs użytkownika emulatora obliczeń**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-Znajdowanie adresu IP, w ramach wdrożenia usług, wdrożenia [identyfikator], szczegóły usługi. Otwórz przeglądarkę internetową i przejdź do protokołu http:\/\/*adres*, gdzie *adres* jest adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80`. Powinny pojawić się Strona powitalna OWIN:
+Znajdź adres IP w obszarze wdrożenia usługi, wdrożenie [ID], Szczegóły usługi. Otwórz przeglądarkę internetową i przejdź do adresu http:\/\/*Address*, gdzie *Address* to adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80`. Powinna zostać wyświetlona strona powitalna OWIN:
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
-W tym kroku musisz mieć konto platformy Azure. Jeśli nie masz jeszcze jeden, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+W tym kroku musisz mieć konto platformy Azure. Jeśli jeszcze tego nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Microsoft Azure bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt AzureApp. Wybierz **publikowania**.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt plik azureapp. Wybierz pozycję **Publikuj**.
 
 ![](host-owin-in-an-azure-worker-role/_static/image12.png)
 
-Jeśli nie jest zalogowany do konta platformy Azure, kliknij przycisk **Sign In**.
+Jeśli nie zalogowano się na koncie platformy Azure, kliknij przycisk **Zaloguj**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image14.png)](host-owin-in-an-azure-worker-role/_static/image13.png)
 
-Po użytkownik jest zalogowany, wybierz subskrypcję i kliknij przycisk **dalej**.
+Po zalogowaniu wybierz subskrypcję i kliknij przycisk **dalej**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image16.png)](host-owin-in-an-azure-worker-role/_static/image15.png)
 
-Wprowadź nazwę usługi w chmurze, a następnie wybierz region. Kliknij przycisk **Utwórz**.
+Wprowadź nazwę usługi w chmurze i wybierz region. Kliknij przycisk **Utwórz**.
 
 ![](host-owin-in-an-azure-worker-role/_static/image17.png)
 
-Kliknij przycisk **publikowania**.
+Kliknij przycisk **Opublikuj**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image19.png)](host-owin-in-an-azure-worker-role/_static/image18.png)
 
-Okno Dziennik aktywności platformy Azure Pokazuje postęp wdrażania. Gdy aplikacja jest wdrożona, przejdź do `http://appname.cloudapp.net/`, gdzie *appname* to nazwa usługi w chmurze.
+W oknie Dziennik aktywności platformy Azure zostanie wyświetlony postęp wdrażania. Po wdrożeniu aplikacji przejdź do `http://appname.cloudapp.net/`, gdzie *nazwa_aplikacji* to nazwa usługi w chmurze.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Omówienie projektu Katana](an-overview-of-project-katana.md)
-- [Projektu Katana w usłudze GitHub](https://github.com/aspnet/AspNetKatana/)
+- [Projekt Katana w witrynie GitHub](https://github.com/aspnet/AspNetKatana/)

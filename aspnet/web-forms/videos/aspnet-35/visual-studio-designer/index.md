@@ -2,21 +2,21 @@
 uid: web-forms/videos/aspnet-35/visual-studio-designer/index
 title: Visual Studio Designer | Microsoft Docs
 author: rick-anderson
-description: To wideo przedstawia ulepszone funkcje w programie Visual Studio 2008 do pracy za pomocą stron wzorcowych.
+description: Ten film wideo przedstawia ulepszone funkcje programu Visual Studio 2008 do pracy z stronami wzorcowymi.
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 15730cc3-f122-45e4-8afd-bd8b2c8c83ab
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-designer
 msc.type: chapter
 ms.openlocfilehash: d6a5b01980a930e7d1684516233bc9bca99aec62
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108737"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573025"
 ---
 # <a name="visual-studio-designer"></a>Projektant programu Visual Studio
 
-> To wideo przedstawia ulepszone funkcje w programie Visual Studio 2008 do pracy za pomocą stron wzorcowych.
+> Ten film wideo przedstawia ulepszone funkcje programu Visual Studio 2008 do pracy z stronami wzorcowymi.
 
 - [Program Visual Studio 2008 i zagnieżdżone strony wzorcowe](visual-studio-2008-and-nested-masterpages.md)

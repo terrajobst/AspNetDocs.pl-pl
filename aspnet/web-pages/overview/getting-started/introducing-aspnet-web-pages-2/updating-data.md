@@ -1,308 +1,308 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
-title: Wprowadzenie do składnika ASP.NET Web Pages — aktualizowanie danych bazy danych | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — aktualizowanie danych bazy danych | Microsoft Docs
 author: Rick-Anderson
-description: W tym samouczku dowiesz się, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii th...
+description: W tym samouczku pokazano, jak zaktualizować istniejący wpis bazy danych przy użyciu stron sieci Web ASP.NET (Razor). Przyjęto założenie, że seria została zakończona...
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
 ms.openlocfilehash: 8f8bcfb7d9d2416a2699776cadbdaae8e12415ba
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131791"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574229"
 ---
-# <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — aktualizowanie danych bazy danych
+# <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do stron sieci Web ASP.NET — aktualizowanie danych bazy danych
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku dowiesz się, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii za pośrednictwem [wprowadzanie danych przez przy użyciu formularzy przy użyciu stron ASP.NET Web Pages](entering-data.md).
+> W tym samouczku pokazano, jak zaktualizować istniejący wpis bazy danych przy użyciu stron sieci Web ASP.NET (Razor). Przyjęto założenie, że przeprowadzono serię, [wprowadzając dane przy użyciu formularzy przy użyciu stron sieci Web ASP.NET](entering-data.md).
 > 
 > Zawartość:
 > 
-> - Jak wybrać rekord `WebGrid` pomocnika.
-> - Jak odczytać pojedynczy rekord z bazy danych.
-> - Sposób wstępnego ładowania formularza z wartościami z rekordu bazy danych.
+> - Jak wybrać pojedynczy rekord w Pomocniku `WebGrid`.
+> - Sposób odczytywania pojedynczego rekordu z bazy danych.
+> - Jak załadować formularz z wartościami z rekordu bazy danych.
 > - Jak zaktualizować istniejący rekord w bazie danych.
-> - Sposób przechowywania informacji na stronie bez wyświetlania go.
-> - Sposób przechowywania informacji przy użyciu ukrytego pola.
+> - Jak przechowywać informacje na stronie bez wyświetlania go.
+> - Jak używać ukrytego pola do przechowywania informacji.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - `WebGrid` Pomocnika.
-> - SQL `Update` polecenia.
-> - `Database.Execute` Metody.
+> - Pomocnik `WebGrid`.
+> - Polecenie SQL `Update`.
+> - Metoda `Database.Execute`.
 > - Ukryte pola (`<input type="hidden">`).
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-W poprzednim samouczku przedstawiono sposób dodawania rekord do bazy danych. Tutaj dowiesz się, jak wyświetlania rekordu do edycji. W *filmy* stronie będą aktualizowane `WebGrid` pomocnika, tak że wyświetla **Edytuj** łącze obok każdego filmu:
+W poprzednim samouczku przedstawiono sposób dodawania rekordu do bazy danych. Tutaj znajdziesz informacje na temat wyświetlania rekordu do edycji. Na stronie *filmy* należy zaktualizować pomocnika `WebGrid` tak, aby wyświetlał link **Edytuj** obok każdego filmu:
 
-![WebGrid wyświetlania, w tym link "Edytuj", dla każdego filmu](updating-data/_static/image1.png)
+![Wyświetlanie siatki WebGrid, w tym łącza "Edytuj" dla każdego filmu](updating-data/_static/image1.png)
 
-Po kliknięciu **Edytuj** łącza, spowoduje to przejście do innej strony, której informacje film jest już w postaci:
+Kliknięcie linku **edycji** spowoduje przejście do innej strony, gdzie informacje o filmie są już w postaci:
 
-![Edytuj stronę Film przedstawiający film, aby go edytować](updating-data/_static/image2.png)
+![Edytuj stronę filmu przedstawiającą film do edycji](updating-data/_static/image2.png)
 
-Możesz zmienić wartości. Po przesłaniu zmian kodu na stronie aktualizuje bazę danych i umożliwia powrót do listy filmów.
+Można zmienić dowolne wartości. Po przesłaniu zmian kod na stronie aktualizuje bazę danych i wraca do listy filmów.
 
-Ta część procesu działa prawie dokładnie tak, jak *AddMovie.cshtml* strony utworzonego w poprzednim samouczku tak wiele części tego samouczka nie będą niczym nowym.
+Ta część procesu działa niemal dokładnie tak, jak strona *addmovie. cshtml* utworzona w poprzednim samouczku, dlatego większość tego samouczka będzie znana.
 
-Istnieje kilka sposobów, które można zaimplementować sposobem edytowania filmu indywidualnych. To podejście pokazano została wybrana, ponieważ jest łatwe do wdrożenia i łatwe do zrozumienia.
+Istnieje kilka sposobów implementacji sposobu edytowania poszczególnych filmów. Pokazana metoda została wybrana, ponieważ jest łatwa do zaimplementowania i łatwego zrozumienia.
 
-## <a name="adding-an-edit-link-to-the-movie-listing"></a>Dodanie Link edycji do listy filmu
+## <a name="adding-an-edit-link-to-the-movie-listing"></a>Dodawanie linku edycji do listy filmów
 
-Aby rozpocząć, zaktualizujesz *filmy* stronie, dzięki czemu każdy film również lista zawiera **Edytuj** łącza.
+Aby rozpocząć, zaktualizujesz stronę *filmy* , tak aby każda lista filmów zawierała link **edycji** .
 
-Otwórz *Movies.cshtml* pliku.
+Otwórz plik *Films. cshtml* .
 
-W treści strony Zmień `WebGrid` znaczników przez dodanie kolumny. Oto znaczniki zmodyfikowane:
+W treści strony Zmień znacznik `WebGrid`, dodając kolumnę. Oto zmodyfikowano znaczniki:
 
 [!code-html[Main](updating-data/samples/sample1.html?highlight=6)]
 
-Nowa kolumna jest to:
+Nowa kolumna to:
 
 [!code-html[Main](updating-data/samples/sample2.html)]
 
-Punkt w tej kolumnie jest wyświetlany link (`<a>` elementu) którego tekst jest wyświetlany komunikat "Edytuj". Interesuje nas polega na utworzeniu łącza, który wygląda podobnie do poniższego, po uruchomieniu na stronie, z `id` wartość dla każdego filmu różnią się od:
+Punkt tej kolumny polega na wyświetleniu linku (`<a>` elementu), którego tekst mówi "Edit" (Edytuj). To, co mamy, aby utworzyć link, który wygląda jak poniżej, gdy zostanie uruchomiona Strona, z wartością `id` inną dla każdego filmu:
 
 [!code-css[Main](updating-data/samples/sample3.css)]
 
-Ten link spowoduje wywołanie stronę o nazwie *EditMovie*, i zostaną przetworzone w ciągu zapytania `?id=7` do tej strony.
+Ten link spowoduje wywołanie strony o nazwie *EditMovie*i przekazanie `?id=7` ciągu zapytania do tej strony.
 
-Składnia służąca do nowej kolumny, która może wyglądać nieco złożone, ale to tylko w przypadku, dlatego umieszcza je ze sobą kilku elementów. Każdego pojedynczego elementu jest bardzo proste. Jeśli możesz skoncentrować się na tylko `<a>` elementu, zobacz ten kod znaczników:
+Składnia nowej kolumny może wyglądać nieskomplikowaną, ale tylko dlatego, że jest ona połączona z kilkoma elementami. Każdy pojedynczy element jest prosty. Jeśli koncentrujesz się tylko na `<a>` elemencie, zobaczysz następujący znacznik:
 
 [!code-html[Main](updating-data/samples/sample4.html)]
 
-Podstawowe informacje dotyczące sposobu działania siatki: Siatka wyświetla wiersze, jeden dla każdego rekordu bazy danych i wyświetla kolumny dla każdego pola w rekordzie bazy danych. Podczas każdego wiersza siatki jest budowany, `item` obiekt zawiera rekord bazy danych (element) dla tego wiersza. Taki układ zapewnia sposób w kodzie można pobrać danych dla tego wiersza. Jest to, co widzicie tutaj: wyrażenie `item.ID` otrzymuje wartość Identyfikatora elementu bieżącej bazy danych. Można uzyskać wartości bazy danych (tytuł, gatunku lub rok) tak samo za pomocą `item.Title`, `item.Genre`, lub `item.Year`.
+Niektóre tła dotyczące sposobu działania siatki: Siatka wyświetla wiersze, jeden dla każdego rekordu bazy danych i wyświetla kolumny dla każdego pola w rekordzie bazy danych. Gdy jest konstruowany każdy wiersz siatki, obiekt `item` zawiera rekord bazy danych (element) dla tego wiersza. To rozmieszczenie umożliwia przejęcie kodu w celu uzyskania danych dla tego wiersza. Oto co widzisz tutaj: wyrażenie `item.ID` Pobiera wartość identyfikatora bieżącego elementu bazy danych. Możesz uzyskać dowolne wartości bazy danych (tytuł, gatunek lub rok) tak samo, jak przy użyciu `item.Title`, `item.Genre`lub `item.Year`.
 
-Wyrażenie `"~/EditMovie?id=@item.ID` łączy część zakodowanych docelowy adres URL (`~/EditMovie?id=`) z tym identyfikatorem dynamicznie pochodnych. (Wystąpił `~` operatora w poprzednim samouczku; jest operator programu ASP.NET, który reprezentuje bieżący katalog główny witryny sieci Web.)
+Wyrażenie `"~/EditMovie?id=@item.ID` łączy trwale zakodowaną część docelowego adresu URL (`~/EditMovie?id=`) z tym dynamicznym IDENTYFIKATORem pochodnym. (W poprzednim samouczku wykorzystano operator `~`. jest to operator ASP.NET, który reprezentuje bieżący katalog główny witryny sieci Web).
 
-Wynik jest, że ta część znaczników w kolumnie po prostu tworzy podobny do niej następujące znaczniki w czasie wykonywania:
+Wynikiem tego jest to, że ta część znaczników w kolumnie po prostu generuje coś podobnie jak w przypadku następujących znaczników w czasie wykonywania:
 
 [!code-xml[Main](updating-data/samples/sample5.xml)]
 
-Oczywiście rzeczywistej wartości `id` będą inne dla każdego wiersza.
+Naturalnie wartość `id` będzie różna dla każdego wiersza.
 
-## <a name="creating-a-custom-display-for-a-grid-column"></a>Tworzenie niestandardowego wyświetlania kolumny siatki
+## <a name="creating-a-custom-display-for-a-grid-column"></a>Tworzenie niestandardowego ekranu dla kolumny siatki
 
-Teraz z powrotem do kolumny siatki. Trzy kolumny pierwotnie było w siatce wyświetlane tylko wartości danych (tytuł, gatunku i roku). Na tym ekranie jest określony, przekazując nazwę kolumny bazy danych &mdash; na przykład `grid.Column("Title")`.
+Wróć do kolumny siatka. Trzy kolumny w siatce zawierały tylko wartości danych (tytuł, gatunek i rok). Ten ekran został określony przez przekazanie nazwy kolumny bazy danych &mdash; na przykład `grid.Column("Title")`.
 
-Ta nowa **Edytuj** różni się kolumnie łącze. Zamiast określania nazwy kolumny, przechodząc `format` parametru. Ten parametr umożliwia definiowanie znaczników, `WebGrid` pomocnika spowoduje, że wraz z `item` wartości do wyświetlenia danych kolumny jako pogrubiony lub zielonym lub w formacie tego. Na przykład jeśli chce się tytuł pogrubionych, można utworzyć kolumnę, tak jak ten przykład:
+Ta nowa kolumna łącza **edycji** jest inna. Zamiast określać nazwę kolumny, przekazujesz parametr `format`. Ten parametr umożliwia zdefiniowanie znaczników, które pomocnik `WebGrid` będzie renderowany wraz z wartością `item`, aby wyświetlić dane kolumny jako pogrubione lub zielone albo w dowolnym formacie, który chcesz. Jeśli na przykład tytuł ma być pogrubiony, można utworzyć kolumnę podobną do tego przykładu:
 
 [!code-html[Main](updating-data/samples/sample6.html)]
 
-(Różne `@` znaki widoczne w `format` właściwość oznaczyć przejścia między kodzie znaczników oraz wartość kodu.)
+(Różne znaki `@` widoczne we właściwości `format` oznaczają przejście między adiustacją a wartością kodu).
 
-Po wiedzieć o `format` właściwości, łatwiej jest zrozumieć, jak nowe **Edytuj** Podsumowując kolumnie łącze:
+Po uzyskaniu informacji o właściwości `format` łatwiej jest zrozumieć, w jaki sposób nowa kolumna **Edytuj** łącze:
 
 [!code-html[Main](updating-data/samples/sample7.html)]
 
-Kolumna zawiera *tylko* z kodu znaczników, który renderuje łącze, oraz pewne informacje (ID), są wyodrębniane z rekordu bazy danych dla wiersza.
+Kolumna zawiera *tylko* znaczniki, które renderuje łącze, oraz informacje (identyfikator) wyodrębnione z rekordu bazy danych dla wiersza.
 
 > [!TIP]
 > 
-> **Nazwane parametry i parametry pozycyjne dla metody**
+> **Parametry nazwane i parametry pozycyjne dla metody**
 > 
-> Wiele razy podczas już wywołuje metodę i przekazania parametrów do niego, można po prostu wymieniono wartości parametrów, oddzielonych przecinkami. Poniżej przedstawiono kilka przykładów:
+> Wiele razy, gdy wywołano metodę i przeszedł do niej parametry, zostały po prostu wyświetlone wartości parametrów oddzielone przecinkami. Oto kilka przykładów:
 > 
 > `db.Execute(insertCommand, title, genre, year)`
 > 
 > `Validation.RequireField("title", "You must enter a title")`
 > 
-> Firma Microsoft nie wspomnieć o ten problem, gdy najpierw widoczny ten kod, ale w każdym przypadku jest przekazywanie parametrów do metod w określonej kolejności &mdash; , kolejność, w której parametry są zdefiniowane w tej metodzie. Aby uzyskać `db.Execute` i `Validation.RequireFields`, jeśli mieszana kolejność wartości, należy przekazać, otrzyma komunikat o błędzie po uruchomieniu na stronie lub co najmniej kilku dziwne wyników. Wyraźnie widać trzeba znać kolejności do przekazania parametrów w. (W programie WebMatrix, IntelliSense mogą pomóc nauczyć się ustalenie nazwa, typ i kolejność parametrów.)
+> Nie wspominamy problemu podczas pierwszego korzystania z tego kodu, ale w każdym przypadku przekazujesz parametry do metod w określonej kolejności &mdash; a mianowicie, kolejność, w której parametry są zdefiniowane w tej metodzie. W przypadku `db.Execute` i `Validation.RequireFields`, jeśli połączysz kolejność przekazanych wartości, otrzymasz komunikat o błędzie podczas uruchamiania strony lub co najmniej niektóre dziwne wyniki. Jasno trzeba znać kolejność przekazywania parametrów w. (W programie WebMatrix technologia IntelliSense może pomóc Ci w Poznaniu nazwy, typu i kolejności parametrów).
 > 
-> Jako alternatywę do przekazywania wartości w kolejności, można użyć *nazwanych parametrów*. (Przekazywanie parametrów w kolejności jest znany jako przy użyciu *parametry pozycyjne*.) Dla nazwanych parametrów jawnie dołączysz nazwę parametru podczas przekazywania jego wartość. Wykorzystano nazwanych parametrów już kilka razy w tych samouczkach. Na przykład:
+> Alternatywnie, aby przekazywać wartości w kolejności, można użyć *nazwanych parametrów*. (Przekazywanie parametrów w kolejności jest znane jako użycie *parametrów pozycyjnych*). W przypadku parametrów nazwanych jawnie dołączana jest nazwa parametru podczas przekazywania jego wartości. W tych samouczkach użyto już parametrów nazwanych. Na przykład:
 > 
 > [!code-csharp[Main](updating-data/samples/sample8.cs)]
 > 
-> and
+> i
 > 
 > [!code-css[Main](updating-data/samples/sample9.css)]
 > 
-> Nazwane parametry są przydatne w kilku przypadkach, szczególnie w przypadku, gdy metoda pobiera wiele parametrów. Jeden jest, gdy chcesz przekazać tylko jeden lub dwa parametry, ale wartości, które mają być przekazane nie znajdują się wśród pierwszej pozycji na liście parametrów. Inny sytuacja jest, jeśli chcesz kod był bardziej czytelny, przekazując parametry w kolejności najodpowiedniejszy dla Ciebie.
+> Parametry nazwane są przydatne w kilku sytuacjach, zwłaszcza w przypadku, gdy metoda przyjmuje wiele parametrów. Jeden jest, gdy chcesz przekazać tylko jeden lub dwa parametry, ale wartości, które mają zostać przekazane, nie należą do pierwszej pozycji na liście parametrów. Inna sytuacja polega na tym, że kod może być bardziej czytelny przez przekazanie parametrów w kolejności, która ma największe znaczenie.
 > 
-> Oczywiście Aby użyć parametrów nazwanych, trzeba znać nazwy parametrów. Funkcja IntelliSense programu WebMatrix można *Pokaż* nazwy, ale nie można obecnie wypełnieniu je dla Ciebie.
+> Oczywiście, aby używać parametrów nazwanych, należy znać nazwy parametrów. Funkcja IntelliSense w technologii WebMatrix może *wyświetlić* nazwy, ale nie może ich obecnie wypełnić.
 
-## <a name="creating-the-edit-page"></a>Tworzenie strony edycji
+## <a name="creating-the-edit-page"></a>Tworzenie strony edytowania
 
-Teraz możesz utworzyć *EditMovie* strony. Gdy użytkownik kliknie **Edytuj** łącza, są one będzie umieszczane na tej stronie.
+Teraz możesz utworzyć stronę *EditMovie* . Po kliknięciu linku **edycji** użytkownicy będą mogli zakończyć na tej stronie.
 
-Utwórz stronę o nazwie *EditMovie.cshtml* i Zamień, co znajduje się w pliku następującym kodem:
+Utwórz stronę o nazwie *EditMovie. cshtml* i Zastąp zawartość pliku następującym znacznikiem:
 
 [!code-cshtml[Main](updating-data/samples/sample10.cshtml)]
 
-Ta znaczników i kodu jest podobne do posiadane przez Ciebie *AddMovie* strony. Istnieje niewielka różnica w tekst dla przycisku Prześlij. Podobnie jak w przypadku *AddMovie* stronie znajduje się `Html.ValidationSummary` wywołania, które będą wyświetlane błędy sprawdzania poprawności, jeśli istnieją. Teraz możemy teraz pomijając wywołania `Validation.Message`na to, że błędy będą wyświetlane w podsumowania weryfikacji. Jak wspomniano w poprzednim samouczku, można użyć podsumowania weryfikacji i komunikaty o błędach poszczególnych w różnych kombinacjach.
+Znaczniki i kod są podobne do zawartości na stronie *addfilm* . Tekst przycisku Prześlij jest niewielką różnicą. Podobnie jak na stronie *addmovie* istnieje wywołanie `Html.ValidationSummary`, które spowoduje wyświetlenie błędów walidacji, jeśli istnieją. Tym razem trwa opuszczanie wywołań do `Validation.Message`, ponieważ błędy będą wyświetlane w podsumowaniu walidacji. Jak wspomniano w poprzednim samouczku, można użyć podsumowania walidacji i poszczególnych komunikatów o błędach w różnych kombinacjach.
 
-Ponownie Zauważ, że `method` atrybutu `<form>` element jest ustawiony na wartość `post`. Podobnie jak w przypadku *AddMovie.cshtml* strony, ta strona sprawia, że zmiany do bazy danych. W związku z tym, należy wykonać ten formularz `POST` operacji. (Aby uzyskać więcej informacji o różnicach między `GET` i `POST` operacji, zobacz [GET, POST i bezpieczeństwa zlecenie HTTP](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) paska bocznego w tym samouczku w formularzach HTML.)
+Zwróć uwagę, że atrybut `method` elementu `<form>` jest ustawiony na `post`. Podobnie jak na stronie *addmovie. cshtml* , ta strona wprowadza zmiany w bazie danych. W związku z tym formularz powinien wykonać operację `POST`. (Aby uzyskać więcej informacji o różnicach między operacjami `GET` i `POST`, zobacz pasek boczny [bezpieczeństwa czasowników Get, post i http](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) w samouczku dotyczącym formularzy HTML.)
 
-Jak przedstawiono wcześniej samouczka `value` atrybuty pola tekstowe są ustawiane za pomocą kodu Razor w celu wstępnego załadowania ich. Tym razem jednak używasz zmiennych, takich jak `title` i `genre` dla tego zadania, zamiast `Request.Form["title"]`:
+Zgodnie z wcześniejszym samouczkiem `value` atrybuty pól tekstowych są ustawiane za pomocą kodu Razor w celu ich wstępnego załadowania. Tym razem używamy zmiennych, takich jak `title` i `genre` dla tego zadania zamiast `Request.Form["title"]`:
 
 `<input type="text" name="title" value="@title" />`
 
-Jak wcześniej, ten kod znaczników będzie wstępnego ładowania wartości pola tekstowe z wartościami filmu. Zostaną wyświetlone za chwilę, dlaczego warto używać zmiennych w tej chwili zamiast `Request` obiektu.
+Tak jak wcześniej, ten znacznik spowoduje wstępne załadowanie wartości pola tekstowego przy użyciu wartości filmu. Zobaczysz tutaj, dlaczego warto używać zmiennych tej godziny zamiast używać obiektu `Request`.
 
-Istnieje również `<input type="hidden">` elementu na tej stronie. Ten element przechowuje identyfikator filmu bez uwidaczniania tego na stronie. Identyfikator jest początkowo przekazane do strony, przy użyciu wartości ciągu zapytania (`?id=7` lub podobne w adresie URL). Ustawiając wartość Identyfikatora w ukrytym polu, możesz sprawdzić, czy jest dostępna po przesłaniu formularza, nawet jeśli nie masz już dostęp do oryginalnego adresu URL strony została wywołana z.
+Na tej stronie znajduje się również element `<input type="hidden">`. Ten element przechowuje identyfikator filmu bez udostępniania go na stronie. Identyfikator jest początkowo przekazywać do strony przy użyciu wartości ciągu zapytania (`?id=7` lub podobnej w adresie URL). Przez umieszczenie wartości identyfikatora w ukrytym polu, można upewnić się, że jest ona dostępna podczas przesyłania formularza, nawet jeśli nie masz już dostępu do oryginalnego adresu URL, z którym została wywołana strona.
 
-W odróżnieniu od *AddMovie* stronie kod *EditMovie* strona ma dwie odrębne funkcje. Pierwsza funkcja jest fakt, że ta strona jest wyświetlana po raz pierwszy (i *tylko* następnie), ten kod pobiera identyfikator film z ciągu zapytania. Kod, a następnie używa Identyfikatora do odczytu odpowiedniego filmu z bazy danych i wyświetlania (wstępnego ładowania) go w polach tekstowych.
+W przeciwieństwie do strony *addmovie* , kod dla strony *EditMovie* ma dwie odrębne funkcje. Pierwsza funkcja polega na tym, że gdy strona jest wyświetlana po raz pierwszy (i *tylko* wtedy), kod pobiera identyfikator filmu z ciągu zapytania. Następnie kod używa identyfikatora w celu odczytania odpowiedniego filmu z bazy danych i wyświetlenia (wstępnego ładowania) w polach tekstowych.
 
-Druga funkcja jest to, że gdy użytkownik kliknie **Prześlij zmiany** przycisku, kod musi odczytać wartości pól tekstowych i sprawdzić ich poprawność. Kod musi zaktualizować element bazy danych z nowymi wartościami. Ta technika jest podobne do dodawania rekord, jak przedstawiono w *AddMovie*.
+Druga funkcja polega na tym, że gdy użytkownik kliknie przycisk **Prześlij zmiany** , kod musi odczytać wartości pól tekstowych i sprawdzić ich poprawność. Kod musi również zaktualizować element bazy danych o nowe wartości. Ta technika przypomina Dodawanie rekordu, jak pokazano w *addfilm*.
 
-## <a name="adding-code-to-read-a-single-movie"></a>Dodawanie kodu do odczytu pojedynczego filmu
+## <a name="adding-code-to-read-a-single-movie"></a>Dodawanie kodu w celu odczytania pojedynczego filmu
 
-Aby wykonać pierwszej funkcji, Dodaj następujący kod na górze strony:
+Aby wykonać pierwszą funkcję, Dodaj ten kod w górnej części strony:
 
 [!code-cshtml[Main](updating-data/samples/sample11.cshtml)]
 
-Większość ten kod znajduje się wewnątrz bloku, który rozpoczyna się `if(!IsPost)`. `!` Operatora "not" oznacza tak oznacza wyrażenie *Jeśli to żądanie nie jest przesyłanie wpis*, czyli pośredni sposób powiedzenie *Jeśli to żądanie po raz pierwszy, uruchamianą na tej stronie*. Jak wspomniano wcześniej, należy uruchomić ten kod *tylko* przy pierwszym uruchomieniu strony. Jeśli nie należy wpisać kod w `if(!IsPost)`, będzie uruchamiany za każdym razem strona, zostanie wywołana, czy po raz pierwszy, lub w odpowiedzi na przycisku kliknij.
+Większość tego kodu znajduje się wewnątrz bloku, który zaczyna się `if(!IsPost)`. Operator `!` oznacza "not", więc wyrażenie oznacza, że *to żądanie nie jest przesłaniem po* *raz pierwszy*, czyli pośrednim sposobem wymawiania tego żądania, gdy ta strona została uruchomiona. Jak wspomniano wcześniej, ten kod powinien być uruchamiany *tylko* podczas pierwszego uruchomienia strony. Jeśli kod nie został ujęty w `if(!IsPost)`, będzie uruchamiany za każdym razem, gdy zostanie wywołana Strona, niezależnie od tego, czy po raz pierwszy lub w odpowiedzi na kliknięcie przycisku.
 
-Należy zauważyć, że kod zawiera `else` blokowania w tej chwili. Jak już mówiliśmy, kiedy wdrożyliśmy `if` bloków, czasami chcesz uruchomić alternatywnego kodu, jeśli warunek testujesz nie dotyczy. To przypadek, w tym miejscu. Jeśli warunek zostanie spełniony (to znaczy, jeśli identyfikator przekazane do strony jest ok), można odczytać wiersza bazy danych. Jednakże, jeśli warunek nie zakończy się pomyślnie, `else` uruchamia blok i kod ustawia komunikat o błędzie.
+Należy zauważyć, że kod zawiera blok `else` tym razem. Jak wspomniano, gdy wprowadziliśmy `if` bloki, Czasami chcesz uruchomić alternatywny kod, jeśli testowany warunek nie jest spełniony. Dzieje się tak w tym miejscu. Jeśli warunek zostanie spełniony (oznacza to, że jeśli identyfikator przekazywany do strony jest prawidłowy), odczytasz wiersz z bazy danych. Jeśli jednak warunek nie zostanie spełniony, zostanie uruchomiony blok `else` i kod ustawi komunikat o błędzie.
 
-## <a name="validating-a-value-passed-to-the-page"></a>Sprawdzanie poprawności wartości przekazane do strony
+## <a name="validating-a-value-passed-to-the-page"></a>Sprawdzanie poprawności wartości przesłanej do strony
 
-Kod używa `Request.QueryString["id"]` można pobrać Identyfikatora, który jest przekazywany do strony. Kod sprawdza, czy wartość faktycznie została przekazana dla identyfikatora. Jeśli wartość nie został przekazany, kod ustawia błąd sprawdzania poprawności.
+Kod używa `Request.QueryString["id"]`, aby uzyskać identyfikator, który jest przesyłany do strony. Kod sprawdza, czy wartość jest faktycznie przenoszona dla tego identyfikatora. Jeśli nie przekazano żadnej wartości, kod ustawia błąd walidacji.
 
-Ten kod zawiera inny sposób, aby zweryfikować informacje. W poprzednim samouczku doświadczenie w pracy z `Validation` pomocnika. Zarejestrowany pola, aby zweryfikować i ASP.NET czy sprawdzanie poprawności i automatycznie wyświetlane błędy przy użyciu `Html.ValidationMessage` i `Html.ValidationSummary`. W tym przypadku jednak użytkownik jest nie tak naprawdę Walidacja danych wejściowych użytkownika. Zamiast tego jest sprawdzanie poprawności wartość, która została przekazana do strony z innego miejsca. `Validation` Pomocnika nie zrobił to.
+Ten kod przedstawia inny sposób sprawdzania poprawności informacji. W poprzednim samouczku pracowałeś z pomocnika `Validation`. Zarejestrowano pola do walidacji, a ASP.NET automatycznie przeprowadził weryfikację i wyświetlane błędy przy użyciu `Html.ValidationMessage` i `Html.ValidationSummary`. W tym przypadku nie jest to jednak naprawdę Weryfikowanie danych wejściowych użytkownika. Zamiast tego jest sprawdzana wartość, która została przeniesiona na stronę z innego miejsca. Pomocnik `Validation` nie wykonuje tej czynności.
 
-W związku z tym, możesz sprawdzić wartość samodzielnie, testując go `if(!Request.QueryString["ID"].IsEmpty()`). Jeśli występuje problem, można wyświetlić błąd, używając `Html.ValidationSummary`, tak jak w przypadku `Validation` pomocnika. Aby to zrobić, należy wywołać `Validation.AddFormError` i przekaż go komunikat do wyświetlenia. `Validation.AddFormError` to wbudowana metoda, która pozwala zdefiniować niestandardowe komunikaty, które łączyć się przy użyciu systemu sprawdzania poprawności, które już znasz z. (Później w tym samouczku omówimy sposób wprowadzania ten proces sprawdzania poprawności nieco bardziej niezawodne.)
+W związku z tym sprawdzasz wartość samodzielnie, testując ją z `if(!Request.QueryString["ID"].IsEmpty()`). Jeśli wystąpi problem, można wyświetlić błąd przy użyciu `Html.ValidationSummary`, jak w przypadku pomocnika `Validation`. W tym celu należy wywołać `Validation.AddFormError` i przekazać mu komunikat do wyświetlenia. `Validation.AddFormError` to wbudowana Metoda, która umożliwia Definiowanie niestandardowych komunikatów, które są dostępne w systemie weryfikacji, które są już znane. (W dalszej części tego samouczka dowiesz się, jak przeprowadzić proces weryfikacji nieco bardziej niezawodny).
 
-Po upewnieniu się, że istnieje identyfikator filmu, kod odczytuje bazę danych, Wyszukiwanie elementu pojedynczej bazy danych. (Prawdopodobnie zauważenia ogólny wzorzec operacji bazy danych: otworzyć bazy danych, Zdefiniuj instrukcję SQL i uruchamiania instrukcji.) Tym razem SQL `Select` wyciąg zawiera `WHERE ID = @0`. Identyfikator jest unikatowy, mogą być zwracane tylko jeden rekord.
+Po upewnieniu się, że istnieje identyfikator filmu, kod odczytuje bazę danych, szukając tylko pojedynczego elementu bazy danych. (Prawdopodobnie zauważono ogólny wzorzec dla operacji bazy danych: Otwórz bazę danych, zdefiniuj instrukcję SQL i uruchom instrukcję). Tym razem instrukcja SQL `Select` zawiera `WHERE ID = @0`. Ponieważ identyfikator jest unikatowy, można zwrócić tylko jeden rekord.
 
-Zapytanie jest wykonywane przy użyciu `db.QuerySingle` (nie `db.Query`, jak używane dla list filmu), a kod umieszcza wynik w `row` zmiennej. Nazwa `row` dowolnej; zmienne możesz nazwać wszystko chcesz. Zmienne zainicjowana na górze następnie są wypełnione Szczegóły filmu, aby te wartości mogą być wyświetlane w polach tekstowych.
+Zapytanie jest wykonywane przy użyciu `db.QuerySingle` (nie `db.Query`, jak używane dla listy filmowej), a kod umieszcza wynik w zmiennej `row`. Nazwa `row` jest dowolnie. Możesz nadać nazwy zmiennym. Zmienne zainicjowane u góry są wypełniane informacjami o filmie, dzięki czemu te wartości mogą być wyświetlane w polach tekstowych.
 
-## <a name="testing-the-edit-page-so-far"></a>Testowanie strony edycji (pory)
+## <a name="testing-the-edit-page-so-far"></a>Testowanie strony edycji (do tej pory)
 
-Jeśli chcesz przetestować stronę, uruchom *filmy* strony teraz, a następnie kliknij przycisk **Edytuj** łącze obok dowolnego filmu. Zobaczysz *EditMovie* strony ze szczegółami wypełnione dla filmu, wybrane:
+Jeśli chcesz przetestować stronę, Uruchom teraz stronę *filmów* i kliknij link **Edytuj** obok dowolnego filmu. Zostanie wyświetlona strona *EditMovie* z informacjami podanymi dla wybranego filmu:
 
-![Edytuj stronę Film przedstawiający film, aby go edytować](updating-data/_static/image3.png)
+![Edytuj stronę filmu przedstawiającą film do edycji](updating-data/_static/image3.png)
 
-Zwróć uwagę, że adres URL strony podobny `?id=10` (lub inny numer). Do tej pory zostały przetestowane, **Edytuj** linki w *filmu* stronie pracy, czy strona jest odczytywania Identyfikatora z ciągu zapytania, i czy baza danych zapytanie o pobranie filmu pojedynczy rekord działa.
+Zwróć uwagę, że adres URL strony zawiera coś takiego jak `?id=10` (lub inną liczbę). Do tej pory sprawdzono, że linki **edycji** na stronie *filmu* działają, że strona odczytuje identyfikator z ciągu zapytania, a zapytanie bazy danych mające na celu uzyskanie pojedynczego rekordu filmu działa.
 
-Można zmienić informacje o filmach, ale nic się nie dzieje po kliknięciu **Prześlij zmiany**.
+Możesz zmienić informacje o filmie, ale nic się nie dzieje po kliknięciu przycisku **Prześlij zmiany**.
 
-## <a name="adding-code-to-update-the-movie-with-the-users-changes"></a>Dodawanie kodu można zaktualizować film o zmiany wprowadzone przez użytkownika
+## <a name="adding-code-to-update-the-movie-with-the-users-changes"></a>Dodawanie kodu w celu zaktualizowania filmu ze zmianami użytkownika
 
-W *EditMovie.cshtml* plików, do implementowania funkcji second (zapisywanie zmian), Dodaj następujący kod wewnątrz zamykającym nawiasem klamrowym `@` bloku. (Jeśli nie masz pewności, dokładnie, gdzie umieścić kod, możesz obejrzeć [kompletny kod dla strony edytowania filmu](#Complete_Page_Listing_for_EditMovie) , pojawia się na końcu tego samouczka.)
+W pliku *EditMovie. cshtml* , aby zaimplementować drugą funkcję (zapisanie zmian), Dodaj następujący kod tuż wewnątrz zamykającego nawiasu klamrowego bloku `@`. (Jeśli nie masz pewności, gdzie należy umieścić kod, możesz zapoznać się z [pełną listą kodu dla strony Edytuj film](#Complete_Page_Listing_for_EditMovie) , która pojawia się na końcu tego samouczka).
 
 [!code-csharp[Main](updating-data/samples/sample12.cs)]
 
-Ponownie, ten kod znaczników i kodu jest podobny do kodu w *AddMovie*. Kod znajduje się w `if(IsPost)` zablokować, ponieważ ten kod zadziała tylko wtedy, gdy użytkownik kliknie **Prześlij zmiany** przycisk &mdash; oznacza to, gdy (i tylko wtedy, gdy) wysłał formularza. W tym przypadku nie używasz testów, takich jak `if(IsPost && Validation.IsValid())`— czyli nie łączenia oba testy przy użyciu AND. Na tej stronie, należy najpierw ustalić, czy jest przesłanie formularza (`if(IsPost)`) i dopiero wtedy zarejestrować pola do sprawdzania poprawności. Następnie będzie można przetestować wyniki weryfikacji (`if(Validation.IsValid()`). Przepływ są nieco inne niż w *AddMovie.cshtml* strony, ale efekt jest taki sam.
+Ponownie znaczniki i kod są podobne do kodu w *addfilm*. Kod znajduje się w bloku `if(IsPost)`, ponieważ ten kod jest uruchamiany tylko wtedy, gdy użytkownik kliknie przycisk **Prześlij zmiany** &mdash;, gdy (i tylko wtedy, gdy) formularz został opublikowany. W tym przypadku nie używasz testu, takiego jak `if(IsPost && Validation.IsValid())`— to znaczy, że nie łączysz obu testów za pomocą i. Na tej stronie należy najpierw określić, czy jest przesyłany formularz (`if(IsPost)`), a następnie zarejestrować pola do walidacji. Następnie można testować wyniki walidacji (`if(Validation.IsValid()`). Przepływ jest nieco inny niż na stronie *addmovie. cshtml* , ale efekt jest taki sam.
 
-Pobierz wartości pól tekstowych przy użyciu `Request.Form["title"]` i podobny kod dla siebie `<input>` elementów. Zwróć uwagę, w tym momencie kod pobiera identyfikator filmu poza pole ukryte (`<input type="hidden">`). Jeśli strona został uruchomiony po raz pierwszy, kod stało się identyfikator z ciągu zapytania. Możesz pobrać wartości z ukryte pole, aby upewnić się, że otrzymujesz identyfikator filmu, który pierwotnie został wyświetlony w przypadku, gdy ciąg zapytania jakiś sposób został zmieniony od tego momentu.
+Wartości pól tekstowych są uzyskiwane przy użyciu `Request.Form["title"]` i podobnego kodu dla innych elementów `<input>`. Zauważ, że w tym czasie kod pobiera identyfikator filmu z ukrytego pola (`<input type="hidden">`). Gdy strona jest uruchamiana po raz pierwszy, kod uzyskał identyfikator z ciągu zapytania. Otrzymujesz wartość z ukrytego pola, aby upewnić się, że otrzymujesz identyfikator filmu, który był pierwotnie wyświetlany, na wypadek gdyby ciąg zapytania był w jakiś sposób modyfikowany od momentu.
 
-Bardzo ważna różnica między *AddMovie* kod i ten kod jest w tym kodzie SQL `Update` instrukcji zamiast `Insert Into` instrukcji. Poniższy przykład pokazuje składnię SQL `Update` instrukcji:
+Istotna różnica między kodem *addmovie* a tym kodem polega na tym, że w tym kodzie używasz instrukcji SQL `Update`, a nie instrukcji `Insert Into`. W poniższym przykładzie przedstawiono składnię instrukcji SQL `Update`:
 
 `UPDATE table SET col1="value", col2="value", col3="value" ... WHERE ID = value`
 
-Można określić wszystkie kolumny w dowolnej kolejności, a nie zawsze konieczne zaktualizowanie wszystkich kolumn podczas `Update` operacji. (Nie można zaktualizować Identyfikatora, ponieważ, będzie obowiązywać Zapisz rekord jako nowy rekord i nie jest dozwolona dla `Update` operacji.)
+Można określić dowolne kolumny w dowolnej kolejności i nie trzeba aktualizować każdej kolumny w trakcie operacji `Update`. (Nie można zaktualizować samego identyfikatora, ponieważ spowodowałoby to zapisanie rekordu jako nowego rekordu i niedozwolone dla operacji `Update`).
 
 > [!NOTE] 
 > 
-> **Ważne** `Where` klauzuli o identyfikatorze to bardzo ważne, ponieważ jest to, jak baza danych zna bazę danych, która rekordów, które chcesz zaktualizować. Jeśli została przerwana `Where` klauzuli bazy danych będzie aktualizował *co* rekordów w bazie danych. W większości przypadków, które byłyby awarii.
+> **Ważne** Klauzula `Where` o IDENTYFIKATORze jest bardzo ważna, ponieważ jest to sposób, w jaki baza danych wie, który rekord bazy danych ma zostać zaktualizowany. Jeśli pozostawiłeś klauzulę `Where`, baza danych zaktualizuje *każdy* rekord w bazie danych. W większości przypadków jest to awaria.
 
-W kodzie wartości, aby zaktualizować są przekazywane do instrukcji SQL przy użyciu symboli zastępczych. Powtarzaj co już powiedzieliśmy przed: ze względów bezpieczeństwa *tylko* używać symbole zastępcze do przekazywania wartości do instrukcji SQL.
+W kodzie wartości do zaktualizowania są przesyłane do instrukcji SQL przy użyciu symboli zastępczych. Aby powtórzyć powyższe czynności: ze względów bezpieczeństwa Użyj symboli zastępczych *tylko* do przekazania wartości do instrukcji SQL.
 
-Po kod używa `db.Execute` do uruchomienia `Update` instrukcji, zostanie przekierowany do strony, gdzie można zobaczyć zmiany.
+Gdy kod używa `db.Execute` do uruchomienia instrukcji `Update`, przekierowuje do strony z listą, gdzie można zobaczyć zmiany.
 
 > [!TIP] 
 > 
-> **Instrukcje SQL różnych, różnych metod**
+> **Różne instrukcje SQL, różne metody**
 > 
-> Być może Zauważyłeś, można używać nieco inne metody do uruchamiania różnych instrukcji języka SQL. Aby uruchomić `Select` zapytanie to potencjalnie zwraca wiele rekordów, należy użyć `Query` metody. Aby uruchomić `Select` zapytanie, które znasz będzie zwracać tylko jeden element bazy danych, należy użyć `QuerySingle` metody. Aby uruchamiać polecenia, wprowadzić zmiany, ale które nie zwracają elementy bazy danych, należy użyć `Execute` metody.
+> Być może zauważono, że używasz nieco różnych metod do uruchamiania różnych instrukcji SQL. Aby uruchomić kwerendę `Select`, która potencjalnie zwraca wiele rekordów, należy użyć metody `Query`. Aby uruchomić zapytanie `Select`, które wie, że zwrócisz tylko jeden element bazy danych, należy użyć metody `QuerySingle`. Aby uruchomić polecenia, które wprowadzają zmiany, ale nie zwracają elementów bazy danych, należy użyć metody `Execute`.
 > 
-> Musisz mieć różnych metod, ponieważ każda z nich zwraca różne wyniki, co już różnic między `Query` i `QuerySingle`. ( `Execute` Metoda również faktycznie zwraca wartość &mdash; , liczba wierszy do bazy danych, które miały wpływ polecenia &mdash; , ale możesz już został zostanie zignorowany, do tej pory.)
+> Musisz mieć różne metody, ponieważ każdy z nich zwraca różne wyniki, ponieważ wystąpiły już różnice między `Query` i `QuerySingle`. (Metoda `Execute` faktycznie zwraca wartość, &mdash; mianowicie, liczbę wierszy bazy danych, na które miało wpływ polecenie &mdash; ale zostało to dotąd zignorowane.)
 > 
-> Oczywiście `Query` metoda może zwracać tylko jeden wiersz bazy danych. Jednak ASP.NET zawsze traktuje wyniki `Query` metodę jako kolekcję. Nawet jeśli metoda ta zwraca tylko jeden wiersz, należy wyodrębnić ten pojedynczy wiersz z kolekcji. W związku z tym, w sytuacjach, w którym możesz *znać* wrócisz tylko jeden wiersz, jest nieco bardziej wygodne do użycia `QuerySingle`.
+> Oczywiście Metoda `Query` może zwrócić tylko jeden wiersz bazy danych. Jednak ASP.NET zawsze traktuje wyniki metody `Query` jako kolekcje. Nawet jeśli metoda zwraca tylko jeden wiersz, należy wyodrębnić ten pojedynczy wiersz z kolekcji. Z tego względu, w sytuacjach, gdy *wiesz* , że będziesz otrzymywać tylko jeden wiersz, jest to nieco bardziej wygodne do użycia `QuerySingle`.
 > 
-> Dostępnych jest kilka metod, które wykonują określone typy operacji bazy danych. Możesz znaleźć listę metod bazy danych w [interfejsu API stron sieci Web platformy ASP.NET — dokumentacja szybkie](../../api-reference/asp-net-web-pages-api-reference.md#Data).
+> Istnieje kilka innych metod wykonywania określonych typów operacji bazy danych. Listę metod bazy danych można znaleźć w [szybkim Kompendium interfejsu API stron sieci Web ASP.NET](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
-## <a name="making-validation-for-the-id-more-robust"></a>Tworzenie niezawodnych sprawdzania poprawności dla innych identyfikator
+## <a name="making-validation-for-the-id-more-robust"></a>Sprawdzanie poprawności identyfikatora w sposób bardziej niezawodny
 
-Przy pierwszym uruchomieniu strony, można uzyskać identyfikator filmu od ciągu zapytania, aby przejść, Pobierz ten film z bazy danych. Możesz upewnienie się, że faktycznie nie ma wartości przejść, sprawdź, czy przy użyciu tego kodu:
+Przy pierwszym uruchomieniu strony otrzymujesz identyfikator filmu z ciągu zapytania, aby można było pobrać ten film z bazy danych. Upewnij się, że faktycznie była dostępna wartość, dla której wyszukiwany jest ten kod:
 
 [!code-csharp[Main](updating-data/samples/sample13.cs)]
 
-Ten kod może zostać użyty do upewnij się, że jeśli użytkownik otrzyma do *EditMovies* strony bez zaznaczania filmu w *filmy* strony, strony zostanie wyświetlony komunikat o błędzie przyjazny dla użytkownika. (W przeciwnym razie użytkownicy będą Zobacz błąd, który będzie prawdopodobnie tylko mylić ich).
+Ten kod został użyty do upewnienia się, że jeśli użytkownik przejdzie do strony *EditMovies* bez wcześniejszego wybrania filmu na stronie *filmy* , na stronie zostanie wyświetlony przyjazny dla użytkownika komunikat o błędzie. (W przeciwnym razie użytkownicy zobaczą komunikat o błędzie, który prawdopodobnie go zamylić).
 
-Jednak ta weryfikacja nie jest bardzo niezawodne. Strony może być również wywoływane w tych błędów:
+Jednak sprawdzanie poprawności nie jest bardzo niezawodne. Ta strona może być również wywoływana z następującymi błędami:
 
-- Identyfikator nie jest liczbą. Na przykład strony można wywoływanej przy użyciu adresu URL, takich jak `http://localhost:nnnnn/EditMovie?id=abc`.
-- Identyfikator jest liczbą, ale odwołuje się do filmów, która nie istnieje (na przykład `http://localhost:nnnnn/EditMovie?id=100934`).
+- Identyfikator nie jest liczbą. Na przykład strona może być wywoływana przy użyciu adresu URL, takiego jak `http://localhost:nnnnn/EditMovie?id=abc`.
+- Identyfikator jest liczbą, ale odwołuje się do filmu, który nie istnieje (na przykład `http://localhost:nnnnn/EditMovie?id=100934`).
 
-Jeśli zastanawiasz się wyświetlić błędy, które wynikają z tych adresów URL, uruchom *filmy* strony. Wybierz opcję film, aby edytować, a następnie zmień adres URL *EditMovie* strony do adresu URL, który zawiera alfabetyczne, identyfikator lub identyfikator filmu nie istnieje.
+Jeśli chcesz wiedzieć się z błędami, które wynikają z tych adresów URL, Uruchom stronę *filmy* . Wybierz film do edycji, a następnie Zmień adres URL strony *EditMovie* na adres URL, który zawiera identyfikator alfabetyczny lub identyfikator nieistniejącego filmu.
 
-Dlatego co należy zrobić? Pierwszy poprawka jest upewnij się, że nie tylko jest identyfikator przekazywany do strony, ale że identyfikator jest liczbą całkowitą. Zmień kod dla `!IsPost` testu wyglądać następująco:
+Co należy zrobić? Pierwsza poprawka ma na celu upewnienie się, że nie tylko jest to identyfikator przesłany do strony, ale identyfikator jest liczbą całkowitą. Zmień kod dla testu `!IsPost` tak, aby wyglądał następująco:
 
 [!code-csharp[Main](updating-data/samples/sample14.cs)]
 
-Po dodaniu drugi warunek do `IsEmpty` testów, powiązanej z `&&` (operator logiczny oraz):
+Do testu `IsEmpty` został dodany drugi warunek połączony z `&&` (koniunkcja logiczna i):
 
 [!code-csharp[Main](updating-data/samples/sample15.cs)]
 
-Być może pamiętasz z [wprowadzenie do programowania programu ASP.NET Web Pages](../introducing-razor-syntax-c.md) samouczek, w którym metod, takich jak `AsBool` `AsInt` konwertują ciąg znaków do innych typów danych. `IsInt` — Metoda (i inne, takie jak `IsBool` i `IsDateTime`) są podobne. Jednak one tylko do celów testowych czy możesz *można* przekonwertować ciągu, bez rzeczywistego wykonania konwersji. Tutaj możesz jest zasadniczo informujący o tym *Jeśli można przekonwertować na liczbę całkowitą wartość ciągu zapytania...* .
+Zapamiętaj, że możesz zapamiętać o samouczku [programowanie stron sieci Web ASP.NET](../introducing-razor-syntax-c.md) , które metody, takie jak `AsBool` `AsInt` konwersji ciągu znaków na inne typy danych. Metoda `IsInt` (i inne, takie jak `IsBool` i `IsDateTime`) są podobne. Jednak testuje tylko, czy *można* przekonwertować ciąg, bez faktycznego wykonania konwersji. W tym miejscu mówiąc, *czy wartość ciągu zapytania może być konwertowana na liczbę całkowitą...*
 
-Potencjalny problem jest wyszukiwanie filmów, która nie istnieje. Kod, aby uzyskać filmu wygląda podobnie do tego kodu:
+Innym potencjalnym problemem jest wyszukiwanie filmu, który nie istnieje. Kod do pobrania filmu wygląda podobnie do tego kodu:
 
 [!code-csharp[Main](updating-data/samples/sample16.cs)]
 
-W przypadku przekazania `movieId` wartość `QuerySingle` metody, która nie jest zgodny z rzeczywistych filmu, nic nie zostanie zwrócone i instrukcje, postępuj zgodnie z (na przykład `title=row.Title`) powodować błędy.
+Jeśli przekażesz wartość `movieId` do metody `QuerySingle`, która nie odpowiada rzeczywistemu filmowi, nic nie zostanie zwrócone i instrukcje, które obserwują (na przykład `title=row.Title`) powodują błędy.
 
-Ponownie istnieje łatwo to naprawić. Jeśli `db.QuerySingle` metody nie zwróciło żadnych wyników `row` zmienna będzie miała wartość null. Dzięki czemu można sprawdzić, czy `row` zmienna ma wartość null, przed podjęciem próby uzyskania wartości z niego. Poniższy kod dodaje `if` bloku wokół instrukcji, które pobierają wartości z `row` obiektu:
+Ponownie jest prosta poprawka. Jeśli metoda `db.QuerySingle` nie zwróci żadnych wyników, zmienna `row` będzie równa null. Aby sprawdzić, czy zmienna `row` ma wartość null, przed podjęciem próby pobrania z niej wartości. Poniższy kod dodaje blok `if` wokół instrukcji, które pobierają wartości z obiektu `row`:
 
 [!code-csharp[Main](updating-data/samples/sample17.cs)]
 
-Za pomocą tych dwóch dodatkowe testy weryfikacji strony staje się bardziej punktor dowodu. Kompletny kod dla `!IsPost` gałęzi wygląda teraz następująco:
+Dzięki tym dwóm dodatkowym testom weryfikacyjnym strona otrzymuje więcej punktorów. Pełen kod dla gałęzi `!IsPost` teraz wygląda następująco:
 
 [!code-csharp[Main](updating-data/samples/sample18.cs)]
 
-Możemy zauważyć, że raz, to zadanie jest dobrze wykorzystane do `else` bloku. Jeśli testy nie zakończy się pomyślnie, `else` bloki Ustaw komunikaty o błędach.
+Zanotujemy, że to zadanie jest dobrym użyciem dla bloku `else`. Jeśli testy nie zachodzą, bloki `else` ustawiają komunikaty o błędach.
 
-## <a name="adding-a-link-to-return-to-the-movies-page"></a>Dodanie Linku, aby wrócić do strony filmy
+## <a name="adding-a-link-to-return-to-the-movies-page"></a>Dodawanie linku do powrotu do strony filmów
 
-Szczegóły ostateczne i przydatne jest dodać link do *filmy* strony. W zwykłych przepływu zdarzeń, użytkownicy zostaną uruchomione w *filmy* strony, a następnie kliknij przycisk **Edytuj** łącza. Które oferuje je *EditMovie* strony, w którym można edytować film i kliknij przycisk. Po kodzie przetwarza zmiany, zostanie przekierowany do *filmy* strony.
+Ostateczne i przydatne szczegóły to dodanie łącza z powrotem do strony *filmów* . W zwykłym przepływie zdarzeń użytkownicy uruchomili się na stronie *filmów* i klikają link **edycji** . Spowoduje to przełączenie ich do strony *EditMovie* , na której można edytować film, a następnie kliknąć przycisk. Gdy kod przetworzy zmianę, przekierowuje ponownie do strony *filmów* .
 
-Jednak:
+Ale
 
-- Użytkownik może zrezygnować z wprowadzić zmiany.
-- Użytkownik może stają się coraz do tej strony, nie klikając pierwszy **Edytuj** łącze w *filmy* strony.
+- Użytkownik może zrezygnować z zmian.
+- Użytkownik mógł uzyskać dostęp do tej strony bez uprzedniego kliknięcia linku **edycji** na stronie *filmów* .
 
-W obu przypadkach chcesz ułatwić ich powrócić do listy głównego. Go łatwo to naprawić &mdash; Dodaj następujący kod zaraz po zamykającym `</form>` tagu w znaczniku:
+W obu przypadkach chcesz ułatwić użytkownikom powrót do listy głównej. Jest to Łatwa poprawka &mdash; Dodaj następujące znaczniki tuż po tagu zamykającym `</form>` w znaczniku:
 
 [!code-html[Main](updating-data/samples/sample19.html)]
 
-Ten kod znaczników korzysta z tej samej składni dla `<a>` element, który w tym samouczku gdzie indziej. Adres URL zawiera `~` oznacza "root witryny sieci Web".
+Ten znacznik używa tej samej składni dla elementu `<a>`, który był widoczny w innym miejscu. Adres URL zawiera `~` oznaczający "katalog główny witryny sieci Web".
 
 ## <a name="testing-the-movie-update-process"></a>Testowanie procesu aktualizacji filmu
 
-Teraz możesz przetestować. Uruchom *filmy* strony, a następnie kliknij przycisk **Edytuj** obok filmu. Gdy *EditMovie* zostanie wyświetlona strona, wprowadzić zmiany do filmów i kliknij przycisk **Prześlij zmiany**. Gdy zostanie wyświetlona na liście filmów, upewnij się, że zmiany są wyświetlane.
+Teraz można testować. Uruchom stronę *filmy* , a następnie kliknij pozycję **Edytuj** obok filmu. Gdy zostanie wyświetlona strona *EditMovie* , wprowadź zmiany w filmie i kliknij pozycję **Prześlij zmiany**. Gdy zostanie wyświetlona lista filmów, upewnij się, że zmiany są wyświetlane.
 
-Aby upewnić się, czy działa sprawdzania poprawności, kliknij przycisk **Edytuj** dla innego filmu. Po przejściu do *EditMovie* strony, wyczyść **gatunku** pola (lub **roku** pola i / lub), a następnie spróbuj przesłać wprowadzone zmiany. Zostanie wyświetlony błąd, jak można oczekiwać:
+Aby upewnić się, że walidacja działa, kliknij pozycję **Edytuj** dla innego filmu. Po przeniesieniu do strony *EditMovie* wyczyść pole **gatunek** (lub pole **rok** lub oba), a następnie spróbuj przesłać zmiany. Zobaczysz błąd, zgodnie z oczekiwaniami:
 
-![Edytuj stronę Film przedstawiający błędy sprawdzania poprawności](updating-data/_static/image4.png)
+![Edytuj stronę filmu przedstawiającą błędy walidacji](updating-data/_static/image4.png)
 
-Kliknij przycisk **powrócić do listy filmów** łącze, aby porzucić zmiany i powrócić do *filmy* strony.
+Kliknij link **Wróć do listy filmów** , aby porzucić zmiany i powrócić do strony *filmów* .
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-W następnym samouczku pokazano, jak można usunąć rekordu filmu.
+W następnym samouczku zobaczysz, jak usunąć rekord filmu.
 
-## <a name="complete-listing-for-movie-page-updated-with-edit-links"></a>Kompletna lista strony filmu (aktualizowane wraz z łączami do edycji)
+## <a name="complete-listing-for-movie-page-updated-with-edit-links"></a>Ukończ listę dla strony filmu (Zaktualizowano za pomocą linków edycji)
 
 [!code-cshtml[Main](updating-data/samples/sample20.cshtml)]
 
 <a id="Complete_Page_Listing_for_EditMovie"></a>
-## <a name="complete-page-listing-for-edit-movie-page"></a>Kompletna lista strony dla strony filmu edycji
+## <a name="complete-page-listing-for-edit-movie-page"></a>Kompletna lista stron do edycji strony filmu
 
 [!code-cshtml[Main](updating-data/samples/sample21.cshtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Wprowadzenie do programowania dla sieci Web platformy ASP.NET przy użyciu składni Razor](../../getting-started/introducing-razor-syntax-c.md)
-- [Instrukcja UPDATE SQL](http://www.w3schools.com/sql/sql_update.asp) witrynie W3Schools
+- [Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](../../getting-started/introducing-razor-syntax-c.md)
+- [Instrukcja SQL Update](http://www.w3schools.com/sql/sql_update.asp) w witrynie w3schools
 
 > [!div class="step-by-step"]
 > [Poprzednie](entering-data.md)

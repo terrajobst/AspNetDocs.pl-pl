@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview
-title: 'ASP.NET MVC Storefront — część 1: Omówienie architektury | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC — część 1: Omówienie architektury i przegląd | Microsoft Docs'
 author: robconery
-description: Rob Conery omówiono architekturę początkowej w tym miejscu, w części 1, gdzie omówi wzorca repozytorium z Ayende Rahien i Steve Harman. Krzysztof również prosi...
+description: Wystawcy Roba obejmuje architekturę początkową tutaj, w części 1, gdzie omawia wzorzec repozytorium z Ayende Rahien i Steve Harman. Prosi również o Krzysztof...
 ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: 194a163b-2aad-4cad-bf1f-e9ce3f80add0
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview
 msc.type: video
 ms.openlocfilehash: a3df375425c4c79f1274f466a6669997a1e3676f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390619"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559298"
 ---
-# <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a>ASP.NET MVC Storefront — część 1: omówienie architektury i dyskusja
+# <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a>ASP.NET MVC Storefront — część 1: omówienie architektury
 
-przez [Rob Conery](https://github.com/robconery)
+według [stożka robu](https://github.com/robconery)
 
-Rob Conery omówiono architekturę początkowej w tym miejscu, w części 1, gdzie omówi wzorca repozytorium z Ayende Rahien i Steve Harman. Również prosi: Phil Haack co następuje: Kurczaka testu lub Egg modelu.
+Wystawcy Roba obejmuje architekturę początkową tutaj, w części 1, gdzie omawia wzorzec repozytorium z Ayende Rahien i Steve Harman. Prosi również o Krzysztof Haack, co jest pierwsze: test kurczaka lub model jaja.
 
-[&#9654;Obejrzyj film wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview)
+[&#9654;Obejrzyj wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview)
 
 > [!div class="step-by-step"]
-> [Next](aspnet-mvc-storefront-part-2-the-repository-pattern.md)
+> [Dalej](aspnet-mvc-storefront-part-2-the-repository-pattern.md)

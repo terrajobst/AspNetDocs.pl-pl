@@ -1,37 +1,37 @@
 ---
 uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
-title: Cykl życia aplikacji ASP.NET MVC 5 | Dokumentacja firmy Microsoft
+title: Cykl życia aplikacji ASP.NET MVC 5 | Microsoft Docs
 author: cephalin
-description: Pobierz dokument PDF, który wykresy cykl życia aplikacji ASP.NET MVC 5. Ten dokument cyklu życia zawiera widok ogólny cykl życia MVC...
+description: Pobierz dokument PDF zawierający wykres cyklu życia aplikacji ASP.NET MVC 5. Ten dokument cyklu życia zawiera ogólny widok cyklu życia składnika MVC a...
 ms.author: riande
 ms.date: 02/28/2014
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
 ms.openlocfilehash: f4a9b3fb61552b070db11fba617b5627fcd71cd5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124082"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582202"
 ---
 # <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>Cykl życia aplikacji ASP.NET MVC 5
 
-przez [łą Cephas](https://github.com/cephalin)
+za pomocą [połączonego Cephas](https://github.com/cephalin)
 
 [Pobierz dokument PDF](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
 
-W tym miejscu możesz pobrać dokument PDF, który wykresy cyklu życia każda aplikacja ASP.NET MVC 5 z otrzymywania HTTP żądania do wysłania odpowiedzi HTTP z powrotem do klienta. Jest on zaprojektowany jako narzędzie edukacyjnych dla osób, które są nowe do wzorca ASP.NET MVC, a także jako odwołanie dla tych, którzy muszą przejść do określonych aspektów aplikacji. Dokument PDF ma następujące cechy:
+W tym miejscu można pobrać dokument PDF, który jest wykresem cyklu życia każdej aplikacji ASP.NET MVC 5, od odebrania żądania HTTP w celu wysłania odpowiedzi HTTP z powrotem do klienta. Jest ona zaprojektowana jako narzędzie edukacyjne dla osób, które są nowe do ASP.NET MVC, a także jako odniesienia do określonych aspektów aplikacji. Dokument PDF ma następujące funkcje:
 
-- Odpowiednie [aplikacji HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) etapów, które pomagają zrozumieć, w którym MVC integruje się z [cyklem życia aplikacji ASP.NET](https://msdn.microsoft.com/library/bb470252.aspx).
-- Widok ogólny cykl życia aplikacji MVC, gdzie może zrozumieć główne etapy, które każda aplikacja MVC przechodzi w potoku przetwarzania żądań.  
+- Odpowiednie etapy [elemencie HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) , które ułatwiają zrozumienie, gdzie MVC integruje się z [cyklem życia aplikacji ASP.NET](https://msdn.microsoft.com/library/bb470252.aspx).
+- Ogólny widok cyklu życia aplikacji MVC, w którym można zrozumieć główne etapy, w których każda aplikacja MVC przechodzi przez proces przetwarzania żądania.  
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image1.jpg)
-- Widok szczegółów, w którym przedstawiono awarii w dół w szczegóły potoku przetwarzania żądań. Możesz porównać Widok wysokiego poziomu oraz szczegółowy widok, aby zobaczyć, jak cykle życia szczegółowe informacje są zbierane w poszczególnych etapów. [Pobierz plik PDF](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) się większym widoku.
+- Widok szczegółów, który pokazuje szczegółowe informacje o potoku przetwarzania żądań. Można porównać widok wysokiego poziomu i widok szczegółów, aby zobaczyć, jak szczegóły cykl życia są gromadzone w różnych etapach. [Pobierz plik PDF](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) , aby wyświetlić większy widok.
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image2.jpg)
-- Umieszczanie i cel wszystkie metody możliwym do zastąpienia w [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) obiekt w potoku przetwarzania żądań. Może lub nie ma konieczności zastąpienie wszelkich jednej metody, ale ważne jest, aby Ci zrozumieć ich roli w cyklu życia aplikacji, tak aby można napisać kod na etapie cyklu życia odpowiednie dla efektu, które mają.
-- Diagramy skierowany w górę, przedstawiający sposób wywoływania z każdego typu filtru (uwierzytelniania, autoryzacji, akcji i wyniku).
-- Połączyć artykuł lub w blogu z każdego punktu orientacyjnego w widoku szczegółów.
+- Umieszczanie i przeznaczenie wszystkich metod w obiekcie [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) w potoku przetwarzania żądań. Może się okazać, że nie trzeba przesłonić żadnej metody, ale ważne jest, aby zrozumieć swoją rolę w cyklu życia aplikacji, dzięki czemu można napisać kod na odpowiednim etapie cyklu życia dla danego efektu.
+- Diagramy rozwiniętą pokazujące, w jaki sposób są wywoływane poszczególne typy filtrów (uwierzytelnianie, autoryzacja, Akcja i wynik).
+- Łącze do przydatnego artykułu lub blogu z każdego punktu zainteresowania w widoku szczegółowym.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie spełnia Twoje potrzeby? Będziemy wdzięczni za Twoją opinię. Jeśli masz pytania na temat cyklu platformy ASP.NET MVC w aplikacji [Stackoverflow](http://stackoverflow.com/help) i [fora platformy ASP.NET MVC](https://forums.asp.net/1146.aspx) są doskonałym miejscem do zadania. Postępuj zgodnie z [mnie](https://twitter.com/Cephas_MSFT) w serwisie twitter, dzięki czemu można uzyskać aktualizacje na Moje najnowsze samouczki.
+Czy ten dokument spełnia Twoje potrzeby? Doceniamy Twoją opinię. Jeśli masz jakieś pytania dotyczące cyklu życia ASP.NET MVC w aplikacji, [StackOverflow](http://stackoverflow.com/help) i [fora MVC ASP.NET](https://forums.asp.net/1146.aspx) są doskonałymi miejscami do zadawania. Obserwuj [mnie](https://twitter.com/Cephas_MSFT) w serwisie Twitter, aby otrzymywać aktualizacje dotyczące moich najnowszych samouczków.

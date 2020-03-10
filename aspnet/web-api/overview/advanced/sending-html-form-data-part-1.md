@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-1
-title: 'Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: Dane zakodowane — ASP.NET 4.x'
+title: 'Wysyłanie danych formularza HTML w interfejsie Web API ASP.NET: form-urlencoded Data-ASP.NET 4. x'
 author: MikeWasson
-description: W tym artykule pokazano, jak publikować dane zakodowane do kontrolera interfejsu API sieci Web programu ASP.NET 4.x
+description: W tym artykule przedstawiono sposób publikowania danych formularza urlencoded na kontrolerze interfejsu API sieci Web przy użyciu ASP.NET 4. x
 ms.author: riande
 ms.date: 06/15/2012
 ms.custom: seoapril2019
@@ -10,124 +10,124 @@ ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: 7243069dbd8051b1374ed6e0112c273b8fe26f61
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115470"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557604"
 ---
-# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: dane w formacie form-urlencoded
+# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML w interfejsie Web API ASP.NET: form-urlencoded Data
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-## <a name="part-1-form-urlencoded-data"></a>Część 1. dane w formacie form-urlencoded
+## <a name="part-1-form-urlencoded-data"></a>Część 1: formularz-urlencoded danych
 
-W tym artykule pokazano, jak publikować dane zakodowane w kontrolerze interfejsu API sieci Web.
+W tym artykule przedstawiono sposób publikowania danych formularza urlencoded na kontrolerze interfejsu API sieci Web.
 
 - [Przegląd formularzy HTML](#overview_of_html_forms)
-- [Wysyłanie typy złożone](#sending_complex_types)
-- [Wysyłanie danych formularza za pomocą technologii AJAX](#sending_form_data_via_ajax)
-- [Wysyłanie typy proste](#sending_simple_types)
+- [Wysyłanie typów złożonych](#sending_complex_types)
+- [Wysyłanie danych formularza za pośrednictwem technologii AJAX](#sending_form_data_via_ajax)
+- [Wysyłanie typów prostych](#sending_simple_types)
 
 > [!NOTE]
-> [Pobieranie ukończone projektu](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
+> [Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
 
 <a id="overview_of_html_forms"></a>
 ## <a name="overview-of-html-forms"></a>Przegląd formularzy HTML
 
-Użyj formularzy HTML Uzyskaj lub POST do wysyłania danych do serwera. **Metoda** atrybutu **formularza** elementu udostępnia metodę HTTP:
+Formularze HTML używają elementu GET lub POST do wysyłania danych do serwera. Atrybut **Method** elementu **form** daje metodę http:
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample1.html)]
 
-Domyślną metodą jest metoda GET. Formularz używa otrzymują, formularza, do którego dane są kodowane w identyfikatorze URI jako ciąg zapytania. Jeśli formularz korzysta z wpisu, dane formularza jest umieszczany w treści żądania. W przypadku danych zaksięgowana **typ kodowania** atrybut określa format treści żądania:
+Metoda domyślna to GET. Jeśli formularz używa GET, dane formularza są kodowane w identyfikatorze URI jako ciąg zapytania. Jeśli formularz używa wpisu POST, dane formularza są umieszczane w treści żądania. W przypadku opublikowanych danych atrybut **Enctype** określa format treści żądania:
 
-| Typ kodowania | Opis |
+| enctype | Opis |
 | --- | --- |
-| application/x-www-form-urlencoded | Dane formularza jest zakodowane jako pary nazwa/wartość, podobnie jak ciąg zapytania URI. Jest to domyślny format wpisu. |
-| multipart/formularza data | Dane formularza jest zakodowane jako wieloczęściowej wiadomości MIME. Użyj tego formatu, jeśli plik jest przekazywany do serwera. |
+| application/x-www-form-urlencoded | Dane formularza są kodowane jako pary nazwa/wartość, podobnie jak ciąg zapytania identyfikatora URI. Jest to domyślny format dla wpisu POST. |
+| wieloczęściowe/formularz-dane | Dane formularza są kodowane jako wieloczęściowy komunikat MIME. Użyj tego formatu, jeśli przekazujesz plik na serwer. |
 
-Część 1 w tym artykule patrzy na format x--www-form-urlencoded. [Część 2](sending-html-form-data-part-2.md) opisuje wieloczęściowej wiadomości MIME.
+Część 1 tego artykułu wygląda w formacie x-www-form-urlencoded. [Część 2](sending-html-form-data-part-2.md) zawiera opis wieloczęściowego MIME.
 
 <a id="sending_complex_types"></a>
-## <a name="sending-complex-types"></a>Wysyłanie typy złożone
+## <a name="sending-complex-types"></a>Wysyłanie typów złożonych
 
-Zazwyczaj będzie wysyłać typ złożony, zawierający wartości z kilku kontrolek formularza. Należy wziąć pod uwagę następujące modelu, który reprezentuje aktualizację stanu:
+Zwykle wysyłany jest typ złożony składający się z wartości pobranych z kilku kontrolek formularza. Rozważmy następujący model, który reprezentuje aktualizację stanu:
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample2.cs)]
 
-Poniżej przedstawiono kontroler internetowego interfejsu API, który akceptuje `Update` obiektu za pomocą wpisu.
+Oto kontroler interfejsu API sieci Web, który akceptuje obiekt `Update` za pośrednictwem wpisu POST.
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample3.cs)]
 
 > [!NOTE]
-> Korzysta z tego kontrolera [routing oparty na akcję](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name), więc szablon trasy jest &quot;interfejsu api / {controller} / {action} / {id}&quot;. Klient będzie wysyłania danych do &quot;/api/updates/complex&quot;.
+> Ten kontroler korzysta z [routingu opartego na akcjach](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name), więc szablon trasy to &quot;API/{Controller}/{Action}/{id}&quot;. Klient będzie ogłaszał dane w &quot;/API/Updates/Complex&quot;.
 
-Teraz napiszmy formularza HTML służący do przesyłania aktualizacji stanu.
+Teraz Napiszmy formularz HTML dla użytkowników w celu przesłania aktualizacji stanu.
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample4.html)]
 
-Należy zauważyć, że **akcji** w formie znajduje się atrybut identyfikatora URI o naszej akcji kontrolera. Poniżej przedstawiono formularz z niektórych wartościami podanymi w:
+Zwróć uwagę, że atrybut **Action** w formularzu jest identyfikatorem URI naszej akcji kontrolera. Oto formularz z wprowadzonymi wartościami:
 
 ![](sending-html-form-data-part-1/_static/image1.png)
 
-Gdy użytkownik kliknie przycisk Prześlij, przeglądarce wysyła żądanie HTTP podobny do następującego:
+Gdy użytkownik kliknie przycisk Prześlij, przeglądarka wyśle żądanie HTTP podobne do następujących:
 
 [!code-console[Main](sending-html-form-data-part-1/samples/sample5.cmd)]
 
-Należy zauważyć, że treść żądania zawiera dane formularza sformatowane jako pary nazwa/wartość. Interfejs API sieci Web automatycznie konwertuje pary nazwa/wartość na wystąpienie `Update` klasy.
+Należy zauważyć, że treść żądania zawiera dane formularza sformatowane jako pary nazwa/wartość. Interfejs API sieci Web automatycznie konwertuje pary nazwa/wartość na wystąpienie klasy `Update`.
 
 <a id="sending_form_data_via_ajax"></a>
-## <a name="sending-form-data-via-ajax"></a>Wysyłanie danych formularza za pomocą technologii AJAX
+## <a name="sending-form-data-via-ajax"></a>Wysyłanie danych formularza za pośrednictwem technologii AJAX
 
-Gdy użytkownik przesyła formularz, przeglądarka przechodzi od bieżącej strony i renderuje treści komunikatu odpowiedzi. To normalne, gdy odpowiedź jest stroną HTML. Za pomocą internetowego interfejsu API, jednak treść odpowiedzi jest zwykle albo pusta lub zawiera dane strukturalnych, takich jak JSON. W takim przypadku warto więcej wysyłania żądania danych formularza za pomocą interfejsu AJAX, dzięki czemu strony może przetwarzać odpowiedzi.
+Gdy użytkownik przesyła formularz, przeglądarka nawiguje poza bieżącą stronę i renderuje treść komunikatu odpowiedzi. Jest to prawidłowe, gdy odpowiedź jest stroną HTML. W przypadku interfejsu API sieci Web treść odpowiedzi jest zwykle pusta lub zawiera dane strukturalne, takie jak JSON. W takim przypadku lepiej jest wysyłać dane formularza przy użyciu żądania AJAX, aby strona mogła przetworzyć odpowiedź.
 
-Poniższy kod pokazuje, jak publikować dane formularza przy użyciu jQuery.
+Poniższy kod przedstawia sposób publikowania danych formularza przy użyciu jQuery.
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample6.html)]
 
-JQuery **przesłać** funkcja zastępuje akcji formularza za pomocą nowych funkcji. Zastępuje to domyślne zachowanie przycisk Prześlij. **Serializacji** funkcja serializuje dane formularza do pary nazwa/wartość. Aby wysłać dane formularza do serwera, należy wywołać `$.post()`.
+Funkcja **przesyłania** jQuery zastępuje akcję formularza nową funkcją. Spowoduje to zastąpienie domyślnego zachowania przycisku Prześlij. Funkcja **serializacji** serializować dane formularza do par nazwa/wartość. Aby wysłać dane formularza do serwera, wywołaj `$.post()`.
 
-Po ukończeniu żądania `.success()` lub `.error()` obsługi wyświetla odpowiedni komunikat dla użytkownika.
+Po zakończeniu żądania `.success()` lub procedura obsługi `.error()` wyświetla odpowiedni komunikat dla użytkownika.
 
 ![](sending-html-form-data-part-1/_static/image2.png)
 
 <a id="sending_simple_types"></a>
-## <a name="sending-simple-types"></a>Wysyłanie typy proste
+## <a name="sending-simple-types"></a>Wysyłanie typów prostych
 
-W poprzednich sekcjach wysłaliśmy typ złożony, który internetowego interfejsu API została zdeserializowana do wystąpienia klasy modelu. Można również wysyłać typów prostych, takie jak ciąg.
+W poprzednich sekcjach wysłaliśmy typ złożony, który jest deserializowany przez internetowy interfejs API do wystąpienia klasy modelu. Możesz również wysyłać typy proste, takie jak ciąg.
 
 > [!NOTE]
-> Przed wysłaniem typu prostego, należy wziąć pod uwagę zamiast zawijania wartość w typie złożonym. Zapewnia korzyści wynikające z weryfikacją modelu po stronie serwera i ułatwia Rozszerzanie modelu, jeśli to konieczne.
+> Przed wysłaniem typu prostego Rozważ zamiast tego zapakowanie wartości w typie złożonym. Dzięki temu można sprawdzić poprawność modelu po stronie serwera i ułatwić rozbudowanie modelu w razie potrzeby.
 
-Podstawowe kroki, aby wysłać typu prostego są takie same, ale istnieją dwa drobne różnice. Najpierw na kontrolerze musi dekorowania nazwy parametru z **FromBody** atrybutu.
+Podstawowe kroki umożliwiające wysłanie typu prostego są takie same, ale istnieją dwie delikatne różnice. Najpierw w kontrolerze należy dekorować nazwę parametru z atrybutem **FromBody** .
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample7.cs?highlight=3)]
 
-Domyślnie interfejs API sieci Web próbuje uzyskać proste typy z identyfikatora URI żądania. **FromBody** atrybut informuje interfejsu API sieci Web ma zostać odczytana wartość z treści żądania.
+Domyślnie interfejs API sieci Web próbuje uzyskać proste typy z identyfikatora URI żądania. Atrybut **FromBody** informuje interfejs API sieci Web o odczytaniu wartości z treści żądania.
 
 > [!NOTE]
-> Interfejs API sieci Web odczytuje treść odpowiedzi co najwyżej jeden raz, dlatego tylko jeden parametr akcji mogą pochodzić z treści żądania. Jeśli musisz pobrać wiele wartości z treści żądania, należy zdefiniować typ złożony.
+> Interfejs API sieci Web odczytuje treść odpowiedzi najwyżej raz, więc tylko jeden parametr akcji może pochodzić z treści żądania. Jeśli musisz uzyskać wiele wartości z treści żądania, zdefiniuj typ złożony.
 
-Po drugie klient musi wysyłać wartość w następującym formacie:
+Po drugie klient musi wysłać wartość w następującym formacie:
 
 [!code-xml[Main](sending-html-form-data-part-1/samples/sample8.xml)]
 
-W szczególności część nazwy pary nazwa/wartość musi być pusty dla typu prostego. Nie wszystkie przeglądarki są obsługiwane przez to formularzy HTML, ale utworzysz ten format w skrypcie w następujący sposób:
+W odniesieniu do typu prostego część nazwy pary nazwa/wartość musi być pusta. Nie wszystkie przeglądarki obsługują tę procedurę dla formularzy HTML, ale ten format można utworzyć w skrypcie w następujący sposób:
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample9.js)]
 
-Oto przykład formularza:
+Oto przykładowa postać:
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample10.html)]
 
-A Oto skrypt, aby przesłać wartości formularza. Jedyną różnicą między poprzednim skrypcie jest argument przekazany do **wpis** funkcji.
+A Oto skrypt do przesyłania wartości formularza. Jedyną różnicą od poprzedniego skryptu jest argument przekazaną do funkcji **post** .
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample11.js?highlight=2)]
 
-To samo podejście umożliwia wysyłanie tablicę typów prostych:
+Możesz użyć tego samego podejścia, aby wysłać tablicę typów prostych:
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample12.js)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Część 2. Przekazywanie pliku i wieloczęściowej wiadomości MIME](sending-html-form-data-part-2.md)
+[Część 2: przekazywanie plików i wieloczęściowe MIME](sending-html-form-data-part-2.md)

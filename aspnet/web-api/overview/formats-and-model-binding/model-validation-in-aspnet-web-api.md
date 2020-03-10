@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: Model sprawdzania poprawności we wzorcu ASP.NET Web API — ASP.NET 4.x
+title: Walidacja modelu w ASP.NET Web API-ASP.NET 4. x
 author: MikeWasson
-description: Omówienie sprawdzania poprawności modelu programu ASP.NET Web API dla platformy ASP.NET 4.x.
+description: Przegląd weryfikacji modelu w interfejsie Web API ASP.NET dla ASP.NET 4. x.
 ms.author: riande
 ms.date: 07/20/2012
 ms.custom: seoapril2019
@@ -10,79 +10,79 @@ ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 531a66b7ab642bd012663517640f2766f1917f25
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112821"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557240"
 ---
-# <a name="model-validation-in-aspnet-web-api"></a>Weryfikacja modelu we wzorcu ASP.NET Web API
+# <a name="model-validation-in-aspnet-web-api"></a>Walidacja modelu w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym artykule pokazano, jak dodawać adnotacje do modeli, korzystanie z adnotacji do sprawdzania poprawności danych i obsługi błędów sprawdzania poprawności w interfejsie API sieci web. Gdy klient wysyła dane do interfejsu API sieci web, często chcesz sprawdzić poprawność danych przed wykonaniem jakiegokolwiek przetwarzania. 
+W tym artykule przedstawiono sposób dodawania adnotacji do modeli, używania adnotacji do sprawdzania poprawności danych i obsługi błędów walidacji w interfejsie API sieci Web. Gdy klient wysyła dane do internetowego interfejsu API, często chcesz sprawdzić poprawność danych przed wykonaniem jakiegokolwiek przetwarzania. 
 
 ## <a name="data-annotations"></a>Adnotacje danych
 
-ASP.NET Web API, można użyć atrybuty z [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) przestrzeni nazw, aby ustawić reguły sprawdzania poprawności dla właściwości modelu. Należy wziąć pod uwagę następujący wzór:
+W ASP.NET Web API można używać atrybutów z przestrzeni nazw [System. ComponentModel. DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) do ustawiania reguł walidacji dla właściwości w modelu. Rozważmy następujący model:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 
-Sprawdzanie poprawności modelu użycie we wzorcu ASP.NET MVC to powinna wyglądać znajomo. **Wymagane** atrybutu jest wyświetlany komunikat, który `Name` właściwość nie może mieć wartości null. **Zakres** atrybutu jest wyświetlany komunikat, który `Weight` musi należeć do zakresu od 0 do 999.
+Jeśli używasz walidacji modelu w ASP.NET MVC, powinno to wyglądać znajomo. **Wymagany** atrybut wskazuje, że właściwość `Name` nie może mieć wartości null. Atrybut **zakresu** wskazuje, że `Weight` musi należeć do zakresu od zero do 999.
 
-Załóżmy, że klient wysyła żądanie POST z następującą reprezentację JSON:
+Załóżmy, że klient wysyła żądanie POST z następującą reprezentacją JSON:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample2.json)]
 
-Widać, że klient nie zawiera `Name` właściwość, która jest oznaczona jako wymagane. Kiedy internetowy interfejs API konwertuje dane JSON do `Product` wystąpienia, weryfikuje `Product` względem atrybutów sprawdzania poprawności. W akcji kontrolera można sprawdzić, czy model jest prawidłowy:
+Można zobaczyć, że klient nie zawiera właściwości `Name`, która jest oznaczona jako wymagana. Gdy interfejs API sieci Web konwertuje kod JSON na wystąpienie `Product`, sprawdza poprawność `Product` względem atrybutów walidacji. W akcji kontrolera możesz sprawdzić, czy model jest prawidłowy:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample3.cs)]
 
-Sprawdzanie poprawności modelu nie gwarantuje, że dane klienta są bezpieczne. Mogą być wymagane dodatkowe sprawdzenie poprawności w innych warstwach aplikacji. (Na przykład warstwa danych może wymuszać ograniczenia klucza obcego). Samouczek [przy użyciu interfejsu API sieci Web za pomocą platformy Entity Framework](../data/using-web-api-with-entity-framework/part-1.md) analizuje niektóre z tych problemów.
+Walidacja modelu nie gwarantuje, że dane klienta są bezpieczne. W innych warstwach aplikacji może być wymagana dodatkowa weryfikacja. (Na przykład warstwa danych może wymusić ograniczenia klucza obcego). Samouczek [korzystający z interfejsu API sieci Web i Entity Framework](../data/using-web-api-with-entity-framework/part-1.md) Eksplorowanie niektórych z tych problemów.
 
-**"Niepełną ogłaszając"**: Publikowanie niepełną występuje, gdy klient powoduje, że niektóre właściwości. Na przykład załóżmy, że klient wysyła następujące czynności:
+**"W obszarze Księgowanie"** : w obszarze Księgowanie występuje, gdy klient opuści pewne właściwości. Załóżmy na przykład, że klient wysyła następujące elementy:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample4.json)]
 
-W tym miejscu klienta nie określono wartości dla `Price` lub `Weight`. Element formatujący JSON przypisuje wartość domyślną równą zero, aby brakuje właściwości.
+W tym miejscu klient nie określił wartości dla `Price` lub `Weight`. Program formatujący JSON przypisuje wartość domyślną zero do brakujących właściwości.
 
 ![](model-validation-in-aspnet-web-api/_static/image1.png)
 
-Stan modelu jest prawidłowa, ponieważ zero jest prawidłową wartością dla tych właściwości. Czy jest to problem, zależy od danego scenariusza. Na przykład w operacji aktualizacji, możesz chcieć rozróżnienia między "zero" i "nenastaveno." Wymuś na klientach, aby ustawić wartość, ustawić właściwość jako dopuszczającego wartość null i ustaw **wymagane** atrybutu:
+Stan modelu jest prawidłowy, ponieważ zero jest prawidłową wartością dla tych właściwości. To, czy jest to problem, zależy od danego scenariusza. Na przykład w operacji aktualizacji można chcieć rozróżnić wartości "zero" i "nie ustawiono". Aby wymusić ustawienie wartości przez klientów, należy wprowadzić wartość null i ustawić **wymagany** atrybut:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample5.cs?highlight=1-2)]
 
-**"Polegającymi"**: Klient może także wysłać *więcej* danych niż oczekiwano. Na przykład:
+**"Za pośrednictwem publikowania"** : Klient może również wysyłać *więcej* danych niż oczekiwano. Na przykład:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample6.json)]
 
-W tym miejscu za pomocą pliku JSON zawiera właściwość ("Color"), która nie istnieje w `Product` modelu. W takim przypadku program formatujący JSON po prostu ignoruje tę wartość. (Element formatujący XML działa tak samo). Publikowanie nadmiernego powoduje występowanie problemów, jeśli model ma właściwości, które mają być tylko do odczytu. Na przykład:
+W tym miejscu plik JSON zawiera właściwość ("Color"), która nie istnieje w modelu `Product`. W takim przypadku program formatujący JSON po prostu ignoruje tę wartość. (Program formatujący XML robi to tak samo). Nadmierne Księgowanie powoduje problemy, jeśli model ma właściwości, które są przeznaczone tylko do odczytu. Na przykład:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample7.cs)]
 
-Nie chcesz, aby użytkownikom aktualizowanie `IsAdmin` właściwości i podnieść samodzielnie administratorom! Najbezpieczniejszym strategii jest użycie klasy modelu, który dokładnie pasuje, klient może wysyłać:
+Nie chcesz, aby użytkownicy mogli aktualizować Właściwość `IsAdmin` i Podnieś poziom uprawnień do administratorów. Najbezpieczniejsza strategia polega na użyciu klasy modelu, która dokładnie pasuje do tego, co klient może wysłać:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample8.cs)]
 
 > [!NOTE]
-> Wpis w blogu Brad Wilson "[vs sprawdzania poprawności danych wejściowych. Walidacja we wzorcu ASP.NET MVC modelu](http://bradwilson.typepad.com/blog/2010/01/input-validation-vs-model-validation-in-aspnet-mvc.html)"jest dobre omówienie niepełną ogłaszania i nadmiernego ogłaszania. Mimo że ogłoszenie dotyczące platformy ASP.NET MVC 2 problemy dotyczą nadal interfejsu API sieci Web.
+> Wpis w blogu z programu Brada Wilson "[weryfikacja danych wejściowych a Walidacja modelu w ASP.NET MVC](http://bradwilson.typepad.com/blog/2010/01/input-validation-vs-model-validation-in-aspnet-mvc.html)" ma dobrą dyskusję na temat księgowania i nadmiernego księgowania. Mimo że wpis dotyczy ASP.NET MVC 2, problemy nadal dotyczą interfejsu API sieci Web.
 
-## <a name="handling-validation-errors"></a>Obsługa błędów sprawdzania poprawności
+## <a name="handling-validation-errors"></a>Obsługa błędów walidacji
 
-Interfejs API sieci Web nie automatycznie zwraca błąd do klienta podczas sprawdzania poprawności zakończy się niepowodzeniem. Jest akcji kontrolera, aby sprawdzić stan modelu i odpowiednio reagować.
+Gdy Walidacja nie powiedzie się, internetowy interfejs API nie zwróci automatycznie błędu do klienta. Jest to akcja kontrolera, aby sprawdzić stan modelu i odpowiednio odpowiedzieć.
 
-Można również utworzyć filtr akcji, aby sprawdzić stan modelu przed wywołaniem akcji kontrolera. Poniżej znajduje się kod przykładowy:
+Możesz również utworzyć filtr akcji, aby sprawdzić stan modelu przed wywołaniem akcji kontrolera. Poniżej znajduje się kod przykładowy:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample9.cs)]
 
-Jeśli sprawdzanie poprawności modelu nie powiedzie się, filtr zwróci odpowiedź HTTP, który zawiera błędy weryfikacji. W takim przypadku nie jest wywoływany akcji kontrolera.
+Jeśli walidacja modelu zakończy się niepowodzeniem, ten filtr zwróci odpowiedź HTTP zawierającą błędy walidacji. W takim przypadku akcja kontrolera nie zostanie wywołana.
 
 [!code-console[Main](model-validation-in-aspnet-web-api/samples/sample10.cmd)]
 
-Aby zastosować filtr do wszystkich kontrolerów składnika Web API, należy dodać wystąpienia filtru w celu **HttpConfiguration.Filters** kolekcji podczas konfiguracji:
+Aby zastosować ten filtr do wszystkich kontrolerów internetowego interfejsu API, Dodaj wystąpienie filtru do kolekcji **HttpConfiguration. filters** podczas konfiguracji:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample11.cs)]
 
-Innym rozwiązaniem jest, aby ustawić filtr jako atrybut na poszczególnych kontrolerach lub akcji kontrolera:
+Innym rozwiązaniem jest ustawienie filtru jako atrybutu na poszczególnych kontrolerach lub akcjach kontrolera:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample12.cs)]

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/index
-title: ASP.NET 3.5 — strony wzorcowe formularzy sieci Web | Dokumentacja firmy Microsoft
+title: ASP.NET 3,5 — strony wzorcowe formularzy sieci Web | Microsoft Docs
 author: rick-anderson
-description: Jak utworzyć i umożliwia tworzenie spójnego układu w aplikacji formularzy sieci Web platformy ASP.NET, stron wzorcowych i stronach zawartości.
+description: Sposób tworzenia i używania stron wzorcowych ASP.NET i stron zawartości do tworzenia spójnego układu w aplikacjach formularzy sieci Web.
 ms.author: riande
 ms.date: 11/04/2011
 ms.assetid: bc30f0ec-cf8f-4a33-9eee-513be872ac9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages
 msc.type: chapter
 ms.openlocfilehash: 3847269a495d54b0986bab245023daff4a43386a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134150"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78585884"
 ---
 # <a name="aspnet-35---web-forms-master-pages"></a>ASP.NET 3.5 — strony wzorcowe wzorca Web Forms
 
-> Jak utworzyć i umożliwia tworzenie spójnego układu w aplikacji formularzy sieci Web platformy ASP.NET, stron wzorcowych i stronach zawartości.
+> Sposób tworzenia i używania stron wzorcowych ASP.NET i stron zawartości do tworzenia spójnego układu w aplikacjach formularzy sieci Web.
 
 - [Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#)](creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Wiele kontrolek ContentPlaceHolder i zawartość domyślna (C#)](multiple-contentplaceholders-and-default-content-cs.md)

@@ -1,29 +1,29 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 sieci Web Forms — część 2 | Dokumentacja firmy Microsoft
+title: Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 2 | Microsoft Docs
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy Entity Framework. Przykładowa aplikacja jest...
+description: Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework. Przykładowa aplikacja to...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: fb63a326-a4ae-4b0c-a4f5-412327197216
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: bd6a2e29e6f0df04e39be29160e2e08cc99c4706
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126852"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566011"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 Web Forms — część 2
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 2
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu Entity Framework 4.0 i Visual Studio 2010. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework 4,0 i programu Visual Studio 2010. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek w serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
-## <a name="the-entitydatasource-control"></a>Kontrolka EntityDataSource
+## <a name="the-entitydatasource-control"></a>Formant EntityDataSource
 
-W poprzednim samouczku utworzono witrynę sieci web, bazy danych i modelu danych. W tym samouczku możesz pracować `EntityDataSource` kontrolkę udostępniającą platformy ASP.NET w celu ułatwienia pracy z modelem danych platformy Entity Framework. Utworzysz `GridView` sterowania do wyświetlania i edytowania danych student `DetailsView` formantu do dodawania nowych studentów i `DropDownList` kontrolka służąca do wybierania działu, (który zostanie użyty później do wyświetlania kursy skojarzone).
+W poprzednim samouczku została utworzona witryna sieci Web, baza danych i model danych. W tym samouczku poznasz formant `EntityDataSource`, który ASP.NET zapewnia, aby ułatwić współpracę z Entity Framework modelem danych. Utworzysz kontrolkę `GridView` do wyświetlania i edytowania danych uczniów, kontrolki `DetailsView` do dodawania nowych uczniów oraz `DropDownList` kontroli wybierania działu (którego będziesz używać później do wyświetlania skojarzonych kursów).
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image1.png)
 
@@ -31,219 +31,219 @@ W poprzednim samouczku utworzono witrynę sieci web, bazy danych i modelu danych
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Należy pamiętać, że ta aplikacja nie będzie można Dodawanie sprawdzania poprawności danych wejściowych do stron, które aktualizują bazę danych, a niektóre z obsługą błędów nie będzie równie niezawodny, może być wymagane w aplikacji produkcyjnej. Który utrzymuje samouczek koncentruje się na platformie Entity Framework i utrzymuje je przed pobraniem zbyt długa. Aby uzyskać szczegółowe informacje dotyczące sposobu dodawania tych funkcji do aplikacji, zobacz [sprawdzanie poprawności danych wejściowych użytkownika w produkcie ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) i [obsługę błędów w aplikacjach i stron ASP.NET](https://msdn.microsoft.com/library/w16865z6.aspx).
+Zwróć uwagę, że w tej aplikacji nie będziesz dodawać walidacji danych wejściowych do stron, które aktualizują bazę danych, a niektóre z nich nie będą tak niezawodne, jak byłyby wymagane w aplikacji produkcyjnej. Dzięki temu samouczek jest ukierunkowany na Entity Framework i utrzymuje zbyt długi czas. Aby uzyskać szczegółowe informacje na temat sposobu dodawania tych funkcji do aplikacji, zobacz [Weryfikowanie danych wejściowych użytkownika na stronach sieci Web ASP.NET](https://msdn.microsoft.com/library/7kh55542.aspx) i [obsługa błędów w ASP.NET stronach i aplikacjach](https://msdn.microsoft.com/library/w16865z6.aspx).
 
-## <a name="adding-and-configuring-the-entitydatasource-control"></a>Dodawanie i konfigurowanie kontrolki EntityDataSource
+## <a name="adding-and-configuring-the-entitydatasource-control"></a>Dodawanie i Konfigurowanie kontrolki EntityDataSource
 
-Rozpocznie się, konfigurując `EntityDataSource` kontroli można odczytać `Person` jednostek z `People` zestawu jednostek.
+Zaczniesz od skonfigurowania formantu `EntityDataSource`, aby odczytywać jednostki `Person` z zestawu jednostek `People`.
 
-Upewnij się, że masz program Visual Studio, Otwórz i że pracujesz z projektem utworzony w części 1. Jeśli nie został utworzony projekt, ponieważ został utworzony w modelu danych lub od momentu ostatniej zmiany wprowadzone do niego, skompiluj teraz projekt. Zmiany w modelu danych nie są udostępniane do projektanta do momentu projekt jest kompilowany.
+Upewnij się, że masz otwarty program Visual Studio i że pracujesz nad projektem utworzonym w części 1. Jeśli projekt nie został skompilowany od czasu utworzenia modelu danych lub od momentu ostatniej zmiany w nim, Skompiluj projekt teraz. Zmiany w modelu danych nie są udostępniane projektantowi do czasu skompilowania projektu.
 
-Utwórz nową stronę sieci web, używając **formularz sieci Web używający strony wzorcowej** szablonu i nadaj mu nazwę *Students.aspx*.
+Utwórz nową stronę sieci Web przy użyciu **formularza sieci Web przy użyciu szablonu strony głównej** , a następnie nadaj mu nazwę *Students. aspx*.
 
 [![Image23](the-entity-framework-and-aspnet-getting-started-part-2/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image7.png)
 
-Określ *Site.Master* jako strony wzorcowej. Wszystkie strony, tworzone na potrzeby tych samouczków użyje tej strony wzorcowej.
+Określ wartość *site. Master* jako stronę wzorcową. Na wszystkich stronach utworzonych dla tych samouczków zostanie użyta ta strona wzorcowa.
 
 [![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
-W **źródła** wyświetlać, dodawać `h2` nagłówek do `Content` formantu o nazwie `Content2`, jak pokazano w poniższym przykładzie:
+W widoku **źródła** dodaj nagłówek `h2` do kontrolki `Content` o nazwie `Content2`, jak pokazano w następującym przykładzie:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample1.aspx)]
 
-Z **danych** karcie **przybornika**, przeciągnij `EntityDataSource` do strony, upuść go pod nagłówkiem i zmień identyfikator, który ma `StudentsEntityDataSource`:
+Na karcie **dane** w **przyborniku**przeciągnij kontrolkę `EntityDataSource` na stronę, upuść ją pod nagłówkiem i zmień identyfikator, aby `StudentsEntityDataSource`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample2.aspx)]
 
-Przełącz się do **projektowania** wyświetlić, kliknij tag inteligentny formant źródła danych, a następnie kliknij przycisk **skonfigurować źródło danych** można uruchomić **skonfigurować źródło danych** kreatora.
+Przełącz się do widoku **projektu** , kliknij tag inteligentny kontroli źródła danych, a następnie kliknij przycisk **Konfiguruj źródło danych** , aby uruchomić kreatora **konfiguracji źródła danych** .
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)
 
-W **konfigurowania obiektu ObjectContext** kroku kreatora, wybierz pozycję **SchoolEntities** jako wartość pozycji **połączenia o nazwie**i wybierz **SchoolEntities**jako **DefaultContainerName** wartości. Następnie kliknij przycisk **Dalej**.
+W kroku **Konfiguruj** pracę kreatora, wybierz opcję **SchoolEntities** jako wartość **nazwanego połączenia**i wybierz pozycję **SchoolEntities** jako wartość **DefaultContainerName** . Następnie kliknij przycisk **Next** (Dalej).
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)
 
-Uwaga: W tym momencie pojawi się następujące okno dialogowe, należy skompilować projekt przed kontynuowaniem.
+Uwaga: Jeśli w tym momencie zostanie wyświetlone następujące okno dialogowe, należy skompilować projekt przed kontynuowaniem.
 
 [![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
-W **Konfigurowanie wyboru danych** kroku, wybierz pozycję **osób** jako wartość pozycji **Nazwa zestawu jednostek**. W obszarze **wybierz**, upewnij się, że **wybierz A** ll pole wyboru jest zaznaczone. Następnie wybierz opcje, aby włączyć aktualizację i usuwanie. Gdy wszystko będzie gotowe, kliknij przycisk **Zakończ**.
+W kroku **Konfigurowanie wyboru danych** wybierz **osoby** jako wartość dla **obiektu entitySetName**. W obszarze **Wybierz**upewnij się, że zaznaczone jest pole wyboru **zaznacz** wszystko. Następnie wybierz opcje, aby włączyć aktualizowanie i usuwanie. Gdy skończysz, kliknij przycisk **Zakończ**.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-2/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image17.png)
 
-## <a name="configuring-database-rules-to-allow-deletion"></a>Konfigurowanie reguł bazy danych, aby zezwolić na usunięcie
+## <a name="configuring-database-rules-to-allow-deletion"></a>Konfigurowanie reguł bazy danych w celu umożliwienia usuwania
 
-Zostanie utworzona strona, która pozwala użytkownikom na usuwanie uczniów z `Person` tabeli, która ma trzy relacje z innymi tabelami (`Course`, `StudentGrade`, i `OfficeAssignment`). Domyślnie baza danych uniemożliwi usuwanie wierszy w `Person` Jeśli istnieją powiązane wiersze w jednej z innych tabel. Można ręcznie usunąć powiązane wiersze najpierw lub można skonfigurować bazy danych, aby usunąć je automatycznie, gdy usuniesz `Person` wiersza. Dla rekordów dla uczniów w ramach tego samouczka należy skonfigurować bazy danych, aby automatycznie usuwać powiązanych danych. Ponieważ uczniowie mogą powiązanych wierszy tylko w `StudentGrade` tabeli, należy skonfigurować tylko jeden z trzech relacji.
+Zostanie utworzona strona umożliwiająca użytkownikom usuwanie uczniów z tabeli `Person`, która ma trzy relacje z innymi tabelami (`Course`, `StudentGrade`i `OfficeAssignment`). Domyślnie baza danych uniemożliwi usunięcie wiersza w `Person`, jeśli istnieją powiązane wiersze w jednej z innych tabel. W pierwszej kolejności można ręcznie usunąć powiązane wiersze lub skonfigurować bazę danych, aby usunąć ją automatycznie po usunięciu `Person` wiersza. W przypadku rekordów uczniów w tym samouczku należy skonfigurować bazę danych do automatycznego usuwania powiązanych danych. Ponieważ uczniowie mogą mieć powiązane wiersze tylko w tabeli `StudentGrade`, należy skonfigurować tylko jedną z trzech relacji.
 
-Jeśli używasz *School.mdf* plik został pobrany z projektu, który łączy się z tego samouczka, możesz pominąć tę sekcję, ponieważ te zmiany konfiguracji zostały już wykonane. Jeśli utworzono bazę danych przez uruchomienie skryptu Skonfiguruj bazę danych przy użyciu poniższej procedury.
+Jeśli używasz pliku *uczelni. mdf* pobranego z projektu, który zawiera ten samouczek, możesz pominąć tę sekcję, ponieważ te zmiany konfiguracji zostały już wykonane. Jeśli baza danych została utworzona przez uruchomienie skryptu, skonfiguruj bazę danych, wykonując następujące procedury.
 
-W **Eksploratora serwera**, Otwórz diagram bazy danych, który został utworzony w części 1. Kliknij prawym przyciskiem myszy relację między `Person` i `StudentGrade` (linię między tabelami), a następnie wybierz pozycję **właściwości**.
+W **Eksplorator serwera**Otwórz diagram bazy danych utworzony w części 1. Kliknij prawym przyciskiem myszy relację między `Person` i `StudentGrade` (wiersz między tabelami), a następnie wybierz polecenie **Właściwości**.
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-2/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image19.png)
 
-W **właściwości** okna, rozwiń węzeł **INSERT i UPDATE specyfikacji** i ustaw **DeleteRule** właściwości **Cascade**.
+W oknie **Właściwości** rozwiń węzeł **Wstaw i Specyfikacja aktualizacji** i ustaw właściwość **DeleteRule** na **kaskadowo**.
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-2/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image21.png)
 
-Zapisz i zamknij diagram. Jeśli zostanie wyświetlony monit, czy chcesz zaktualizować bazę danych, kliknij przycisk **tak**.
+Zapisz i Zamknij diagram. Jeśli zostanie wyświetlony monit o zaktualizowanie bazy danych, kliknij przycisk **tak**.
 
-Aby upewnić się, że model utrzymuje jednostek, które znajdują się w pamięci jest zsynchronizowany z działania bazy danych, należy ustawić odpowiednie zasady w modelu danych. Otwórz *SchoolModel.edmx*, kliknij prawym przyciskiem myszy linię skojarzenia między `Person` i `StudentGrade`, a następnie wybierz pozycję **właściwości**.
+Aby upewnić się, że model zachowuje jednostki znajdujące się w pamięci w synchronizacji z działaniem bazy danych, należy ustawić odpowiednie reguły w modelu danych. Otwórz *SchoolModel. edmx*, kliknij prawym przyciskiem myszy linię skojarzenia między `Person` i `StudentGrade`, a następnie wybierz polecenie **Właściwości**.
 
 [![Image21](the-entity-framework-and-aspnet-getting-started-part-2/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image23.png)
 
-W **właściwości** oknie **End1 OnDelete** do **Cascade**.
+W oknie **Właściwości** Ustaw **elementu end1 onDelete** na **kaskadowo**.
 
 [![Image22](the-entity-framework-and-aspnet-getting-started-part-2/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image25.png)
 
-Zapisz i Zamknij *SchoolModel.edmx* pliku, a następnie ponownie skompilować projekt.
+Zapisz i zamknij plik *SchoolModel. edmx* , a następnie Skompiluj ponownie projekt.
 
-Ogólnie rzecz biorąc po zmianie bazy danych, masz kilka opcji sposobu zsynchronizować modelu:
+Ogólnie rzecz biorąc, gdy baza danych ulegnie zmianie, istnieje kilka opcji synchronizacji modelu:
 
-- Dla niektórych rodzajów zmian (np. dodanie lub odświeżenie tabel, widoków i procedur składowanych), kliknij prawym przyciskiem myszy projektanta i wybierz pozycję **Model aktualizacji z bazy danych** scalać zmian projektanta wykonującego automatycznie.
-- Ponowne generowanie modelu danych.
-- Dokonanie ręcznych aktualizacji podobny do poniższego.
+- W przypadku niektórych rodzajów zmian (takich jak dodawanie lub odświeżanie tabel, widoków lub procedur składowanych) kliknij prawym przyciskiem myszy w Projektancie i wybierz polecenie **Aktualizuj model z bazy danych** , aby Projektant automatycznie wprowadza zmiany.
+- Wygeneruj ponownie model danych.
+- Wprowadź ręczne aktualizacje takie jak ten.
 
-W takim przypadku może zostać wygenerowane ponownie modelu lub odświeżenia tabel dotyczy zmiana relacji, ale następnie trzeba ponownie wprowadzić zmianę nazwy pola (z `FirstName` do `FirstMidName`).
+W takim przypadku można ponownie wygenerować model lub odświeżyć tabele, których dotyczy zmiana relacji, ale należy wprowadzić zmianę nazwy pola (z `FirstName` na `FirstMidName`).
 
-## <a name="using-a-gridview-control-to-read-and-update-entities"></a>Używanie kontrolki GridView na odczytywanie i aktualizowanie jednostek
+## <a name="using-a-gridview-control-to-read-and-update-entities"></a>Odczytywanie i aktualizowanie jednostek przy użyciu kontrolki GridView
 
-W tej sekcji użyjesz `GridView` kontrolki na wyświetlanie, aktualizowanie lub usuwanie studentów.
+W tej sekcji użyjesz kontrolki `GridView` do wyświetlania, aktualizowania lub usuwania uczniów.
 
-Otwieranie programu lub przełączanie na *Students.aspx* i przełącz się do **projektowania** widoku. Z **danych** karcie **przybornika**, przeciągnij `GridView` kontroli po prawej stronie `EntityDataSource` , nazwij ją `StudentsGridView`, kliknij tag inteligentny, a następnie wybierz  **StudentsEntityDataSource** jako źródło danych.
+Otwórz lub przejdź do *uczniów. aspx* i przejdź do widoku **projektu** . Na karcie **dane** w **przyborniku**przeciągnij kontrolkę `GridView` z prawej strony kontrolki `EntityDataSource`, nadaj jej nazwę `StudentsGridView`, kliknij tag inteligentny, a następnie wybierz pozycję **StudentsEntityDataSource** jako źródło danych.
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-2/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image27.png)
 
-Kliknij przycisk **odświeżania schematu** (kliknij **tak** po wyświetleniu monitu o potwierdzenie), następnie kliknij przycisk **Włączanie stronicowania**, **włączyć sortowanie**, **Włącz edytowanie**, i **Włącz usuwanie**.
+Kliknij przycisk **Odśwież schemat** (kliknij przycisk **tak** , jeśli zostanie wyświetlony monit o potwierdzenie), a następnie kliknij pozycję **Włącz stronicowanie**, **Włącz sortowanie**, **Włącz edytowanie**i **Włącz usuwanie**.
 
-Kliknij przycisk **Upravit Sloupce**.
+Kliknij przycisk **Edytuj kolumny**.
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-2/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image29.png)
 
-W **wybrane pola** polu, Usuń **PersonID**, **LastName**, i **DataZatrudnienia**. Użytkownik zwykle nie są wyświetlane klucz rekordu dla użytkowników, data zatrudnienia nie jest ważna dla uczniów i studentów i obie części nazwy zostanie umieszczony w jednym polu, wystarczy tylko jedno z pól nazwy.)
+W polu **wybrane pola** Usuń **PersonID**, **LastName**i **HireDate**. Zazwyczaj nie jest wyświetlany klucz rekordu dla użytkowników, data zatrudnienia nie ma znaczenia dla uczniów, a obie części nazwy są umieszczane w jednym polu, więc wystarczy jedno z nazw pól.
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
 
-Wybierz **FirstMidName** pola, a następnie kliknij przycisk **Konwertuj to pole na TemplateField**.
+Wybierz pole **FirstMidName** , a następnie kliknij przycisk **Konwertuj to pole na TemplateField**.
 
-Tym samym **EnrollmentDate**.
+Wykonaj te same czynności dla **EnrollmentDate**.
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-2/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image33.png)
 
-Kliknij przycisk **OK** a następnie przejdź na **źródła** widoku. Pozostałe zmiany będzie można łatwiej wykonać bezpośrednio w znacznikach. `GridView` Kontrolować znaczników teraz wygląda następująco.
+Kliknij przycisk **OK** , a następnie przejdź do widoku **źródła** . Pozostałe zmiany będą łatwiejsze do wykonania bezpośrednio w znacznikach. `GridView` znaczników kontrolki wygląda teraz podobnie jak w poniższym przykładzie.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample3.aspx)]
 
-Pierwsza kolumna po pole polecenia jest polem szablon, który aktualnie Wyświetla imię. Zmień adiustację tak, dla tego pola szablonu wyglądał jak na poniższym przykładzie:
+Pierwsza kolumna po polu polecenia to pole szablonu, które wyświetla imię i nazwisko. Zmień znaczniki pola tego szablonu, aby wyglądać jak w poniższym przykładzie:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample4.aspx)]
 
-W trybie wyświetlania dwóch `Label` formanty wyświetlania imię i nazwisko. W trybie edycji dwóch pól tekstowych są udostępniane, dzięki czemu można zmienić imię i nazwisko. Podobnie jak w przypadku `Label` kontrolek w tryb wyświetlania, należy użyć `Bind` i `Eval` wyrażeń dokładnie w przypadku usługi ASP.NET kontrolki źródła danych, które łączą się bezpośrednio do bazy danych. Jedyna różnica polega na określać właściwości jednostki zamiast kolumny bazy danych.
+W trybie wyświetlania dwie `Label` kontrolki wyświetlają imię i nazwisko. W trybie edycji są podane dwa pola tekstowe, aby można było zmienić imię i nazwisko. Podobnie jak w przypadku kontrolek `Label` w trybie wyświetlania, wyrażenia `Bind` i `Eval` są dokładnie takie same jak w przypadku kontrolek źródła danych ASP.NET, które łączą się bezpośrednio z bazami danych. Jedyną różnicą jest to, że należy określić właściwości jednostki zamiast kolumn bazy danych.
 
-Ostatnia kolumna jest pole szablonu, który wyświetla datę rejestracji. Zmień adiustację tak, dla tego pola wyglądał jak na poniższym przykładzie:
+Ostatnia kolumna to pole szablonu, które wyświetla datę rejestracji. Zmień znaczniki dla tego pola, aby wyglądać jak w poniższym przykładzie:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample5.aspx)]
 
-W obu należy wyświetlić i edytować tryb, w formacie ciągu "{0, d}" powoduje, że data jest wyświetlana w formacie "Data krótka". (Komputer może być skonfigurowany do wyświetlania tego formatu, inaczej niż obrazy ekranu wyświetlane w ramach tego samouczka).
+W trybie wyświetlania i edycji ciąg formatu "{0, d}" powoduje wyświetlenie daty w formacie "Data krótka". (Komputer może być skonfigurowany do wyświetlania tego formatu inaczej niż obrazy ekranu wyświetlane w tym samouczku).
 
-Należy zauważyć, że w każdym z tych pól szablonu, projektanta używane `Bind` wyrażenia przez domyślne, ale zostało zmienione, aby `Eval` wyrażenia w `ItemTemplate` elementów. `Bind` Wyrażenie sprawia, że dane są dostępne w `GridView` właściwości formantu, w razie potrzeby dostęp do danych w kodzie. Na tej stronie nie trzeba dostęp do tych danych w kodzie, aby można było używać `Eval`, co jest bardziej wydajne. Aby uzyskać więcej informacji, zobacz [Trwa pobieranie danych z formantów danych](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx).
+Zwróć uwagę, że w każdym z tych pól szablonu Projektant użył wyrażenia `Bind` domyślnie, ale został zmieniony na wyrażenie `Eval` w elementach `ItemTemplate`. Wyrażenie `Bind` sprawia, że dane są dostępne we właściwościach kontrolki `GridView` na wypadek, gdyby trzeba było uzyskać dostęp do danych w kodzie. Na tej stronie nie musisz uzyskiwać dostępu do tych danych w kodzie, więc możesz używać `Eval`, co jest bardziej wydajne. Aby uzyskać więcej informacji, zobacz [pobieranie danych z kontrolek danych](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx).
 
-## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>Zmiana sterowania EntityDataSource znaczników w celu zwiększenia wydajności
+## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>Poprawianie znaczników kontrolki EntityDataSource w celu zwiększenia wydajności
 
-W znaczniku dla `EntityDataSource` kontrolować, Usuń `ConnectionString` i `DefaultContainerName` atrybutów, a zastępuje je `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` atrybutu. Jest to zmiana, należy za każdym razem, gdy tworzysz `EntityDataSource` kontrolować, o ile nie trzeba używać połączenia innego niż ten, który jest ustalony w klasie kontekstu obiektu. Za pomocą `ContextTypeName` atrybut zapewnia następujące korzyści:
+W znaczniku dla kontrolki `EntityDataSource` usuń atrybuty `ConnectionString` i `DefaultContainerName` i zastąp je atrybutem `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"`. Ta zmiana powinna być podejmowana za każdym razem, gdy tworzysz kontrolkę `EntityDataSource`, chyba że trzeba użyć połączenia innego niż to, które jest stałe w klasie kontekstu obiektu. Użycie atrybutu `ContextTypeName` zapewnia następujące korzyści:
 
-- Lepsza wydajność. Gdy `EntityDataSource` kontroli jest inicjowana przy użyciu modelu danych `ConnectionString` i `DefaultContainerName` atrybutów, wykonuje dodatkowej pracy można załadować metadanych na każde żądanie. Nie jest to konieczne, jeśli określisz `ContextTypeName` atrybutu.
-- Powolne ładowanie jest włączona domyślnie w klasach kontekstu generowanych obiektów (takich jak `SchoolEntities` w ramach tego samouczka) w programie Entity Framework 4.0. Oznacza to, że właściwości nawigacji są ładowane z powiązanych danych automatycznie bezpośrednio w przypadku, gdy ich potrzebujesz. Powolne ładowanie jest omówione bardziej szczegółowo w dalszej części tego samouczka.
-- Wszelkie dostosowania, które zostały zastosowane do obiektu klasy kontekstu (w tym przypadku `SchoolEntities` klasy) będzie dostępna dla kontrolki używające `EntityDataSource` kontroli. Dostosowywanie obiektu klasy kontekstu jest zaawansowane tematu, który nie pasuje do w tej serii samouczków. Aby uzyskać więcej informacji, zobacz [rozszerzanie typy generowane Framework jednostek](https://msdn.microsoft.com/library/dd456844.aspx).
+- Lepsza wydajność. Gdy formant `EntityDataSource` inicjuje model danych przy użyciu atrybutów `ConnectionString` i `DefaultContainerName`, wykonuje dodatkowe prace w celu załadowania metadanych dla każdego żądania. Nie jest to konieczne, jeśli określisz atrybut `ContextTypeName`.
+- Ładowanie z opóźnieniem jest domyślnie włączone w wygenerowanych klasach kontekstu obiektów (takich jak `SchoolEntities` w tym samouczku) w Entity Framework 4,0. Oznacza to, że właściwości nawigacji są ładowane z danymi powiązanymi automatycznie, gdy ich potrzebujesz. Ładowanie z opóźnieniem zostało wyjaśnione bardziej szczegółowo w dalszej części tego samouczka.
+- Wszystkie dostosowania, które zostały zastosowane do klasy kontekstu obiektu (w tym przypadku Klasa `SchoolEntities`) będzie dostępna dla formantów, które używają kontrolki `EntityDataSource`. Dostosowywanie klasy kontekstu obiektów jest zaawansowanym tematem, który nie jest objęty tą serią samouczków. Aby uzyskać więcej informacji, zobacz [rozszerzanie wygenerowanych typów Entity Framework](https://msdn.microsoft.com/library/dd456844.aspx).
 
-Znaczniki teraz będą podobne do następującego przykładu, (kolejność właściwości mogą się różnić):
+Znacznik będzie teraz podobny do poniższego przykładu (kolejność właściwości może się różnić):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening` Atrybut odwołuje się do funkcji, który był konieczny we wcześniejszych wersjach programu Entity Framework, ponieważ kolumny klucza obcego nie były widoczne jako właściwości jednostki. Bieżąca wersja sprawia, że można użyć *skojarzenia klucza obcego*, co oznacza, że właściwości klucza obcego są widoczne wszystkie elementy oprócz wiele do wielu skojarzeń. Jeśli obiekty mają właściwości klucza obcego i nie [typy złożone](https://msdn.microsoft.com/library/bb738472.aspx), możesz pozostawić ten atrybut ustawiony na `False`. Nie usunąć atrybut znaczników, ponieważ wartość domyślna to `True`. Aby uzyskać więcej informacji, zobacz [spłaszczanie obiektów (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
+Atrybut `EnableFlattening` odwołuje się do funkcji, która była wymagana we wcześniejszych wersjach Entity Framework ponieważ kolumny klucza obcego nie zostały ujawnione jako właściwości jednostki. Bieżąca wersja umożliwia korzystanie z *skojarzeń kluczy obcych*, co oznacza, że właściwości klucza obcego są ujawniane dla wszystkich skojarzeń z wyjątkiem wielu-do-wielu. Jeśli jednostki mają właściwości klucza obcego i nie mają [typów złożonych](https://msdn.microsoft.com/library/bb738472.aspx), można pozostawić ten atrybut ustawiony na `False`. Nie usuwaj atrybutu z znaczników, ponieważ wartość domyślna to `True`. Aby uzyskać więcej informacji, zobacz [spłaszczanie obiektów (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
-Uruchom stronę i wyświetlić listę uczniów i pracowników (będzie filtrowania dla uczniów i studentów tylko w następnym samouczku). Imię i nazwisko są wyświetlane razem.
+Uruchom stronę i zobaczysz listę studentów i pracowników (filtr dotyczy tylko studentów w następnym samouczku). Imię i nazwisko są wyświetlane razem.
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-2/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image35.png)
 
 Aby posortować ekran, kliknij nazwę kolumny.
 
-Kliknij przycisk **Edytuj** w dowolnym wierszu. Pola tekstowe są wyświetlane, w którym można zmienić imię i nazwisko.
+Kliknij przycisk **Edytuj** w dowolnym wierszu. Wyświetlane są pola tekstowe, w których można zmienić imię i nazwisko.
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-2/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image37.png)
 
-**Usuń** działania również przycisku. Kliknij przycisk Usuń, dla wiersza zawierającego Data rejestracji i wiersza zniknie. (Wiersze bez daty rejestracji reprezentują instruktorów i może wystąpić błąd integralności referencyjnej. W następnym samouczku będziesz filtrowania tej listy w celu uwzględnienia studentów po prostu.)
+Przycisk **Usuń** również działa. Kliknij przycisk Usuń dla wiersza, który ma datę rejestracji i znika wiersz. (Wiersze bez daty rejestracji przedstawiają instruktorów i może zostać wyświetlony błąd integralności referencyjnej. W następnym samouczku przefiltruje tę listę w celu uwzględnienia tylko studentów.)
 
-## <a name="displaying-data-from-a-navigation-property"></a>Wyświetlanie danych za pomocą właściwości nawigacji
+## <a name="displaying-data-from-a-navigation-property"></a>Wyświetlanie danych z właściwości nawigacji
 
-Teraz załóżmy, że chcesz wiedzieć, ile kursów każdego ucznia jest zarejestrowane w. Entity Framework udostępnia te informacje w `StudentGrades` właściwość nawigacji `Person` jednostki. Projekt bazy danych nie jest dozwolone uczniów do rejestracji w szkoleniu bez potrzeby przedsiębiorstw, przypisane, w tym samouczku można założyć, że o wiersz w `StudentGrade` wiersza tabeli, który jest skojarzony z kurs jest taka sama jak rejestrowane w ramach tego kursu. ( `Courses` Właściwość nawigacji jest przeznaczony tylko dla instruktorów.)
+Teraz Załóżmy, że chcesz wiedzieć, ile kursów każdy student został zarejestrowany w usłudze. Entity Framework udostępnia te informacje we właściwości nawigacji `StudentGrades` jednostki `Person`. Ponieważ projekt bazy danych nie zezwala na zarejestrowanie studenta w kursie bez przypisanej klasy, można założyć, że posiadanie wiersza w wierszu tabeli `StudentGrade`, który jest skojarzony z kursem, jest takie samo jak w przypadku zarejestrowania w kursie. (Właściwość nawigacji `Courses` jest tylko dla instruktorów).
 
-Kiedy używasz `ContextTypeName` atrybutu `EntityDataSource` kontrolki, platformy Entity Framework automatycznie pobiera informacje dla właściwości nawigacji podczas dostępu do tej właściwości. Jest to nazywane *powolne ładowanie*. Jednak może to być mało wydajne, ponieważ powoduje to oddzielne wywołania do bazy danych, potrzebne są dodatkowe informacje o każdej czasie. Jeśli potrzebne są dane z właściwości nawigacji dla każdej jednostki zwrócony przez `EntityDataSource` formantu, jest bardziej wydajne, można pobrać powiązanych danych, oraz jednostki w pojedynczym wywołaniu do bazy danych. Jest to *wczesne ładowanie*, a następnie określ wczesne ładowanie dla właściwości nawigacji, ustawiając `Include` właściwość `EntityDataSource` kontroli.
+Gdy używasz atrybutu `ContextTypeName` formantu `EntityDataSource`, Entity Framework automatycznie pobiera informacje dla właściwości nawigacji podczas uzyskiwania dostępu do tej właściwości. Jest to nazywane *ładowaniem z opóźnieniem*. Jednak może to być niewydajne, ponieważ powoduje osobne wywołanie do bazy danych za każdym razem, gdy są niezbędne dodatkowe informacje. Jeśli potrzebujesz danych z właściwości nawigacji dla każdej jednostki zwracanej przez formant `EntityDataSource`, bardziej wydajne jest pobranie powiązanych danych wraz z samą jednostką w jednym wywołaniu bazy danych. Jest to tzw. *ładowanie eager*i określanie eager ładowania dla właściwości nawigacji przez ustawienie właściwości `Include` kontrolki `EntityDataSource`.
 
-W *Students.aspx*, aby wyświetlić liczbę kursy dla każdego ucznia, więc wczesne ładowanie jest najlepszym wyborem. Jeśli zostały wyświetlanie wszystkich uczniów, ale którym wyświetlana jest liczba kursy tylko w przypadku niektórych z nich, (które wymagałyby pisanie kodu oprócz znaczników), powolne ładowanie może być lepszym rozwiązaniem.
+W *uczniach. aspx*chcesz wyświetlić liczbę kursów dla każdego ucznia, więc najlepszym wyborem jest ładowanie eager. Jeśli zostały wyświetlone wszystkie uczniów, ale podano liczbę kursów tylko dla kilku z nich (co wymagałoby zapisania kodu jako uzupełnienie znacznika), ładowanie z opóźnieniem może być lepszym wyborem.
 
-Otwieranie programu lub przełączanie na *Students.aspx*, przełącz się do **projektu** widoku, wybierz opcję `StudentsEntityDataSource`i w **właściwości** zestaw okna **Include**właściwość **StudentGrades**. (Jeśli trzeba pobrać kilka właściwości nawigacji, można określić ich nazwy przecinkami — na przykład **StudentGrades, kursy**.)
+Otwórz lub przejdź do opcji *uczniowie. aspx*, przejdź do widoku **projektu** , wybierz pozycję `StudentsEntityDataSource`, a w oknie **Właściwości** ustaw właściwość **include** na **StudentGrades**. (Jeśli chcesz uzyskać wiele właściwości nawigacji, możesz określić ich nazwy oddzielone przecinkami — na przykład **StudentGrades, kursy**.).
 
 [![Image19](the-entity-framework-and-aspnet-getting-started-part-2/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image39.png)
 
-Przełącz się do **źródła** widoku. W `StudentsGridView` kontroli po ostatnim `asp:TemplateField` elementu, Dodaj następujące nowe pole szablonu:
+Przejdź do widoku **źródła** . W kontrolce `StudentsGridView` po ostatnim elemencie `asp:TemplateField` Dodaj następujące pole nowego szablonu:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample7.aspx)]
 
-W `Eval` wyrażenia, możesz odwoływać się do właściwości nawigacji `StudentGrades`. Ponieważ ta właściwość zawiera kolekcję, ma `Count` właściwość, która służy do wyświetlania liczby kursów, w których jest zarejestrowany dla uczniów. Później w samouczku pokazano, jak do wyświetlania danych z właściwości nawigacji, które zawierają pojedyncze jednostki zamiast kolekcji. (Należy pamiętać, że nie można użyć `BoundField` elementy, aby wyświetlić dane z właściwości nawigacji.)
+W wyrażeniu `Eval` można odwołać się do `StudentGrades`właściwości nawigacji. Ponieważ ta właściwość zawiera kolekcję, ma właściwość `Count`, która służy do wyświetlania liczby kursów, w których student jest zarejestrowany. W późniejszym samouczku zobaczysz, jak wyświetlać dane z właściwości nawigacji, które zawierają pojedyncze jednostki zamiast kolekcji. (Należy zauważyć, że nie można użyć elementów `BoundField` do wyświetlania danych z właściwości nawigacji).
 
-Uruchomienia strony, a teraz widać, ile kursy dla uczniów jest zarejestrowane w.
+Uruchom stronę i zobaczysz, ile kursów jest zarejestrowanych dla każdego ucznia.
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image41.png)
 
-## <a name="using-a-detailsview-control-to-insert-entities"></a>Wstaw jednostki za pomocą kontrolki widoku szczegółów
+## <a name="using-a-detailsview-control-to-insert-entities"></a>Wstawianie jednostek przy użyciu kontrolki DetailsView
 
-Następnym krokiem jest utworzenie strony, która ma `DetailsView` formant, który umożliwia dodawanie nowych studentów. Zamknij przeglądarkę, a następnie utwórz nową stronę sieci web, używając *Site.Master* strony wzorcowej. Nazwij stronę *StudentsAdd.aspx*, a następnie przejdź na **źródła** widoku.
+Następnym krokiem jest utworzenie strony z kontrolką `DetailsView`, która pozwoli dodawać nowych uczniów. Zamknij przeglądarkę, a następnie utwórz nową stronę sieci Web przy użyciu strony głównej programu *site. Master* . Nadaj stronie nazwę *StudentsAdd. aspx*, a następnie przejdź do widoku **źródła** .
 
-Dodaj następujący kod, aby zastąpić istniejący kod znaczników dla `Content` formantu o nazwie `Content2`:
+Dodaj następujące znaczniki, aby zamienić istniejące znaczniki dla kontrolki `Content` o nazwie `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample8.aspx)]
 
-Ten kod znaczników tworzy `EntityDataSource` formant, który jest podobny do tego, który został utworzony w *Students.aspx*, z wyjątkiem umożliwia wstawiania. Podobnie jak w przypadku `GridView` kontrolować powiązanych pól `DetailsView` kontrolki są kodowane dokładnie w takiej postaci, w jaki byłyby dla kontrolki danych, która łączy się bezpośrednio z bazą danych, z tą różnicą, że odwołują się do właściwości jednostki. W tym przypadku `DetailsView` formant jest używany tylko w przypadku wstawiania wierszy, dlatego ustawiono na domyślny tryb `Insert`.
+Ten znacznik tworzy formant `EntityDataSource`, który jest podobny do tego, który został utworzony w *uczniów. aspx*, z tą różnicą, że umożliwia wstawianie. Podobnie jak w przypadku kontrolki `GridView`, pola powiązane kontrolki `DetailsView` są kodowane dokładnie tak, jak w przypadku formantu danych, który łączy się bezpośrednio z bazą danych, z tą różnicą, że odwołują się do właściwości jednostki. W takim przypadku kontrolka `DetailsView` jest używana tylko do wstawiania wierszy, więc ustawiono domyślny tryb `Insert`.
 
-Uruchom stronę i dodać nowego studenta.
+Uruchom stronę i Dodaj nowego ucznia.
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-2/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image43.png)
 
-Nic się nie stanie po wstawieniu nowego Studenta, ale teraz uruchomić *Students.aspx*, zostaną wyświetlone nowe informacje dla uczniów.
+Nic się nie stanie po wstawieniu nowego ucznia, ale jeśli teraz uruchomisz *uczniów. aspx*, zobaczysz nowe informacje ucznia.
 
 ## <a name="displaying-data-in-a-drop-down-list"></a>Wyświetlanie danych na liście rozwijanej
 
-W poniższych krokach będziesz elementu databind `DropDownList` formantu do jednostki można ustawić przy użyciu `EntityDataSource` kontroli. W tej części samouczka nie zrobi, bardzo z tej listy. W kolejnych częściach jednak użyjesz listy umożliwiające użytkownikom wybór działu do wyświetlenia kursy skojarzony z działu.
+W poniższych krokach zostanie podjęta próba powiązania formantu `DropDownList` z zestawem jednostek przy użyciu kontrolki `EntityDataSource`. W tej części samouczka nie będzie można wykonać wielu czynności z tą listą. W kolejnych częściach należy użyć listy, aby umożliwić użytkownikom wybranie działu w celu wyświetlenia kursów skojarzonych z działem.
 
-Utwórz nową stronę sieci web o nazwie *Courses.aspx*. W **źródła** wyświetlać, dodawać nagłówek, aby `Content` formant, który nosi nazwę `Content2`:
+Utwórz nową stronę sieci Web o nazwie *kursy. aspx*. W widoku **źródła** Dodaj nagłówek do kontrolki `Content` o nazwie `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample9.aspx)]
 
-W **projektowania** wyświetlać, dodawać `EntityDataSource` kontrolki na stronie jak poprzednio, jednak tym razem nadaj mu nazwę `DepartmentsEntityDataSource`. Wybierz **działów** jako **Nazwa zestawu jednostek** wartości, a następnie wybierz tylko **DepartmentID** i **nazwa** właściwości.
+W widoku **projektu** dodaj formant `EntityDataSource` do strony tak jak wcześniej, z wyjątkiem tego, że ta nazwa `DepartmentsEntityDataSource`a. Wybierz pozycję **działy** jako wartość **entitySetName** i wybierz tylko właściwości **DepartmentID** i **name** .
 
 [![Image15](the-entity-framework-and-aspnet-getting-started-part-2/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image45.png)
 
-Z **standardowa** karcie **przybornika**, przeciągnij `DropDownList` do strony, nadaj jej nazwę `DepartmentsDropDownList`kliknij tag inteligentny i wybierz **wybierz źródło danych** do Rozpocznij **Kreatora konfiguracji źródła danych**.
+Na karcie **standardowe** **przybornika**przeciągnij kontrolkę `DropDownList` na stronę, nadaj jej nazwę `DepartmentsDropDownList`, kliknij tag inteligentny i wybierz pozycję **Wybierz źródło danych** , aby uruchomić **Kreatora konfiguracji źródła**danych.
 
 [![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
-W **wybierz źródło danych** kroku, wybierz pozycję **DepartmentsEntityDataSource** jako źródło danych, kliknij przycisk **odświeżania schematu**, a następnie wybierz pozycję **nazwa** jako pole danych, aby wyświetlić i **DepartmentID** jako wartość pola danych. Kliknij przycisk **OK**.
+W kroku **Wybierz źródło danych** wybierz pozycję **DepartmentsEntityDataSource** jako źródło danych, kliknij przycisk **Odśwież schemat**, a następnie wybierz opcję **Nazwa** jako pole danych do wyświetlenia i **DepartmentID** jako pole danych wartości. Kliknij przycisk **OK**.
 
 [![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 
-Metoda formant jest używany do elementu databind używający narzędzia Entity Framework jest taki sam, jak z innymi danymi ASP.NET kontrolki źródła, z wyjątkiem możesz określać jednostki i właściwości jednostki.
+Metoda używana do powiązania formantu przy użyciu Entity Framework jest taka sama jak w przypadku innych kontrolek źródła danych ASP.NET, z wyjątkiem określania jednostek i właściwości jednostek.
 
-Przełącz się do **źródła** wyświetlić i dodać "Wybierz dział:" bezpośrednio przed `DropDownList` kontroli.
+Przełącz się do widoku **źródła** i Dodaj "Wybierz dział:" bezpośrednio przed formantem `DropDownList`.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample10.aspx)]
 
-Przypominamy, zmień adiustację tak, aby uzyskać `EntityDataSource` kontrolki, w tym momencie, zastępując `ConnectionString` i `DefaultContainerName` atrybuty atrybutem `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` atrybutu. Często najlepiej poczekaj, aż po jej utworzeniu formant powiązany z danymi, który jest połączony z kontroli źródła danych, zanim będzie można zmienić `EntityDataSource` kontrolować znaczników, ponieważ po wprowadzeniu zmiany, Projektant nie udostępni Ci **odświeżania Schemat** opcji w kontrolce powiązanych z danymi.
+W tym momencie Zmień znaczniki dla kontrolki `EntityDataSource`, zastępując atrybuty `ConnectionString` i `DefaultContainerName` atrybutem `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"`. Często najlepiej czekać, aż po utworzeniu kontrolki powiązanej z danymi, która jest połączona z kontrolką źródła danych, przed zmianą `EntityDataSource` znaczników kontrolki, ponieważ po wprowadzeniu zmiany projektant nie będzie udostępniać opcji **Odśwież schemat** w kontrolce powiązanej z danymi.
 
-Uruchom stronę i dział można wybrać z listy rozwijanej.
+Uruchom stronę i wybierz dział z listy rozwijanej.
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image51.png)
 
-Na tym kończy się wprowadzenie do korzystania z `EntityDataSource` kontroli. Praca z tej kontrolki jest zazwyczaj nie różni się od pracy z innymi danymi ASP.NET kontroli źródła, z tą różnicą, że odwołania jednostki i właściwości zamiast tabel i kolumn. Jedynym wyjątkiem jest, gdy chcesz uzyskać dostęp do właściwości nawigacji. W następnym samouczku zobaczysz, czy składnia możesz za pomocą `EntityDataSource` kontroli może też różnią się od innych formantów źródła danych podczas filtrowania, grupowania i kolejność danych.
+To kończy wprowadzenie do korzystania z formantu `EntityDataSource`. Praca z tą kontrolką zwykle nie różni się od pracy z innymi ASP.NETmi formantami źródła danych, z tą różnicą, że obiekty i właściwości są odwołujące się do tabel i kolumn. Jedyny wyjątek polega na tym, że chcesz uzyskać dostęp do właściwości nawigacji. W następnym samouczku zobaczysz, że składnia używana z kontrolką `EntityDataSource` może również różnić się od innych kontrolek źródła danych podczas filtrowania, grupowania i porządkowania danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-1.md)

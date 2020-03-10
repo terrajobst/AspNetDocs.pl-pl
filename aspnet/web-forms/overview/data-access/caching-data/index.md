@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/caching-data/index
-title: Buforowanie danych | Dokumentacja firmy Microsoft
+title: Buforowanie danych | Microsoft Docs
 author: rick-anderson
-description: Ten samouczek zestaw wyjaśnia, buforowanie, co może zwiększyć wydajność witryny i jak stosować buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource...
+description: W tym zestawie samouczków objaśniono buforowanie, które może zwiększyć wydajność lokacji i jak zastosować buforowanie do warstwy prezentacji przy użyciu kontrolki ObjectDataSource...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 7d7ee56c-a867-4777-9407-ec8f73a605a3
 msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
 ms.openlocfilehash: 3426a83f0b42d40ee57d4eb40abeecde6fac2985
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109561"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576721"
 ---
 # <a name="caching-data"></a>Buforowanie danych
 
-> Ten samouczek zestaw wyjaśnia, buforowanie, co może zwiększyć wydajność witryny i jak stosować buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource.
+> W tym zestawie samouczków objaśniono buforowanie, które może zwiększyć wydajność lokacji i jak zastosować buforowanie do warstwy prezentacji przy użyciu kontrolki ObjectDataSource.
 
 - [Buforowanie danych za pomocą kontrolki ObjectDataSource (C#)](caching-data-with-the-objectdatasource-cs.md)
 - [Buforowanie danych w architekturze (C#)](caching-data-in-the-architecture-cs.md)

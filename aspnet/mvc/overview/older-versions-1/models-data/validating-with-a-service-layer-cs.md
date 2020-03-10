@@ -1,99 +1,99 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
-title: Weryfikowanie z użyciem warstwy usług (C#) | Dokumentacja firmy Microsoft
+title: Sprawdzanie poprawności przy użyciu warstwy usługC#() | Microsoft Docs
 author: StephenWalther
-description: 'Dowiedz się, jak przenieść swoją logikę weryfikacji poza akcji kontrolera, a także do oddzielnej usługi warstwy. W tym samouczku wyjaśniono, Autor: Stephen Walther jak możesz...'
+description: Dowiedz się, jak przenieść logikę walidacji z akcji kontrolera i do oddzielnej warstwy usług. W tym samouczku Stephen Walther wyjaśnia, jak to zrobić...
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 4eabc535-b8a1-43f5-bb99-cfeb86db0fca
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: da1a1c9cc79a452eb0d7597810e86f7bcf6cd179
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122328"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78542862"
 ---
 # <a name="validating-with-a-service-layer-c"></a>Walidacja z użyciem warstwy usług (C#)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-> Dowiedz się, jak przenieść swoją logikę weryfikacji poza akcji kontrolera, a także do oddzielnej usługi warstwy. W tym samouczku Walther Autor: Stephen wyjaśnia, jak możesz zachować sharp separacji zagadnień przez izolowanie swojej warstwy usług z warstwą kontrolera.
+> Dowiedz się, jak przenieść logikę walidacji z akcji kontrolera i do oddzielnej warstwy usług. W tym samouczku Stephen Walther wyjaśnia, jak można zachować wyraziste rozdzielenie problemów przez odizolowanie warstwy usług od warstwy kontrolera.
 
-Celem tego samouczka jest opisują jedną z metod wykonywania weryfikacji w aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak przenieść swoją logikę weryfikacji poza kontrolerach i do oddzielnej usługi warstwy.
+Celem tego samouczka jest opisywanie jednej metody weryfikacji w aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak przenieść logikę walidacji z kontrolerów i do oddzielnej warstwy usług.
 
-## <a name="separating-concerns"></a>Oddzielenie obaw
+## <a name="separating-concerns"></a>Rozdzielenie problemów
 
-W przypadku tworzenia aplikacji ASP.NET MVC, nie należy umieszczać logikę bazy danych wewnątrz akcji kontrolera. Mieszanie logikę bazy danych i kontroler utrudnia aplikacji do obsługi wraz z upływem czasu. Zaleca się umieścić wszystkie logiki bazy danych w warstwie osobnym repozytorium.
+Podczas kompilowania aplikacji ASP.NET MVC nie należy umieszczać logiki bazy danych wewnątrz akcji kontrolera. Mieszanie logiki bazy danych i kontrolera sprawia, że aplikacja jest trudniejsza do utrzymania w czasie. Zalecenie polega na umieszczeniu całej logiki bazy danych w osobnej warstwie repozytorium.
 
-Na przykład wyświetlanie listy 1 zawiera prostego repozytorium o nazwie ProductRepository. Repozytorium produktu zawiera wszystkie kod dostępu do danych dla aplikacji. Listę obejmuje również interfejs IProductRepository, który implementuje repozytorium produktu.
+Na przykład lista 1 zawiera proste repozytorium o nazwie ProductRepository. Repozytorium produktu zawiera cały kod dostępu do danych dla aplikacji. Ta lista zawiera również interfejs IProductRepository, który implementuje repozytorium produktu.
 
-**Wyświetlanie listy 1 — Models\ProductRepository.cs**
+**Lista 1--Models\ProductRepository.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample1.cs)]
 
-Kontroler w ofercie 2 używa warstwy repozytorium w jego indeks() i Create() akcji. Zwróć uwagę, czy ten kontroler nie zawiera wszelka logika bazy danych. Tworzenie warstwy repozytorium pozwala zachować czyste rozdzielenie problemów. Kontrolery są odpowiedzialne za logiki kontroli przepływu aplikacji i repozytorium jest odpowiedzialny za logiką dostępu do danych.
+Kontroler na liście 2 używa warstwy repozytorium w ramach akcji index () i Create (). Należy zauważyć, że ten kontroler nie zawiera żadnych logiki bazy danych. Utworzenie warstwy repozytorium pozwala zachować czyste rozdzielenie problemów. Kontrolery są odpowiedzialni za logikę kontroli przepływu aplikacji i repozytorium są odpowiedzialne za logikę dostępu do danych.
 
-**Wyświetlanie listy 2 - Controllers\ProductController.cs**
+**Lista 2 — Controllers\ProductController.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample2.cs)]
 
 ## <a name="creating-a-service-layer"></a>Tworzenie warstwy usług
 
-Tak logiki kontroli przepływu w aplikacji należy w kontrolerze i logiką dostępu do danych, należy w repozytorium. W takiej sytuacji, gdzie należy umieścić logikę weryfikacji? Jedną z opcji jest umieszczenie logikę weryfikacji w *warstwy usług*.
+W związku z tym logika kontroli przepływu aplikacji należy do kontrolera, a logika dostępu do danych należy do repozytorium. W takim przypadku należy umieścić logikę walidacji? Jedną z opcji jest umieszczenie logiki walidacji w *warstwie usług*.
 
-Warstwy usług to dodatkowa warstwa w aplikacji ASP.NET MVC, która pośredniczy komunikacji między kontrolerem i warstwy repozytorium. Warstwy usługi zawiera logikę biznesową. W szczególności zawiera logikę weryfikacji.
+Warstwa usługi jest dodatkową warstwą w aplikacji ASP.NET MVC, która koryguje komunikację między kontrolerem a warstwą repozytorium. Warstwa usługi zawiera logikę biznesową. W szczególności zawiera logikę walidacji.
 
-Na przykład warstwy usług produktu w ofercie 3 ma metodę CreateProduct(). Metoda CreateProduct() wywołuje metodę ValidateProduct() do sprawdzania poprawności nowego produktu przed przekazaniem produktu do repozytorium produktu.
+Na przykład warstwa usługi produktu na liście 3 ma metodę/produkt (). Metoda do produkcji () wywołuje metodę ValidateProduct (), aby zweryfikować nowy produkt przed przekazaniem produktu do repozytorium produktu.
 
-**Wyświetlanie listy 3 - Models\ProductService.cs**
+**Lista 3 — Models\ProductService.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample3.cs)]
 
-Kontroler produktu została zaktualizowana w ofercie 4, aby używać warstwy usług zamiast warstwy repozytorium. Warstwa kontrolera rozmawia z warstwy usług. Warstwy usług rozmawia z warstwy repozytorium. Każda warstwa ma oddzielne odpowiedzialności.
+Kontroler produktu został zaktualizowany na liście 4, aby użyć warstwy usługi zamiast warstwy repozytorium. Warstwa kontrolera jest wychodząca do warstwy usługi. Warstwa usługi jest wychodząca do warstwy repozytorium. Każda warstwa ma osobną odpowiedzialność.
 
-**Wyświetlanie listy 4 - Controllers\ProductController.cs**
+**Lista 4 — Controllers\ProductController.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample4.cs)]
 
-Należy zauważyć, że usługa produktu jest tworzona w Konstruktorze kontroler produktu. Po utworzeniu usługi produktów słownik stanów modelu jest przekazywany do usługi. Usługa produktu używa stan modelu do przekazywania komunikatów o błędach weryfikacji odsyłane do kontrolera.
+Należy zauważyć, że usługa produktu jest tworzona w konstruktorze produktu. Po utworzeniu usługi produktu słownik stanu modelu jest przesyłany do usługi. Usługa produktu używa stanu modelu do przekazywania komunikatów o błędach walidacji z powrotem do kontrolera.
 
 ## <a name="decoupling-the-service-layer"></a>Oddzielenie warstwy usług
 
-Firma Microsoft nie powiodło się izolować kontrolera i warstwy usługi, w związku z jednego. Kontroler i warstwy usługi komunikują się za pośrednictwem stanu modelu. Innymi słowy warstwy usług zależny od określonej funkcji platformę ASP.NET MVC.
+Nie powiodło się izolowanie warstw kontrolera i usług. Warstwy kontrolera i usługi komunikują się za pomocą stanu modelu. Innymi słowy, warstwa usługi ma zależność od określonej funkcji struktury MVC ASP.NET.
 
-Chcemy wyizolować warstwy usług z naszych możliwie warstwy kontrolera. Teoretycznie możemy powinno być możliwe do warstwy usług za pomocą dowolnego typu aplikacji i nie tylko aplikację ASP.NET MVC. Na przykład w przyszłości może być chcemy tworzenie aplikacji WPF frontonu dla naszej aplikacji. Należy znaleźliśmy sposobem usunięcia zależności na platformie ASP.NET MVC stan modelu z naszych warstwy usług.
+Chcemy odizolować warstwę usług od naszej warstwy kontrolera tak dużo, jak to możliwe. Teoretycznie powinno być możliwe użycie warstwy usług z dowolnym typem aplikacji, a nie tylko aplikacji ASP.NET MVC. Na przykład w przyszłości możemy chcieć utworzyć fronton platformy WPF dla naszej aplikacji. Powinienmy znaleźć sposób usunięcia zależności od stanu modelu MVC ASP.NET z naszej warstwy usług.
 
-W ofercie 5 warstwy usług został zaktualizowany tak, aby nie używał już stanu modelu. Zamiast tego używa każdej klasy, która implementuje interfejs IValidationDictionary.
+Na liście 5 warstwa usługi została zaktualizowana, aby nie korzystała już z stanu modelu. Zamiast tego używa klasy, która implementuje interfejs IValidationDictionary.
 
-**Wyświetlanie listy 5 - Models\ProductService.cs (odłączone)**
+**Lista 5-Models\ProductService.cs (odłączony)**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample5.cs)]
 
-Interfejs IValidationDictionary jest zdefiniowany w ofercie 6. Ten prosty interfejs zawiera jedną metodę i jedną właściwość.
+Interfejs IValidationDictionary został zdefiniowany na liście 6. Ten prosty interfejs ma pojedynczą metodę i pojedynczą właściwość.
 
-**Wyświetlanie listy 6 - Models\IValidationDictionary.cs**
+**Lista 6 — Models\IValidationDictionary.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample6.cs)]
 
-Klasa w ofercie 7 o nazwie klasy ModelStateWrapper implementuje interfejs IValidationDictionary. Można utworzyć wystąpienie klasy ModelStateWrapper, przekazując słownik stanów modelu do konstruktora.
+Klasa na liście 7 o nazwie Klasa ModelStateWrapper implementuje interfejs IValidationDictionary. Można utworzyć wystąpienie klasy ModelStateWrapper przez przekazanie słownika stanu modelu do konstruktora.
 
-**Wyświetlanie listy 7 - Models\ModelStateWrapper.cs**
+**Lista 7 — Models\ModelStateWrapper.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample7.cs)]
 
-Ponadto zaktualizowano kontroler w ofercie 8 używa ModelStateWrapper podczas tworzenia warstwy usług w jej konstruktora.
+Na koniec zaktualizowany kontroler na liście 8 używa ModelStateWrapper podczas tworzenia warstwy usług w jej konstruktorze.
 
-**Wyświetlanie listy 8 - Controllers\ProductController.cs**
+**Lista 8-Controllers\ProductController.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample8.cs)]
 
-Za pomocą IValidationDictionary interfejsu i klasa ModelStateWrapper pozwala nam całkowicie odizolować nasze warstwy usług z naszych warstwy kontrolera. Warstwy usług nie jest już zależny od stanu modelu. Można przekazać każdej klasy, która implementuje interfejs IValidationDictionary do warstwy usług. Na przykład aplikacja WPF może implementować interfejs IValidationDictionary klasa prostych kolekcji.
+Użycie interfejsu IValidationDictionary i klasy ModelStateWrapper umożliwia nam całkowite odizolowanie naszej warstwy usług od naszej warstwy kontrolera. Warstwa usługi nie jest już zależna od stanu modelu. Do warstwy usług można przekazać dowolną klasę, która implementuje interfejs IValidationDictionary. Na przykład aplikacja WPF może zaimplementować interfejs IValidationDictionary przy użyciu prostej klasy kolekcji.
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka było w celu omówienia jedno z podejść do przeprowadzania weryfikacji w aplikacji ASP.NET MVC. W tym samouczku przedstawiono sposób przenieść całą logikę weryfikacji poza kontrolerach i do oddzielnej usługi warstwy. Przedstawiono również sposób izolowania swojej warstwy usług z warstwą kontrolera, tworząc klasę ModelStateWrapper.
+Celem tego samouczka było omawianie jednego podejścia do wykonywania walidacji w aplikacji ASP.NET MVC. W tym samouczku przedstawiono sposób przenoszenia wszystkich logiki walidacji z kontrolerów i do oddzielnej warstwy usług. Poznasz również sposób izolowania warstwy usług od warstwy kontrolera przez utworzenie klasy ModelStateWrapper.
 
 > [!div class="step-by-step"]
 > [Poprzednie](validating-with-the-idataerrorinfo-interface-cs.md)

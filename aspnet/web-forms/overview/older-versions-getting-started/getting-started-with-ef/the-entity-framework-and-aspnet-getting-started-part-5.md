@@ -1,117 +1,117 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 sieci Web Forms — część 5 | Dokumentacja firmy Microsoft
+title: Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 5 | Microsoft Docs
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy Entity Framework. Przykładowa aplikacja jest...
+description: Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework. Przykładowa aplikacja to...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: 24ad4379-3fb2-44dc-ba59-85fe0ffcb2ae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
 ms.openlocfilehash: 75328e67abb4295b619cac5423a9eb970942fff7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133114"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528001"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 Web Forms — część 5
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Wprowadzenie z Entity Framework 4,0 Database First i ASP.NET 4 Web Forms — część 5
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu Entity Framework 4.0 i Visual Studio 2010. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET Web Forms przy użyciu Entity Framework 4,0 i programu Visual Studio 2010. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek w serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
-## <a name="working-with-related-data-continued"></a>Praca z powiązanych danych, kontynuowanie
+## <a name="working-with-related-data-continued"></a>Praca z powiązanymi danymi, kontynuowanie
 
-W poprzednim samouczku rozpoczęcia używania `EntityDataSource` kontrolkę powiązane dane. Wyświetlane na wielu poziomach hierarchii i edytować dane w właściwości nawigacji. W tym samouczku będziesz nadal pracować powiązanych danych, dodając i usuwając relacje i przez dodanie nowego obiektu, który ma ustanowioną relację do istniejącej jednostki.
+W poprzednim samouczku rozpoczęto korzystanie z kontrolki `EntityDataSource` do pracy z powiązanymi danymi. Wyświetlono wiele poziomów hierarchii i edytowane dane we właściwościach nawigacji. W tym samouczku będziesz nadal korzystać z pokrewnych danych przez dodawanie i usuwanie relacji oraz Dodawanie nowej jednostki, która ma relację z istniejącą jednostką.
 
-Utworzysz strony, który dodaje kursy, które są przypisane do działów. Działy już istnieje, a podczas tworzenia nowego kursu, w tym samym czasie będzie ustanawiania relacji między nim a istniejących działu.
+Utworzysz stronę, która dodaje kursy, które są przypisane do działów. Działy już istnieją, a podczas tworzenia nowego kursu, w tym samym czasie, należy ustanowić relację między działem IT a istniejącym działem.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image1.png)
 
-Utworzysz też strona, która współdziała z relacją wiele do wielu, przypisując pod kierunkiem instruktora do kursu (Dodawanie relacji między dwiema jednostkami, które można wybrać) lub usunięcie pod kierunkiem instruktora z kursu (usuwanie relacji między dwiema jednostkami, Wybierz). W bazie danych, Dodawanie relacji między instruktora oraz przypisane kurs wyniki w nowym wierszu, do którego jest dodawany `CourseInstructor` Tabela skojarzenia; usuwanie relacji pociąga za sobą usunięcie wierszy z `CourseInstructor` tabeli skojarzenia. Jednak możesz to zrobić w Entity Framework przez ustawienie właściwości nawigacji, bez odwołujące się do `CourseInstructor` tabeli w sposób jawny.
+Utworzysz również stronę, która współpracuje z relacją wiele-do-wielu przez przypisanie instruktora do kursu (dodanie relacji między dwoma wybranymi jednostkami) lub usunięcie instruktora z kursu (usunięcie relacji między dwiema jednostkami Wybierz pozycję). W bazie danych Dodawanie relacji między instruktorem a kursem powoduje dodanie nowego wiersza do tabeli skojarzeń `CourseInstructor`; usunięcie relacji polega na usunięciu wiersza z tabeli skojarzeń `CourseInstructor`. Należy jednak wykonać tę czynność w Entity Framework przez ustawienie właściwości nawigacji bez jawnego odwoływania się do tabeli `CourseInstructor`.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image3.png)
 
 ## <a name="adding-an-entity-with-a-relationship-to-an-existing-entity"></a>Dodawanie jednostki z relacją do istniejącej jednostki
 
-Utwórz nową stronę sieci web o nazwie *CoursesAdd.aspx* , który używa *Site.Master* strony wzorcowej, a następnie dodaj następujący kod do `Content` formantu o nazwie `Content2`:
+Utwórz nową stronę sieci Web o nazwie *CoursesAdd. aspx* , która korzysta ze strony wzorcowej *site. Master* , i Dodaj następujące znaczniki do formantu `Content` o nazwie `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample1.aspx)]
 
-Ten kod znaczników tworzy `EntityDataSource` formant, który wybiera kursów, który umożliwia wstawianie i program obsługi, który określa `Inserting` zdarzeń. Użyjesz programu obsługi, aby zaktualizować `Department` właściwość nawigacji, gdy nowy `Course` zostanie utworzona jednostka.
+Ten znacznik tworzy formant `EntityDataSource`, który wybiera kursy, które umożliwiają wstawianie i określa procedurę obsługi dla zdarzenia `Inserting`. Użyjesz programu obsługi, aby zaktualizować właściwość nawigacji `Department` po utworzeniu nowej jednostki `Course`.
 
-Tworzy również znaczników `DetailsView` kontrolki używanej do dodawania nowych `Course` jednostek. Znaczniki używa powiązanych pól `Course` właściwości jednostki. Należy wprowadzić `CourseID` wartości, ponieważ nie jest polem Identyfikator generowanych przez system. Zamiast tego jest liczba kurs, która musi być określona ręcznie, gdy jest tworzony w czasie.
+Znacznik tworzy również formant `DetailsView`, który służy do dodawania nowych jednostek `Course`. Znacznik używa pól powiązanych do `Course` właściwości jednostki. Musisz wprowadzić wartość `CourseID`, ponieważ nie jest to pole identyfikatora generowane przez system. Zamiast tego jest to numer kursu, który należy określić ręcznie podczas tworzenia kursu.
 
-Możesz użyć pola szablonu dla `Department` właściwość nawigacji, ponieważ nie można używać właściwości nawigacji z `BoundField` kontrolki. Pole szablon zawiera listy rozwijanej, aby wybrać działu. Listy rozwijanej jest powiązany z `Departments` zestawu przy użyciu jednostek `Eval` zamiast `Bind`, ponownie ponieważ bezpośrednio nie można powiązać właściwości nawigacji, aby można było je zaktualizować. Określ program obsługi `DropDownList` kontrolki `Init` zdarzeń, aby przechowujesz odwołanie do formantu do użytku przez kod, który aktualizuje `DepartmentID` klucza obcego.
+Użyj pola szablon dla właściwości nawigacji `Department`, ponieważ właściwości nawigacji nie mogą być używane z kontrolkami `BoundField`. Pole szablon zawiera listę rozwijaną, aby wybrać dział. Lista rozwijana jest powiązana z jednostką `Departments`ową ustawioną przy użyciu `Eval` zamiast `Bind`, ponieważ nie można bezpośrednio powiązać właściwości nawigacji w celu ich aktualizacji. Należy określić procedurę obsługi dla zdarzenia `Init` formantu `DropDownList`, aby można było przechowywać odwołanie do formantu do użycia przez kod, który aktualizuje `DepartmentID` klucz obcy.
 
-W *CoursesAdd.aspx.cs* zaraz po deklaracji klasy częściowe, Dodaj pole klasy do przechowywania odwołań do `DepartmentsDropDownList` sterowania:
+W *CoursesAdd.aspx.cs* tuż po deklaracji częściowej klasy Dodaj pole klasy, aby pomieścić odwołanie do kontrolki `DepartmentsDropDownList`:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample2.cs)]
 
-Dodaj program obsługi `DepartmentsDropDownList` kontrolki `Init` zdarzeń, dzięki czemu można przechowywać odwołanie do formantu. Dzięki temu można uzyskać wartość użytkownik wprowadził i używać go do aktualizacji `DepartmentID` wartość `Course` jednostki.
+Dodaj procedurę obsługi dla zdarzenia `Init` kontrolki `DepartmentsDropDownList`, aby można było przechowywać odwołanie do kontrolki. Pozwala to na uzyskanie wartości wprowadzonej przez użytkownika i użycie jej do zaktualizowania wartości `DepartmentID` jednostki `Course`.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample3.cs)]
 
-Dodaj program obsługi `DetailsView` kontrolki `Inserting` zdarzeń:
+Dodaj program obsługi dla zdarzenia `Inserting` kontrolki `DetailsView`:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample4.cs)]
 
-Kiedy użytkownik kliknie `Insert`, `Inserting` zdarzenie jest wywoływane przed wstawieniem nowy rekord. Pobiera kod obsługi `DepartmentID` z `DropDownList` kontroli i używa go do ustawiania wartości, która będzie służyć do `DepartmentID` właściwość `Course` jednostki.
+Gdy użytkownik kliknie `Insert`, zdarzenie `Inserting` zostanie wywołane przed wstawieniem nowego rekordu. Kod w programie obsługi pobiera `DepartmentID` z kontrolki `DropDownList` i używa jej do ustawiania wartości, która będzie używana dla właściwości `DepartmentID` jednostki `Course`.
 
-Entity Framework zajmie się dodawania tego kursu, aby `Courses` właściwość nawigacji skojarzona `Department` jednostki. Dodaje także wydziałowi na `Department` właściwość nawigacji `Course` jednostki.
+Entity Framework zajmie się dodaniem tego kursu do właściwości nawigacji `Courses` skojarzonej jednostki `Department`. Dodaje również dział do właściwości nawigacji `Department` jednostki `Course`.
 
 Uruchom stronę.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image5.png)
 
-Wprowadź identyfikator, tytuł, ilość środków i wybierz dział, a następnie kliknij przycisk **Wstaw**.
+Wprowadź identyfikator, tytuł, liczbę kredytów i wybierz dział, a następnie kliknij przycisk **Wstaw**.
 
-Uruchom *Courses.aspx* stronie, a następnie wybierz tego samego działu, aby zobaczyć nowe kursu.
+Uruchom stronę *kursy. aspx* , a następnie wybierz ten sam dział, aby wyświetlić nowy kurs.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-5/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image7.png)
 
-## <a name="working-with-many-to-many-relationships"></a>Praca z relacji wiele do wielu
+## <a name="working-with-many-to-many-relationships"></a>Praca z relacjami wiele-do-wielu
 
-Relacja między `Courses` zestawu jednostek i `People` zestaw jednostek znajduje relacji wiele do wielu. A `Course` jednostka ma właściwość nawigacji o nazwie `People` zawierających zero, jeden lub więcej powiązanych `Person` jednostki (reprezentującej Instruktorzy przypisane do nauki danego kursu). I `Person` jednostka ma właściwość nawigacji o nazwie `Courses` zawierających zero, jeden lub więcej powiązanych `Course` jednostki (reprezentujący kursy tego instruktora jest przypisany do nauki). Jeden instruktora może uczyć wielu kursów i jednego kursu mogą być prowadzone przez instruktorów wielu. W tej sekcji tego przewodnika będziesz dodawać i usuwać relacje między `Person` i `Course` jednostek, aktualizując właściwości nawigacji powiązanych jednostek.
+Relacja między zestawem jednostek `Courses` i zestawem jednostek `People` jest relacją "wiele do wielu". Jednostka `Course` ma właściwość nawigacji o nazwie `People`, która może zawierać zero, jedną lub więcej powiązanych jednostek `Person` (reprezentujących instruktorów przypisanych do uczenia tego kursu). A jednostka `Person` ma właściwość nawigacji o nazwie `Courses`, która może zawierać zero, jedną lub więcej powiązanych jednostek `Course` (reprezentującą kursy, do których jest przypisany instruktor). Jeden instruktor może uczyć się wielu kursów, a jeden kurs może być nauczany przez wielu instruktorów. W tej części przewodnika dodasz i usuniesz relacje między `Person` i `Course` jednostek przez zaktualizowanie właściwości nawigacji powiązanych jednostek.
 
-Utwórz nową stronę sieci web o nazwie *InstructorsCourses.aspx* , który używa *Site.Master* strony wzorcowej, a następnie dodaj następujący kod do `Content` formantu o nazwie `Content2`:
+Utwórz nową stronę sieci Web o nazwie *InstructorsCourses. aspx* , która korzysta ze strony wzorcowej *site. Master* , i Dodaj następujące znaczniki do formantu `Content` o nazwie `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample5.aspx)]
 
-Ten kod znaczników tworzy `EntityDataSource` formant, który pobiera nazwę i `PersonID` z `Person` jednostki dla instruktorów. A `DropDrownList` kontrolka jest powiązana z `EntityDataSource` kontroli. `DropDownList` Kontroli określa program obsługi `DataBound` zdarzeń. Użyjesz tej obsługi na elementu databind dwóch list rozwijanych, wyświetlające kursów.
+Ten znacznik tworzy formant `EntityDataSource`, który pobiera nazwę i `PersonID` jednostek `Person` dla instruktorów. Formant `DropDrownList` jest powiązany z kontrolką `EntityDataSource`. Formant `DropDownList` określa procedurę obsługi dla zdarzenia `DataBound`. Ta procedura obsługi służy do powiązania dwóch list rozwijanych, które wyświetlają kursy.
 
-Znaczniki wzrasta, powstaje następującej grupy kontrolek używanych w przypadku przypisywania kursu do wybranego przez instruktorów:
+Znacznik tworzy również następujące grupy kontrolek, które służą do przypisywania kursu do wybranego instruktora:
 
-- A `DropDownList` kontrolka służąca do wybierania kurs, aby przypisać. Ten formant zostanie wypełniony kursy, które obecnie nie są przypisane do wybranego przez instruktorów.
-- A `Button` formantu, aby zainicjować przypisania.
-- A `Label` formantu, aby wyświetlić komunikat o błędzie, jeśli przypisanie zakończy się niepowodzeniem.
+- Kontrolka `DropDownList` do wybierania kursu do przypisania. Ten formant zostanie wypełniony kursami, które nie są obecnie przypisane do wybranego instruktora.
+- Formant `Button`, aby zainicjować przypisanie.
+- Formant `Label`, aby wyświetlić komunikat o błędzie, jeśli przypisanie nie powiedzie się.
 
-Na koniec znaczników wzrasta, powstaje grupy formantów służące do usuwania kurs z wybranych przez instruktorów.
+Na koniec znacznik tworzy również grupę formantów do użycia w celu usunięcia kursu z wybranego instruktora.
 
-W *InstructorsCourses.aspx.cs*, Dodaj instrukcję using instrukcji:
+W *InstructorsCourses.aspx.cs*Dodaj instrukcję using:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample6.cs)]
 
-Dodaj metodę do zapełniania dwóch list rozwijanych, wyświetlające kursy:
+Dodaj metodę zapełniania dwóch list rozwijanych, które wyświetlają kursy:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample7.cs)]
 
-Ten kod pobiera wszystkie kursy z `Courses` jednostki ustaw i pobiera kursów z `Courses` właściwość nawigacji `Person` jednostki dla wybranego przez instruktorów. Następnie określa, które kursy są przypisane do tego przez instruktorów i w związku z tym umożliwia wypełnienie listy rozwijanej.
+Ten kod pobiera wszystkie kursy z zestawu jednostek `Courses` i pobiera kursy z właściwości nawigacji `Courses` jednostki `Person` dla wybranego instruktora. Następnie decyduje o tym, które kursy są przypisane do tego instruktora i odpowiednio wypełnia listę rozwijaną.
 
-Dodaj program obsługi `Assign` przycisku `Click` zdarzeń:
+Dodaj program obsługi dla zdarzenia `Click` `Assign` przycisku:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample8.cs)]
 
-Ten kod pobiera `Person` jednostki dla wybranego przez instruktorów, pobiera `Course` jednostki dla wybranego kursu i dodaje wybrany kurs, aby `Courses` właściwość nawigacji instruktora `Person` jednostki. Następnie zapisuje zmiany w bazie danych i repopulates list rozwijanych, aby wyniki są widoczne natychmiast.
+Ten kod pobiera jednostkę `Person` dla wybranego instruktora, pobiera jednostkę `Course` dla wybranego kursu i dodaje wybrany kurs do właściwości nawigacji `Courses` jednostki `Person` instruktora. Następnie zapisuje zmiany w bazie danych i ponownie wypełnia listy rozwijane, dzięki czemu wyniki mogą być widoczne natychmiast.
 
-Dodaj program obsługi `Remove` przycisku `Click` zdarzeń:
+Dodaj program obsługi dla zdarzenia `Click` `Remove` przycisku:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample9.cs)]
 
-Ten kod pobiera `Person` jednostki dla wybranego przez instruktorów, pobiera `Course` jednostki dla wybranego kursu i spowoduje usunięcie wybranych kursów z `Person` jednostki `Courses` właściwości nawigacji. Następnie zapisuje zmiany w bazie danych i repopulates list rozwijanych, aby wyniki są widoczne natychmiast.
+Ten kod pobiera jednostkę `Person` dla wybranego instruktora, pobiera jednostkę `Course` dla wybranego kursu i usuwa wybrany kurs z `Courses` właściwości nawigacji jednostki `Person`. Następnie zapisuje zmiany w bazie danych i ponownie wypełnia listy rozwijane, dzięki czemu wyniki mogą być widoczne natychmiast.
 
-Dodaj kod, aby `Page_Load` metodę, która zapewnia, że komunikaty o błędach nie są widoczne, gdy nie ma błędów do raportu i dodać procedury obsługi dla `DataBound` i `SelectedIndexChanged` zdarzenia z listy rozwijanej Instruktorzy do wypełnienia listy rozwijanej kursy:
+Dodaj kod do metody `Page_Load`, która sprawdza, czy komunikaty o błędach nie są widoczne, gdy nie ma błędów do raportowania i Dodaj programy obsługi dla zdarzeń `DataBound` i `SelectedIndexChanged` na liście rozwijanej instruktorzy w celu wypełnienia list rozwijanych kursy:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample10.cs)]
 
@@ -119,9 +119,9 @@ Uruchom stronę.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Wybierz pod kierunkiem instruktora. <strong>Przypisać kurs</strong> listy rozwijanej wyświetla kursy, które nie uczyć instruktora, i <strong>Usuń kurs</strong> listy rozwijanej wyświetla kursy, które instruktora jest już przypisana do. W <strong>przypisać kurs</strong> Wybierz kurs a następnie kliknij przycisk <strong>przypisać</strong>. Kurs przenosi do <strong>Usuń kurs</strong> listy rozwijanej. Wybierz kurs w <strong>Usuń kurs</strong> sekcji, a następnie kliknij przycisk <strong>Usuń</strong><em>.</em> Kurs przenosi do <strong>przypisać kurs</strong> listy rozwijanej.
+Wybierz instruktora. Lista rozwijana <strong>Przypisz kurs</strong> zawiera kursy, których instruktor nie uczy się, a lista rozwijana <strong>Usuń kurs</strong> zawiera kursy, do których ten instruktor jest już przypisany. W sekcji <strong>przypisywanie kursu</strong> Wybierz kurs, a następnie kliknij przycisk <strong>Przypisz</strong>. Kurs zostanie przeniesiony na listę rozwijaną <strong>Usuń kurs</strong> . Wybierz kurs w sekcji <strong>usuwanie kursu</strong> i kliknij przycisk <strong>Usuń</strong><em>.</em> Kurs zostanie przeniesiony na listę rozwijaną <strong>Przypisz kurs</strong> .
 
-Teraz wiesz niektóre inne sposoby pracy z powiązanych danych. W następującego samouczka dowiesz się, jak używać dziedziczenia w modelu danych w celu konserwacji aplikacji.
+Zaobserwowano już kilka sposobów pracy z powiązanymi danymi. W poniższym samouczku dowiesz się, jak używać dziedziczenia w modelu danych, aby zwiększyć łatwość utrzymania aplikacji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-4.md)

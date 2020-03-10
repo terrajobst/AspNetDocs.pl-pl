@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-cookies
-title: Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API — ASP.NET 4.x
+title: Pliki cookie protokołu HTTP w interfejsie Web API ASP.NET — ASP.NET 4. x
 author: MikeWasson
-description: W tym artykule opisano sposób wysyłania i odbierania plików cookie protokołu HTTP w interfejsie API sieci Web w technologii ASP.NET 4.x.
+description: Opisuje sposób wysyłania i odbierania plików cookie protokołu HTTP w interfejsie Web API dla ASP.NET 4. x.
 ms.author: riande
 ms.date: 09/17/2012
 ms.custom: seoapril2019
@@ -10,23 +10,23 @@ ms.assetid: 243db2ec-8f67-4a5e-a382-4ddcec4b4164
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
 ms.openlocfilehash: 8ca26ff6776daa13bc4f8b06c2eba61afcfefba2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126239"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557688"
 ---
 # <a name="http-cookies-in-aspnet-web-api"></a>Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym temacie opisano, jak wysyłać i odbierać pliki cookie protokołu HTTP w interfejsie API sieci Web.
+W tym temacie opisano sposób wysyłania i odbierania plików cookie protokołu HTTP w interfejsie API sieci Web.
 
-## <a name="background-on-http-cookies"></a>Podstawowe informacje dotyczące plików cookie protokołu HTTP
+## <a name="background-on-http-cookies"></a>Tło dla plików cookie HTTP
 
-Ta sekcja zawiera krótkie omówienie sposobu implementacji plików cookie na poziomie protokołu HTTP. Aby uzyskać szczegółowe informacje, zapoznaj się z [RFC 6265](http://tools.ietf.org/html/rfc6265).
+Ta sekcja zawiera krótkie omówienie sposobu implementacji plików cookie na poziomie protokołu HTTP. Aby uzyskać szczegółowe informacje, zapoznaj się z [dokumentem RFC 6265](http://tools.ietf.org/html/rfc6265).
 
-Plik cookie jest element danych, który serwer wysyła w odpowiedzi HTTP. Klient (opcjonalnie) są przechowywane pliki cookie i zwraca jego dla kolejnych żądań. Dzięki temu klientowi i serwerowi udostępnianie stanu. Aby ustawić plik cookie, na serwerze znajduje się nagłówka Set-Cookie odpowiedzi. Format pliku cookie jest pary nazwa wartość, za pomocą opcjonalnych atrybutów. Na przykład:
+Plik cookie to element danych wysyłany przez serwer w odpowiedzi HTTP. Klient (opcjonalnie) przechowuje plik cookie i zwraca go na kolejne żądania. Umożliwia to klientowi i serwerowi udostępnianie stanu. Aby ustawić plik cookie, serwer zawiera nagłówek Set-cookie w odpowiedzi. Format pliku cookie to para nazwa-wartość z opcjonalnymi atrybutami. Na przykład:
 
 [!code-powershell[Main](http-cookies/samples/sample1.ps1)]
 
@@ -34,78 +34,78 @@ Oto przykład z atrybutami:
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Aby przywrócić serwer pliku cookie, klient dołącza nagłówek Cookie w nowszych żądań.
+Aby zwrócić plik cookie na serwer, klient zawiera nagłówek pliku cookie w późniejszych żądaniach.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
 ![](http-cookies/_static/image1.png)
 
-Odpowiedź HTTP może obejmować wiele nagłówków Set-Cookie.
+Odpowiedź HTTP może zawierać wiele nagłówków Set-cookie.
 
 [!code-powershell[Main](http-cookies/samples/sample4.ps1)]
 
-Wiele plików cookie, za pomocą pojedynczego nagłówek Cookie zwracane przez klienta.
+Klient zwraca wiele plików cookie przy użyciu jednego nagłówka pliku cookie.
 
 [!code-console[Main](http-cookies/samples/sample5.cmd)]
 
-Zakresu i czasu trwania w pliku cookie są kontrolowane przez następujące atrybuty do nagłówka Set-Cookie:
+Zakres i czas trwania pliku cookie są kontrolowane przez następujące atrybuty w nagłówku Set-Cookie:
 
-- **Domeny**: Informuje klienta, w której domeny powinien zostać wyświetlony plik cookie. Na przykład jeśli domena jest "example.com", klient zwraca plik cookie co poddomeny example.com. Jeśli nie zostanie określony, domena jest serwer pochodzenia.
-- **Ścieżka**: Ogranicza pliku cookie do określonej ścieżki w domenie. Jeśli nie zostanie określony, używany jest ścieżka identyfikatora URI żądania.
-- **Wygasa**: Ustawia datę wygaśnięcia pliku cookie. Klient usuwa plik cookie po jego wygaśnięciu.
-- **MAX-Age**: Ustawia maksymalny wiek pliku cookie. Klient usuwa plik cookie, gdy osiągnie maksymalny wiek.
+- **Domena**: informuje klienta, która domena powinna odebrać plik cookie. Na przykład jeśli domena jest "example.com", klient zwraca plik cookie do każdej poddomeny example.com. Jeśli nie zostanie określony, domena jest serwerem pochodzenia.
+- **Ścieżka**: ogranicza plik cookie do określonej ścieżki w domenie. Jeśli nie zostanie określony, zostanie użyta ścieżka identyfikatora URI żądania.
+- **Wygasa**: ustawia datę wygaśnięcia pliku cookie. Klient usuwa plik cookie po jego wygaśnięciu.
+- **Max-age**: ustawia maksymalny wiek pliku cookie. Klient usuwa plik cookie po osiągnięciu maksymalnego wieku.
 
-Jeśli oba `Expires` i `Max-Age` są ustawione, `Max-Age` ma pierwszeństwo. Jeśli nie jest ustawiona, klient usuwa plik cookie po zakończeniu bieżącej sesji. (Dokładnie znaczenie "sesja" jest określany przez agenta użytkownika).
+Jeśli ustawiono zarówno `Expires`, jak i `Max-Age`, `Max-Age` ma pierwszeństwo. Jeśli żadna z tych wartości nie zostanie ustawiona, klient usunie plik cookie po zakończeniu bieżącej sesji. (Dokładne znaczenie "Session" jest określane przez agenta użytkownika.)
 
-Należy jednak pamiętać, że klienci zignorować plików cookie. Na przykład użytkownik może wyłączyć plików cookie w celu zachowania prywatności. Klienci mogą usunąć pliki cookie, zanim wygaśnie lub ograniczyć liczbę tych plików cookie przechowywane. Ze względu na zasady zachowania poufności klienci często odrzucić pliki cookie "third party", gdzie domena jest niezgodny serwer pochodzenia. Krótko mówiąc serwer nie należy polegać na pliki cookie, które ustawia powrót.
+Należy jednak pamiętać, że klienci mogą ignorować pliki cookie. Na przykład użytkownik może wyłączyć pliki cookie ze względów zachowania poufności informacji. Klienci mogą usuwać pliki cookie przed ich wygaśnięciem lub ograniczyć liczbę przechowywanych plików cookie. Ze względu na prywatność klienci często odrzucają pliki cookie "inne firmy", w których domena nie jest zgodna z serwerem źródłowym. W krótkim przypadku serwer nie powinien opierać się na przywracaniu plików cookie, które ustawia.
 
-## <a name="cookies-in-web-api"></a>Pliki cookie w interfejsie Web API
+## <a name="cookies-in-web-api"></a>Pliki cookie w internetowym interfejsie API
 
-Aby dodać plik cookie do odpowiedzi HTTP, Utwórz **CookieHeaderValue** wystąpienia, która reprezentuje plik cookie. Następnie wywołaj **AddCookies** metodę rozszerzenia, która jest zdefiniowana w **System.Net.Http. HttpResponseHeadersExtensions** klasy, aby dodać plik cookie.
+Aby dodać plik cookie do odpowiedzi HTTP, Utwórz wystąpienie **CookieHeaderValue** , które reprezentuje plik cookie. Następnie Wywołaj metodę rozszerzenia **Addcookiess** , która jest zdefiniowana w **systemie .NET. http. HttpResponseHeadersExtensions** , aby dodać plik cookie.
 
 Na przykład poniższy kod dodaje plik cookie w ramach akcji kontrolera:
 
 [!code-csharp[Main](http-cookies/samples/sample6.cs)]
 
-Należy zauważyć, że **AddCookies** pobiera tablicę **CookieHeaderValue** wystąpień.
+Zwróć uwagę, że **addcookies** pobiera tablicę wystąpień **CookieHeaderValue** .
 
-Aby wyodrębnić pliki cookie z żądania klienta, należy wywołać **GetCookies** metody:
+Aby wyodrębnić pliki cookie z żądania klienta, wywołaj metodę **Getcookiess** :
 
 [!code-csharp[Main](http-cookies/samples/sample7.cs)]
 
-A **CookieHeaderValue** zawiera zbiór **CookieState** wystąpień. Każdy **CookieState** reprezentuje jednego pliku cookie. Pobieranie przy użyciu metody indeksatora **CookieState** według nazwy, jak pokazano.
+**CookieHeaderValue** zawiera kolekcję wystąpień **CookieState** . Każdy **CookieState** reprezentuje jeden plik cookie. Użyj metody Indexer, aby uzyskać **CookieState** według nazwy, jak pokazano.
 
-## <a name="structured-cookie-data"></a>Dane ze strukturą pliku Cookie
+## <a name="structured-cookie-data"></a>Strukturalne dane pliku cookie
 
-Wiele przeglądarek limit liczby plików cookie, będą one przechowywane&#8212;łączną liczbą i numer w każdej domenie. W związku z tym może być przydatne umieścić ustrukturyzowanych danych w pojedynczym pliku cookie, zamiast ustawiać wiele plików cookie.
+Wiele przeglądarek ogranicza liczbę plików cookie, które będą&#8212;przechowywać zarówno całkowitą liczbę, jak i liczbę dla każdej domeny. W związku z tym może być przydatne umieszczenie danych strukturalnych w jednym pliku cookie zamiast ustawiania wielu plików cookie.
 
 > [!NOTE]
-> RFC 6265 nie definiuje strukturę dane pliku cookie.
+> Specyfikacja RFC 6265 nie definiuje struktury danych plików cookie.
 
-Za pomocą **CookieHeaderValue** klasy, można przekazać listę par nazwa wartość, aby uzyskać dane pliku cookie. Te pary nazwa wartość są zakodowane jako dane zakodowane jako adres URL formularza do nagłówka Set-Cookie:
+Korzystając z klasy **CookieHeaderValue** , można przekazać listę par nazwa-wartość dla danych plików cookie. Te pary nazwa-wartość są kodowane jako dane formularza kodowane przy użyciu adresu URL w nagłówku Set-Cookie:
 
 [!code-csharp[Main](http-cookies/samples/sample8.cs)]
 
-Powyższy kod generuje następujący nagłówek Set-Cookie:
+Poprzedni kod generuje następujący nagłówek-cookie:
 
 [!code-powershell[Main](http-cookies/samples/sample9.ps1)]
 
-**CookieState** klasa udostępnia metodę indeksatora odczytać podrzędnych wartości z pliku cookie w komunikacie żądania:
+Klasa **CookieState** zapewnia metodę indeksatora, która odczytuje wartości podrzędne z pliku cookie w komunikacie żądania:
 
 [!code-csharp[Main](http-cookies/samples/sample10.cs)]
 
-## <a name="example-set-and-retrieve-cookies-in-a-message-handler"></a>Przykład: Ustawianie i pobieranie plików cookie programu obsługi wiadomości
+## <a name="example-set-and-retrieve-cookies-in-a-message-handler"></a>Przykład: Ustawianie i pobieranie plików cookie w programie obsługi komunikatów
 
-W poprzednich przykładach pokazano, jak używać plików cookie z wewnątrz kontrolera interfejsu API sieci Web. Innym rozwiązaniem jest użycie [programy obsługi komunikatów](http-message-handlers.md). Programy obsługi komunikatów są wywoływane wcześniej w potoku niż kontrolerów. Program obsługi komunikatów można odczytać plików cookie z żądania, zanim żądanie osiąga kontrolera lub dodania plików cookie do odpowiedzi, gdy kontroler wygeneruje odpowiedzi.
+W poprzednich przykładach pokazano, jak używać plików cookie z poziomu kontrolera interfejsu API sieci Web. Innym rozwiązaniem jest użycie [obsługi komunikatów](http-message-handlers.md). Procedury obsługi komunikatów są wywoływane wcześniej w potoku niż kontrolery. Program obsługi komunikatów może odczytywać pliki cookie z żądania, zanim żądanie osiągnie kontroler lub doda pliki cookie do odpowiedzi po wygenerowaniu przez kontroler odpowiedzi.
 
 ![](http-cookies/_static/image2.png)
 
-Poniższy kod przedstawia obsługi wiadomości, do tworzenia identyfikatorów sesji. Identyfikator sesji jest przechowywany w pliku cookie. Program obsługi sprawdza, czy żądanie dla pliku cookie sesji. Jeśli żądanie nie zawiera pliku cookie, program obsługi generuje identyfikator nowej sesji. W obu przypadkach procedura obsługi przechowuje identyfikator sesji w **HttpRequestMessage.Properties** zbioru właściwości. Dodaje także plik cookie sesji do odpowiedzi HTTP.
+Poniższy kod przedstawia procedurę obsługi komunikatów na potrzeby tworzenia identyfikatorów sesji. Identyfikator sesji jest przechowywany w pliku cookie. Program obsługi sprawdza żądanie dotyczące pliku cookie sesji. Jeśli żądanie nie zawiera pliku cookie, program obsługi generuje nowy identyfikator sesji. W obu przypadkach program obsługi przechowuje identyfikator sesji w zbiorze właściwości **HttpRequestMessage. Properties** . Dodaje również plik cookie sesji do odpowiedzi HTTP.
 
-Ta implementacja nie weryfikuje, czy identyfikator sesji z klienta rzeczywiście został wystawiony przez serwer. Nie jest używany jako formę uwierzytelniania! Punkt przykładu jest pokazanie zarządzania pliku cookie HTTP.
+Ta implementacja nie sprawdza, czy identyfikator sesji klienta został faktycznie wystawiony przez serwer. Nie używaj go jako formy uwierzytelniania. W punkcie przykładu można wyświetlić zarządzanie plikami cookie HTTP.
 
 [!code-csharp[Main](http-cookies/samples/sample11.cs)]
 
-Kontroler można uzyskać Identyfikatora sesji z **HttpRequestMessage.Properties** zbioru właściwości.
+Kontroler może uzyskać identyfikator sesji z zbioru właściwości **HttpRequestMessage. Properties** .
 
 [!code-csharp[Main](http-cookies/samples/sample12.cs)]

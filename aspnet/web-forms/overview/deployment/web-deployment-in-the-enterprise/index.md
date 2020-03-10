@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1 | Dokumentacja firmy Microsoft
+title: ASP.NET 4 — seria wdrożenia Enterprise 1 | Microsoft Docs
 author: rick-anderson
-description: Ten przewodnik opisuje sposób spełnić wiele wyzwań, które będzie występować w przypadku zarządzać wdrażaniem aplikacji sieci web skali korporacyjnej rozwój...
+description: W tym samouczku opisano sposób zaspokajania wielu wyzwań, które można napotkać podczas zarządzania wdrażaniem aplikacji sieci Web w skali korporacyjnej w celu rozwoju...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 83e0a572-428f-4bea-9638-1a031c6901c0
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
 ms.openlocfilehash: 7701f7d73aa8f0bae28f16dc2381317e6e02a4a5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131761"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78564604"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1
 
-> W tym samouczku opisano sposób spełnia wiele wyzwań, które będą występować w przypadku zarządzać wdrażaniem aplikacji sieci web w skali korporacyjnej dla środowisk programowania, testowania, przemieszczania i produkcji. Samouczek obejmuje rozwiązanie odniesienia wraz z kombinacji koncepcyjne i zadań zawartości przeprowadzenie Cię przez proces różnych typowych zadań i procedur.
+> W tym samouczku opisano sposób zaspokajania wielu wyzwań, które można napotkać podczas zarządzania wdrażaniem aplikacji sieci Web w skali korporacyjnej w środowiskach programistycznych, testowych, przejściowych i produkcyjnych. Samouczek zawiera rozwiązanie referencyjne wraz z mieszaną treścią koncepcyjną i zorientowaną na zadania, która przeprowadzi Cię przez różne typowe zadania i procedury.
 
 - [Wdrażanie w Internecie w przedsiębiorstwie](web-deployment-in-the-enterprise.md)
 - [Rozwiązanie Contact Manager](the-contact-manager-solution.md)

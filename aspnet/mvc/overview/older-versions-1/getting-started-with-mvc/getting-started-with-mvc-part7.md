@@ -1,72 +1,72 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
-title: Dodawanie weryfikacji do modelu | Dokumentacja firmy Microsoft
+title: Dodawanie walidacji do modelu | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: aa7b3e8e-e23d-49f1-b160-f99a7f2982bd
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
 ms.openlocfilehash: 9403be574324c34edf93bef1e0e4fd7ba68a3a9d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122774"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543646"
 ---
 # <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-W tej sekcji użyjemy Obsługa niezbędne do obsługi sprawdzania poprawności danych wejściowych w naszej aplikacji. Firma Microsoft będzie zagwarantować, że naszej zawartości bazy danych zawsze jest poprawna i podaj komunikaty o błędach pomocne dla użytkowników końcowych, gdy próbują i wprowadź dane filmów, która jest nieprawidłowa. Rozpocznie się, dodając niewielką logikę walidacji do klas filmu.
+W tej sekcji zamierzamy wdrożyć pomoc techniczną, aby umożliwić weryfikację danych wejściowych w naszej aplikacji. Upewnij się, że zawartość bazy danych jest zawsze poprawna, i zapewnij użytkownikom końcowym pomocne komunikaty o błędach, a następnie wprowadź nieprawidłowe dane filmu. Zaczniemy od dodania niewielkiej logiki walidacji do klasy filmów.
 
-Kliknij prawym przyciskiem folder modelu, a następnie wybierz pozycję Dodaj klasę. Nazwa klasy filmu.
+Kliknij prawym przyciskiem myszy folder model i wybierz polecenie Dodaj klasę. Nazwij film klasy.
 
-Podczas tworzenia modelu Entity Movie wcześniej, IDE utworzone klasy filmu. W rzeczywistości częścią klasy filmu może być w jednym pliku, a część w innym. Jest to nazywane klasy częściowej. Zamierzamy rozszerzyć klasę film z innego pliku.
+Po utworzeniu modelu obiektu filmu wcześniej środowisko IDE utworzyło klasę filmu. W rzeczywistości część klasy filmu może znajdować się w jednym pliku i części w innym. Ta nazwa jest nazywana klasą częściową. Zajmiemy się rozszerzaniem klasy filmu z innego pliku.
 
-Utworzymy klasy częściowej filmu odwołujący się do "buddy class" z niektórych atrybutów, które umożliwia uzyskanie wskazówek dotyczących sprawdzania poprawności do systemu. Firma Microsoft będzie należy oznaczyć tytuł i ceny, ponieważ wymagana, a następnie nalegać również, że cena można w pewnym zakresie. Kliknij prawym przyciskiem myszy folderu modeli, a następnie wybierz pozycję Dodaj klasę. Nazwa klasy filmu, a następnie kliknij przycisk OK. Oto, co nasz częściowe filmu klasy wygląda.
+Utworzymy częściową klasę filmową, która wskazuje na "kolega klasy" z pewnymi atrybutami, które umożliwią wskazówkom walidacji w systemie. Oznaczę tytuł i cenę zgodnie z wymaganiami, a także zapewnią, że cena należy do określonego zakresu. Kliknij prawym przyciskiem myszy folder modele i wybierz polecenie Dodaj klasę. Nazwij film klasy, a następnie kliknij przycisk OK. Oto jak wygląda częściowa Klasa filmu.
 
 [!code-csharp[Main](getting-started-with-mvc-part7/samples/sample1.cs)]
 
-Uruchom ponownie aplikację i spróbuj wprowadzić film z ceną ponad 100. Zostanie wyświetlony błąd, po przesłaniu formularza. Błąd zostanie przechwycony po stronie serwera i występuje po opublikowaniu formularza. Zwróć uwagę, jak pomocników HTML wbudowanych w platformy ASP.NET MVC zostały inteligentnego wyświetlić komunikat o błędzie i Obsługa wartości dla nas w elementach pole tekstowe:
+Uruchom ponownie aplikację i spróbuj wprowadzić film o cenie powyżej 100. Po przesłaniu formularza wystąpi błąd. Ten błąd jest przechwytywany po stronie serwera i występuje po opublikowaniu formularza. Zwróć uwagę, jak wbudowane pomocniki HTML ASP.NET MVC były wystarczająco inteligentne, aby wyświetlić komunikat o błędzie i zachować wartości dla nas w elementach TextBox:
 
 [![CreateMovieWithValidation](getting-started-with-mvc-part7/_static/image2.png)](getting-started-with-mvc-part7/_static/image1.png)
 
-Działa to świetnie, ale dobrze byłoby, jeśli można o użytkownika po stronie klienta, natychmiast, zanim serwer pobiera związane.
+Jest to doskonałe rozwiązanie, ale warto poinstruować użytkownika po stronie klienta natychmiast, zanim serwer zostanie uwzględniony.
 
-Umożliwia włączenie niektórych weryfikacji po stronie klienta za pomocą języka JavaScript.
+Włączmy kilka weryfikacji po stronie klienta przy użyciu języka JavaScript.
 
-## <a name="adding-client-side-validation"></a>Dodawanie walidacji po stronie klienta
+## <a name="adding-client-side-validation"></a>Dodawanie weryfikacji po stronie klienta
 
-Ponieważ klasa nasz film zawiera już niektórych atrybutów sprawdzania poprawności, po prostu musimy dodać kilka plików JavaScript do naszych Create.aspx Wyświetl szablon i Dodaj wiersz kodu w celu włączenia weryfikacji po stronie klienta została wykonana.
+Ponieważ Klasa filmu ma już pewne atrybuty walidacji, wystarczy dodać kilka plików JavaScript do naszego szablonu Create. aspx, a następnie dodać wiersz kodu, aby włączyć weryfikację po stronie klienta.
 
-Z poziomu VWD naszych folder widoków/filmu go i otwórz Create.aspx.
+Z poziomu programu pliku VWD przejdź do naszego folderu Viewss/Movie, a następnie otwórz pozycję Create. aspx.
 
-Otwórz folder skryptów w Eksploratorze rozwiązań i przeciągnij następujące trzy skrypty można w ciągu &lt;head&gt; tagu.
+Otwórz folder skryptów w Eksplorator rozwiązań i przeciągnij następujące trzy skrypty do wewnątrz tagu &lt;&gt;.
 
 - MicrosoftAjax.js
 - MicrosoftMvcValidation.js
 
-Chcesz, aby te pliki skryptów, pojawią się w podanej kolejności.
+Te pliki skryptów mają być wyświetlane w tej kolejności.
 
 [!code-html[Main](getting-started-with-mvc-part7/samples/sample2.html)]
 
-Ponadto Dodaj pojedynczy wiersz powyżej Html.BeginForm:
+Ponadto Dodaj ten pojedynczy wiersz powyżej pliku HTML. BeginForm:
 
 [!code-aspx[Main](getting-started-with-mvc-part7/samples/sample3.aspx)]
 
-Poniżej przedstawiono kod przedstawiony w środowisku IDE.
+Oto kod wyświetlany w środowisku IDE.
 
-[![Filmy — Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
+[![filmów — Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
-Uruchom aplikację ponownie odwiedzić /Movies/Create i kliknij przycisk Utwórz, bez konieczności wprowadzania żadnych danych. Komunikaty o błędach pojawiają się natychmiast bez flash, że powiązane z wysyłania danych strony aż do serwera. Jest tak, ponieważ platformy ASP.NET MVC jest teraz Walidacja danych wejściowych, zarówno klienta (przy użyciu języka JavaScript) i na serwerze.
+Uruchom aplikację i odwiedź witrynę/Movies/Create ponownie, a następnie kliknij pozycję Utwórz bez wprowadzania żadnych danych. Komunikaty o błędach pojawiają się natychmiast bez strony Flash, która jest skojarzona z wysyłaniem danych z powrotem do serwera programu. Jest to spowodowane tym, że ASP.NET MVC sprawdza teraz dane wejściowe na kliencie (przy użyciu języka JavaScript) i na serwerze.
 
-[![Tworzenie — Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![tworzenie — Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
-To jest dobra wydajność! Teraz Dodajmy jedną dodatkową kolumnę w bazie danych.
+Wygląda to dobrze! Dodajmy teraz jedną dodatkową kolumnę do bazy danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part6.md)

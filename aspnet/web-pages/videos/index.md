@@ -1,6 +1,6 @@
 ---
 uid: web-pages/videos/index
-title: Filmy wideo | Dokumentacja firmy Microsoft
+title: Filmy wideo | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,16 +9,16 @@ ms.assetid: febf2824-4e3d-4dc6-84c5-f99777ec6144
 msc.legacyurl: /web-pages/videos
 msc.type: book
 ms.openlocfilehash: 4c22b024240740d971740e9f043231ccbcdc47fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127687"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631748"
 ---
-# <a name="videos"></a>Wideo
+# <a name="videos"></a>Filmy wideo
 
 > [!NOTE] 
-> Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
+> Element WebMatrix nie jest już zalecany jako zintegrowane środowisko programistyczne dla stron sieci Web ASP.NET. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [Visual Studio Code](https://code.visualstudio.com/).
 
 - [Wprowadzenie](introduction/index.md)
 
@@ -32,7 +32,7 @@ ms.locfileid: "65127687"
     - [Tworzenie strony edycji danych w programie WebMatrix](introduction/create-an-edit-data-page-in-webmatrix.md)
     - [Tworzenie strony usuwania danych w programie WebMatrix](introduction/create-a-delete-data-page-in-webmatrix.md)
     - [Publikowanie witryny w Internecie przy użyciu programu WebMatrix](introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-- [Strony Razor programu ASP.NET](aspnet-razor-pages/index.md)
+- [ASP.NET Razor Pages](aspnet-razor-pages/index.md)
 
     - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
     - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

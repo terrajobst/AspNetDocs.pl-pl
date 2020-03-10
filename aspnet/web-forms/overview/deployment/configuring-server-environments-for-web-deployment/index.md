@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index
-title: ASP.NET 4 — Konfigurowanie serwerów przedsiębiorstwa wdrożenia seria 2 | Dokumentacja firmy Microsoft
+title: ASP.NET 4-Enterprise Deployment Series 2 Konfigurowanie serwerów | Microsoft Docs
 author: rick-anderson
-description: Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby pomocy technicznej, uruchamiane jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scen różnych...
+description: W tym samouczku przedstawiono sposób konfigurowania środowisk serwera do obsługi jednego kliknięcia, automatycznego wdrożenia witryny sieci Web i publikowania ich w różnych scen...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 489b414b-2322-4385-8638-04e08c0b6c90
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment
 msc.type: chapter
 ms.openlocfilehash: 382ed4a919418dc862caeb7d7e476690a155a4ea
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125877"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566676"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 2: konfigurowanie serwerów
 
-> Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby obsługi jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scenariuszach różnych.
+> W tym samouczku przedstawiono sposób konfigurowania środowisk serwera do obsługi jednego kliknięcia lub automatycznego wdrożenia witryny sieci Web i publikowania w różnych scenariuszach.
 
 - [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment.md)
 - [Wybieranie właściwego podejścia do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md)

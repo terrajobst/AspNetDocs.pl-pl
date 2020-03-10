@@ -9,11 +9,11 @@ ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
 ms.openlocfilehash: 003e7939accd7a68dab97441b3d999bca835b85a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600861"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566221"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>Objaśnienie lokalizacji kodu ASP.NET AJAX
 
@@ -59,10 +59,10 @@ Poniższa tabela zawiera podsumowanie konwencji nazewnictwa plików z przykłada
 
 | Nazwa pliku | Znaczenie |
 | --- | --- |
-| Skrypt. js | Skrypt niezależny od wersji. |
-| Skrypt. Debug. js | Skrypt niezależny od wersji Debug. |
-| Skrypt. en-US. js | Wersja angielskojęzyczna, Stany Zjednoczone skrypt. |
-| Script.debug.es-CO. js | Debugowanie w wersji hiszpańskiej, skrypt Kolumbia. |
+| Script.js | Skrypt niezależny od wersji. |
+| Script.debug.js | Skrypt niezależny od wersji Debug. |
+| Script.en-US.js | Wersja angielskojęzyczna, Stany Zjednoczone skrypt. |
+| Script.debug.es-CO.js | Debugowanie w wersji hiszpańskiej, skrypt Kolumbia. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Przewodnik: Tworzenie zlokalizowanego, osadzonego skryptu
 

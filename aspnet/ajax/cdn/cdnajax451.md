@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax451
-title: ASP.NET Web Forms i Ajax 4.5.1 | Dokumentacja firmy Microsoft
+title: ASP.NET Web Forms i AJAX 4.5.1 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: d7ec655d-49b0-4968-af5e-3064616aff9a
 msc.legacyurl: /ajax/cdn/cdnajax451
 msc.type: content
 ms.openlocfilehash: a81abf2c57d1400a9c4b2f1d1febaddc9c569c6d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414546"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563358"
 ---
 # <a name="aspnet-web-forms-and-ajax-451"></a>ASP.NET Web Forms i AJAX 4.5.1
 
-Następujące pliki znajdują się w sieci CDN:
+Następujące pliki są hostowane w sieci CDN:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.debug.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.js
@@ -56,6 +56,6 @@ Następujące pliki znajdują się w sieci CDN:
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebUIValidation.js
 
-Uwaga: Skryptów globalizacji, takich jak fr FR.js, można znaleźć w następującym folderze:
+Uwaga: skrypty globalizacji, takie jak fr-FR. js, można znaleźć w następującym folderze:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/globalization/

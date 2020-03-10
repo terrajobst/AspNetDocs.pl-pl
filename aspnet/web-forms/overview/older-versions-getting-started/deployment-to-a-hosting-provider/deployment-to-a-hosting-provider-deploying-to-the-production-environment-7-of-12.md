@@ -9,11 +9,11 @@ ms.assetid: b83ab819-2b05-4776-b7b4-79ef78d457a5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db838633accdedd7c0693b126a007e254ca681e4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74627225"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568020"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: wdrażanie w środowisku produkcyjnym — 7 z 12
 
@@ -152,7 +152,7 @@ W oknie dialogowym **Edytowanie profilów publikowania w sieci Web** wybierz pro
 
 ![Okno dialogowe Edytowanie profilów publikowania w sieci Web](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
 
-Kliknij przycisk **Publikuj**.
+Kliknij przycisk **Opublikuj**.
 
 Aplikacja zostanie opublikowana w dostawcy hostingu. Wyniki są wyświetlane w oknie **dane wyjściowe** .
 

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
-title: '[Jak mogę] Uzyskaj porady i wskazówki ekspertów? | Microsoft Docs'
+title: '[Jak:] Poznaj porady i wskazówki dla specjalistów? | Microsoft Docs'
 author: microsoft
-description: Wyświetl porady i wskazówki, w tym szyfrowanie poufnych informacji przechowywanych w pliku web.config, wysyłanie zawartości do innej strony, upraszczając złożone adresy URL...
+description: Wyświetlaj porady i wskazówki, w tym szyfrowanie poufnych informacji przechowywanych w pliku Web. config, ogłaszanie zawartości na innej stronie, upraszczając złożone adresy URL...
 ms.author: riande
 ms.date: 01/16/2006
 ms.assetid: 77526e53-524b-4cae-9025-3e493f2895d0
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
 msc.type: video
 ms.openlocfilehash: a4988acd4bfd2835d8e1cef61916b59ec6481a7e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382852"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523402"
 ---
-# <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Jak mogę] Uzyskaj porady i wskazówki ekspertów?
+# <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Jak:] Poznaj porady i wskazówki dla specjalistów?
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-Wyświetl porady i wskazówki, w tym szyfrowanie poufnych informacji przechowywanych w pliku web.config, wysyłanie zawartości do innej strony, co upraszcza złożony adresy URL, przy użyciu ponowne mapowanie adresu URL i wielu, m.in.
+Wyświetlaj porady i wskazówki, w tym szyfrowanie poufnych informacji przechowywanych w pliku Web. config, ogłaszanie zawartości na innej stronie, upraszczając złożone adresy URL przy użyciu ponownego mapowania adresów URL i wiele innych.
 
-[&#9654;Obejrzyj film wideo (18 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-learn-the-tips-and-tricks-of-experts)
+[&#9654;Obejrzyj wideo (18 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-learn-the-tips-and-tricks-of-experts)

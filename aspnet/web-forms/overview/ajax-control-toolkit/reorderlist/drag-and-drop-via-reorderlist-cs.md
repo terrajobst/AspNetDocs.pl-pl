@@ -9,11 +9,11 @@ ms.assetid: 6350ee8e-11d6-4aff-b51c-942878014835
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 2fc6d55a290cbb58bea36d8145d814e337bbd931
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611484"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78553831"
 ---
 # <a name="drag-and-drop-via-reorderlist-c"></a>Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)
 

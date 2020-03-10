@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
 ms.openlocfilehash: a3353fd0f0332899aaba26b83aea0ff7c3a6d19b
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455740"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546215"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>Pliki cookie SameSite i otwarty interfejs sieci Web dla platformy .NET (OWIN)
 
@@ -74,7 +74,7 @@ Wersja robocza 2019 specyfikacji `SameSite`:
 * Określa, że pliki cookie są domyślnie traktowane jako `SameSite=Lax`.
 * Określa pliki cookie, które jawnie potwierdzają `SameSite=None` w celu włączenia dostarczania między lokacjami, powinny być oznaczone jako `Secure`. `None` to nowy wpis do rezygnacji.
 * Zaplanowano włączenie programu [Chrome](https://chromestatus.com/feature/5088147346030592) domyślnie w [lutym 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html). Przeglądarki zaczynają przechodzenie do tego standardu w 2019.
-* Jest obsługiwane przez poprawki wydane zgodnie z opisem w artykule bazy wiedzy. Aby uzyskać więcej informacji, zobacz <xref:samesite/kbs-samesite>.
+* Jest obsługiwane przez poprawki wydane zgodnie z opisem w artykule bazy wiedzy. Aby uzyskać więcej informacji, zobacz temat <xref:samesite/kbs-samesite>.
 
 <a name="sob"></a>
 
@@ -113,7 +113,7 @@ Aplikacje, które współdziałają z witrynami zdalnymi, takie jak logowanie in
 * Przetestuj interakcję w wielu przeglądarkach.
 * Zastosuj [wykrywanie przeglądarki i środki zaradcze](#sob) omówione w tym dokumencie.
 
-Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może nawiązać zgodę na nowe zachowanie `SameSite`. Przeglądarki Chrome, Firefox i chrom Microsoft Edge mają nowe flagi funkcji opt, których można użyć do testowania. Gdy aplikacja zastosuje `SameSite` poprawki, przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
+Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może nawiązać zgodę na nowe zachowanie `SameSite`. Przeglądarki Chrome, Firefox i chrom Edge mają nowe flagi funkcji opt, których można użyć do testowania. Gdy aplikacja zastosuje `SameSite` poprawki, przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 
 ### <a name="test-with-chrome"></a>Testowanie za pomocą przeglądarki Chrome
 
@@ -132,9 +132,9 @@ Przeglądarka Safari 12 ściśle wdrożyła poprzednią wersję roboczą i końc
 
 Obsługę programu Firefox dla nowego standardu można przetestować w wersji 68 + przez wypróbowanie na stronie `about:config` z flagą funkcji `network.cookie.sameSite.laxByDefault`. Nie zgłoszono problemów ze zgodnością ze starszymi wersjami programu Firefox.
 
-### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Microsoft Edge
+### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Edge
 
-Program Microsoft Edge obsługuje stary Standard `SameSite`. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
+Program Edge obsługuje stary Standard `SameSite`. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
 
 ### <a name="test-with-edge-chromium"></a>Testowanie przy użyciu krawędzi (chrom)
 

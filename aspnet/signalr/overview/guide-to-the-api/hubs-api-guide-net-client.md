@@ -9,11 +9,11 @@ ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
 ms.openlocfilehash: d3536f1c15cd7dad7cd660becf0577e5c131f707
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057010"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578793"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>Przewodnik interfejsu API centrów sygnałów ASP.NET — klient platformyC#.NET ()
 
@@ -189,7 +189,7 @@ Aby dodać certyfikaty klienta, użyj metody `AddClientCertificate` w obiekcie C
 
 ## <a name="how-to-create-the-hub-proxy"></a>Jak utworzyć serwer proxy centrum
 
-W celu zdefiniowania metod na kliencie, które mogą być wywoływane przez koncentrator z serwera, i aby wywołać metody w centrum na serwerze, Utwórz serwer proxy dla centrum, wywołując `CreateHubProxy` w obiekcie Connection. Ciąg przekazany do `CreateHubProxy` jest nazwą klasy centrum lub nazwą określoną przez atrybut `HubName`, jeśli został on użyty na serwerze. W dopasowaniu nazw nie jest rozróżniana wielkość liter.
+W celu zdefiniowania metod na kliencie, które mogą być wywoływane przez koncentrator z serwera, i aby wywołać metody w centrum na serwerze, Utwórz serwer proxy dla centrum, wywołując `CreateHubProxy` w obiekcie Connection. Ciąg przekazany do `CreateHubProxy` jest nazwą klasy centrum lub nazwą określoną przez atrybut `HubName`, jeśli został on użyty na serwerze. Przy dopasowywaniu nazwy nie jest uwzględniana wielkość liter.
 
 **Klasa centrum na serwerze**
 

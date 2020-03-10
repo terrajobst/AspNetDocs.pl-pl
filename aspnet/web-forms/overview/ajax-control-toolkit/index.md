@@ -1,26 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/index
-title: Starsze wersje — Ajax Control Toolkit | Dokumentacja firmy Microsoft
+title: Starsze wersje — zestaw narzędzi AJAX Control Toolkit | Microsoft Docs
 author: rick-anderson
-description: Jak rozpocząć pracę przy użyciu zestawu narzędzi Ajax Control Toolkit i jak korzystać z niektórych z najpopularniejszych kontrolki. DevExpress utrzymuje bezpłatne i open source zysk Ajax...
+description: Jak rozpocząć pracę z zestawem narzędzi AJAX Control Toolkit oraz jak używać niektórych najpopularniejszych kontrolek. Subskrypcja DevExpress obsługuje bezpłatny i otwarty w technologii AJAX...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: d7d0426ed427f3b8fc8c7f9c2fe1518b1887d695
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115370"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554146"
 ---
 # <a name="older-versions---ajax-control-toolkit"></a>Starsze wersje — AJAX Control Toolkit
 
-> Jak rozpocząć pracę przy użyciu zestawu narzędzi Ajax Control Toolkit i jak korzystać z niektórych z najpopularniejszych kontrolki. DevExpress utrzymuje bezpłatne i open source zestawu narzędzi Ajax Control Toolkit.
+> Jak rozpocząć pracę z zestawem narzędzi AJAX Control Toolkit oraz jak używać niektórych najpopularniejszych kontrolek. Subskrypcja DevExpress obsługuje bezpłatny zestaw narzędzi AJAX Control i open source.
 > 
 > 
-> ![](index/_static/image1.png) DevExpress, deweloperzy wielokrotnie nagradzany formularzy sieci Web platformy ASP.NET, MVC i kontrolek interfejsu użytkownika HTML5 i struktur, zajął stanowisko dyrektora obsługi platformy ASP.NET AJAX Control Toolkit Aby przywrócić tę bibliotekę typu open-source bardzo wymagane do niezawodną stanu. [Dowiedz się więcej](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx).
+> ![](index/_static/image1.png) subskrypcja DevExpress, deweloperzy z nagradzanych ASP.NET formularzy WebForms, MVC i HTML5 interfejsu użytkownika i struktur, przeniosły konserwację zestawu narzędzi ASP.NET AJAX Control Toolkit w celu zapewnienia niezależnego stanu biblioteki typu open source o wysokiej dostępności. [Dowiedz się więcej](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx).
 
 - [Wprowadzenie](getting-started/index.md)
 
@@ -142,7 +142,7 @@ ms.locfileid: "65115370"
 
     - [Testowanie siły hasła (C#)](passwordstrength/testing-the-strength-of-a-password-cs.md)
     - [Testowanie siły hasła (VB)](passwordstrength/testing-the-strength-of-a-password-vb.md)
-- [Popup](popup/index.md)
+- [Okno podręczne](popup/index.md)
 
     - [Używanie wielu kontrolek Popup (C#)](popup/using-multiple-popup-controls-cs.md)
     - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (C#)](popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
@@ -160,7 +160,7 @@ ms.locfileid: "65115370"
     - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)](reorderlist/drag-and-drop-via-reorderlist-cs.md)
     - [Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)](reorderlist/using-postbacks-with-reorderlist-vb.md)
     - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (VB)](reorderlist/drag-and-drop-via-reorderlist-vb.md)
-- [Slider](slider/index.md)
+- [Suwak](slider/index.md)
 
     - [Kontrolka Slider z automatycznym ogłaszaniem zwrotnym (C#)](slider/using-the-slider-control-with-auto-postback-cs.md)
     - [Powiązanie danych kontrolki Slider (C#)](slider/databinding-the-slider-control-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: de2d65b9-aadc-42ba-abe1-4e87e66521a0
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 009c3f84e00d648ede4a15e530ceac2d23e01eec
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620750"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546432"
 ---
 # <a name="an-overview-of-forms-authentication-c"></a>Omówienie uwierzytelniania formularzy (C#)
 
@@ -205,7 +205,7 @@ Jak widać, istnieją trzy prawidłowe konta użytkowników — Scott, Jisun i s
 
 Po wprowadzeniu prawidłowych poświadczeń przez użytkownika należy wskazać, że są one następnie przekierowywane do odpowiedniej strony. Co to jest odpowiednia strona? Odwołaj ten element, gdy użytkownik odwiedzi stronę, której nie ma uprawnień do wyświetlania, FormsAuthenticationModule automatycznie przekierowuje je na stronę logowania. W takim przypadku zawiera żądany adres URL w ciągu QueryString za pośrednictwem parametru ReturnUrl. Oznacza to, że jeśli użytkownik podjął próbę odwiedzenia ProtectedPage. aspx i nie zezwolił na to, FormsAuthenticationModule przekieruje je do:
 
-Login. aspx? ReturnUrl = ProtectedPage. aspx
+Login.aspx?ReturnUrl=ProtectedPage.aspx
 
 Po pomyślnym zalogowaniu użytkownik powinien zostać przekierowany z powrotem do ProtectedPage. aspx. Alternatywnie użytkownicy mogą odwiedzić stronę logowania na własnym Volition. W takim przypadku po zalogowaniu się użytkownika należy je wysłać do domyślnej strony. aspx folderu głównego.
 
@@ -221,7 +221,7 @@ GetAuthCookie jest przydatny, gdy trzeba zmodyfikować bilet uwierzytelniania pr
 
 Ponieważ chcemy zalogować użytkownika i przekierować je do odpowiedniej strony, użyjmy RedirectFromLoginPage. Zaktualizuj procedurę obsługi zdarzeń kliknięcia LoginButton, zastępując dwie Komentarze wierszy do wykonania następującym wierszem kodu:
 
-FormsAuthentication. RedirectFromLoginPage (UserName. text, kontrolka rememberMe. Checked);
+FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked);
 
 Podczas tworzenia biletu uwierzytelniania formularzy używamy właściwości text pola tekstowego UserName dla parametru *Nazwa użytkownika* biletu uwierzytelniania formularzy i stan zaznaczenia pola wyboru kontrolka rememberMe dla parametru *persistCookie* .
 
@@ -289,7 +289,7 @@ Ważną kwestią jest to, że parametr *username* określony w FormsAuthenticati
 
 Przekażmy bardziej spersonalizowany komunikat w default. aspx. Zaktualizuj stronę\_obsługi zdarzeń ładowania, tak że właściwość text etykiety WelcomeBackMessage ma przypisany ciąg "Witaj wstecz, *username*!"
 
-WelcomeBackMessage. text = "Witaj wstecz," + User.Identity.Name + "!";
+WelcomeBackMessage.Text = "Welcome back, " + User.Identity.Name + "!";
 
 Rysunek 13 przedstawia efekt modyfikacji (podczas logowania użytkownika Scott).
 

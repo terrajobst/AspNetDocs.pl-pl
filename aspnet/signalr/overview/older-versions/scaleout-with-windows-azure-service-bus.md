@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus (SignalR 1.x) | Dokumentacja firmy Microsoft
+title: Skalowania sygnalizujący z Azure Service Bus (Signaler 1. x) | Microsoft Docs
 author: bradygaster
 description: ''
 ms.author: bradyg
@@ -9,103 +9,103 @@ ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
 ms.openlocfilehash: e64f84db00b571c01ea52f48d1ac1af46698d391
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117000"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558416"
 ---
 # <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus (SignalR 1.x)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+według [Jan Wasson](https://github.com/MikeWasson), [Patryk Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-W tym samouczku wdrożysz aplikację SignalR, do roli sieci Web Windows Azure, przy użyciu systemu backplane usługi Service Bus, aby dystrybuować komunikaty do każdego wystąpienia roli.
+W tym samouczku zostanie wdrożona aplikacja sygnalizująca w roli sieci Web systemu Windows Azure, przy użyciu planu Service Bus do dystrybucji komunikatów do każdego wystąpienia roli.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image1.png)
 
 Wymagania wstępne:
 
-- Konto usługi Windows Azure.
-- [Windows Azure SDK](https://go.microsoft.com/fwlink/?linkid=254364&amp;clcid=0x409).
+- Konto platformy Microsoft Azure.
+- [Zestaw SDK systemu Windows Azure](https://go.microsoft.com/fwlink/?linkid=254364&amp;clcid=0x409).
 - Visual Studio 2012.
 
-Płyty montażowej magistrali usług jest również zgodna z [usługi Service Bus dla systemu Windows Server](https://msdn.microsoft.com/library/windowsazure/dn282144.aspx), wersja 1.1. Jednak nie jest zgodny z wersją 1.0 usługi Service Bus dla systemu Windows Server.
+Plan usługi Service Bus jest również zgodny z [Service Bus dla systemu Windows Server](https://msdn.microsoft.com/library/windowsazure/dn282144.aspx)w wersji 1,1. Nie jest to jednak zgodne z wersją 1,0 Service Bus dla systemu Windows Server.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
-Płyty montażowej usługi Service Bus używa tematów do wysłania wiadomości. Najnowsze informacje cenach, zobacz [usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/). W momencie pisania tego dokumentu można wysłać wiadomości 1 000 000 na miesiąc dla mniej niż 1 USD. Systemu backplane wysyła komunikat usługi service bus dla każdego wywołania metody koncentratora SignalR. Istnieją również pewne komunikaty sterujące dla połączeń, odłączenia, przyłączany lub opuścić grupy i tak dalej. W większości aplikacji większość ruchu komunikat będzie wywołań metod koncentratora.
+W przypadku korzystania z programu do przesyłania komunikatów Service Bus Aby uzyskać najnowsze informacje o cenach, zobacz [Service Bus](https://azure.microsoft.com/pricing/details/service-bus/). W czasie tego pisania możesz wysyłać 1 000 000 komunikatów miesięcznie przez mniej niż $1. Plan wyjścia wysyła komunikat usługi Service Bus dla każdego wywołania metody centrum sygnałów. Istnieją także pewne komunikaty sterujące dotyczące połączeń, rozłączeń, łączenia lub opuszczania grup itd. W większości aplikacji większość ruchu komunikatów będzie stanowić wywołania metody centrum.
 
 ## <a name="overview"></a>Omówienie
 
-Przed przejściem do szczegółowe podręcznika, poniżej przedstawiono krótkie podsumowanie będzie wykonywać.
+Zanim przejdziemy do szczegółowego samouczka, poniżej przedstawiono krótkie omówienie tego, co robisz.
 
-1. Użyj portalu platformy Windows Azure, aby utworzyć nową przestrzeń nazw usługi Service Bus.
+1. Użyj Azure Portal systemu Windows, aby utworzyć nową przestrzeń nazw Service Bus.
 2. Dodaj te pakiety NuGet do aplikacji: 
 
-    - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.ServiceBus](http://www.nuget.org/packages/SignalR.WindowsAzureServiceBus)
-3. Tworzenie aplikacji SignalR.
-4. Dodaj następujący kod do pliku Global.asax w celu skonfigurowania systemu backplane: 
+    - [Microsoft. AspNet. Signal](http://nuget.org/packages/Microsoft.AspNet.SignalR)
+    - [Microsoft. AspNet. Signal. ServiceBus](http://www.nuget.org/packages/SignalR.WindowsAzureServiceBus)
+3. Tworzenie aplikacji sygnalizującej.
+4. Dodaj następujący kod do szablonu Global. asax, aby skonfigurować plan: 
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-Dla każdej aplikacji wybierz inną wartość dla "YourAppName". Nie należy używać tej samej wartości dla wielu aplikacji.
+Dla każdej aplikacji należy wybrać inną wartość dla "YourAppName". Nie należy używać tej samej wartości w wielu aplikacjach.
 
 ## <a name="create-the-azure-services"></a>Tworzenie usług platformy Azure
 
-Utwórz usługę w chmurze, zgodnie z opisem w [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Postępuj zgodnie z instrukcjami w sekcji "jak: Utwórz usługę w chmurze przy użyciu szybkie tworzenie". W tym samouczku nie musisz przekazać certyfikat.
+Utwórz usługę w chmurze, zgodnie z opisem w temacie [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Wykonaj kroki opisane w sekcji "Instrukcje: Tworzenie usługi w chmurze przy użyciu funkcji Szybkie tworzenie". Na potrzeby tego samouczka nie trzeba przekazywać certyfikatu.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
-Utwórz nową przestrzeń nazw usługi Service Bus, zgodnie z opisem w [jak do użycia usługi Service Bus tematów/subskrypcji](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions). Postępuj zgodnie z instrukcjami w sekcji "Tworzenie Namespace usługi".
+Utwórz nową przestrzeń nazw Service Bus, zgodnie z opisem w artykule [Service Bus tematy/subskrypcje](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions). Postępuj zgodnie z instrukcjami w sekcji "Tworzenie przestrzeni nazw usługi".
 
 ![](scaleout-with-windows-azure-service-bus/_static/image3.png)
 
 > [!NOTE]
-> Upewnij się wybrać ten sam region dla usługi w chmurze i przestrzeni nazw usługi Service Bus.
+> Upewnij się, że wybrano ten sam region dla usługi w chmurze i przestrzeni nazw Service Bus.
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-Uruchom program Visual Studio. Z **pliku** menu, kliknij przycisk **nowy projekt**.
+Uruchom program Visual Studio. W menu **Plik** kliknij pozycję **Nowy projekt**.
 
-W **nowy projekt** okna dialogowego rozwiń **Visual C#**. W obszarze **zainstalowane szablony**, wybierz opcję **chmury** , a następnie wybierz **usłudze Windows Azure Cloud Services**. Zachowaj domyślne .NET Framework 4.5. Nazwij aplikację ChatService, a następnie kliknij przycisk **OK**.
+W oknie dialogowym **Nowy projekt** rozwiń **element Wizualizacja C#** . W obszarze **zainstalowane szablony**wybierz pozycję **chmura** , a następnie wybierz pozycję **Usługa w chmurze platformy Microsoft Azure**. Zachowaj domyślne .NET Framework 4,5. Nadaj aplikacji nazwę ChatService, a następnie kliknij przycisk **OK**.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image4.png)
 
-W **nową usługę w chmurze Azure Windows** okno dialogowe, wybierz rolę sieci Web platformy ASP.NET MVC 4. Kliknij przycisk strzałki w prawo (**&gt;**) aby dodać rolę do rozwiązania.
+W oknie dialogowym **Nowa usługa w chmurze platformy Microsoft Azure** wybierz rolę sieci Web ASP.NET MVC 4. Kliknij przycisk strzałki w prawo ( **&gt;** ), aby dodać rolę do rozwiązania.
 
-Umieść kursor myszy nad nową rolę, więc widoczne ikonę ołówka. Kliknij tę ikonę, aby zmienić nazwę roli. Nazwa roli "SignalRChat", a następnie kliknij przycisk **OK**.
+Umieść wskaźnik myszy nad nową rolą, aby ikona ołówka była widoczna. Kliknij tę ikonę, aby zmienić nazwę roli. Nazwij rolę "SignalRChat" i kliknij przycisk **OK**.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image5.png)
 
-W **nowego projektu programu ASP.NET MVC 4** kreatora wybierz **aplikacji internetowej**. Kliknij przycisk **OK**. Kreator projektu tworzy dwa projekty:
+W kreatorze **nowego projektu ASP.NET MVC 4** wybierz pozycję **aplikacja internetowa**. Kliknij przycisk **OK**. Kreator projektu tworzy dwa projekty:
 
-- ChatService: Ten projekt to aplikacja Windows Azure. Definiuje ról platformy Azure i inne opcje konfiguracji.
-- SignalRChat: Ten projekt jest projekt platformy ASP.NET MVC 4.
+- ChatService: ten projekt jest aplikacją systemu Windows Azure. Definiuje role platformy Azure i inne opcje konfiguracji.
+- SignalRChat: ten projekt jest projektem ASP.NET MVC 4.
 
-## <a name="create-the-signalr-chat-application"></a>Tworzenie aplikacji czatu SignalR
+## <a name="create-the-signalr-chat-application"></a>Tworzenie aplikacji czatu dla sygnałów
 
-Aby utworzyć aplikację rozmowy, postępuj zgodnie z instrukcjami w tym samouczku [wprowadzenie do SignalR i MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md).
+Aby utworzyć aplikację czatu, wykonaj kroki opisane w samouczku [wprowadzenie z sygnałami i MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md).
 
-NuGet umożliwia instalowanie wymaganych bibliotek. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W **Konsola Menedżera pakietów** okna, wprowadź następujące polecenia:
+Zainstaluj wymagane biblioteki przy użyciu narzędzia NuGet. W menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet**, a następnie wybierz pozycję **konsola Menedżera pakietów**. W oknie **konsola Menedżera pakietów** wprowadź następujące polecenia:
 
 [!code-powershell[Main](scaleout-with-windows-azure-service-bus/samples/sample2.ps1)]
 
-Użyj `-ProjectName` opcję, aby zainstalować te pakiety w projekcie ASP.NET MVC, a nie projekt platformy Windows Azure.
+Użyj opcji `-ProjectName`, aby zainstalować pakiety w projekcie ASP.NET MVC, a nie w projekcie systemu Windows Azure.
 
-## <a name="configure-the-backplane"></a>Konfigurowanie systemu Backplane
+## <a name="configure-the-backplane"></a>Konfigurowanie planu
 
-W pliku Global.asax Twojej aplikacji Dodaj następujący kod:
+W pliku Global. asax aplikacji Dodaj następujący kod:
 
 [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample3.cs)]
 
-Teraz musisz pobrać parametry połączenia usługi service bus. W witrynie Azure portal wybierz przestrzeń nazw magistrali usług, który został utworzony, a następnie kliknij ikonę klucza dostępu.
+Teraz musisz uzyskać parametry połączenia usługi Service Bus. W Azure Portal Wybierz utworzoną przestrzeń nazw usługi Service Bus, a następnie kliknij ikonę klucz dostępu.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image6.png)
 
-Skopiuj parametry połączenia do Schowka, a następnie wklej go do *connectionString* zmiennej.
+Skopiuj parametry połączenia do schowka, a następnie wklej je do zmiennej *ConnectionString* .
 
 ![](scaleout-with-windows-azure-service-bus/_static/image7.png)
 
@@ -113,40 +113,40 @@ Skopiuj parametry połączenia do Schowka, a następnie wklej go do *connectionS
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
-W Eksploratorze rozwiązań rozwiń **role** folder wewnątrz projektu ChatService.
+W Eksplorator rozwiązań rozwiń folder **role** w projekcie ChatService.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image8.png)
 
-Kliknij prawym przyciskiem myszy rolę SignalRChat, a następnie wybierz pozycję **właściwości**. Wybierz **konfiguracji** kartę. W obszarze **wystąpień** wybierz opcję 2. Rozmiar maszyny Wirtualnej można również ustawić, **wystąpieniom bardzo małe**.
+Kliknij prawym przyciskiem myszy rolę SignalRChat i wybierz pozycję **Właściwości**. Wybierz kartę **Konfiguracja** . W obszarze **wystąpienia** wybierz pozycję 2. Rozmiar maszyny wirtualnej można również ustawić na **bardzo mały**.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image9.png)
 
 Zapisz zmiany.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt ChatService. Wybierz **publikowania**.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt ChatService. Wybierz pozycję **Publikuj**.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image10.png)
 
-Jeśli jest to pierwszy czasu publikowania na platformie Windows Azure, należy pobrać swoje poświadczenia. W **Publikuj** kreatora, kliknij przycisk "Zaloguj się do pobierania poświadczenia". To spowoduje wyświetlenie monitu zaloguj się do portalu usługi Windows Azure i Pobierz plik ustawień publikowania.
+Jeśli jest to pierwsze publikowanie na platformie Microsoft Azure, musisz pobrać swoje poświadczenia. W kreatorze **publikacji** kliknij pozycję "Zaloguj się, aby pobrać poświadczenia". Spowoduje to wyświetlenie monitu o zalogowanie się do Azure Portal systemu Windows i pobranie pliku ustawień publikowania.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image11.png)
 
-Kliknij przycisk **importu** i zaznacz plik ustawień publikowania, który został pobrany.
+Kliknij przycisk **Importuj** i wybierz pobrany plik ustawień publikowania.
 
-Kliknij przycisk **Dalej**. W **ustawień publikowania** okna dialogowego, w obszarze **usługi w chmurze**, wybierz usługę w chmurze, która została utworzona wcześniej.
+Kliknij przycisk **Dalej**. W oknie dialogowym **Ustawienia publikowania** w obszarze **Usługa w chmurze**Wybierz utworzoną wcześniej usługę w chmurze.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image12.png)
 
-Kliknij przycisk **publikowania**. Może upłynąć kilka minut, aby wdrożyć aplikację i uruchomić maszyny wirtualne.
+Kliknij przycisk **Opublikuj**. Wdrożenie aplikacji i uruchomienie maszyn wirtualnych może potrwać kilka minut.
 
-Teraz po uruchomieniu aplikacji rozmów z wystąpień roli komunikują się za pośrednictwem usługi Azure Service Bus, przy użyciu tematu usługi Service Bus. Temat jest kolejki komunikatów, która umożliwia wielu subskrybentów.
+Teraz po uruchomieniu aplikacji czatu wystąpienia roli komunikują się za pośrednictwem Azure Service Bus przy użyciu Service Bus temacie. Temat jest kolejką komunikatów, która umożliwia korzystanie z wielu subskrybentów.
 
-Systemu backplane automatycznie tworzy, tematu i subskrypcji. Aby zobaczyć subskrypcje i działania komunikatu, otwórz witrynę Azure portal, wybierz przestrzeń nazw usługi Service Bus i wybierz polecenie "Tematów".
+Plan "automatycznie" tworzy temat i subskrypcje. Aby zobaczyć działanie subskrypcje i komunikaty, Otwórz Azure Portal, wybierz przestrzeń nazw Service Bus i kliknij pozycję tematy.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image13.png)
 
-To, że po kilku minutach dla działania komunikatu do wyświetlenia na pulpicie nawigacyjnym.
+Wyświetlenie działania komunikatu na pulpicie nawigacyjnym potrwa kilka minut.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image14.png)
 
-SignalR zarządza czasem istnienia tematu. Tak długo, jak Twoja aplikacja zostanie wdrożona, nie należy próbować ręcznie usuń tematy lub zmienić ustawienia w tej dziedzinie.
+Program sygnalizujący zarządza okresem istnienia tematu. Dopóki aplikacja jest wdrożona, nie próbuj ręcznie usuwać tematów ani zmieniać ustawień w temacie.

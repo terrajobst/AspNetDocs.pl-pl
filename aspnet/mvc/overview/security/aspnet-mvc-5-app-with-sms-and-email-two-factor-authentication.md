@@ -9,11 +9,11 @@ ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
 ms.openlocfilehash: c14149d802bfc0a227a839a2981dc3e8a3849c25
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457599"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78538445"
 ---
 # <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail
 
@@ -107,7 +107,7 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z programu Twilio lub AS
 9. Uruchom aplikację i zaloguj się przy użyciu wcześniej zarejestrowanego konta.
 10. Kliknij swój identyfikator użytkownika, który aktywuje metodę `Index` akcji w kontrolerze `Manage`.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image3.png)
-11. Kliknij pozycję Add (Dodaj).  
+11. Kliknij przycisk Dodaj.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image4.png)
 12. `AddPhoneNumber` Metoda akcji wyświetla okno dialogowe, w którym można wprowadzić numer telefonu, który może odbierać wiadomości SMS.
 
@@ -142,7 +142,7 @@ Kliknięcie pola wyboru **Zapamiętaj tę przeglądarkę** spowoduje zwolnienie 
 Ten samouczek zawiera krótkie wprowadzenie do włączania funkcji 2FA na nowej aplikacji ASP.NET MVC. Mój samouczek [dwa-Factor Authentication za pomocą wiadomości SMS i wiadomości e-mail z ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) są szczegółowymi informacjami na temat kodu znajdującego się za przykładem.
 
 <a id="addRes"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail przy użyciu ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) Szczegółowe informacje na temat uwierzytelniania dwuskładnikowego
 - [Linki do ASP.NET Identity zalecanych zasobów](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)

@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/performance/signalr-performance
-title: Wydajność SignalR | Dokumentacja firmy Microsoft
+title: Wydajność sygnalizująca | Microsoft Docs
 author: bradygaster
 description: Wydajność usługi SignalR
 ms.author: bradyg
@@ -9,45 +9,45 @@ ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
 ms.openlocfilehash: b8a44f4c924c94cdfff1ce7630539b45fe269bbf
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113583"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558325"
 ---
 # <a name="signalr-performance"></a>Wydajność usługi SignalR
 
-przez [Patrick Fletcher](https://github.com/pfletcher)
+[Fletcher Patryka](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> W tym temacie opisano sposób projektowania, miar i zwiększenie wydajności w aplikacji SignalR.
+> W tym temacie opisano sposób projektowania, mierzenia i poprawiania wydajności w aplikacji sygnalizującej.
 >
-> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
+> ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używane w tym temacie
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR w wersji 2
+> - Sygnalizujący wersja 2
 >
 >
 >
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
 >
-> Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
+> Aby uzyskać informacje o wcześniejszych wersjach programu sygnalizującego, zobacz sekcję [sygnalizujące starsze wersje](../older-versions/index.md).
 >
-> ## <a name="questions-and-comments"></a>Pytania i komentarze
+> ## <a name="questions-and-comments"></a>Pytania i Komentarze
 >
-> Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
+> Prosimy o opinię na temat sposobu, w jaki lubię ten samouczek, i co możemy ulepszyć w komentarzach w dolnej części strony. Jeśli masz pytania, które nie są bezpośrednio związane z samouczkiem, możesz je ogłosić na [forum ASP.NET](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
-Ostatnie prezentacji na wydajność SignalR i skalowania, zobacz [skalowanie sieci Web w czasie rzeczywistym z użyciem ASP.NET SignalR](https://channel9.msdn.com/Events/Build/2013/3-502).
+Aby uzyskać ostatnią prezentację na temat wydajności i skalowania sygnału, zobacz [skalowanie sieci Web w czasie rzeczywistym za pomocą sygnału ASP.NET](https://channel9.msdn.com/Events/Build/2013/3-502).
 
 Ten temat zawiera następujące sekcje:
 
 - [Zagadnienia dotyczące projektowania](#design)
-- [Dostrajanie wydajności serwera SignalR](#tuning)
+- [Dostrajanie serwera sygnalizującego pod kątem wydajności](#tuning)
 - [Rozwiązywanie problemów z wydajnością](#troubleshooting)
-- [Korzystanie z liczników wydajności SignalR](#perfcounters)
+- [Korzystanie z liczników wydajności sygnałów](#perfcounters)
 - [Korzystanie z innych liczników wydajności](#othercounters)
 - [Inne zasoby](#otherresources)
 
@@ -55,68 +55,68 @@ Ten temat zawiera następujące sekcje:
 
 ## <a name="design-considerations"></a>Zagadnienia dotyczące projektowania
 
-W tej sekcji opisano wzorców, które można zastosować podczas projektowania aplikacji SignalR, aby upewnić się, że wydajność jest nie utrudniona, generując niepotrzebny ruch sieciowy.
+W tej sekcji opisano wzorce, które mogą być implementowane podczas projektowania aplikacji sygnalizującej, aby zapewnić, że wydajność nie jest zakłócana przez wygenerowanie niepotrzebnego ruchu sieciowego.
 
-### <a name="throttling-message-frequency"></a>Ograniczanie częstotliwości wiadomości
+### <a name="throttling-message-frequency"></a>Częstotliwość komunikatów ograniczania przepustowości
 
-Nawet w przypadku aplikacji, która wysyła komunikaty o wysokiej częstotliwości (np. aplikacji gier w języku czasu rzeczywistego) większość aplikacji nie trzeba wysłać więcej niż kilka komunikatów na sekundę. Aby zmniejszyć ilość ruchu sieciowego, który generuje każdy klient, można zaimplementować pętli komunikatów, kolejki i wysyła się komunikaty nie częściej niż stałą stawkę (czyli maksymalna liczba wiadomości będą wysyłane co sekundę w przypadku komunikatów w tym czasie w nterwał do wysłania). Dla przykładowej aplikacji, która ogranicza wiadomości do niektórych współczynnik (od klienta i serwera), zobacz [Realtime o wysokiej częstotliwości za pomocą biblioteki SignalR](../getting-started/tutorial-high-frequency-realtime-with-signalr.md).
+Nawet w aplikacji, która wysyła komunikaty z dużą częstotliwością (na przykład aplikacja do gier w czasie rzeczywistym), większość aplikacji nie musi wysyłać więcej niż kilka komunikatów na sekundę. Aby zmniejszyć ilość ruchu wygenerowanego przez każdego klienta, można zaimplementować pętlę komunikatów, która nie jest częściej niż stała stawka (oznacza to, że do określonej liczby komunikatów będą wysyłane co sekundę, jeśli w tym czasie znajdują się komunikaty terval do wysłania). W przypadku przykładowej aplikacji, która ogranicza komunikaty do określonej stawki (zarówno z klienta i serwera), zobacz czas [rzeczywisty o wysokiej częstotliwości z sygnalizującym](../getting-started/tutorial-high-frequency-realtime-with-signalr.md).
 
-### <a name="reducing-message-size"></a>Zmniejszenie rozmiaru wiadomości
+### <a name="reducing-message-size"></a>Zmniejszanie rozmiaru wiadomości
 
-Aby zmniejszyć rozmiar komunikatu SignalR, należy zmniejszyć rozmiar serializacji obiektów. W kodzie serwera, jest wysyłana obiekt, który zawiera właściwości, które nie muszą być przekazywane, uniemożliwi te właściwości serializowanego przy użyciu `JsonIgnore` atrybutu. Nazwy właściwości są także przechowywane informacje w wiadomości; nazwy właściwości może zostać skrócony przy użyciu `JsonProperty` atrybutu. W poniższym przykładzie kodu pokazano sposób wykluczać właściwość zostały wysłane do klienta oraz skrócić nazwy właściwości:
+Możesz zmniejszyć rozmiar komunikatu sygnalizującego, zmniejszając rozmiar serializowanych obiektów. W przypadku wysyłania obiektu, który zawiera właściwości, które nie muszą być przesyłane, w kodzie serwera, należy zapobiec serializacji tych właściwości przy użyciu atrybutu `JsonIgnore`. Nazwy właściwości są również przechowywane w komunikacie. nazwy właściwości można skrócić przy użyciu atrybutu `JsonProperty`. Poniższy przykład kodu demonstruje, jak wykluczyć właściwość z wysyłania do klienta i jak skrócić nazwy właściwości:
 
-**Kod serwera platformy .NET, który demonstruje, atrybut JsonIgnore wykluczanie danych zostały wysłane do klienta, a atrybut JsonProperty, aby zmniejszyć rozmiar komunikatu**
+**Kod serwera .NET, który demonstruje atrybut JsonIgnore, aby wykluczyć dane wysyłane do klienta i atrybut JsonProperty w celu zmniejszenia rozmiaru komunikatu**
 
 [!code-csharp[Main](signalr-performance/samples/sample1.cs?highlight=5,7,10)]
 
-Aby zachować czytelność / łatwości utrzymania kodu klienta, nazwy skróconej właściwości mogą być ponownie zmapowany do przyjaznego dla człowieka nazwami po otrzymaniu komunikatu. W poniższym przykładzie kodu pokazano jeden sposób możliwe ponowne mapowanie skrócone nazwy tymi dłużej, definiując kontraktu komunikatu (mapowanie) i za pomocą `reMap` funkcja do stosowania Umowy do klasy zoptymalizowane wiadomości:
+Aby zachować czytelność/łatwość utrzymania w kodzie klienta, skrócone nazwy właściwości mogą być ponownie mapowane na przyjazne nazwy po odebraniu wiadomości. Poniższy przykład kodu ilustruje jeden z możliwych sposobów ponownego mapowania skróconych nazw do większej, przez zdefiniowanie kontraktu komunikatu (mapowanie) i użycie funkcji `reMap` do zastosowania kontraktu do klasy zoptymalizowanego komunikatu:
 
-**Kod JavaScript po stronie klienta, który ponownie mapuje skrócone nazwy właściwości na nazwy czytelny dla człowieka**
+**Kod JavaScript po stronie klienta, który ponownie mapuje skrócone nazwy właściwości na nazwy czytelne dla człowieka**
 
 [!code-javascript[Main](signalr-performance/samples/sample2.js)]
 
-Nazwy mogą skrócony w wiadomościach od klienta do serwera, jak również za pomocą tej samej metody.
+Nazwy można skrócić również w komunikatach z klienta do serwera, używając tej samej metody.
 
-Zmniejszenie zużycia pamięci (czyli ilości pamięci używanej dla wiadomości) komunikatu obiektu może również zwiększyć wydajność. Przykładowo jeśli pełną gamę `int` nie jest potrzebna, `short` lub `byte` mogą być używane zamiast tego.
+Zmniejszenie ilości pamięci (czyli ilości pamięci używanej przez komunikat) obiektu komunikatu może również zwiększyć wydajność. Na przykład jeśli pełny zakres `int` nie jest wymagany, zamiast tego można użyć `short` lub `byte`.
 
-Ponieważ komunikaty są przechowywane w magistrali komunikatów w pamięci serwera, zmniejszenie rozmiaru wiadomości, można także rozwiązać problemy z z pamięci serwera.
+Ponieważ komunikaty są przechowywane w magistrali komunikatów w pamięci serwera, zmniejszenie rozmiaru komunikatów może również rozwiązać problemy z pamięcią serwera.
 
 <a id="tuning"></a>
 
-### <a name="tuning-your-signalr-server-for-performance"></a>Dostrajanie wydajności serwera SignalR
+### <a name="tuning-your-signalr-server-for-performance"></a>Dostrajanie serwera sygnalizującego pod kątem wydajności
 
-Następujące ustawienia konfiguracji można Dostrajanie Serwer w celu zapewnienia lepszej wydajności w aplikacji SignalR. Aby uzyskać ogólne informacje na temat sposobu zwiększenia wydajności w aplikacji ASP.NET, zobacz [poprawę wydajności ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
+Poniższe ustawienia konfiguracji mogą służyć do dostrajania serwera w celu zapewnienia lepszej wydajności w aplikacji sygnalizującej. Aby uzyskać ogólne informacje na temat ulepszania wydajności w aplikacji ASP.NET, zobacz [Poprawianie wydajności ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
-**Ustawienia konfiguracji SignalR**
+**Ustawienia konfiguracji sygnalizującego**
 
-- **DefaultMessageBufferSize**: Domyślnie SignalR zachowuje 1000 komunikatów w pamięci na Centrum połączenia. Jeśli używane są duże wiadomości, że może to spowodować problemy z pamięcią, które mogą być złagodzone przez zmniejszenie tej wartości. To ustawienie można ustawić w `Application_Start` programu obsługi zdarzeń w aplikacji ASP.NET lub `Configuration` metody klasy początkowej OWIN w samodzielnie hostowanej aplikacji. W poniższym przykładzie pokazano, jak zmniejszyć tę wartość, aby zmniejszyć ilość pamięci zajmowaną przez aplikację, aby zmniejszyć ilość używanej pamięci serwera:
+- **DefaultMessageBufferSize**: domyślnie sygnalizujący przechowuje 1000 komunikatów w pamięci na koncentratorze dla każdego połączenia. W przypadku korzystania z dużych komunikatów może to spowodować problemy z pamięcią, które można wyeliminować, zmniejszając tę wartość. To ustawienie można ustawić w obsłudze zdarzeń `Application_Start` w aplikacji ASP.NET lub w metodzie `Configuration` klasy uruchomieniowej OWIN w aplikacji samohostowanej. Poniższy przykład demonstruje, jak zmniejszyć tę wartość, aby zmniejszyć rozmiar pamięci aplikacji w celu zmniejszenia ilości używanej pamięci serwera:
 
-    **Kod serwera .NET w pliku Startup.cs dla malejącej domyślny rozmiar buforu komunikatu**
+    **Kod programu .NET Server w Startup.cs na potrzeby zmniejszania domyślnego rozmiaru buforu komunikatów**
 
     [!code-csharp[Main](signalr-performance/samples/sample3.cs)]
 
 **Ustawienia konfiguracji usług IIS**
 
-- **Maksymalna liczba równoczesnych żądań dla aplikacji**: Zwiększenie liczby równoczesnych IIS żądań zwiększy zasoby serwera są dostępne na potrzeby obsługiwania żądań. Wartość domyślna to 5000; Aby zwiększyć to ustawienie, wykonaj następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+- **Maksymalna liczba współbieżnych żądań na aplikację**: zwiększenie liczby równoczesnych żądań usług IIS spowoduje zwiększenie zasobów serwera dostępnych do obsługi żądań. Wartość domyślna to 5000; Aby zwiększyć to ustawienie, wykonaj następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
-- **ApplicationPool QueueLength**: Jest to maksymalna liczba żądań, sterownik Http.sys umieszcza w kolejce dla puli aplikacji. Gdy kolejka jest zapełniona, nowe żądania otrzymują odpowiedź 503 "Usługa niedostępna". Wartość domyślna to 1000.
+- **ApplicationPool queuelength**: jest to maksymalna liczba żądań, które są kolejki http. sys dla puli aplikacji. Gdy kolejka jest pełna, nowe żądania otrzymują odpowiedź "Usługa niedostępna" w usłudze 503. Wartość domyślna to 1000.
 
-    Skracanie długość kolejki dla procesu roboczego puli aplikacji, hostowanie aplikacji będzie zaoszczędzenia zasobów pamięci. Aby uzyskać więcej informacji, zobacz [dostrajania, konfigurowanie pul aplikacji i zarządzanie nimi](https://technet.microsoft.com/library/cc745955.aspx).
+    Skrócenie długości kolejki procesu roboczego w puli aplikacji obsługującej aplikację spowoduje zapełnienie zasobów pamięci. Aby uzyskać więcej informacji, zobacz [Zarządzanie, dostrajanie i Konfigurowanie pul aplikacji](https://technet.microsoft.com/library/cc745955.aspx).
 
-**Ustawienia konfiguracji programu ASP.NET**
+**Ustawienia konfiguracji ASP.NET**
 
-Ta sekcja zawiera ustawienia konfiguracji, które można ustawić w `aspnet.config` pliku. Ten plik znajduje się w jednej z dwóch lokalizacji, w zależności od platformy:
+Ta sekcja zawiera ustawienia konfiguracji, które można ustawić w pliku `aspnet.config`. Ten plik znajduje się w jednej z dwóch lokalizacji, w zależności od platformy:
 
 - `%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet.config`
 - `%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet.config`
 
-Ustawienia programu ASP.NET, które może poprawić wydajność SignalR są następujące:
+Ustawienia ASP.NET, które mogą poprawić wydajność sygnalizującego, obejmują następujące elementy:
 
-- **Maksymalna liczba równoczesnych żądań na procesor CPU,**: Zwiększa to ustawienie może zlikwidować wąskie gardła wydajności. Aby zwiększyć to ustawienie, Dodaj następujące ustawienie konfiguracji, aby `aspnet.config` pliku:
+- **Maksymalna liczba współbieżnych żądań na procesor CPU**: zwiększenie tego ustawienia może złagodzić wąskie gardła wydajności. Aby zwiększyć to ustawienie, należy dodać następujące ustawienia konfiguracji do pliku `aspnet.config`:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **Ograniczenie kolejki żądań**: Jeśli łączna liczba połączeń przekroczy `maxConcurrentRequestsPerCPU` ustawienie ASP.NET rozpocznie ograniczanie żądań za pomocą kolejki. Aby zwiększyć rozmiar kolejki, możesz zwiększyć `requestQueueLimit` ustawienie. Aby to zrobić, Dodaj następujące ustawienie konfiguracji, aby `processModel` w węźle `config/machine.config` (zamiast `aspnet.config`):
+- **Limit kolejki żądań**: gdy całkowita liczba połączeń przekroczy ustawienie `maxConcurrentRequestsPerCPU`, ASP.NET rozpocznie ograniczanie żądań przy użyciu kolejki. Aby zwiększyć rozmiar kolejki, można zwiększyć ustawienie `requestQueueLimit`. W tym celu należy dodać następujące ustawienia konfiguracji do węzła `processModel` w `config/machine.config` (zamiast `aspnet.config`):
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -126,158 +126,158 @@ Ustawienia programu ASP.NET, które może poprawić wydajność SignalR są nast
 
 W tej sekcji opisano sposoby znajdowania wąskich gardeł wydajności w aplikacji.
 
-### <a name="verifying-that-websocket-is-being-used"></a>Weryfikowanie, używanego protokołu WebSocket
+### <a name="verifying-that-websocket-is-being-used"></a>Weryfikowanie, czy protokół WebSocket jest używany
 
-Podczas SignalR można użyć różnych transportu do komunikacji między klientem i serwerem, WebSocket oferuje zalety istotnie poprawiającą wydajność i można używać, jeśli klient i serwer obsługują go. Aby określić, jeśli z klientem i serwerem spełniają wymagania dla protokołu WebSocket, zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports). Aby ustalić, jakie transportu jest używany w aplikacji, przy użyciu narzędzi deweloperskich w przeglądarce i sprawdź dzienniki, aby zobaczyć, jakie transportu jest używany dla połączenia. Aby uzyskać informacje na temat korzystania z narzędzi programistycznych przeglądarki w programie Internet Explorer i Chrome, zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports).
+Chociaż sygnalizujący może używać różnych transportów komunikacji między klientem i serwerem, protokół WebSocket oferuje znaczną wydajność i należy go używać, jeśli klient i serwer obsługują tę opcję. Aby określić, czy klient i serwer spełniają wymagania dotyczące protokołu WebSocket, zobacz [Transports and fallbacks](../getting-started/introduction-to-signalr.md#transports). Aby określić, który transport jest używany w aplikacji, możesz użyć narzędzi deweloperskich przeglądarki i sprawdzić dzienniki, aby zobaczyć, jaki transport jest używany do połączenia. Aby uzyskać informacje na temat korzystania z narzędzi programistycznych przeglądarki w programie Internet Explorer i programie Chrome, zobacz [Transports and fallbacks](../getting-started/introduction-to-signalr.md#transports).
 
 <a id="perfcounters"></a>
 
-## <a name="using-signalr-performance-counters"></a>Korzystanie z liczników wydajności SignalR
+## <a name="using-signalr-performance-counters"></a>Korzystanie z liczników wydajności sygnałów
 
-W tej sekcji opisano, jak włączanie i używanie liczników wydajności SignalR, w `Microsoft.AspNet.SignalR.Utils` pakietu.
+W tej sekcji opisano sposób włączania i używania liczników wydajności sygnałów, które znajdują się w pakiecie `Microsoft.AspNet.SignalR.Utils`.
 
-### <a name="installing-signalrexe"></a>Instalowanie signalr.exe
+### <a name="installing-signalrexe"></a>Instalowanie sygnalizującer. exe
 
-Liczniki wydajności można dodać do serwera przy użyciu narzędzia o nazwie SignalR.exe. Aby zainstalować to narzędzie, wykonaj następujące kroki:
+Liczniki wydajności można dodać do serwera za pomocą narzędzia o nazwie Sygnalizującer. exe. Aby zainstalować to narzędzie, wykonaj następujące kroki:
 
-1. W programie Visual Studio, wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**
-2. Wyszukaj **signalr.utils**i wybierz opcję instalacji.
+1. W programie Visual Studio wybierz kolejno pozycje **narzędzia** > **menedżer pakietów NuGet** > **Zarządzanie pakietami NuGet dla rozwiązania**
+2. Wyszukaj pozycję **sygnalizujący.** narzędzia i wybierz pozycję Zainstaluj.
 
     ![](signalr-performance/_static/image1.png)
-3. Zaakceptuj Umowę licencyjną, aby zainstalować pakiet.
-4. SignalR.exe zostanie zainstalowana tak, aby `<project folder>/packages/Microsoft.AspNet.SignalR.Utils.<version>/tools`.
+3. Zaakceptuj umowę licencyjną, aby zainstalować pakiet.
+4. Program sygnalizujący. exe zostanie zainstalowany do `<project folder>/packages/Microsoft.AspNet.SignalR.Utils.<version>/tools`.
 
-### <a name="installing-performance-counters-with-signalrexe"></a>Instalowanie liczników wydajności z SignalR.exe
+### <a name="installing-performance-counters-with-signalrexe"></a>Instalowanie liczników wydajności za pomocą programu Signaler. exe
 
-Aby zainstalować liczników wydajności SignalR, uruchom SignalR.exe w wierszu polecenia z podwyższonym poziomem uprawnień, poziomem następujący parametr:
+Aby zainstalować liczniki wydajności sygnałów, uruchom program Sygnalizującer. exe w wierszu polecenia z podwyższonym poziomem uprawnień z następującym parametrem:
 
 [!code-console[Main](signalr-performance/samples/sample7.cmd)]
 
-Aby usunąć liczników wydajności SignalR, uruchom SignalR.exe w wierszu polecenia z podwyższonym poziomem uprawnień, poziomem następujący parametr:
+Aby usunąć liczniki wydajności sygnałów, uruchom program Signaler. exe w wierszu polecenia z podwyższonym poziomem uprawnień z następującym parametrem:
 
 [!code-console[Main](signalr-performance/samples/sample8.cmd)]
 
-### <a name="signalr-performance-counters"></a>Liczniki wydajności SignalR
+### <a name="signalr-performance-counters"></a>Liczniki wydajności sygnałów
 
-Pakiet narzędzi instaluje następujące liczniki wydajności. "Całkowita" liczniki pomiaru liczba zdarzeń od czasu ostatniego pula aplikacji lub serwera ponownego uruchomienia.
+Pakiet narzędzi instaluje następujące liczniki wydajności. Liczniki "Total" mierzą liczbę zdarzeń od momentu ostatniego ponownego uruchomienia serwera.
 
 **Metryki połączeń**
 
-Następujące metryki pomiaru zdarzenia okresu istnienia połączenia, które wystąpiły. Aby uzyskać więcej informacji, zobacz [zrozumienia i obsługa zdarzeń okresu istnienia połączenia](../guide-to-the-api/handling-connection-lifetime-events.md).
+Następujące metryki mierzą zdarzenia okresu istnienia połączenia, które wystąpiły. Aby uzyskać więcej informacji, zobacz [Omówienie i obsługa zdarzeń okresu istnienia połączenia](../guide-to-the-api/handling-connection-lifetime-events.md).
 
-- **Połączeń**
-- **Połączenia zakończone**
-- **Połączenia rozłączony**
+- **Połączenia połączone**
+- **Połączenia zostały ponownie połączone**
+- **Połączenia rozłączone**
 - **Bieżące połączenia**
 
-**Metryki wiadomości**
+**Metryki komunikatów**
 
-Następujące metryki pomiaru ruchu komunikat generowany przez SignalR.
+Następujące metryki mierzą ruch komunikatów generowany przez program sygnalizujący.
 
-- **Komunikaty o połączenia odebrane łącznie**
-- **Łączna liczba wysyłane wiadomości połączenia**
-- **Połączenie komunikaty odebrane/s**
-- **Połączenie wiadomości wysłane/s**
+- **Całkowita liczba odebranych komunikatów połączenia**
+- **Całkowita liczba wysłanych komunikatów połączenia**
+- **Odebrane komunikaty połączenia/s**
+- **Wysłane komunikaty połączenia/s**
 
-**Komunikatów bus metryki**
+**Metryki magistrali komunikatów**
 
-Następujące metryki pomiaru ruchu za pośrednictwem wewnętrznego magistrali komunikatu SignalR, kolejki, w której są umieszczane wszystkich przychodzących i wychodzących komunikatów SignalR. Komunikat jest **opublikowano** po zakończeniu wysyłania lub emisji. A **subskrybenta** w tym kontekście jest subskrypcji na magistrali komunikatu; to powinna być równa liczbie klientów, a także sam serwer. **Przydzielone procesu roboczego** to składnik, który wysyła dane do aktywnego połączenia; **zajęty, proces roboczy** to taki, który jest aktywnie wysyłania komunikatu.
+Następujące metryki mierzą ruch przez magistralę komunikatów wewnętrznych sygnalizujących, kolejkę, w której są umieszczane wszystkie komunikaty sygnalizujące przychodzące i wychodzące. Komunikat jest **publikowany** , gdy jest wysyłany lub emitowany. **Subskrybent** w tym kontekście jest subskrypcją magistrali komunikatów; Ta wartość powinna być równa liczbie klientów i serwera. **Przydzielony proces roboczy** to składnik, który wysyła dane do aktywnych połączeń; **zajęty proces roboczy** to ten, który aktywnie wysyła komunikat.
 
-- **Magistrala komunikatów komunikaty odebrane łącznie**
-- **Magistrala komunikatów komunikaty odebrane/s**
-- **Komunikatów Bus komunikatów opublikowanych łącznie**
-- **Magistrala komunikatów komunikaty publikowane na sekundę**
-- **Bieżąca subskrybentów magistrali komunikatów**
+- **Całkowita liczba odebranych komunikatów magistrali komunikatów**
+- **Odebrane komunikaty magistrali komunikatów/s**
+- **Łączna liczba opublikowanych komunikatów magistrali komunikatów**
+- **Opublikowane komunikaty magistrali komunikatów/s**
+- **Aktualni Subskrybenci magistrali komunikatów**
 - **Łączna liczba subskrybentów magistrali komunikatów**
-- **Subskrybentów magistrali komunikatów na sekundę**
-- **Magistrala komunikatów przydzielonych pracowników**
-- **Komunikatów Bus zajętych pracowników**
-- **Bieżąca tematy magistrali komunikatów**
+- **Subskrybenci magistrali komunikatów/s**
+- **Pracownicy przydzieleni do magistrali komunikatów**
+- **Pracownikom zajętym przez magistralę komunikatów**
+- **Bieżące tematy dotyczące magistrali komunikatów**
 
-**Błąd metryki**
+**Metryki błędów**
 
-Następujące metryki pomiaru błędów generowanych przez ruch komunikatów SignalR. **Rozpoznawanie Centrum** błędy występują, gdy nie można rozpoznać koncentratora lub metody koncentratora. **Wywołania koncentratora** błędy są wyjątki generowane podczas wywołania metody koncentratora. **Transport** błędy są błędami połączenia podczas żądania lub odpowiedzi HTTP.
+Następujące metryki mierzą błędy generowane przez ruch komunikatów sygnalizujących. Błędy **rozpoznawania centrów** występują, gdy nie można rozpoznać metody Hub lub Hub. Błędy **wywołania centrum** to wyjątki zgłoszone podczas wywoływania metody centrum. Błędy **transportu** to błędy połączeń zgłoszone podczas żądania HTTP lub odpowiedzi.
 
-- **Błędy: Suma wszystkich**
-- **Błędy: Wszystkie na sekundę**
-- **Błędy: Łączna liczba rozpoznawania koncentratora**
-- **Błędy: Rozpoznawania koncentratora na sekundę**
-- **Błędy: Łączna liczba wywołania koncentratora**
-- **Błędy: Wywołania koncentratora na sekundę**
-- **Błędy: Łączna liczba transportu**
-- **Błędy: Transportu na sekundę**
+- **Błędy: wszystkie łącznie**
+- **Błędy: wszystkie/s**
+- **Błędy: rozdzielczość centrum łącznie**
+- **Błędy: rozdzielczość centrum/s**
+- **Błędy: całkowita liczba wywołań koncentratora**
+- **Błędy: wywołanie koncentratora/s**
+- **Błędy: łącznie z transportem**
+- **Błędy: transport/s**
 
 <a id="scaleout_metrics"></a>
 
-**Metryki skalowania w poziomie**
+**Metryki skalowania**
 
-Następujące metryki pomiaru ruchu i błędy generowane przez dostawcę skalowania w poziomie. A **Stream** w tym kontekście jest jednostki skalowania używanej przez dostawcę skalowania; to jest tabelą, jeśli jest używany program SQL Server, tematu, jeśli jest używana usługa Service Bus i subskrypcji, jeśli jest używany w pamięci podręcznej Redis. Zapewnia każdego strumienia, uporządkowany operacji odczytu i zapisu; jednemu strumieniowi jest potencjalnych wąskich gardeł skali, dzięki czemu można zwiększyć liczbę strumieni z myślą o zmniejszeniu tego wąskiego gardła. Użycie wielu strumieni SignalR będzie automatycznie dystrybuować komunikaty (fragmencie) te strumienie w sposób, który gwarantuje, że komunikaty wysyłane z dowolnego danego połączenia są w kolejności.
+Następujące metryki mierzą ruch i błędy generowane przez dostawcę skalowania. **Strumień** w tym kontekście jest jednostką skalowania używaną przez dostawcę skalowania. jest to tabela, jeśli użyto SQL Server, tematu, jeśli jest używany Service Bus, i subskrypcji, jeśli jest używana Redis. Każdy strumień gwarantuje uporządkowane operacje odczytu i zapisu; pojedynczy strumień to potencjalne wąskie gardło skali, dzięki czemu można zwiększyć liczbę strumieni, aby zmniejszyć wąskie gardło. Jeśli używanych jest wiele strumieni, sygnalizujący automatycznie dystrybuuje komunikaty (fragmentu) w ramach tych strumieni w taki sposób, że komunikaty wysyłane z dowolnego połączenia są w tej samej kolejności.
 
-[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) kontroluje długość kolejki wysyłania skalowania, które są obsługiwane przez SignalR. Zostanie ustawiona na wartość większą niż 0, zostaną umieszczone wszystkie komunikaty w kolejce wysyłania do wysłania pojedynczo do skonfigurowanego płyty montażowej obsługi komunikatów. Rozmiar kolejki przekroczy skonfigurowany długość, kolejne wywołania do wysyłania będą działać od razu z [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) do momentu liczba wiadomości w kolejce jest mniejsza niż wartość ustawienia ponownie. Kolejkowanie jest domyślnie wyłączona, ponieważ implementowane montażowych zazwyczaj mają własne usługi kolejkowania lub Sterowanie przepływem w miejscu. W przypadku programu SQL Server efektywnego buforowania połączeń ogranicza liczbę wysyła dzieje się w dowolnym momencie.
+Ustawienie [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) określa długość kolejki wysyłania skalowania obsługiwanej przez program sygnalizujący. Ustawienie wartości większej niż 0 spowoduje umieszczenie wszystkich komunikatów w kolejce wysyłania w celu ich wysłania do skonfigurowanego planu obsługi komunikatów. Jeśli rozmiar kolejki przekracza skonfigurowaną długość, kolejne wywołania do wysłania zakończą się niepowodzeniem [, dopóki liczba](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) komunikatów w kolejce jest mniejsza niż wartość ustawienia. Kolejkowanie jest domyślnie wyłączone, ponieważ wdrożone plany są zwykle mają własne miejsce w kolejce lub sterowanie przepływem. W przypadku SQL Server, pule połączeń skutecznie ograniczają liczbę operacji wysyłania w dowolnym momencie.
 
-Domyślnie tylko jeden strumień jest używany do programu SQL Server i usługi Redis, pięć strumienie są używane dla usługi Service Bus i Kolejkowanie jest wyłączona, ale te ustawienia można zmienić, modyfikując konfigurację programu SQL Server i usługi Service Bus:
+Domyślnie tylko jeden strumień jest używany dla SQL Server i Redis, pięć strumieni jest używanych do Service Bus, a kolejkowanie jest wyłączone, ale te ustawienia można zmienić za pomocą konfiguracji w SQL Server i Service Bus:
 
-**Kod serwera platformy .NET do konfigurowania długość kolejki i liczba tabeli płyty montażowej programu SQL Server**
+**Kod serwera .NET służący do konfigurowania liczby tabel i długości kolejki dla SQL Server**
 
 [!code-csharp[Main](signalr-performance/samples/sample9.cs)]
 
-**Konfigurowanie długość kolejki i liczba tematu usługi Service Bus płyty montażowej kod serwera .NET**
+**Kod serwera .NET służący do konfigurowania liczby tematów i długości kolejki dla Service Bus**
 
 [!code-csharp[Main](signalr-performance/samples/sample10.cs)]
 
-A **buforowanie** strumienia to taki, który został wprowadzony w stan; gdy strumień jest w stanie błędu, wszystkie wiadomości wysyłane do systemu backplane zakończy się niepowodzeniem, dopóki nie strumienia nie jest już spowodował błąd. **Długość kolejki wysyłania** jest to liczba komunikatów, które zostały opublikowane, ale nie została jeszcze wysłane.
+Strumień **buforowania** to taki, który przeszedł do stanu błędu; gdy strumień jest w stanie awarii, wszystkie komunikaty wysyłane do planu awaryjnego zakończą się niepowodzeniem, dopóki strumień nie będzie już powodował błędów. **Długość kolejki wysyłania** to liczba komunikatów, które zostały ogłoszone, ale nie zostały jeszcze wysłane.
 
-- **Magistrali komunikatów skalowania w poziomie komunikaty odebrane/s**
-- **Łączna liczba strumieni skalowania w poziomie**
-- **Skalowalne strumieni Open**
-- **Strumienie ze skalowaniem buforowania**
-- **Całkowita liczba błędów skalowania w poziomie**
-- **Błędów skalowania na sekundę**
-- **Długość kolejki wysyłania skalowania w poziomie**
+- **Odebrane komunikaty magistrali komunikatów skalowania/s**
+- **Całkowita liczba strumieni skalowania**
+- **Otwarte strumienie skalowania**
+- **Buforowanie strumieni skalowania**
+- **Łączna liczba błędów skalowania**
+- **Błędy skalowania/s**
+- **Długość kolejki wysyłania skalowania**
 
-Aby uzyskać więcej informacji na temat co te liczniki są pomiaru, zobacz [SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md).
+Aby uzyskać więcej informacji o tym, co to są pomiary, zobacz [sygnalizującer skalowania with Azure Service Bus](scaleout-with-windows-azure-service-bus.md).
 
 <a id="othercounters"></a>
 
 ## <a name="using-other-performance-counters"></a>Korzystanie z innych liczników wydajności
 
-Następujące liczniki wydajności mogą być też przydatne do monitorowania wydajności aplikacji.
+Poniższe liczniki wydajności mogą być również przydatne podczas monitorowania wydajności aplikacji.
 
-**Pamięć**
+**Rozmiar**
 
-- Pamięć .NET CLR\\liczba bajtów we wszystkich sterty (na potrzeby w3wp)
+- Pamięć .NET CLR\\# bajtów we wszystkich stertach (dla w3wp)
 
 **ASP.NET**
 
-- Bieżąca ASP.NET\Requests
+- ASP. NET\Requests — bieżące
 - ASP.NET\Queued
 - ASP.NET\Rejected
 
-**CPU**
+**TESTY**
 
 - Czas Information\Processor procesora
 
 **TCP/IP**
 
-- TCPv6/ustanowionych połączeń
-- TCPv4/ustanowionych połączeń
+- TCPv6/połączenia zostały ustanowione
+- TCPv4/połączenia zostały ustanowione
 
 **Usługa sieci Web**
 
-- Połączenia Service\Current sieci Web
-- Połączenia Service\Maximum sieci Web
+- Połączenia sieci Web Service\Current
+- Połączenia sieci Web Service\Maximum
 
 **Wątkowość**
 
-- .NET CLR blokad i wątków\\liczba bieżących wątków logiczne
-- .NET CLR blokad i wątków\\liczba bieżących wątków fizycznych
+- Zablokowanie i wątki środowiska .NET CLR\\# bieżących wątków logicznych
+- Blokady i wątki środowiska .NET CLR\\# bieżących wątków fizycznych
 
 <a id="otherresources"></a>
 
 ## <a name="other-resources"></a>Inne zasoby
 
-Aby uzyskać więcej informacji na temat wydajności programu ASP.NET, monitorowania i dostrajania, zobacz następujące tematy:
+Więcej informacji na temat monitorowania i dostrajania wydajności ASP.NET można znaleźć w następujących tematach:
 
-- [Przegląd wydajności platformy ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
-- [Użycie wątków programu ASP.NET, IIS 7.5, usługi IIS 7.0 i IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; — Element (ustawienia internetowe)](https://msdn.microsoft.com/library/dd560842.aspx)
+- [Przegląd wydajności ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
+- [Użycie wątku ASP.NET w usługach IIS 7,5, IIS 7,0 i IIS 6,0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
+- [&lt;element&gt; applicationPool (Ustawienia sieci Web)](https://msdn.microsoft.com/library/dd560842.aspx)

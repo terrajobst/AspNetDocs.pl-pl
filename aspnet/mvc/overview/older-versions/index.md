@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions/index
-title: Starsze wersje — MVC 3 i 4 | Dokumentacja firmy Microsoft
+title: Starsze wersje — MVC 3 i 4 | Microsoft Docs
 author: rick-anderson
-description: Zawiera łącza do zasobów do nauki, jak używać starszych wersji programu ASP.NET MVC.
+description: Linki do zasobów na potrzeby uczenia się, jak używać wcześniejszych wersji ASP.NET MVC.
 ms.author: riande
 ms.date: 10/09/2014
 ms.assetid: 151cd274-3daa-4f88-ad3b-bffb99a9d545
 msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: aa38ea8984f958939261d494f65bfa2108f87068
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112453"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78560054"
 ---
 # <a name="older-versions---mvc-3-and-4"></a>Starsze wersje — MVC 3 i 4
 
-> Zawiera łącza do zasobów do nauki, jak używać starszych wersji programu ASP.NET MVC.
+> Linki do zasobów na potrzeby uczenia się, jak używać wcześniejszych wersji ASP.NET MVC.
 
 - [Wprowadzenie do korzystania ze wzorca ASP.NET MVC 4](getting-started-with-aspnet-mvc4/index.md)
 
@@ -81,24 +81,24 @@ ms.locfileid: "65112453"
 - [Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretnym kodem JavaScript](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md)
 - [MVC 3 Music Store](mvc-music-store/index.md)
 
-    - [Część 1. Omówienie i plik -> Nowy projekt](mvc-music-store/mvc-music-store-part-1.md)
-    - [Część 2. Kontrolery](mvc-music-store/mvc-music-store-part-2.md)
-    - [Część 3: Widoki i modele widoków](mvc-music-store/mvc-music-store-part-3.md)
-    - [Część 4: Modele i dostęp do danych](mvc-music-store/mvc-music-store-part-4.md)
-    - [Część 5: Edycja formularzy i tworzenie szablonów](mvc-music-store/mvc-music-store-part-5.md)
-    - [Część 6: Za pomocą adnotacje danych na potrzeby weryfikacji modelu](mvc-music-store/mvc-music-store-part-6.md)
-    - [Część 7: Członkostwo i autoryzacja](mvc-music-store/mvc-music-store-part-7.md)
-    - [Część 8: Koszyk z aktualizacjami Ajax](mvc-music-store/mvc-music-store-part-8.md)
-    - [Część 9: Rejestracja i finalizacja zakupu](mvc-music-store/mvc-music-store-part-9.md)
-    - [Część 10: Końcowe aktualizacje nawigacji i projektu witryny, podsumowanie](mvc-music-store/mvc-music-store-part-10.md)
+    - [Część 1: omówienie i Plik->Nowy projekt](mvc-music-store/mvc-music-store-part-1.md)
+    - [Część 2: kontrolery](mvc-music-store/mvc-music-store-part-2.md)
+    - [Część 3: widoki i modele widoków](mvc-music-store/mvc-music-store-part-3.md)
+    - [Część 4: modele i dostęp do danych](mvc-music-store/mvc-music-store-part-4.md)
+    - [Część 5: edycja formularzy i tworzenie szablonów](mvc-music-store/mvc-music-store-part-5.md)
+    - [Część 6: używanie adnotacji do danych na potrzeby weryfikacji modelu](mvc-music-store/mvc-music-store-part-6.md)
+    - [Część 7: członkostwo i autoryzacja](mvc-music-store/mvc-music-store-part-7.md)
+    - [Część 8: koszyk z aktualizacjami Ajax](mvc-music-store/mvc-music-store-part-8.md)
+    - [Część 9: rejestracja i finalizacja zakupu](mvc-music-store/mvc-music-store-part-9.md)
+    - [Część 10: końcowe aktualizacje nawigacji i projektu witryny, podsumowanie](mvc-music-store/mvc-music-store-part-10.md)
 - [MVC 3 — HTML5 i kalendarz podręczny selektora daty interfejsu użytkownika jQuery](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index.md)
 
     - [HTML5 i kalendarz podręczny selektora daty interfejsu użytkownika jQuery w aplikacji ASP.NET MVC — część 1](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
     - [HTML5 i kalendarz podręczny selektora daty interfejsu użytkownika jQuery w aplikacji ASP.NET MVC — część 2](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
-    - [HTML5 i jQuery kalendarza podręcznego selektora daty interfejsu użytkownika platformy ASP.NET MVC — część 3](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+    - [DatePicker z menu podręcznego interfejsu użytkownika HTML5 i jQuery z ASP.NET MVC — część 3](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
     - [HTML5 i kalendarz podręczny selektora daty interfejsu użytkownika jQuery w aplikacji ASP.NET MVC — część 4](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)
 - [MVC 3 — praca z polem metody DropDownList w języku jQuery](working-with-the-dropdownlist-box-and-jquery/index.md)
 
     - [Używanie pomocnika DropDownList we wzorca ASP.NET MVC](working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
-    - [Badanie sposobu scaffolds pomocnika DropDownList przez platformy ASP.NET MVC](working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+    - [Badanie sposobu, w jaki ASP.NET MVC jest szkieletem pomocnika DropDownList](working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
     - [Dodawanie nowej kategorii do metody DropDownList przy użyciu interfejsu użytkownika jQuery](working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui.md)

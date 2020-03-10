@@ -9,11 +9,11 @@ ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
 ms.openlocfilehash: fc0463420207eba764014b8ec7123c5150e38247
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445764"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557352"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>Tworzenie obiektów transferu danych (DTO)
 
@@ -52,5 +52,5 @@ Na koniec zmodyfikuj metodę `PostBook`, aby zwracała DTO.
 > W tym samouczku Konwertujemy się na DTO ręcznie w kodzie. Inną opcją jest użycie biblioteki, takiej jak [automapowanie](http://automapper.org/) , która obsługuje konwersję automatycznie.
 > 
 > [!div class="step-by-step"]
-> [Poprzedni](part-4.md)
-> [Następny](part-6.md)
+> [Poprzednie](part-4.md)
+> [dalej](part-6.md)

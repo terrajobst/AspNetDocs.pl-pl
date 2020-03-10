@@ -1,109 +1,109 @@
 ---
 uid: single-page-application/overview/templates/breezeknockout-template
-title: Szablon BREEZE/Knockout | Dokumentacja firmy Microsoft
+title: Szablon Breeze/odcinania | Microsoft Docs
 author: madskristensen
-description: Szablon BREEZE/Knockout aplikacja jednostronicowa
+description: Szablon aplikacji Breeze/odcinania jednostronicowego
 ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
 ms.openlocfilehash: 5bb9ee8f758a25afa6baf3ccbaf7d5864754c7df
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113358"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558192"
 ---
 # <a name="breezeknockout-template"></a>Szablon Breeze/Knockout
 
-przez [: Mads Kristensen](https://github.com/madskristensen)
+Autor [produktywność Madsa Kristensena](https://github.com/madskristensen)
 
-> Szablon Breeze/Knockout MVC został napisany przez lej dzwonka
+> Breeze/odcinanie — szablon MVC został zapisany przez dzwonek
 > 
-> [Pobierz szablon MVC Breeze/Knockout](https://go.microsoft.com/fwlink/?LinkId=282649)
+> [Pobierz szablon MVC Breeze/odcinania](https://go.microsoft.com/fwlink/?LinkId=282649)
 
-Została uzyskana informacja "aplikacji jednostronicowej" (SPA) zastanawiasz się, co to jest. Podczas czytania można na jego temat, użytkownik będzie zamiast wystąpić dla siebie. Ale kto ma czas, aby pobrać próbkę? Jeśli masz program Visual Studio, będziesz mieć przykład SPA i uruchomiona w mniej niż 60 sekund przy użyciu wzorca ASP.NET MVC 4 szablon "Breeze/Knockout aplikacji jednostronicowej".
+Wysłuchano "aplikacja jednostronicowa" (SPA) i zastanawiasz się, co to jest. Podczas gdy możesz się z nią zapoznać, zamiast tego zapoznaj się z Tobą. Ale kto ma czas na pobranie przykładu? Jeśli masz program Visual Studio, będziesz mieć przykład SPA i działać w ciągu mniej niż 60 sekund dzięki szablonowi ASP.NET MVC 4 "Breeze/odcinania aplikacji jednostronicowej".
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ZephyrRunning.png)
 
-## <a name="what-is-the-breezeknockout-spa-template"></a>Co to jest szablon SPA Breeze/Knockout?
+## <a name="what-is-the-breezeknockout-spa-template"></a>Co to jest szablon SPA Breeze/odcinania?
 
-Większość szablonów projektu Generuj szkielet aplikacji. Umieść ciało w tych kości przez dodanie kodu i po pewnym czasie dostarczać działającą aplikację. Szablon Breeze/Knockout SPA jest inny. Generuje on przykładowej aplikacji umożliwia badanie. Pokazuje projekt aplikacji SPA i wiele technik tworzenia SPA.
+Większość szablonów projektu generuje szkielet aplikacji. Należy umieścić miąższ na tych kości przez dodanie kodu i ostatecznie dostarczenie działającej aplikacji. Szablon SPA Breeze/odcinania jest inny. Generuje przykładową aplikację do badania. Przedstawiono w nim projekt aplikacji SPA i wiele technik tworzenia SPA.
 
-Szablon Breeze/Knockout jest odmianą na [szablon KnockoutJS SPA](../introduction/knockoutjs-template.md) zawarte w ASP.NET i Web Tools 2012.2 Update. Szablon Breeze SPA generuje aplikacji przy użyciu tego samego środowiska użytkownika, ale ma inną implementację, za pomocą szybka i bezproblemowa dla zarządzania danymi.
+Szablon Breeze/odcinania jest odmianą [szablonu KNOCKOUTJS Spa](../introduction/knockoutjs-template.md) zawartym w aktualizacji ASP.NET and Web Tools 2012,2. Szablon Breeze SPA generuje aplikację z tym samym interfejsem użytkownika, ale ma inną implementację, za pomocą Breeze do zarządzania danymi.
 
-Szablon KnockoutJS SPA sprawia, że żądania obsługi z pierwotnych jQuery AJAX, która jest odpowiednia dla prostej aplikacji. Jednak bardziej zaawansowane aplikacje mają większe wymagania związane z zarządzaniem danych. Na przykład większość aplikacji:
+Szablon SPA KnockoutJS wykonuje żądania obsługi z niesformatowanym systemem jQuery AJAX, który jest odpowiedni dla prostej aplikacji. Jednak bardziej zaawansowane aplikacje mają bardziej wymagające wymagania dotyczące zarządzania danymi. Na przykład większość aplikacji:
 
-- Zapytania i ponownie wysyłać zapytań do serwera podczas sesji rozszerzonej użytkownika.
-- Dodawanie zapytań filtrów, sortowania i stronicowania.
+- Zapytanie i ponowne wykonywanie zapytań na serwerze podczas rozszerzonej sesji użytkownika.
+- Dodaj filtry zapytań, sortowanie i stronicowanie.
 - Udostępnianie tych samych danych na wielu ekranach.
-- Accumulate zmiany wielu obiektów, a następnie zapisać je jako jedna transakcja.
-- Sprawdzanie poprawności zmiany na kliencie, dzięki czemu użytkownik może Poprawiaj błędy przed zatwierdzeniem zmian w bazie danych.
+- Gromadz zmiany w wielu obiektach, a następnie Zapisz je jako pojedynczą transakcję.
+- Sprawdź poprawność zmian na kliencie, aby użytkownik mógł poprawić błędy przed zatwierdzeniem zmian w bazie danych.
 
-Biblioteka BreezeJS obsługuje tych zadań można dzięki temu możesz rozwijać aplikację logiki i środowisko użytkownika, najważniejsze.
+Biblioteka BreezeJS obsługuje te działania, zwalniając Cię do tworzenia logiki aplikacji i środowiska użytkownika.
 
-[**Szybka i bezproblemowa** ](http://www.breezejs.com/?utm_source=ms-spa) to biblioteka typu open source do tworzenia zaawansowanych danych aplikacji w języku JavaScript i HTML, rodzajów aplikacji, które zostały dostarczone w przeszłości jako autonomicznej aplikacji klasycznych.
+[**Breeze**](http://www.breezejs.com/?utm_source=ms-spa) to Biblioteka open source służąca do tworzenia aplikacji w językach JavaScript i HTML, a także typy aplikacji, które zostały w pełni dostarczone jako autonomiczne aplikacje pulpitu.
 
-Szablon Breeze/Knockout pomaga podjąć tym pierwszym krokiem kluczowe znaczenie podczas procesu bardziej niezawodna infrastruktura zarządzania danych. Tworzy przykładowej aplikacji zadań do wykonania, która jest identyczna wypukłymi szablon KnockoutJS SPA. Wewnątrz zamienia Warstwa danych AJAX szybka i bezproblemowa, dzięki czemu można porównać dwa podejścia side-by-side. Oczywiście go dotyka ledwie potencjał aplikacji szybka i bezproblemowa. Ale dowiesz się, jak działa błyskawicznie i w sposób nieco jest wymagana do udostępnienia tego przejścia.
+Szablon Breeze/odcinania pomaga wykonać ten pierwszy kluczowy krok w kierunku bardziej niezawodnej infrastruktury zarządzania danymi. Generuje przykładową aplikację do zrobienia, która jest identyczna z szablonem SPA KnockoutJS. W tym miejscu zastępuje warstwę danych AJAX z Breeze, dzięki czemu można porównać dwa podejścia obok siebie. Oczywiście stanowią jedynie ułamek to potencjał aplikacji Breeze. Jednak zobaczysz, jak działa Breeze i ile jest niezbędny do dokonania tego przejścia.
 
-Zaczynajmy.
+Zacznijmy.
 
-## <a name="create-a-breezeknockout-template-project"></a>Utwórz projekt szablon Breeze/Knockout
+## <a name="create-a-breezeknockout-template-project"></a>Utwórz projekt szablonu Breeze/odcinania
 
-Pobierz i zainstaluj szablon, klikając przycisk Pobierz powyżej. Szablon jest spakowany jako plik programu Visual Studio rozszerzenia (VSIX). Może być konieczne ponowne uruchomienie programu Visual Studio.
+Pobierz i zainstaluj szablon, klikając przycisk Pobierz powyżej. Szablon jest spakowany jako plik rozszerzenia programu Visual Studio (VSIX). Może być konieczne ponowne uruchomienie programu Visual Studio.
 
-W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę, a następnie kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **zainstalowane szablony** i rozwiń węzeł **Wizualizacja C#**  . W **obszarze C#Wizualizacja** wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz pozycję **aplikacja sieci Web MVC 4 ASP.NET**. Nazwij projekt, a następnie kliknij przycisk **OK**.
 
-W **nowy projekt** kreatora wybierz **Breeze Knockout SPA**.
+W kreatorze **nowego projektu** wybierz pozycję **Breeze separowania Spa**.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/SelectBreezeKOSpaTemplate.png)
 
-Naciśnij kombinację klawiszy Ctrl-F5, aby skompilować i uruchomić aplikację bez debugowania lub naciśnij klawisz F5, aby uruchomić debugowanie.
+Naciśnij klawisze CTRL + F5, aby skompilować i uruchomić aplikację bez debugowania, lub naciśnij klawisz F5, aby uruchomić polecenie z debugowaniem.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ZephyrRunning.png)
 
-Po pierwszym uruchomieniu aplikacji wyświetli ekran logowania. Kliknij link "Zaloguj się", a nowa strona glides w widoku, gdzie można wprowadzić nazwę użytkownika i hasło. (Stron logowania i rejestracji są tworzone przy użyciu platformy ASP.NET MVC.) Gdy prześlesz formularz rejestracji, serwer generuje TodoList z dwoma elementami dla swojego konta. Następnie stanowi je dla Ciebie na żółty Uwaga.
+Po pierwszym uruchomieniu aplikacji zostanie wyświetlony ekran logowania. Kliknij link "Zarejestruj się" i przejdź do widoku nowej strony glides, gdzie można wprowadzić nazwę użytkownika i hasło. (Strony logowania i rejestracji są kompilowane przy użyciu ASP.NET MVC). Po przesłaniu formularza rejestracji serwer generuje TodoList z dwoma elementami dla Twojego konta. Następnie prezentuje je na żółtej notatce.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/TodoList.png)
 
-Teraz masz ziemi SPA. Wszystko, co można zobaczyć, a środowisko podczas manipulowania zadań do wykonania jest renderowana i zarządzane na komputerze klienckim, za pomocą Knockout i szybka i bezproblemowa. Eksplorowanie aplikacji jako użytkownika... ale oka dla deweloperów. Narzędzia dla deweloperów w przeglądarce służy do przechwytywania ruchu sieciowego. (W programie Internet Explorer: Naciśnij klawisz F12, wybierz **sieci** kartę, a następnie kliknij przycisk **Rozpocznij przechwytywanie**.) Spróbuj wykonać następujące czynności:
+Teraz jesteś w trakcie SPA. Wszystko, co widzisz i w trakcie manipulowania zadaniami, jest renderowane i zarządzane na kliencie przy użyciu funkcji odcinania i Breeze. Eksploruj aplikację jako użytkownika... ale z oczami dla deweloperów. Użyj narzędzi deweloperskich w przeglądarce, aby przechwycić ruch sieciowy. (W programie Internet Explorer: naciśnij klawisz F12, wybierz kartę **Sieć** , a następnie kliknij przycisk **Rozpocznij przechwytywanie**). Teraz spróbuj wykonać następujące czynności:
 
-- Dodaj nowy element Todo.
-- Kliknij etykietę, a następnie Edytuj tytuł elementu Todo
-- Zaznacz pole wyboru, aby oznaczyć element gotowe. Zwróć uwagę, że pole tekstowe jest wyłączona, więc tytuł nie jest edytowalny.
-- Kliknij przycisk "x" z prawej strony etykiety. Element znika i zostanie usunięty z bazy danych.
-- Wybierz inny element, a następnie wyczyść jego tytuł. Otrzymasz błąd sprawdzania poprawności, że tytuł jest wymagany. Po wstrzymaniu krótki poprzednie tytuł został przywrócony.
-- Wpisz tytuł bardzo długi. Otrzymasz błąd sprawdzania poprawności innego że tytuł jest zbyt długa.
-- Kliknij przycisk "Dodaj listę zadań do wykonania". Nowa lista pojawia się po lewej stronie poprzedniej listy.
-- Poeksperymentuj z tytułu listy zadań, wyzwalając wymaga i poprawności długości.
-- Kliknij w polu tekstowym tytułu, aby wyczyścić komunikat o błędzie.
-- Kliknij przycisk "x" w okręgu w prawym górnym rogu, aby usunąć TodoList i jego zadań do wykonania.
+- Dodaj nowy element do wykonania.
+- Kliknij etykietę i edytuj tytuł elementu do zrobienia
+- Zaznacz pole wyboru, aby oznaczyć element jako gotowy. Zauważ, że pole tekstowe jest wyłączone, więc tytuł nie jest już edytowalny.
+- Kliknij znak "x" na prawo od etykiety. Element zniknie i zostanie usunięty z bazy danych.
+- Wybierz inny element i wyczyść jego tytuł. Zostanie wyświetlony komunikat o błędzie weryfikacji, że tytuł jest wymagany. Po krótkim wstrzymaniu poprzedni tytuł zostanie przywrócony.
+- Wpisz przesadnie długi tytuł. Zostanie wyświetlony inny błąd walidacji, że tytuł jest zbyt długi.
+- Kliknij przycisk "Dodaj listę zadań do zrobienia". Zostanie wyświetlona nowa lista z lewej strony poprzedniej listy.
+- Zagraj z TodoList tytułem, wyzwalając jego wymagane i prawidłowe ważności.
+- Kliknij pole tekstowe tytuł, aby wyczyścić komunikat o błędzie.
+- Kliknij "x" w okręgu w prawym górnym rogu, aby usunąć TodoList i jego wykonania.
 
-Logika sprawdzania poprawności jest wykonywane po stronie klienta, szybka i bezproblemowa. Atrybutów sprawdzania poprawności na serwerze klasy modelu są propagowane do klienta, a następnie wykonywane automatycznie, zanim klient kontaktuje się z serwerem.
+Logika walidacji jest wykonywana po stronie klienta przez Breeze. Atrybuty walidacji klas modelu serwera są propagowane do klienta i wykonywane automatycznie przed skontaktowaniem się z serwerem.
 
-Przejrzyj ruchu sieciowego. Należy zauważyć, że żadne wywołania do serwera podczas było Breeze wykryła błąd. Każda zmiana prawidłowy w wyniku żądania POST do "/ api/zadania/SaveChanges". Szybka i bezproblemowa razem zmiany i wysyła je ze sobą jako pojedyncze żądanie do kontrolera internetowego interfejsu API `SaveChanges` metody. To różni się od szablon KnockoutJS SPA, który sprawia, że PUT, POST i usuwania żądań dla każdego elementu indywidualnie.
+Przejrzyj ruch sieciowy. Zwróć uwagę na to, że nie wykryto żadnych wywołań do serwera, gdy Breeze błąd. Każda prawidłowa zmiana spowodowała żądanie POST do "/api/Todo/SaveChanges". Breeze wiąże się ze zmianami i wysyła je razem jako pojedyncze żądanie do metody `SaveChanges` kontrolera interfejsu API sieci Web. To różni się od szablonu SPA KnockoutJS, który sprawia, że żądania PUT, POST i DELETE dla każdego elementu są indywidualnie.
 
-## <a name="peek-inside"></a>Wgląd do wewnątrz
+## <a name="peek-inside"></a>Wgląd w wewnątrz
 
-Ta aplikacja ma po stronie klienta i po stronie serwera. Stos po stronie klienta składa się z niewielką ilością kodu HTML i kombinację modułach JavaScript aplikacji (w folderze "aplikacja") oraz innych bibliotek JavaScript (w folderze "Skryptów").
+Ta aplikacja ma po stronie klienta i po stronie serwera. Stos po stronie klienta składa się z małego kodu HTML i kombinacji modułów JavaScript aplikacji (w folderze "aplikacja") oraz bibliotek języka JavaScript innych firm (w folderze "skrypty").
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ClientArchitecture.png)
 
-Jeśli zostały zbadane szablon KnockoutJS SPA, szablon powinien wyglądać znajomo. Skup się na niebieskich polach. Architektura interfejsu użytkownika jest Model-View-ViewModel (MVVM), w którym elementy widget HTML widoku nie pozostawia żadnych śladów są oddzielone od obsługi kodu prezentacji w modelu widoku. System powiązań danych (Knockout w tym przypadku) służy do koordynowania widoku i modelu widoku, aby każdy można wykonać swoje zadania bez obsługi wiedzę na temat innych.
+Jeśli zbadano szablon SPA KnockoutJS, powinien on wyglądać bardzo dobrze. Skup się na niebieskich polach. Architektura interfejsu użytkownika to model-View-ViewModel (MVVM), w którym widżety HTML widoku są czyste oddzielone od kodu prezentacji pomocniczej w modelu widoku. System powiązań danych (odcinanie w tym przypadku) koordynuje widok i model widoku, dzięki czemu każdy może wykonywać swoje zadania bez Intimate wiedzy o innych.
 
-Model hermetyzuje danych zadań do wykonania. Jednostki w modelu są konstruowane przy szybka i bezproblemowa Knockout właściwości zauważalne, więc może być powiązana bezpośrednio do elementów widget w widoku. Model widoku pyta, czy kontekst danych, aby pobrać i zapisać modelowania jednostek. Kontekst danych deleguje większość pracy, aby łatwo.
+Model hermetyzuje dane do zrobienia. Jednostki w modelu są zbudowane przez Breeze z właściwościami odcinania, aby mogły być powiązane bezpośrednio z widżetami w widoku. Model widoku prosi kontekst danych o pozyskiwanie i zapisanie jednostek modelu. Kontekst danych deleguje większość pracy z Breeze.
 
-Stos po stronie serwera składa się z kodu dla deweloperów i trzy bibliotek .NET zasady: Interfejs API sieci Web, platformy Entity Framework i Breeze.NET:
+Stos po stronie serwera składa się z kodu dewelopera i trzech zasad biblioteki .NET: Web API, Entity Framework i Breeze.NET:
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-Podstawowa architektura jest taka sama jak szablon KnockoutJS SPA. Jednak implementacja jest znacznie prostsza: Dto zostały usunięte, a większość szczegóły Entity Framework zostały delegowane Breeze.NET.
+Podstawowa architektura jest taka sama jak szablon SPA KnockoutJS. Implementacja jest jednak znacznie prostsze: DTO zostały usunięte i większość Entity Framework szczegóły zostały delegowane do Breeze.NET.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sugerujemy, zapoznaj się kod, kierując [rozbudowane dyskusji](http://www.breezejs.com/spa-template?utm_source=ms-spa) zarówno klient, jak i stosów serwera w witrynie sieci Web Breeze.
+Zalecamy zapoznanie się z kodem, zgodnie z [obszerną omówieniem](http://www.breezejs.com/spa-template?utm_source=ms-spa) stosów klienta i serwera w witrynie sieci Web Breeze.
 
-Możesz spróbować poznawać Breeze zapytania po stronie klienta. Dodaj niektóre filtry i sortowanie. Można dodać więcej właściwości modelu i więcej jednostek, aby uzyskać lepsze działanie opracowywania SPA end-to-end. Po upewnieniu się, projektu, możesz usunąć funkcje zadań do wykonania i je zastąpić własnymi.
+Możesz spróbować odtworzyć przy użyciu zapytania po stronie klienta Breeze; Dodaj filtry i sortuje. Możesz dodać więcej właściwości modelu i więcej jednostek, aby lepiej zainteresować się kompleksowym programowaniem SPA. Jeśli masz pewność, że projektujesz, możesz oddzielić funkcje do wykonania i zastąpić je własnymi.
 
-Wkrótce będzie gotowa do kolejny ważny etap: Dodawanie ekranów po stronie klienta i nawigowanie między nimi. Zostaną pozostawione ten szablon SPA i włączyć bardziej szczegółowy stos SPA, takich jak [John Papa Hot Towel](https://github.com/johnpapa/HotTowel#readme "Hot Towel"), która dodaje do mieszanki szybka i bezproblemowa i Knockout Durandal.
+Wkrótce wszystko będzie gotowe do następnego dużego kroku: Dodawanie ekranów po stronie klienta i Nawigowanie między nimi. Ten szablon SPA zostanie pozostawiony i przejdziesz do bardziej kompletnego stosu SPA, na przykład [gorąca ręczników John Papa](https://github.com/johnpapa/HotTowel#readme "Gorąca ręczników"), który dodaje Durandal do kombinacji Breeze i odcinania.

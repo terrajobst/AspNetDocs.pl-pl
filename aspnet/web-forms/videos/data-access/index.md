@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/data-access/index
-title: Dostęp do danych | Dokumentacja firmy Microsoft
+title: Dostęp do danych | Microsoft Docs
 author: rick-anderson
-description: Jak utworzyć warstwy dostępu do danych (DAL).
+description: Jak utworzyć warstwę dostępu do danych (DAL).
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: a923735c-2d34-456c-8327-40aa62a4c1d6
 msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
 ms.openlocfilehash: 66c8851d53cef59ea560818a054729115ca62b3b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106750"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575167"
 ---
 # <a name="data-access"></a>Dostęp do danych
 
-> Jak utworzyć warstwy dostępu do danych (DAL).
+> Jak utworzyć warstwę dostępu do danych (DAL).
 
 - [ADO.NET Data Services](adonet-data-services/index.md)
 
@@ -26,15 +26,15 @@ ms.locfileid: "65106750"
     - [Praca z zestawami danych i filtrami w aplikacji ASP](adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 - [Jak to zrobić za pomocą LINQ](how-do-i-with-linq/index.md)
 
-    - [LINQ do SQL: omówienie](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-    - [LINQ do SQL: Model danych](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-    - [LINQ do SQL: Zapytanie do bazy danych](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-    - [LINQ do SQL: Aktualizowanie bazy danych](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
-    - [LINQ do SQL: LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-    - [LINQ do SQL: Custom LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-    - [LINQ do SQL: Korzystanie z procedur składowanych](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-    - [LINQ do SQL: Aktualizowanie za pomocą procedur składowanych](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-    - [LINQ do SQL: Wykonywanie dowolnego kodu SQL](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+    - [LINQ to SQL — przegląd](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
+    - [LINQ to SQL — model danych](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+    - [LINQ to SQL — wykonywanie zapytań w bazie danych](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+    - [LINQ to SQL — aktualizowanie bazy danych](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+    - [LINQ to SQL — kontrolka LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
+    - [LINQ to SQL — niestandardowa kontrolka LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+    - [LINQ to SQL — korzystanie z procedur składowanych](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+    - [LINQ to SQL — aktualizowanie przy użyciu procedur składowanych](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+    - [LINQ to SQL — wykonywanie dowolnego kodu SQL](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
 - [Filmy dotyczące LINQ od zespołu VB](linq-videos-from-the-vb-team/index.md)
 
     - [Wprowadzenie do LINQ](linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)

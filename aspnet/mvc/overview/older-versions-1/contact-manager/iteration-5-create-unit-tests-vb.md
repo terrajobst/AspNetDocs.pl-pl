@@ -1,222 +1,222 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
-title: 'Iteracja #5 — Tworzenie testów jednostkowych (VB) | Dokumentacja firmy Microsoft'
+title: 'Iteracja #5 — Tworzenie testów jednostkowych (VB) | Microsoft Docs'
 author: microsoft
-description: W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla o...
+description: W piątej iteracji upraszczamy obsługę i modyfikację naszej aplikacji przez dodanie testów jednostkowych. Tworzymy nasze klasy modelu danych i Kompiluj testy jednostkowe dla o...
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 4ce1c6224a7e9203ff62f136f4f3a43e4561a904
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123829"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544297"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-[Pobierz program Code](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
+[Pobierz kod](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
 
-> W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
+> W piątej iteracji upraszczamy obsługę i modyfikację naszej aplikacji przez dodanie testów jednostkowych. Tworzymy klasy modelu danych i kompilujemy testy jednostkowe dla naszych kontrolerów i logiki walidacji.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (VB)
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji Contact Management ASP.NET MVC (VB)
 
-W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
+W tej serii samouczków tworzymy całą aplikację do zarządzania kontaktami od początku do końca. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazw, numerów telefonów i adresów e-mail — w celu uzyskania listy osób.
 
-Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą iteracją można stopniowo ulepszyć aplikację. Celem tego wielu podejścia iteracji jest, aby umożliwić Ci zrozumienie przyczyn wprowadzenia poszczególnych zmian.
+Aplikacja została utworzona przez wiele iteracji. W przypadku każdej iteracji stopniowo ulepszamy aplikację. Celem tej wielu iteracji jest umożliwienie zrozumienia przyczyny każdej zmiany.
 
-- Iteracja #1 — Tworzenie aplikacji. W pierwszej iteracji utworzymy Contact Manager w najprostszym sposobem możliwe. Dodano obsługę dla operacji podstawowej bazy danych: Tworzenia, odczytu, aktualizacji i usuwania (CRUD).
+- #1 iteracji — Utwórz aplikację. W pierwszej iteracji tworzymy Menedżera kontaktów w najprostszy sposób. Dodaliśmy obsługę podstawowych operacji bazy danych: Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD).
 
-- Iteracja 2 # — należy wyglądu nieuprzywilejowany aplikacji. W tej iteracji możemy poprawić wygląd aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku platformy ASP.NET MVC i kaskadowych arkuszy stylów.
+- Iteracja #2 — Zwiększ wygląd aplikacji. W tej iteracji ulepszamy wygląd aplikacji, modyfikując domyślną stronę wzorcową widoku MVC ASP.NET i kaskadowy arkusz stylów.
 
-- Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
+- Iteracja #3 — Dodawanie walidacji formularza. W trzeciej iteracji zostanie dodana podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie formularza bez wykonywania wymaganych pól formularza. Sprawdzamy również adresy e-mail i numery telefonów.
 
-- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja #4 — możliwość swobodnego łączenia aplikacji. W tej czwartej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład Refaktoryzacja naszej aplikacji używa wzorca repozytorium i wzorca iniekcji zależności.
 
-- Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
+- #5 iteracji — Utwórz testy jednostkowe. W piątej iteracji upraszczamy obsługę i modyfikację naszej aplikacji przez dodanie testów jednostkowych. Tworzymy klasy modelu danych i kompilujemy testy jednostkowe dla naszych kontrolerów i logiki walidacji.
 
-- Iteracja #6 — korzystanie z projektowania opartego na testach. W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
+- Iteracja #6 — Użyj programowania opartego na testach. W tej szóstej iteracji Dodaliśmy nowe funkcje do naszej aplikacji, pisząc testy jednostkowe jako pierwsze i pisząc kod na testach jednostkowych. W tej iteracji dodamy grupy kontaktów.
 
-- Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
+- Iteracja #7 — Dodawanie funkcji AJAX. W siódmej iteracji poprawimy czas reakcji i wydajność naszej aplikacji przez dodanie obsługi technologii AJAX.
 
-## <a name="this-iteration"></a>Tej iteracji
+## <a name="this-iteration"></a>Ta iteracja
 
-W poprzedniej iteracji aplikacji Contact Manager zrefaktoryzowaliśmy aplikacji można bardziej luźno powiązane. Firma Microsoft oddzielone aplikacji na różne kontrolera, usług i warstw repozytorium. Każda warstwa wchodzi w interakcję z warstwą pod nim za pośrednictwem interfejsów.
+W poprzedniej iteracji aplikacji Contact Manager firma Microsoft Refaktoryzacja aplikację, aby była bardziej luźno powiązana. Aplikacja została oddzielona do odrębnych warstw kontrolera, usług i repozytorium. Każda warstwa współdziała z warstwą znajdującą się poniżej za pomocą interfejsów.
 
-Zrefaktoryzowaliśmy aplikacji ułatwia konserwację i modyfikowanie aplikacji. Na przykład jeśli musimy użyć nowej technologii dostępu do danych, firma Microsoft wystarczy zmienić warstwę repozytorium bez dotykania kontrolera lub warstwy usług. Podejmując Contact Manager luźno powiązane, firma Microsoft ve wprowadzone aplikacji bardziej odporne na zmiany.
+Aplikacja została Refaktoryzacja, aby ułatwić jej zachowanie i modyfikację. Jeśli na przykład będziemy musieli użyć nowej technologii dostępu do danych, można po prostu zmienić warstwę repozytorium bez dotknięcia kontrolera lub warstwy usług. Dzięki połączeniu z Menedżerem kontaktów luźno powiązana aplikacja została bardziej odporna na zmianę.
 
-Ale co się stanie, gdy będziemy musieli dodanie nowej funkcji do aplikacji Contact Manager? Lub, co się stanie, gdy firma Microsoft usterki? Sad, ale również sprawdzonych prawdziwość pisania kodu jest zawsze wtedy, gdy touch kod, Utwórz ryzyka wprowadzenia nowych usterek.
+Ale co się stanie, gdy będziemy musiał dodać nową funkcję do aplikacji Contact Manager? Lub co się stanie, gdy naprawimy usterkę? Dokument SAD, ale dobrze sprawdzono, prawdziwie pisania kodu polega na tym, że po każdym dotknięciu kodu utworzysz ryzyko wprowadzenia nowych usterek.
 
-Na przykład jednego dnia poprawnie, Menedżer może poprosić o dodanie nowej funkcji do menedżera kontaktu. Chce dodać obsługę skontaktuj się z grup. Użytkownik chce, aby umożliwić użytkownikom umieszczaj kontaktów w grupach, takich jak znajomych, firm i tak dalej.
+Na przykład jeden dzień, Menedżer może zażądać dodania nowej funkcji do Menedżera kontaktów. Chce dodać obsługę grup kontaktów. Chce umożliwić użytkownikom organizowanie swoich kontaktów w grupy, takie jak znajomi, firma i tak dalej.
 
-Aby można było wdrożyć tę nową funkcję, należy zmodyfikować wszystkie trzy warstwy aplikacji Contact Manager. Należy dodać nowe funkcje do kontrolerów, warstwy usług i repozytorium. Zaraz po uruchomieniu modyfikowania kodu, istnieje ryzyko, istotne funkcje, które działało.
+W celu zaimplementowania tej nowej funkcji należy zmodyfikować wszystkie trzy warstwy aplikacji Contact Manager. Należy dodać nowe funkcje do kontrolerów, warstwy usług i repozytorium. Od razu po rozpoczęciu modyfikowania kodu zostanie podwyższone ryzyko naruszenia funkcjonalności, która działała wcześniej.
 
-Refaktoryzacja naszej aplikacji do oddzielnych warstw, ile My mieliśmy w poprzedniej iteracji jest dobrym znakiem. Ponieważ dzięki temu możemy wprowadzić zmiany do całego warstw bez ingerowania w pozostałe części aplikacji, była dobrym znakiem. Jednak jeśli chcesz wprowadzić kod w obrębie warstwy ułatwia konserwację i modyfikowanie, należy utworzyć testów jednostkowych dla kodu.
+Jest to dobry efekt refaktoryzacji naszej aplikacji do osobnych warstw. Było to dobry efekt, ponieważ umożliwia nam wprowadzanie zmian w całych warstwach bez dotykania reszty aplikacji. Jeśli jednak chcesz, aby kod w ramach warstwy był łatwiejszy do utrzymania i modyfikacji, musisz utworzyć testy jednostkowe dla kodu.
 
-Możesz użyć jednostki testami jednostka kodu. Te jednostki kodu są mniejsze niż warstwy całej aplikacji. Zazwyczaj używasz testu jednostkowego, aby sprawdzić, czy konkretną metodę w kodzie działa w oczekiwany sposób. Na przykład możesz utworzyć test jednostkowy jako metodę CreateContact() udostępnianych przez klasy ContactManagerService.
+Do testowania pojedynczej jednostki kodu służy test jednostkowy. Te jednostki kodu są mniejsze niż w przypadku całej warstwy aplikacji. Zazwyczaj należy użyć testu jednostkowego, aby sprawdzić, czy dana metoda w kodzie działa w oczekiwany sposób. Na przykład można utworzyć test jednostkowy dla metody "ContactManagerService" () uwidocznionej przez klasę usługi.
 
-Testy jednostkowe dla aplikacji po prostu działają, takich jak projektowi. Przy każdej modyfikacji kodu w aplikacji, można uruchomić zestaw testów jednostkowych, aby sprawdzić, czy modyfikacja przerywa istniejących funkcji. Testy jednostkowe sprawić, że kod jest bezpieczny do zmodyfikowania. Testy jednostkowe wprowadzić cały kod w Twojej aplikacji bardziej odporne na zmiany.
+Testy jednostkowe aplikacji działają podobnie jak w przypadku zabezpieczeń sieci. Za każdym razem, gdy modyfikujesz kod w aplikacji, możesz uruchomić zestaw testów jednostkowych, aby sprawdzić, czy modyfikacja przerywa istniejące funkcje. Testy jednostkowe sprawiają, że kod można bezpiecznie modyfikować. Testy jednostkowe sprawiają, że cały kod w aplikacji jest bardziej odporny na zmianę.
 
-W tym iteracji możemy dodać testy jednostkowe do naszej aplikacji Contact Manager. W ten sposób, w następnej iteracji, możemy dodać skontaktuj się z grupy do naszej aplikacji bez konieczności martwienia się o przełomowych istniejących funkcji.
-
-> [!NOTE] 
-> 
-> Istnieją różne platformy, w tym NUnit i xUnit.net, MbUnit testów jednostkowych. W tym samouczku używamy jednostki testowania framework zawartej z programem Visual Studio. Jednak może równie łatwo użyć jednej z tych środowisk alternatywne.
-
-## <a name="what-gets-tested"></a>Co pobiera przetestowane
-
-W świecie doskonałego kodu byłyby objęte testy jednostek. W świecie doskonałe trzeba doskonałe projektowi. Można zmodyfikować w każdym wierszu kodu w aplikacji i natychmiast będzie znana, wykonując testy jednostkowe, czy zmiana Przerwano istniejących funkcji.
-
-Jednak firma Microsoft don t na żywo w idealnych. W praktyce podczas pisania testów jednostkowych można skoncentrować się na pisaniu testów dla logiki biznesowej (na przykład logikę weryfikacji). W szczególności należy *nie* pisanie testów jednostkowych dla swoich danych dostęp logiki lub logice widoku.
-
-Były przydatne, testy jednostkowe muszą wykonać bardzo szybko. Możesz łatwo może wzrosnąć setek lub nawet tysięcy testów jednostkowych dla aplikacji. Jeśli testy jednostkowe zająć dużo czasu do uruchomienia, a następnie będzie można uniknąć ich wykonania. Innymi słowy długo działające testy jednostkowe są bezużyteczne kodów dnia na dzień.
-
-Z tego powodu zwykle nie pisania testów jednostkowych dla kodu, który współdziała z bazą danych. Uruchamianiu setki testów jednostkowych na żywo bazy danych będzie zbyt wolno. Zamiast tego należy testowanie bazy danych i napisać kod, który wchodzi w interakcję z makiety bazy danych (omówimy pozorowanie database poniżej).
-
-Z podobnego powodu zwykle nie pisania testów jednostkowych dla widoków. W celu przetestowania widoku, możesz zwiększać serwera sieci web. Ponieważ uruchamiając serwera sieci web jest procesem powolnym stosunkowo, tworzenie testów jednostkowych dla widoków nie jest zalecane.
-
-Jeśli widok zawiera skomplikowaną logikę, następnie należy rozważyć przeniesienie logikę do metody pomocnika. Można pisać testy jednostkowe dla metody pomocnika, które są wykonywane bez konieczności uruchamiania serwera sieci web.
+W tej iteracji dodamy testy jednostkowe do naszej aplikacji Contact Manager. Dzięki temu w następnej iteracji możemy dodać grupy kontaktów do naszej aplikacji bez konieczności przerywania istniejących funkcji.
 
 > [!NOTE] 
 > 
-> Podczas pisania testów logiką dostępu do danych lub widoku logiki nie jest dobrze podczas pisania testów jednostkowych, te testy może być bardzo przydatne podczas tworzenia funkcjonalności lub integracji testy.
+> Istnieją różne platformy testowania jednostkowego, w tym NUnit, xUnit.net i MbUnit. W tym samouczku używamy struktury testów jednostkowych dołączonej do programu Visual Studio. Można jednak równie łatwo korzystać z jednej z tych alternatywnych platform.
+
+## <a name="what-gets-tested"></a>Co zostanie przetestowane
+
+W idealnym świecie cały kod zostanie objęty testami jednostkowymi. W idealnym świecie będziesz mieć doskonałe bezpieczeństwo sieci. Można modyfikować każdą linię kodu w aplikacji i natychmiast wiedzieć, wykonując testy jednostkowe, niezależnie od tego, czy zmiana nie powoduje zerwania istniejących funkcji.
+
+Jednak firma Microsoft nie pracuje na doskonałym świecie. W przypadku pisania testów jednostkowych skoncentrowano się na pisaniu testów dla logiki biznesowej (na przykład logiki walidacji). W szczególności *nie są* zapisywane testy jednostkowe dla logiki dostępu do danych ani do logiki widoku.
+
+Aby być przydatne, testy jednostkowe muszą być wykonywane bardzo szybko. Można łatwo zbierać setki (lub nawet tysiące) testów jednostkowych dla aplikacji. Jeśli uruchomienie testów jednostkowych potrwa dużo czasu, należy unikać ich wykonywania. Innymi słowy, długotrwałe testy jednostkowe są bezużyteczne do celów kodowania od dnia do dnia.
+
+Z tego powodu zazwyczaj nie należy pisać testów jednostkowych dla kodu, który współdziała z bazą danych. Uruchamianie setek testów jednostkowych względem aktywnej bazy danych byłoby zbyt wolne. Zamiast tego należy zasymulować bazę danych i napisać kod, który współdziała z bazą danych z makietą (omawiamy sposób tworzenia bazy danych poniżej).
+
+Z podobnej przyczyny zazwyczaj nie są zapisywane testy jednostkowe dla widoków. Aby przetestować widok, należy uruchomić serwer sieci Web. Ponieważ połączenie serwera sieci Web jest procesem stosunkowo wolno, tworzenie testów jednostkowych dla widoków nie jest zalecane.
+
+Jeśli widok zawiera skomplikowaną logikę, należy rozważyć przeniesienie logiki do metod pomocnika. Można napisać testy jednostkowe dla metod pomocniczych, które są wykonywane bez nawirowania serwera sieci Web.
 
 > [!NOTE] 
 > 
-> ASP.NET MVC jest aparat widoku w formularzach sieci Web. Aparat widoku w formularzach sieci Web jest zależny od serwera sieci web, mogą być inne aparaty widoku.
+> Podczas pisania testów logiki dostępu do danych lub logiki widoku nie jest dobrym pomysłem podczas pisania testów jednostkowych, te testy mogą być bardzo cenne podczas tworzenia testów funkcjonalnych lub integracji.
 
-## <a name="using-a-mock-object-framework"></a>Za pomocą platformy makiety obiektu
+> [!NOTE] 
+> 
+> ASP.NET MVC to aparat widoku formularzy sieci Web. Gdy aparat widoku formularzy sieci Web jest zależny od serwera sieci Web, inne aparaty widoków mogą nie być.
 
-Podczas tworzenia testów jednostkowych, należy prawie zawsze korzystać z zalet framework testowanie obiektu. Framework obiektu pozorowanie umożliwia tworzenie mocks i klas zastępczych dla klas w aplikacji.
+## <a name="using-a-mock-object-framework"></a>Korzystanie z struktury obiektów makiety
 
-Na przykład można użyć framework testowanie obiektu do generowania wersję makiety obiektu klasy repozytorium. W ten sposób służy klasa makiety repozytorium zamiast klasy rzeczywistych repozytorium do testów jednostkowych. Przy użyciu repozytorium makiety pozwala na uniknięcie wykonywania kodu bazy danych, podczas wykonywania testu jednostkowego.
+Podczas kompilowania testów jednostkowych niemal zawsze trzeba skorzystać z struktury obiektów makiety. Struktura obiektów makiety umożliwia tworzenie makiet i wycinków klas w aplikacji.
 
-Program Visual Studio nie ma framework testowanie obiektu. Istnieją jednak wiele struktur testowanie obiektu komercyjnych typu open source dostępnych w programie .NET Framework:
+Na przykład można użyć struktury obiektu makiety do wygenerowania makiety klasy repozytorium. W ten sposób można użyć klasy repozytorium makiety zamiast rzeczywistej klasy repozytorium w testach jednostkowych. Użycie repozytorium makiety pozwala uniknąć wykonywania kodu bazy danych podczas wykonywania testu jednostkowego.
 
-1. Moq — ta struktura jest dostępna w ramach licencja BSD "open source". Możesz pobrać Moq z [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
-2. Rhino Mocks — ta struktura jest dostępna w ramach licencja BSD "open source". Możesz pobrać Rhino Mocks z [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
-3. Odłączenia Typemock — to struktura, komercyjnych. Możesz pobrać wersję próbną z [ http://www.typemock.com/ ](http://www.typemock.com/).
+Program Visual Studio nie zawiera struktury obiektów makiety. Istnieje jednak kilka struktur obiektów dla programu .NET Framework komercyjnych i otwartych źródeł:
 
-W tym samouczku, I chcę korzystać z Moq. Jednak może równie łatwo używać Rhino Mocks lub odłączenia Typemock, aby utworzyć projekt obiektów dla aplikacji Contact Manager.
+1. MOQ — Platforma ta jest dostępna w ramach licencji Open Source systemu BSD. Możesz pobrać MOQ z [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
+2. Makiety Rhino — Ta struktura jest dostępna w ramach licencji Open Source systemu BSD. Makiety Rhino można pobrać z [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
+3. Typemock Isolator — to jest platforma komercyjna. Wersję próbną można pobrać z [http://www.typemock.com/](http://www.typemock.com/).
 
-Zanim użyjesz Moq, należy wykonać następujące czynności:
+W tym samouczku postanowiono używać MOQ. Można jednak równie łatwo używać Rhinoów lub Isolator Typemock do tworzenia obiektów makiety dla aplikacji Contact Manager.
+
+Aby można było korzystać z MOQ, należy wykonać następujące czynności:
 
 1. .
-2. Zanim użytkownik Rozpakuj pliki do pobrania, upewnij się, kliknij prawym przyciskiem myszy plik, a następnie kliknij przycisk **odblokowanie** (patrz rysunek 1).
-3. Rozpakuj pliki do pobrania.
-4. Dodaj odwołanie do zestawu Moq do projektu testu, wybierając opcję menu **projektu, Dodaj odwołanie** otworzyć **Dodaj odwołanie** okna dialogowego. Na karcie przeglądania przejdź do folderu, w którym rozpakowano Moq i wybierz zestaw Moq.dll. Kliknij przycisk **OK** przycisku (patrz rysunek 2).
+2. Przed rozpakowaniem pobranego pliku upewnij się, że kliknięto prawym przyciskiem myszy plik, a następnie kliknij przycisk zatytułowany **Odblokuj** (patrz rysunek 1).
+3. Rozpakuj pobieranie.
+4. Dodaj odwołanie do zestawu MOQ do projektu testowego, wybierając opcję menu **projekt, Dodaj odwołanie,** aby otworzyć okno dialogowe **Dodawanie odwołania** . Na karcie przeglądanie przejdź do folderu, w którym został rozpakowany MOQ, a następnie wybierz zestaw MOQ. dll. Kliknij przycisk **OK** (patrz rysunek 2).
 
-[![Odblokowywanie Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![odblokowywanie MOQ](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
-**Rysunek 01**: Odblokowywanie Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image2.png))
+**Ilustracja 01**. Odblokowywanie MOQ ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image2.png))
 
-[![Odwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[Odwołania ![po dodaniu MOQ](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
-**Rysunek 02**: Odwołania po dodaniu Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image4.png))
+**Ilustracja 02**: odwołania po dodaniu MOQ ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image4.png))
 
 ## <a name="creating-unit-tests-for-the-service-layer"></a>Tworzenie testów jednostkowych dla warstwy usług
 
-Pozwól, s, Rozpocznij od utworzenia zestawu testów jednostkowych dla warstwy usług s naszych Contact Manager aplikacji. Użyjemy tych testów, aby zweryfikować nasze logikę weryfikacji.
+Zacznij od utworzenia zestawu testów jednostkowych dla naszej warstwy usług aplikacji menedżera kontaktów. Będziemy używać tych testów do weryfikacji logiki walidacji.
 
-Utwórz nowy folder o nazwie modeli w projekcie ContactManager.Tests. Następnie kliknij prawym przyciskiem myszy folderu modeli i wybierz **Dodaj, nowy Test**. **Dodaj nowy Test** zostanie wyświetlone okno dialogowe pokazany na rysunku 3. Wybierz **testów jednostkowych** szablonu i nazwy nowego testu ContactManagerServiceTest.vb. Kliknij przycisk **OK** przycisk, aby dodać nowego testu do projektu testu.
+Utwórz nowy folder o nazwie models w projekcie ContactManager. tests. Następnie kliknij prawym przyciskiem myszy folder modele i wybierz polecenie **Dodaj, nowy test**. Zostanie wyświetlone okno dialogowe **Dodawanie nowego testu** pokazane na rysunku 3. Wybierz szablon **testu jednostkowego** i nazwij nowy test ContactManagerServiceTest. vb. Kliknij przycisk **OK** , aby dodać nowy test do projektu testowego.
 
 > [!NOTE] 
 > 
-> Ogólnie rzecz biorąc ma strukturę folderu projektu testu w taki sposób, aby dopasować strukturę folderu projektu ASP.NET MVC. Na przykład umieść kontrolera testów w folderze kontrolerów testów modelu w folderze modeli i tak dalej.
+> Ogólnie rzecz biorąc, struktura folderów projektu testowego powinna być zgodna ze strukturą folderów projektu MVC ASP.NET. Na przykład umieszczasz testy kontrolera w folderze controllers, modeluje testy w folderze modeli i tak dalej.
 
 [![Models\ContactManagerServiceTest.cs](iteration-5-create-unit-tests-vb/_static/image3.jpg)](iteration-5-create-unit-tests-vb/_static/image5.png)
 
-**Rysunek 03**: Models\ContactManagerServiceTest.cs ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image6.png))
+**Ilustracja 03**: Models\ContactManagerServiceTest.cs ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image6.png))
 
-Początkowo chcemy metoda CreateContact() udostępnianych przez klasy ContactManagerService testu. Utworzymy pięć testów poniżej:
+Początkowo chcemy przetestować metodę my Contact () uwidocznioną przez klasę ContactManagerService. Utworzymy następujące pięć testów:
 
-- CreateContact() — testy tego CreateContact() zwraca wartość true, gdy prawidłowy kontakt jest przekazywany do metody.
-- CreateContactRequiredFirstName() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z Brak imię jest przekazywany do metody CreateContact().
-- CreateContactRequiredLastName() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z Brak nazwisko jest przekazywany do metody CreateContact().
-- CreateContactInvalidPhone() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z nieprawidłowym numerem telefonu jest przekazywany do metody CreateContact().
-- CreateContactInvalidEmail() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z nieprawidłowy adres e-mail jest przekazywany do metody CreateContact()...
+- GetContact () — testuje, że element nocontact () zwraca wartość true, gdy prawidłowy kontakt jest przekazaniem do metody.
+- CreateContactRequiredFirstName () — testuje, że komunikat o błędzie jest dodawany do stanu modelu, gdy kontakt z brakującą nazwą jest przesyłany do metody oncontact ().
+- CreateContactRequiredLastName () — testuje, że komunikat o błędzie jest dodawany do stanu modelu, gdy kontakt z brakującą nazwiskiem jest przesyłany do metody oncontact ().
+- CreateContactInvalidPhone () — testuje, że komunikat o błędzie jest dodawany do stanu modelu, gdy kontakt z nieprawidłowym numerem telefonu jest przesyłany do metody oncontact ().
+- CreateContactInvalidEmail () — testuje, że komunikat o błędzie jest dodawany do stanu modelu, gdy kontakt z nieprawidłowym adresem e-mail jest przesyłany do metody oncontact ().
 
-Pierwszy test sprawdza, prawidłowy kontakt nie generuje błąd sprawdzania poprawności. Pozostałe testy Sprawdź każdy z reguł sprawdzania poprawności.
+Pierwszy test weryfikuje, czy prawidłowy kontakt nie generuje błędu walidacji. Pozostałe testy sprawdzają każdą z reguł walidacji.
 
-Kod dla tych testów znajduje się w ofercie 1.
+Kod dla tych testów znajduje się na liście 1.
 
-**Listing 1 - Models\ContactManagerServiceTest.vb**
+**Lista 1 — Models\ContactManagerServiceTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
-Ponieważ używamy klasy skontaktuj się z listą 1 musimy dodać odwołanie do Microsoft Entity Framework do naszego projektu testu. Dodaj odwołanie do zestawu System.Data.Entity.
+Ponieważ korzystamy z klasy Contact w aukcji 1, musimy dodać odwołanie do Entity Framework firmy Microsoft do naszego projektu testowego. Dodaj odwołanie do zestawu System. Data. Entity.
 
-Wyświetlanie listy 1 zawiera metodę o nazwie Initialize(), który zostanie nadany atrybut [TestInitialize]. Ta metoda jest wywoływana automatycznie, przed uruchomieniem każdego z testów jednostkowych (jest to 5 razy bezpośrednio przed każdym z testów jednostkowych). Metoda Initialize() tworzy makiety repozytorium przy użyciu następującego kodu:
+Lista 1 zawiera metodę o nazwie Initialize (), która ma atrybut [TestInitialize]. Ta metoda jest wywoływana automatycznie przed uruchomieniem każdego z testów jednostkowych (jest wywoływana 5 razy bezpośrednio przed każdym z testów jednostkowych). Metoda Initialize () tworzy repozytorium makiety z następującym wierszem kodu:
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample2.vb)]
 
-Ten wiersz kodu używa Moq framework do wygenerowania makiety repozytorium z interfejsu IContactManagerRepository. Zamiast rzeczywistego EntityContactManagerRepository makiety repozytorium jest używana w celu uniknięcia, uzyskiwanie dostępu do bazy danych, po uruchomieniu każdy test jednostkowy. Repozytorium makiety implementuje metody interfejsu IContactManagerRepository, ale t don metody naprawdę nic nie robi.
+Ten wiersz kodu używa struktury MOQ do generowania repozytorium makiety z interfejsu IContactManagerRepository. Repozytorium makiety jest używane zamiast rzeczywistego EntityContactManagerRepository, aby uniknąć uzyskiwania dostępu do bazy danych podczas uruchamiania każdego testu jednostkowego. Repozytorium makiety implementuje metody interfejsu IContactManagerRepository, ale metody not nie wykonują żadnego działania.
 
 > [!NOTE] 
 > 
-> Korzystając z Moq framework, jest rozróżnienie między \_mockRepository i \_mockRepository.Object. Pierwsza odnosi się do klasy pozorny (z IContactManagerRepository), który zawiera metody do określania zachowania makiety repozytorium. Te ostatnie odnosi się do rzeczywistego makiety repozytorium, który implementuje interfejs IContactManagerRepository.
+> W przypadku korzystania z MOQ Framework istnieje rozróżnienie między \_mockRepository i \_mockRepository. Object. Dawna odwołuje się do klasy makiety (of IContactManagerRepository), która zawiera metody określania sposobu zachowania repozytorium makiety. Ta ostatnia odwołuje się do rzeczywistego repozytorium makiety, które implementuje interfejs IContactManagerRepository.
 
-Makiety repozytorium jest używana w przypadku metody Initialize() podczas tworzenia wystąpienia klasy ContactManagerService. Wszystkie testy jednostkowe poszczególnych użycie tego wystąpienia klasy ContactManagerService.
+Repozytorium makiety jest używane w metodzie Initialize () podczas tworzenia wystąpienia klasy ContactManagerService. Wszystkie testy jednostkowe są używane w tym wystąpieniu klasy ContactManagerService.
 
-Wyświetlanie listy 1 zawiera pięć metod, które odnoszą się do każdego z testów jednostkowych. Każda z tych metod zostanie nadany atrybut [TestMethod]. Kiedy uruchamiasz testy jednostkowe, nosi nazwę dowolnej metody, która ma tego atrybutu. Innymi słowy dowolnej metody, która zostanie nadany atrybut [TestMethod] to test jednostkowy.
+Lista 1 zawiera pięć metod, które odpowiadają każdej z testów jednostkowych. Każda z tych metod ma atrybut [TestMethod]. Po uruchomieniu testów jednostkowych każda metoda, która ma ten atrybut jest wywoływana. Innymi słowy, każda metoda, która jest uzupełniona atrybutem [TestMethod] jest testem jednostkowym.
 
-Pierwszy test jednostkowy, o nazwie CreateContact(), sprawdza, czy wywołanie CreateContact() zwraca wartość true, gdy prawidłowe wystąpienie klasy kontakt jest przekazywany do metody. Test tworzy wystąpienie klasy, skontaktuj się z pomocą, wywołuje metodę CreateContact() i sprawdza, czy CreateContact() zwraca wartość true.
+Pierwszy test jednostkowy o nazwie CreateInstance () sprawdza, czy wywołanie metody CreateInstance () zwraca wartość true, gdy do metody jest przenoszona prawidłowe wystąpienie klasy Contact. Test tworzy wystąpienie klasy Contact, wywołuje metodę nocontact () i sprawdza, czy element "nocontact () zwróci wartość true.
 
-Pozostałe testy Sprawdź, czy gdy wywoływana jest metoda CreateContact(), z nieprawidłową kontaktu w następnie metoda zwraca wartość FAŁSZ i komunikat o błędzie weryfikacji oczekiwany jest dodawany do stanu modelu. Na przykład CreateContactRequiredFirstName() test tworzy wystąpienie klasy skontaktuj się z pustym ciągiem znaków dla jego właściwości imię. Następnie metoda CreateContact() jest wywoływana z nieprawidłową kontaktu. Ponadto ten test sprawdza, czy CreateContact() zwraca wartość false, i że stanu modelu zawiera komunikat o błędzie weryfikacji oczekiwano "Imię jest wymagane."
+Pozostałe testy sprawdzają, czy gdy metoda nocontact () jest wywoływana z nieprawidłowym kontaktem, a następnie metoda zwraca wartość false, a oczekiwany komunikat o błędzie walidacji jest dodawany do stanu modelu. Na przykład, test CreateContactRequiredFirstName () tworzy wystąpienie klasy Contact z pustym ciągiem dla jego właściwości FirstName. Następnie Metoda nocontact () jest wywoływana z nieprawidłowym kontaktem. Na koniec test weryfikuje, czy element iscontact () zwraca wartość false, a ten stan modelu zawiera oczekiwany komunikat o błędzie walidacji "pierwsze nazwisko jest wymagane".
 
-Można uruchomić testy jednostkowe w ofercie 1, wybierając opcję menu **, przebieg testu, wszystkie testy w rozwiązaniu (CTRL + R, A)**. Wyniki testów są wyświetlane w oknie wyników testu (zobacz rysunek 4).
+Testy jednostkowe można uruchomić z listy 1, wybierając opcję menu **test, Uruchom, wszystkie testy w rozwiązaniu (Ctrl + R, A)** . Wyniki testów są wyświetlane w oknie Wyniki testów (zobacz rysunek 4).
 
-[![Test Results](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![Wyniki testów](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
-**Rysunek 04**: Wyniki testu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image8.png))
+**Ilustracja 04**: wyniki testów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image8.png))
 
 ## <a name="creating-unit-tests-for-controllers"></a>Tworzenie testów jednostkowych dla kontrolerów
 
-Aplikacja platformy ASP.NET MVC sterowanie przepływem interakcji z użytkownikiem. Podczas testowania z kontrolerem, należy sprawdzić, czy ten kontroler zwraca odpowiednie działania wynik i przeglądanie danych. Można również sprawdzić, czy kontroler wchodzi w interakcję z klasy modeli w oczekiwany sposób.
+Aplikacja ASP.NET MVC steruje przepływem interakcji z użytkownikiem. Podczas testowania kontrolera, należy sprawdzić, czy kontroler zwróci odpowiednie wyniki akcji i wyświetli dane. Warto również sprawdzić, czy kontroler współdziała z klasami modelu w oczekiwany sposób.
 
-Na przykład lista 2 zawiera dwa testy jednostkowe dla kontrolera skontaktuj się z metody Create(). Pierwszy test jednostkowy sprawdza, czy podczas prawidłowy kontakt jest przekazywany do metody Create(), a następnie Metoda Create() przekierowuje do akcji indeksu. Innymi słowy Jeśli przekazano nieprawidłowy kontaktu, Metoda Create() powinna zwrócić RedirectToRouteResult, która reprezentuje akcję indeksu.
+Na przykład lista 2 zawiera dwa testy jednostkowe dla metody Create () kontrolera Contact. Pierwszy test jednostkowy sprawdza, czy gdy prawidłowy kontakt jest przesyłany do metody Create (), a następnie Metoda Create () przekierowuje do akcji index. Innymi słowy, gdy przeszedł prawidłowy kontakt, Metoda Create () powinna zwrócić element RedirectToRouteResult, który reprezentuje akcję indeksu.
 
-Firma Microsoft don t chcesz przetestować ContactManager warstwy usług, gdy testujemy warstwy kontrolera. W związku z tym firma Microsoft testowanie warstwy usług, używając następującego kodu w metodzie inicjowania:
+Nie chcemy przetestować warstwy usługi ContactManager podczas testowania warstwy kontrolera. W związku z tym tworzymy warstwę usługi przy użyciu następującego kodu w metodzie Initialize:
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample3.vb)]
 
-W CreateValidContact() Testy jednostkowe firma Microsoft testowanie zachowania podczas wywoływania warstwy usług CreateContact() metody za pomocą następującego kodu:
+W teście jednostkowym CreateValidContact () tworzymy zachowanie wywoływania metody () warstwy usługi z następującym wierszem kodu:
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample4.vb)]
 
-Ten wiersz kodu powoduje, że makiety ContactManager usługa zwraca wartość true, jeśli zostanie wywołana jego metoda CreateContact(). Przez pozorowanie warstwy usług, firma Microsoft testowanie zachowania kontrolera, bez konieczności wykonywania żadnych kodu w warstwie usługi.
+Ten wiersz kodu powoduje, że usługa makieter nie zwraca wartości true, gdy wywoływana jest metoda oncontact (). Poprzez imitację warstwy usług możemy przetestować zachowanie naszego kontrolera bez konieczności wykonywania kodu w warstwie usług.
 
-Drugi test jednostkowy sprawdza, czy akcja Create() błędny kontakt jest przekazywany do metody, zwraca widok Utwórz. Możemy spowodować warstwy usług CreateContact() metoda zwraca wartość false, przy użyciu następującego kodu:
+Drugi test jednostkowy sprawdza, czy akcja Utwórz () zwraca widok, gdy do metody jest przenoszona nieprawidłowy kontakt. Powoduje to, że metoda oncontact () warstwy usługi zwróci wartość false z następującym wierszem kodu:
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample5.vb)]
 
-Jeśli Metoda Create() zachowuje się jak oczekujemy, że następnie powinna zwrócić widok Tworzenie warstwy usług zwrócona wartość false. W ten sposób kontroler można wyświetlić komunikaty o błędach weryfikacji w widoku Utwórz, a użytkownik ma szansę, aby poprawić ten nieprawidłowe właściwości skontaktuj się z pomocą.
+Jeśli metoda Create () będzie działać w oczekiwany sposób, powinien zwrócić widok, gdy warstwa usługi zwróci wartość false. Dzięki temu kontroler może wyświetlać komunikaty o błędach walidacji w widoku tworzenia, a użytkownik ma szansę poprawić te nieprawidłowe właściwości kontaktu.
 
-Jeśli planujesz tworzenie testów jednostkowych dla kontrolerów należy zwrócić nazwy widoków jawne z akcji kontrolera. Na przykład nie zwracają widoku następująco:
+Jeśli planujesz kompilację testów jednostkowych dla kontrolerów, musisz zwrócić jawne nazwy widoków z akcji kontrolera. Na przykład nie należy zwracać widoku w następujący sposób:
 
-Zwróć View()
+Widok zwracany ()
 
-Zamiast tego zwracają widoku następująco:
+Zamiast tego Zwróć widok podobny do tego:
 
-Zwróć View("Create")
+Widok zwracany ("Utwórz")
 
-Jeśli nie jesteś jawne gdy zwracany jest widokiem ViewResult.ViewName właściwość zwraca pusty ciąg.
+Jeśli podczas zwracania widoku nie są jawne, właściwość ViewResult. viewName zwraca pusty ciąg.
 
-**Wyświetlanie listy 2 - Controllers\ContactControllerTest.vb**
+**Lista 2 — Controllers\ContactControllerTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample6.vb)]
 
 ## <a name="summary"></a>Podsumowanie
 
-W tej iteracji utworzyliśmy testów jednostkowych dla naszej aplikacji Contact Manager. W dowolnym momencie, aby sprawdzić, czy naszej aplikacji nadal działa w sposób, że oczekujemy, że można uruchomić te testy jednostkowe. Testy jednostkowe działają jako zabezpieczenie, aby nasza aplikacja pozwala nam bezpiecznie modyfikować naszej aplikacji w przyszłości.
+W tej iteracji utworzyliśmy testy jednostkowe dla naszej aplikacji menedżera kontaktów. Możemy uruchomić te testy jednostkowe w dowolnym momencie, aby upewnić się, że aplikacja nadal działa w oczekiwany sposób. Testy jednostkowe działają jako sieć bezpieczeństwa dla naszej aplikacji, dzięki czemu możemy bezpiecznie modyfikować naszą aplikację w przyszłości.
 
-Utworzyliśmy dwa zestawy testów jednostkowych. Po pierwsze przetestowaliśmy naszych logikę weryfikacji przez utworzenie testów jednostkowych dla naszych warstwy usług. Następnie możemy przetestowane naszych przepływu sterowania logiki przez utworzenie testów jednostkowych dla naszej warstwie kontrolera. Podczas testowania naszych warstwy usług, firma Microsoft samodzielnie Nasze testy nasze warstwy usług z warstwy w naszym repozytorium przez pozorowanie nasze warstwy repozytorium. Podczas testowania warstwy kontrolera, możemy samodzielnie Nasze testy dla naszych warstwy kontrolera, przez pozorowanie warstwy usług.
+Utworzyliśmy dwa zestawy testów jednostkowych. Najpierw przetestowano nasze logiki walidacji, tworząc testy jednostkowe dla naszej warstwy usług. Następnie przetestowano nasze logiki kontroli przepływu, tworząc testy jednostkowe dla naszej warstwy kontrolera. Podczas testowania naszej warstwy usług wykryliśmy nasze testy dla naszej warstwy usług z naszej warstwy repozytorium przez imitację naszej warstwy repozytorium. Podczas testowania warstwy kontrolera odizolowano nasze testy dla naszej warstwy kontrolera przez imitację warstwy usług.
 
-W następnej iteracji zmodyfikujemy aplikacji Contact Manager tak, aby go obsługuje skontaktuj się z grupy. Dodamy tej nowej funkcji do naszej aplikacji przy użyciu procesu projektowania oprogramowania o nazwie programowania sterowanego testami.
+W następnej iteracji zmodyfikujemy aplikację Contact Manager, aby obsługiwała grupy kontaktów. Ta nowa funkcjonalność zostanie dodana do naszej aplikacji przy użyciu procesu projektowania oprogramowania zwanego programowaniem opartym na testach.
 
 > [!div class="step-by-step"]
 > [Poprzednie](iteration-4-make-the-application-loosely-coupled-vb.md)

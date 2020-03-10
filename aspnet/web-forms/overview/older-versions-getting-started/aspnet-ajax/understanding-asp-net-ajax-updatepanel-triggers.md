@@ -9,11 +9,11 @@ ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
 ms.openlocfilehash: b1cc869f373d4f8283b4d92af74707c3f11fef61
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74588829"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547454"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Objaśnienie wyzwalaczy UpdatePanel ASP.NET AJAX
 
@@ -53,7 +53,7 @@ Podobnie element `<asp:PostBackTrigger>` może służyć do wyzwalania częścio
 
 *Elementy potomne znaczników:*
 
-| **Seryjn** | **Opis** |
+| **Tag** | **Opis** |
 | --- | --- |
 | &lt;ASP: AsyncPostBackTrigger&gt; | Określa kontrolkę i zdarzenie, które spowodują aktualizację strony częściowej dla elementu UpdatePanel, który zawiera odwołanie tego wyzwalacza. |
 | &lt;ASP: PostBackTrigger&gt; | Określa kontrolkę i zdarzenie, które spowodują aktualizację pełnej strony (odświeżanie pełne strony). Ten tag może służyć do wymuszania pełnego odświeżenia, gdy kontrolka w przeciwnym razie wyzwolenie renderowania częściowego. |

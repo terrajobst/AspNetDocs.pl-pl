@@ -1,120 +1,120 @@
 ---
 uid: mvc/overview/security/preventing-open-redirection-attacks
-title: Zapobieganie atakom na otwarte przekierowywanie (C#) | Dokumentacja firmy Microsoft
+title: Zapobieganie atakom typu OpenC#przekierowania () | Microsoft Docs
 author: jongalloway
-description: W tym samouczku wyjaśniono, jak zapobiegać atakom na otwarte przekierowywanie w aplikacjach ASP.NET MVC. W tym samouczku omówiono zmiany, które zostały wprowadzone...
+description: W tym samouczku wyjaśniono, jak można zapobiec atakom typu Open przekierowania w aplikacjach ASP.NET MVC. W tym samouczku omówiono wprowadzone zmiany...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
 ms.openlocfilehash: cfa635d4fd14d031993c5b452325cbe334f82dc2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126435"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78538172"
 ---
 # <a name="preventing-open-redirection-attacks-c"></a>Zapobieganie atakom na otwarte przekierowywanie (C#)
 
-przez [Galloway'em Jon](https://github.com/jongalloway)
+przez [Jan Galloway](https://github.com/jongalloway)
 
-> W tym samouczku wyjaśniono, jak zapobiegać atakom na otwarte przekierowywanie w aplikacjach ASP.NET MVC. W tym samouczku omówiono zmiany wprowadzone w elementu AccountController w ASP.NET MVC 3 i pokazuje, jak te zmiany mogą stosować w aplikacjach 2 i Twojego istniejącego programu ASP.NET MVC 1.0.
+> W tym samouczku wyjaśniono, jak można zapobiec atakom typu Open przekierowania w aplikacjach ASP.NET MVC. W tym samouczku omówiono zmiany wprowadzone w elementu AccountController w ASP.NET MVC 3 i zademonstrowano, jak można zastosować te zmiany w istniejących aplikacjach ASP.NET MVC 1,0 i 2.
 
-## <a name="what-is-an-open-redirection-attack"></a>Co to jest atak przekierowania Open?
+## <a name="what-is-an-open-redirection-attack"></a>Co to jest atak typu "Open przekierowania"?
 
-Dowolnej aplikacji sieci web, która przekierowuje do adresu URL, który jest określony za pomocą żądania, takie jak dane formularza lub querystring może potencjalnie naruszone przekierowywać użytkowników zewnętrznych, złośliwy adres URL. Tym naruszeniu nosi nazwę na otwarte przekierowywanie ataki.
+Dowolna aplikacja sieci Web, która przekierowuje do adresu URL, który jest określony za pośrednictwem żądania, takiego jak QueryString lub dane formularza, może zostać naruszona w celu przekierowania użytkowników do zewnętrznego, złośliwego adresu URL. Takie manipulowanie nazywa się atakiem typu Open przekierowania.
 
-Zawsze, gdy logika aplikacji przekierowuje pod określony adres URL, należy sprawdzić, czy adres URL przekierowania nie została zmieniona. Nazwa logowania używana w domyślnej elementu AccountController zarówno dla programu ASP.NET MVC 1.0 i ASP.NET MVC 2 jest narażony na otwarcie przekierowania ataków. Na szczęście jest łatwe do zaktualizowania istniejącej aplikacji poprawki w ASP.NET MVC 3 w wersji zapoznawczej.
+Za każdym razem, gdy logika aplikacji przekieruje do określonego adresu URL, należy sprawdzić, czy adres URL przekierowania nie został naruszony. Logowanie używane w domyślnej elementu AccountController zarówno dla ASP.NET MVC 1,0, jak i ASP.NET MVC 2 jest podatne na ataki typu Open przekierowania. Na szczęście można łatwo aktualizować istniejące aplikacje, aby używać poprawek z wersji zapoznawczej ASP.NET MVC 3.
 
-Aby poznać luki w zabezpieczeniach, Przyjrzyjmy się jak działa przekierowanie logowania w projekcie aplikacji sieci Web programu ASP.NET MVC 2 domyślne. W tej aplikacji próba można znaleźć akcji kontrolera, który ma atrybut [Authorize] nastąpi przekierowanie nieautoryzowanych użytkowników do widoku /Account/LogOn. Przekierowanie do /Account/LogOn będzie zawierać parametr querystring returnUrl, tak aby użytkownika mogą być zwrócone do pierwotnie żądanego adresu URL, po ich pomyślnym zalogowaniu.
+Aby zrozumieć lukę w zabezpieczeniach, przyjrzyjmy się działaniu przekierowania logowania w domyślnym projekcie aplikacji sieci Web MVC 2 ASP.NET. W tej aplikacji próba odwiedzenia akcji kontrolera, która ma atrybut [autoryzuje], spowoduje przekierowanie nieautoryzowanych użytkowników do widoku/Account/LogOn. To przekierowanie do/Account/LogOn będzie zawierać parametr returnUrl QueryString, dzięki czemu można zwrócić użytkownika do pierwotnie żądanego adresu URL po pomyślnym zalogowaniu się.
 
-Na poniższym zrzucie ekranu okaże się, że próba dostępu do widoku /Account/ChangePassword, gdy nie jest zalogowany powoduje przekierowanie do /Account/LogOn? ReturnUrl = % 2fAccount % 2fChangePassword % 2f.
+Na poniższym zrzucie ekranu można zobaczyć, że próba uzyskania dostępu do widoku/Account/ChangePassword, gdy nie jest zalogowany, spowoduje przekierowanie do/Account/LogOn? ReturnUrl =% 2fAccount% 2fChangePassword% 2f.
 
 [![](preventing-open-redirection-attacks/_static/image2.png)](preventing-open-redirection-attacks/_static/image1.png)
 
-**Rysunek 01**: Strona logowania za pomocą otwarte przekierowywanie
+**Ilustracja 01**: Strona logowania z otwartym przekierowaniem
 
-Ponieważ parametr querystring ReturnUrl nie zostanie zweryfikowana, osoba atakująca ją zmodyfikować, aby wstawić dowolny adres URL do parametru do przeprowadzenia ataku na otwarte przekierowywanie. Aby to wykazać, firma Microsoft Zmodyfikuj parametr ReturnUrl [ http://bing.com ](http://bing.com), dzięki czemu będzie wynikowy adres URL logowania/konta/logowania? ReturnUrl =<http://www.bing.com/>. Po pomyślnym zalogowaniu się do witryny, firma Microsoft są przekierowywane do [ http://bing.com ](http://bing.com). Ponieważ przekierowanie nie zostanie zweryfikowana, zamiast tego można wskazywać złośliwych witryn, który próbuje zachęcające użytkownika.
+Ponieważ parametr QueryString ReturnUrl nie jest zweryfikowany, osoba atakująca może ją zmodyfikować, aby wstrzyknąć dowolny adres URL do parametru w celu przeprowadzenia ataku typu Open przekierowania. Aby to zademonstrować, można zmodyfikować parametr ReturnUrl na [http://bing.com](http://bing.com), więc otrzymany adres URL logowania będzie/Account/LogOn? ReturnUrl =<http://www.bing.com/>. Po pomyślnym zalogowaniu się w witrynie nastąpi przekierowanie do [http://bing.com](http://bing.com). Ponieważ przekierowanie nie jest zweryfikowane, może to oznaczać złośliwą witrynę, która próbuje nakłonić użytkownika.
 
-### <a name="a-more-complex-open-redirection-attack"></a>Bardziej złożone Otwórz atak przekierowania
+### <a name="a-more-complex-open-redirection-attack"></a>Bardziej skomplikowany atak typu Open przekierowania
 
-Atakom na otwarte przekierowywanie są szczególnie niebezpieczne, ponieważ osoba atakująca zna osobę, którą próbujemy Zaloguj się do określonej witryny sieci Web, co pozwala nam na [ataku](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Na przykład osoba atakująca może wysłać złośliwy wiadomości e-mail do użytkowników witryny sieci Web w celu przechwycenia haseł. Przyjrzyjmy się jak działa to w witrynie NerdDinner. (Zwróć uwagę, że w działającej witrynie NerdDinner został zaktualizowany do ochrony przed atakom na otwarte przekierowywanie).
+Ataki typu Open przekierowania są szczególnie niebezpieczne, ponieważ osoba atakująca wie, że próbujemy zalogować się do określonej witryny sieci Web, co sprawia, że firma Microsoft jest narażona na [ataki wyłudzania informacji](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Na przykład osoba atakująca może wysyłać złośliwe wiadomości e-mail do użytkowników witryny sieci Web przy próbie przechwycenia ich haseł. Przyjrzyjmy się tym, jak to działa w witrynie NerdDinner. (Należy zauważyć, że witryna Live NerdDinner została zaktualizowana w celu ochrony przed atakami typu Open przekierowania).
 
-Po pierwsze osoba atakująca wysyła nam łącze do strony logowania na NerdDinner obejmującą przekierowania do ich sfałszowanych strony:
+Najpierw osoba atakująca wysyła nam link do strony logowania w witrynie NerdDinner, która zawiera przekierowanie do sfałszowanej strony:
 
 [http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
 
-Należy pamiętać, że zwrotny adres URL wskazuje nerddiner.com, której brakuje "n" z obiad programu word. W tym przykładzie jest domena, który kontroluje osoba atakująca. Podczas dostępu do powyższego linku, firma Microsoft nastąpi przekierowanie do strony logowania NerdDinner.com uzasadnione.
+Zwróć uwagę, że zwrotny adres URL wskazuje na nerddiner.com, w którym brakuje "n" na obiad wyrazu. W tym przykładzie jest to domena, którą osoba atakująca kontroluje. Gdy uzyskujemy dostęp do powyższego linku, nastąpi przekierowanie do strony logowania do NerdDinner.com.
 
 [![](preventing-open-redirection-attacks/_static/image4.png)](preventing-open-redirection-attacks/_static/image3.png)
 
-**Rysunek 02**: NerdDinner strony logowania za pomocą otwarte przekierowywanie
+**Ilustracja 02**: Strona logowania NerdDinner z otwartym przekierowaniem
 
-Firma Microsoft prawidłowo po zalogowaniu się, działania logowania elementu platformy ASP.NET MVC AccountController przekierowuje nam do adresu URL określonego w parametrze querystring returnUrl. W tym przypadku jest adres URL, który wprowadził osoba atakująca, która jest [ http://nerddiner.com/Account/LogOn ](http://nerddiner.com/Account/LogOn). Chyba, że jesteśmy bardzo watchful, jest bardzo prawdopodobne, firma Microsoft nie będzie Zwróć uwagę, szczególnie w przypadku, ponieważ osoba atakująca została musisz upewnić się, że ich sfałszowanych strona wygląda dokładnie strony logowania autoryzowanych. Ta strona logowania zawiera błąd komunikat żądania, możemy ponownie się zalogować. Clumsy NAS, firma Microsoft musi być błędnie wpisane hasło naszych.
+Po poprawnym zalogowaniu się akcja logowania ASP.NET MVC elementu AccountController przekierowuje nas do adresu URL określonego w parametrze QueryString returnUrl. W tym przypadku jest to adres URL wprowadzony przez atakującego, który jest [http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn). O ile nie jest to niezwykle zauważalne, prawdopodobnie nie będzie to konieczne, szczególnie dlatego, że osoba atakująca ma ostrożność, aby upewnić się, że ich sfałszowana strona wygląda podobnie jak legalna Strona logowania. Ta strona logowania zawiera komunikat o błędzie z żądaniem ponownego zalogowania. Clumsy nam, musimy mieć wpisane hasło.
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
-**Rysunek 03**: Sfałszowane ekran logowania NerdDinner
+**Ilustracja 03**: ekran logowania NerdDinner sfałszowany
 
-Gdy firma Microsoft umożliwia ponowne wpisanie naszych nazwy użytkownika i hasła, na stronie logowania sfałszowanych zapisuje informacje i wysyła nam do legalnych witryny NerdDinner.com. W tym momencie witryny NerdDinner.com ma już uwierzytelniony, aby przekierować strony logowania sfałszowanych bezpośrednio do tej strony. Wynik końcowy jest, że osoba atakująca ma naszych nazwę użytkownika i hasło, a jesteśmy świadomości, że udostępniliśmy ją do nich.
+Po przepisaniu nazwy użytkownika i hasła na stronie logowania sfałszowane informacje są zapisywane i wysyłane z powrotem do zaufanej witryny NerdDinner.com. W tym momencie lokacja NerdDinner.com została już uwierzytelniona, więc Strona logowania sfałszowana może zostać przekierowana bezpośrednio do tej strony. Oznacza to, że osoba atakująca ma swoją nazwę użytkownika i hasło, a firma Microsoft nie uważa, że została przez nas udostępniona.
 
-## <a name="looking-at-the-vulnerable-code-in-the-accountcontroller-logon-action"></a>Patrząc na ataki kodu w akcji elementu AccountController logowania
+## <a name="looking-at-the-vulnerable-code-in-the-accountcontroller-logon-action"></a>Spojrzenie na kod zagrożony w akcji logowania elementu AccountController
 
-Poniżej przedstawiono kod dla działań logowania w aplikacji ASP.NET MVC 2. Należy pamiętać, że po pomyślnym logowaniu ten kontroler zwraca przekierowania do returnUrl. Aby zobaczyć, czy Weryfikacja nie jest akurat wykonywane względem parametru returnUrl.
+Poniżej przedstawiono kod akcji logowania w aplikacji ASP.NET MVC 2. Należy pamiętać, że po pomyślnym zalogowaniu kontroler zwraca przekierowanie do returnUrl. Można sprawdzić, czy nie jest wykonywana żadna Walidacja w odniesieniu do parametru returnUrl.
 
-**1 — działania logowania programu ASP.NET MVC 2 w ofercie `AccountController.cs`**
+**Wyświetlanie listy 1 – ASP.NET akcji logowania MVC 2 w `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
-Teraz Przyjrzyjmy się zmian do działania logowania programu ASP.NET MVC 3. Ten kod został zmieniony w celu zweryfikowania parametru returnUrl przez wywołanie metody nową metodę o nazwie klasy pomocnika System.Web.Mvc.Url `IsLocalUrl()`.
+Teraz przyjrzyjmy się zmianom akcji logowania ASP.NET MVC 3. Ten kod został zmieniony, aby sprawdzić poprawność parametru returnUrl przez wywołanie nowej metody w klasie pomocnika system. Web. MVC. URL o nazwie `IsLocalUrl()`.
 
-**2 — Akcja platformy ASP.NET MVC 3 logowania w ofercie `AccountController.cs`**
+**Lista 2 – ASP.NET akcji logowania MVC 3 w `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
-Zostało to zmienione aby zweryfikować parametr zwrotnego adresu URL, wywołując nową metodę w klasie pomocnika System.Web.Mvc.Url `IsLocalUrl()`.
+Ten element został zmieniony w celu zweryfikowania parametru zwrotnego adresu URL, wywołując nową metodę w klasie pomocnika system. Web. MVC. URL `IsLocalUrl()`.
 
-## <a name="protecting-your-aspnet-mvc-10-and-mvc-2-applications"></a>Ochrona ASP.NET MVC 1.0 i MVC 2 aplikacji
+## <a name="protecting-your-aspnet-mvc-10-and-mvc-2-applications"></a>Ochrona aplikacji ASP.NET MVC 1,0 i MVC 2
 
-Będziemy korzystać z zalet zmiany ASP.NET MVC 3 w naszych istniejących programu ASP.NET MVC 1.0 i 2 aplikacji przez dodanie metody pomocnika IsLocalUrl() i aktualizowanie akcji logowania w celu zweryfikowania parametru returnUrl.
+Możemy wykorzystać zmiany ASP.NET MVC 3 w istniejących aplikacjach ASP.NET MVC 1,0 i 2 przez dodanie metody pomocnika IsLocalUrl () i zaktualizowanie akcji logowania w celu sprawdzenia poprawności parametru returnUrl.
 
-Metoda UrlHelper IsLocalUrl() w rzeczywistości po prostu wywoływanie metody w System.Web.WebPages w ramach tej weryfikacji także jest używane przez aplikacje ASP.NET Web Pages.
+Metoda UrlHelper IsLocalUrl () faktycznie wywołuje metodę w programie System. Web. Webpages, ponieważ ta Walidacja jest również używana przez aplikacje ASP.NET Web Pages.
 
-**Wyświetlanie listy 3 — metoda IsLocalUrl() z ASP.NET MVC 3 UrlHelper `class`**
+**Lista 3 — Metoda IsLocalUrl () z ASP.NET MVC 3 UrlHelper `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
-Metoda IsUrlLocalToHost zawiera logikę weryfikacji rzeczywistych, jak pokazano w ofercie 4.
+Metoda IsUrlLocalToHost zawiera rzeczywistą logikę walidacji, jak pokazano na liście 4.
 
-**Wyświetlanie listy 4 – IsUrlLocalToHost() metody z klasy System.Web.WebPages RequestExtensions**
+**Wyświetlanie listy 4 – IsUrlLocalToHost () metody z klasy System. Web. Webpages RequestExtensions**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample4.cs)]
 
-W naszym programu ASP.NET MVC 1.0 lub aplikacji, 2 dodamy metoda IsLocalUrl() do elementu AccountController, ale chętnie chcesz dodać do osobnej klasie pomocy, jeśli jest to możliwe. Podejmiemy dwóch niewielkie zmiany do wersji ASP.NET MVC 3 IsLocalUrl(), aby działały w ramach elementu AccountController. Po pierwsze zmienimy go z publiczną metodę do metody prywatnej, ponieważ metod publicznych w kontrolerach może być dostępna jako akcji kontrolera. Po drugie zmodyfikujemy wywołanie, które sprawdza, czy host adresu URL dla hosta aplikacji. Czy wywołania korzysta z lokalnych RequestContext pole w klasie UrlHelper. Zamiast tego. RequestContext.HttpContext.Request.Url.Host, użyjemy go. Request.Url.Host. Poniższy kod przedstawia modyfikowana metoda IsLocalUrl() do użytku z klasy controller w aplikacjach 2 i programu ASP.NET MVC 1.0.
+W naszej aplikacji ASP.NET MVC 1,0 lub 2 dodamy do elementu AccountController metodę IsLocalUrl (), ale zaleca się dodanie jej do innej klasy pomocnika, jeśli to możliwe. Wprowadzimy dwie małe zmiany w wersji ASP.NET MVC 3 IsLocalUrl (), dzięki czemu będzie ona działała wewnątrz elementu AccountController. Najpierw zmienimy ją z metody publicznej na prywatną metodę, ponieważ metody publiczne w kontrolerach są dostępne jako akcje kontrolera. Następnie zmodyfikujemy wywołanie sprawdzające Host adresu URL względem hosta aplikacji. To wywołanie umożliwia użycie lokalnego pola RequestContext w klasie UrlHelper. Zamiast tego. RequestContext. HttpContext. Request. URL. host, użyjemy tego. Request. URL. host. Poniższy kod przedstawia zmodyfikowaną metodę IsLocalUrl () do użycia z klasą kontrolera w aplikacjach ASP.NET MVC 1,0 i 2.
 
-**Listę 5 — metoda IsLocalUrl(), który jest modyfikowany do użytku z klasą kontroler MVC**
+**Lista 5 — Metoda IsLocalUrl (), która jest modyfikowana do użycia z klasą kontrolera MVC**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample5.cs)]
 
-Teraz, gdy metoda IsLocalUrl() jest w miejscu, możemy wywołać go z naszej akcji logowania w celu zweryfikowania parametru returnUrl, jak pokazano w poniższym kodzie
+Teraz, gdy metoda IsLocalUrl () jest na miejscu, możemy wywołać ją z naszej akcji logowania, aby sprawdzić poprawność parametru returnUrl, jak pokazano w poniższym kodzie.
 
-**Wyświetlanie listy 6 — metoda zaktualizowano logowania, która sprawdza poprawność parametru returnUrl**
+**Lista 6 — zaktualizowana metoda logowania, która sprawdza poprawność parametru returnUrl**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Teraz możemy przetestować ataku na otwarte przekierowywanie próbując zalogować się przy użyciu zewnętrznego adresu URL zwracany. Użyjmy /Account/LogOn? ReturnUrl =<http://www.bing.com/> ponownie.
+Teraz możemy przetestować atak typu Open przekierowania, próbując zalogować się przy użyciu zewnętrznego zwrotnego adresu URL. Użyjmy/Account/LogOn? ReturnUrl =<http://www.bing.com/> ponownie.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 
-**Rysunek 04**: Testowanie zaktualizowano akcję logowania
+**Rysunek 04**: testowanie zaktualizowanej akcji logowania
 
-Po pomyślnym zalogowaniu możemy są przekierowywane do akcji kontrolera Home/Index, a nie na zewnętrzny adres URL.
+Po pomyślnym zalogowaniu zostanie przekierowany do akcji kontrolera domu/indeksu, a nie zewnętrznego adresu URL.
 
 [![](preventing-open-redirection-attacks/_static/image10.png)](preventing-open-redirection-attacks/_static/image9.png)
 
-**Rysunek 05**: Otwórz atak przekierowania udaremnione
+**Ilustracja 05**. podlegające atakom typu "Otwieranie przekierowania"
 
 ## <a name="summary"></a>Podsumowanie
 
-Przekierowywanie adresów URL są przekazywane jako parametry w adresie URL aplikacji, mogą pojawić się atakom na otwarte przekierowywanie. ASP.NET MVC 3, szablon zawiera kod, aby zapewnić ochronę przed Otwórz ataków przekierowania. Możesz dodać ten kod z wprowadzając pewne modyfikacje, ASP.NET MVC 1.0 i 2 aplikacjami. Aby zapewnić ochronę przed atakom na otwarte przekierowywanie podczas logowania się do platformy ASP.NET w wersji 1.0 i 2 aplikacjami, Dodaj metodę IsLocalUrl() i sprawdzanie poprawności parametru returnUrl działanie logowania.
+Ataki typu Open przekierowania mogą wystąpić, gdy adresy URL przekierowania są przesyłane jako parametry w adresie URL aplikacji. Szablon ASP.NET MVC 3 zawiera kod chroniący przed atakami typu Open przekierowania. Można dodać ten kod z modyfikacją ASP.NET MVC 1,0 i 2 aplikacji. Aby chronić przed atakami typu "Otwieranie przekierowań" podczas logowania się do aplikacji ASP.NET 1,0 i 2, Dodaj metodę IsLocalUrl () i sprawdź poprawność parametru returnUrl w akcji logowania.

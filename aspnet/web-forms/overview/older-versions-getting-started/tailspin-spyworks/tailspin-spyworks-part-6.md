@@ -1,29 +1,29 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: Część 6. Członkostwo ASP.NET | Dokumentacja firmy Microsoft
+title: 'Część 6: ASP.NET Membership | Microsoft Docs'
 author: JoeStagner
-description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 6 dodaje członkostwa ASP.NET.
+description: Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 6 dodaje członkostwo ASP.NET.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
 ms.openlocfilehash: b0caa89dc9ffb5bb7451fa2d9d346c7db2bf1466
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130869"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78564184"
 ---
 # <a name="part-6-aspnet-membership"></a>Część 6. Członkostwo platformy ASP.NET
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
+> Tailspin Spyworks ilustruje, w jaki sposób bardzo jest prosta, aby tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. W tym artykule przedstawiono sposób korzystania z doskonałych nowych funkcji w programie ASP.NET 4 do tworzenia sklepu online, w tym zakupów, wyewidencjonowywania i administrowania.
 > 
-> W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 6 dodaje członkostwa ASP.NET.
+> Ta seria samouczków zawiera szczegółowe informacje na temat wszystkich kroków podjętych w celu skompilowania przykładowej aplikacji Tailspin Spyworks. Część 6 dodaje członkostwo ASP.NET.
 
-## <a id="_Toc260221672"></a>  Praca z członkostwa ASP.NET
+## <a id="_Toc260221672"></a>Praca z członkostwem ASP.NET
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -31,81 +31,81 @@ Kliknij pozycję Zabezpieczenia
 
 ![](tailspin-spyworks-part-6/_static/image1.jpg)
 
-Upewnij się, że używasz uwierzytelniania formularzy.
+Upewnij się, że korzystamy z uwierzytelniania formularzy.
 
 ![](tailspin-spyworks-part-6/_static/image2.jpg)
 
-Użyj linku "Utwórz użytkownika", aby utworzyć kilka użytkowników.
+Użyj linku "Utwórz użytkownika", aby utworzyć kilku użytkowników.
 
 ![](tailspin-spyworks-part-6/_static/image3.jpg)
 
-Gdy skończysz, można znaleźć w oknie Eksploratora rozwiązań, a następnie Odśwież widok.
+Po zakończeniu zapoznaj się z oknem Eksplorator rozwiązań i Odśwież widok.
 
 ![](tailspin-spyworks-part-6/_static/image2.png)
 
-Należy pamiętać, że ASPNETDB. Utworzono MDF dobrym rozwiązaniem. Ten plik zawiera tabele do obsługi usług ASP.NET core, takich jak członkostwo.
+Należy pamiętać, że ASPNETDB. Została utworzona dobra MDF. Ten plik zawiera tabele, które obsługują podstawowe usługi ASP.NET, takie jak członkostwo.
 
-Można teraz rozpocząć implementowanie rozpoczęcie procesu realizowania zamówienia.
+Teraz możemy zacząć implementować proces wyewidencjonowania.
 
-Rozpocznij od utworzenia strony CheckOut.aspx.
+Zacznij od utworzenia strony wyewidencjonowywania. aspx.
 
-Na stronie CheckOut.aspx powinny być dostępne jedynie dla użytkowników, którzy są zalogowani, dzięki czemu będziemy ograniczać przydziału obowiązków dostęp do rejestrowane w przystawce Użytkownicy i przekierowuje użytkowników, którzy nie jest zalogowany do strony logowania.
+Strona wyewidencjonowywanie. aspx powinna być dostępna tylko dla użytkowników, którzy są zalogowani, aby ograniczyć dostęp do zalogowanych użytkowników i przekierować użytkowników, którzy nie są zalogowani na stronie logowania.
 
-W tym celu dodamy następujących sekcji konfiguracji naszego pliku web.config.
+W tym celu dodamy następujący plik do sekcji konfiguracji naszego pliku Web. config.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample1.xml)]
 
-Szablon dla aplikacji formularzy sieci Web programu ASP.NET dodano sekcję uwierzytelniania do naszego pliku web.config i automatycznie nawiązane domyślną stronę logowania.
+Szablon aplikacji formularzy sieci Web ASP.NET automatycznie dodaje sekcję uwierzytelniania do pliku Web. config i ustanowił domyślną stronę logowania.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample2.xml)]
 
-Firma Microsoft należy zmodyfikować kod Login.aspx związany z pliku do migracji anonimowe koszyka, jeśli użytkownik loguje. Zmiany strony\_załadować zdarzeń w następujący sposób.
+Przed zalogowaniem się użytkownika należy zmodyfikować kod login. aspx związany z plikiem. Zmień\_zdarzeń ładowania strony w następujący sposób.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample3.cs)]
 
-Następnie Dodaj program obsługi zdarzeń "LoggedIn" następująco ustawiona nazwa sesji na nowo zalogowanego użytkownika i zmienić identyfikator tymczasowych sesji w koszyku do tego użytkownika, wywołując metodę MigrateCart w klasie naszych MyShoppingCart. (Zaimplementowano w pliku .cs)
+Następnie Dodaj procedurę obsługi zdarzeń "zalogowany", taką jak ta, aby ustawić nazwę sesji dla nowo zalogowanego użytkownika i zmienić tymczasowy identyfikator sesji w koszyku na użytkownika przez wywołanie metody MigrateCart w naszej klasie MyShoppingCart. (Zaimplementowane w pliku CS)
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample4.cs)]
 
-Implementacja metody MigrateCart() następująco.
+Zaimplementuj metodę MigrateCart () w następujący sposób.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample5.cs)]
 
-W checkout.aspx użyjemy EntityDataSource i GridView w naszym wyewidencjonowanie strony, na ile My mieliśmy w naszej stronie koszyka.
+W obszarze wyewidencjonowywanie. aspx będziemy używać obiektu EntityDataSource i widoku GridView na naszej stronie wyewidencjonowywania, podobnie jak na naszej stronie koszyka zakupów.
 
 [!code-aspx[Main](tailspin-spyworks-part-6/samples/sample6.aspx)]
 
-Należy pamiętać, że nasze kontrolki GridView określa procedurę obsługi zdarzeń "ondatabound" o nazwie MyList\_RowDataBound więc wykonania tego programu obsługi zdarzeń, takich jak to.
+Należy zauważyć, że nasz formant GridView określa procedurę obsługi zdarzeń "OnDataBound" o nazwie Moje listy\_RowDataBound, aby umożliwić wdrożenie tego programu obsługi zdarzeń, takiego jak to.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample7.cs)]
 
-To Suma zakupów koszyka każdy wiersz jest powiązany i aktualizuje dolny wiersz GridView przechowuje metody.
+Ta metoda przechowuje sumę uruchamiania koszyka, ponieważ każdy wiersz jest powiązany, i aktualizuje dolny wiersz widoku GridView.
 
-Na tym etapie zaimplementowano rozwiązania tlp prezentacji "Recenzja" zlecenia do umieszczenia.
+Na tym etapie wprowadziliśmy prezentację "przegląd" kolejności, w której ma zostać wykonane.
 
-Umożliwia obsługę scenariusza pusty koszyka, dodając kilka wierszy kodu do strony\_załadowane zdarzenie:
+Aby obsłużyć pusty scenariusz, Dodaj kilka wierszy kodu do naszej strony,\_zdarzenie ładowania:
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample8.cs)]
 
-Gdy użytkownik kliknie przycisk "Zatwierdź" Firma Microsoft będzie wykonaj następujący kod w obsłudze zdarzeń kliknij przycisk Prześlij.
+Gdy użytkownik kliknie przycisk "Prześlij", zostanie wykonany następujący kod na przycisku Prześlij kliknij procedurę obsługi zdarzeń.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample9.cs)]
 
-"Rodzaje" proces przesyłania zamówienia jest realizowane w metodzie SubmitOrder() klasy Nasze MyShoppingCart.
+"Mięso" procesu przekazywania zamówienia należy zaimplementować w metodzie SubmitOrder () klasy MyShoppingCart.
 
-SubmitOrder wykonują następujące czynności:
+SubmitOrder:
 
-- Wykonaj wszystkie pozycje w koszyku i używać ich do tworzenia nowego rekordu zlecenia i skojarzonych rekordów OrderDetails.
-- Oblicz Data wysyłki.
-- Wyczyść koszyk sklepowy.
+- Wypełnij wszystkie elementy wiersza w koszyku i używaj ich do tworzenia nowego rekordu zamówienia i skojarzonych rekordów OrderDetails.
+- Oblicz datę wysyłki.
+- Wyczyść koszyk.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample10.cs)]
 
-Na potrzeby tej przykładowej aplikacji będzie obliczania Data wysyłki, po prostu dodając dwa dni data bieżąca.
+Na potrzeby tej przykładowej aplikacji obliczą datę wysyłki przez dodanie dwóch dni do bieżącej daty.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample11.cs)]
 
-Uruchomiona jest aplikacja teraz pozwolą nam Przetestuj proces zakupów od początku do końca.
+Uruchomienie aplikacji umożliwi nam przetestowanie procesu zakupów od początku do końca.
 
 > [!div class="step-by-step"]
 > [Poprzednie](tailspin-spyworks-part-5.md)

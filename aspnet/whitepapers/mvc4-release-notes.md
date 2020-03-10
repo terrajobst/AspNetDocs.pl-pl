@@ -2,292 +2,292 @@
 uid: whitepapers/mvc4-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: Ten dokument opisuje wersję platformy ASP.NET MVC 4.
+description: W tym dokumencie opisano wydanie ASP.NET MVC 4.
 ms.author: riande
 ms.date: 09/09/2011
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
 ms.openlocfilehash: b57480bd0274fbb76c600dfb0dd09037bdcbf1e7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563428"
 ---
-# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC w wersji 4
 
-> Ten dokument opisuje wersję platformy ASP.NET MVC 4.
+> W tym dokumencie opisano wydanie ASP.NET MVC 4.
 
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
 - [Wymagania dotyczące oprogramowania](#_Toc303253805)
-- [Nowe funkcje we wzorcu ASP.NET MVC 4](#_Toc303253807)
+- [Nowe funkcje w programie ASP.NET MVC 4](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
-    - [Ulepszenia domyślne szablony projektów](#_Toc303253808)
-    - [Szablon projektu przenośnych](#_Toc303253809)
+    - [Ulepszenia domyślnych szablonów projektów](#_Toc303253808)
+    - [Szablon projektu mobilnego](#_Toc303253809)
     - [Tryby wyświetlania](#_Toc303253810)
-    - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
-    - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
+    - [Aplikacje jQuery Mobile, przełącznik widoku i zastępowanie przeglądarki](#_Toc303253811)
+    - [Obsługa zadań dla kontrolerów asynchronicznych](#_Toc303253813)
     - [Zestaw Azure SDK](#_Toc303253814)
     - [Migracje baz danych](#_Toc303253818)
-    - [Szablonu pusty projekt](#_Toc303253819)
-    - [Dodawanie kontrolera do dowolnego folderu projektu](#_Toc303253820)
+    - [Pusty szablon projektu](#_Toc303253819)
+    - [Dodaj kontroler do dowolnego folderu projektu](#_Toc303253820)
     - [Tworzenie pakietów i minifikacja](#_Toc303253821)
-    - [Włączanie logowania do usług Facebook i innych lokacji za pomocą protokołu OAuth i OpenID](#_Toc303253822)
+    - [Włączanie logowania z serwisu Facebook i innych witryn przy użyciu protokołu OAuth i OpenID Connect](#_Toc303253822)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
-- [Zmiany w porównaniu z platformy ASP.NET MVC 4 w wersji Release Candidate](#_Toc303253817)
-- [Znane problemy i fundamentalne zmiany](#_Toc303253815)
+- [Zmiany z wersji ASP.NET MVC 4 Release Candidate](#_Toc303253817)
+- [Znane problemy i istotne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
 ## <a name="installation-notes"></a>Uwagi dotyczące instalacji
 
-ASP.NET MVC 4 dla programu Visual Studio 2010 można zainstalować ze [strony głównej platformy ASP.NET MVC 4](../mvc/mvc4.md) za pomocą Instalatora platformy sieci Web.
+ASP.NET MVC 4 for Visual Studio 2010 można zainstalować ze [strony głównej ASP.NET MVC 4](../mvc/mvc4.md) przy użyciu Instalatora platformy sieci Web.
 
-Zaleca się odinstalowanie żadnych zainstalowanych wcześniej wersji zapoznawczych programu ASP.NET MVC 4, przed zainstalowaniem programu ASP.NET MVC 4. ASP.NET MVC 4 w wersji Beta i wersji Release Candidate można uaktualnić do programu ASP.NET MVC 4 bez odinstalowania.
+Zalecamy odinstalowanie wszystkich wcześniej zainstalowanych wersji zapoznawczych ASP.NET MVC 4 przed instalacją ASP.NET MVC 4. Możesz uaktualnić ASP.NET MVC 4 beta i Release Candidate do ASP.NET MVC 4 bez odinstalowywania.
 
-Ta wersja nie jest zgodny z dowolnej wersji zapoznawczych programu .NET Framework 4.5. Należy uaktualnić wszystkie zainstalowanej wersji zapoznawczych programu .NET Framework 4.5 oddzielnie do ostatecznej wersji przed zainstalowaniem programu ASP.NET MVC 4.
+Ta wersja nie jest zgodna z żadną wersją zapoznawczą .NET Framework 4,5. Przed zainstalowaniem ASP.NET MVC 4 należy oddzielnie uaktualnić wszystkie zainstalowane wersje zapoznawcze programu .NET Framework 4,5 do wersji ostatecznej.
 
-ASP.NET MVC 4 może być zainstalowane i działają side-by-side przy użyciu platformy ASP.NET MVC 3.
+ASP.NET MVC 4 można zainstalować i uruchomić obok siebie przy użyciu ASP.NET MVC 3.
 
 <a id="_Toc303253803"></a>
 ## <a name="documentation"></a>Dokumentacja
 
-Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adresem URL:
+Dokumentacja usługi ASP.NET MVC jest dostępna w witrynie MSDN pod następującym adresem URL:
 
 [https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
-W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
+Samouczki i inne informacje dotyczące ASP.NET MVC są dostępne na stronie MVC 4 witryny sieci Web ASP.NET ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
 <a id="_Toc303253804"></a>
 ## <a name="support"></a>Pomoc techniczna
 
-ASP.NET MVC 4 jest w pełni obsługiwany. Jeśli masz pytania na temat pracy z tej wersji można również ogłaszać je na forum platformy ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
+ASP.NET MVC 4 jest w pełni obsługiwany. Jeśli masz pytania dotyczące pracy z tą wersją, możesz również ogłosić je na forum ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie członkowie społeczności ASP.NET często mogą zapewnić nieformalne wsparcie.
 
 <a id="_Toc303253805"></a>
 ## <a name="software-requirements"></a>Wymagania programowe
 
-Składniki platformy ASP.NET MVC 4 dla programu Visual Studio wymagają programu PowerShell w wersji 2.0, a program Visual Studio 2010 z dodatkiem Service Pack 1 lub Visual Web Developer Express 2010 z dodatkiem Service Pack 1.
+Składniki ASP.NET MVC 4 dla programu Visual Studio wymagają programu PowerShell 2,0 i programu Visual Studio 2010 z dodatkiem Service Pack 1 lub Visual Web Developer Express 2010 z dodatkiem Service Pack 1.
 
 <a id="_Toc303253807"></a>
-## <a name="new-features-in-aspnet-mvc-4"></a>Nowe funkcje we wzorcu ASP.NET MVC 4
+## <a name="new-features-in-aspnet-mvc-4"></a>Nowe funkcje w programie ASP.NET MVC 4
 
-W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP.NET MVC 4.
+W tej sekcji opisano funkcje wprowadzone w wersji ASP.NET MVC 4.
 
 <a id="_Toc317096197"></a>
-### <a name="aspnet-web-api"></a>ASP.NET Web API
+### <a name="aspnet-web-api"></a>Składnik Web API platformy ASP.NET
 
-Platforma ASP.NET MVC 4 zawiera Web API platformy ASP.NET, nowe umożliwiająca tworzenie usług HTTP, które mają dostęp do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych. ASP.NET Web API również jest idealną platformą do tworzenia usługi RESTful.
+ASP.NET MVC 4 zawiera internetowy interfejs API ASP.NET, nową strukturę tworzenia usług HTTP, która może dotrzeć do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. Interfejs API sieci Web ASP.NET jest również idealnym platformą do kompilowania usług RESTful.
 
-ASP.NET Web API obsługuje następujące funkcje:
+Interfejs API sieci Web ASP.NET zapewnia obsługę następujących funkcji:
 
-- **Nowoczesne modelu programowania protokołu HTTP:** Bezpośrednio dostępu i manipulowania żądań HTTP i odpowiedzi w interfejsy API sieci Web przy użyciu nowego, silnie typizowany model obiektów HTTP. Taki sam programowania modelu i potoku HTTP jest symetrycznie dostępny na kliencie w nowej *HttpClient* typu.
-- **Pełna obsługa tras:** ASP.NET Web API obsługuje pełny zestaw możliwości routingu platformy ASP.NET, w tym parametry trasy i ograniczenia trasy. Ponadto umożliwia proste konwencje mapowania akcji metody HTTP.
-- **Negocjowanie zawartości:** Klient i serwer mogą pracować razem określają prawo format danych zwracanych z internetowego interfejsu API. ASP.NET Web API zapewnia domyślną obsługę XML, JSON, dane i formatów zakodowane w adresie URL formularza i można rozszerzyć tę obsługę, dodając własne elementy formatujące lub nawet jej zastąpienie strategia domyślna negocjacji zawartości.
-- **Powiązanie modelu i sprawdzania poprawności:** Integratorów zapewniają prosty sposób wyodrębniania danych z różnych części żądania HTTP oraz przekształcać tych części komunikatu do obiektów platformy .NET, które mogą być używane przez akcje interfejsu API sieci Web. Sprawdzanie poprawności, również odbywa się na parametry akcji na adnotacje danych na podstawie.
-- **Filtry:** ASP.NET Web API obsługuje filtry, w tym filtry dobrze znanego, takich jak *[Authorize]* atrybutu. Można tworzyć i Dołącz filtry dla działania, autoryzacji i obsługi wyjątków.
-- **Tworzenia zapytania:** Użyj *[Queryable]* atrybutu filtru akcji, która zwraca *IQueryable* umożliwiające obsługę interfejsu API sieci web za pomocą Konwencji zapytania OData.
-- **Ulepszone możliwości testowania:** Zamiast ustawienie protokołu HTTP, szczegółowe informacje w obiektach kontekstu statycznego, sieci web interfejsu API pracy akcji z wystąpieniami *HttpRequestMessage* i *obiektu HttpResponseMessage*. Utwórz projekt testu jednostkowego, wraz z projektem interfejsu API sieci Web, aby rozpocząć pracę, szybkie pisanie testów jednostkowych dla Twojej funkcji interfejsu API sieci Web.
-- **Konfiguracja na podstawie kodu:** Konfiguracja ASP.NET Web API odbywa się wyłącznie za pośrednictwem kodu, pozostawiając czyste plików konfiguracji. Aby skonfigurować punkty rozszerzeń, należy użyć wzorzec lokalizatora świadczonych usług.
-- **Ulepszona obsługa kontenerów Inwersja kontroli (IoC):** ASP.NET Web API oferuje fantastyczną pomoc techniczną dla kontenerów IoC za pośrednictwem abstrakcję rozpoznawania zależności ulepszone
-- **Samodzielnego hostowania:** Interfejsy API sieci Web może być hostowana we własnym procesie, oprócz usługi IIS podczas nadal przy użyciu pełnego zestawu funkcji tras i inne funkcje interfejsu API sieci Web.
-- **Tworzenie niestandardowej pomocy i przetestować strony dostępne po:** Teraz można łatwo tworzyć niestandardowe pomocy i stron w teście sieci Web, interfejsów API za pomocą nowego *IApiExplorer* usługi, aby uzyskać opis pełne środowisko uruchomieniowe Projektując internetowe interfejsy API.
-- **Monitorowanie i Diagnostyka:** ASP.NET Web API udostępnia teraz Infrastruktura śledzenia lekkie, który można łatwo zintegrować z istniejącymi rozwiązaniami rejestrowania, takich jak System.Diagnostics zdarzeń systemu Windows i innych firm, struktur rejestrowania. Możesz włączyć śledzenie, zapewniając *ITraceWriter* implementacji i dodanie go do konfiguracji interfejsu API sieci web.
-- **Generowanie łącza:** Za pomocą interfejsu API sieci Web platformy ASP.NET *UrlHelper* do generowania linków do powiązanych zasobów w tej samej aplikacji.
-- **Szablon projektu interfejsu API sieci Web:** Wybierz formularz nowego projektu internetowego interfejsu API Kreatora nowego projektu programu MVC 4, aby szybko rozpocząć pracę z interfejsem API sieci Web platformy ASP.NET.
-- **Tworzenie szkieletu:** Użyj **Dodaj kontroler** okna dialogowego, aby szybko utworzyć szkielet kontrolera interfejsu API sieci web, w oparciu o platformy Entity Framework na podstawie typu modelu.
+- **Nowoczesny model programowania http:** Bezpośredni dostęp do żądań i odpowiedzi HTTP w interfejsach API sieci Web oraz manipulowanie nimi przy użyciu nowego, silnie określonego modelu obiektów HTTP. Ten sam model programowania i potok HTTP są symetrycznie dostępne na kliencie za pośrednictwem nowego typu *HttpClient* .
+- **Pełna obsługa tras:** Interfejs API sieci Web ASP.NET obsługuje pełny zestaw możliwości routingu usługi ASP.NET routing, w tym parametrów tras i ograniczeń. Ponadto należy używać prostych Konwencji do mapowania akcji na metody HTTP.
+- **Negocjowanie zawartości:** Klient i serwer mogą współdziałać ze sobą, aby określić właściwy format danych zwracanych z internetowego interfejsu API. Interfejs API sieci Web ASP.NET zapewnia obsługę domyślną dla formatów XML, JSON i formacie adresów URL i można ją rozciągnąć przez dodanie własnych elementów formatujących, a nawet zastąpienie domyślnej strategii negocjowania zawartości.
+- **Powiązanie i walidacja modelu:** Powiązania modelu zapewniają łatwy sposób wyodrębniania danych z różnych części żądania HTTP i przekształcania tych części komunikatów na obiekty .NET, które mogą być używane przez akcje interfejsu API sieci Web. Sprawdzanie poprawności jest wykonywane również w przypadku parametrów akcji opartych na adnotacjach danych.
+- **Filtry:** Interfejs API sieci Web ASP.NET obsługuje filtry z uwzględnieniem dobrze znanych filtrów, takich jak atrybut *[autoryzuje]* . Można tworzyć i dołączać własne filtry do akcji, autoryzacji i obsługi wyjątków.
+- **Kompozycja zapytania:** Użyj atrybutu filtru *[Queryable]* dla akcji zwracającej Interfejs *IQueryable* , aby włączyć obsługę zapytań do internetowego interfejsu API za pośrednictwem Konwencji zapytania OData.
+- **Ulepszone możliwości testowania:** Zamiast ustawiania szczegółów protokołu HTTP w statycznych obiektach kontekstu, akcje internetowego interfejsu API działają z wystąpieniami *HttpRequestMessage* i *HttpResponseMessage*. Utwórz projekt testu jednostkowego wraz z projektem interfejsu API sieci Web, aby zacząć szybko pisać testy jednostkowe dla funkcjonalności internetowego interfejsu API.
+- **Konfiguracja oparta na kodzie:** Konfiguracja interfejsu API sieci Web ASP.NET jest realizowana wyłącznie za poorednictwem kodu, pozostawiając czyszczenie plików konfiguracji. Aby skonfigurować punkty rozszerzalności, należy użyć podanego wzorca lokalizatora usługi.
+- **Ulepszona obsługa kontenerów z niewersjami formantów (IOC):** Interfejs API sieci Web ASP.NET zapewnia doskonałą obsługę kontenerów IoC za pomocą ulepszonego abstrakcji programu rozpoznawania zależności
+- **Samodzielne hostowanie:** Interfejsy API sieci Web mogą być hostowane we własnym procesie oprócz usług IIS i nadal korzystają z pełnych możliwości tras i innych funkcji interfejsu API sieci Web.
+- **Utwórz niestandardową stronę pomocy i testów:** Teraz można łatwo tworzyć niestandardowe strony pomocy i testów dla interfejsów API sieci Web za pomocą nowej usługi *IApiExplorer* , aby uzyskać pełny opis środowiska uruchomieniowego interfejsów API sieci Web.
+- **Monitorowanie i Diagnostyka:** Interfejs API sieci Web ASP.NET teraz udostępnia infrastrukturę śledzenia wagi uproszczonej, która ułatwia integrację z istniejącymi rozwiązaniami rejestrowania, takimi jak system. Diagnostics, ETW i platformy rejestrowania innych firm. Śledzenie można włączyć, dostarczając implementację *ITraceWriter* i dodając ją do konfiguracji internetowego interfejsu API.
+- **Generowanie linku:** Użyj *UrlHelper* internetowego interfejsu API ASP.NET, aby wygenerować linki do powiązanych zasobów w tej samej aplikacji.
+- **Szablon projektu interfejsu API sieci Web:** Wybierz nowy projekt interfejsu API sieci Web Kreator nowego projektu MVC 4, aby szybko rozpocząć pracę z interfejsem API sieci Web ASP.NET.
+- Tworzenie **szkieletu:** Za pomocą okna dialogowego **Dodawanie kontrolera** można szybko przetworzyć kontroler interfejsu API sieci Web na podstawie typu modelu opartego na Entity Framework.
 
-Szczegółowe informacje na temat interfejsu API sieci Web platformy ASP.NET można znaleźć [ https://www.asp.net/web-api ](../web-api/index.md).
+Aby uzyskać więcej informacji na temat interfejsu Web API ASP.NET, odwiedź stronę [https://www.asp.net/web-api](../web-api/index.md).
 
 <a id="_Toc303253808"></a>
-### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślne szablony projektów
+### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślnych szablonów projektów
 
-Szablon, który jest używany do tworzenia nowych projektów platformy ASP.NET MVC 4 została zaktualizowana w celu tworzenia witryny sieci Web bardziej nowoczesnym wyglądzie:
+Szablon służący do tworzenia nowych projektów ASP.NET MVC 4 został zaktualizowany w celu utworzenia bardziej nowoczesnej witryny sieci Web:
 
 ![](mvc4-release-notes/_static/image1.png)
 
-Oprócz kosmetycznych ulepszenia zostały udoskonalone funkcje w nowym szablonie. Szablon wykorzystuje technikę o nazwie adaptacyjne renderowania wyglądają dobrze zarówno w przypadku przeglądarek klasycznych, jak i przeglądarki dla urządzeń przenośnych bez potrzeby dostosowywania.
+Oprócz ulepszeń kosmetycznych udoskonalono funkcjonalność nowego szablonu. Szablon wykorzystuje technikę o nazwie renderowanie adaptacyjne, aby wyglądać dobrze w przeglądarkach klasycznych i przeglądarkach dla urządzeń przenośnych bez żadnego dostosowania.
 
 ![](mvc4-release-notes/_static/image2.png)
 
-Aby zobaczyć adaptacyjne renderowania w akcji, możesz użyć emulatora mobilnych lub po prostu spróbuj zmienia rozmiar okna przeglądarki na komputerze, który może być mniejszy. Gdy okno przeglądarki pobiera wystarczająco mała, zmieni się układ strony.
+Aby zobaczyć adaptacyjne renderowanie w akcji, można użyć emulatora urządzenia przenośnego lub po prostu spróbować zmienić rozmiar okna przeglądarki pulpitu, aby było mniejsze. Gdy okno przeglądarki jest wystarczająco małe, układ strony zmieni się.
 
 <a id="_Toc303253809"></a>
-### <a name="mobile-project-template"></a>Szablon projektu przenośnych
+### <a name="mobile-project-template"></a>Szablon projektu mobilnego
 
-Jeśli Trwa uruchamianie nowego projektu, aby utworzyć witryny specjalnie dla urządzeń przenośnych i tabletów przeglądarki można użyć szablonu projektu aplikacji mobilnej. Jest to oparty na technologii jQuery Mobile, biblioteka typu open source do tworzenia zoptymalizowanych pod kątem touch interfejsu użytkownika:
+Jeśli uruchamiasz nowy projekt i chcesz utworzyć witrynę specyficzną dla przeglądarek mobilnych i tabletów, możesz użyć nowego szablonu projektu aplikacji mobilnej. Jest to oparte na technologii jQuery Mobile, biblioteki Open Source do tworzenia interfejsu użytkownika zoptymalizowanego pod kątem obsługi dotykowej:
 
 ![](mvc4-release-notes/_static/image3.png)
 
-Ten szablon zawiera tę samą strukturę aplikacji jako szablonu aplikacji internetowej i kodu kontrolera jest niemal identyczne, ale jest stylem, wygląd i działają prawidłowo na urządzeniach przenośnych oparte na dotyku przy użyciu jQuery Mobile. Aby dowiedzieć się więcej na temat struktury i stylem przenośnych interfejsu użytkownika, zobacz [jQuery przenośnych projektu witryny sieci Web](http://jquerymobile.com/).
+Ten szablon zawiera tę samą strukturę aplikacji, co szablon aplikacji internetowej (a kod kontrolera jest praktycznie identyczny), ale jest on w stylu przy użyciu technologii jQuery Mobile, aby uzyskać dobre i dobrze działać na urządzeniach przenośnych opartych na dotykach. Aby dowiedzieć się więcej na temat struktury i stylu mobilnego interfejsu użytkownika, zobacz [witrynę sieci Web programu jQuery Mobile](http://jquerymobile.com/).
 
-Jeśli masz już zorientowane na pulpicie lokacji, czy chcesz dodać widoki zoptymalizowane pod kątem mobile, lub jeśli chcesz tworzyć jednej lokacji, który służy inaczej ze stylem widoków do klasycznych i mobilnych przeglądarek, można użyć nowej funkcji trybów wyświetlania. (Zobacz następną sekcję).
+Jeśli masz już lokację zorientowaną na komputery stacjonarne, do której chcesz dodać widoki zoptymalizowane pod kątem urządzeń przenośnych, lub jeśli chcesz utworzyć pojedynczą lokację, która obsługuje widoki w różnych stylach, można użyć nowych trybów wyświetlania. (Zobacz następną sekcję).
 
 <a id="_Toc303253810"></a>
 ### <a name="display-modes"></a>Tryby wyświetlania
 
-Nowa funkcja trybów wyświetlania umożliwia aplikacji wybierz widoki, w zależności od przeglądarki, z której wysłano żądanie. Na przykład na stronie głównej na żądanie przeglądarki na komputerze aplikacji może być szablon Views\Home\Index.cshtml. Jeśli w przeglądarce dla urządzeń przenośnych żąda strony głównej, aplikacja może zwrócić szablonu Views\Home\Index.mobile.cshtml.
+Nowa funkcja trybów wyświetlania umożliwia aplikacji Wybieranie widoków w zależności od przeglądarki, która żąda żądania. Na przykład jeśli przeglądarka pulpitu żąda strony głównej, aplikacja może używać szablonu Views\Home\Index.cshtml. Jeśli przeglądarka mobilna żąda strony głównej, aplikacja może zwrócić szablon Views\Home\Index.mobile.cshtml.
 
-Układy i częściowych również można przesłonić dla typów w konkretnej przeglądarce. Na przykład:
+Układy i częściowe mogą być również zastępowane dla określonych typów przeglądarek. Na przykład:
 
-- Jeśli Views\Shared folder zawiera zarówno \_Layout.cshtml i \_Layout.mobile.cshtml szablonów, domyślnie aplikacja będzie używać \_Layout.mobile.cshtml podczas żądania od przeglądarki dla urządzeń przenośnych i \_Layout.cshtml podczas innych żądań.
-- Jeśli folder zawiera zarówno \_MyPartial.cshtml i \_MyPartial.mobile.cshtml, instrukcja @Html.Partial("\_MyPartial") będzie renderowany \_MyPartial.mobile.cshtml podczas żądania od mobile przeglądarki, a \_MyPartial.cshtml podczas innych żądań.
+- Jeśli folder Views\Shared zawiera zarówno szablon \_Layout. cshtml, jak i \_Layout. Mobile. cshtml, domyślnie aplikacja będzie używać \_układ. Mobile. cshtml podczas żądań z przeglądarek mobilnych i \_Layout. cshtml podczas innych żądań.
+- Jeśli folder zawiera zarówno \_. cshtml, jak i \_. Mobile. cshtml, instrukcja @Html.Partial("\_") będzie renderowana \_. Mobile. cshtml w trakcie żądań z przeglądarek mobilnych i \_część. cshtml podczas innych żądań.
 
-Jeśli chcesz utworzyć bardziej szczegółowych widoków układów i widoki częściowe, w przypadku innych urządzeń, możesz zarejestrować nową *DefaultDisplayMode* wystąpienie można określić, której nazwa do wyszukiwania, gdy żądanie spełnia warunki określonej. Na przykład można dodać następujący kod, aby *aplikacji\_Start* metody w pliku Global.asax zarejestrować się ciągiem "iPhone" jako tryb wyświetlania, która ma zastosowanie, gdy przeglądarka iPhone Apple wysyła żądanie:
+Jeśli chcesz utworzyć bardziej szczegółowe widoki, układy lub częściowe widoki dla innych urządzeń, możesz zarejestrować nowe wystąpienie usługi *DefaultDisplayMode* , aby określić, która nazwa ma być wyszukiwana, gdy żądanie spełnia określone warunki. Na przykład można dodać następujący kod do *aplikacji\_Start* metody w pliku Global. asax, aby zarejestrować ciąg "iPhone" jako tryb wyświetlania, który ma zastosowanie, gdy przeglądarka telefonu iPhone wysyła żądanie:
 
 [!code-csharp[Main](mvc4-release-notes/samples/sample1.cs)]
 
-Po uruchomieniu tego kodu, gdy przeglądarka iPhone Apple wysyła żądanie, aplikacja będzie używać Views\Shared\\_Layout.iPhone.cshtml układ (jeśli istnieje). Aby uzyskać więcej informacji na temat trybu wyświetlania, zobacz [platformy ASP.NET MVC 4 Mobile funkcji](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md). Należy instalować aplikacje przy użyciu DisplayModeProvider [stały DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) pakietu NuGet. [ASP.NET Fall 2012 Update](https://go.microsoft.com/fwlink/?LinkID=271322) obejmuje [stały DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) pakietu NuGet w nowe szablony projektów. Zobacz [Fixedd buforowania błędów platformy ASP.NET MVC 4 Mobile](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) szczegółowe informacje dotyczące poprawki.
+Po uruchomieniu tego kodu, gdy przeglądarka telefonów iPhone firmy Apple wyśle żądanie, aplikacja użyje układu Views\Shared\\_Layout. iPhone. cshtml (jeśli istnieje). Aby uzyskać więcej informacji o trybie wyświetlania, zobacz [ASP.NET MVC 4 Mobile Features](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md). Aplikacje korzystające z DisplayModeProvider powinny instalować naprawione pakiety NuGet [DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) . [Aktualizacja ASP.NET 2012](https://go.microsoft.com/fwlink/?LinkID=271322) obejmuje naprawione pakiety NuGet [DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) w nowych szablonach projektów. Aby uzyskać szczegółowe informacje na temat poprawki, zobacz [ASP.NET MVC 4 Mobile buforowania usterki](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) .
 
 <a id="_Toc303253811"></a>
-### <a name="jquery-mobile-and-mobile-features"></a>jQuery Mobile i funkcje Mobile
+### <a name="jquery-mobile-and-mobile-features"></a>Funkcje mobilne i mobilne jQuery
 
-Instrukcje dotyczące tworzenia aplikacji mobilnych za pomocą platformy ASP.NET MVC 4 przy użyciu jQuery Mobile znajduje się w samouczku [platformy ASP.NET MVC 4 Mobile funkcji](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md).
+Aby uzyskać informacje na temat tworzenia aplikacji mobilnych za pomocą ASP.NET MVC 4 przy użyciu technologii jQuery Mobile, zobacz samouczek [ASP.NET MVC 4 Mobile Features](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md).
 
 <a id="_Toc303253813"></a>
-### <a name="task-support-for-asynchronous-controllers"></a>Zadanie obsługi asynchronicznego kontrolerów
+### <a name="task-support-for-asynchronous-controllers"></a>Obsługa zadań dla kontrolerów asynchronicznych
 
-Teraz możesz tworzyć metody akcji asynchronicznej jako pojedynczej metody, które zwracają obiekt typu *zadań* lub *zadań&lt;ActionResult&gt;*.
+Teraz można pisać metody akcji asynchronicznych jako pojedyncze metody, które zwracają obiekt typu *zadanie* lub *zadanie&lt;ActionResult&gt;* .
 
- Aby uzyskać więcej informacji, zobacz [przy użyciu metod asynchronicznych w ASP.NET MVC 4](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
+ Aby uzyskać więcej informacji, zobacz [Używanie metod asynchronicznych w ASP.NET MVC 4](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
 
 <a id="_Toc303253814"></a>
 ### <a name="azure-sdk"></a>Azure SDK
 
-ASP.NET MVC 4 obsługuje 1.6 i nowszych wersjach systemu Windows Azure SDK.
+ASP.NET MVC 4 obsługuje 1,6 i nowsze wersje zestawu Windows Azure SDK.
 
 <a id="_Toc303253818"></a>
 ### <a name="database-migrations"></a>Migracje baz danych
 
-Projekty programu ASP.NET MVC 4 obejmują teraz Entity Framework 5. Jedną z najważniejszych funkcji w programie Entity Framework 5 jest obsługiwane migracje baz danych. Ta funkcja pozwala łatwo rozwój schemat bazy danych przy użyciu migracji skoncentrowane na kodzie przy jednoczesnym zachowaniu danych w bazie danych. Aby uzyskać więcej informacji na temat migracji bazy danych, zobacz [dodanie nowego pola do modelu Movie i tabeli](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table.md) w [wprowadzenie do platformy ASP.NET MVC 4 samouczka](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
+Projekty ASP.NET MVC 4 zawierają teraz Entity Framework 5. Jedną z doskonałych funkcji programu Entity Framework 5 jest obsługa migracji baz danych. Ta funkcja pozwala łatwo rozwijać schemat bazy danych przy użyciu migracji ukierunkowanej na kod podczas zachowywania danych w bazie danych. Aby uzyskać więcej informacji na temat migracji bazy danych, zobacz [Dodawanie nowego pola do modelu i tabeli filmów](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table.md) w [samouczku wprowadzenie do ASP.NET MVC 4](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
 
 <a id="_Toc303253819"></a>
-### <a name="empty-project-template"></a>Szablonu pusty projekt
+### <a name="empty-project-template"></a>Pusty szablon projektu
 
-MVC pusty szablon projektu jest teraz naprawdę pusty, dzięki czemu można rozpocząć od pustego całkowicie. Starszą wersję szablonu pusty projekt została zmieniona na podstawowe.
+Szablon pustego projektu MVC jest teraz całkowicie pusty, aby można było zacząć od całkiem czystego zamknięcia. Nazwa wcześniejszej wersji pustego szablonu projektu została zmieniona na podstawowa.
 
 <a id="_Toc303253820"></a>
-### <a name="add-controller-to-any-project-folder"></a>Dodawanie kontrolera do dowolnego folderu projektu
+### <a name="add-controller-to-any-project-folder"></a>Dodaj kontroler do dowolnego folderu projektu
 
-Teraz kliknij prawym przyciskiem myszy i wybierz **Dodaj kontroler** z dowolnego folderu w projekcie MVC. Zapewnia większą elastyczność w przypadku organizowania z kontrolerami w dowolny sposób, w tym zachowaniem kontrolerach MVC i interfejs API sieci Web w oddzielnych folderów.
+Teraz możesz kliknąć prawym przyciskiem myszy i wybrać pozycję **Dodaj kontroler** z dowolnego folderu w projekcie MVC. Zapewnia to większą elastyczność organizowania kontrolerów, w tym utrzymywanie kontrolerów MVC i interfejsów API sieci Web w oddzielnych folderach.
 
 <a id="_Toc303253821"></a>
-### <a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
+### <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 
-Tworzenie pakietów i minimalizowanie framework pozwala zmniejszyć liczbę żądań HTTP, które strony sieci Web musi wprowadzić, łącząc poszczególnych plików w jednym, powiązane plik skrypty i arkusze CSS. Go następnie redukowania łącznego rozmiaru te żądania, przez minifikacja zawartości pakietu. Minifikacja mogą obejmować działań takich jak wyeliminowanie odstępu, można skrócić nawet zwijanie selektorów CSS w oparciu o ich semantyki nazw zmiennych. Pakiety są deklarowane i skonfigurowane w kod i są łatwo przywoływać w widokach za pośrednictwem metody pomocnika, które mogą generować albo jedno łącze do pakietu, lub podczas debugowania, wiele łączy do poszczególnych zawartości pakietu. Aby uzyskać więcej informacji, zobacz [tworzenie pakietów i minimalizowanie](../mvc/overview/performance/bundling-and-minification.md).
+Struktura i minifikacja Framework umożliwiają zmniejszenie liczby żądań HTTP wymaganych przez stronę sieci Web przez połączenie pojedynczych plików w jeden plik z pakietem dla skryptów i CSS. Następnie może zmniejszyć ogólny rozmiar tych żądań, minifikacja zawartość pakietu. Minifikacja może zawierać działania, takie jak eliminowanie spacji w celu skrócenia nazw zmiennych, aby nawet zwijać selektory CSS na podstawie ich semantyki. Zbiory są zadeklarowane i konfigurowane w kodzie i można je łatwo odwoływać w widokach za pośrednictwem metod pomocnika, które mogą generować jedno łącze do pakietu lub, w przypadku debugowania, wiele linków do poszczególnych zawartości pakietu. Aby uzyskać więcej informacji, zobacz artykułing [and minifikacja](../mvc/overview/performance/bundling-and-minification.md).
 
 <a id="_Toc303253822"></a>
-### <a name="enabling-logins-from-facebook-and-other-sites-using-oauth-and-openid"></a>Włączanie logowania do usług Facebook i innych lokacji za pomocą protokołu OAuth i OpenID
+### <a name="enabling-logins-from-facebook-and-other-sites-using-oauth-and-openid"></a>Włączanie logowania z serwisu Facebook i innych witryn przy użyciu protokołu OAuth i OpenID Connect
 
-Domyślne szablony w szablonie projektu programu ASP.NET MVC 4 Internet obejmuje teraz obsługę logowania OAuth i OpenID za pomocą biblioteki DotNetOpenAuth. Aby uzyskać informacje dotyczące konfigurowania dostawcy uwierzytelniania OAuth lub OpenID, zobacz [obsługi uwierzytelniania OAuth/OpenID formularzy sieci Web, MVC i stron sieci Web](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx) i [OAuth i OpenID są wyposażone w dokumentacji w składniku ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup).
+Szablony domyślne w szablonach projektów internetowych w programie ASP.NET MVC 4 obejmują teraz obsługę logowania OAuth i OpenID Connect przy użyciu biblioteki DotNetOpenAuth. Informacje dotyczące konfigurowania dostawcy OAuth lub OpenID Connect można znaleźć w temacie [Obsługa OAuth/OpenID Connect dla formularzy WebForms, MVC i Webpages](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx) oraz [Dokumentacja funkcji OAuth i OpenID Connect na stronach sieci Web ASP.NET](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup).
 
 <a id="_Toc303253806"></a>
 ## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4
 
-ASP.NET MVC 4 można zainstalować równolegle z programem ASP.NET MVC 3 na tym samym komputerze, co daje elastyczności w wyborze, kiedy należy uaktualnić aplikację ASP.NET MVC 3 do ASP.NET MVC 4.
+ASP.NET MVC 4 można zainstalować równolegle z ASP.NET MVC 3 na tym samym komputerze, co zapewnia elastyczność w wyborze czasu uaktualnienia aplikacji ASP.NET MVC 3 do ASP.NET MVC 4.
 
-Najprostszym sposobem uaktualnienia jest utworzyć nowy projekt ASP.NET MVC 4 i skopiuj wszystkie widoki, kontrolery, kodu i zawartość plików z istniejącego projektu MVC 3 do nowego projektu i można zaktualizować zestawu odwołuje się w nowym projekcie, aby dopasować dowolny szablon MVC inne niż w assembiles dołączone, którego używasz. Jeśli zmiany zostały wprowadzone do pliku Web.config w projekcie MVC 3, można również scalić te zmiany w pliku Web.config w projekcie MVC 4.
+Najprostszym sposobem na uaktualnienie jest utworzenie nowego projektu ASP.NET MVC 4 i skopiowanie wszystkich widoków, kontrolerów, kodu i plików zawartości z istniejącego projektu MVC 3 do nowego projektu, a następnie zaktualizowanie odwołań do zestawów w nowym projekcie w celu dopasowania ich do szablonu innego niż MVC w cluded Assembiles. Jeśli wprowadzono zmiany w pliku Web. config w projekcie MVC 3, należy również scalić te zmiany w pliku Web. config w projekcie MVC 4.
 
-Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 3 w wersji 4, wykonaj następujące czynności:
+Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 3 do wersji 4, wykonaj następujące czynności:
 
-1. W pliku Web.config wszystkie pliki w projekcie (istnieje w katalogu głównym projektu: jeden w folderze Widoki i jeden w folderze widoków dla każdego obszaru w projekcie), Zastąp każde wystąpienie następującego tekstu (Uwaga: System.Web.WebPages, Version = 1.0.0.0 nie zostanie znaleziony w projekty utworzone za pomocą programu Visual Studio 2012): 
+1. We wszystkich plikach Web. config w projekcie (istnieje jeden w katalogu głównym projektu, jeden w folderze widoki i jeden w folderze widoki dla każdego obszaru w projekcie), Zastąp każde wystąpienie następującego tekstu (Uwaga: System. Web. Webpages, Version = 1.0.0.0 nie został znaleziony w projekty utworzone za pomocą programu Visual Studio 2012): 
 
     [!code-console[Main](mvc4-release-notes/samples/sample2.cmd)]
 
-    za pomocą odpowiedniego następujący tekst:
+    z następującym odpowiednim tekstem:
 
     [!code-console[Main](mvc4-release-notes/samples/sample3.cmd)]
-2. W głównym pliku Web.config, zaktualizuj *webPages:Version* elementu "2.0.0.0" i Dodaj nowy *PreserveLoginUrl* klucza, który ma wartość "true": 
+2. W głównym pliku Web. config zaktualizuj elementy *Webpages: Version* do "2.0.0.0" i Dodaj nowy klucz *PreserveLoginUrl* , który ma wartość "true": 
 
     [!code-xml[Main](mvc4-release-notes/samples/sample4.xml)]
-3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy na odwołań, a następnie wybierz polecenie Zarządzaj pakietami NuGet. W okienku po lewej stronie wybierz **źródła pakietu oficjalne Online\NuGet**, zaktualizuj następujące czynności:
+3. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy odwołania i wybierz pozycję Zarządzaj pakietami NuGet. W lewym okienku wybierz pozycję **Online\NuGet oficjalne źródło pakietu**, a następnie zaktualizuj następujące elementy:
 
-    - ASP.NET MVC 4
-    - (Opcjonalnie) jQuery, jQuery sprawdzania poprawności i interfejs użytkownika jQuery
-    - (Optional) Entity Framework
-    - (Optonal) Modernizr
-4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz pozycję Edytuj *ProjectName*csproj.
-5. Znajdź *ProjectTypeGuids* i Zastąp ciąg {E53F8FEA-EAE0-44A6-8774-FFD645390401} z {E3E379DF-F4C6-4180-9B81-6769533ABE47}.
-6. Zapisz zmiany, zamknij plik projektu (.csproj), który edytowania, kliknij prawym przyciskiem myszy projekt i następnie wybierz pozycję Załaduj ponownie projekt.
-7. Jeśli projekt odwołuje się do żadnych bibliotek innych firm, które są kompilowane przy użyciu poprzedniej wersji platformy ASP.NET MVC, otwórz głównego pliku Web.config i dodaj następujące trzy *bindingRedirect* elementy w obszarze  *Konfiguracja* sekcji: 
+    - ASP.NET MVC w wersji 4
+    - (Opcjonalnie) program jQuery, walidacja jQuery i interfejs użytkownika jQuery
+    - Obowiązkowe Entity Framework
+    - (Optonal) Modernizacja
+4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz polecenie Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*. csproj.
+5. Znajdź element *ProjectTypeGuids* i Zastąp ciąg {E53F8FEA-EAE0-44A6-8774-FFD645390401} atrybutem {E3E379DF-F4C6-4180-9B81-6769533ABE47}.
+6. Zapisz zmiany, Zamknij edytowany plik projektu (. csproj), kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie Załaduj ponownie projekt.
+7. Jeśli projekt odwołuje się do wszystkich bibliotek innych firm, które są kompilowane przy użyciu poprzednich wersji ASP.NET MVC, Otwórz główny plik Web. config i Dodaj następujące trzy elementy *bindingRedirect* w sekcji *konfiguracji* : 
 
     [!code-xml[Main](mvc4-release-notes/samples/sample5.xml)]
 
 <a id="_Toc303253817"></a>
-## <a name="changes-from-aspnet-mvc-4-release-candidate"></a>Changes from ASP.NET MVC 4 Release Candidate
+## <a name="changes-from-aspnet-mvc-4-release-candidate"></a>Zmiany z wersji ASP.NET MVC 4 Release Candidate
 
-Informacje o wersji dla platformy ASP.NET MVC 4 Release Candidate można znaleźć tutaj:
+Informacje o wersji dla ASP.NET MVC 4 Release Candidate można znaleźć tutaj:
 
-Poniżej przedstawiono istotne zmiany z wersji Release Candidate programu ASP.NET MVC 4 w tej wersji:
+Najważniejsze zmiany z programu ASP.NET MVC 4 Release Candidate w tej wersji zostały przedstawione poniżej:
 
-- **Na konfigurację kontrolera:** Kontrolery ASP.NET Web API, które można przypisać za pomocą atrybutu niestandardowego, który implementuje *IControllerConfiguration* można skonfigurować własne elementy formatujące, selektor akcji i integratorów parametru. *HttpControllerConfigurationAttribute* został usunięty.
-- **Na programy obsługi komunikatów trasy:** Możesz teraz określić obsługi końcowym komunikacie w łańcuchu żądanie dla danej trasy. Umożliwia to obsługę platform jazdy wzdłuż do użycia routingu do wysłania do ich własnych (non -*IHttpController*) punktów końcowych.
-- **Powiadomienia o postępie:** *ProgressMessageHandler* generuje powiadomienie o postępie dla przekazywanych jednostek żądania i pobieranych jednostek odpowiedzi. Za pomocą tej procedury obsługi jest możliwe do śledzenia jak daleko przekazanie treści żądania lub pobierania treści odpowiedzi.
-- **Przenieś zawartość:** *PushStreamContent* klasy umożliwia realizację scenariuszy, w których producent danych chce dokonywać zapisu bezpośrednio do żądania lub odpowiedzi (synchronicznie lub asynchronicznie) przy użyciu strumienia. Gdy *PushStreamContent* jest gotowy do przyjęcia danych, które wywołuje się, aby delegat akcji ze strumienia wyjściowego. Deweloper może następnie zapisywać do strumienia dla tak długo, jak to konieczne i zamknij strumień, podczas zapisywania zostało zakończone. *PushStreamContent* wykrywa zamknięcia strumienia i zakończeniu podstawowych asynchronicznych *zadań* dla wypisywanie zawartości.
-- **Tworzenie odpowiedzi na błędy:** Użyj *HttpError* typ spójnie reprezentującego informacje o błędzie z takie jak błędy sprawdzania poprawności i wyjątki, przy jednoczesnym zachowaniu nadal *IncludeErrorDetailPolicy*. Użyj nowego *CreateErrorResponse* metody rozszerzenia umożliwiające łatwe tworzenie odpowiedzi na błędy z *HttpError* jako zawartość. *HttpError* zawartość jest w pełni zawartości negocjowane.
-- **MediaRangeMapping usunięte:** Zakresy typu nośnika są teraz obsługiwane przez domyślny moduł negocjowania zawartości.
-- **Wiązanie parametru domyślne dla parametrów typu prostego jest teraz [FromUri]:** W poprzednich wersjach interfejsu API sieci Web platformy ASP.NET wiązanie parametru domyślne dla parametrów typu prostego używane wiązania modelu. Wiązanie parametru domyślne dla parametrów typu prostego jest teraz *[FromUri]*.
-- **Wybór akcji honoruje wymagane parametry:** Wybór akcji w interfejsie API sieci Web platformy ASP.NET teraz będzie tylko wybrać akcję, jeśli znajdują się wszystkie wymagane parametry, które pochodzą z identyfikatora URI. Parametr można określić jako opcjonalną, podając wartości domyślnej dla argumentu w podpisie metody akcji.
-- **Dostosowywanie wiązania parametru HTTP:** Użyj *ParameterBindingAttribute* dostosować wiązanie parametru dla parametru określonej akcji lub użyć *ParameterBindingRules* na *HttpConfiguration*Dostosowywanie powiązania parametrów szerzej.
-- **Klasa MediaTypeFormatter ulepszenia:** Programy formatujące mają teraz dostęp do pełnego *zawartość HttpContent* wystąpienia.
-- **Wybieranie zasad buforowania hosta:** Zaimplementować i skonfigurować *IHostBufferPolicySelector* usługi ASP.NET Web API umożliwiające hosty do określania zasad buforowania po ma być używany.
-- **Certyfikaty klientów dostępu w sposób niezależny od hosta:** Użyj *GetClientCertificate* metodę rozszerzenia, aby pobrać certyfikat klienta dostarczony poza komunikatem żądania.
-- **Rozszerzalność negocjacje zawartości:** Dostosowywanie negocjowanie zawartości przez pochodząca od *DefaultContentNegotiator* i zastąpienie dowolnego aspektu negocjacje zawartości, które chcieliby.
-- **Pomoc techniczna dla zwracania 406 nie do przyjęcia odpowiedzi:** Można teraz zwracają 406 nie do przyjęcia odpowiedzi ASP.NET Web API, gdy odpowiedni element formatujący nie zostanie znaleziony, tworząc *DefaultContentNegotiator* z *excludeMatchOnTypeOnly* parametr wartość *true*.
-- **Odczyt danych formularza jako elementu NameValueCollection lub JToken:** Można odczytywać dane formularza w ciągu zapytania identyfikatora URI lub w treści żądania jako *elementu NameValueCollection* przy użyciu *ParseQueryString* i *ReadAsFormDataAsync* rozszerzenia metody odpowiednio. Podobnie, można odczytać danych formularza, w ciągu zapytania identyfikatora URI lub w treści żądania jako *JToken* przy użyciu *TryReadQueryAsJson* i *ReadAsAsync*&lt;T&gt; metody rozszerzenia odpowiednio.
-- **Wieloczęściowy ulepszenia:** Teraz istnieje możliwość napisania *MultipartStreamProvider* całkowicie dostosowane do typu danych wieloczęściowej wiadomości MIME, że może odczytywać i przedstawi wynik w optymalny sposób do użytkownika. Można również dołączyć krok przetwarzania końcowego na *MultipartStreamProvider* umożliwiająca realizacji celu post, niezależnie od jego przetworzeniem chce na części treści wieloczęściowej wiadomości MIME. Na przykład *MultipartFormDataStreamProvider* implementacji odczytuje dane formularza HTML części danych i doda je do *elementu NameValueCollection* tak, aby były łatwe uzyskiwanie na obiekt wywołujący.
-- **Ulepszenia generowania łącza:** *UrlHelper* już jest zależna od *HttpControllerContext*. Teraz uzyskiwać dostęp do *UrlHelper* z dowolnym kontekście gdzie *HttpRequestMessage* jest dostępna.
-- **Zmienianie kolejności wykonywania procedury obsługi komunikatów:** Programy obsługi komunikatów teraz są wykonywane w kolejności ich skonfigurowaniu zamiast w odwrotnej kolejności.
-- **Pomocnik usługi dla okablowania się programy obsługi komunikatów:** Nowy *HttpClientFactory* , Podłączanie *DelegatingHandlers* i utworzyć *HttpClient* z żądaną potoku gotowa do użytku. Zapewnia także funkcjonalność okablowania się przy użyciu alternatywnych obsługi wewnętrznego (wartość domyślna to *HttpClientHandler*) również postępowaniu łącząc za pomocą *HttpMessageInvoker* lub inne  *DelegatingHandler* zamiast *HttpClient* jako źródło top.
-- **Pomoc techniczna dla usługi CDN w optymalizacji sieci Web platformy ASP.NET:** Teraz optymalizacji sieci Web programu ASP.NET zapewnia obsługę alternatywnych ścieżek sieci CDN, dzięki któremu można określić dla każdego pakietu dodatkowy adres URL wskazującą na ten sam zasób w sieci dostarczania zawartości. Obsługa sieci CDN umożliwia pobieranie Twojego skryptu i stylu pakiety geograficznie bliżej klientów końcowych aplikacji sieci Web. Aplikacje produkcyjne powinny implementować rezerwowe, gdy sieć CDN jest niedostępny. Testuj plan awaryjny.
-- **Trasy ASP.NET Web API i konfiguracji przeniesione do *WebApiConfig.Register* statyczna metoda, która może być resused w kodzie testu.** Trasy ASP.NET Web API zostały wcześniej dodane w *RouteConfig.RegisterRoutes* wraz ze standardowego MVC przekierowuje. Domyślne trasy ASP.NET Web API i konfiguracji są teraz obsługiwane w osobnym *WebApiConfig.Register* metodę, aby ułatwić testowanie.
+- **Konfiguracja na kontroler:** Kontrolery interfejsu API sieci Web ASP.NET można przypisaną atrybutem niestandardowym, który implementuje *IControllerConfiguration* , aby skonfigurować własne elementy formatujące, selektor akcji i powiązania parametrów. *HttpControllerConfigurationAttribute* został usunięty.
+- **Procedury obsługi komunikatów na trasie:** Teraz można określić program obsługi komunikatów końcowych w łańcuchu żądań dla danej trasy. Dzięki temu można obsługiwać platformy nadające się do pracy przy użyciu routingu do wysyłania do ich własnych punktów końcowych (innych niż*IHttpController*).
+- **Powiadomienia o postępie:** *ProgressMessageHandler* generuje powiadomienie o postępie dla załadowanej jednostki żądania i pobieranych jednostek odpowiedzi. Przy użyciu tej procedury obsługi można śledzić, jak daleko przekazujesz treść żądania lub pobierając treść odpowiedzi.
+- **Wypchnij zawartość:** Klasa *PushStreamContent* umożliwia scenariusze, w których producent danych chce pisać bezpośrednio do żądania lub odpowiedzi (synchronicznie lub asynchronicznie) przy użyciu strumienia. Gdy *PushStreamContent* jest gotowa do akceptowania danych wywoływanych przez obiekt delegowany akcji przy użyciu strumienia wyjściowego. Deweloper może następnie zapisywać w strumieniu tak długo, jak to konieczne, i zamknąć strumień po zakończeniu zapisywania. *PushStreamContent* wykrywa zamknięcie strumienia i kończy bazowe *zadanie* asynchroniczne do zapisywania zawartości.
+- **Tworzenie odpowiedzi na błędy:** Użyj typu *HttpError* , aby spójnie reprezentować informacje o błędach, takie jak błędy i wyjątki walidacji, przy jednoczesnym zachowaniu *IncludeErrorDetailPolicy*. Nowe metody rozszerzenia *CreateErrorResponse* umożliwiają łatwe tworzenie odpowiedzi błędów z *HttpError* jako zawartość. Zawartość *HttpError* jest w pełni negocjowana.
+- **MediaRangeMapping usunięte:** Zakresy typów multimediów są teraz obsługiwane przez negocjowanie zawartości domyślnej.
+- **Domyślne powiązanie parametrów dla parametrów typu prostego to teraz [FromUri]:** W poprzednich wersjach interfejsu API sieci Web ASP.NET domyślne powiązanie parametrów dla prostych parametrów typu używało powiązania modelu. Domyślne powiązanie parametrów dla parametrów typu prostego to teraz *[FromUri]* .
+- **Wybór akcji uwzględnia wymagane parametry:** Wybór akcji w interfejsie API sieci Web ASP.NET spowoduje teraz wybranie akcji tylko wtedy, gdy podano wszystkie wymagane parametry, które pochodzą z identyfikatora URI. Parametr może być określony jako opcjonalny przez podanie wartości domyślnej argumentu w podpisie metody akcji.
+- **Dostosowywanie powiązań parametrów http:** Użyj *ParameterBindingAttribute* , aby dostosować powiązanie parametrów dla określonego parametru akcji lub użyć *ParameterBindingRules* na *HttpConfiguration* , aby lepiej dostosować powiązania parametrów.
+- **Udoskonalenia MediaTypeFormatter:** Elementy formatujące mają teraz dostęp do pełnego wystąpienia *HttpContent* .
+- **Wybór zasad buforowania hosta:** Zaimplementuj i skonfiguruj usługę *IHostBufferPolicySelector* w interfejsie API sieci Web ASP.NET, aby umożliwić hostom określenie zasad dotyczących używania buforowania.
+- **Dostęp do certyfikatów klienta w niezależny od hosta:** Użyj metody rozszerzenia *GetClientCertificate* , aby uzyskać dostarczony certyfikat klienta z komunikatu żądania.
+- **Rozszerzalność negocjacji zawartości:** Dostosuj negocjowanie zawartości, wynosząc z *DefaultContentNegotiator* i zastępując dowolny aspekt negocjacji zawartości, którą chcesz.
+- **Obsługa powrotu do 406 niedopuszczalnych odpowiedzi:** Teraz można zwrócić 406 niedopuszczalne odpowiedzi w interfejsie API sieci Web ASP.NET, jeśli nie można odnaleźć odpowiedniego programu formatującego przez utworzenie *DefaultContentNegotiator* z parametrem *excludeMatchOnTypeOnly* ustawionym na *wartość true*.
+- **Odczytaj dane formularza jako NameValueCollection lub JToken:** Dane formularza można odczytywać w ciągu zapytania identyfikatora URI lub w treści żądania jako *NameValueCollection* przy użyciu odpowiednio metod rozszerzenia *ParseQueryString* i *ReadAsFormDataAsync* . Podobnie można odczytywać dane formularza w ciągu zapytania identyfikatora URI lub w treści żądania jako *JToken* przy użyciu odpowiednio metod rozszerzenia *TryReadQueryAsJson* i *ReadAsAsync*&lt;&gt; t.
+- **Ulepszenia wieloczęściowe:** Teraz można napisać *MultipartStreamProvider* , który jest całkowicie dostosowany do typu wieloczęściowych danych MIME, które może odczytać i przedstawić wynik w optymalny sposób dla użytkownika. Możesz również podpiąć krok przetwarzania po przetworzeniu na *MultipartStreamProvider* , który umożliwia implementację niezależnie od tego, czy będzie ona przetwarzać elementy treści wieloczęściowej MIME. Na przykład implementacja *MultipartFormDataStreamProvider* odczytuje elementy danych formularza HTML i dodaje je do *NameValueCollection* , dzięki czemu można je łatwo uzyskać od obiektu wywołującego.
+- **Ulepszenia generowania linków:** *UrlHelper* nie zależy już od *HttpControllerContext*. Teraz możesz uzyskiwać dostęp do *UrlHelper* z dowolnego kontekstu, w którym *HttpRequestMessage* jest dostępny.
+- **Zmiana kolejności wykonywania obsługi komunikatów:** Procedury obsługi komunikatów są teraz wykonywane w kolejności, w jakiej są skonfigurowane, a nie w odwrotnej kolejności.
+- **Pomocnik dla okablowania obsługi komunikatów:** Nowy *HttpClientFactory* , który może nawiązać połączenie *DelegatingHandlers* i utworzyć *HttpClient* z żądanym potokiem gotowym do użycia. Zapewnia również funkcjonalność dla okablowania z alternatywnymi wewnętrznymi obsłudze (wartość domyślna to *HttpClientHandler*), a także wykonuje okablowanie w przypadku używania *HttpMessageInvoker* lub innego *DelegatingHandler* zamiast *HttpClient* jako Top-źródło.
+- **Obsługa sieci CDN w optymalizacji sieci Web ASP.NET:** Optymalizacja sieci Web ASP.NET teraz zapewnia obsługę alternatywnych ścieżek usługi CDN, co pozwala określić dla każdego pakietu dodatkowy adres URL wskazujący ten sam zasób w sieci dostarczania zawartości. Obsługa sieci CDN umożliwia uzyskanie bardziej zbliżonego do użytkowników końcowych elementów w postaci skryptów i stylów w oddzielnym znaczeniu w stosunku do konsumentów aplikacji sieci Web. Aplikacje produkcyjne powinny implementować rezerwę, gdy sieć CDN jest niedostępna. Przetestuj rezerwę.
+- **ASP.NET trasy i konfigurację interfejsu API sieci Web są przenoszone do *WebApiConfig. Register* static Metoda, którą można ponownie przystąpić w kodzie testowym.** Trasy interfejsu API sieci Web ASP.NET zostały wcześniej dodane w *RouteConfig. RegisterRoutes* wraz ze standardowymi trasami MVC. Domyślne trasy i konfiguracje interfejsu API sieci Web ASP.NET są teraz obsługiwane w oddzielnym metodzie *WebApiConfig. Register* w celu ułatwienia testowania.
 
 <a id="_Toc303253815"></a>
-## <a name="known-issues-and-breaking-changes"></a>Znane problemy i fundamentalne zmiany
+## <a name="known-issues-and-breaking-changes"></a>Znane problemy i istotne zmiany
 
-- **Wersji RC i RTM programu ASP.NET MVC 4 niepoprawnie zwracane widoki pulpitu w pamięci podręcznej powinna zostać zwrócona mobilnych widoków.**
+- **Wersje RC i RTM ASP.NET MVC 4 niepoprawnie zwracały zbuforowane widoki pulpitu, gdy należy zwrócić widoki mobilne.**
 
-    - Zobacz [platformy ASP.NET MVC 4 Mobile buforowania usterki stały](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) szczegółowe informacje dotyczące poprawki. Można zainstalować poprawkę z [stały DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) pakietu NuGet.
-- **Istotne zmiany w aparatu widoku Razor**. Następujące typy zostały usunięte z *System.Web.Mvc.Razor*: 
+    - Aby uzyskać szczegółowe informacje na temat poprawki, zobacz [ASP.NET MVC 4 Mobile buforowania](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) . Poprawkę można zainstalować ze stałym pakietem NuGet [DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) .
+- Istotne **zmiany w aparacie widoku Razor**. Następujące typy zostały usunięte z *System. Web. MVC. Razor*: 
 
     - *ModelSpan*
     - *MvcVBRazorCodeGenerator*
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
-  Ponadto usunięto następujące metody: 
+  Zostały również usunięte następujące metody: 
 
-    - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-    - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
-    - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **WebMatrix.WebData.dll znajduje się w katalogu/bin aplikacji ASP.NET MVC 4, zajmuje się za pośrednictwem adresu URL dla uwierzytelniania formularzy.** Trwa dodawanie zestawu WebMatrix.WebData.dll z aplikacją (np. przez wybranie "ASP.NET Web Pages o składni Razor", gdy za pomocą okna dialogowego Dodaj zależności do wdrożenia) spowoduje przesłonięcie przekierowania loginu uwierzytelnianie/konto/zalogować się zamiast / konta/logowania zgodnie z oczekiwaniami, domyślny kontroler konta programu ASP.NET MVC. Aby temu zapobiec i użyj adresu URL już określone w sekcji uwierzytelniania w pliku Web.config, możesz dodać element appSetting o nazwie PreserveLoginUrl i ustaw ją na wartość true: 
+    - *MvcCSharpRazorCodeParser. ParseInheritsStatement (System. Web. Razor. parser. CodeBlockInfo)*
+    - *MvcWebPageRazorHost. DecorateCodeGenerator (System. Web. Razor. Generator. RazorCodeGenerator)*
+    - *MvcVBRazorCodeParser. ParseInheritsStatement (System. Web. Razor. parser. CodeBlockInfo)*
+- **Gdy WebMatrix. webdata. dll znajduje się w katalogu/bin. aplikacji ASP.NET MVC 4, przejmuje adres URL uwierzytelniania formularzy.** Dodawanie zestawu WebMatrix. webdata. dll do aplikacji (na przykład przez wybranie opcji "ASP.NET strony sieci Web ze składnią Razor" w przypadku użycia okna dialogowego Dodawanie zależności do wdrożenia) spowoduje przesłonięcie przekierowania logowania uwierzytelniania do/Account/Logon, a nie/Account/Login zgodnie z oczekiwaniami przez domyślny kontroler kont ASP.NET MVC. Aby uniknąć tego zachowania i używać adresu URL określonego już w sekcji uwierzytelnianie pliku Web. config, można dodać obiekt element appSetting o nazwie PreserveLoginUrl i ustawić dla niego wartość true: 
 
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
-- **Menedżer pakietów NuGet nie zostanie zainstalowany podczas próby zainstalowania platformy ASP.NET MVC 4 dla równoległymi instalacjami programu Visual Studio 2010 i Visual Web Developer 2010.** Do uruchomienia programu Visual Studio 2010 i Visual Web Developer 2010 równolegle z programem ASP.NET MVC 4 należy zainstalować platformy ASP.NET MVC 4, gdy obie wersje programu Visual Studio ma już zainstalowany.
-- **Odinstalowywanie programu ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wstępnie wymagane składniki zostały już odinstalowane.** Aby prawidłowo odinstalować ASP.NET MVC 4you należy odinstalować ASP.NET MVC 4, przed rozpoczęciem odinstalowywania programu Visual Studio.
-- **Instalowanie platformy ASP.NET MVC 4 spowoduje przerwanie aplikacji ASP.NET MVC 3 RTM.** Wydania aplikacji ASP.NET MVC 3, które zostały utworzone za pomocą wersji RTM (nie z [platformy ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491) release) wymagają następujących zmian do działania side-by-side przy użyciu platformy ASP.NET MVC 4. Tworzenie projektu bez wprowadzania tych wyników aktualizacji błędy kompilacji. 
+- **Nie można zainstalować Menedżera pakietów NuGet podczas próby zainstalowania ASP.NET MVC 4 dla instalacji równoległych programów Visual Studio 2010 i Visual Web Developer 2010.** Aby uruchomić program Visual Studio 2010 i Visual Web Developer 2010 obok ASP.NET MVC 4, należy zainstalować ASP.NET MVC 4 po zainstalowaniu obu wersji programu Visual Studio.
+- **Odinstalowywanie ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wstępnie wymagane składniki zostały już odinstalowane.** Aby oczyścić program ASP.NET MVC 4You, należy odinstalować ASP.NET MVC 4 przed odinstalowaniem programu Visual Studio.
+- **Instalowanie ASP.NET MVC 4 ASP.NET aplikacji MVC 3 RTM.** Aplikacje ASP.NET MVC 3, które zostały utworzone przy użyciu wydania RTM (nie z [aktualizacją ASP.NET MVC 3 Tools](https://www.microsoft.com/download/details.aspx?id=1491) Release), wymagają następujących zmian, aby działały równolegle z ASP.NET MVC 4. Kompilowanie projektu bez wprowadzania tych aktualizacji powoduje błędy kompilacji. 
 
     **Wymagane aktualizacje**
 
-  1. W głównym pliku Web.config, Dodaj nowy *&lt;appSettings&gt;* wpis z kluczem *webPages:Version* i wartość *1.0.0.0*. 
+  1. W głównym pliku Web. config Dodaj nowy *&lt;appSettings&gt;* wpis przy użyciu najważniejszych *stron sieci Web: wersja* i wartość *1.0.0.0*. 
 
       [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-  2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz pozycję Edytuj *ProjectName*csproj.
-  3. Znajdź następujące odwołania do zestawów: 
+  2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz polecenie Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*. csproj.
+  3. Znajdź następujące odwołania do zestawu: 
 
       [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-      Zastąp je poniżej:
+      Zamień je na następujące elementy:
 
       [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-  4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
+  4. Zapisz zmiany, Zamknij edytowany plik projektu (. csproj), a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
 
-- **Zmienianie projektu programu ASP.NET MVC 4 do obiektu docelowego 4.0, 4.5, nie powoduje aktualizacji EntityFramework odwołanie do zestawu:** Jeśli zmienisz projekt programu ASP.NET MVC 4 do obiektu docelowego 4.0 po odwołujących 4.5 odwołanie do zestawu platformy EntityFramework nadal będzie wskazywać wersji 4.5. Aby rozwiązać Odinstaluj ten problem i ponownie zainstaluj pakiet NuGet platformy EntityFramework.
-- **403 Zabroniony podczas uruchamiania aplikacji ASP.NET MVC 4 na platformie Azure po przejściu do docelowego 4.0, 4.5:** Jeśli zmiany projektu programu ASP.NET MVC 4 do obiektu docelowego 4.0 po odwołujących 4.5, a następnie wdrożyć na platformie Azure mogą pojawić się błąd 403 Zabroniony w czasie wykonywania. Aby obejść ten problem, dodaj następującą do Twojego pliku web.config: `<modules runAllManagedModulesForAllRequests="true" />`
-- **Program Visual Studio 2012 ulega awarii podczas wpisywania "\' w literale ciągu w pliku Razor.** Aby pracować obejściu problemu cudzysłowu zamykającego literału ciągu najpierw wprowadź.
-- <strong>Przechodzenie do &quot;konta/Zarządzanie&quot; w wynikach szablonu Internet w błąd w czasie wykonywania dla języków (CHS), TRK i (CHT).</strong> Aby rozwiązać ten problem, zmodyfikuj strony Aby rozdzielić <em>@User.Identity.Name</em> , umieszczając go jako jedynej zawartości w ramach <em>&lt;silne&gt;</em> tagu.
-- **Google i LinkedIn nie są obsługiwani w usłudze Azure Web Sites.** Korzystanie z dostawców uwierzytelniania alternatywnych, podczas wdrażania witryny sieci Web systemu Azure.
-- **Korzystając z usług IIS 8 Express/IIS UriPathExtensionMapping, otrzyma 404 Nie znaleziono błędy podczas próby użycia rozszerzenia.** Obsługa plików statycznych zakłóca żądań internetowych interfejsów API, używanego przez *UriPathExtensionMappings*. Ustaw *runAllManagedModulesForAllRequests = true* w pliku web.config, aby obejść ten problem.
-- **Nie jest już wywoływana jest metoda Controller.Execute.** Wszystkich kontrolerów MVC są teraz zawsze wykonywane asynchronicznie.
+- **Zmiana projektu ASP.NET MVC 4 na wartość docelową 4,0 z 4,5 nie aktualizuje odwołania do zestawu EntityFramework:** Jeśli zmienisz projekt ASP.NET MVC 4 na wartość Target 4,0 po odwołujących 4,5, odwołanie do zestawu EntityFramework będzie nadal wskazywało na wersję 4,5. Aby rozwiązać ten problem, Odinstaluj i ponownie zainstaluj pakiet NuGet EntityFramework.
+- **403 zabronione w przypadku uruchamiania aplikacji ASP.NET MVC 4 na platformie Azure po zmianie na element docelowy 4,0 z 4,5:** Jeśli zmienisz projekt ASP.NET MVC 4 na wartość Target 4,0 po odwołujących 4,5, a następnie wdrożono go na platformie Azure, w czasie wykonywania może zostać wyświetlony błąd 403 zabroniony. Aby obejść ten problem, Dodaj następujący plik do pliku Web. config: `<modules runAllManagedModulesForAllRequests="true" />`
+- **Program Visual Studio 2012 ulega awarii po wpisaniu "\' w literale ciągu w pliku Razor.** Aby obejść ten problem, wprowadź najpierw cudzysłów zamykający literału ciągu.
+- <strong>Przechodzenie do &quot;konta/Zarządzanie&quot; w szablonie internetowym skutkuje błędem środowiska uruchomieniowego dla języków CHS, ZMN i CHT.</strong> Aby rozwiązać ten problem, zmodyfikuj stronę, aby oddzielić <em>@User.Identity.Name</em> przez umieszczenie jej jako jedynej zawartości w tagu <em>&lt;silnego&gt;</em> .
+- **Dostawcy usług Google i LinkedIn nie są obsługiwani w witrynach sieci Web systemu Azure.** W przypadku wdrażania w usłudze witryny sieci Web systemu Azure należy używać alternatywnych dostawców uwierzytelniania.
+- **W przypadku korzystania z UriPathExtensionMapping z usługami IIS 8 Express/IIS w przypadku próby użycia rozszerzenia nie znaleziono 404 błędów.** Procedura obsługi plików statycznych będzie zakłócać żądania do interfejsów API sieci Web, które używają *UriPathExtensionMappings*. Aby obejść ten problem, ustaw wartość *runAllManagedModulesForAllRequests = true* w pliku Web. config.
+- **Metoda Controller. Execute nie jest już wywoływana.** Wszystkie kontrolery MVC są teraz zawsze wykonywane asynchronicznie.

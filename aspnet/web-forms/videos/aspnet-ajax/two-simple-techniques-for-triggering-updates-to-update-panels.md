@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/two-simple-techniques-for-triggering-updates-to-update-panels
-title: Dwie proste techniki służące do wyzwalania aktualizacji w celu aktualizowania paneli | Dokumentacja firmy Microsoft
+title: Dwie proste metody wyzwalania aktualizacji do paneli aktualizacji | Microsoft Docs
 author: JoeStagner
-description: W tym filmie pokażemy I dwie techniki prostą aktualizację. Po pierwsze za pomocą wybranego indeksu. zdarzenie zmiany z listy rozwijanej kontrolki listy jako trig zdarzeń...
+description: W tym filmie wideo przedstawimy dwie proste metody aktualizacji. Najpierw przy użyciu zaznaczonego zdarzenia zmiany indeksu z kontrolki listy rozwijanej jako zdarzenia trygonometryczne...
 ms.author: riande
 ms.date: 03/13/2008
 ms.assetid: c844da8a-10e6-45c9-a9e2-331a3b8d3e03
 msc.legacyurl: /web-forms/videos/aspnet-ajax/two-simple-techniques-for-triggering-updates-to-update-panels
 msc.type: video
 ms.openlocfilehash: 2374b70d1359c3a070d2b07c84e37c0a504e118c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400025"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545235"
 ---
 # <a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a>Dwie proste techniki służące do wyzwalania aktualizacji paneli
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie pokażemy I dwie techniki prostą aktualizację. Po pierwsze za pomocą wybranego indeksu. zdarzenie zmiany z listy rozwijanej kontrolki listy jako wyzwalacz zdarzenia do aktualizowania paneli aktualizacji. I dwa dynamicznie zmieniające się skojarzona stylu arkusz klasy kontrolek znajdujących się w panelu aktualizacji interfejsu AJAX.
+W tym filmie wideo przedstawimy dwie proste metody aktualizacji. Najpierw przy użyciu zaznaczonego zdarzenia zmiany indeksu z kontrolki lista rozwijana jako wyzwalacza zdarzenia do aktualizowania paneli aktualizacji. I dwa dynamiczne zmiany skojarzonej klasy arkusza stylów z kontrolkami zawartymi w panelu aktualizacji AJAX.
 
-[&#9654;Obejrzyj film wideo (9 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
+[&#9654;Obejrzyj wideo (9 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-retrieve-values-from-server-side-ajax-controls.md)

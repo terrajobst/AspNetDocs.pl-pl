@@ -9,11 +9,11 @@ ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
 ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576066"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78571989"
 ---
 # <a name="create-the-project"></a>Tworzenie projektu
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku utworzysz, przeglądasz i uruchomisz projekt domyślny w programie Visual Studio, który umożliwi zapoznanie się z funkcjami ASP.NET. Należy również zapoznać się ze środowiskiem programu Visual Studio.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak utworzyć nowy projekt formularzy sieci Web.
 - Struktura pliku projektu formularzy sieci Web.
@@ -49,7 +49,7 @@ W tym samouczku utworzysz, przeglądasz i uruchomisz projekt domyślny w program
     > [!NOTE]
     > Nazwa projektu w tej serii samouczków to **WingtipToys**. Zaleca się użycie tej *dokładnej* nazwy projektu, aby kod podany w całej serii samouczków działa zgodnie z oczekiwaniami.
 
-6. Kliknij przycisk **Zmień uwierzytelnianie** . Wybierz pozycję **indywidualne konta użytkowników** , a następnie kliknij przycisk **OK** .
+6. Kliknij przycisk **Zmień uwierzytelnianie**. Wybierz pozycję **indywidualne konta użytkowników** , a następnie kliknij przycisk **OK** .
 
 7. Wybierz szablon **formularzy sieci Web** i kliknij przycisk **OK** .
 
@@ -91,7 +91,7 @@ W programie Visual Studio okno **Eksplorator rozwiązań** umożliwia zarządzan
 
 Program Visual Studio tworzy początkowe foldery i pliki dla projektu. Pierwsze pliki, do których będziesz pracować w dalszej części tego samouczka, są następujące:
 
-| **Rozszerzeniem** | **Cel** |
+| **Plik** | **Przeznaczenie** |
 | --- | --- |
 | *Default. aspx* | Zazwyczaj pierwsza strona wyświetlana, gdy aplikacja jest uruchamiana w przeglądarce. |
 | *Site. Master* | Strona, która umożliwia tworzenie spójnego układu i używanie standardowego zachowania dla stron w aplikacji. |

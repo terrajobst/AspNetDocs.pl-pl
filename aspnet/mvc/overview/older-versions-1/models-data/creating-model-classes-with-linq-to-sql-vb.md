@@ -9,11 +9,11 @@ ms.assetid: a4a25a75-d71f-4509-98b4-df72e748985a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 88a5f1037d93ef3bdc95bf60b6005ebb254ab440
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74588578"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581271"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-vb"></a>Tworzenie klas modeli za pomocą modelu LINQ to SQL (VB)
 
@@ -65,9 +65,9 @@ Musimy dodać następujące kolumny do naszej tabeli bazy danych:
 
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
-| #C1 | int | Fałsz |
-| Tytuł | Nvarchar (200) | Fałsz |
-| General | nvarchar (50) | Fałsz |
+| Identyfikator | int | Fałsz |
+| Tytuł | Nvarchar(200) | Fałsz |
+| Dyrektor ds. | Nvarchar(50) | Fałsz |
 
 Należy wykonać dwa specjalne rzeczy do kolumny ID. Najpierw należy oznaczyć kolumnę ID jako kolumnę klucza podstawowego, wybierając kolumnę w Projektancie tabel i klikając ikonę klucza. LINQ to SQL wymaga określenia kolumn klucza podstawowego podczas wykonywania operacji wstawiania lub aktualizacji w bazie danych.
 

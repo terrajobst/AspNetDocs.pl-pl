@@ -1,514 +1,514 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
-title: Profile, motywy i składniki Web Part | Dokumentacja firmy Microsoft
+title: Profile, motywy i składniki Web Part | Microsoft Docs
 author: microsoft
-description: Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia na żądanie ściągnięcia wprowadzanie zmian w konfiguracji...
+description: Istnieją istotne zmiany w konfiguracji i Instrumentacji w programie ASP.NET 2,0. Nowy interfejs API konfiguracji ASP.NET umożliwia zmianę konfiguracji żądania ściągnięcia...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
 ms.openlocfilehash: cf5c45781be6d003d28c6aa27efa08032579a6dd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132788"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78587235"
 ---
 # <a name="profiles-themes-and-web-parts"></a>Profile, motywy i składniki Web Part
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia programowe wprowadzone zmiany w konfiguracji. Ponadto istnieje wiele nowych ustawień konfiguracji umożliwiają nowe konfiguracje i instrumentacji.
+> Istnieją istotne zmiany w konfiguracji i Instrumentacji w programie ASP.NET 2,0. Nowy interfejs API konfiguracji ASP.NET umożliwia programistyczne wprowadzanie zmian w konfiguracji. Ponadto istnieją liczne nowe ustawienia konfiguracji, które pozwalają na nowe konfiguracje i instrumentację.
 
-Program ASP.NET 2.0 reprezentuje znaczną poprawę obszaru spersonalizowanych witryn sieci Web. Oprócz funkcji członkostwo, które Omówiliśmy już profilów programu ASP.NET, motywy i składniki Web Part znacznie poprawić personalizacji w witrynach sieci Web.
+ASP.NET 2,0 reprezentuje znaczną poprawę w obszarze spersonalizowanych witryn sieci Web. Oprócz funkcji członkostwa, które zostały już omówione, ASP.NET Profile, motywy i składniki Web Part znacząco ulepszają personalizację w witrynach sieci Web.
 
-## <a name="aspnet-profiles"></a>ASP.NET Profiles
+## <a name="aspnet-profiles"></a>Profile ASP.NET
 
-Profile programu ASP.NET są podobne do sesji. Różnica polega na profil jest trwały, natomiast sesji zostają utracone w przypadku, gdy nastąpi zamknięcie okna przeglądarki. Innego różnica między sesjami i profilów jest, że profile są silnie typizowane, dlatego dostarczanie możesz za pomocą funkcji IntelliSense podczas procesu projektowania.
+Profile ASP.NET są podobne do sesji. Różnica polega na tym, że profil jest trwały, podczas gdy przeglądarka zostanie utracona. Kolejną dużą różnicą między sesjami i profilami jest to, że profile są silnie wpisywane, dlatego udostępniasz IntelliSense podczas procesu tworzenia.
 
-Profil, który jest zdefiniowany w pliku konfiguracyjnym maszyny lub pliku web.config aplikacji. (Nie można zdefiniować profil w pliku web.config podfolderów.) Poniższy kod definiuje profilu, aby najpierw zapisać osoby odwiedzające witrynę sieci Web i nazwiska.
+Profil jest zdefiniowany w pliku konfiguracyjnym maszyny lub w pliku Web. config aplikacji. (Nie można zdefiniować profilu w pliku Web. config podfolderów.) Poniższy kod definiuje profil do przechowywania odwiedzających witrynę sieci Web imię i nazwisko.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample1.xml)]
 
-Domyślny typ danych dla właściwości profilu jest System.String. W powyższym przykładzie został określony żaden typ danych. W związku z tym właściwości imię i nazwisko są typu ciąg. Jak wcześniej wspomniano, profilu, którego właściwości są silnie typizowane. Poniższy kod dodaje nową właściwość dla wiek, który jest typu Int32.
+Domyślnym typem danych dla właściwości profilu jest system. String. W powyższym przykładzie nie określono żadnego typu danych. W związku z tym właściwości FirstName i LastName są typu String. Jak wspomniano wcześniej, właściwości profilu są jednoznacznie wpisane. Poniższy kod dodaje nową właściwość dla wieku typu Int32.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample2.xml)]
 
-Profile są zazwyczaj używane za pomocą uwierzytelniania formularzy programu ASP.NET. Gdy jest używana w połączeniu z uwierzytelniania formularzy, każdy użytkownik ma osobny profil skojarzony z swojego identyfikatora użytkownika. Jednak istnieje również możliwość korzystania z profilów w programie anonimowe aplikacji za pomocą &lt;anonymousIdentification&gt; elementu w pliku konfiguracji wraz z **allowAnonymous** atrybutu jako Poniżej pokazano:
+Profile są zwykle używane z uwierzytelnianiem formularzy ASP.NET. W połączeniu z uwierzytelnianiem formularzy każdy użytkownik ma oddzielny profil skojarzony z ich IDENTYFIKATORem użytkownika. Można jednak zezwolić na używanie profilów w aplikacji anonimowej przy użyciu &lt;anonymousIdentification&gt; elementu w pliku konfiguracji wraz z atrybutem **AllowAnonymous** , jak pokazano poniżej:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample3.xml)]
 
-Gdy użytkownik anonimowy przegląda lokacji, programu ASP.NET tworzy wystąpienie **ProfileCommon** dla użytkownika. Ten profil korzysta z unikatowego Identyfikatora przechowywane w pliku cookie w przeglądarce do identyfikowania użytkownika jako unikatowy obiekt odwiedzający. W ten sposób można przechowywać informacje o profilu dla użytkowników, którzy do przeglądania anonimowo.
+Gdy użytkownik anonimowy przegląda witrynę, ASP.NET tworzy wystąpienie **ProfileCommon** dla użytkownika. Ten profil używa unikatowego identyfikatora przechowywanego w pliku cookie w przeglądarce w celu zidentyfikowania użytkownika jako unikatowego gościa. W ten sposób można przechowywać informacje o profilu dla użytkowników, którzy przeglądają anonimowo.
 
-## <a name="profile-groups"></a>Profil grupy
+## <a name="profile-groups"></a>Grupy profilów
 
-Istnieje możliwość właściwości grupy profilów. Grupowanie właściwości istnieje możliwość do symulacji wiele profilów dla określonej aplikacji.
+Istnieje możliwość pogrupowania właściwości profilów. Grupowanie właściwości umożliwia symulowanie wielu profilów dla określonej aplikacji.
 
-Następująca konfiguracja konfiguruje właściwość Imię i nazwisko dwie grupy; Kupujący i perspektyw.
+Poniższa konfiguracja umożliwia skonfigurowanie właściwości FirstName i LastName dla dwóch grup; Nabywcy i potencjalni klienci.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample4.xml)]
 
-Następnie jest możliwość ustawienia właściwości w określonej grupie w następujący sposób:
+Następnie można ustawić właściwości dla określonej grupy w następujący sposób:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample5.cs)]
 
-## <a name="storing-complex-objects"></a>Przechowywanie złożonych obiektów
+## <a name="storing-complex-objects"></a>Przechowywanie obiektów złożonych
 
-Do tej pory przykłady, które Omówiliśmy zapisanych typy proste dane w profilu. Istnieje również możliwość przechowywania złożone typy danych w profilu, określając sposób za pomocą serializacji **serializeAs** atrybutu w następujący sposób:
+Do tej pory pokryte przykłady zawierają proste typy danych w profilu. Istnieje również możliwość przechowywania złożonych typów danych w profilu przez określenie metody serializacji przy użyciu atrybutu **SerializeAs** w następujący sposób:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample6.xml)]
 
-W tym przypadku typ jest PurchaseInvoice. Klasa PurchaseInvoice musi być oznaczony jako możliwy do serializacji i może zawierać dowolną liczbę właściwości. Na przykład, jeśli PurchaseInvoice ma właściwość o nazwie **NumItemsPurchased**, można odwołać się do tej właściwości w kodzie w następujący sposób:
+W tym przypadku typem jest PurchaseInvoice. Klasa PurchaseInvoice musi być oznaczona jako SERIALIZABLE i może zawierać dowolną liczbę właściwości. Na przykład jeśli PurchaseInvoice ma właściwość o nazwie **NumItemsPurchased**, można odwołać się do tej właściwości w kodzie w następujący sposób:
 
 [!code-css[Main](profiles-themes-and-web-parts/samples/sample7.css)]
 
 ## <a name="profile-inheritance"></a>Dziedziczenie profilu
 
-Istnieje możliwość utworzyć profil do użycia w wielu aplikacjach. Tworząc klasy profilu, która jest pochodną ProfileBase, można ponownie użyć profilu w kilku aplikacjach przy użyciu **dziedziczy** atrybutu, jak pokazano poniżej:
+Istnieje możliwość utworzenia profilu do użycia w wielu aplikacjach. Tworząc klasę profilu, która pochodzi od ProfileBase, można ponownie użyć profilu w kilku aplikacjach przy użyciu atrybutu **Inherits** , jak pokazano poniżej:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample8.xml)]
 
-W tym przypadku klasy **PurchasingProfile** będzie wyglądać w następujący sposób:
+W takim przypadku Klasa **PurchasingProfile** będzie wyglądać następująco:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample9.cs)]
 
-## <a name="profile-providers"></a>Dostawcy profilu
+## <a name="profile-providers"></a>Dostawcy profilów
 
-Profile platformy ASP.NET przy użyciu modelu dostawcy. Domyślny dostawca przechowuje dane w bazie danych programu SQL Server Express w aplikacji\_folderu dane aplikacji sieci Web przy użyciu dostawcy SqlProfileProvider. Jeśli baza danych nie istnieje, ASP.NET automatycznie utworzy go podczas próby przechowywania informacji o profilu.
+Profile ASP.NET używają modelu dostawcy. Dostawca domyślny przechowuje informacje w bazie danych SQL Server Express w folderze\_danych aplikacji sieci Web przy użyciu dostawcy SqlProfileProvider. Jeśli baza danych nie istnieje, ASP.NET automatycznie utworzy ją, gdy profil próbuje zapisać informacje.
 
-W niektórych przypadkach jednak warto opracowanie własnego dostawcy profilu. Funkcja profilu platformy ASP.NET umożliwia łatwe korzystanie z różnych dostawców.
+Jednak w niektórych przypadkach warto opracować własnego dostawcę profilów. Funkcja profilu ASP.NET umożliwia łatwe korzystanie z różnych dostawców.
 
-Tworzenie niestandardowego dostawcy profilu po:
+Niestandardowy dostawca profilu jest tworzony, gdy:
 
-- Należy przechowywać informacje o profilu w źródle danych, takie jak w bazie danych FoxPro lub z bazą danych Oracle, który nie jest obsługiwany przez dostawców profilu dołączone do programu .NET Framework.
-- Konieczne jest zarządzanie informacje o profilu przy użyciu schematu bazy danych, która różni się od schematu bazy danych używane przez dostawców dołączone do programu .NET Framework. Typowym przykładem jest o tym, że chcesz zintegrować informacje o profilu przy użyciu danych użytkownika w istniejącej bazy danych programu SQL Server.
+- Należy przechowywać informacje o profilu w źródle danych, na przykład w bazie danych programu FoxPro lub w bazie danych Oracle, która nie jest obsługiwana przez dostawców profilów uwzględnionych w .NET Framework.
+- Należy zarządzać informacjami o profilu przy użyciu schematu bazy danych innego niż schemat bazy danych używany przez dostawców dołączonych do .NET Framework. Typowym przykładem jest to, że chcesz zintegrować informacje o profilu z danymi użytkowników w istniejącej bazie danych SQL Server.
 
 ### <a name="required-classes"></a>Wymagane klasy
 
-Aby zaimplementować dostawcę profilu, należy utworzyć klasę, która dziedziczy z klasy abstrakcyjnej System.Web.Profile.ProfileProvider. **Dostawcę profilu** klasa abstrakcyjna dziedziczy z kolei klasa abstrakcyjna System.Configuration.SettingsProvider, która dziedziczy z klasy abstrakcyjnej System.Configuration.Provider.ProviderBase. Ze względu na to łańcuch dziedziczenia, oprócz wymaganych elementów członkowskich **dostawcę profilu** klasy należy zaimplementować wymaganych elementów członkowskich **SettingsProvider** i  **ProviderBase** klasy.
+Aby zaimplementować dostawcę profilu, należy utworzyć klasę, która dziedziczy klasę abstrakcyjną system. Web. profile. ProfileProvider. Klasa abstrakcyjna **ProfileProvider** z kolei dziedziczy klasę abstrakcyjną system. Configuration. SettingsProvider, która dziedziczy klasę abstrakcyjną system. Configuration. Provider. ProviderBase. Ze względu na ten łańcuch dziedziczenia, oprócz wymaganych elementów członkowskich klasy **ProfileProvider** , należy zaimplementować wymagane elementy członkowskie klas **SettingsProvider** i **ProviderBase** .
 
-W poniższych tabelach opisano właściwości i metod, które należy zaimplementować z **ProviderBase**, **SettingsProvider**, i **dostawcę profilu** abstrakcyjne klasy.
+W poniższych tabelach opisano właściwości i metody, które należy zaimplementować z klas abstrakcyjnych **ProviderBase**, **SettingsProvider**i **ProfileProvider** .
 
-### <a name="providerbase-members"></a>ProviderBase Members
+### <a name="providerbase-members"></a>ProviderBase członkowie
 
-| **Element członkowski** | **Opis** |
+| **Członkiem** | **Opis** |
 | --- | --- |
-| Initialize — Metoda | Przyjmuje jako dane wejściowe nazwę wystąpienia dostawcy i elementu NameValueCollection ustawień konfiguracji. Używane do ustawiania opcji i wartości właściwości wystąpienia dostawcy, w tym specyficzne dla implementacji wartości i opcje określone w konfiguracji komputera lub w pliku Web.config. |
+| Initialize — Metoda | Przyjmuje jako dane wejściowe nazwę wystąpienia dostawcy i NameValueCollection ustawień konfiguracji. Służy do ustawiania opcji i wartości właściwości dla wystąpienia dostawcy, w tym wartości specyficznych dla implementacji i opcji określonych w pliku konfiguracji komputera lub Web. config. |
 
-### <a name="settingsprovider-members"></a>Elementy członkowskie SettingsProvider
+### <a name="settingsprovider-members"></a>SettingsProvider członkowie
 
-| **Element członkowski** | **Opis** |
+| **Członkiem** | **Opis** |
 | --- | --- |
-| Właściwość ApplicationName | Nazwa aplikacji jest przechowywany z każdym profilem. Dostawca profilu używa nazwy aplikacji, do przechowywania informacji o profilu osobno dla każdej aplikacji. Dzięki temu wiele aplikacji programu ASP.NET użyć tego samego źródła danych bez powodowania konfliktów, jeśli ta sama nazwa użytkownika została utworzona w innych aplikacjach. Alternatywnie wiele aplikacji programu ASP.NET można udostępniać źródła danych profilu, określając jedną nazwą aplikacji. |
-| Metoda GetPropertyValues | Przyjmuje jako danymi wejściowymi SettingsContext i SettingsPropertyCollection obiektu. **SettingsContext** zawiera informacje o użytkowniku. Informacje można użyć jako klucza podstawowego można pobrać informacji o właściwości profilu użytkownika. Użyj **SettingsContext** obiekt, aby uzyskać nazwę użytkownika i tego, czy użytkownik jest uwierzytelnieni lub anonimowi. **SettingsPropertyCollection** zawiera kolekcję obiektów SettingsProperty. Każdy **SettingsProperty** obiekt zawiera nazwę i typ właściwości, a także dodatkowe informacje, np. wartością domyślną dla właściwości oraz tego, czy właściwość jest tylko do odczytu. **GetPropertyValues** metoda wypełnia SettingsPropertyValue obiektów na podstawie SettingsPropertyValueCollection **SettingsProperty** obiektów podana jako dane wejściowe. Wartości ze źródła danych dla określonego użytkownika są przypisywane do właściwości PropertyValue dla każdego **SettingsPropertyValue** jest zwracany obiekt i całą kolekcję. Wywołanie metody aktualizuje również wartość LastActivityDate profilu określonego użytkownika do bieżącej daty i godziny. |
-| Metoda SetPropertyValues | Przyjmuje jako dane wejściowe **SettingsContext** i **SettingsPropertyValueCollection** obiektu. **SettingsContext** zawiera informacje o użytkowniku. Informacje można użyć jako klucza podstawowego można pobrać informacji o właściwości profilu użytkownika. Użyj **SettingsContext** obiekt, aby uzyskać nazwę użytkownika i tego, czy użytkownik jest uwierzytelnieni lub anonimowi. **SettingsPropertyValueCollection** zawiera zbiór **SettingsPropertyValue** obiektów. Każdy **SettingsPropertyValue** obiekt zawiera nazwę, typ i wartość właściwości, a także dodatkowe informacje, np. wartością domyślną dla właściwości oraz tego, czy właściwość jest tylko do odczytu. **SetPropertyValues** metoda aktualizuje wartości właściwości profilu w źródle danych dla określonego użytkownika. Wywołanie metody również aktualizacje **LastActivityDate** i wartości LastUpdatedDate profilu określonego użytkownika, aby bieżącą datę i godzinę. |
+| Właściwość ApplicationName | Nazwa aplikacji, która jest przechowywana z każdym profilem. Dostawca profilu używa nazwy aplikacji do przechowywania informacji o profilu osobno dla każdej aplikacji. Dzięki temu wiele aplikacji ASP.NET może używać tego samego źródła danych bez konfliktu, jeśli ta sama nazwa użytkownika zostanie utworzona w różnych aplikacjach. Alternatywnie wiele aplikacji ASP.NET może współużytkować źródło danych profilu, określając tę samą nazwę aplikacji. |
+| GetPropertyValues — Metoda | Przyjmuje jako dane wejściowe SettingsContext i obiekt SettingsPropertyCollection. **SettingsContext** zawiera informacje o użytkowniku. Możesz użyć informacji jako klucza podstawowego do pobrania informacji o właściwościach profilu dla użytkownika. Użyj obiektu **SettingsContext** , aby uzyskać nazwę użytkownika i określić, czy użytkownik jest uwierzytelniany, czy anonimowy. **SettingsPropertyCollection** zawiera kolekcję obiektów SettingsProperty. Każdy obiekt **SettingsProperty** zawiera nazwę i typ właściwości oraz informacje dodatkowe, takie jak wartość domyślna właściwości i czy właściwość jest tylko do odczytu. Metoda **GetPropertyValues** wypełnia SettingsPropertyValueCollection z obiektami SettingsPropertyValue na podstawie obiektów **SettingsProperty** dostarczonych jako dane wejściowe. Wartości ze źródła danych dla określonego użytkownika są przypisywane do właściwości PropertyValue dla każdego obiektu **SettingsPropertyValue** i zwracana jest cała kolekcja. Wywołanie metody powoduje także zaktualizowanie wartości LastActivityDate dla określonego profilu użytkownika do bieżącej daty i godziny. |
+| SetPropertyValues — Metoda | Przyjmuje jako dane wejściowe **SettingsContext** i obiekt **SettingsPropertyValueCollection** . **SettingsContext** zawiera informacje o użytkowniku. Możesz użyć informacji jako klucza podstawowego do pobrania informacji o właściwościach profilu dla użytkownika. Użyj obiektu **SettingsContext** , aby uzyskać nazwę użytkownika i określić, czy użytkownik jest uwierzytelniany, czy anonimowy. **SettingsPropertyValueCollection** zawiera kolekcję obiektów **SettingsPropertyValue** . Każdy obiekt **SettingsPropertyValue** zawiera nazwę, typ i wartość właściwości oraz informacje dodatkowe, takie jak wartość domyślna właściwości i czy właściwość jest tylko do odczytu. Metoda **SetPropertyValues** aktualizuje wartości właściwości profilu w źródle danych dla określonego użytkownika. Wywołanie metody także aktualizuje wartości **LastActivityDate** i LastUpdatedDate dla określonego profilu użytkownika do bieżącej daty i godziny. |
 
-### <a name="profileprovider-members"></a>Elementy członkowskie dostawcę profilu
+### <a name="profileprovider-members"></a>ProfileProvider członkowie
 
-| **Element członkowski** | **Opis** |
+| **Członkiem** | **Opis** |
 | --- | --- |
-| Metoda DeleteProfiles | Przyjmuje jako dane wejściowe tablicy ciągów użytkownika nazwy i spowoduje usunięcie wszystkich profilu informacji i wartości właściwości dla określonej nazwy ze źródła danych, jeśli nazwa aplikacji odpowiada **ApplicationName** wartości właściwości. Jeśli źródło danych obsługuje transakcje, zaleca się obejmują wszystkie operacje usuwania w transakcji i Wycofaj tę transakcję i zgłosić wyjątek, jeśli żadnych operacji usuwania nie powiedzie się. |
-| Metoda DeleteProfiles | Przyjmuje jako dane wejściowe zbiór ProfileInfo obiektów i spowoduje usunięcie wszystkich profilu informacji i wartości właściwości dla każdego profilu ze źródła danych, gdzie nazwa aplikacji jest zgodna **ApplicationName** wartości właściwości. Jeśli źródło danych obsługuje transakcje, zaleca się obejmują wszystkie operacje usuwania w transakcji i Wycofaj tę transakcję i zgłosić wyjątek, jeśli żadnych operacji usuwania nie powiedzie się. |
-| Metoda DeleteInactiveProfiles | Przyjmuje jako dane wejściowe wartość ProfileAuthenticationOption obiektu typu DateTime i usuwa z danych źródłowych wszystkie informacje o profilu i wartości właściwości, gdzie Data ostatniej aktywności jest mniejsza niż lub równa określonej daty i godziny i gdzie nazwa aplikacji Dopasowuje **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, czy wszystkie profile do usunięcia. Jeśli źródło danych obsługuje transakcje, zaleca się obejmują wszystkie operacje usuwania w transakcji i Wycofaj tę transakcję i zgłosić wyjątek, jeśli żadnych operacji usuwania nie powiedzie się. |
-| Metoda GetAllProfiles | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość, liczba całkowita określająca indeks strony, liczba całkowita określająca rozmiar strony, a odwołanie do liczba całkowita, która jest równa łącznej liczby profilów. Zwraca ProfileInfoCollection, który zawiera **ProfileInfo** obiektów we wszystkich profilach w źródle danych, w którym nazwa aplikacji jest zgodna **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, lub wszystkie profile, które mają zostać zwrócone. Wyniki zwrócone przez **GetAllProfiles** metody są ograniczone przez indeks strony i wartości rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę **ProfileInfo** obiekty do zwrócenia w **ProfileInfoCollection**. Strony wyników do zwrócenia, gdzie 1 identyfikuje pierwsza strona, która określa, wartość indeks strony. Parametr łącznie rekordów jest parametrem wyjściowym (możesz użyć **ByRef** w języku Visual Basic), jest ustawiona na całkowitą liczbę profilów. Na przykład, jeśli magazyn danych zawiera 13 profile aplikacji, a wartość indeksu strony to 2, 5, o rozmiarze strony **ProfileInfoCollection** zwracana zawiera od szóstego do dziesiątego profilów. Gdy metoda zwróci wartość, wartość całkowita liczba rekordów jest ustawiona na 13. |
-| Metoda GetAllInactiveProfiles | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość **daty/godziny** obiektu, liczba całkowita określająca indeks strony, liczba całkowita określająca rozmiar strony, a odwołanie na liczbę całkowitą, która zostanie ustawiona Aby łączna liczba profilów. Zwraca **ProfileInfoCollection** zawierający **ProfileInfo** obiektów we wszystkich profilach w źródle danych, gdzie Data ostatniej aktywności jest mniejsza lub równa określonej **daty/godziny**  , jeśli nazwa aplikacji odpowiada **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, lub wszystkie profile, które mają zostać zwrócone. Wyniki zwrócone przez **GetAllInactiveProfiles** metody są ograniczone przez indeks strony i wartości rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę **ProfileInfo** obiekty do zwrócenia w **ProfileInfoCollection**. Strony wyników do zwrócenia, gdzie 1 identyfikuje pierwsza strona, która określa, wartość indeks strony. Parametr łącznie rekordów jest parametrem wyjściowym (możesz użyć **ByRef** w języku Visual Basic), jest ustawiona na całkowitą liczbę profilów. Na przykład, jeśli magazyn danych zawiera 13 profile aplikacji, a wartość indeksu strony to 2, 5, o rozmiarze strony **ProfileInfoCollection** zwracana zawiera od szóstego do dziesiątego profilów. Gdy metoda zwróci wartość, wartość całkowita liczba rekordów jest ustawiona na 13. |
-| FindProfilesByUserName method | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość ciąg zawierający nazwę użytkownika, liczba całkowita określająca indeks strony, liczba całkowita określająca rozmiar strony, a odwołanie na liczbę całkowitą, która jest równa łącznej liczby Profile. Zwraca **ProfileInfoCollection** zawierający **ProfileInfo** obiektów dla wszystkich profilów w danych źródła, gdzie nazwa użytkownika jest zgodna z określoną nazwą użytkownika, jeśli odpowiada nazwę aplikacji **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, lub wszystkie profile, które mają zostać zwrócone. Jeśli źródło danych obsługuje możliwości wyszukiwania dodatkowe, takie jak znaki symboli wieloznacznych, możesz podać bardziej rozbudowane możliwości wyszukiwania dla nazwy użytkownika. Wyniki zwrócone przez **FindProfilesByUserName** metody są ograniczone przez indeks strony i wartości rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę **ProfileInfo** obiekty do zwrócenia w **ProfileInfoCollection**. Strony wyników do zwrócenia, gdzie 1 identyfikuje pierwsza strona, która określa, wartość indeks strony. Parametr łącznie rekordów jest parametrem wyjściowym (możesz użyć **ByRef** w języku Visual Basic), jest ustawiona na całkowitą liczbę profilów. Na przykład, jeśli magazyn danych zawiera 13 profile aplikacji, a wartość indeksu strony to 2, 5, o rozmiarze strony **ProfileInfoCollection** zwracana zawiera od szóstego do dziesiątego profilów. Gdy metoda zwróci wartość, wartość całkowita liczba rekordów jest ustawiona na 13. |
-| FindInactiveProfilesByUserName method | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość, ciąg zawierający nazwę użytkownika **daty/godziny** obiektu, liczba całkowita określająca indeks strony, liczba całkowita określająca rozmiar strony, a Odwołanie do liczba całkowita, która jest równa łącznej liczby profilów. Zwraca **ProfileInfoCollection** zawierający **ProfileInfo** obiektów we wszystkich profilach w źródle danych, jeśli nazwa użytkownika odpowiada określonej nazwy użytkownika, gdzie Data ostatniej aktywności jest mniejsza niż lub równa określonej **daty/godziny**, i jeśli nazwa aplikacji odpowiada **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, lub wszystkie profile, które mają zostać zwrócone. Jeśli źródło danych obsługuje możliwości wyszukiwania dodatkowe, takie jak znaki symboli wieloznacznych, możesz podać bardziej rozbudowane możliwości wyszukiwania dla nazwy użytkownika. Wyniki zwrócone przez **FindInactiveProfilesByUserName** metody są ograniczone przez indeks strony i wartości rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę **ProfileInfo** obiekty do zwrócenia w **ProfileInfoCollection**. Strony wyników do zwrócenia, gdzie 1 identyfikuje pierwsza strona, która określa, wartość indeks strony. Parametr łącznie rekordów jest parametrem wyjściowym (możesz użyć **ByRef** w języku Visual Basic), jest ustawiona na całkowitą liczbę profilów. Na przykład, jeśli magazyn danych zawiera 13 profile aplikacji, a wartość indeksu strony to 2, 5, o rozmiarze strony **ProfileInfoCollection** zwracana zawiera od szóstego do dziesiątego profilów. Gdy metoda zwróci wartość, wartość całkowita liczba rekordów jest ustawiona na 13. |
-| Metoda GetNumberOfInActiveProfiles | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość i **daty/godziny** obiektu i zwraca liczbę wszystkich profili w źródle danych, gdzie jest mniejsza niż określony datęostatniejaktywności **Data i godzina** , jeśli nazwa aplikacji odpowiada **ApplicationName** wartości właściwości. **ProfileAuthenticationOption** parametr określa, czy tylko anonimowy profile uwierzytelniani tylko profile, czy wszystkie profile do zliczenia. |
+| DeleteProfiles, Metoda | Przyjmuje jako dane wejściowe tablicę nazw użytkowników i usuwa ze źródła danych wszystkie informacje o profilu i wartości właściwości dla określonych nazw, gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Jeśli źródło danych obsługuje transakcje, zaleca się, aby uwzględnić wszystkie operacje usuwania w transakcji i wycofać transakcję i zgłosić wyjątek w przypadku niepowodzenia operacji usuwania. |
+| DeleteProfiles, Metoda | Przyjmuje jako dane wejściowe kolekcja obiektów ProfileInfo i usuwa ze źródła danych wszystkie informacje o profilu i wartości właściwości dla każdego profilu, gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Jeśli źródło danych obsługuje transakcje, zaleca się, aby uwzględnić wszystkie operacje usuwania w transakcji i wycofać transakcję i zgłosić wyjątek w przypadku niepowodzenia operacji usuwania. |
+| DeleteInactiveProfiles, Metoda | Przyjmuje jako dane wejściowe wartość ProfileAuthenticationOption i obiekt DateTime i usuwa ze źródła danych wszystkie informacje o profilu i wartości właściwości, w których Data ostatniego działania jest mniejsza lub równa określonej dacie i godzinie oraz gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być usuwane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. Jeśli źródło danych obsługuje transakcje, zaleca się, aby uwzględnić wszystkie operacje usuwania w transakcji i wycofać transakcję i zgłosić wyjątek w przypadku niepowodzenia operacji usuwania. |
+| GetAllProfiles, Metoda | Przyjmuje jako dane wejściowe wartość **ProfileAuthenticationOption** , liczbę całkowitą określającą indeks strony, liczbę całkowitą, która określa rozmiar strony i odwołanie do liczby całkowitej, która zostanie ustawiona na łączną liczbę profilów. Zwraca ProfileInfoCollection, który zawiera obiekty **ProfileInfo** dla wszystkich profilów w źródle danych, gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być zwracane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. Wyniki zwrócone przez metodę **GetAllProfiles** są ograniczone przez wartości indeksu strony i rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę obiektów **ProfileInfo** do zwrócenia w **ProfileInfoCollection**. Wartość indeksu strony określa, która strona wyników ma zostać zwrócona, gdzie 1 identyfikuje pierwszą stronę. Parametr łącznego rekordu jest parametrem out (można użyć elementu **ByRef** w Visual Basic), który jest ustawiony na łączną liczbę profilów. Na przykład jeśli magazyn danych zawiera 13 profilów dla aplikacji, a wartość indeksu strony to 2 z rozmiarem strony wynoszącym 5, zwracana **ProfileInfoCollection** zawiera szóste profile. Całkowita wartość rekordów jest ustawiana na 13, gdy metoda zwraca. |
+| GetAllInactiveProfiles, Metoda | Przyjmuje jako dane wejściowe wartość **ProfileAuthenticationOption** , obiekt **DateTime** , liczbę całkowitą określającą indeks strony, liczbę całkowitą określającą rozmiar strony i odwołanie do liczby całkowitej, która zostanie ustawiona na łączną liczbę profilów. Zwraca element **ProfileInfoCollection** , który zawiera obiekty **ProfileInfo** dla wszystkich profilów w źródle danych, w których Data ostatniego działania jest mniejsza lub równa określonej wartości **daty** i lokalizacji, w której nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być zwracane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. Wyniki zwrócone przez metodę **GetAllInactiveProfiles** są ograniczone przez wartości indeksu strony i rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę obiektów **ProfileInfo** do zwrócenia w **ProfileInfoCollection**. Wartość indeksu strony określa, która strona wyników ma zostać zwrócona, gdzie 1 identyfikuje pierwszą stronę. Parametr łącznego rekordu jest parametrem out (można użyć elementu **ByRef** w Visual Basic), który jest ustawiony na łączną liczbę profilów. Na przykład jeśli magazyn danych zawiera 13 profilów dla aplikacji, a wartość indeksu strony to 2 z rozmiarem strony wynoszącym 5, zwracana **ProfileInfoCollection** zawiera szóste profile. Całkowita wartość rekordów jest ustawiana na 13, gdy metoda zwraca. |
+| FindProfilesByUserName, Metoda | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość, ciąg zawierający nazwę użytkownika, liczbę całkowitą, która określa indeks strony, liczbę całkowitą, która określa rozmiar strony i odwołanie do liczby całkowitej, która zostanie ustawiona na łączną liczbę profilów. Zwraca **ProfileInfoCollection** , który zawiera obiekty **ProfileInfo** dla wszystkich profilów w źródle danych, gdzie nazwa użytkownika jest zgodna z określoną nazwą użytkownika i gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być zwracane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. Jeśli źródło danych obsługuje dodatkowe możliwości wyszukiwania, takie jak symbole wieloznaczne, można zapewnić bardziej rozbudowane możliwości wyszukiwania nazw użytkowników. Wyniki zwrócone przez metodę **FindProfilesByUserName** są ograniczone przez wartości indeksu strony i rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę obiektów **ProfileInfo** do zwrócenia w **ProfileInfoCollection**. Wartość indeksu strony określa, która strona wyników ma zostać zwrócona, gdzie 1 identyfikuje pierwszą stronę. Parametr łącznego rekordu jest parametrem out (można użyć elementu **ByRef** w Visual Basic), który jest ustawiony na łączną liczbę profilów. Na przykład jeśli magazyn danych zawiera 13 profilów dla aplikacji, a wartość indeksu strony to 2 z rozmiarem strony wynoszącym 5, zwracana **ProfileInfoCollection** zawiera szóste profile. Całkowita wartość rekordów jest ustawiana na 13, gdy metoda zwraca. |
+| FindInactiveProfilesByUserName method | Przyjmuje jako dane wejściowe **ProfileAuthenticationOption** wartość, ciąg zawierający nazwę użytkownika, obiekt **DateTime** , liczbę całkowitą określającą indeks strony, liczbę całkowitą, która określa rozmiar strony i odwołanie do liczby całkowitej, która zostanie ustawiona na łączną liczbę profilów. Zwraca element **ProfileInfoCollection** , który zawiera obiekty **ProfileInfo** dla wszystkich profilów w źródle danych, w których nazwa użytkownika jest zgodna z określoną nazwą użytkownika, gdzie Data ostatniego działania jest mniejsza lub równa określonej wartości **daty**i gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być zwracane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. Jeśli źródło danych obsługuje dodatkowe możliwości wyszukiwania, takie jak symbole wieloznaczne, można zapewnić bardziej rozbudowane możliwości wyszukiwania nazw użytkowników. Wyniki zwrócone przez metodę **FindInactiveProfilesByUserName** są ograniczone przez wartości indeksu strony i rozmiaru strony. Wartość rozmiaru strony określa maksymalną liczbę obiektów **ProfileInfo** do zwrócenia w **ProfileInfoCollection**. Wartość indeksu strony określa, która strona wyników ma zostać zwrócona, gdzie 1 identyfikuje pierwszą stronę. Parametr łącznego rekordu jest parametrem out (można użyć elementu **ByRef** w Visual Basic), który jest ustawiony na łączną liczbę profilów. Na przykład jeśli magazyn danych zawiera 13 profilów dla aplikacji, a wartość indeksu strony to 2 z rozmiarem strony wynoszącym 5, zwracana **ProfileInfoCollection** zawiera szóste profile. Całkowita wartość rekordów jest ustawiana na 13, gdy metoda zwraca. |
+| GetNumberOfInActiveProfiles, Metoda | Przyjmuje jako dane wejściowe wartość **ProfileAuthenticationOption** i obiekt **DateTime** oraz zwraca liczbę wszystkich profilów w źródle danych, w których Data ostatniego działania jest mniejsza lub równa określonej wartości **DateTime** i gdzie nazwa aplikacji jest zgodna z wartością właściwości **ApplicationName** . Parametr **ProfileAuthenticationOption** określa, czy mają być zliczane tylko profile anonimowe, profile uwierzytelnione lub wszystkie profile. |
 
 ### <a name="applicationname"></a>ApplicationName
 
-Ponieważ dostawcach profilów przechowywać informacje o profilu osobno dla każdej aplikacji, upewnij się że schematu danych zawiera nazwę aplikacji i zapytań i aktualizacji również obejmować nazwę aplikacji. Na przykład następujące polecenie służy do pobierania wartości właściwości z bazy danych na podstawie nazwy użytkownika i tego, czy profil, który jest anonimowa i zapewnia, że **ApplicationName** wartość jest uwzględniona w zapytaniu.
+Ponieważ dostawcy profilów przechowują informacje o profilu osobno dla każdej aplikacji, należy się upewnić, że schemat danych zawiera nazwę aplikacji oraz że zapytania i aktualizacje zawierają również nazwę aplikacji. Na przykład następujące polecenie służy do pobierania wartości właściwości z bazy danych na podstawie nazwy użytkownika i tego, czy profil jest anonimowy, i zapewnia, że wartość **ApplicationName** jest uwzględniona w zapytaniu.
 
 [!code-sql[Main](profiles-themes-and-web-parts/samples/sample10.sql)]
 
-## <a name="aspnet-themes"></a>Motywów programu ASP.NET
+## <a name="aspnet-themes"></a>Motywy ASP.NET
 
-## <a name="what-are-aspnet-20-themes"></a>Co to jest ASP.NET 2.0 motywy?
+## <a name="what-are-aspnet-20-themes"></a>Co to są motywy ASP.NET 2,0?
 
-Jednym z najważniejszych aspektów aplikacji sieci Web jest spójny wygląd i zachowanie całej witryny. ASP.NET 1.x Deweloperzy zazwyczaj umożliwia kaskadowych arkuszy stylów (CSS) implementuje spójny wygląd i zachowanie. Program ASP.NET 2.0 motywy znacznie ulepszyć CSS, ponieważ zapewniają programowaniem w technologii ASP.NET możliwość określenia jej wyglądu kontrolki serwera ASP.NET, a także elementów HTML. Motywów programu ASP.NET może być stosowane do poszczególnych formantów, określona strona sieci Web lub całej aplikacji sieci Web. Motywy użyć kombinacji plików CSS, plik skin opcjonalne i opcjonalnie katalog obrazów, jeśli potrzebne są obrazy. Plik skórki kontroluje wygląd formanty serwera ASP.NET.
+Jednym z najważniejszych aspektów aplikacji sieci Web jest spójny wygląd i działanie w całej lokacji. ASP.NET 1. x deweloperzy zazwyczaj używają kaskadowe arkusze stylów (CSS) do implementowania spójnego wyglądu i działania. Motywy ASP.NET 2,0 znacząco poprawiają się w języku CSS, ponieważ dają deweloperom ASP.NET możliwość definiowania wyglądu formantów serwera ASP.NET oraz elementów HTML. Motywy ASP.NET można zastosować do poszczególnych kontrolek, konkretnej strony sieci Web lub całej aplikacji sieci Web. Motywy używają kombinacji plików CSS, opcjonalnego pliku skórki i katalogu obrazów opcjonalnych, jeśli są one zbędne. Plik skórki steruje wyglądem kontrolek serwera ASP.NET.
 
 ## <a name="where-are-themes-stored"></a>Gdzie są przechowywane motywy?
 
-Lokalizację przechowywania motywy różnią się w zależności od ich zakres. Motywy, które mogą być stosowane do dowolnej aplikacji są przechowywane w następującym folderze:
+Lokalizacja, w której są przechowywane motywy, różni się w zależności od ich zakresu. Motywy, które można zastosować do dowolnej aplikacji, są przechowywane w następującym folderze:
 
 `C:\WINDOWS\Microsoft.NET\Framework\v2.x.xxxxx\ASP.NETClientFiles\Themes\<Theme_Name>`
 
-Motyw, które są specyficzne dla określonej aplikacji jest przechowywany w `App\_Themes\<Theme\_Name>` katalogu w katalogu głównym witryny sieci Web.
+Motyw, który jest specyficzny dla konkretnej aplikacji, jest przechowywany w katalogu `App\_Themes\<Theme\_Name>` w katalogu głównym witryny sieci Web.
 
 > [!NOTE]
-> Plik skórki powinny być modyfikowane tylko właściwości kontrolki serwera, które wpływają na wygląd.
+> Plik skórki powinien modyfikować tylko właściwości kontrolki serwera, które mają wpływ na wygląd.
 
-Motyw globalny jest motyw, który można zastosować do dowolnej aplikacji lub witryny sieci Web uruchomiony na serwerze sieci Web. Motywy te są domyślnie przechowywane w katalogu ASP.NETClientfiles\Themes wewnątrz katalogu v2.x.xxxxx. Alternatywnie, można umieścić pliki motyw do aspnet\_system klienta/\_sieci web / /Themes/ [wersja] [motyw\_name] folder w katalogu głównym witryny sieci Web.
+Motyw globalny to motyw, który można zastosować do dowolnej aplikacji lub witryny sieci Web działającej na serwerze sieci Web. Te motywy są domyślnie przechowywane w katalogu ASP. NETClientfiles\Themes, który znajduje się w katalogu v2. x. xxxxx. Alternatywnie możesz przenieść pliki motywu do ASPNET\_Client/System\_Web/[Version]/Themes/[Theme\_Name] w folderze głównym witryny sieci Web.
 
-Motywy specyficzne dla aplikacji będzie stosowany tylko do aplikacji, w którym znajdują się pliki. Te pliki są przechowywane w `App\_Themes/<theme\_name>` katalogu w katalogu głównym witryny sieci Web.
+Motywy specyficzne dla aplikacji mogą być stosowane tylko do aplikacji, w której znajdują się pliki. Te pliki są przechowywane w katalogu `App\_Themes/<theme\_name>` w folderze głównym witryny sieci Web.
 
 ## <a name="the-components-of-a-theme"></a>Składniki motywu
 
-Motyw składa się z co najmniej jednego pliku CSS, plik skin opcjonalne i opcjonalny folder obrazów. Pliki CSS może być dowolną nazwę musi znajdować się w katalogu głównym folderu, kompozycje i uzupełniać (tj. default.css lub theme.css itp.). Pliki CSS są używane do definiowania zwykłych klas CSS oraz atrybutów dla określonych selektorów. Aby zastosować jedną z klas CSS do elementu strony **CSSClass** właściwość jest używana.
+Kompozycja składa się z jednego lub więcej plików CSS, opcjonalnego pliku skórki i folderu opcjonalne obrazy. Pliki CSS mogą mieć dowolną nazwę (np. default. CSS lub Theme. css itp.) i muszą znajdować się w folderze głównym folderu motywy. Pliki CSS są używane do definiowania zwykłych klas CSS i atrybutów dla określonych selektorów. Aby zastosować jedną z klas CSS do elementu Page, używana jest właściwość **CSSClass** .
 
-Plik skórki jest plik XML, który zawiera definicje właściwości formantów serwera ASP.NET. Kod przedstawiony poniżej jest przykładowy plik skin.
+Plik skórki jest plikiem XML zawierającym definicje właściwości dla kontrolek serwera ASP.NET. Kod wymieniony poniżej to przykładowy plik skórki.
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample11.aspx)]
 
-**Rysunek 1** poniżej przedstawia małe strony ASP.NET przeglądania bez zastosowania motywu. **Rysunek 2** pokazuje tego samego pliku przy użyciu motyw. Kolor tła i kolor tekstu są skonfigurowane przy użyciu pliku CSS. Wygląd przycisk i pole tekstowe są skonfigurowane przy użyciu plik skin wymienionych powyżej.
+Na **rysunku 1** poniżej zostanie wyświetlona mała strona ASP.neta bez zastosowanego motywu. **Rysunek 2** przedstawia ten sam plik z zastosowanym motywem. Kolor tła i kolor tekstu są konfigurowane za pośrednictwem pliku CSS. Wygląd przycisku i pola tekstowego są konfigurowane przy użyciu pliku skórki wymienionego powyżej.
 
 ![Brak motywu](profiles-themes-and-web-parts/_static/image1.gif)
 
-**Rysunek 1**: Brak motywu
+**Rysunek 1**. Brak motywu
 
-![Motyw](profiles-themes-and-web-parts/_static/image2.gif)
+![Zastosowano motyw](profiles-themes-and-web-parts/_static/image2.gif)
 
-**Rysunek 2**: Motyw
+**Rysunek 2**. zastosowano motyw
 
-Plik skórki wymienionych powyżej definiuje powłoki domyślnego dla wszystkich pól tekstowych i formanty przycisków. Oznacza to, czy każdy formant pola tekstowego i formant przycisku wstawione na stronie spowoduje przejście na wygląd. Można również zdefiniować skórki, który można zastosować do konkretnych wystąpień tych kontrolek przy użyciu **wartość SkinID** właściwości formantu.
+Wymieniony powyżej plik skórki definiuje domyślną skórkę dla wszystkich formantów TextBox i kontrolek Button. Oznacza to, że każda kontrolka TextBox i formant Button wstawiony na stronie zajmie się tym wyglądem. Można również zdefiniować skórkę, która może być stosowana do określonych wystąpień tych formantów przy użyciu właściwości **SkinID** formantu.
 
-Poniższy kod definiuje powłoki dla kontrolki przycisku. Formanty tylko przycisków z **wartość SkinID** właściwość **goButton** spowoduje przejście na wygląd skórki.
+Poniższy kod definiuje skórkę kontrolki Button. Tylko kontrolki przycisku z właściwością SkinID **goButton** będą miały wpływ na wygląd karnacji.
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample12.aspx)]
 
-Może mieć tylko jedną skórki domyślne na serwerze — typ formantu. Jeśli potrzebujesz dodatkowych skórki, należy użyć właściwości wartość SkinID.
+Dla każdego typu formantu serwera można mieć tylko jedną domyślną skórkę. Jeśli potrzebujesz dodatkowych karnacji, należy użyć właściwości SkinID.
 
 ## <a name="applying-themes-to-pages"></a>Stosowanie motywów do stron
 
-Motyw można zastosować za pomocą jednej z następujących metod:
+Motyw można zastosować przy użyciu jednej z następujących metod:
 
-- W &lt;stron&gt; elementu w pliku web.config
-- W @Page dyrektywy strony
+- Na stronie &lt;&gt; elementu pliku Web. config
+- W @Page dyrektywie strony
 - Programistyczne
 
-## <a name="applying-a-theme-in-the-configuration-file"></a>Zastosowanie motywu w pliku konfiguracji
+## <a name="applying-a-theme-in-the-configuration-file"></a>Stosowanie motywu w pliku konfiguracji
 
-Aby zastosować motyw w pliku konfiguracyjnym aplikacji, użyj następującej składni:
+Aby zastosować motyw w pliku konfiguracyjnym aplikacji, należy użyć następującej składni:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample13.xml)]
 
-Nazwa motywu, określone w tym miejscu musi odpowiadać nazwie folderu motywów. Ten folder może znajdować się w jednej z lokalizacji wymienionych wcześniej w ramach tego kursu. Jeśli spróbujesz zastosować motyw, który nie istnieje, wystąpi błąd konfiguracji.
+Nazwa motywu określona w tym miejscu musi być zgodna z nazwą folderu motywów. Ten folder może istnieć w jednej z lokalizacji wymienionych wcześniej w tym kursie. Jeśli spróbujesz zastosować nieistniejący motyw, wystąpi błąd konfiguracji.
 
-## <a name="applying-a-theme-in-the-page-directive"></a>Zastosowanie motywu w dyrektywie Page
+## <a name="applying-a-theme-in-the-page-directive"></a>Stosowanie motywu w dyrektywie page
 
-Można także zastosować motywu w dyrektywy @ Page. Ta metoda umożliwia motyw dla określonej strony.
+Możesz również zastosować motyw w dyrektywie @ page. Ta metoda umożliwia użycie motywu dla określonej strony.
 
-Aby zastosować motyw w @Page dyrektywy, należy użyć następującej składni:
+Aby zastosować motyw w dyrektywie @Page, należy użyć następującej składni:
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample14.aspx)]
 
-Jeszcze raz motyw określone w tym miejscu musi być zgodna folderu motywu, jak wspomniano wcześniej. Jeśli spróbujesz zastosować motyw, który nie istnieje, wystąpi błąd kompilacji. Visual Studio będzie również zaznacz atrybut i informujące o tym, czy brak takiego motywu, istnieje.
+Motyw określony w tym miejscu musi być zgodny z folderem motywu, jak wspomniano wcześniej. Jeśli spróbujesz zastosować nieistniejący motyw, wystąpi błąd kompilacji. Program Visual Studio wyróżni również atrybut i powiadomi użytkownika, że nie istnieje taki motyw.
 
-## <a name="applying-a-theme-programmatically"></a>Programowe zastosowanie motywu
+## <a name="applying-a-theme-programmatically"></a>Programistyczne stosowanie motywu
 
-Aby zastosować motyw programowo, należy określić **motyw** właściwości dla strony w **strony\_PreInit** metody.
+Aby programowo zastosować motyw, należy określić właściwość **motyw** dla strony na **stronie\_metodę preinicjowania** .
 
-Aby zastosować motyw programowo, użyj następującej składni:
+Aby programowo zastosować motyw, należy użyć następującej składni:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample15.cs)]
 
-Jest to konieczne zastosować motyw w metodzie PreInit z powodu cyklu życia strony. Jeśli zostanie zastosowane po tym punkcie, motywu strony będzie zostały już zastosowane przez środowisko uruchomieniowe i zmiany w tym momencie jest za późno w cyklu życia. Jeśli zastosujesz motywu, który nie istnieje, **httpexception —** występuje. Jeśli motyw jest stosowany programowo, ostrzeżenia kompilacji wystąpi, jeśli wszystkie formanty serwera ma wartość SkinID właściwości. To ostrzeżenie jest przeznaczona do informujące, że nie motyw jest stosowany do deklaratywnie i można go zignorować.
+Należy zastosować motyw w metodzie preinicjowania ze względu na cykl życia strony. Jeśli zastosujesz go po tym momencie, kompozycja stron zostanie już zastosowana przez środowisko uruchomieniowe, a zmiana w tym punkcie zostanie zbyt opóźniona w cyklu życia. Jeśli zastosujesz nieistniejący motyw, wystąpi wyjątek **HttpException** . Gdy motyw jest stosowany programowo, pojawi się ostrzeżenie kompilacji, jeśli wszystkie kontrolki serwera mają określoną właściwość SkinID. To ostrzeżenie jest przeznaczone do informowania o tym, że żaden motyw nie został deklaratywnie zastosowany i można go zignorować.
 
-## <a name="exercise-1--applying-a-theme"></a>Ćwiczenie 1: Zastosowanie motywu
+## <a name="exercise-1--applying-a-theme"></a>Ćwiczenie 1: stosowanie motywu
 
-W tym ćwiczeniu zastosuje motyw programu ASP.NET w witrynie sieci Web.
+W tym ćwiczeniu utworzysz motyw ASP.NET do witryny sieci Web.
 
 > [!IMPORTANT]
-> Jeśli używasz programu Microsoft Word do wprowadzania informacji w plik skin, upewnij się, że nie zastępujesz regularne ofert z inteligentne cudzysłowy. Inteligentne cudzysłowy spowoduje, że problemy z plikami skórki.
+> Jeśli używasz programu Microsoft Word do wprowadzania informacji do pliku skórki, pamiętaj, aby nie zamieniać zwykłych cudzysłowów z inteligentnymi cudzysłowami. Inteligentne cudzysłowy spowodują problemy z plikami karnacji.
 
-1. Utwórz nową witrynę sieci Web platformy ASP.NET.
-2. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element.
-3. Wybierz plik konfiguracji sieci Web z listy plików, a następnie kliknij przycisk Dodaj.
-4. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element.
-5. Wybierz plik Skin, a następnie kliknij przycisk Dodaj.
-6. Kliknij przycisk Tak, po wyświetleniu monitu, jeśli chcesz umieścić plik w aplikacji\_folder motywów.
-7. Kliknij prawym przyciskiem myszy w folderze SkinFile wewnątrz aplikacji\_folder motywów w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element.
-8. Wybierz arkusz stylów z listy plików, a następnie kliknij przycisk Dodaj. Masz teraz wszystkie pliki niezbędne do zaimplementowania nowy motyw. Jednak program Visual Studio przyznała SkinFile folderze motywów. Kliknij prawym przyciskiem myszy, w tym folderze, a następnie zmień nazwę na CoolTheme.
-9. Otwórz plik SkinFile.skin i Dodaj następujący kod na końcu pliku: 
+1. Utwórz nową witrynę sieci Web ASP.NET.
+2. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element.
+3. Wybierz z listy plików plik konfiguracja sieci Web i kliknij przycisk Dodaj.
+4. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element.
+5. Wybierz plik skórki, a następnie kliknij przycisk Dodaj.
+6. Kliknij przycisk tak po wyświetleniu monitu, jeśli chcesz umieścić plik w folderze motywy\_aplikacji.
+7. Kliknij prawym przyciskiem myszy folder SkinFile w folderze motywy\_aplikacji w Eksplorator rozwiązań a następnie wybierz pozycję Dodaj nowy element.
+8. Wybierz arkusz stylów z listy plików i kliknij przycisk Dodaj. Masz teraz wszystkie pliki niezbędne do zaimplementowania nowego motywu. Jednak program Visual Studio ma nazwę folder motywów SkinFile. Kliknij prawym przyciskiem myszy ten folder i Zmień nazwę na CoolTheme.
+9. Otwórz plik SkinFile. Skin i Dodaj następujący kod na końcu pliku: 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample16.aspx)]
-10. Zapisz plik SkinFile.skin.
-11. Otwórz StyleSheet.css.
-12. Zastąp cały tekst w nim następujące czynności: 
+10. Zapisz plik SkinFile. skórki.
+11. Otwórz arkusz stylów. css.
+12. Zastąp cały tekst w nim następującym: 
 
     [!code-css[Main](profiles-themes-and-web-parts/samples/sample17.css)]
-13. Zapisz plik StyleSheet.css.
-14. Otwórz stronę Default.aspx.
-15. Dodaj formant TextBox i formant przycisku.
-16. Zapisz stronę. Teraz przejdź do strony Default.aspx. Powinna zostać wyświetlona jako normalny formularz sieci Web.
-17. Otwórz plik web.config.
-18. Dodaj następujący kod bezpośrednio pod otwarcia `<system.web>` tag: 
+13. Zapisz plik StyleSheet. css.
+14. Otwórz stronę Default. aspx.
+15. Dodaj kontrolkę TextBox i kontrolkę Button.
+16. Zapisz stronę. Teraz Przeglądaj domyślną stronę. aspx. Powinien być wyświetlany jako normalny formularz sieci Web.
+17. Otwórz plik Web. config.
+18. Dodaj następujący bezpośrednio poniżej tagu otwierającego `<system.web>`: 
 
     [!code-xml[Main](profiles-themes-and-web-parts/samples/sample18.xml)]
-19. Zapisz plik web.config. Teraz przejdź do strony Default.aspx. Powinna zostać wyświetlona z motywem stosowane.
-20. Jeśli nie jest jeszcze otwarty, otwórz stronę Default.aspx w programie Visual Studio.
+19. Zapisz plik Web. config. Teraz Przeglądaj domyślną stronę. aspx. Powinien zostać wyświetlony wraz z zastosowanym motywem.
+20. Jeśli nie jest jeszcze otwarty, Otwórz stronę Default. aspx w programie Visual Studio.
 21. Wybierz przycisk.
-22. Zmiana **wartość SkinID** właściwość goButton. Należy zauważyć, że program Visual Studio udostępnia listę rozwijaną prawidłowymi wartościami wartość SkinID dla kontrolki przycisku.
-23. Zapisz stronę. Teraz ponownie Wyświetl podgląd strony w przeglądarce. Przycisk teraz powinna być widoczna nazwa "Przejdź" i powinna być szersze wygląd.
+22. Zmień właściwość **SkinID** na goButton. Zauważ, że program Visual Studio udostępnia listę rozwijaną z prawidłowymi wartościami SkinID dla kontrolki Button.
+23. Zapisz stronę. Teraz ponownie Wyświetl podgląd strony w przeglądarce. Przycisk powinien teraz powiedzieć "Przejdź" i powinien być szerszy od wyglądu.
 
-Za pomocą **wartość SkinID** właściwości, można łatwo skonfigurować różne skórek dotyczy to różnych wystąpień danego typu formantem serwera.
+Za pomocą właściwości **SkinID** można łatwo skonfigurować różne karnacje dla różnych wystąpień określonego typu formantu serwera.
 
 ## <a name="the-stylesheettheme-property"></a>Właściwość StyleSheetTheme
 
-Do tej pory zajmowaliśmy tylko stosowanie motywów przy użyciu właściwości motywu. Korzystając z właściwości motywu, plik skin spowoduje przesłonięcie ustawienia deklaratywne kontrolek serwerowych. Na przykład w ćwiczeniu 1 określona wartość SkinID elementu "goButton" dla przycisku kontroli i zmieniło tekstu przycisku "Przejdź". Być może zauważono, że właściwość tekst przycisku w Projektancie została ustawiona na "Button", ale overrode motywu, który. Motyw zawsze spowoduje zastąpienie wszelkich ustawień właściwości w projektancie.
+Do tej pory porozmawiamy tylko o stosowaniu motywów przy użyciu właściwości motywu. W przypadku użycia właściwości Theme plik skórki przesłoni wszystkie ustawienia deklaracyjne dla formantów serwera. Na przykład w ćwiczeniu 1 określono SkinID "goButton" dla kontrolki przycisk, a tekst przycisku został zmieniony na "go". Być może zauważono, że właściwość Text przycisku w projektancie została ustawiona na "Button", ale motyw overrode. Motyw zawsze będzie przesłaniał wszystkie ustawienia właściwości w projektancie.
 
-Jeśli chcesz można było zastąpienie właściwości zdefiniowane w pliku skórki motywu za pomocą właściwości określone w projektancie, możesz użyć **StyleSheetTheme** właściwości zamiast właściwości motywu. Właściwość StyleSheetTheme jest taka sama jak właściwość motywu, z tą różnicą, że nie zastępuje wszystkie ustawienia jawną właściwość, takie jak właściwości motywu jest.
+Jeśli chcesz mieć możliwość przesłaniania właściwości zdefiniowanych w pliku skór motywu o właściwościach określonych w projektancie, możesz użyć właściwości **StyleSheetTheme** zamiast właściwości motyw. Właściwość StyleSheetTheme jest taka sama jak Właściwość motywu, z tą różnicą, że nie przesłania wszystkich jawnych ustawień właściwości, takich jak Właściwość motywu.
 
-Aby to zobaczyć w działaniu, otwórz plik web.config z projektu w ćwiczeniu 1 i zmień `<pages>` element do następującego:
+Aby wyświetlić tę akcję, Otwórz plik Web. config z projektu w ćwiczeniu 1 i Zmień element `<pages>` na następujący:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample19.xml)]
 
-Teraz przejdź strony Default.aspx, a zobaczysz, że formant przycisku ponownie ma właściwość tekst "Button". Wynika to z właściwością Text goButton wartość SkinID przesłania ustawienie właściwości jawne, w projektancie.
+Teraz Przeglądaj domyślną stronę. aspx i zobaczysz, że Kontrolka przycisku ma ponownie właściwość Text przycisku. Wynika to z faktu, że jawne ustawienie właściwości w projektancie zastępuje właściwość Text ustawioną przez goButton SkinID.
 
 ## <a name="overriding-themes"></a>Zastępowanie motywów
 
-Motyw globalny może zostać przesłonięta przez zastosowanie motywu o tej samej nazwie w aplikacji\_folder motywów aplikacji. Motyw nie jest stosowana w przypadku zastąpienia wartość true. Jeśli środowisko wykonawcze napotka plików w aplikacji\_folder motywów zastosuje motyw przy użyciu tych plików i będzie ignorować motyw globalny.
+Motyw globalny można zastąpić, stosując motyw o tej samej nazwie w folderze motywy\_aplikacji. Jednak motyw nie jest stosowany w scenariuszu prawdziwych zastąpień. Jeśli środowisko uruchomieniowe napotyka pliki motywu w folderze motywy\_aplikacji, zastosuje motyw przy użyciu tych plików i zignoruje motyw globalny.
 
-Właściwość StyleSheetTheme jest możliwym do zastąpienia i może zostać przesłonięta w kodzie w następujący sposób:
+Właściwość StyleSheetTheme jest możliwa do zastąpienia i może zostać przesłonięta w kodzie w następujący sposób:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample20.cs)]
 
 ## <a name="web-parts"></a>Części sieci Web
 
-Części sieci Web platformy ASP.NET jest zintegrowany zestaw formantów do tworzenia witryn sieci Web, które umożliwiają użytkownikom końcowym zmodyfikować zawartość, wygląd i zachowanie stron sieci Web bezpośrednio w przeglądarce. Zmiany można zastosować do wszystkich użytkowników w witrynie lub pojedynczych użytkowników. Gdy użytkownicy zmodyfikują stron i kontrolek, można zapisać ustawienia i zachować osobistych preferencji użytkownika w wielu sesjach przeglądarki w przyszłości, funkcja o nazwie personalizacji. Te funkcje składników Web Part oznacza dać użytkownikom końcowym personalizowanie aplikacji sieci Web dynamicznie, bez konieczności interwencji deweloperowi lub administratorowi deweloperów.
+ASP.NET składniki Web Part to zintegrowany zestaw kontrolek służący do tworzenia witryn sieci Web, które umożliwiają użytkownikom końcowym modyfikowanie zawartości, wyglądu i zachowania stron sieci Web bezpośrednio z przeglądarki. Modyfikacje mogą być stosowane do wszystkich użytkowników w danej lokacji lub do poszczególnych użytkowników. Gdy użytkownicy modyfikują strony i kontrolki, można zapisać ustawienia, aby zachować osobiste preferencje użytkownika w przyszłych sesjach przeglądarki, a funkcja o nazwie Personalizacja. Te składniki Web Part możliwości oznaczają, że deweloperzy mogą umożliwić użytkownikom końcowym dynamiczne Personalizowanie aplikacji sieci Web bez udziału dewelopera lub administratora.
 
-Za pomocą zestaw formantów części sieci Web, jako programista umożliwia użytkownikom końcowym:
+Korzystając z zestawu kontrolek składniki Web Part, programista może umożliwić użytkownikom końcowym:
 
-- Personalizacja zawartości strony. Użytkowników można Dodawanie nowych formantów składników Web Part do strony, usuń je, je ukryć lub zminimalizować je jak zwykły system windows.
-- Spersonalizuj układu strony. Użytkowników można przeciągać formantów Web Part do innej strefy na stronie, lub zmienić wygląd, właściwości i zachowanie.
-- Eksportowanie i importowanie kontrolki. Użytkownicy mogą importować lub eksportować składników Web Part ustawienia kontroli do użytku w innych stron lub witryn, zachowując właściwości, wygląd i nawet danych w kontrolkach. Zmniejsza to wzrostu wejścia i konfiguracji danych użytkowników końcowych.
-- Tworzenie połączeń. Użytkownikom można ustanowić połączenia między kontrolkami, tak, aby na przykład formant wykresu można wyświetlić wykres dla danych w kontrolce giełdowej. Użytkownicy mogą personalizować nie tylko połączenie, ale wygląd i szczegóły jak formant wykresu Wyświetla określone dane.
-- Zarządzanie i Personalizuj ustawienia na poziomie witryny. Autoryzowani użytkownicy można skonfigurować ustawienia na poziomie witryny, określić, kto dostęp do strony lub witryny, ustaw opartej na rolach dostęp do kontrolek i tak dalej. Na przykład użytkownik w roli administracyjnej może zestawu formantów Web Part być współużytkowane przez wszystkich użytkowników i uniemożliwić użytkownikom, którzy nie są administratorami personalizowanie wspólna kontrola.
+- Personalizowanie zawartości strony. Użytkownicy mogą dodawać nowe kontrolki składniki Web Part do strony, usuwać je, ukrywać lub minimalizować, jak zwykłe okna.
+- Personalizowanie układu strony. Użytkownicy mogą przeciągać formant składniki Web Part do innej strefy na stronie lub zmieniać jego wygląd, właściwości i zachowanie.
+- Kontrolki eksportu i importu. Użytkownicy mogą importować lub eksportować składniki Web Part ustawienia kontroli do użycia na innych stronach lub w innych witrynach, zachowując właściwości, wygląd, a nawet dane w kontrolkach. Pozwala to ograniczyć żądania związane z wprowadzaniem danych i konfiguracją użytkowników końcowych.
+- Tworzenie połączeń. Użytkownicy mogą nawiązywać połączenia między kontrolkami, tak aby na przykład formant wykresu mógł wyświetlić wykres dla danych w kontrolce giełdowej. Użytkownicy mogą spersonalizować nie tylko połączenie, ale wygląd i szczegóły sposobu wyświetlania danych przez kontrolkę wykres.
+- Zarządzanie ustawieniami poziomu lokacji i ich Personalizowanie. Autoryzowani użytkownicy mogą konfigurować ustawienia na poziomie witryny, określać, kto może uzyskać dostęp do witryny lub strony, ustawiać dostęp oparty na rolach do kontrolek i tak dalej. Na przykład użytkownik w roli administracyjnej może ustawić formant składniki Web Part, który ma być współużytkowany przez wszystkich użytkowników, i uniemożliwić użytkownikom, którzy nie są administratorami, Personalizowanie kontroli udostępnionej.
 
-Programy zwykle współdziałają ze składnikami Web Part w jeden z trzech sposobów: tworzenie stron używające formantów części sieci Web, tworzenie pojedynczych formantów części sieci Web lub tworzenia aplikacji sieci Web pełną, personalizowalne, takie jak portal.
+Zwykle pracujesz z składniki Web Part na jeden z trzech sposobów: Tworzenie stron, które używają kontrolek składniki Web Part, tworzenia indywidualnych kontrolek składniki Web Part lub tworzenia kompletnych, Personalizable aplikacji sieci Web, takich jak portal.
 
-## <a name="page-development"></a>Tworzenie stron
+## <a name="page-development"></a>Programowanie stron
 
-Strona deweloperzy mogą używać narzędzi projektowania wizualnego, takich jak Microsoft Visual Studio 2005, do tworzenia stron, które używają składników Web Part. Jedną z zalet przy użyciu narzędzia, takiego jak Visual Studio jest zestaw formantów części sieci Web oferuje funkcje przeciągania i upuszczania, tworzenie i konfigurowanie formantów składników Web Part w projektanta wizualnego. Na przykład można przeciągnąć strefy składników Web Part lub kontrolka edytora składników Web Part na powierzchni projektowej za pomocą projektanta, a następnie skonfiguruj kontrolkę z prawej zestaw formantów w projektancie, za pomocą interfejsu użytkownika, dostarczone przez składniki Web Part. Może to przyspieszyć rozwój aplikacji Web Part i zmniejszyć ilość kodu, który trzeba napisać.
+Deweloperzy stron mogą używać narzędzi do projektowania wizualnego, takich jak Microsoft Visual Studio 2005, do tworzenia stron, które używają składniki Web Part. Jedną z zalet korzystania z narzędzia, takiego jak Visual Studio, jest to, że zestaw kontrolek składniki Web Part udostępnia funkcje do tworzenia i konfigurowania kontrolek składniki Web Part w projektancie wizualnym. Można na przykład użyć projektanta do przeciągnięcia strefy składniki Web Part lub kontrolki edytora składniki Web Part do powierzchni projektowej, a następnie skonfigurować formant bezpośrednio w projektancie przy użyciu interfejsu użytkownika dostarczonego przez zestaw kontrolek składniki Web Part. Umożliwia to przyspieszenie opracowywania aplikacji składniki Web Part i zmniejszenie ilości kodu, który trzeba napisać.
 
-## <a name="control-development"></a>Tworzenie formantów
+## <a name="control-development"></a>Programowanie kontrolek
 
-Dowolny formant ASP.NET, istniejące służy jako kontrola części sieci Web, w tym standardowe formanty serwera sieci Web, niestandardowych kontrolek serwera i kontrolki użytkownika. Dla maksymalnej programistyczną kontrolę środowiska można również utworzyć niestandardowe formanty składników Web Part, które pochodzą z klasy składnika Web Part. Dla poszczególnych Tworzenie formantów części sieci Web można będzie zazwyczaj utworzyć kontrolkę użytkownika i używać go jako kontrola części sieci Web albo tworzenie niestandardowych formantów Web Part.
+Można użyć dowolnej istniejącej kontrolki ASP.NET jako formantu składniki Web Part, w tym standardowych kontrolek serwera sieci Web, niestandardowych kontrolek serwera i kontrolek użytkownika. W celu uzyskania maksymalnej programowalnej kontroli środowiska można także utworzyć niestandardowe kontrolki składniki Web Part pochodne od klasy WebPart. W przypadku poszczególnych rozwiązań w zakresie kontroli składniki Web Part zwykle można utworzyć kontrolkę użytkownika i użyć jej jako formantu składniki Web Part lub opracować niestandardową kontrolkę składniki Web Part.
 
-Na przykład tworzenia niestandardowych formantów Web Part można utworzyć formant do żadnych funkcji oferowanych przez inne formanty serwera ASP.NET, które mogą być przydatne do pakietu jako personalizowalne formantów Web Part: kalendarze, listy, informacji finansowych wiadomości, kalkulatory, kontrolek tekstu sformatowanego aktualizowania zawartości, można edytować siatki które łączą się z bazami danych, wykresy, które są dynamicznie zaktualizować ich Wyświetla pogodowe lub przesyłane informacje. Jeśli podasz projektanta wizualnego, za pomocą kontrolki, każdy Deweloper strony za pomocą programu Visual Studio można po prostu przeciągnij formant do strefy składników Web Part i konfigurować w czasie projektowania, bez konieczności pisania dodatkowego kodu.
+Przykładem opracowywania niestandardowej kontrolki składniki Web Part można utworzyć kontrolkę, aby zapewnić dowolne funkcje udostępniane przez inne kontrolki serwera ASP.NET, które mogą być przydatne do pakowania jako Personalizable składniki Web Part kontrolki: kalendarze, listy, informacje finansowe, wiadomości, kalkulatory, kontrolki tekstu sformatowanego do aktualizowania zawartości, siatki edytowalne, które łączą się z bazami danych, wykresy, które umożliwiają dynamiczne aktualizowanie ich wyświetlania lub Pogoda i informacje o podróży. Jeśli postanowisz projektanta wizualnego z kontrolką, każdy deweloper strony korzystający z programu Visual Studio może po prostu przeciągnąć formant do strefy składniki Web Part i skonfigurować go w czasie projektowania bez konieczności pisania dodatkowego kodu.
 
-Personalizacja jest podstawą funkcji składników Web Part. Umożliwia użytkownikom zmodyfikować — lub spersonalizować — układ, wygląd i zachowanie formantów składników Web Part na stronie. Spersonalizowane ustawienia są długotrwałe: zostaną utrwalone nie tylko podczas bieżącej sesji przeglądarki (tak jak stan widoku), ale także w pamięci nieulotnej tak, aby ustawienia użytkownika są zapisywane dla sesji przeglądarki przyszłych także. Personalizacja jest domyślnie włączone dla strony części sieci Web.
+Personalizacja jest podstawą funkcji składniki Web Part. Pozwala ona użytkownikom na modyfikowanie lub Personalizowanie — układ, wygląd i zachowanie formantów składniki Web Part na stronie. Spersonalizowane ustawienia są długotrwałe: są utrwalane nie tylko podczas bieżącej sesji przeglądarki (podobnie jak w przypadku stanu widoku), ale również w przypadku magazynu długoterminowego, dzięki czemu ustawienia użytkownika są również zapisywane w przyszłych sesjach przeglądarki. Personalizacja jest domyślnie włączona dla stron składniki Web Part.
 
-Elementy strukturalne interfejsu użytkownika zależą od personalizacji i świadczenie podstawowej struktury i wymagane przez wszystkie formanty części sieci Web. Jeden składnik strukturalnych interfejsu użytkownika na każdej stronie składników Web Part wymagane jest formant WebPartManager. Mimo że to nigdy nie jest widoczny, ten formant ma zadanie krytyczne koordynacji wszystkie formanty składników Web Part na stronie. Na przykład śledzi wszystkie pojedynczych formantów części sieci Web. Zarządza strefy Web Part (regiony, które zawierają formanty składników Web Part na stronie), które są strefy, które środki. Ponadto śledzi i kontroluje trybów wyświetlania, które może się znajdować strona w takich jak przeglądanie, łączenie, edytować lub katalogu tryb i czy zmiany personalizacji są stosowane do wszystkich użytkowników lub pojedynczych użytkowników. Na koniec inicjuje i śledzi połączenia i komunikacji między formantów składników Web Part.
+Składniki strukturalne interfejsu użytkownika korzystają z personalizacji i zapewniają podstawową strukturę i usługi, które są obsługiwane przez wszystkie formanty składniki Web Part. Jeden składnik strukturalny interfejsu użytkownika wymagany na każdej składniki Web Part stronie to formant WebPartManager. Mimo że nie jest to nigdy widoczne, ta kontrolka ma krytyczne zadanie koordynujące wszystkie kontrolki składniki Web Part na stronie. Na przykład śledzi wszystkie poszczególne kontrolki składniki Web Part. Zarządza ona strefami składniki Web Part (regiony, które zawierają kontrolki składniki Web Part na stronie), a następnie formanty, w których znajdują się strefy. Ponadto śledzi i kontroluje różne tryby wyświetlania, które mogą znajdować się na stronie, takie jak przeglądanie, łączenie, edytowanie i tryb katalogowania, a także czy zmiany personalizacji mają zastosowanie do wszystkich użytkowników, czy do poszczególnych użytkowników. Na koniec inicjuje i śledzi połączenia i komunikację między kontrolkami składniki Web Part.
 
-Drugi typ strukturalnych składnik interfejsu użytkownika jest strefa. Strefy pełnić rolę menedżerów układu strony składników Web Part. Mogą zawierać organizują formanty, które pochodzą z klasy części (part formantów) i zapewniają możliwość robienia układ strony moduły w orientacji poziomej lub pionowej. Strefy udostępniają także wspólny i spójny elementy interfejsu użytkownika (takie jak style nagłówków i stopek, tytuł, styl obramowania, przyciski akcji i tak dalej) dla każdej kontrolki, które zawierają; wspólne elementy są nazywane chrome kontrolki. Kilka typów wyspecjalizowane strefy służą trybów wyświetlania oraz pochodzących od różnych formantów. Różne rodzaje stref zostały opisane w poniższej sekcji Formanty istotnych części sieci Web.
+Drugim rodzajem składnika strukturalnego interfejsu użytkownika jest strefa. Strefy działają jako menedżerowie układu na stronie składniki Web Part. Zawierają one i organizują kontrolki, które pochodzą z klasy części (formanty części) i umożliwiają modularny układ strony w orientacji poziomej lub pionowej. Strefy oferują również wspólne i spójne elementy interfejsu użytkownika (takie jak styl nagłówka i stopki, tytuł, styl obramowania, przyciski akcji itd.) dla każdej kontrolki, która zawiera; te typowe elementy są znane jako Chrome formantu. Kilka wyspecjalizowanych typów stref są używane w różnych trybach wyświetlania i z różnymi kontrolkami. Różne typy stref są opisane w sekcji składniki Web Part podstawowe kontrolki poniżej.
 
-Formanty części sieci Web UI, które pochodzą z **część** klas, obejmuje podstawowy interfejs użytkownika na stronie sieci Web Part. Zestaw formantów części sieci Web jest elastyczny i włącznie w opcjach oferuje do tworzenia kontrolek części. Oprócz tworzenia własnych niestandardowych formantów składników Web Part, umożliwia także istniejących kontrolek serwera ASP.NET, kontrolki użytkownika lub niestandardowych kontrolek serwera jako formantów części sieci Web. W następnej sekcji opisano podstawowe formanty, które są najczęściej używane do tworzenia stron składników Web Part.
+Kontrolki interfejsu użytkownika składniki Web Part, z których wszystkie pochodzą z klasy **części** , tworzą podstawowy interfejs użytkownika na stronie składniki Web Part. Zestaw kontrolek składniki Web Part jest elastyczny i włączny w opcjach umożliwiających tworzenie formantów częściowych. Oprócz tworzenia własnych niestandardowych kontrolek składniki Web Part można również użyć istniejących kontrolek serwera ASP.NET, kontrolek użytkownika lub niestandardowych formantów serwera jako formantów składniki Web Part. Podstawowe formanty, które są najczęściej używane do tworzenia stron składniki Web Part są opisane w następnej sekcji.
 
-## <a name="web-parts-essential-controls"></a>Podstawowe formanty składników Web Part
+## <a name="web-parts-essential-controls"></a>składniki Web Part podstawowe kontrole
 
-Zestaw formantów części sieci Web są obszerne, ale niektóre kontrolki są istotne, ponieważ są wymagane dla składników Web Part do pracy lub są one kontrolki najczęściej używane na stronach części sieci Web. Możesz rozpocząć korzystanie z części sieci Web i tworzenie stron podstawowych składników Web Part, warto znać podstawowe formanty składników Web Part, opisane w poniższej tabeli.
+Zestaw kontrolek składniki Web Part jest obszerny, ale niektóre kontrolki są niezbędne, ponieważ są one wymagane do pracy składniki Web Part lub ponieważ są kontrolkami najczęściej używanymi na składniki Web Part stronach. Po rozpoczęciu korzystania z składniki Web Part i tworzenia podstawowych stron składniki Web Part, warto zapoznać się z podstawowymi kontrolkami składniki Web Part opisanymi w poniższej tabeli.
 
-| **Formant Web Part** | **Opis** |
+| **Kontrolka składniki Web Part** | **Opis** |
 | --- | --- |
-| WebPartManager | Zarządza wszystkie formanty składników Web Part na stronie. Jeden (i tylko jeden) **WebPartManager** kontroli jest wymagana dla każdej strony składników Web Part. |
-| CatalogZone | Zawiera formanty CatalogPart. Użyj tej strefy, aby utworzyć wykaz formantów części sieci Web, z których użytkownicy mogą wybrać kontrolki przeznaczone do dodania do strony. |
-| EditorZone | Zawiera formanty EditorPart. Aby umożliwić użytkownikom edytowanie i Personalizuj formantów składników Web Part na stronie, należy użyć tej strefy. |
-| WebPartZone | Zawiera i zapewnia ogólny układ dla formantów składników Web Part, które tworzą głównego interfejsu użytkownika strony. Zawsze twórz strony z formantów składników Web Part, należy używać tej strefy. Strony mogą zawierać jedną lub więcej stref. |
-| ConnectionsZone | Zawiera formanty WebPartConnection i udostępnia interfejs wielokrotnego użytku Zarządzanie połączeniami. |
-| WebPart (GenericWebPart) | Renderuje podstawowego interfejsu użytkownika; Większość formantów części sieci Web UI należą do tej kategorii. Maksymalna programistyczną kontrolę, można utworzyć niestandardowe formanty części sieci Web, które pochodzą od podstawy **składnika Web Part** kontroli. Zgodnie z formantów części sieci Web, można użyć istniejących kontrolek serwera, kontrolki użytkownika lub niestandardowych formantów. Zawsze, gdy którykolwiek z tych formantów są umieszczane w strefie, **WebPartManager** kontroli jest automatycznie zawijany je za pomocą **składnika GenericWebPart** formantów w czasie wykonywania, dzięki czemu mogą być używane z funkcje składników Web Part. |
-| CatalogPart | Zawiera listę dostępnych formantów składników Web Part, które użytkownicy mogą dodawać do strony. |
-| WebPartConnection | Tworzy połączenie między dwoma formantów składników Web Part na stronie. Połączenie definiuje formantów części sieci Web jako dostawca (dane), a drugi jako konsument. |
-| EditorPart | Służy jako klasa bazowa dla kontrolek specjalnego edytora. |
-| Formanty EditorPart (AppearanceEditorPart, LayoutEditorPart, BehaviorEditorPart i PropertyGridEditorPart) | Użytkownicy mogą personalizować różnych aspektów formantów części sieci Web UI, na stronie |
+| WebPartManager | Zarządza wszystkimi kontrolkami składniki Web Part na stronie. Jeden (i tylko jeden) formant **WebPartManager** jest wymagany dla każdej strony składniki Web Part. |
+| CatalogZone | Zawiera kontrolki CatalogPart. Ta strefa służy do tworzenia wykazu formantów składniki Web Part, z których użytkownicy mogą wybierać kontrolki do dodania do strony. |
+| Edytora EditorZone | Zawiera kontrolki EditorPart. Ta strefa umożliwia użytkownikom edytowanie i personalizowanie formantów składniki Web Part na stronie. |
+| WebPartZone | Zawiera i zapewnia ogólny układ formantów WebPart, które tworzą główny interfejs użytkownika strony. Tej strefy należy używać przy każdej tworzeniu stron z kontrolkami składniki Web Part. Strony mogą zawierać co najmniej jedną strefę. |
+| ConnectionsZone | Zawiera kontrolki WebPartConnection i udostępnia interfejs użytkownika do zarządzania połączeniami. |
+| Składnik WebPart (GenericWebPart) | Renderuje podstawowy interfejs użytkownika; Większość formantów interfejsu użytkownika składniki Web Part należy do tej kategorii. Aby uzyskać maksymalną kontrolę programistyczną, można utworzyć niestandardowe kontrolki składniki Web Part pochodne od podstawowej kontrolki **WebPart** . Można również użyć istniejących kontrolek serwera, kontrolek użytkownika lub formantów niestandardowych jako składniki Web Part kontrolek. Za każdym razem, gdy którykolwiek z tych kontrolek znajduje się w strefie, formant **WebPartManager** automatycznie zawija je z kontrolkami **GenericWebPart** w czasie wykonywania, aby można było korzystać z nich przy użyciu funkcji składniki Web Part. |
+| CatalogPart | Zawiera listę dostępnych składniki Web Part formantów, które użytkownicy mogą dodawać do strony. |
+| WebPartConnection | Tworzy połączenie między dwoma składniki Web Part kontrolkami na stronie. Połączenie definiuje jedną z składniki Web Part formantów jako dostawcę (dane), a druga jako odbiorca. |
+| EditorPart | Służy jako klasa bazowa dla wyspecjalizowanych kontrolek edytora. |
+| Kontrolki EditorPart (AppearanceEditorPart, LayoutEditorPart, BehaviorEditorPart i PropertyGridEditorPart) | Zezwól użytkownikom na personalizowanie różnych aspektów składniki Web Part formantów interfejsu użytkownika na stronie |
 
-## <a name="lab-create-a-web-part-page"></a>Laboratorium: Tworzenie strony składników Web Part
+## <a name="lab-create-a-web-part-page"></a>Lab: Tworzenie strony składnika Web Part
 
-W tym środowisku laboratoryjnym utworzysz strony Web part, który będzie aktualny informacji za pomocą profilów platformy ASP.NET.
+W tym laboratorium utworzysz stronę części sieci Web, która będzie utrzymywać informacje za pośrednictwem profilów ASP.NET.
 
-### <a name="creating-a-simple-page-with-web-parts"></a>Tworzenie prostego strony ze składnikami Web Part
+### <a name="creating-a-simple-page-with-web-parts"></a>Tworzenie prostej strony z składniki Web Part
 
-W tej części instruktażu utworzysz stronę, która używa formantów składników Web Part, aby wyświetlić zawartość statyczną. Pierwszym krokiem w pracy ze składnikami Web Part jest tworzenie strony dwóch wymaganych elementów strukturalnych. Po pierwsze strona części sieci Web wymaga formant WebPartManager, śledzenie i koordynowania wszystkie formanty części sieci Web. Po drugie strona części sieci Web musi mieć jeden lub więcej stref, które są formanty złożone, zawiera składnik Web Part lub innych formantów serwera, które zajmują określonego regionu strony.
+W tej części przewodnika utworzysz stronę, która używa kontrolek składniki Web Part do wyświetlania zawartości statycznej. Pierwszym krokiem w pracy z składniki Web Partem jest utworzenie strony z dwoma wymaganymi elementami strukturalnymi. Najpierw strona składników Web Part wymaga kontrolki WebPartManager do śledzenia i koordynowania wszystkich formantów składniki Web Part. Druga strona składniki Web Part wymaga co najmniej jednej strefy, które są kontrolkami złożonymi, które zawierają składnik WebPart lub inne kontrolki serwera i zajmują określony region strony.
 
 > [!NOTE]
-> Nie trzeba nic robić, aby włączyć personalizacji składników Web Part; jego jest domyślnie włączona, aby uzyskać zestaw formantów części sieci Web. Przy pierwszym uruchomieniu strony składników Web Part w witrynie, ASP.NET ustawia domyślnego dostawcę personalizacji do przechowywania ustawień personalizacji użytkownika. Aby uzyskać więcej informacji na temat personalizacji Zobacz Omówienie personalizacji części sieci Web.
+> Aby włączyć personalizację składniki Web Part, nie trzeba wykonywać żadnych czynności. jest on domyślnie włączony dla zestawu kontrolek składniki Web Part. Po pierwszym uruchomieniu składniki Web Part stronie w witrynie program ASP.NET konfiguruje domyślnego dostawcę personalizacji do przechowywania ustawień personalizacji użytkownika. Aby uzyskać więcej informacji na temat personalizacji, zobacz Omówienie personalizacji składniki Web Part.
 
-### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Aby utworzyć stronę dla zawierające formanty składników Web Part
+### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Aby utworzyć stronę zawierającą kontrolki składniki Web Part
 
-1. Zamknij stronę domyślną, a następnie dodaj nową stronę do witryny o nazwie WebPartsDemo.aspx.
-2. Przełącz się do **projektowania** widoku.
-3. Z **widoku** menu, upewnij się, że **formanty wizualizacji inne niż** i **szczegóły** są zaznaczone opcje, dzięki czemu można przeglądać tagi układ i formanty, które nie mają interfejsu użytkownika.
-4. Umieść kursor przed `<div>` tagów na powierzchni projektowej, a następnie naciśnij klawisz ENTER, aby dodać nowy wiersz. Umieść punkt wstawiania przed znak nowego wiersza, kliknij przycisk **Format bloku** sterowania z menu listy rozwijanej i wybierz **Nagłówek 1** opcji. W nagłówku, Dodaj tekst **strona pokazu części sieci Web**.
-5. Z **składników Web Part** kartę przybornika przeciągnij **WebPartManager** kontroli na stronę, umieszczając go zaraz po znak nowego wiersza i przed `<div>`tagów.   
+1. Zamknij stronę domyślną i Dodaj nową stronę do witryny o nazwie WebPartsDemo. aspx.
+2. Przejdź do widoku **projektu** .
+3. W menu **Widok** upewnij się, że opcje formanty i **szczegóły** **inne niż wizualne** są zaznaczone, aby zobaczyć znaczniki układu i kontrolki, które nie mają interfejsu użytkownika.
+4. Umieść punkt wstawiania przed tagami `<div>` na powierzchni projektowej i naciśnij klawisz ENTER, aby dodać nowy wiersz. Umieść punkt wstawiania przed znakiem nowego wiersza, kliknij kontrolkę listy rozwijanej **Format bloku** w menu, a następnie wybierz opcję **Nagłówek 1** . W nagłówku Dodaj **stronę demonstracyjną składniki Web Part**tekst.
+5. Na karcie **WebParts** przybornika przeciągnij kontrolkę **WebPartManager** na stronę, umieszczając ją tuż po nowym znaku wiersza i przed tagami `<div>`.   
   
-   **WebPartManager** kontroli są renderowane żadnych danych wyjściowych, więc pojawia się ono jako szary prostokąt na powierzchni projektowej.
-6. Umieść punkt wstawiania w ramach `<div>` tagów.
-7. W **układ** menu, kliknij przycisk **Wstaw tabelę**i Utwórz nową tabelę, która ma jeden wiersz i trzy kolumny. Kliknij przycisk **właściwości komórki** przycisku Wybierz **górnej** z **wyrównanie w pionie do** listy rozwijanej kliknij **OK**i kliknij przycisk **OK** ponownie, aby utworzyć tabelę.
-8. Przeciągnij formant WebPartZone do kolumny tabeli po lewej stronie. Kliknij prawym przyciskiem myszy **WebPartZone** sterowania, wybierz **właściwości**i ustaw następujące właściwości:   
+   Formant **WebPartManager** nie renderuje żadnych danych wyjściowych, więc pojawia się jako szare pole na powierzchni projektanta.
+6. Umieść punkt wstawiania w tagach `<div>`.
+7. W menu **Układ** kliknij polecenie **Wstaw tabelę**i Utwórz nową tabelę, która ma jeden wiersz i trzy kolumny. Kliknij przycisk **właściwości komórki** , wybierz pozycję **Góra** z listy rozwijanej **Wyrównaj w pionie** , kliknij przycisk **OK**, a następnie ponownie kliknij przycisk **OK** , aby utworzyć tabelę.
+8. Przeciągnij formant WebPartZone do lewej kolumny tabeli. Kliknij prawym przyciskiem myszy kontrolkę **WebPartZone** , wybierz polecenie **Właściwości**i ustaw następujące właściwości:   
   
-   ID: SidebarZone   
+   Identyfikator: SidebarZone   
   
    HeaderText: pasek boczny
-9. Przeciągnij sekundy **WebPartZone** do kolumny tabeli Środkowej i ustaw następujące właściwości:   
+9. Przeciągnij drugi formant **WebPartZone** do kolumny środkowej tabeli i ustaw następujące właściwości:   
   
-   ID: MainZone   
+   Identyfikator: MainZone   
   
    HeaderText: Main
 10. Zapisz plik.
 
-Strona ma teraz dwie odrębne strefy, którymi można sterować oddzielnie. Jednak strefy nie ma żadnej zawartości, dlatego tworzenie zawartości jest kolejnym krokiem. W ramach tego przewodnika, możesz pracować z formantów składników Web Part, które wyświetlają tylko zawartość statyczną.
+Na stronie znajdują się teraz dwie odrębne strefy, które można kontrolować osobno. Jednak żadna strefa nie ma żadnej zawartości, więc tworzenie zawartości jest następnym krokiem. W tym instruktażu pracujesz z kontrolkami składniki Web Part, które wyświetlają tylko zawartość statyczną.
 
-Układ strefy składników Web Part jest określona przez &lt;szablon zonetemplate&gt; elementu. Wewnątrz szablonu strefy można dodać dowolny formant ASP.NET, czy jest ono niestandardowych formantów Web Part, kontrolki użytkownika lub formant serwera. Należy zauważyć, że w tym miejscu używasz formant etykiety i, po prostu dodany tekst statyczny. Po umieszczeniu formant regularne serwera w **WebPartZone** strefy, ASP.NET traktuje formantu jako kontrola części sieci Web w czasie wykonywania, który udostępnia funkcje składników Web Part w formancie.
+Układ strefy składniki Web Part jest określany za pomocą &lt;szablon ZoneTemplate&gt; elementu. Wewnątrz szablonu strefy można dodać dowolną kontrolkę ASP.NET, niezależnie od tego, czy jest to niestandardowa kontrolka składniki Web Part, kontrolka użytkownika czy istniejący formant serwera. Zwróć uwagę, że w tym miejscu używasz kontrolki etykieta i po prostu dodajesz tekst statyczny. Po umieszczeniu zwykłej kontroli serwera w strefie **WebPartZone** ASP.NET traktuje formant jako kontrolkę składniki Web Part w czasie wykonywania, co umożliwia składniki Web Part funkcji w formancie.
 
-**Aby utworzyć zawartość dla głównego strefy**
+**Aby utworzyć zawartość dla strefy głównej**
 
-1. W **projektowania** wyświetlić, przeciągnij **etykiety** kontrolować z **standardowa** kartę przybornika do obszaru zawartości strefy którego **identyfikator** właściwości ustawiono MainZone.
-2. Przełącz się do **źródła** widoku. Należy zauważyć, że &lt;szablon zonetemplate&gt; element został dodany do opakowania **etykiety** formantu w MainZone.
-3. Dodaj atrybut o nazwie **tytuł** do &lt;asp: label&gt; elementu i określanie jego wartości do zawartości. Usuń tekst = atrybut "Label" z &lt;asp: label&gt; elementu. Pomiędzy otwierającym, a zamykającym tagiem elementu &lt;asp: label&gt; elementu, takie jak dodać fragment tekstu **Moja strona główna — Zapraszamy** w parę &lt;h2&gt; tagi elementów. Kod powinien wyglądać w następujący sposób. 
+1. W widoku **projektu** przeciągnij kontrolkę **etykieta** z karty **standardowa** przybornika do obszaru zawartość strefy, której właściwość **ID** ma wartość MainZone.
+2. Przejdź do widoku **źródła** . Zwróć uwagę, że element &lt;szablon ZoneTemplate&gt; został dodany, aby otoczyć formant **etykiety** w MainZone.
+3. Dodaj atrybut o nazwie **title** do &lt;ASP: Label&gt; element i ustaw jego wartość na Content. Usuń atrybut text = "label" z elementu &lt;ASP: Label&gt;. Między tagiem otwierającym i zamykającym elementu &lt;ASP: Label&gt;, Dodaj jakiś tekst, taki jak **Witamy w mojej stronie głównej** , w ramach pary &lt;H2&gt; tagów elementu. Kod powinien wyglądać w następujący sposób. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample21.aspx)]
 4. Zapisz plik.
 
-Następnie utwórz kontrolkę użytkownika, które mogą być również dodawane do strony jako kontrola części sieci Web.
+Następnie utwórz kontrolkę użytkownika, którą można także dodać do strony jako kontrolkę składniki Web Part.
 
 ### <a name="to-create-a-user-control"></a>Aby utworzyć kontrolkę użytkownika
 
-1. Dodawanie nowej kontrolki użytkownika sieci Web do swojej witryny, która będzie służyć jako kontrolka wyszukiwania. Usuń zaznaczenie opcji **umieść kod źródłowy w oddzielnym pliku**. Dodaj ją w tym samym katalogu co stronę WebPartsDemo.aspx i nadaj mu nazwę SearchUserControl.ascx.   
+1. Dodaj nową kontrolkę użytkownika sieci Web do swojej witryny, która będzie działać jako kontrolka wyszukiwania. Usuń zaznaczenie opcji **umieszczenia kodu źródłowego w osobnym pliku**. Dodaj ją w tym samym katalogu, w którym znajduje się Strona WebPartsDemo. aspx, i nadaj jej nazwę SearchUserControl. ascx.   
   
     > [!NOTE]
-    > Kontrolki użytkownika, w tym przewodniku nie implementuje funkcjonalności rzeczywistego wyszukiwania. jest on używany tylko w celu zademonstrowania funkcji składników Web Part.
-2. Przełącz się do **projektowania** widoku. Z **standardowa** kartę z przybornika przeciągnij formant TextBox na stronę.
-3. Umieść kursor po pola tekstowego, który właśnie został dodany, a następnie naciśnij klawisz ENTER, aby dodać nowy wiersz.
-4. Przeciągnij formant przycisku na stronę w nowym wierszu poniżej pola tekstowego, który właśnie został dodany.
-5. Przełącz się do **źródła** widoku. Upewnij się, że kod źródłowy dla kontrolki użytkownika będzie wyglądać jak w poniższym przykładzie. 
+    > Kontrolka użytkownika dla tego przewodnika nie implementuje rzeczywistej funkcji wyszukiwania. jest on używany tylko do zademonstrowania składniki Web Part funkcji.
+2. Przejdź do widoku **projektu** . Na karcie **standardowe** przybornika przeciągnij kontrolkę TextBox na stronę.
+3. Umieść punkt wstawiania po właśnie dodanym polu tekstowym, a następnie naciśnij klawisz ENTER, aby dodać nowy wiersz.
+4. Przeciągnij kontrolkę Button na stronę w nowym wierszu poniżej dodawanego pola tekstowego.
+5. Przejdź do widoku **źródła** . Upewnij się, że kod źródłowy kontrolki użytkownika wygląda jak w poniższym przykładzie. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample22.aspx)]
 6. Zapisz i zamknij plik.
 
-Teraz można dodać formanty części sieci Web do strefy pasku bocznym. Przystępując do dodawania dwóch kontrolek do strefy pasku bocznym, zawierające listę łącza, a drugi, która jest kontrola użytkownika utworzonego w poprzedniej procedurze. Łącza są dodawane jako standard **etykiety** formant serwera, podobnie jak utworzyć tekst statyczny dla strefy głównej. Jednak mimo że formanty poszczególnych serwerów znajdujących się w kontrolkę użytkownika może znajdować się bezpośrednio w strefie (takie jak formant etykiety), w tym przypadku nie są one. Zamiast tego są one częścią kontrolki użytkownika, utworzony w poprzedniej procedurze. W tym przykładzie pokazano, jak typowym sposobem pakowanie dowolnych kontrolek i dodatkowe funkcje, które mają w kontrolce użytkownika, a następnie Odwołaj się tej kontrolki w strefie jako kontrola części sieci Web.
+Teraz można dodać kontrolki składniki Web Part do strefy paska bocznego. Do strefy paska bocznego dodawane są dwie kontrolki, z których jedna zawiera listę linków i inną, która jest kontrolką użytkownika utworzoną w poprzedniej procedurze. Linki są dodawane jako kontrolki serwera **etykiet** standardowych, podobnie jak w przypadku utworzonego tekstu statycznego dla strefy głównej. Jednak mimo że poszczególne kontrolki serwera zawarte w kontrolce użytkownika mogą być zawarte bezpośrednio w strefie (podobnie jak kontrolka etykieta), w tym przypadku nie są. Zamiast tego są one częścią kontrolki użytkownika utworzonej w poprzedniej procedurze. Przedstawia to typowy sposób pakowania wszelkich kontrolek i dodatkowych funkcji w kontrolce użytkownika, a następnie odwoływania się do tej kontrolki w strefie jako kontrolka składniki Web Part.
 
-W czasie wykonywania zestaw formantów części sieci Web opakowuje obie kontrolki za pomocą składnika GenericWebPart kontrolek. Gdy **składnika GenericWebPart** kontroli opakowuje formant serwera sieci Web, część ogólna formantu do kontrolki nadrzędnej, i dostęp do kontrolki serwera za pomocą właściwości ChildControl kontrolki nadrzędnej. To wykorzystania formanty części ogólnej umożliwia standardowe formanty serwera sieci Web ma takie samo zachowanie podstawowe i atrybutów jako formantów składników Web Part, które wynikają z **składnika Web Part** klasy.
+W czasie wykonywania, składniki Web Part zestaw kontrolny otacza obydwa formanty formantem GenericWebPart. Gdy formant **GenericWebPart** otacza formant serwera sieci Web, formant części ogólnej jest formantem nadrzędnym i można uzyskać dostęp do formantu serwera za pomocą właściwości ChildControl kontrolki nadrzędnej. To użycie ogólnych formantów częściowych pozwala formantom serwera sieci Web korzystać z tego samego podstawowego zachowania i atrybutów jako składniki Web Part formantów, które pochodzą od klasy **WebPart** .
 
-### <a name="to-add-web-parts-controls-to-the-sidebar-zone"></a>Aby dodać formanty części sieci Web do strefy paska bocznego
+### <a name="to-add-web-parts-controls-to-the-sidebar-zone"></a>Aby dodać kontrolki składniki Web Part do strefy paska bocznego
 
-1. Otwórz stronę WebPartsDemo.aspx.
-2. Przełącz się do **projektowania** widoku.
-3. Przeciągnij formant strony użytkownika została utworzona, SearchUserControl.ascx, z **Eksploratora rozwiązań** do strefy którego **identyfikator** właściwość jest ustawiona na SidebarZone i upuść ją tam.
-4. Zapisz stronę WebPartsDemo.aspx.
-5. Przełącz się do **źródła** widoku.
-6. Wewnątrz &lt;asp: webpartzone&gt; elementu SidebarZone, tuż nad odwołanie do kontrolki użytkownika, Dodaj &lt;asp: label&gt; element z zawarte łącza, jak pokazano w poniższym przykładzie. Ponadto Dodaj **tytuł** atrybut do tagu kontrolki użytkownika o wartości **wyszukiwania**, jak pokazano. 
+1. Otwórz stronę WebPartsDemo. aspx.
+2. Przejdź do widoku **projektu** .
+3. Przeciągnij utworzoną przez siebie stronę kontrolki użytkownika SearchUserControl. ascx, z **Eksplorator rozwiązań** do strefy, której właściwość **ID** ma wartość SidebarZone, i upuść ją tam.
+4. Zapisz stronę WebPartsDemo. aspx.
+5. Przejdź do widoku **źródła** .
+6. Wewnątrz &lt;ASP: WebPartZone&gt; elementu SidebarZone, tuż nad odwołaniem do kontrolki użytkownika, Dodaj element &lt;ASP: Label&gt; z zawartymi łączami, jak pokazano w poniższym przykładzie. Ponadto należy dodać atrybut **tytułu** do tagu kontrolki użytkownika, korzystając z wartości **Wyszukiwanie**, jak pokazano. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample23.aspx)]
 7. Zapisz i zamknij plik.
 
-Teraz można przetestować stronę, przechodząc do niego w przeglądarce. Na stronie są wyświetlane dwie strefy. Poniższy zrzut ekranu przedstawia stronę.
+Teraz możesz przetestować stronę, przechodząc do jej w przeglądarce. Na stronie zostaną wyświetlone dwie strefy. Na poniższym zrzucie ekranu zostanie wyświetlona strona.
 
-**Strona pokazu części sieci Web z dwiema strefami**
+**składniki Web Part stronę demonstracyjną z dwiema strefami**
 
-![Przewodnik po 1 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image3.gif)
+![Zrzut ekranu składniki Web Part VS — Przewodnik 1](profiles-themes-and-web-parts/_static/image3.gif)
 
-**Rysunek 3**: Przewodnik po 1 Web Part w programie VS — zrzut ekranu
+**Rysunek 3**. zrzut ekranu składniki Web Part vs Instruktaż 1
 
-Tytuł paska każdej kontrolki jest strzałki w dół, zapewniający dostęp do menu zleceń, dostępne akcje, które można wykonywać na kontrolce. Kliknij menu zleceń dla formantów, a następnie kliknij przycisk **Minimalizuj** zlecenie i zwróć uwagę, że formant jest zminimalizowany. Menu zleceń, kliknij **przywrócić**, a sterowanie powraca do normalnego rozmiaru.
+Na pasku tytułu każdej kontrolki znajduje się strzałka w dół, która zapewnia dostęp do menu zleceń dostępnych akcji, które można wykonać na formancie. Kliknij menu zlecenia dla jednej z kontrolek, a następnie kliknij czasownik **minimalizowania** i pamiętaj, że formant jest zminimalizowany. Z menu zlecenia kliknij polecenie **Przywróć**, a kontrolka powróci do normalnego rozmiaru.
 
-### <a name="enabling-users-to-edit-pages-and-change-layout"></a>Umożliwienie użytkownikom edytowanie stron i Zmień układ
+### <a name="enabling-users-to-edit-pages-and-change-layout"></a>Umożliwienie użytkownikom edytowania stron i zmiany układu
 
-Części sieci Web zapewnia możliwości dla użytkowników zmienić układ formantów składników Web Part, przeciągając je z jedną strefę do innego. Oprócz umożliwienia użytkownikom przenoszenie **składnika Web Part** formantów z jednej strefie do innego, umożliwić użytkownikom edytowanie różne cechy formantów, łącznie z ich wygląd, układ i zachowanie. Zestaw formantów części sieci Web udostępnia podstawowe funkcje edycji dla **składnika Web Part** kontrolki. Mimo, że użytkownik nie będzie tak w tym instruktażu, można również utworzyć formanty niestandardowy edytor, które umożliwiają użytkownikom edytowanie funkcji **składnika Web Part** kontrolki. Podobnie jak w przypadku zmiany lokalizacji **składnika Web Part** kontrolki, edytowanie właściwości kontrolki zależy od personalizacji ASP.NET, aby zapisać zmiany, które użytkownicy wykonują.
+Składniki Web Part zapewnia użytkownikom możliwość zmiany układu kontrolek składniki Web Part, przeciągając je z jednej strefy do innej. Oprócz umożliwienia użytkownikom przenoszenia formantów **WebPart** z jednej strefy do innej, można zezwolić użytkownikom na edytowanie różnych cech formantów, w tym ich wyglądu, układu i zachowań. Składniki Web Part zestaw kontrolny zawiera podstawowe funkcje edycji dla formantów **WebPart** . Chociaż nie zostanie to zrobione w tym instruktażu, można również utworzyć niestandardowe formanty edytora umożliwiające użytkownikom edytowanie funkcji formantów **WebPart** . Podobnie jak w przypadku zmiany lokalizacji kontrolki **WebPart** , edytowanie właściwości kontrolki opiera się na ASP.NET personalizacji, aby zapisać zmiany wprowadzane przez użytkowników.
 
-W tej części tego przewodnika, możesz dodać możliwości dla użytkowników edytować podstawowe właściwości dowolnego **składnika Web Part** formantu na stronie. Aby włączyć te funkcje, należy dodać inny formant użytkownika niestandardowego do strony, wraz z &lt;asp: edytora editorzone&gt; elementu i dwóch kontrolek edycji.
+W tej części przewodnika dodano możliwość, aby użytkownicy mogli edytować podstawowe cechy każdej kontrolki **WebPart** na stronie. Aby włączyć te funkcje, należy dodać kolejną niestandardową kontrolkę użytkownika do strony wraz z &lt;ASP: edytora EditorZone&gt; i dwoma kontrolkami edycji.
 
-### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Aby utworzyć kontrolkę użytkownika, który umożliwia zmienianie układu strony
+### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Aby utworzyć kontrolkę użytkownika, która umożliwia zmianę układu strony
 
-1. W programie Visual Studio na **pliku** menu, wybierz opcję **New** podmenu, a następnie kliknij przycisk **pliku** opcji.
-2. W **Dodaj nowy element** okno dialogowe, wybierz opcję **kontrolka użytkownika sieci Web**. Nazwa nowego pliku DisplayModeMenu.ascx. Usuń zaznaczenie opcji **umieść kod źródłowy w oddzielnym pliku**.
-3. Kliknij przycisk Dodaj, aby utworzyć nowego formantu.
-4. Przełącz się do **źródła** widoku.
-5. Usuń istniejący kod w nowym pliku i wklej następujący kod. Ten kod kontroli użytkownika korzysta z funkcji zestaw formantów części sieci Web, umożliwiające strony zmienić jej widok lub tryb wyświetlania i umożliwia również zmienić wygląd fizyczny i układ strony podczas znajdują się w niektórych tryby wyświetlania. 
+1. W programie Visual Studio w menu **plik** wybierz polecenie **Nowy** podmenu, a następnie kliknij opcję **plik** .
+2. W oknie dialogowym **Dodaj nowy element** wybierz pozycję **kontrolka użytkownika sieci Web**. Nazwij nowy plik DisplayModeMenu. ascx. Usuń zaznaczenie opcji **umieszczenia kodu źródłowego w osobnym pliku**.
+3. Kliknij przycisk Dodaj, aby utworzyć nową kontrolkę.
+4. Przejdź do widoku **źródła** .
+5. Usuń cały istniejący kod w nowym pliku i wklej go w poniższym kodzie. Ten kod kontrolny użytkownika korzysta z funkcji zestawu kontrolek składniki Web Part, który umożliwia stronie zmianę jego widoku lub trybu wyświetlania, a także pozwala zmieniać wygląd i układ strony w pewnych trybach wyświetlania. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample24.aspx)]
-6. Zapisz plik, klikając pozycję Zapisz ikonę na pasku narzędzi lub wybierając **Zapisz** na **pliku** menu.
+6. Zapisz plik, klikając ikonę Zapisz na pasku narzędzi lub wybierając pozycję **Zapisz** w menu **plik** .
 
-### <a name="to-enable-users-to-change-the-layout"></a>Aby umożliwić użytkownikom zmienić układ
+### <a name="to-enable-users-to-change-the-layout"></a>Aby umożliwić użytkownikom zmianę układu
 
-1. Otwórz stronę WebPartsDemo.aspx i przełącz się do **projektowania** widoku.
-2. Umieść punkt wstawiania w **projektowania** wyświetlić tuż za **WebPartManager** formant, który dodano wcześniej. Dodawanie znaku końca po tekście, tak że są puste wiersze po **WebPartManager** kontroli. Umieść kursor w pustym wierszu.
-3. Przeciągnij formant użytkownika, które właśnie utworzony (plik nosi DisplayModeMenu.ascx) do WebPartsDemo.aspx strony i upuść je na pusty wiersz.
-4. Przeciągnij formant EditorZone z **składników Web Part** sekcji przybornika do pozostałych komórki tabeli otwarty na stronie WebPartsDemo.aspx.
-5. Z **składników Web Part** sekcji w przyborniku, przeciągnij formant AppearanceEditorPart i formant LayoutEditorPart do **edytora EditorZone** kontroli.
-6. Przełącz się do **źródła** widoku. Wynikowy kod w komórce tabeli powinny wyglądać podobnie do poniższego kodu. 
+1. Otwórz stronę WebPartsDemo. aspx i przejdź do widoku **projektu** .
+2. Umieść punkt wstawiania w widoku **projektu** tuż po dodanym wcześniej formancie **WebPartManager** . Dodaj twarde Return po tekście, tak aby po kontrolce **WebPartManager** był pusty wiersz. Umieść punkt wstawiania w pustym wierszu.
+3. Przeciągnij właśnie utworzoną kontrolkę użytkownika (plik o nazwie DisplayModeMenu. ascx) na stronę WebPartsDemo. aspx i upuść ją w pustym wierszu.
+4. Przeciągnij formant edytora EditorZone z sekcji **WebParts** przybornika do pozostałej otwartej komórki tabeli na stronie WebPartsDemo. aspx.
+5. W sekcji **WebParts** przybornika przeciągnij kontrolkę AppearanceEditorPart i kontrolkę LayoutEditorPart do kontrolki **edytora EditorZone** .
+6. Przejdź do widoku **źródła** . Kod wynikający z komórki tabeli powinien wyglądać podobnie do poniższego kodu. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample25.aspx)]
-7. Zapisz plik WebPartsDemo.aspx. Utworzono kontrolkę użytkownika, która pozwala na zmianę trybów wyświetlania i zmiany układu strony i ma odwołanie do formantu do głównej strony sieci Web.
+7. Zapisz plik WebPartsDemo. aspx. Utworzono kontrolkę użytkownika, która pozwala na zmianę trybów wyświetlania i zmianę układu strony, oraz przywoływany formant na podstawowej stronie sieci Web.
 
-Teraz można przetestować możliwość edycji stron i Zmień układ.
+Teraz można testować możliwość edytowania stron i zmiany układu.
 
 ### <a name="to-test-layout-changes"></a>Aby przetestować zmiany układu
 
-1. Ładowanie strony w przeglądarce.
-2. Kliknij przycisk **tryb wyświetlania** menu rozwijanego, a następnie wybierz **Edytuj**. Tytuły strefy są wyświetlane.
-3. Przeciągnij **Moje łącza** kontrola paska tytułu ze strefy paska bocznego w dół strefy Main. Strona powinien wyglądać jak na poniższym zrzucie ekranu.
+1. Załaduj stronę w przeglądarce.
+2. Kliknij menu rozwijane **tryb wyświetlania** , a następnie wybierz pozycję **Edytuj**. Wyświetlane są tytuły stref.
+3. Przeciągnij kontrolkę **moje linki** na pasek tytułu ze strefy paska bocznego na dolną część strefy głównej. Strona powinna wyglądać podobnie do poniższego zrzutu ekranu.
 
-### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Strony pokaz części sieci Web za pomocą kontrolki Moje łącza przeniesiony
+### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Strona demonstracyjna składniki Web Part z przeniesionym formantem moje łącza
 
-![Przewodnik po 2 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image4.gif)
+![Zrzut ekranu składniki Web Part VS — Instruktaż 2](profiles-themes-and-web-parts/_static/image4.gif)
 
-**Rysunek 4**: Przewodnik po 2 Web Part w programie VS — zrzut ekranu
+**Rysunek 4**. zrzut ekranu składniki Web Part vs Instruktaż 2
 
-1. Kliknij przycisk **tryb wyświetlania** menu rozwijanego, a następnie wybierz **Przeglądaj**. Strona zostanie odświeżona, nazwy stref znikną i **Moje łącza** kontrolować pozostaje, gdzie umieszczony.
-2. Aby zademonstrować, czy działa personalizacji, zamknij przeglądarkę, a następnie ponownie załadować stronę. Wprowadzone zmiany są zapisywane w przeglądarce przyszłych sesji.
-3. Z **tryb wyświetlania** menu, wybierz opcję **Edytuj**.   
+1. Kliknij menu rozwijane **tryb wyświetlania** , a następnie wybierz pozycję **Przeglądaj**. Strona zostanie odświeżona, nazwy stref znikają, a kontrolka **moje linki** pozostaje w miejscu, w którym została umieszczona.
+2. Aby zademonstrować, że Personalizacja działa, zamknij przeglądarkę, a następnie ponownie Załaduj stronę. Wprowadzone zmiany są zapisywane w przyszłych sesjach przeglądarki.
+3. W menu **tryb wyświetlania** wybierz pozycję **Edytuj**.   
   
-   Na stronie każdego formantu jest teraz wyświetlany za pomocą strzałki w dół na pasku tytułu, który zawiera menu rozwijane zleceń.
-4. Kliknij strzałkę, aby wyświetlić menu zleceń na **Moje łącza** kontroli. Kliknij przycisk **Edytuj** zlecenie.   
+   Każda kontrolka na stronie jest teraz wyświetlana ze strzałką w dół na pasku tytułu, która zawiera menu rozwijane zlecenia.
+4. Kliknij strzałkę, aby wyświetlić menu czasowniki w kontrolce **moje linki** . Kliknij pozycję **Edytuj** zlecenie.   
   
-   **Edytora EditorZone** formant jest widoczny, wyświetlanie EditorPart dodaniu kontrolki.
-5. W **wygląd** sekcji formantu edycji, zmień **tytuł** moich ulubionych, użyj **typu Chrome** listy rozwijanej, aby wybrać **tylko tytułu**, a następnie kliknij przycisk **Zastosuj**. Poniższy zrzut ekranu przedstawia stronę w trybie edycji.
+   Zostanie wyświetlona kontrolka **edytora EditorZone** wyświetlająca dodane kontrolki EditorPart.
+5. W sekcji **wygląd** kontrolki Edycja Zmień **tytuł** na moje ulubione, Użyj listy rozwijanej **Typ Chrome** , aby zaznaczyć pozycję **tylko tytuł**, a następnie kliknij przycisk **Zastosuj**. Poniższy zrzut ekranu przedstawia stronę w trybie edycji.
 
-### <a name="web-parts-demo-page-in-edit-mode"></a>Strona pokazu części sieci Web w trybie edycji
+### <a name="web-parts-demo-page-in-edit-mode"></a>Strona demonstracyjna składniki Web Part w trybie edycji
 
-![Przewodnik po 3 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image5.gif)
+![Zrzut ekranu składniki Web Part VS Instruktaż 3](profiles-themes-and-web-parts/_static/image5.gif)
 
-**Rysunek 5**: Przewodnik po 3 Web Part w programie VS — zrzut ekranu
+**Rysunek 5**. zrzut ekranu składniki Web Part vs Instruktaż 3
 
-1. Kliknij przycisk **tryb wyświetlania** menu, a następnie wybierz **Przeglądaj** aby powrócić do trybu przeglądania.
-2. Kontrolki są ma teraz zaktualizowany tytuł, bez obramowania, jak pokazano na poniższym zrzucie ekranu.
+1. Kliknij menu **tryb wyświetlania** , a następnie wybierz polecenie **Przeglądaj** , aby powrócić do trybu przeglądania.
+2. Kontrolka ma teraz zaktualizowany tytuł i brak obramowania, jak pokazano na poniższym zrzucie ekranu.
 
-### <a name="edited-web-parts-demo-page"></a>Edytowanej strony części sieci Web w wersji demonstracyjnej
+### <a name="edited-web-parts-demo-page"></a>Edytowanie składniki Web Part stronie demonstracyjnej
 
-![Przewodnik po 4 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image6.gif)
+![Zrzut ekranu składniki Web Part VS Instruktaż 4](profiles-themes-and-web-parts/_static/image6.gif)
 
-**Rysunek 4**: Przewodnik po 4 Web Part w programie VS — zrzut ekranu
+**Rysunek 4**. zrzut ekranu składniki Web Part vs Instruktaż 4
 
-### <a name="adding-web-parts-at-run-time"></a>Dodawanie składników Web Part w czasie wykonywania
+### <a name="adding-web-parts-at-run-time"></a>Dodawanie składniki Web Part w czasie wykonywania
 
-Możesz również zezwolić użytkownikom na dodawanie formantów składników Web Part do ich strony w czasie wykonywania. Aby to zrobić, należy skonfigurować stronę z katalogu części sieci Web, która zawiera listę formantów składników Web Part, które chcesz udostępnić użytkownikom.
+Możesz również pozwolić użytkownikom na dodawanie składniki Web Part formantów do ich strony w czasie wykonywania. W tym celu należy skonfigurować stronę z wykazem składniki Web Part, który zawiera listę formantów składniki Web Part, które mają być dostępne dla użytkowników.
 
-**Aby zezwolić użytkownikom na dodawanie składników Web Part w czasie wykonywania**
+**Aby umożliwić użytkownikom dodawanie składniki Web Part w czasie wykonywania**
 
-1. Otwórz stronę WebPartsDemo.aspx i przełącz się do **projektowania** widoku.
-2. Z **składników Web Part** kartę z przybornika przeciągnij formant CatalogZone w prawej kolumnie tabeli, podrzędne **edytora EditorZone** kontroli.   
+1. Otwórz stronę WebPartsDemo. aspx i przejdź do widoku **projektu** .
+2. Na karcie **WebParts** przybornika przeciągnij formant CatalogZone do prawej kolumny tabeli poniżej kontrolki **edytora EditorZone** .   
   
-   Obie kontrolki może być w tej samej komórki tabeli, ponieważ nie będą wyświetlane w tym samym czasie.
-3. W okienku właściwości przypisać ciąg **Dodawanie składników Web Part** właściwością HeaderText **CatalogZone** kontroli.
-4. Z **składników Web Part** sekcji z przybornika przeciągnij formant DeclarativeCatalogPart do obszaru zawartości **CatalogZone** kontroli.
-5. Kliknij strzałkę w prawym górnym rogu **DeclarativeCatalogPart** kontrolować umożliwiającymi jego menu zadań, a następnie wybierz **Edytuj szablony**.
-6. Z **standardowa** sekcji przybornika przeciągnij **FileUpload** kontroli i **kalendarza** sterowania do **WebPartsTemplate** części **DeclarativeCatalogPart** kontroli.
-7. Przełącz się do **źródła** widoku. Zbadaj kod źródłowy &lt;asp: catalogzone&gt; elementu. Należy zauważyć, że **DeclarativeCatalogPart** kontrolka zawiera &lt;webpartstemplate&gt; element z dwoma formantami serwera ujęty, które będzie można dodać do strony z wykazu.
-8. Dodaj **tytuł** właściwość do każdego z formantów dodanych do katalogu, przy użyciu wartości ciągu wyświetlane dla każdego tytułu w poniższym przykładzie kodu. Nawet jeśli tytuł nie jest właściwością zwykle można ustawić na tych dwóch serwerów formantów w czasie projektowania, gdy użytkownik doda te formanty do **WebPartZone** strefy z katalogu w czasie wykonywania, ich są każde jest ujęte w  **Składnika GenericWebPart** kontroli. Dzięki temu je do działania jako formantów składników Web Part, dzięki czemu będą one możliwość wyświetlania tytułów.   
+   Obie kontrolki mogą znajdować się w tej samej komórce tabeli, ponieważ nie będą wyświetlane w tym samym czasie.
+3. W okienku właściwości Przypisz ciąg **dodaj składniki Web Part** do właściwości HeaderText kontrolki **CatalogZone** .
+4. W sekcji **WebParts** przybornika przeciągnij kontrolkę DeclarativeCatalogPart do obszaru zawartość kontrolki **CatalogZone** .
+5. Kliknij strzałkę w prawym górnym rogu kontrolki **DeclarativeCatalogPart** , aby uwidocznić jej menu zadania, a następnie wybierz pozycję **Edytuj szablony**.
+6. W sekcji **standardowa** przybornika przeciągnij kontrolkę **FileUpload** i kontrolkę **Calendar** do sekcji **WebPartsTemplate** kontrolki **DeclarativeCatalogPart** .
+7. Przejdź do widoku **źródła** . Sprawdź kod źródłowy elementu &lt;ASP: CatalogZone&gt;. Należy zauważyć, że formant **DeclarativeCatalogPart** zawiera element&gt; &lt;WebPartsTemplate z dwoma załączonymi kontrolkami serwera, które będą mogły zostać dodane do strony z wykazu.
+8. Dodaj właściwość **title** do każdego z formantów, które zostały dodane do wykazu, przy użyciu wartości ciągu podanej dla każdego tytułu w poniższym przykładzie kodu. Mimo że tytuł nie jest właściwością, można normalnie ustawić na tych dwóch kontrolkach serwera w czasie projektowania, gdy użytkownik doda te kontrolki do strefy **WebPartZone** z wykazu w czasie wykonywania, są one opakowane przy użyciu kontrolki **GenericWebPart** . Dzięki temu mogą one działać jako kontrolki składniki Web Part, dzięki czemu będą mogli wyświetlać tytuły.   
   
-   Kod dla dwóch kontrolek znajdujących się w **DeclarativeCatalogPart** kontrolki powinien wyglądać jak poniżej. 
+   Kod dla dwóch kontrolek zawartych w kontrolce **DeclarativeCatalogPart** powinien wyglądać w następujący sposób. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Zapisz stronę.
 
-Teraz możesz przetestować katalogu.
+Teraz można testować wykaz.
 
-### <a name="to-test-the-web-parts-catalog"></a>Aby testować wykaz w części sieci Web
+### <a name="to-test-the-web-parts-catalog"></a>Aby przetestować katalog składniki Web Part
 
-1. Ładowanie strony w przeglądarce.
-2. Kliknij przycisk **tryb wyświetlania** menu rozwijanego, a następnie wybierz **katalogu**.   
+1. Załaduj stronę w przeglądarce.
+2. Kliknij menu rozwijane **tryb wyświetlania** , a następnie wybierz pozycję **katalog**.   
   
-   Katalog o nazwie **Dodawanie składników Web Part** jest wyświetlana.
-3. Przeciągnij **moich ulubionych** z głównego strefy kontrolować powrót do początku strefy paska bocznego i upuść je ma.
-4. W **Dodawanie składników Web Part** katalogu, zaznacz oba pola wyboru, a następnie wybierz **Main** z listy rozwijanej, która zawiera strefy dostępności.
-5. Kliknij przycisk **Dodaj** w wykazie. Formanty są dodawane do strefy głównej. Jeśli chcesz, można dodać wiele wystąpień kontrolek z katalogu, do strony.   
+   Zostanie wyświetlony wykaz zatytułowany **dodaj składniki Web Part** .
+3. Przeciągnij kontrolkę **Moje ulubione** z strefy głównej z powrotem na górną część strefy paska bocznego i upuść ją tam.
+4. W oknie **dodawanie składniki Web Part** wykazu zaznacz oba pola wyboru, a następnie wybierz pozycję **główny** z listy rozwijanej zawierającej dostępne strefy.
+5. Kliknij przycisk **Dodaj** w wykazie. Formanty są dodawane do strefy głównej. Jeśli chcesz, możesz dodać wiele wystąpień kontrolek z wykazu do strony.   
   
-   Poniższy zrzut ekranu przedstawia strony za pomocą formantu przekazywania plików i kalendarza w strefie głównej. 
+   Poniższy zrzut ekranu przedstawia stronę z formantem przekazywania plików i kalendarzem w strefie głównej. 
 
-![Formanty dodany do strefy głównej z katalogu](profiles-themes-and-web-parts/_static/image7.gif)
+![Kontrolki dodane do strefy głównej z wykazu](profiles-themes-and-web-parts/_static/image7.gif)
 
     **Figure 5**: Controls added to Main zone from the catalog
-6. Kliknij przycisk **tryb wyświetlania** menu rozwijanego, a następnie wybierz **Przeglądaj**. Katalog znika i odświeżeniu strony.
-7. Zamknij przeglądarkę. Załaduj ponownie stronę. Zmiany wprowadzone w utrwalania.
+6. Kliknij menu rozwijane **tryb wyświetlania** , a następnie wybierz pozycję **Przeglądaj**. Wykaz znika i strona zostanie odświeżona.
+7. Zamknij okno przeglądarki. Załaduj ponownie stronę. Wprowadzone zmiany są utrwalane.

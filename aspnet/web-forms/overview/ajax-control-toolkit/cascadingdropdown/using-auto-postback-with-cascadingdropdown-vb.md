@@ -9,11 +9,11 @@ ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5dea23a20aba00af5109f05f18365b89e409a131
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574467"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78535925"
 ---
 # <a name="using-auto-postback-with-cascadingdropdown-vb"></a>Używanie automatycznego ogłaszania zwrotnego za pomocą kontrolki CascadingDropDown (VB)
 
@@ -60,4 +60,4 @@ W ten sposób ogłaszanie zwrotne jest wykonywane tylko wtedy, gdy na liście zn
 Wybranie elementu listy powoduje ogłoszenie zwrotne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](presetting-list-entries-with-cascadingdropdown-vb.md)
+> [Wstecz](presetting-list-entries-with-cascadingdropdown-vb.md)

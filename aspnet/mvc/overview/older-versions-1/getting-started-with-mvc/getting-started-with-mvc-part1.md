@@ -1,84 +1,84 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
-title: Wprowadzenie do platformy ASP.NET MVC | Dokumentacja firmy Microsoft
+title: Wprowadzenie do ASP.NET MVC | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
 ms.openlocfilehash: f8f0014776ba1313119e8c39c63a216b0fc864e7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581586"
 ---
 # <a name="intro-to-aspnet-mvc"></a>Wprowadzenie do wzorca ASP.NET MVC
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
-> > Zaktualizowanej wersji, jeśli w tym samouczku jest dostępny [tutaj](../../getting-started/introduction/getting-started.md) przy użyciu [programu Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Nowe samouczku ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z tego samouczka.
+> > Zaktualizowana wersja, jeśli ten samouczek jest dostępny w [tym miejscu](../../getting-started/introduction/getting-started.md) przy użyciu [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). W nowym samouczku jest używany ASP.NET MVC 5, który zapewnia wiele ulepszeń w tym samouczku.
 >
 >
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-Upewnijmy się, w naszej pierwszej aplikacji sieci Web programu ASP.NET MVC przy użyciu [Visual Web Developer 2010 Express](https://www.microsoft.com/express/Web/). Wybierzemy nieco aplikacji listy filmów, która będzie Daj nam tworzenie i wyświetlanie listy filmów.
+Utwórzmy pierwszą aplikację sieci Web ASP.NET MVC przy użyciu [programu Visual Web Developer 2010 Express](https://www.microsoft.com/express/Web/). Udostępnimy małą listę filmów, która pozwoli nam tworzyć i wyświetlać filmy.
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-Poniżej przedstawiono dwa zrzuty ekranu aplikacji, którą utworzysz. Będziesz mieć prostą tabelę filmów z różnych kolumn.
+Poniżej przedstawiono dwa zrzuty ekranu aplikacji, która zostanie utworzona. Będziesz mieć prostą tabelę filmów z różnymi kolumnami.
 
-[![Lista filmu — Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[Lista filmów ![— Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
-I należy utworzyć formularz, abyśmy mogli dodać do listy filmów.
+A będziesz mieć formularz tworzenia, aby umożliwić Dodawanie filmów do listy.
 
-[![Utwórz film — Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![utworzyć filmu — Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
-## <a name="skills-youll-learn"></a>Umiejętności, których dowiesz się
+## <a name="skills-youll-learn"></a>Posiadane umiejętności
 
-Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Visual Studio. Dowiesz się:
+Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Visual Studio. W dokumencie omówiono następujące zagadnienia :
 
-- Tworzenie nowego projektu MVC ASP.NET
-- Jak utworzyć nową bazę danych za pomocą programu SQL Server
-- Sposób tworzenia widoków i kontrolerów MVC ASP.NET
-- Sposób pobierania i wyświetlania danych
-- Jak edytować dane i włączyć sprawdzanie poprawności danych
+- Jak utworzyć nowy projekt ASP.NET MVC
+- Jak utworzyć nową bazę danych za pomocą SQL Server
+- Jak utworzyć kontrolery i widoki ASP.NET MVC
+- Jak pobierać i wyświetlać dane
+- Jak edytować dane i włączać sprawdzanie poprawności danych
 - Jak zaktualizować schemat bazy danych
 
-## <a name="get-started"></a>Rozpocznij
+## <a name="get-started"></a>Rozpoczęcie pracy
 
-Rozpocznij, korzystając z polecenia programu Visual Web Developer 2010 Express (będzie nazywam "VWD" od teraz) i wybierz pozycję Nowy projekt ekranu startowego.
+Zacznij od uruchomienia programu Visual Web Developer 2010 Express (wywołam teraz "pliku VWD") i wybierz pozycję Nowy projekt na ekranie startowym.
 
-Visual Web Developer jest środowiskiem IDE lub zintegrowanego środowiska deweloperskiego. Tak samo jak w programie Microsoft Word do zapisywania dokumentów, użyjesz środowisko IDE do tworzenia aplikacji. Brak narzędzi wzdłuż górnej przedstawiający różne opcje dostępne do można, a także menu mógł możesz również użyć do wybierz plik | Nowy projekt.
+Visual Web Developer to IDE lub zintegrowane środowisko deweloperskie. Podobnie jak w przypadku używania programu Microsoft Word do pisania dokumentów, do tworzenia aplikacji będziesz używać środowiska IDE. Na początku znajduje się pasek narzędzi pokazujący różne dostępne opcje, a także menu, które można także użyć do wybrania pliku | Nowy projekt.
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image6.png)](getting-started-with-mvc-part1/_static/image5.png)
 
 ## <a name="creating-your-first-application"></a>Tworzenie pierwszej aplikacji
 
-Można tworzyć aplikacje przy użyciu języka Visual Basic lub Visual C#. Teraz, wybierz pozycję Visual C# po lewej stronie a następnie wybierz "Aplikacja sieci Web ASP.NET MVC 2". Nazwij swój projekt "Filmy", a następnie kliknij przycisk OK.
+Aplikacje można tworzyć przy użyciu Visual Basic lub wizualizacji C#. Na razie zaznacz opcję Visual C# po lewej stronie, a następnie wybierz pozycję "ASP.NET MVC 2 Web Application". Nadaj projektowi nazwę "filmy" i kliknij przycisk OK.
 
-[![Nowy projekt](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![nowy projekt](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
-Po prawej stronie jest Eksploratora rozwiązań przedstawiający wszystkie pliki i foldery w aplikacji. Duże okno w środku jest umożliwiającym edytowanie kodu i spędzają większość czasu. Program Visual Studio ulegał szablonu domyślnego dla projektu platformy ASP.NET MVC, który został utworzony, więc teraz utworzono działającą aplikację bez żadnego działania! Jest to prosty tekst "Hello World! Projekt i jest dobrym miejscem do uruchomienia dla naszej aplikacji.
+Po prawej stronie jest Eksplorator rozwiązań pokazujący wszystkie pliki i foldery w aplikacji. Duże okno w środku polega na tym, że edytujesz swój kod i spędzasz najwięcej czasu. Program Visual Studio użył szablonu domyślnego dla projektu ASP.NET MVC, który właśnie został utworzony, więc masz działającą aplikację, która teraz nie wykonuje żadnych działań. To jest prosta "Hello world! projekt i jest dobrym miejscem do rozpoczęcia pracy z naszą aplikacją.
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image10.png)](getting-started-with-mvc-part1/_static/image9.png)
 
-Wybierz przycisk "odtwarzania" na pasku narzędzi.
+Wybierz przycisk "Odtwórz" na pasku narzędzi.
 
 ![Rozpocznij debugowanie](getting-started-with-mvc-part1/_static/image11.png)
 
-Jest zielona strzałka w prawo, który będzie kompilujesz program i uruchomić aplikację w przeglądarce sieci web.
+Jest to zielona strzałka wskazująca prawo do skompilowania programu i uruchomienia aplikacji w przeglądarce sieci Web.
 
-*UWAGA: Można zamiast tego na klawiaturze naciśnij klawisz F5 lub wybierz debugowania -&gt;Rozpocznij debugowanie z menu "Debugowanie".*
+*Uwaga: możesz zamiast tego nacisnąć klawisz F5 na klawiaturze lub wybrać polecenie Debuguj-&gt;Rozpocznij debugowanie z menu "Debugowanie".*
 
-Spowoduje to Visual Web Developer uruchomić serwer sieci web development i uruchomić aplikację sieci web (nie ma żadnych konfiguracji lub wymagane umożliwiające wykonanie tej czynności ręczne). Zostanie następnie uruchomi przeglądarkę i skonfiguruj ją, aby przejść do strony głównej aplikacji. Zwróć uwagę, poniżej, na pasku adresu przeglądarki jest wyświetlany komunikat "localhost", a nie podobny do example.com. Wynika to z localhost zawsze wskazuje na swoim komputerze lokalnym — działającego w takim przypadku aplikacji, którą właśnie utworzyliśmy.
+Spowoduje to, że Visual Web Developer rozpocznie Programowanie na serwerze sieci Web i uruchamianie naszej aplikacji sieci Web (nie ma konieczności konfigurowania ani ręcznego wykonywania czynności). Następnie zostanie uruchomiona przeglądarka i zostanie skonfigurowana w celu przeglądania strony głównej aplikacji. Zwróć uwagę, że na pasku adresu przeglądarki jest wyświetlany napis "localhost", a nie coś, takiego jak example.com. Jest to spowodowane tym, że hosty localhost zawsze wskazuje na własny komputer lokalny — w tym przypadku jest uruchomiona utworzona przez nas aplikacja.
 
-[![Strona główna](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[Strona główna ![](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
-Gotowych ten szablon domyślny zawiera dwie strony do odwiedzenia i strony logowania podstawowe. Możemy zmienić sposób działania tej aplikacji i Poznaj nieco platformy ASP.NET MVC w procesie. Zamknij przeglądarkę i umożliwia zmiany kodu.
+Z pola ten szablon domyślny udostępnia dwie strony do odwiedzania oraz podstawową stronę logowania. Zmieńmy sposób działania tej aplikacji i Dowiedz się więcej na temat ASP.NET MVC w procesie. Zamknij przeglądarkę i umożliwia zmianę kodu.
 
 > [!div class="step-by-step"]
-> [Next](getting-started-with-mvc-part2.md)
+> [Dalej](getting-started-with-mvc-part2.md)

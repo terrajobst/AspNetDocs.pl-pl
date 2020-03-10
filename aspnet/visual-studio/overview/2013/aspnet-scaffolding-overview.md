@@ -1,94 +1,94 @@
 ---
 uid: visual-studio/overview/2013/aspnet-scaffolding-overview
-title: Funkcja tworzenia szkieletu ASP.NET w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
+title: Tworzenie szkieletu ASP.NET w Visual Studio 2013 | Microsoft Docs
 author: Rick-Anderson
-description: Funkcja tworzenia szkieletu ASP.NET jest nową funkcję, która znajduje się w programie Visual Studio 2013.
+description: Tworzenie szkieletu ASP.NET to nowa funkcja, która jest zawarta w Visual Studio 2013.
 ms.author: riande
 ms.date: 04/09/2014
 ms.assetid: a41ec9d4-8287-4f31-9e2a-460e7b7f04be
 msc.legacyurl: /visual-studio/overview/2013/aspnet-scaffolding-overview
 msc.type: authoredcontent
 ms.openlocfilehash: cf4669b769cee28475e2dd6a6ddf07ea1434d04d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126430"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557982"
 ---
 # <a name="aspnet-scaffolding-in-visual-studio-2013"></a>Funkcja tworzenia szkieletu ASP.NET w programie Visual Studio 2013
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> Funkcja tworzenia szkieletu ASP.NET jest nową funkcję, która znajduje się w programie Visual Studio 2013.
+> Tworzenie szkieletu ASP.NET to nowa funkcja, która jest zawarta w Visual Studio 2013.
 
 ## <a name="overview"></a>Omówienie
 
-Funkcja tworzenia szkieletu ASP.NET jest struktura generowania kodu dla aplikacji sieci Web ASP.NET. Visual Studio 2013 obejmuje generatorów kodu wstępnie zainstalowane dla projektów MVC i interfejs API sieci Web. Dodasz szkieletu do projektu, jeśli chcesz szybko dodać kod, który wchodzi w interakcję z modelami danych. Szkieletów może skrócić czas do opracowywania działań standardowych danych w projekcie.
+Tworzenie szkieletów ASP.NET jest strukturą generowania kodu dla aplikacji sieci Web ASP.NET. Visual Studio 2013 obejmuje wstępnie zainstalowane generatory kodu dla projektów MVC i Web API. Dodawanie szkieletu do projektu, gdy chcesz szybko dodać kod, który współdziała z modelami danych. Użycie szkieletu może skrócić czas projektowania standardowych operacji na danych w projekcie.
 
-Domyślnie program Visual Studio 2013 nie obsługuje generowania kodu dla projektu formularzy sieci Web, ale za pomocą tworzenia szkieletów formularzy sieci Web przez dodanie zależności MVC do projektu lub Instalowanie rozszerzenia. Poniżej przedstawiono oba podejścia.
+Domyślnie Visual Studio 2013 nie obsługuje generowania kodu dla projektu formularzy sieci Web, ale można użyć szkieletów z formularzami sieci Web przez dodanie zależności MVC do projektu lub zainstalowanie rozszerzenia. Poniżej przedstawiono oba podejścia.
 
-Visual Studio 2013 Update 2 (obecnie RC) zapewnia możliwość rozszerzania funkcja tworzenia szkieletu ASP.NET w celu spełnienia wymagań scenariusza. Dzięki tej funkcji można utworzyć szablon dostosowane szkieletu i dodać go do okna dialogowego Dodawanie szkieletu nowe. W ramach dostosowanego szablonu możesz określić kod, który jest generowany, gdy Dodawanie elementu szkieletu. Aby uzyskać więcej informacji, zobacz [tworzenia niestandardowego Generator szkieletu dla programu Visual Studio](https://go.microsoft.com/fwlink/p/?LinkId=395029).
+Visual Studio 2013 Update 2 (obecnie RC) zapewnia możliwość rozbudowania szkieletu ASP.NET w celu spełnienia wymagań danego scenariusza. Za pomocą tej funkcji można utworzyć dostosowany szablon tworzenia szkieletu i dodać go do okna dialogowego Dodawanie nowej szkieletu. W ramach niestandardowego szablonu należy określić kod, który jest generowany podczas dodawania szkieletu elementu. Aby uzyskać więcej informacji, zobacz [Tworzenie niestandardowego szkieletu dla programu Visual Studio](https://go.microsoft.com/fwlink/p/?LinkId=395029).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby korzystać z ASP.NET tworzenie szkieletów, musisz mieć:
+Aby korzystać z szkieletu ASP.NET, musisz mieć:
 
 - Microsoft Visual Studio 2013
-- Narzędzia dla deweloperów sieci Web (część domyślnej instalacji programu Visual Studio 2013)
-- Struktury sieci Web platformy ASP.NET i Tools 2013 (część domyślnej instalacji programu Visual Studio 2013)
+- Narzędzia deweloperskie sieci Web (część domyślnej instalacji Visual Studio 2013)
+- ASP.NET Web Frameworks and Tools 2013 (część domyślnej instalacji Visual Studio 2013)
 
-## <a name="add-a-scaffolded-item-to-mvc-or-web-api"></a>Dodawanie elementu szkieletu do MVC lub interfejsu API sieci Web
+## <a name="add-a-scaffolded-item-to-mvc-or-web-api"></a>Dodaj element szkieletowy do MVC lub interfejsu API sieci Web
 
-W celu dodania szkieletu, kliknij prawym przyciskiem myszy projekt lub folder w projekcie, a następnie wybierz **Dodaj** — **nowy element szkieletu**, jak pokazano na poniższej ilustracji.
+Aby dodać szkielet, kliknij prawym przyciskiem myszy projekt lub folder w projekcie, a następnie wybierz polecenie **Dodaj** — **nowy element szkieletowy**, jak pokazano na poniższej ilustracji.
 
-![Dodawanie elementu szkieletu](aspnet-scaffolding-overview/_static/image1.png)
+![Dodaj element szkieletu](aspnet-scaffolding-overview/_static/image1.png)
 
-Z **Dodawanie szkieletu** okna, wybierz typ szkieletu do dodania.
+W oknie **Dodawanie szkieletu** wybierz typ szkieletu do dodania.
 
 ![Wybierz typ szkieletu](aspnet-scaffolding-overview/_static/image2.png)
 
-**Dodaj kontroler** okno pozwala wybrać opcje generowania kontrolera, w tym, czy chcesz korzystać z nowych funkcji asynchronicznej z platformy Entity Framework 6.
+Okno **Dodawanie kontrolera** umożliwia wybranie opcji związanych z generowaniem kontrolera, w tym o tym, czy mają być używane nowe funkcje asynchroniczne z Entity Framework 6.
 
-![Dodawanie kontrolera](aspnet-scaffolding-overview/_static/image3.png)
+![Dodaj kontroler](aspnet-scaffolding-overview/_static/image3.png)
 
-Odpowiednich klas i strony są tworzone dla danego scenariusza. Na przykład na poniższej ilustracji przedstawiono kontroler MVC i widoki, które zostały utworzone za pomocą funkcją szkieletów dla klasę modelu o nazwie filmów.
+Dla danego scenariusza tworzone są odpowiednie klasy i strony. Na przykład na poniższej ilustracji przedstawiono kontroler MVC i widoki, które zostały utworzone za pomocą szkieletów dla klasy modelu o nazwie filmy.
 
 ![Utworzone pliki](aspnet-scaffolding-overview/_static/image4.png)
 
-## <a name="add-a-scaffolded-item-to-web-forms"></a>Dodawanie elementu szkieletu do formularzy sieci Web
+## <a name="add-a-scaffolded-item-to-web-forms"></a>Dodawanie elementu szkieletowego do formularzy sieci Web
 
-Aby dodać tworzenia szkieletów, które generuje kod formularzy sieci Web, możesz zainstalować rozszerzenie programu Visual Studio lub Dodaj zależności MVC. Poniżej przedstawiono oba podejścia, ale należy wykonać jedną z tych metod.
+Aby dodać szkielet, który generuje kod formularzy sieci Web, należy zainstalować rozszerzenie programu Visual Studio lub dodać zależności MVC. Poniżej przedstawiono oba podejścia, ale należy wykonać tylko jedną z tych metod.
 
-### <a name="web-forms-scaffolding-extension"></a>Formularze sieci Web, tworzenia szkieletów rozszerzenia
+### <a name="web-forms-scaffolding-extension"></a>Rozszerzenie szkieletu formularzy sieci Web
 
-Można zainstalować rozszerzenia programu Visual Studio, które umożliwiają tworzenie szkieletu za pomocą projektu formularzy sieci Web. W programie Visual Studio, wybierz **narzędzia** i następnie **rozszerzenia i aktualizacje**. W tym oknie dialogowym wyszukiwania galerii Visual Studio dla **szkieletu formularzy sieci Web**.
+Można zainstalować rozszerzenie programu Visual Studio, które umożliwia korzystanie z szkieletów z projektem formularzy sieci Web. W programie Visual Studio wybierz pozycje **Narzędzia** , a następnie **rozszerzenia i aktualizacje**. Z tego okna dialogowego Przeszukaj galerię programu Visual Studio dla **szkieletu formularzy sieci Web**.
 
-![Zainstaluj formularzy sieci web, tworzenia szkieletów](aspnet-scaffolding-overview/_static/image5.png)
+![Instalowanie szkieletu formularzy sieci Web](aspnet-scaffolding-overview/_static/image5.png)
 
-Aby uzyskać więcej informacji, zobacz [szkieletu formularzy sieci Web](https://go.microsoft.com/fwlink/p/?LinkId=396478).
+Aby uzyskać więcej informacji, zobacz Tworzenie [szkieletu formularzy sieci Web](https://go.microsoft.com/fwlink/p/?LinkId=396478).
 
 ### <a name="mvc-dependencies"></a>Zależności MVC
 
-Aby dodać zależności MVC, wybierz **Dodaj** - **nowy element szkieletu**. W oknie Dodawanie szkieletu wybierz **zależności MVC**, jak pokazano poniżej.
+Aby dodać zależności MVC, wybierz pozycję **dodaj** - **nowy element szkieletowy**. W oknie Dodawanie szkieletu wybierz pozycję **zależności MVC**, jak pokazano poniżej.
 
-![Dodaj zależności MVC](aspnet-scaffolding-overview/_static/image6.png)
+![Dodawanie zależności MVC](aspnet-scaffolding-overview/_static/image6.png)
 
-Dostępne są dwie opcje na potrzeby tworzenia szkieletów MVC; Minimalna i pełne. Jeśli wybierzesz przycisku minimalnych tylko pakiety NuGet i odwołania dla platformy ASP.NET MVC są dodawane do projektu. Jeśli wybierzesz opcję pełnej, minimalnym zależności zostaną dodane, a także wymagane pliki zawartości projektu MVC. Aby łatwo korzystać z tworzenia szkieletów, wybierz pełną zależności.
+Dostępne są dwie opcje tworzenia szkieletów MVC; Minimalny i pełny. W przypadku wybrania opcji minimalny tylko pakiety NuGet i odwołania dla ASP.NET MVC zostaną dodane do projektu. W przypadku wybrania opcji Pełna są dodawane minimalne zależności, a także wymagane pliki zawartości dla projektu MVC. Aby łatwo korzystać z szkieletów, wybierz pozycję pełne zależności.
 
-![Wybierz opcję pełnej zależności](aspnet-scaffolding-overview/_static/image7.png)
+![Wybierz pełne zależności](aspnet-scaffolding-overview/_static/image7.png)
 
-Po dodaniu zależności, zobaczysz **readme.txt** pliku. Dokładnie postępuj zgodnie z instrukcjami w tym pliku, aby upewnić się, że projekt działa prawidłowo.
+Po dodaniu zależności zobaczysz plik **README. txt** . Uważnie postępuj zgodnie z instrukcjami w tym pliku, aby upewnić się, że projekt działa prawidłowo.
 
-Po zakończeniu kroków z pliku readme.txt można dodać nowy element szkieletowy, jak pokazano w poprzedniej sekcji o MVC i interfejs API sieci Web. Widoki generowane automatycznie i kontroler będzie działać prawidłowo w obrębie projektu.
+Po wykonaniu kroków opisanych w pliku Readme. txt można dodać nowy element szkieletowy, jak pokazano w poprzedniej sekcji dotyczącej składnika MVC i interfejsu Web API. Automatycznie generowane widoki i kontroler będą działać prawidłowo w ramach projektu.
 
 ## <a name="tutorials"></a>Samouczki
 
-Aby utworzyć niestandardowe Generator szkieletu, zobacz [tworzenia niestandardowego Generator szkieletu dla programu Visual Studio](https://go.microsoft.com/fwlink/p/?LinkId=395029).
+Aby utworzyć dostosowany szkielet, zobacz [Tworzenie niestandardowego szkieletu dla programu Visual Studio](https://go.microsoft.com/fwlink/p/?LinkId=395029).
 
-Aby dostosować wygenerowanych plików, zobacz [jak dostosować wygenerowane pliki w oknie dialogowym Nowy element szkieletu](https://blogs.msdn.com/b/webdev/archive/2013/12/26/how-to-customize-the-generated-files-from-the-new-scaffolded-item-dialog.aspx).
+Aby dostosować wygenerowane pliki, zobacz [How to Dostosowywanie wygenerowanych plików z okna dialogowego Nowy element szkieletowy](https://blogs.msdn.com/b/webdev/archive/2013/12/26/how-to-customize-the-generated-files-from-the-new-scaffolded-item-dialog.aspx).
 
-Na przykład szkieletów z **rozwoju Database First**, zobacz [EF Database First ze wzorca ASP.NET MVC](../../../mvc/overview/getting-started/database-first-development/setting-up-database.md).
+Aby zapoznać się z przykładem korzystania z szkieletów z **programowaniem Database First**, zobacz [EF Database First z ASP.NET MVC](../../../mvc/overview/getting-started/database-first-development/setting-up-database.md).
 
-Na przykład szkieletów w **MVC** projektu, zobacz [wprowadzenie do ASP.NET MVC 5](../../../mvc/overview/getting-started/introduction/getting-started.md).
+Aby zapoznać się z przykładem użycia szkieletu w projekcie **MVC** , zobacz [wprowadzenie with ASP.NET MVC 5](../../../mvc/overview/getting-started/introduction/getting-started.md).
 
-Na przykład szkieletów w **interfejsu API sieci Web** projektu, zobacz [Tworzenie interfejsu API REST przy użyciu atrybutu routingu w sieci Web API 2](../../../web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md).
+Aby zapoznać się z przykładem użycia szkieletu w projekcie **interfejsu API sieci Web** , zobacz [Tworzenie interfejsu API REST z routingiem atrybutów w interfejsie Web API 2](../../../web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md).

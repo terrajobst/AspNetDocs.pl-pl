@@ -1,8 +1,8 @@
 ---
 uid: web-api/index
-title: ASP.NET Web API — ASP.NET 4.x
+title: ASP.NET Web API — ASP.NET 4. x
 author: rick-anderson
-description: Pobierz ASP.NET MVC 4 i tworzenie usług HTTP, docierających do szerokiej gamy klientów.
+description: Pobierz ASP.NET MVC 4 i skompiluj usługi HTTP, które docierają do szerokiego zakresu klientów.
 ms.author: riande
 ms.date: 01/17/2012
 ms.custom: seoapril2019
@@ -10,13 +10,13 @@ ms.assetid: f571ca7a-c06b-400d-8051-f62f9f0bcc9b
 msc.legacyurl: /web-api
 msc.type: categoryindex
 ms.openlocfilehash: c04719e06c6c0900c8f8268b73f833b525ea3dd6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410841"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557730"
 ---
-# <a name="aspnet-web-api"></a>ASP.NET Web API
+# <a name="aspnet-web-api"></a>Składnik Web API platformy ASP.NET
 
 - [Wskazówki](overview/index.md)
 
@@ -26,7 +26,7 @@ ms.locfileid: "59410841"
         - [Wyniki akcji w interfejsie Web API 2](overview/getting-started-with-aspnet-web-api/action-results.md)
         - [Korzystanie z interfejsu Web API we wzorcu ASP.NET Web Forms](overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
         - [Tworzenie stron pomocy interfejsu Web API](overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-        - [Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+        - [Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
     - [Routing](overview/web-api-routing-and-actions/index.md)
 
         - [Routing w interfejsie Web API 2](overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -114,10 +114,10 @@ ms.locfileid: "59410841"
         - [Wywoływanie interfejsu Web API z klienta programu .NET (C#)](overview/advanced/calling-a-web-api-from-a-net-client.md)
         - [Programy obsługi komunikatów HTTP w interfejsie Web API](overview/advanced/http-message-handlers.md)
         - [Programy obsługi komunikatów HttpClient w interfejsie Web API](overview/advanced/httpclient-message-handlers.md)
-        - [Wysyłanie danych formularza HTML w interfejsie Web API: Dane zakodowane](overview/advanced/sending-html-form-data-part-1.md)
-        - [Wysyłanie danych formularza HTML w interfejsie Web API: Przekazywanie pliku i wieloczęściowej wiadomości MIME](overview/advanced/sending-html-form-data-part-2.md)
+        - [Wysyłanie danych formularza HTML w interfejsie Web API: dane zakodowane jako adres URL](overview/advanced/sending-html-form-data-part-1.md)
+        - [Wysyłanie danych formularza HTML w interfejsie Web API: przekazywanie pliku i wieloczęściowej wiadomości MIME](overview/advanced/sending-html-form-data-part-2.md)
         - [Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API](overview/advanced/http-cookies.md)
-    - [Wydania](overview/releases/index.md)
+    - [Releases](overview/releases/index.md) (Wydania)
 
         - [Co nowego w protokole Web API OData 5.3](overview/releases/whats-new-in-aspnet-web-api-odata-53.md)
         - [Co nowego we wzorcu ASP.NET Web API 2.2](overview/releases/whats-new-in-aspnet-web-api-22.md)
@@ -136,15 +136,15 @@ ms.locfileid: "59410841"
             - [Tworzenie strony głównej](overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
         - [Hostowanie samodzielne interfejsu Web API 1 (C#)](overview/older-versions/self-host-a-web-api.md)
         - [Tworzenie interfejsów API RESTful za pomocą wzorca ASP.NET Web API](overview/older-versions/build-restful-apis-with-aspnet-web-api.md)
-- [Filmy wideo](videos/index.md)
+- [Wideo](videos/index.md)
 
     - [Omówienie i wprowadzenie](videos/getting-started/index.md)
 
         - [ASP.NET Web API](videos/getting-started/aspnet-web-api.md)
         - [ASP.NET Web API, część 1: Twój pierwszy interfejs Web API](videos/getting-started/your-first-web-api.md)
-        - [ASP.NET Web API, część 2: Pobieranie danych](videos/getting-started/getting-data.md)
-        - [ASP.NET Web API, część 3: Usuwanie i aktualizowanie](videos/getting-started/delete-and-update.md)
-        - [ASP.NET Web API, część 4: Stronicowanie i zapytania](videos/getting-started/paging-and-querying.md)
-        - [ASP.NET Web API, część 5: Niestandardowego sprawdzania poprawności](videos/getting-started/custom-validation.md)
-        - [ASP.NET Web API, część 6: Autoryzacja](videos/getting-started/authorization.md)
+        - [ASP.NET Web API, część 2: pobieranie danych](videos/getting-started/getting-data.md)
+        - [ASP.NET Web API, część 3: usuwanie i aktualizowanie](videos/getting-started/delete-and-update.md)
+        - [ASP.NET Web API, część 4: stronicowanie i zapytania](videos/getting-started/paging-and-querying.md)
+        - [ASP.NET Web API, część 5: weryfikacja niestandardowa](videos/getting-started/custom-validation.md)
+        - [ASP.NET Web API, część 6: autoryzacja](videos/getting-started/authorization.md)
 - [Lista przykładów interfejsu Web API](samples-list.md)

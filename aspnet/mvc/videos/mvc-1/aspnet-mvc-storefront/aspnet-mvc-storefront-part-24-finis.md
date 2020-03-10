@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
-title: 'ASP.NET MVC Storefront — część 24: Koniec | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC — część 24: koniec | Microsoft Docs'
 author: robconery
-description: Jest to ostatni odcinek z serii MVC Storefront, a to może się wydawać nieco dziwne. Zdecydowanie nie jest ostatni zrzut ekranu, który mogę to zrobić w odniesieniu do programu ASP.NET...
+description: Jest to ostatni odcinek serii w sklepie MVC, który może wydawać się nieparzysty. Nie jest to termin, w jakim zrzut ekranu przedstawiający się w odniesieniu do ASP.NET...
 ms.author: riande
 ms.date: 05/28/2009
 ms.assetid: 160d6dde-1a19-4822-963b-cd936fb8afa0
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
 ms.openlocfilehash: 6478ad3c8ef599dcf17c998cb0ce3c71a0039223
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418797"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559186"
 ---
-# <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC Storefront — część 24: zakończenie
+# <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC Storefront — część 24: koniec
 
-przez [Rob Conery](https://github.com/robconery)
+według [stożka robu](https://github.com/robconery)
 
-Jest to ostatni odcinek z serii MVC Storefront, a to może się wydawać nieco dziwne. Zdecydowanie nie jest ostatni zrzut ekranu, który mogę to zrobić w odniesieniu do platformy ASP.NET MVC, ale myślę, że po ukończeniu ile mogę przejść z tej serii.
+Jest to ostatni odcinek serii w sklepie MVC, który może wydawać się nieparzysty. Nie jest to termin, w jakim zrzut ekranu przedstawiający się w odniesieniu do ASP.NET MVC, ale myślę o tym, jak mogę się dowiedzieć, jak można to zrobić za pomocą tej serii.
 
-[&#9654;Obejrzyj film wideo (27 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
+[&#9654;Obejrzyj wideo (27 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
 
 > [!div class="step-by-step"]
-> [Poprzednie](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+> [Wstecz](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)

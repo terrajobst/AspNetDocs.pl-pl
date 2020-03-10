@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/index
-title: Contact Manager | Dokumentacja firmy Microsoft
+title: Menedżer kontaktów | Microsoft Docs
 author: rick-anderson
-description: Jak utworzyć całej aplikacji zarządzania skontaktuj się z od początku do zakończenia.
+description: Jak utworzyć całą aplikację do zarządzania kontaktami od początku do końca.
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 6b0f1fd7-6768-4549-ae9c-be9131103c4d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
 ms.openlocfilehash: 3ec9811be5afc00a126936529480082bf2d620e9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582188"
 ---
 # <a name="contact-manager"></a>Contact Manager
 
-> Jak utworzyć całej aplikacji zarządzania skontaktuj się z od początku do zakończenia.
+> Jak utworzyć całą aplikację do zarządzania kontaktami od początku do końca.
 
 - [Iteracja 1 — Tworzenie aplikacji (C#)](iteration-1-create-the-application-cs.md)
 - [Iteracja 2 — Ulepszanie wyglądu aplikacji (C#)](iteration-2-make-the-application-look-nice-cs.md)

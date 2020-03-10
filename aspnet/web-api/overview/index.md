@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/index
-title: Sieci Web wskazówek dotyczących interfejsu API — ASP.NET 4.x
+title: Wskazówki dotyczące interfejsu API sieci Web — ASP.NET 4. x
 author: rick-anderson
-description: Lista wskazówek dotyczących Web API platformy ASP.NET dla platformy ASP.NET 4.x
+description: Lista wskazówek dotyczących interfejsu API sieci Web ASP.NET dla ASP.NET 4. x
 ms.author: riande
 ms.date: 01/17/2012
 ms.custom: seoapril2019
@@ -10,11 +10,11 @@ ms.assetid: daca6735-b5d3-4ef5-af33-ee682926238b
 msc.legacyurl: /web-api/overview
 msc.type: book
 ms.openlocfilehash: 304c0d71e5e18f9d3f0768464fe39d6e6946600d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422905"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556505"
 ---
 # <a name="web-api-guidance"></a>Wskazówki dotyczące interfejsu API sieci Web
 
@@ -24,7 +24,7 @@ ms.locfileid: "59422905"
     - [Wyniki akcji w interfejsie Web API 2](getting-started-with-aspnet-web-api/action-results.md)
     - [Korzystanie z interfejsu Web API we wzorcu ASP.NET Web Forms](getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
     - [Tworzenie stron pomocy interfejsu Web API](getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-    - [Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+    - [Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 - [Routing](web-api-routing-and-actions/index.md)
 
     - [Routing w interfejsie Web API 2](web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -112,10 +112,10 @@ ms.locfileid: "59422905"
     - [Wywoływanie interfejsu Web API z klienta programu .NET (C#)](advanced/calling-a-web-api-from-a-net-client.md)
     - [Programy obsługi komunikatów HTTP w interfejsie Web API](advanced/http-message-handlers.md)
     - [Programy obsługi komunikatów HttpClient w interfejsie Web API](advanced/httpclient-message-handlers.md)
-    - [Wysyłanie danych formularza HTML w interfejsie Web API: Dane zakodowane](advanced/sending-html-form-data-part-1.md)
-    - [Wysyłanie danych formularza HTML w interfejsie Web API: Przekazywanie pliku i wieloczęściowej wiadomości MIME](advanced/sending-html-form-data-part-2.md)
+    - [Wysyłanie danych formularza HTML w interfejsie Web API: dane zakodowane jako adres URL](advanced/sending-html-form-data-part-1.md)
+    - [Wysyłanie danych formularza HTML w interfejsie Web API: przekazywanie pliku i wieloczęściowej wiadomości MIME](advanced/sending-html-form-data-part-2.md)
     - [Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API](advanced/http-cookies.md)
-- [Wydania](releases/index.md)
+- [Releases](releases/index.md) (Wydania)
 
     - [Co nowego w protokole Web API OData 5.3](releases/whats-new-in-aspnet-web-api-odata-53.md)
     - [Co nowego we wzorcu ASP.NET Web API 2.2](releases/whats-new-in-aspnet-web-api-22.md)

@@ -9,11 +9,11 @@ ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
 ms.openlocfilehash: 3881833bfe2a50a38a357614f92f434a04a8ab08
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74626784"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567404"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie aktualizacji kodu
 
@@ -29,7 +29,7 @@ Po wdrożeniu wstępnym można nadal utrzymywać i opracowywać swoją witrynę 
 
 Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](troubleshooting.md).
 
-## <a name="make-a-code-change"></a>Zmiana kodu
+## <a name="make-a-code-change"></a>Wprowadzanie zmiany w kodzie
 
 Jako prosty przykład aktualizacji aplikacji, dodasz do strony **instruktorów** listę kursów według wybranego instruktora.
 
@@ -45,7 +45,7 @@ Teraz dodasz kod, który jest uruchamiany, gdy zostanie kliknięty link **Wybier
 2. Uruchom stronę i wybierz instruktora. Zostanie wyświetlona lista szkoleń szkoleniowych według tego instruktora.
 
     ![Strona instruktorów z nauczaniem kursów](deploying-a-code-update/_static/image2.png)
-3. Zamknij przeglądarkę.
+3. Zamknij okno przeglądarki.
 
 ## <a name="deploy-the-code-update-to-the-test-environment"></a>Wdrażanie aktualizacji kodu w środowisku testowym
 
@@ -53,7 +53,7 @@ Aby można było używać profilów publikowania do wdrożenia do testowania, pr
 
 1. Otwórz kreatora **publikacji w sieci Web** , klikając prawym przyciskiem myszy projekt ContosoUniversity i klikając polecenie **Publikuj**.
 2. Kliknij profil **testu** na liście rozwijanej **profil** .
-3. Kliknij kartę **Ustawienia** .
+3. Kliknij kartę **Ustawienia**.
 4. W obszarze **DefaultConnection** w sekcji **bazy danych** wyczyść pole wyboru **Aktualizuj bazę danych** .
 5. Kliknij kartę **profil** , a następnie kliknij pozycję Profil **przemieszczania** na liście rozwijanej **profil** .
 6. Gdy zostanie wyświetlony monit o zapisanie zmian wprowadzonych w profilu **testu** , kliknij przycisk **tak**.
@@ -164,11 +164,11 @@ W przypadku opublikowania projektu za pomocą kreatora **publikacji w sieci Web*
 
     W przypadku dwukrotnego kliknięcia pliku *Web. config* okno dialogowe **Podgląd zmian** pokazuje efekt transformacji konfiguracji kompilacji i przekształceń profilu publikowania. W tym momencie nie wykonano żadnych czynności, które mogłyby spowodować zmianę pliku *Web. config* na serwerze, aby zobaczyć, że nie wprowadzono żadnych zmian. Jednak okno **Podgląd zmian** nieprawidłowo pokazuje dwie zmiany. Wygląda na to, że dwa elementy XML zostaną usunięte. Te elementy są dodawane przez proces publikowania po wybraniu opcji **wykonaj migracje Code First przy uruchamianiu aplikacji** dla klasy kontekstu Code First. Porównanie jest wykonywane przed dodaniem tych elementów przez proces publikowania, dlatego wygląda na to, że są usuwane, chociaż nie zostaną usunięte. Ten błąd zostanie rozwiązany w przyszłej wersji.
 5. Kliknij przycisk **Zamknij**.
-6. Kliknij przycisk **Publikuj**.
+6. Kliknij przycisk **Opublikuj**.
 7. Gdy przeglądarka zostanie otwarta na stronie głównej witryny testowej, naciśnij kombinację klawiszy CTRL + F5, aby wypróbować twarde odświeżanie, aby zobaczyć efekt zmiany w CSS.
 
     ![Efekt zmiany CSS](deploying-a-code-update/_static/image11.png)
-8. Zamknij przeglądarkę.
+8. Zamknij okno przeglądarki.
 
 ### <a name="publish-specific-files-from-solution-explorer"></a>Publikowanie określonych plików z Eksplorator rozwiązań
 
@@ -193,7 +193,7 @@ Załóżmy, że nie podoba Ci się niebieskie tło i chcesz przywrócić orygina
 5. Otwórz przeglądarkę, aby uzyskać adres URL `http://localhost/contosouniversity`, a następnie naciśnij klawisze CTRL + F5, aby wypróbować twarde odświeżanie, aby zobaczyć efekt zmiany w CSS.
 
     ![Strona główna z normalnym arkuszem stylów CSS](deploying-a-code-update/_static/image15.png)
-6. Zamknij przeglądarkę.
+6. Zamknij okno przeglądarki.
 
 ## <a name="summary"></a>Podsumowanie
 

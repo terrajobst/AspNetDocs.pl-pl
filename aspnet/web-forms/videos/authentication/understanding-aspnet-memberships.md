@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/understanding-aspnet-memberships
-title: Objaśnienie członkostwa platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Informacje o członkostwie ASP.NET | Microsoft Docs
 author: JoeStagner
-description: W tym filmie pokazano Stagner Jan sprawdza pracy za pomocą wbudowanych dostawców dostępnych dla deweloperów platformy ASP.NET, członkostwa. Aby uzyskać dodatkowe informacje na temat ten...
+description: W tym filmie wideo Jan Stagner analizuje pracę z wbudowanymi dostawcami, które są dostępne dla deweloperów ASP.NET dla członkostwa. Aby uzyskać dodatkowe informacje na temat thi...
 ms.author: riande
 ms.date: 08/04/2008
 ms.assetid: bccd102b-67d5-4c66-833d-6b5f6f51ca55
 msc.legacyurl: /web-forms/videos/authentication/understanding-aspnet-memberships
 msc.type: video
 ms.openlocfilehash: 007c20834aed2de1d7584fd593b9e4580e0bba78
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386206"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565171"
 ---
 # <a name="understanding-aspnet-memberships"></a>Objaśnienie członkostwa platformy ASP.NET
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-W tym filmie pokazano Stagner Jan sprawdza pracy za pomocą wbudowanych dostawców dostępnych dla deweloperów platformy ASP.NET, członkostwa. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj [tworzenie schematu członkostwa w programie SQL Server](../../overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md) samouczek zabezpieczeń.
+W tym filmie wideo Jan Stagner analizuje pracę z wbudowanymi dostawcami, które są dostępne dla deweloperów ASP.NET dla członkostwa. Aby uzyskać dodatkowe informacje na temat tego wideo, przeczytaj artykuł [Tworzenie schematu członkostwa w programie SQL Server](../../overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md) Security samouczek.
 
-[&#9654;Obejrzyj film wideo (22 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-aspnet-memberships)
+[&#9654;Obejrzyj wideo (22 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-aspnet-memberships)
 
 > [!div class="step-by-step"]
 > [Poprzednie](use-custom-principal-objects.md)

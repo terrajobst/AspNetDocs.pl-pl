@@ -9,11 +9,11 @@ ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
 ms.openlocfilehash: ae8b23f0868f992cb2bbbf14ee3f7ac848501515
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600352"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556358"
 ---
 # <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>Obsługa działań OData w programie ASP.NET Web API 2
 
@@ -31,7 +31,7 @@ według [Jan Wasson](https://github.com/MikeWasson)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - Web API 2
+> - Internetowy interfejs API 2
 > - Usługa OData w wersji 3
 > - Entity Framework 6
 

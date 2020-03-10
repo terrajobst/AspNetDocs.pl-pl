@@ -1,118 +1,118 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: Wprowadzenie | Dokumentacja firmy Microsoft
+title: Wprowadzenie | Microsoft Docs
 author: Rick-Anderson
-description: Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj programu Visual Studio lub Visual Studio Code. Niniejsze wskazówki...
+description: Element WebMatrix nie jest już zalecany jako zintegrowane środowisko programistyczne dla stron sieci Web ASP.NET. Użyj programu Visual Studio lub Visual Studio Code. Niniejszy przewodnik a...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
 ms.openlocfilehash: bb863f8605e6f8faca3b285607b63a3e88e83012
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128542"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547104"
 ---
 # <a name="getting-started"></a>Wprowadzenie
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE[](~/includes/rp.md)]
 
 > > [!NOTE] 
 > > 
-> > Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](../program-asp-net-web-pages-in-visual-studio.md) lub [programu Visual Studio Code](https://code.visualstudio.com/).
+> > Element WebMatrix nie jest już zalecany jako zintegrowane środowisko programistyczne dla stron sieci Web ASP.NET. Użyj [programu Visual Studio](../program-asp-net-web-pages-in-visual-studio.md) lub [Visual Studio Code](https://code.visualstudio.com/).
 > 
 > 
-> Tej wskazówki i aplikacji umożliwia przegląd programu ASP.NET Web Pages (w wersji 2 lub nowszego) i składni Razor, uproszczone framework do tworzenia dynamicznych witryn sieci Web. Przedstawia on również programu WebMatrix, narzędzie do tworzenia stron i witryn.
+> Te wskazówki i aplikacje udostępniają przegląd ASP.NET stron sieci Web (wersja 2 lub nowsza) oraz składnia Razor — uproszczonej platformy do tworzenia dynamicznych witryn sieci Web. Wprowadzono tu również program WebMatrix, narzędzie do tworzenia stron i witryn.
 > 
-> **Poziom**: Jesteś nowym użytkownikiem stron ASP.NET Web Pages.  
-> **Umiejętności zakłada, że**: HTML, podstawowe kaskadowe arkusze stylów (CSS).
+> **Poziom**: nowy do ASP.NET stron sieci Web.  
+> **Założono umiejętności**: HTML, podstawowe kaskadowe arkusze stylów (CSS).
 > 
-> Zawartość w pierwszym samouczku zestawu:
+> Co znajdziesz w pierwszym samouczku zestawu:
 > 
-> - Jakich technologii ASP.NET Web Pages jest i co to jest.
-> - Co to jest program WebMatrix.
-> - Jak zainstalować wszystkie elementy.
+> - Co to jest technologia ASP.NET Web Pages i czego służy.
+> - Co to jest WebMatrix.
+> - Jak zainstalować wszystko.
 > - Jak utworzyć witrynę sieci Web za pomocą programu WebMatrix.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - Instalator platformy sieci Web firmy Microsoft.
+> - Instalator platformy Microsoft Web.
 > - WebMatrix.
-> - *.cshtml* stron
+> - *. cshtml* — strony
 >   
 > 
-> Mike Pope pierwotnie napisane w tym samouczku. Tom FitzMacken aktualizacji dla programu Microsoft WebMatrix 3.
+> Jan Pope oryginalnie zapisał ten samouczek. Tomasz FitzMacken zaktualizował go dla programu Microsoft WebMatrix 3.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
-> - Program WebMatrix 3
+> - ASP.NET strony sieci Web (Razor) 2
+> - WebMatrix 3
 
 ## <a name="what-should-you-know"></a>Co należy wiedzieć?
 
-Zakłada się, że znasz:
+Zakładamy, że znasz już:
 
-- **HTML**. Nie doświadczenia szczegółowe jest wymagana. Nie możemy wyjaśnić HTML, ale nie są używane również jakiekolwiek złożone. Firma Microsoft udostępni linki do samouczków HTML, w którym uważamy, że są one przydatne.
-- **Kaskadowych arkuszy stylów (CSS)**. Tak samo jak z kodem HTML.
-- **Pomysły podstawowej bazy danych**. Jeśli już używać arkusza kalkulacyjnego w przypadku danych i sortowanie i filtrowanie danych, to jest poziom doświadczenia ogólnie zakłada się na tym zestawie samouczków.
+- **Kod HTML**. Szczegółowa wiedza nie jest wymagana. Nie wyjaśnimy kodu HTML, ale nie będziemy również używać żadnej złożonej. Udostępnimy linki do samouczków HTML, w których sądzimy, że są one przydatne.
+- **Kaskadowe arkusze stylów (CSS)** . Analogicznie jak w przypadku języka HTML.
+- **Podstawowe pomysły dotyczące bazy danych**. Jeśli korzystasz z arkusza kalkulacyjnego do danych i posortowano i przefiltrowany dane, jest to poziom doświadczenia, którego ogólnie przyjęto w tym zestawie samouczków.
 
-Zakłada się również, czy interesuje Cię nauka programowania basic. Strony ASP.NET Web Pages Użyj język programowania C#. Nie masz żadnych tło w programowaniu, po prostu zainteresowanie go. Jeśli kiedykolwiek napisanych dowolnego języka JavaScript na stronie sieci web przed, masz wystarczająco dużo tła.
+Zakładamy również, że interesują Cię podstawowe programowanie. ASP.NET strony sieci Web używają języka programowania o C#nazwie. Nie trzeba mieć żadnych teł w programowaniu. Jeśli kiedykolwiek wcześniej Zapisano kod JavaScript na stronie sieci Web, masz dużą liczbę teł.
 
-Należy pamiętać, że osoby zaznajomione z programowaniem może się okazać, że w tym samouczku ustawiany początkowo przemieszczany powoli korzystamy początkujących programistów się wszystkiego. Po pierwsze kilka samouczków, uzyskując jednak będą dostępne programowanie mniej basic, aby wyjaśnić, i czynności będzie przesunąć wzdłuż na szybsze klipu.
+Pamiętaj, że jeśli wiesz już, jak programować, możesz się dowiedzieć, że ten samouczek został ustawiony początkowo wolniej, gdy nastąpi szybkie przeprowadzenie nowych programistów. Mimo że będziemy korzystać z kilku pierwszych samouczków, ale będzie to mniej podstawowe programowanie objaśniające, a elementy będą przenoszone w szybszym klipie.
 
-## <a name="what-do-you-need"></a>Co jest potrzebne?
+## <a name="what-do-you-need"></a>Czego potrzebujesz?
 
 Oto, co jest potrzebne:
 
 - Komputer z systemem Windows 8, Windows 7, Windows Server 2008 lub Windows Server 2012.
-- Połączenie internetowe na żywo.
-- Uprawnienia administratora (wymaganych podczas procesu instalacji).
+- Aktywne połączenie internetowe.
+- Uprawnienia administratora (wymagane w procesie instalacji).
 
-## <a name="what-is-aspnet-web-pages"></a>Co to jest wzorca ASP.NET Web Pages?
+## <a name="what-is-aspnet-web-pages"></a>Co to są ASP.NET Web Pages?
 
-Strony sieci Web ASP.NET to platforma, która umożliwia tworzenie dynamicznych stron sieci web. Prostą stronę sieci web HTML jest statyczny; jego zawartość jest określana przez stały kod znaczników HTML, który znajduje się w stronę. Strony dynamiczne, takie jak te, które tworzysz przy użyciu stron ASP.NET Web Pages pozwalają tworzyć zawartość strony na bieżąco, za pomocą kodu.
+ASP.NET Web Pages to struktura, za pomocą której można tworzyć dynamiczne strony sieci Web. Prosta strona sieci Web HTML jest statyczna. jego zawartość jest określana na podstawie stałego znacznika HTML znajdującego się na stronie. Strony dynamiczne, takie jak te utworzone za pomocą stron sieci Web ASP.NET, umożliwiają tworzenie zawartości strony na bieżąco przy użyciu kodu.
 
-Dynamiczne strony umożliwiają wykonywanie różnych interesujących rzeczy. Można poprosić użytkownika o danych wejściowych za pomocą formularza, a następnie zmień wyświetla stronę lub jego wygląd. Może zająć informacji od użytkownika, zapisz go w bazie danych i umieść je później. Możesz wysłać wiadomość e-mail z witryny. Możesz wchodzić w interakcje z innymi usługami w sieci web (na przykład usługa mapowania) i tworzenia stron, które integrują się informacji z tych źródeł.
+Strony dynamiczne umożliwiają wykonywanie wszystkich zadań. Użytkownik może poproszeni o dane wejściowe przy użyciu formularza, a następnie zmienić zawartość wyświetlaną na stronie lub wygląd strony. Możesz uzyskać informacje od użytkownika, zapisać je w bazie danych, a następnie wyświetlić je później. Możesz wysyłać wiadomości e-mail z witryny programu. Można korzystać z innych usług w sieci Web (na przykład usługi mapowania) i generować strony, które integrują informacje z tych źródeł.
 
-## <a name="what-is-webmatrix"></a>Co to jest program WebMatrix?
+## <a name="what-is-webmatrix"></a>Co to jest WebMatrix?
 
-Program WebMatrix to narzędzie, które integruje edytora stron sieci web, narzędzia bazy danych, serwer sieci web do testowania stron i funkcji do publikacji witryny sieci Web w Internecie. Program WebMatrix to bezpłatne i jest łatwa instalacja i łatwych w użyciu. (Działa tylko zwykły strony HTML, a także innych technologii, takich jak PHP.)
+WebMatrix to narzędzie, które integruje edytor stron sieci Web, narzędzie bazy danych, serwer sieci Web do testowania stron oraz funkcje publikowania witryny sieci Web w Internecie. Program WebMatrix jest bezpłatny i można go łatwo instalować i łatwo używać. (Działa również w przypadku tylko zwykłych stron HTML, a także dla innych technologii, takich jak PHP).
 
-Nie zostanie faktycznie *mają* do pracy przy użyciu stron ASP.NET Web Pages przy użyciu programu WebMatrix. Można utworzyć stron przy użyciu tekstu edytora, na przykład i przetestować strony dostępne za pomocą którego można uzyskać dostęp do serwera sieci web. Jednak program WebMatrix ułatwia wszystkie bardzo, dlatego w tych samouczkach będzie przy użyciu programu WebMatrix w całym.
+Nie *trzeba* w rzeczywistości używać programu WebMatrix do pracy ze stronami sieci Web ASP.NET. Możesz tworzyć strony przy użyciu edytora tekstu, na przykład, i strony testowe przy użyciu serwera sieci Web, do którego masz dostęp. Jednak program WebMatrix sprawia, że jest to bardzo proste, dzięki czemu samouczki będą korzystać z programu WebMatrix w systemie.
 
-## <a name="about-these-tutorials"></a>Informacje te samouczki
+## <a name="about-these-tutorials"></a>Informacje o tych samouczkach
 
-Ten zestaw samouczek stanowi wprowadzenie do sposobu używania stron ASP.NET Web Pages. Są całkowite w tym zestawie samouczków wprowadzających samouczków 9. Tego częścią serii samouczków zestawy, od nowicjuszy strony sieci Web ASP.NET do tworzenia rzeczywistych, profesjonalnych witryn sieci Web.
+Ten zestaw samouczków zawiera wprowadzenie do korzystania z ASP.NET stron sieci Web. W tym zestawie samouczków wprowadzającej znajduje się łącznie 9 samouczków. Jest to część zestawu samouczków, która umożliwia ASP.NET stron sieci Web od początku do tworzenia rzeczywistych, profesjonalnych witryn sieci Web.
 
-Ten pierwszy samouczek nastavit koncentraty zawierający podstawowe informacje dotyczące sposobu pracy przy użyciu stron ASP.NET Web Pages. Gdy wszystko będzie gotowe, można pracować dodatkowe zestawy samouczek, które przejmą, gdzie kończy się w niej i eksplorowanie, stron sieci Web, aby bardziej szczegółowo.
+W pierwszym samouczku ustawiono skoncentrowanie się na przedstawianiu podstaw pracy ze stronami sieci Web ASP.NET. Gdy skończysz, możesz pracować z dodatkowymi zestawami samouczków, które są wybierane w tym samym czasie i które eksplorują strony sieci Web bardziej szczegółowo.
 
-Firma Microsoft celowo Przejdź łatwe szczegółowe wyjaśnienia. I w każdym przypadku, gdy coś pokazujemy, dla tego zestawu samouczków firma Microsoft zawsze wybierz sposób, który naszym zdaniem jest łatwiej zrozumieć. Nowsze zestawy samouczek bardziej szczegółowo i dowiesz się efektywniejsze i bardziej elastyczne podejście (również fajne). Jednak te samouczki trzeba najpierw poznać podstawy.
+Zachęcamy do prostych wyjaśnień. I zawsze, gdy pokażemy coś, w tym samouczku zawsze wybieramy sposób, w jaki myślimy. Kolejne zestawy samouczków przechodzą do większej głębokości i pokazują bardziej wydajne lub bardziej elastyczne podejścia (również bardziej zabawne). Jednak te samouczki wymagają najpierw zrozumienia podstawowych informacji.
 
-Zestawie samouczków, po prostu rozpoczętej obejmuje następujące funkcje dla stron sieci Web platformy ASP.NET:
+Właśnie uruchomiony zestaw samouczka obejmuje następujące funkcje stron sieci Web ASP.NET:
 
-- Wprowadzenie i rozpoczynanie wszystko, co jest zainstalowany. (Który jest w tym samouczku, który czytasz).
-- Podstawy programowania w produkcie ASP.NET Web Pages.
+- Wprowadzenie i pobranie wszystkiego. (To jest w samouczku, który jest odczytywany).
+- Podstawowe informacje na temat programowania stron sieci Web ASP.NET.
 - Tworzenie bazy danych.
-- Tworzenia i przetwarzania formularz wprowadzania użytkownika.
+- Tworzenie i przetwarzanie formularza danych wejściowych użytkownika.
 - Dodawanie, aktualizowanie i usuwanie danych w bazie danych.
 
-## <a name="what-will-you-create"></a>Co spowoduje utworzenie?
+## <a name="what-will-you-create"></a>Co utworzysz?
 
-Ustaw w tym samouczku, a kolejne koncentrują się wokół witryny sieci Web, gdzie możesz wyświetlić listę filmów, które chcesz. Będzie można wprowadź filmy, edytować je, a ich listę. Oto kilka stron, które zostaną utworzone w tym zestawie samouczków. Pierwszy pokazuje film stronie, którą utworzysz listy:
+Ten samouczek jest ustawiany i kolejne są nanoszone wokół witryny sieci Web, w której można wyświetlić listę filmów. Będziesz mieć możliwość wprowadzania filmów, edytowania ich i wyświetlania listy. Poniżej przedstawiono kilka stron, które zostaną utworzone w tym zestawie samouczków. Pierwszy z nich zawiera stronę wyświetlania filmu, którą utworzysz:
 
-![Aplikacji zakończył Film przedstawiający listę filmu](getting-started/_static/image1.png)
+![Aplikacja zakończył Movie pokazująca listę filmów](getting-started/_static/image1.png)
 
-A Oto strona która umożliwia dodawanie nowych informacji film do swojej witryny:
+A oto strona, która umożliwia dodawanie nowych informacji o filmie do witryny:
 
-![Aplikacja Zakończono Film przedstawiający stronę dodać film](getting-started/_static/image2.png)
+![Gotowa aplikacja filmowa przedstawiająca stronę Dodawanie filmu](getting-started/_static/image2.png)
 
-Kolejne samouczek Zestawy kompilacji na tym zestawu i Dodaj więcej funkcji, takich jak przekazywania obrazów, umożliwiając osób, zaloguj się, wysyłania wiadomości e-mail i integracji z mediów społecznościowych.
+Kolejny samouczek ustawia kompilację w tym zestawie i dodaje więcej funkcji, takich jak przekazywanie obrazów, zezwalanie na logowanie, wysyłanie wiadomości e-mail i integrowanie z multimediami społecznościowymi.
 
 ## <a name="see-this-app-running-on-azure"></a>Wyświetlanie aplikacji działającej na platformie Azure
 
@@ -122,170 +122,170 @@ Czy chcesz zobaczyć gotową witrynę działającą jako aplikacja internetowa n
 
 Aby wdrożyć to rozwiązanie na platformie Azure, musisz mieć konto platformy Azure. Jeśli nie masz jeszcze konta, możesz:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymujesz środki , które możesz użyć do wypróbowania płatnych usług platformy Azure, a potem nawet w przypadku ich wyczerpania możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
-- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) - w ramach subskrypcji MSDN każdego miesiąca dostajesz środki, dzięki którym możesz korzystać z płatnych usług platformy Azure.
+- [Bezpłatnie Otwórz konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — Uzyskaj kredyty, których możesz użyć do wypróbowania płatnych usług platformy Azure, a nawet po ich użyciu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Aktywuj korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) — subskrypcja MSDN daje środki na korzystanie z płatnych usług platformy Azure.
 
-## <a name="installing-everything"></a>Instalowanie wszystko
+## <a name="installing-everything"></a>Instalowanie wszystkiego
 
-Wszystko, czego można zainstalować za pomocą Instalatora platformy sieci Web firmy Microsoft. W efekcie Zainstaluj Instalator, a następnie użyć go do zainstalowania całą resztą.
+Wszystko można zainstalować za pomocą Instalatora platformy sieci Web firmy Microsoft. W efekcie należy zainstalować Instalatora, a następnie użyć go do zainstalowania wszystkiego innego.
 
-Używać stron sieci Web, musisz mieć co najmniej Windows XP z dodatkiem SP3 zainstalowane lub Windows Server 2008 lub nowszym.
+Aby korzystać ze stron sieci Web, musi być zainstalowany co najmniej system Windows XP z dodatkiem SP3 lub Windows Server 2008 lub nowszy.
 
-Na [stron sieci Web stronę](../../../index.md) witryny sieci Web platformy ASP.NET, kliknij przycisk **zainstalować**.
+Na [stronie strony sieci Web](../../../index.md) w witrynie ASP.NET kliknij pozycję **Zainstaluj**.
 
-![Wyświetlanie witryny sieci Web platformy ASP.NET &quot;Zainstaluj program WebMatrix&quot; przycisku](getting-started/_static/image3.png)
+![ASP.NET witryna sieci Web przedstawiająca przycisk &quot;Zainstaluj&quot; WebMatrix](getting-started/_static/image3.png)
 
-Zostanie wyświetlony monit o zaakceptowanie postanowień licencyjnych i zasady zachowania poufności informacji przed zainstalowaniem programu WebMatrix.
+Przed zainstalowaniem programu WebMatrix zostanie wyświetlony monit o zaakceptowanie postanowień licencyjnych i zasad zachowania poufności informacji.
 
 ![Zaakceptuj termin, aby rozpocząć instalację](getting-started/_static/image4.png)
 
-Kliknij przycisk **Uruchom** aby rozpocząć instalację. (Jeśli chcesz zapisać Instalator, kliknij przycisk **Zapisz** , a następnie uruchom Instalatora z folderu, w którym został zapisany.)
+Kliknij przycisk **Uruchom** , aby rozpocząć instalację. (Jeśli chcesz zapisać Instalatora, kliknij przycisk **Zapisz** , a następnie uruchom Instalatora z folderu, w którym został zapisany).
 
 ![](getting-started/_static/image5.png)
 
-Zostanie wyświetlony Instalator platformy sieci Web, gotowe do zainstalowania programu WebMatrix. Kliknij przycisk **zainstalować**.
+Zostanie wyświetlony Instalator platformy sieci Web gotowy do zainstalowania programu WebMatrix. Kliknij polecenie **Zainstaluj**.
 
 ![](getting-started/_static/image6.png)
 
-Proces instalacji wpadł na pomysł posiada do zainstalowania na komputerze i rozpoczyna proces. W zależności od tego, co dokładnie musi być zainstalowany proces może potrwać od kilku minut do kilku minut. Wybierz **akceptuję** do akceptowania postanowień licencyjnych.
+Proces instalacji zawiera informacje o tym, co należy zainstalować na komputerze, i uruchomić proces. W zależności od tego, co dokładnie trzeba zainstalować, proces może potrwać od kilku chwil do kilku minut. Wybierz **pozycję Akceptuję** , aby zaakceptować postanowienia licencyjne.
 
 ## <a name="hello-webmatrix"></a>Hello, WebMatrix
 
-Gdy wszystko będzie gotowe, proces instalacji można uruchomić program WebMatrix automatycznie. W przeciwnym razie w Windows, od **Start** menu, uruchamiania **Microsoft WebMatrix**.
+Po zakończeniu proces instalacji może automatycznie uruchomić program WebMatrix. Jeśli nie, w systemie Windows z menu **Start** , uruchom **program Microsoft WebMatrix**.
 
-Po uruchomieniu programu WebMatrix po raz pierwszy podano Państwo zalogować się do Microsoft Azure z Twoim kontem Microsoft. Logując się, zostanie wyświetlony 10 aplikacji internetowych bezpłatne za pośrednictwem platformy Azure. Aplikacje sieci web bezpłatna zapewnia wygodny sposób do testowania aplikacji. Jeśli nie masz jeszcze konta platformy Azure, ale masz subskrypcję MSDN, możesz to zrobić [Aktywuj korzyści z subskrypcji MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). W przeciwnym razie można utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Po pierwszym uruchomieniu programu WebMatrix masz możliwość zalogowania się do Microsoft Azure przy użyciu konto Microsoft. Logując się, otrzymasz 10 bezpłatnych aplikacji sieci Web za pomocą platformy Azure. Te bezpłatne aplikacje sieci Web zapewniają wygodny sposób testowania aplikacji. Jeśli nie masz jeszcze konta platformy Azure, ale masz subskrypcję MSDN, możesz [aktywować korzyści z subskrypcji MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). W przeciwnym razie możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-Nie masz Zaloguj się w tej chwili kontynuować z tego samouczka. Jeśli nie zarejestrujesz teraz, nadal masz opcję, aby zalogować się później. Ostatni [tematu](publishing.md) w tym samouczku omówiono sposób wdrażania witryny sieci Web na platformie Azure; w związku z tym, należy zalogować się do wykonania zadań opisanych w tym temacie.
+Nie musisz już się zalogować, aby kontynuować pracę z tym samouczkiem. Jeśli nie zalogujesz się teraz, nadal będziesz mieć możliwość zalogowania się później. Ostatni [temat](publishing.md) w tej serii samouczków zawiera opis sposobu wdrażania witryny sieci Web na platformie Azure. w związku z tym należy zalogować się, aby ukończyć ten temat.
 
-Na tym etapie Zaloguj się przy użyciu konta Microsoft lub wybierz **nie teraz** w prawym dolnym rogu.
+W tym momencie Zaloguj się przy użyciu konto Microsoft lub wybierz pozycję **nie teraz** w prawym dolnym rogu.
 
-![Logowanie](getting-started/_static/image7.png)
+![Zaloguj się](getting-started/_static/image7.png)
 
-Aby rozpocząć, możesz utworzyć pustą witrynę sieci Web i Dodawanie strony. Później w samouczku w tym zestawie odtwarzane od jednego z szablonów wbudowanych witryny sieci Web.
+Aby rozpocząć, Utwórz pustą witrynę sieci Web i Dodaj stronę. W późniejszym samouczku w tym zestawie będziesz odtwarzać przy użyciu jednego z wbudowanych szablonów witryny sieci Web.
 
-W oknie start kliknij **New**.
+W oknie Start kliknij pozycję **Nowy**.
 
-![Ekran startowy programu WebMatrix](getting-started/_static/image8.png)
+![Ekran startowy WebMatrix](getting-started/_static/image8.png)
 
-Szablony to wstępnie utworzone pliki i strony dla różnych typów witryn sieci Web. Aby wyświetlić wszystkie szablony, które są domyślnie dostępne, wybierz opcję galerii szablonów.
+Szablony to wstępnie skompilowane pliki i strony dla różnych typów witryn sieci Web. Aby wyświetlić wszystkie szablony, które są dostępne domyślnie, wybierz opcję Galeria szablonów.
 
-![Wybierz galerię szablonów](getting-started/_static/image9.png)
+![Wybieranie galerii szablonów](getting-started/_static/image9.png)
 
-W **— Szybki Start** wybierz **pusta witryna** z **ASP.NET** grupy i nazwij nową witrynę "WebPagesMovies".
+W oknie **Szybki Start** wybierz **pustą lokację** z grupy **ASP.NET** i nadaj nowej witrynie "WebPagesMovies".
 
-![Program WebMatrix — Szybki Start okna z wybraniu szablonu Pusta witryna](getting-started/_static/image10.png)
+![Okno Szybki start WebMatrix z wybranym pustym szablonem witryny](getting-started/_static/image10.png)
 
 Kliknij przycisk **Dalej**.
 
-Jeśli zalogowaniu się do swojego konta Microsoft, użytkownik otrzyma możliwość utworzenia witryny na platformie Azure. Na podstawie nazwy witryny, domyślna nazwa **WebPagesMovies.azurewebsites.net** proponowaną; jednak wykrzyknik wskazuje, że ta nazwa nie jest dostępna na platformie Windows Azure. Dla uproszczenia wybierz **Pomiń** Pomijanie teraz tworzenie witryny sieci web na platformie Azure. W dalszej części tej serii opublikujemy odpowiednie witryny na platformie Azure.
+Po zalogowaniu się do konto Microsoft będziesz mieć możliwość utworzenia witryny na platformie Azure. Na podstawie nazwy witryny Sugerowana jest domyślna nazwa **WebPagesMovies.azurewebsites.NET** ; jednak wykrzyknik wskazuje, że ta nazwa nie jest dostępna w systemie Windows Azure. Dla uproszczenia wybierz pozycję **Pomiń** , aby pominąć tworzenie witryny sieci Web na platformie Azure. W dalszej części tej serii będziemy publikować witrynę na platformie Azure.
 
-![Tworzenie witryny systemu azure](getting-started/_static/image11.png)
+![Utwórz witrynę platformy Azure](getting-started/_static/image11.png)
 
-Program WebMatrix tworzy i otwiera witrynę:
+W programie WebMatrix zostanie utworzona i otwarta lokacja:
 
-![Nowa witryna WebPagesMovies otwartych w programie WebMatrix](getting-started/_static/image12.png)
+![Nowa witryna WebPagesMovies otwarta w programie WebMatrix](getting-started/_static/image12.png)
 
-U góry strony istnieje paska narzędzi szybkiego dostępu i Wstążki. W lewym dolnym rogu, zostanie wyświetlony selektor obszarów gdy przełączasz się między zadaniami (**witryny**, **pliki**, **baz danych**, **raporty**). Po prawej stronie jest okienko zawartość edytora i raportów. I w dół od czasu do czasu pojawi się na pasku powiadomień dla wiadomości.
+W górnej części znajduje się pasek narzędzi Szybki dostęp i wstążka. W lewym dolnym rogu zobaczysz selektor obszaru roboczego, w którym można przełączać się między zadaniami (**lokacja**, **pliki**, **bazy danych**, **raporty**). Po prawej stronie znajduje się okienko zawartość dla edytora i raportów. I w dolnej części czasu okresowo zobaczysz pasek powiadomień dla komunikatów.
 
-Dowiesz się więcej na temat programu WebMatrix i jej funkcji podczas wykonywania kroków w tych samouczkach.
+Dowiesz się więcej na temat WebMatrix i jej funkcji w ramach tych samouczków.
 
 ## <a name="creating-a-web-page"></a>Tworzenie strony sieci Web
 
-Aby zapoznać się z programu WebMatrix i stron ASP.NET Web Pages, należy utworzyć prostą stronę.
+Aby zapoznać się ze stronami sieci Web WebMatrix i ASP.NET, utworzysz prostą stronę.
 
-W selektorze obszaru roboczego wybierz **pliki** obszaru roboczego. Ten obszar roboczy pozwala pracować z plikami i folderami. W okienku po lewej stronie pokazuje strukturę pliku witryny. Zmiany wstążki, aby wyświetlić zadania związane z pliku.
+W selektorze obszaru roboczego wybierz obszar roboczy **pliki** . Ten obszar roboczy umożliwia pracy z plikami i folderami. W okienku po lewej stronie zostanie wyświetlona struktura plików witryny. Wstążka zmienia się w celu wyświetlenia zadań związanych z plikami.
 
-![Plik obszaru roboczego w programie WebMatrix](getting-started/_static/image13.png)
+![Obszar roboczy plików w programie WebMatrix](getting-started/_static/image13.png)
 
-Na wstążce kliknij strzałkę w obszarze **New** a następnie kliknij przycisk **nowy plik**.
+Na wstążce kliknij strzałkę w obszarze **Nowy** , a następnie kliknij pozycję **nowy plik**.
 
-![Za pomocą &quot;New&quot; polecenia na Wstążce, aby utworzyć nowy plik](getting-started/_static/image14.png)
+![Za pomocą polecenia &quot;New&quot; na Wstążce, aby utworzyć nowy plik](getting-started/_static/image14.png)
 
-Program WebMatrix Wyświetla listę typów plików. Wybierz **CSHTML**, a następnie w **nazwa** wpisz "nazwę HelloWorld". Strona CSHTML jest stron ASP.NET Web Pages.
+W programie WebMatrix zostanie wyświetlona lista typów plików. Wybierz pozycję **cshtml**, a w polu **Nazwa** wpisz "HelloWorld". Strona CSHTML jest stroną stron sieci Web ASP.NET.
 
-![Tworzenie nowej strony CSHTML o nazwie HelloWorld.cshtml](getting-started/_static/image15.png)
+![Tworzenie nowej strony CSHTML o nazwie HelloWorld. cshtml](getting-started/_static/image15.png)
 
 Kliknij przycisk **OK**.
 
-Program WebMatrix tworzy stronę i otwiera go w edytorze.
+Program WebMatrix utworzy stronę i otworzy ją w edytorze.
 
-![Nowa strona HelloWorld w edytorze programu WebMatrix](getting-started/_static/image16.png)
+![Nowa strona HelloWorld w edytorze WebMatrix](getting-started/_static/image16.png)
 
-Jak widać, ta strona zawiera głównie zwykły kod znaczników HTML, z wyjątkiem bloku u góry strony, który wygląda tak:
+Jak widać, Strona zawiera głównie zwykłe znaczniki HTML, z wyjątkiem bloku znajdującego się u góry, który wygląda następująco:
 
 [!code-cshtml[Main](getting-started/samples/sample1.cshtml)]
 
-To dodawania kodu, ponieważ pojawi się wkrótce.
+W ten sposób można dodać kod, ponieważ wkrótce zobaczysz.
 
-Należy zauważyć, że różne części strony &mdash; nazwy elementów, atrybutów i tekstu, a także bloku u góry — są w różnych kolorach. Jest to nazywane *wyróżnianie składni*, i ułatwia zapewnienie Wyczyść wszystko. Jest to jeden z funkcji, które można łatwo pracować ze stronami sieci web w programie WebMatrix.
+Zauważ, że różne części strony &mdash; nazw elementów, atrybutów i tekstu oraz blok u góry — wszystkie kolory. Jest to tzw. *wyróżnianie składni*i ułatwia zachowanie wszystkiego. Jest to jedna z funkcji, które ułatwiają współpracę ze stronami sieci Web w programie WebMatrix.
 
-Dodaj zawartość `<head>` i `<body>` elementów, takich jak w poniższym przykładzie. (Jeśli chcesz, można po prostu skopiuj następujący blok i Zastąp cały istniejącej strony przy użyciu tego kodu.)
+Dodaj zawartość dla `<head>` i `<body>` elementów, takich jak w poniższym przykładzie. (Jeśli chcesz, możesz po prostu skopiować następujący blok i zastąpić całą istniejącą stronę tym kodem).
 
 [!code-cshtml[Main](getting-started/samples/sample2.cshtml)]
 
-Do paska narzędzi szybkiego dostępu lub w **pliku** menu, kliknij przycisk **Zapisz**.
+Na pasku narzędzi Szybki dostęp lub w menu **plik** kliknij polecenie **Zapisz**.
 
-![Przycisk Zapisz w narzędzi Szybki dostęp programu WebMatrix](getting-started/_static/image17.png)
+![Przycisk Zapisz na pasku narzędzi Szybki dostęp w programie WebMatrix](getting-started/_static/image17.png)
 
 ## <a name="testing-the-page"></a>Testowanie strony
 
-W **pliki** obszaru roboczego, kliknij prawym przyciskiem myszy *HelloWorld.cshtml* strony, a następnie kliknij przycisk **Uruchom w przeglądarce**.
+W obszarze roboczym **pliki** kliknij prawym przyciskiem myszy stronę *HelloWorld. cshtml* , a następnie kliknij polecenie **Uruchom w przeglądarce**.
 
-![Uruchomienie strony, przy użyciu przycisku Uruchom na wstążce programu WebMatrix](getting-started/_static/image18.png)
+![Uruchamianie strony przy użyciu przycisku Uruchom na Wstążce WebMatrix](getting-started/_static/image18.png)
 
-Program WebMatrix uruchamia wbudowanego serwera sieci web (IIS Express) używanej do testowania stron na komputerze. (Bez usług IIS Express w programie WebMatrix, trzeba się gdzieś opublikować stronę serwera sieci web, zanim można go przetestować.) Ta strona jest wyświetlana w domyślnej przeglądarce.
+W programie WebMatrix jest uruchamiany wbudowany serwer sieci Web (IIS Express), którego można użyć do testowania stron na komputerze. (Bez IIS Express w programie WebMatrix przed przetestowaniem należy opublikować stronę na serwerze sieci Web). Ta strona zostanie wyświetlona w domyślnej przeglądarce.
 
-![&quot;Witaj, świecie&quot; strony uruchomionej w przeglądarce](getting-started/_static/image19.png)
+![&quot;Hello world&quot; stronie działającej w przeglądarce](getting-started/_static/image19.png)
 
-Zwróć uwagę, czy podczas testowania strony w programie WebMatrix, adres URL w przeglądarce jest podobny do `http://localhost:33651/HelloWorld.cshtml.` nazwę *localhost* odwołuje się do serwera lokalnego, co oznacza, że strona jest obsługiwana przez serwer sieci web, która znajduje się na swoim komputerze. Jak wspomniano, program WebMatrix zawiera program serwera sieci web o nazwie usług IIS Express, który jest wykonywany po uruchomieniu strony.
+Należy zauważyć, że podczas testowania strony w programie WebMatrix adres URL w przeglądarce jest podobny do `http://localhost:33651/HelloWorld.cshtml.` nazwa *localhost* odnosi się do serwera lokalnego, co oznacza, że strona jest obsługiwana przez serwer sieci Web, który znajduje się na własnym komputerze. Jak wspomniano, WebMatrix zawiera program serwera sieci Web o nazwie IIS Express, który jest uruchamiany podczas uruchamiania strony.
 
-Liczba po *localhost* (na przykład *localhost:33651*) odwołuje się do *numer portu* na tym komputerze. Jest to liczba "kanał" używającej usług IIS Express dla tej konkretnej witryny sieci Web. Numer portu jest wybranych losowo z zakresu od 1024 do 65536 podczas tworzenia witryny i różni się dla każdej lokacji, którą tworzysz. (Podczas testowania do własnej witryny numer portu prawie na pewno będzie inny numer niż 33561). Przy użyciu innego portu dla każdej witryny sieci Web, usług IIS Express można utrzymania który mówi się do witryn.
+Liczba po *hoście lokalnym* (na przykład *localhost: 33651*) odnosi się do *numeru portu* na komputerze. Jest to numer "kanału", którego IIS Express używa dla tej konkretnej witryny sieci Web. Numer portu jest wybierany losowo z zakresu od 1024 do 65536 podczas tworzenia lokacji i różni się dla każdej utworzonej lokacji. (Podczas testowania własnej lokacji numer portu niemal nie będzie liczbą inną niż 33561). Korzystając z innego portu dla każdej witryny sieci Web, IIS Express może obsłużyć proste, z których witryn.
 
-Nowszym w przypadku publikowania witryny na serwerze sieci web publiczne, nie są już wyświetlane *localhost* w adresie URL. W tym momencie zostanie wyświetlony bardziej typowy adres URL, takich jak `http://myhostingsite/mywebsite/HelloWorld.cshtml` lub dowolną stronę. Dowiesz się więcej o publikowaniu lokację w dalszej części tej serii samouczków.
+Później, po opublikowaniu witryny na publicznym serwerze sieci Web, w adresie URL nie jest już wyświetlany numer *localhost* . W tym momencie zobaczysz bardziej typowy adres URL, taki jak `http://myhostingsite/mywebsite/HelloWorld.cshtml` lub niezależnie od strony. Dowiesz się więcej na temat publikowania witryny w dalszej części tej serii samouczków.
 
 ## <a name="adding-some-server-side-code"></a>Dodawanie kodu po stronie serwera
 
-Zamknij przeglądarkę i przejdź wstecz do strony w programie WebMatrix.
+Zamknij przeglądarkę i wróć do strony w programie WebMatrix.
 
-Dodaj linię do bloku kodu, tak że wygląda podobnie do poniższego kodu:
+Dodaj wiersz do bloku kodu, tak aby wyglądał następująco:
 
 [!code-cshtml[Main](getting-started/samples/sample3.cshtml)]
 
-Jest to trochę kodu Razor. To prawdopodobnie oczywiste, pobiera bieżącą datę i godzinę i umieszcza tę wartość do *zmiennej* o nazwie `currentDateTime`. Użytkownik będzie Dowiedz się więcej o składni Razor w następnym samouczku.
+Jest to niewielki kod kodu Razor. Prawdopodobnie jest jasne, że pobiera bieżącą datę i godzinę oraz umieszcza tę wartość w *zmiennej* o nazwie `currentDateTime`. Więcej informacji na temat składnia Razor można znaleźć w następnym samouczku.
 
-W treści strony po `<p>Hello World!</p>` elementu, Dodaj następujący kod:
+W treści strony, po elemencie `<p>Hello World!</p>` Dodaj następujące elementy:
 
 [!code-html[Main](getting-started/samples/sample4.html)]
 
-Ten kod pobiera wartość, która umieszczonego w `currentDateTime` zmiennej u góry i wstawia je do znaczników strony. `@` Znak oznacza kodu strony sieci Web ASP.NET na stronie.
+Ten kod pobiera wartość umieszczoną w zmiennej `currentDateTime` u góry i wstawia ją do znacznika strony. Znak `@` oznacza kod stron sieci Web ASP.NET na stronie.
 
-Uruchom ponownie strony (program WebMatrix zapisuje zmiany za Ciebie przed uruchomieniem strony). Tym razem zostanie wyświetlony, datę i godzinę na stronie.
+Uruchom ponownie stronę (WebMatrix zapisuje zmiany przed uruchomieniem strony). Tym razem zobaczysz datę i godzinę na stronie.
 
-![&quot;Witaj, świecie&quot; uruchomiony w przeglądarce, za pomocą wyświetlacza dynamicznie generowanym czasu strony](getting-started/_static/image20.png)
+![&quot;Hello world&quot; strony działającej w przeglądarce z wygenerowanym dynamicznie ekranem czasu](getting-started/_static/image20.png)
 
-Poczekaj chwilę, a następnie odśwież stronę w przeglądarce. Wyświetlanie daty i godziny jest aktualizowana.
+Poczekaj chwilę, a następnie Odśwież stronę w przeglądarce. Wyświetlanie daty i godziny jest aktualizowane.
 
-W przeglądarce Przyjrzyj się źródła strony. Wygląda następujące znaczniki:
+W przeglądarce Sprawdź Źródło strony. Wygląda ona podobnie do następującej:
 
 [!code-html[Main](getting-started/samples/sample5.html)]
 
-Należy zauważyć, że `@{ }` u góry nie będzie dostępne. Należy również zauważyć, że data i godzina pokazuje rzeczywistego ciągu znaków (`1/18/2012 2:49:50 PM` lub niezależnie od), a nie `@currentDateTime` tak jak gdyby *.cshtml* strony. Co się stało, w tym miejscu jest, że po uruchomieniu strony, ASP.NET przetwarzane cały kod (bardzo małe w tym przypadku) oznaczoną jako zaniechana `@`. Kod generuje dane wyjściowe, a te dane wyjściowe został wstawiony do strony.
+Zauważ, że blok `@{ }` w górnej części nie znajduje się w tym miejscu. Zauważ również, że wyświetlanie daty i godziny wyświetla rzeczywisty ciąg znaków (`1/18/2012 2:49:50 PM` lub niezależnie), a nie `@currentDateTime` jak na stronie *. cshtml* . Co się stało z tym, że po uruchomieniu strony ASP.NET przetworzył cały kod (bardzo mało w tym przypadku), który został oznaczony `@`. Kod generuje dane wyjściowe, a dane wyjściowe zostały wstawione na stronie.
 
-## <a name="this-is-what-aspnet-web-pages-are-about"></a>Jest to, o ile wzorca ASP.NET Web Pages
+## <a name="this-is-what-aspnet-web-pages-are-about"></a>Oto co to jest ASP.NET stron sieci Web
 
-Podczas odczytywania się, że stron ASP.NET Web Pages tworzy dynamicznej zawartości internetowej, co przedstawiono w tym miejscu jest pomysł. Strony, do której właśnie utworzony zawiera ten sam znacznik HTML, który już wcześniej odwrócony. Może również zawierać kod, który można wykonywać różnorodne zadania. W tym przykładzie jak prostym zadaniem uzyskania bieżącej daty i godziny. Jak możesz rozdzielać kodu HTML do generowania danych wyjściowych strony. Gdy ktoś żąda *.cshtml* strony w przeglądarce, platformy ASP.NET przetwarza strony jest nadal w ręce serwer sieci web. ASP.NET wstawia dane wyjściowe dla kodu (jeśli istnieje) do strony jako kod HTML. Po zakończeniu przetwarzania kodu ASP.NET wysyła wynikowy strony do przeglądarki. To wszystko, czego nigdy nie pobiera przeglądarki HTML. Poniżej przedstawiono diagram:
+Po przeczytaniu, że ASP.NET strony sieci Web tworzą dynamiczną zawartość internetową, zobaczysz, co widzisz tutaj. Właśnie utworzona strona zawiera ten sam znacznik HTML, który był wcześniej widoczny. Może również zawierać kod, który może wykonywać różne zadania. W tym przykładzie było to proste zadanie pobierania bieżącej daty i godziny. Jak widać, możesz przeplatać kod przy użyciu kodu HTML, aby utworzyć dane wyjściowe na stronie. Gdy ktoś zażąda strony *. cshtml* w przeglądarce, ASP.NET przetworzy Tę stronę, gdy nadal znajduje się ona w ręce serwera sieci Web. ASP.NET wstawia dane wyjściowe kodu (jeśli istnieją) do strony jako HTML. Po zakończeniu przetwarzania kodu ASP.NET wysyła wyniki do przeglądarki. Wszystkie kiedykolwiek pobierane przeglądarki są w formacie HTML. Oto Diagram:
 
-![Jak ASP.NET generuje kod HTML dynamicznie koncepcyjny przepływu](getting-started/_static/image21.png)
+![Koncepcyjny przepływ, w jaki sposób ASP.NET generuje HTML dynamicznie](getting-started/_static/image21.png)
 
-Koncepcja jest prosta, ale istnieje wiele interesujących zadań, które mogą wykonywać kod, a istnieje wiele różnych sposobów, w których można dynamicznie dodać zawartość HTML do strony. I ASP.NET *.cshtml* stron, podobnie jak dowolnej strony HTML może również zawierać kod, który działa w przeglądarce, sama (kod JavaScript i jQuery w aplikacji). Dowiesz się, wszystkie te czynności w tym zestawie samouczków i kolejne.
+Pomysł jest prosty, ale istnieje wiele interesujących zadań, które może wykonywać kod, i istnieje wiele interesujących sposobów, w których można dynamicznie dodać zawartość HTML do strony. I ASP.NET *. cshtml* strony, podobnie jak każda strona HTML, może również zawierać kod, który działa w przeglądarce (kod JavaScript i jQuery). Wszystkie te elementy zostaną omówione w tym zestawie samouczków i w kolejnych.
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-W następnym samouczku z tej serii możesz eksplorować, ASP.NET Web Pages programowania nieco bardziej.
+W następnym samouczku w tej serii przedstawiono ASP.NET stron sieci Web, które ułatwiają programowanie.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Utwórz witrynę sieci Web platformy ASP.NET od podstaw](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Jest to samouczek, który jest specjalnie o przy użyciu programu WebMatrix (nie stron ASP.NET Web Pages). Usługa zostanie wprowadzona do nieco więcej szczegółów na temat niektóre dodatkowe funkcje programu WebMatrix, które nie zostaną przedstawione w tym zestawie samouczków.
+[Utwórz witrynę sieci web ASP.NET od podstaw](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Jest to samouczek, który służy głównie do korzystania z WebMatrix (nie ASP.NET stron sieci Web). Zawiera nieco więcej szczegółów na temat niektórych dodatkowych funkcji programu WebMatrix, które nie zostały omówione w tym zestawie samouczków.
 
 > [!div class="step-by-step"]
-> [Next](intro-to-web-pages-programming.md)
+> [Dalej](intro-to-web-pages-programming.md)

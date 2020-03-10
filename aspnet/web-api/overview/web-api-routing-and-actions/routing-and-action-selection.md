@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: Routing i wybieranie akcji w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Routing i wybór akcji w interfejsie API sieci Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,168 +9,168 @@ ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
 ms.openlocfilehash: 62114e56fb29e80c93b82dcb78ce2bc2a123a83b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133654"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554888"
 ---
-# <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing i wybieranie akcji we wzorcu ASP.NET Web API
+# <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing i wybór akcji w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym artykule opisano, jak ASP.NET Web API kieruje żądania HTTP do określonej akcji w kontrolerze.
+W tym artykule opisano sposób, w jaki interfejs API sieci Web ASP.NET kieruje żądanie HTTP do określonej akcji na kontrolerze.
 
 > [!NOTE]
-> Aby uzyskać ogólne omówienie routingu, zobacz [routingu ASP.NET Web API](routing-in-aspnet-web-api.md).
+> Ogólne omówienie routingu można znaleźć [w temacie Routing in ASP.NET Web API](routing-in-aspnet-web-api.md).
 
-W tym artykule przedstawiono szczegółowych informacji dotyczących procesu routingu. Jeśli podczas tworzenia projektu składnika Web API okaże się, że niektóre żądania nie uzyskasz kierowane sposób, w których oczekujesz, miejmy nadzieję ten artykuł pomoże.
+Ten artykuł zawiera szczegółowe informacje o procesie routingu. Jeśli tworzysz projekt interfejsu API sieci Web i okaże się, że niektóre żądania nie są kierowane w oczekiwany sposób, miejmy nadzieję tego artykułu.
 
-Routing obejmuje trzy główne etapy:
+Routing ma trzy główne etapy:
 
-1. Dopasowywania identyfikatora URI do szablonu trasy.
-2. Wybiera kontroler.
+1. Dopasowanie identyfikatora URI do szablonu trasy.
+2. Wybieranie kontrolera.
 3. Wybieranie akcji.
 
-Możesz zastąpić niektóre części procesu własne niestandardowe zachowania. W tym artykule I opisano domyślne zachowanie. Na koniec czy należy pamiętać, miejsca, w którym można dostosować zachowanie.
+Niektóre części procesu można zastąpić własnymi zachowaniami niestandardowymi. W tym artykule opisano zachowanie domyślne. Na końcu zanotujemy miejsca, w których można dostosować zachowanie.
 
-## <a name="route-templates"></a>Szablonów tras
+## <a name="route-templates"></a>Szablony tras
 
-Szablon trasy wygląda podobnie do ścieżki identyfikatora URI, ale może mieć wartości symboli zastępczych, wskazane w nawiasach klamrowych:
+Szablon trasy wygląda podobnie do ścieżki identyfikatora URI, ale może mieć wartości symboli zastępczych, wskazujący na nawiasy klamrowe:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample1.ps1)]
 
-Podczas tworzenia trasy, możesz podać wartości domyślne, niektóre lub wszystkie symbole zastępcze:
+Podczas tworzenia trasy można podać wartości domyślne dla niektórych lub wszystkich symboli zastępczych:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample2.cs)]
 
-Możesz też podać ograniczenia, które ograniczają sposób segmentem identyfikatora URI może odnosić się do symbolu zastępczego:
+Można również określić ograniczenia, które ograniczają sposób, w jaki segment identyfikatora URI może być zgodny z symbolem zastępczym:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample3.js)]
 
-Struktura próbuje dopasować segmenty ścieżki identyfikatora URI do szablonu. Literały w szablonie musi dokładnie pasować. Symbol zastępczy pasuje do dowolnej wartości, chyba że określono ograniczenia. Struktura jest niezgodna z innych części identyfikatora URI, takich jak nazwa hosta lub parametrów zapytań. Struktura wybiera pierwszy trasy w tabeli tras, która pasuje do identyfikatora URI.
+Struktura próbuje dopasować segmenty w ścieżce URI do szablonu. Literały w szablonie muszą dokładnie pasować. Symbol zastępczy pasuje do dowolnej wartości, o ile nie określono ograniczeń. Struktura nie jest zgodna z innymi częściami identyfikatora URI, takimi jak nazwa hosta lub parametry zapytania. Struktura wybiera pierwszą trasę w tabeli tras, która jest zgodna z identyfikatorem URI.
 
-Istnieją dwa specjalne symbole zastępcze: "{controller}" i "{action}".
+Istnieją dwa specjalne symbole zastępcze: "{Controller}" i "{Action}".
 
-- "{controller}" zawiera nazwę kontrolera.
-- "{action}" zawiera nazwę akcji. W interfejsie API sieci Web standardowej konwencji jest pominięcie "{action}".
+- "{Controller}" zawiera nazwę kontrolera.
+- "{Action}" zawiera nazwę akcji. W przypadku interfejsu API sieci Web zwykła Konwencja to pominięcie "{Action}".
 
 ### <a name="defaults"></a>Wartość domyślna
 
-Jeśli podano wartości domyślne trasy będą zgodne identyfikator URI, który nie ma te segmenty. Na przykład:
+W przypadku podania wartości domyślnych trasa będzie zgodna z identyfikatorem URI, w którym brakuje tych segmentów. Na przykład:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-Identyfikatory URI `http://localhost/api/products/all` i `http://localhost/api/products` dopasować poprzedni trasy. W ostatnim identyfikatorze URI brakujący `{category}` segmentu jest przypisywana wartość domyślną `all`.
+Identyfikatory URI `http://localhost/api/products/all` i `http://localhost/api/products` są zgodne z poprzednią trasą. W ostatnim identyfikatorze URI w brakującym segmencie `{category}` jest przypisywana wartość domyślna `all`.
 
-### <a name="route-dictionary"></a>Słownika trasy
+### <a name="route-dictionary"></a>Słownik tras
 
-Jeśli struktura znajdzie dopasowanie dla identyfikatora URI, tworzy słownik, który zawiera wartość dla każdego symbolu zastępczego. Klucze są nazw zastępczych, nie wliczając nawiasów klamrowych. Wartości te są pobierane z składnik path identyfikatora URI lub wartości domyślne. Słownik jest przechowywany w **IHttpRouteData** obiektu.
+Jeśli struktura znajdzie dopasowanie dla identyfikatora URI, tworzy słownik zawierający wartość dla każdego symbolu zastępczego. Klucze są nazwami symboli zastępczych, bez uwzględnienia nawiasów klamrowych. Wartości są pobierane ze ścieżki identyfikatora URI lub z wartości domyślnych. Słownik jest przechowywany w obiekcie **IHttpRouteData** .
 
-W tej fazie dopasowania trasy specjalnego "{controller}" i symbole zastępcze "{action}" są traktowane tak samo jak inne symbole zastępcze. Po prostu są one przechowywane w słowniku inne wartości.
+W ramach tej fazy dopasowania trasy specjalne symbole zastępcze "{Controller}" i "{Action}" są traktowane podobnie jak inne symbole zastępcze. Są one po prostu przechowywane w słowniku z innymi wartościami.
 
-Domyślny może mieć specjalna wartość **RouteParameter.Optional**. Jeśli symbol zastępczy, pobiera przypisaną tę wartość, wartość nie zostanie dodany do słownika trasy. Na przykład:
+Wartością domyślną może być wartość specjalna **RouteParameter. Optional**. Jeśli symbol zastępczy zostanie przypisany do tej wartości, wartość nie zostanie dodana do słownika tras. Na przykład:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample5.cs)]
 
-Dla ścieżki identyfikatora URI "interfejsu api/produkty" będzie zawierać słownika trasy:
+W przypadku ścieżki URI "interfejsy API/produkty" słownik tras będzie zawierać następujące polecenie:
 
 - Kontroler: "produkty"
-- Kategoria: "all"
+- Kategoria: "wszystkie"
 
-Dla "interfejsu api/produkty/zabawki/123" jednak słownika trasy będzie zawierać:
+Jednak dla "API/produkty/zabawki/123" słownik tras będzie zawierał następujące polecenie:
 
 - Kontroler: "produkty"
 - Kategoria: "zabawki"
-- id: "123"
+- ID: "123"
 
-Wartości domyślne mogą również zawierać wartość, która nie występować w dowolnym miejscu w szablonie trasy. Jeśli trasa odpowiada, ta wartość jest przechowywany w słowniku. Na przykład:
+Wartości domyślne mogą również zawierać wartość, która nie występuje w żadnym miejscu szablonu trasy. Jeśli trasa jest zgodna, ta wartość jest przechowywana w słowniku. Na przykład:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample6.cs)]
 
-Jeśli ścieżka identyfikatora URI to "interfejsu api/główny/8", słownik będzie zawierać dwie wartości:
+Jeśli ścieżka identyfikatora URI to "API/root/8", słownik będzie zawierać dwie wartości:
 
-- Kontroler: "klientów"
-- id: "8"
+- Kontroler: "klienci"
+- Identyfikator: "8"
 
-## <a name="selecting-a-controller"></a>Wybiera kontroler
+## <a name="selecting-a-controller"></a>Wybieranie kontrolera
 
-Wybieranie kontrolera jest obsługiwany przez **IHttpControllerSelector.SelectController** metody. Ta metoda przyjmuje **HttpRequestMessage** wystąpienie i zwraca **HttpControllerDescriptor**. Domyślna implementacja jest dostarczany przez **DefaultHttpControllerSelector** klasy. Ta klasa używa algorytmu proste:
+Wybór kontrolera jest obsługiwany przez metodę **IHttpControllerSelector. SelectController** . Ta metoda przyjmuje wystąpienie **HttpRequestMessage** i zwraca **HttpControllerDescriptor**. Domyślna implementacja jest dostarczana przez klasę **DefaultHttpControllerSelector** . Ta klasa używa prostego algorytmu:
 
-1. Znajdź słownika trasy dla klucza "controller".
-2. Pobrać wartość dla tego klucza i Dołącz ciąg "Controller" w celu otrzymania nazwy typu kontrolera.
-3. Zwróć uwagę na kontrolerze interfejsu API sieci Web o tej nazwie typu.
+1. Poszukaj w słowniku tras klucza "Controller".
+2. Wypełnij wartość tego klucza i dołącz ciąg "Controller", aby uzyskać nazwę typu kontrolera.
+3. Poszukaj kontrolera internetowego interfejsu API o tej nazwie typu.
 
-Na przykład jeśli słownika trasy zawiera pary klucz wartość "controller" = "produkty", a następnie typ kontrolera jest "ProductsController". Jeśli określono żadnego typu zgodnego lub wiele dopasowań, struktura zwraca błąd do klienta.
+Na przykład jeśli słownik tras zawiera parę klucz-wartość "Controller" = "Products", typ kontrolera to "ProductsController". Jeśli nie ma pasującego typu lub wiele dopasowań, struktura zwraca błąd do klienta.
 
-W kroku 3 **DefaultHttpControllerSelector** używa **IHttpControllerTypeResolver** interfejsu, aby uzyskać listę typów kontrolera interfejsu API sieci Web. Domyślna implementacja klasy **IHttpControllerTypeResolver** zwraca wszystkie klasy publiczne, które implementują () **IHttpController**, (b) jest abstrakcyjna i (c) mają nazwę, która kończy się na "Controller".
+W kroku 3 **DefaultHttpControllerSelector** używa interfejsu **IHttpControllerTypeResolver** , aby uzyskać listę typów kontrolerów interfejsu API sieci Web. Domyślna implementacja **IHttpControllerTypeResolver** zwraca wszystkie klasy publiczne, które implementują **IHttpController**, (b) nie są abstrakcyjne i (c) mają nazwę kończącą się na "Controller".
 
 ## <a name="action-selection"></a>Wybór akcji
 
-Po wybraniu kontrolera, struktura wybiera akcję, wywołując **IHttpActionSelector.SelectAction** metody. Ta metoda przyjmuje **HttpControllerContext** i zwraca **HttpActionDescriptor**.
+Po wybraniu kontrolera, struktura wybiera akcję przez wywołanie metody **IHttpActionSelector. SelectAction** . Ta metoda pobiera **HttpControllerContext** i zwraca **HttpActionDescriptor**.
 
-Domyślna implementacja jest dostarczany przez **ApiControllerActionSelector** klasy. Aby wybrać akcję, odbywa się na następujących czynności:
+Domyślna implementacja jest dostarczana przez klasę **ApiControllerActionSelector** . Aby wybrać akcję, będzie ona wyglądać następująco:
 
 - Metoda HTTP żądania.
-- Symbol zastępczy "{action}" w szablonie trasy, jeśli jest obecny.
-- Parametry akcji w kontrolerze.
+- Symbol zastępczy "{Action}" w szablonie trasy, jeśli jest obecny.
+- Parametry akcji na kontrolerze.
 
-Przed obejrzeniem algorytm wybór, należy zrozumieć kilka rzeczy, o akcji kontrolera.
+Przed przystąpieniem do algorytmu wyboru musimy zrozumieć pewne kwestie dotyczące akcji kontrolera.
 
-**Które metody na kontrolerze są traktowane jako "Akcje"?** Wybierając akcję, struktura przegląda tylko metody publiczne wystąpienia kontrolera. Ponadto nie obejmuje ["specjalne name"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) metody (konstruktory, zdarzenia, przeciążenia operatorów i tak dalej) i metod odziedziczone **klasy ApiController** klasy.
+**Które metody kontrolera są uznawane za "akcje"?** Po wybraniu akcji struktura sprawdza tylko publiczne metody wystąpienia na kontrolerze. Oprócz tego wyklucza metody ["name Special"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) (konstruktory, zdarzenia, przeciążenia operatora itd.) i metody dziedziczone z klasy **ApiController** .
 
-**Metody HTTP.** Struktura wybiera tylko akcje, które odpowiada metoda HTTP żądania, określany w następujący sposób:
+**Metody HTTP.** Struktura wybiera tylko te akcje, które pasują do metody HTTP żądania, określone w następujący sposób:
 
-1. Metoda HTTP można określić za pomocą atrybutu: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **httpoptions miał**, **HttpPatch**, **HttpPost**, lub **HttpPut**.
-2. W przeciwnym razie jeśli nazwa metody kontrolera rozpoczyna się od "Get", "Post", "Put", "Delete", "Head", "Opcje" lub "Poprawka", następnie zgodnie z Konwencją obsługiwane przez akcję tę metodę HTTP.
-3. Jeśli żadne z powyższych metoda obsługuje POST.
+1. Można określić metodę HTTP z atrybutem: **AcceptVerbs**, **HttpDelete**, **Narzędzia HttpGet**, **HttpHead**, **HttpOptions**, **HttpPatch**, **HTTPPOST**lub **HttpPut**.
+2. W przeciwnym razie, jeśli nazwa metody kontrolera rozpoczyna się od "Get", "post", "Put", "Delete", "Start", "Options" lub "patch", wówczas akcja obsługuje tę metodę HTTP.
+3. Jeśli żaden z powyższych metod obsługuje wpis POST.
 
-**Powiązania parametrów.** Wiązanie parametru jest o tym, jak interfejs API sieci Web tworzy wartość dla parametru. Poniżej przedstawiono domyślną regułę dla wiązania parametru:
+**Powiązania parametrów.** Powiązanie parametru to sposób, w jaki interfejs API sieci Web tworzy wartość dla parametru. Oto domyślna reguła dla powiązania parametrów:
 
-- Proste typy są pobierane z identyfikatora URI.
+- Typy proste są pobierane z identyfikatora URI.
 - Typy złożone są pobierane z treści żądania.
 
-Proste typy obejmują wszystkie [pierwotnych typów programu .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), oraz **daty/godziny**, **dziesiętna**, **Guid**, **ciągu** , i **TimeSpan**. Dla każdej akcji co najwyżej jeden parametr można odczytać treści żądania.
+Typy proste obejmują wszystkie [.NET Framework typy pierwotne](https://msdn.microsoft.com/library/system.type.isprimitive), a także **DateTime**, **Decimal**, **GUID**, **String**i **TimeSpan**. Dla każdej akcji, co najwyżej jeden parametr może odczytać treść żądania.
 
 > [!NOTE]
-> Istnieje możliwość zastąpić domyślne reguły powiązania. Zobacz [wiązanie parametru WebAPI kulisy](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
+> Istnieje możliwość zastąpienia domyślnych reguł powiązań. Zobacz [powiązanie parametrów WebAPI pod okapem](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
 
-W tle Oto algorytm wybór akcji.
+W tym tle jest to algorytm wyboru akcji.
 
-1. Utwórz listę wszystkich działań na kontrolerze, który odpowiada metoda żądania HTTP.
-2. Jeśli słownika trasy ma wpis "action", Usuń akcje, których nazwa jest niezgodna z tej wartości.
-3. Podjąć próbę dopasowania parametry akcji do identyfikatora URI, w następujący sposób: 
+1. Utwórz listę wszystkich akcji na kontrolerze, które pasują do metody żądania HTTP.
+2. Jeśli słownik trasy ma wpis "Action", Usuń akcje, których nazwa nie jest zgodna z tą wartością.
+3. Spróbuj dopasować parametry akcji do identyfikatora URI w następujący sposób: 
 
-    1. Dla każdej akcji zostanie wyświetlona lista parametrów, które są typu prostego, w którym pobiera parametr wiązania z identyfikatora URI. Wyklucz następujące parametry opcjonalne.
-    2. Z tej listy spróbuj znaleźć dopasowania dla każdej nazwy parametru słownika trasy albo w ciągu zapytania identyfikatora URI. Dopasowania jest rozróżniana wielkość liter i nie są zależne od kolejność parametrów.
-    3. Wybierz akcję, której każdy parametr na liście jest zgodny w identyfikatorze URI.
-    4. Jeśli bardziej tego jedną akcję spełnia te kryteria, wybierz jedną z większości dopasowaniami parametru.
-4. Ignoruj akcji przy użyciu **[NonAction]** atrybutu.
+    1. Dla każdej akcji należy uzyskać listę parametrów, które są typu prostego, gdzie powiązanie pobiera parametr z identyfikatora URI. Wyklucz parametry opcjonalne.
+    2. Na tej liście spróbuj znaleźć dopasowanie dla każdej nazwy parametru w słowniku trasy lub w ciągu zapytania identyfikatora URI. W dopasowaniach jest rozróżniana wielkość liter i nie zależą od kolejności parametrów.
+    3. Wybierz akcję, w której każdy parametr na liście ma dopasowanie w identyfikatorze URI.
+    4. Jeśli więcej niż jedna akcja spełnia te kryteria, wybierz ją z największą liczbą pasujących parametrów.
+4. Ignoruj akcje z atrybutem **[Unactions]** .
 
-Krok #3 jest prawdopodobnie najbardziej mylące. Podstawowa koncepcja jest parametrem można jego wartość z identyfikatora URI, z treści żądania albo z niestandardowego powiązania. Dla parametrów, które pochodzą z identyfikatora URI chcemy się upewnić, że identyfikator URI faktycznie zawiera wartości tego parametru, w polu Ścieżka (za pomocą słownika trasy) lub w ciągu zapytania.
+#3 kroków jest prawdopodobnie najbardziej mylące. Podstawowym pomysłem jest to, że parametr może pobrać jego wartość z identyfikatora URI, z treści żądania lub z niestandardowego powiązania. W przypadku parametrów, które pochodzą z identyfikatora URI, chcemy upewnić się, że identyfikator URI rzeczywiście zawiera wartość dla tego parametru, w ścieżce (za pośrednictwem słownika tras) lub w ciągu zapytania.
 
-Na przykład rozważmy następującą akcję:
+Rozważmy na przykład następujące czynności:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample7.cs)]
 
-*Identyfikator* powiązanie parametru identyfikatora URI. W związku z tym ta akcja może wyłącznie odpowiadać identyfikator URI, który zawiera wartość "id" słownika trasy albo w ciągu zapytania.
+Parametr *ID* jest powiązany z identyfikatorem URI. W związku z tym ta akcja może być zgodna tylko z identyfikatorem URI zawierającym wartość "ID" w słowniku trasy lub w ciągu zapytania.
 
-Następujące parametry opcjonalne są wyjątku, ponieważ są opcjonalne. Parametr opcjonalny jest OK Jeśli wiązanie nie może pobrać wartość z identyfikatora URI.
+Parametry opcjonalne są wyjątkiem, ponieważ są opcjonalne. W przypadku parametru opcjonalnego jest to prawidłowe, Jeśli powiązanie nie może pobrać wartości z identyfikatora URI.
 
-Typy złożone są wyjątkiem od innego powodu. Typ złożony można powiązać tylko z identyfikatora URI za pomocą niestandardowego powiązania. Jednak w takim przypadku ramach nie wiedzieć z wyprzedzeniem czy parametr będzie powiązać z określonego identyfikatora URI. Aby dowiedzieć się, należałoby do wywołania wiązania. Celem algorytm wybór jest wybierz akcję z opisu statyczne, przed wywołaniem wszystkie powiązania. W związku z tym typy złożone są wykluczone z algorytm dopasowania.
+Typy złożone są wyjątkiem z innego powodu. Typ złożony można powiązać tylko z identyfikatorem URI za pomocą niestandardowego powiązania. Jednak w takim przypadku struktura nie może się z wyprzedzeniem wiedzieć, czy parametr zostałby powiązany z określonym identyfikatorem URI. Aby się dowiedzieć, należy wywołać powiązanie. Celem algorytmu wyboru jest wybranie akcji z opisu statycznego przed wywołaniem jakichkolwiek powiązań. W związku z tym typy złożone są wykluczone z zgodnego algorytmu.
 
-Po wybraniu akcji są wywoływane wszystkie powiązania parametrów.
+Po wybraniu akcji wszystkie powiązania parametrów są wywoływane.
 
 Podsumowanie:
 
-- Akcja musi być zgodna metoda HTTP żądania.
-- Nazwa akcji musi odpowiadać wpis "action" w słownika trasy, jeśli jest obecny.
-- Dla każdego parametru akcji Jeśli parametr pochodzi z identyfikatora URI, następnie nazwa parametru musi można znaleźć słownika trasy albo w ciągu zapytania identyfikatora URI. (Opcjonalne parametry i parametry za pomocą typy złożone są wyłączone.)
-- Podjąć próbę dopasowania z największą liczbą parametrów. Najlepsze dopasowanie może być metoda bez parametrów.
+- Akcja musi być zgodna z metodą HTTP żądania.
+- Nazwa akcji musi być zgodna z wpisem "Action" w słowniku trasy, jeśli jest obecny.
+- Dla każdego parametru akcji, jeśli parametr jest pobierany z identyfikatora URI, nazwa parametru musi być znaleziona w słowniku trasy lub w ciągu zapytania identyfikatora URI. (Parametry opcjonalne i parametry o typach złożonych są wykluczone).
+- Spróbuj dopasować największą liczbę parametrów. Najlepszym dopasowaniem może być Metoda bez parametrów.
 
-## <a name="extended-example"></a>Przykład rozszerzone
+## <a name="extended-example"></a>Przykład rozszerzony
 
-Trasy:
+Rozsyłan
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample8.cs)]
 
@@ -178,59 +178,59 @@ Kontroler:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample9.cs)]
 
-Żądania HTTP:
+Żądanie HTTP:
 
 [!code-console[Main](routing-and-action-selection/samples/sample10.cmd)]
 
-### <a name="route-matching"></a>Kierowanie dopasowania
+### <a name="route-matching"></a>Dopasowanie trasy
 
-Trasy o nazwie "DefaultApi" pasuje do identyfikatora URI. Słownik trasa zawiera następujące wpisy:
+Identyfikator URI pasuje do trasy o nazwie "DefaultApi". Słownik tras zawiera następujące wpisy:
 
 - Kontroler: "produkty"
-- id: "1"
+- Identyfikator: "1"
 
-Słownika trasy nie zawiera parametrów ciągu zapytania, "wersja" i "szczegóły", ale nadal będą one traktowane podczas wybór akcji.
+Słownik tras nie zawiera parametrów ciągu zapytania, "Version" i "Details", ale te informacje nadal będą brane pod uwagę podczas wyboru akcji.
 
-### <a name="controller-selection"></a>Wybieranie kontrolera
+### <a name="controller-selection"></a>Wybór kontrolera
 
-Z pozycji "controller" w słowniku trasy, jest typ kontrolera `ProductsController`.
+W przypadku wpisu "Controller" w słowniku trasy typ kontrolera jest `ProductsController`.
 
 ### <a name="action-selection"></a>Wybór akcji
 
-Żądanie HTTP jest żądaniem GET. Akcji kontrolera, które obsługują GET są `GetAll`, `GetById`, i `FindProductsByName`. Słownika trasy nie zawiera wpis dla "action", więc nie trzeba być zgodna z nazwą akcji.
+Żądanie HTTP jest żądaniem GET. Akcje kontrolera obsługiwane przez program GET to `GetAll`, `GetById`i `FindProductsByName`. Słownik tras nie zawiera wpisu "Action", więc nie musi on pasować do nazwy akcji.
 
-Następnie próbujemy dopasować nazw parametrów dla akcji, patrząc tylko operacje GET.
+Następnie spróbujemy dopasować nazwy parametrów dla akcji, szukając tylko akcji GET.
 
-| Akcja | Parametry dopasowania |
+| Akcja | Parametry do dopasowania |
 | --- | --- |
 | `GetAll` | brak |
-| `GetById` | "id" |
-| `FindProductsByName` | "name" |
+| `GetById` | # |
+| `FindProductsByName` | Nazwij |
 
-Należy zauważyć, że *wersji* parametru `GetById` nie uznaje się, ponieważ jest on opcjonalny parametr.
+Należy zauważyć, że parametr *version* `GetById` nie jest brany pod uwagę, ponieważ jest to parametr opcjonalny.
 
-`GetAll` Metoda odpowiada przypadku. `GetById` Metoda również jest zgodny, ponieważ słownika trasy zawiera "id". `FindProductsByName` Metoda nie jest zgodny.
+Metoda `GetAll` pasuje do siebie. Metoda `GetById` jest również zgodna, ponieważ słownik tras zawiera wartość "ID". Metoda `FindProductsByName` nie jest zgodna.
 
-`GetById` Metoda serwery wins, ponieważ jest on zgodny jeden parametr, a żadnych parametrów `GetAll`. Metoda jest wywoływana z następującymi wartościami parametrów:
+Metoda `GetById` WINS, ponieważ pasuje do jednego parametru, a nie parametrów dla `GetAll`. Metoda jest wywoływana z następującymi wartościami parametrów:
 
-- *id* = 1
-- *Wersja* = 1.5
+- *Identyfikator* = 1
+- *wersja* = 1,5
 
-Należy zauważyć, że nawet jeśli *wersji* nie był używany w algorytm wybór wartości parametru pochodzi z ciągu zapytania identyfikatora URI.
+Zwróć uwagę, że mimo że *wersja* nie została użyta w algorytmie wyboru, wartość parametru pochodzi z ciągu zapytania identyfikatora URI.
 
 ## <a name="extension-points"></a>Punkty rozszerzenia
 
-Internetowy interfejs API udostępnia punkty rozszerzenia dla niektórych części procesu routingu.
+Interfejs API sieci Web udostępnia punkty rozszerzenia dla niektórych części procesu routingu.
 
-| Interface | Opis |
+| Interfejs | Opis |
 | --- | --- |
 | **IHttpControllerSelector** | Wybiera kontroler. |
 | **IHttpControllerTypeResolver** | Pobiera listę typów kontrolerów. **DefaultHttpControllerSelector** wybiera typ kontrolera z tej listy. |
-| **IAssembliesResolver** | Pobiera listę zestawów do projektu. **IHttpControllerTypeResolver** interfejsu używa tej listy, aby znaleźć typy kontrolerów. |
+| **IAssembliesResolver** | Pobiera listę zestawów projektu. Interfejs **IHttpControllerTypeResolver** używa tej listy do znajdowania typów kontrolerów. |
 | **IHttpControllerActivator** | Tworzy nowe wystąpienia kontrolera. |
 | **IHttpActionSelector** | Wybiera akcję. |
 | **IHttpActionInvoker** | Wywołuje akcję. |
 
-Aby dostarczyć własnej implementacji dla każdego z tych interfejsów, użyj **usług** kolekcji na **HttpConfiguration** obiektu:
+Aby zapewnić własną implementację dla dowolnego z tych interfejsów, Użyj kolekcji **Services** w obiekcie **HttpConfiguration** :
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample11.cs)]

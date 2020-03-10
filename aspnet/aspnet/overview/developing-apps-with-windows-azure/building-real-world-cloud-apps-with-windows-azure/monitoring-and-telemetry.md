@@ -9,11 +9,11 @@ ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
 ms.openlocfilehash: f61810ea7b486b2fa0bbb234edea7541eedde835
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457066"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583147"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i telemetria (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)
 
@@ -102,7 +102,7 @@ Poniżej przedstawiono zaledwie kilka statystyk, które można zobaczyć:
 
 Możesz również skonfigurować raporty i zdarzenia. Na przykład możesz powiedzieć, kiedy zaczniesz wyświetlać Błędy, Wyślij wiadomość e-mail do personelu pomocy technicznej dotyczącej alertu.
 
-![Reports](monitoring-and-telemetry/_static/image19.png)
+![Raporty](monitoring-and-telemetry/_static/image19.png)
 
 Nowy Relic to tylko jeden przykład systemu telemetrii; wszystkie te możliwości można uzyskać również z innych usług. Estetyki w chmurze polega na tym, że bez konieczności pisania kodu i w przypadku minimalnych lub niezwiązanych z nim wydatków, nagle można uzyskać więcej informacji na temat sposobu użycia aplikacji oraz tego, jakie są Twoje klienci.
 
@@ -255,7 +255,7 @@ W [następnym rozdziale](transient-fault-handling.md) zawarto informacje na tema
 
 ## <a name="resources"></a>Zasoby
 
-Więcej informacji zawierają poniższe zasoby.
+Aby uzyskać więcej informacji, zapoznaj się z następującymi zasobami.
 
 Dokumentacja głównie dotyczącej telemetrii:
 

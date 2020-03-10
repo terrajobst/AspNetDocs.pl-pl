@@ -9,11 +9,11 @@ ms.assetid: af882aef-56f5-4e9a-8f95-3977fde20e74
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 9419504ace15b39c35a034dda22f2700ee720157
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74608908"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78577477"
 ---
 # <a name="displaying-data-with-the-objectdatasource-c"></a>Wyświetlanie danych za pomocą kontrolki ObjectDataSource (C#)
 
@@ -140,7 +140,7 @@ Po zdefiniowaniu naszego motywu ostatni krok polega na zastosowaniu motywu do na
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-cs/samples/sample5.xml)]
 
-To wszystko. Ustawienie `styleSheetTheme` wskazuje, że właściwości określone w motywie *nie* powinny przesłaniać właściwości określonych na poziomie formantu. Aby określić, że ustawienia motywu powinny Trump ustawienia kontroli, Użyj atrybutu `theme` zamiast `styleSheetTheme`; Niestety, ustawienia motywu określone za pośrednictwem atrybutu `theme` nie są wyświetlane w widok Projekt programu Visual Studio. Więcej informacji na temat motywów i skórek można znaleźć w tematach [ASP.NET motywy i karnacje](https://msdn.microsoft.com/library/ykzx33wh.aspx) oraz [Style po stronie serwera za pomocą motywów](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) . Zobacz [How to: Apply ASP.NET](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx) Themes, aby uzyskać więcej informacji na temat konfigurowania strony do korzystania z motywu.
+To wszystko! Ustawienie `styleSheetTheme` wskazuje, że właściwości określone w motywie *nie* powinny przesłaniać właściwości określonych na poziomie formantu. Aby określić, że ustawienia motywu powinny Trump ustawienia kontroli, Użyj atrybutu `theme` zamiast `styleSheetTheme`; Niestety, ustawienia motywu określone za pośrednictwem atrybutu `theme` nie są wyświetlane w widok Projekt programu Visual Studio. Więcej informacji na temat motywów i skórek można znaleźć w tematach [ASP.NET motywy i karnacje](https://msdn.microsoft.com/library/ykzx33wh.aspx) oraz [Style po stronie serwera za pomocą motywów](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) . Zobacz [How to: Apply ASP.NET](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx) Themes, aby uzyskać więcej informacji na temat konfigurowania strony do korzystania z motywu.
 
 [![GridView wyświetla nazwę produktu, kategorię, dostawcę, cenę i wycofane informacje](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
 
@@ -226,4 +226,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](declarative-parameters-cs.md)
+> [Dalej](declarative-parameters-cs.md)

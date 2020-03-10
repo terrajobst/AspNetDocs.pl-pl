@@ -9,11 +9,11 @@ ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
 ms.openlocfilehash: d4ce8b278322684be2d44faefd6e69fc524bbe18
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617939"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528267"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (VB)
 
@@ -115,4 +115,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
-> [Ubiegł](precompiling-your-website-vb.md)
+> [Wstecz](precompiling-your-website-vb.md)

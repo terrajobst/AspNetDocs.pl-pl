@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/index
-title: Kontrolery i Routing | Dokumentacja firmy Microsoft
+title: Kontrolery i Routing | Microsoft Docs
 author: rick-anderson
-description: W tym zestawie samouczków dowiesz się o routingu platformy ASP.NET, która mapuje żądania przeglądarki do akcji kontrolera ASP.NET MVC.
+description: W tym zestawie samouczków znajdziesz informacje na temat routingu ASP.NET, które mapują żądania przeglądarki do akcji kontrolera ASP.NET MVC.
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 124df537-428c-4861-b6c2-4830c094fe0c
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing
 msc.type: chapter
 ms.openlocfilehash: 62e8c3c7451373829e2e8fbf65e37a14cfea54df
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544073"
 ---
 # <a name="controllers-and-routing"></a>Kontrolery i routing
 
-> W tym zestawie samouczków dowiesz się o routingu platformy ASP.NET, która mapuje żądania przeglądarki do akcji kontrolera ASP.NET MVC.
+> W tym zestawie samouczków znajdziesz informacje na temat routingu ASP.NET, które mapują żądania przeglądarki do akcji kontrolera ASP.NET MVC.
 
 - [Omówienie routingu we wzorcu ASP.NET MVC (C#)](asp-net-mvc-routing-overview-cs.md)
 - [Objaśnienie filtrów akcji (C#)](understanding-action-filters-cs.md)

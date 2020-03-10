@@ -9,11 +9,11 @@ ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
 ms.openlocfilehash: eeab69e75546791978bb09d7823d95caf9dca1a0
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075063"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578485"
 ---
 # <a name="hot-towel-template"></a>Szablon Hot Towel
 
@@ -63,7 +63,7 @@ Gorąca ręczników jest oparta na znanej i zaawansowanej strukturze ASP.NET MVC
 ## <a name="featured-libraries"></a>Polecane biblioteki
 
 - ASP.NET MVC
-- Internetowy interfejs API platformy ASP.NET
+- Składnik Web API platformy ASP.NET
 - ASP.NET optymalizacja sieci Web — dzielenie i minifikacja
 - [Breeze. js](http://Breezejs.com) — zaawansowane zarządzanie danymi
 - [Durandal. js](http://Durandaljs.com) — tworzenie nawigacji i wyświetlania

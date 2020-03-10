@@ -1,82 +1,82 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: Tworzenie i używanie Pomocnika we wzorcu ASP.NET Web Pages (Razor) lokacji | Dokumentacja firmy Microsoft
+title: Tworzenie i używanie pomocnika w witrynie ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym artykule opisano sposób tworzenia pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). Pomocnik jest komponentów wielokrotnego użytku, obejmującą kodu i znaczników w celu wydajności...
+description: W tym artykule opisano sposób tworzenia pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). Pomocnik to składnik wielokrotnego użytku, który zawiera kod i znaczniki do wydajności...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
 ms.openlocfilehash: 380663951094c9fc7d5f0601e30995fa073a204b
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410969"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563512"
 ---
 # <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Tworzenie i używanie pomocnika w witrynie ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano sposób tworzenia pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). A *Pomocnika* to składnik wielokrotnego użytku, który zawiera kod i znaczników w celu wykonania zadania, które mogą być uciążliwe lub złożonych.
+> W tym artykule opisano sposób tworzenia pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). *Pomocnik* to składnik wielokrotnego użytku, który zawiera kod i znaczniki umożliwiające wykonanie zadania, które może być żmudnym lub złożone.
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
-> - Jak utworzyć i używać prostych pomocnika.
+> - Jak utworzyć i używać prostego pomocnika.
 > 
-> Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
+> Są to funkcje ASP.NET wprowadzone w artykule:
 > 
-> - `@helper` Składni.
+> - Składnia `@helper`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
-## <a name="overview-of-helpers"></a>Omówienie wątków
+## <a name="overview-of-helpers"></a>Przegląd pomocników
 
-Jeśli trzeba wykonać te same zadania na różnych stronach w witrynie, można użyć pomocnika. ASP.NET Web Pages obejmuje pewną liczbę wątków, wiąże się z wielu innych, które można pobrać i zainstalować. (Lista wbudowanej pomocników stron ASP.NET Web Pages znajduje się w [interfejsu API platformy ASP.NET — krótki przewodnik](https://go.microsoft.com/fwlink/?LinkId=202907).) Jeśli żadne z istniejących pomocników odpowiada Twoim potrzebom, możesz utworzyć własne pomocnika.
+Jeśli musisz wykonać te same zadania na różnych stronach w witrynie, możesz użyć pomocnika. Strony sieci Web ASP.NET zawierają kilka pomocników i istnieje wiele więcej, które można pobrać i zainstalować. (Lista wbudowanych pomocników na stronach sieci Web ASP.NET jest wymieniona w [szybkim Kompendium interfejsu API ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202907)). Jeśli żaden z istniejących pomocników nie spełnia Twoich potrzeb, możesz utworzyć własnego użytkownika.
 
-Obiekt pomocnika umożliwia używanie typowych bloku kodu na wielu stronach. Załóżmy, że na stronie często chcesz utworzyć element Uwaga, który jest ustawiony, oprócz normalnych akapitach. Przykład uwagi są tworzone jako `<div>` elementu, został wstawiony jako pole z obramowaniem. Zamiast dodać ten sam kod znaczników do strony za każdym razem, gdy chcesz wyświetlić uwagi, można spakować znaczników jako obiekt pomocnika. Następnie można wstawić notatki z jednego wiersza kodu potrzebne dowolne miejsce.
+Pomocnik umożliwia użycie typowego bloku kodu na wielu stronach. Załóżmy, że na stronie często chcesz utworzyć element notatki, który jest ustawiany poza normalnymi akapitami. Być może notatka jest tworzona jako element `<div>`, który jest stylem jako pole z obramowaniem. Zamiast dodawać te same znaczniki do strony za każdym razem, gdy chcesz wyświetlić notatkę, możesz spakować znacznik jako pomocnika. Następnie możesz wstawić notatkę z jednym wierszem kodu wszędzie tam, gdzie jest to potrzebne.
 
-Przy użyciu pomocnika, np. to sprawia, że kod w poszczególnych stron sieci prostsze i łatwiejsze do odczytania. Również ułatwia utrzymanie witryny, ponieważ jeśli trzeba zmienić wygląd uwagi, można zmienić znaczników w jednym miejscu.
+Użycie pomocnika takiego jak sprawia, że kod na każdej stronie jest prostszy i łatwiejszy do odczytania. Ułatwia ona również obsługę witryny, ponieważ w przypadku konieczności zmiany wyglądu notatek można zmienić adiustację w jednym miejscu.
 
 ## <a name="creating-a-helper"></a>Tworzenie pomocnika
 
-Ta procedura pokazuje, jak utworzyć pomocnika, która tworzy Uwaga, jak opisano powyżej. Jest to prosty przykład, ale niestandardowego elementu pomocniczego może zawierać żadnych znaczników i kodu platformy ASP.NET, które są potrzebne.
+Ta procedura pokazuje, jak utworzyć pomocnika, który tworzy notatkę, tak jak to opisano. Jest to prosty przykład, ale pomocnik niestandardowy może zawierać dowolny kod znacznika i ASP.NET, którego potrzebujesz.
 
-1. W folderze głównym w witrynie sieci Web utwórz folder o nazwie *aplikacji\_kodu*. Jest to zarezerwowana nazwa folderu w programie ASP.NET, gdzie można umieścić kod dla składników, takich jak pomocników.
-2. W *aplikacji\_kodu* folderze utwórz nową *.cshtml* plik i nadaj mu nazwę *MyHelpers.cshtml*.
-3. Zastąp istniejącą zawartość następujących czynności:
+1. W folderze głównym witryny sieci Web Utwórz folder o nazwie *App\_Code*. Jest to zarezerwowana nazwa folderu w ASP.NET, w którym można umieścić kod dla składników takich jak pomocniki.
+2. W folderze *\_aplikacji* Utwórz nowy plik *. cshtml* i nazwij go *pomocnik. cshtml*.
+3. Zastąp istniejącą zawartość następującym:
 
     [!code-cshtml[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample1.cshtml)]
 
-    Kod używa `@helper` składnia do deklarowania nowego pomocnika o nazwie `MakeNote`. Tego konkretnego pomocnika pozwala przekazać parametr o nazwie `content` , może zawierać kombinację tekstu i znaczników. Pomocnik wstawia ciąg znaków do treść notatki przy użyciu `@content` zmiennej.
+    Kod używa składni `@helper` do deklarowania nowego pomocnika o nazwie `MakeNote`. Ten konkretny pomocnik umożliwia przekazywanie parametru o nazwie `content`, który może zawierać kombinację tekstu i znaczników. Pomocnik wstawia ciąg do treści notatki przy użyciu zmiennej `@content`.
 
-    Należy zauważyć, że plik ma nazwę *MyHelpers.cshtml*, ale nosi nazwę Pomocnika `MakeNote`. Wiele niestandardowych pomocników można umieścić w jednym pliku.
+    Zwróć uwagę, że plik ma nazwę *pomocnicy. cshtml*, ale pomocnik ma nazwę `MakeNote`. Można umieścić wiele pomocników niestandardowych w pojedynczym pliku.
 4. Zapisz i zamknij plik.
 
-## <a name="using-the-helper-in-a-page"></a>Na stronie przy użyciu Pomocnika
+## <a name="using-the-helper-in-a-page"></a>Korzystanie z pomocnika na stronie
 
-1. W folderze głównym Utwórz nowy pusty plik o nazwie *TestHelper.cshtml*.
+1. W folderze głównym Utwórz nowy pusty plik o nazwie *TestHelper. cshtml*.
 2. Dodaj następujący kod do pliku:
 
     [!code-html[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample2.html)]
 
-    Aby wywołać pomocnika został utworzony, należy użyć `@` nazwę pliku, gdzie jest pomocnika, kropka, a następnie nazwa pomocnika. (Jeśli masz wiele folderów *aplikacji\_kodu* folderu, można użyć składni `@FolderName.FileName.HelperName` wywołać Pomocnik żadnej zagnieżdżony poziom folderów). Tekst, który możesz dodać w znaki cudzysłowu w nawiasach jest tekst, który pomocnika będą wyświetlane jako część notatki na stronie sieci web.
-3. Zapisz stronę i uruchom go w przeglądarce. Pomocnik generuje elementu notatki bezpośrednio gdzie wywoływana pomocnika: między dwoma akapitami.
+    Aby wywołać utworzoną przez Ciebie pomocnika, użyj `@`, a następnie nazwę pliku, gdzie pomocnika to, kropka, a następnie nazwę pomocnika. (Jeśli w folderze *\_aplikacji* znajduje się wiele folderów, można użyć składni `@FolderName.FileName.HelperName` do wywołania pomocnika na dowolnym zagnieżdżonym poziomie folderów). Tekst dodany w cudzysłowie w nawiasach jest tekstem, który pomocnik będzie wyświetlał jako część notatki na stronie sieci Web.
+3. Zapisz stronę i uruchom ją w przeglądarce. Pomocnik generuje element notatki z prawej strony, gdzie wywołano pomocnika: między dwa akapity.
 
-    ![Zrzut ekranu przedstawiający stronę w przeglądarce i jak Pomocnik wygenerowany kod znaczników, który umieszcza otoczkę wokół pozycji określony tekst.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
+    ![Zrzut ekranu przedstawiający stronę w przeglądarce oraz sposób wygenerowania znaczników przez pomocnika, które umieszczają pole wokół określonego tekstu.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Poziomy menu jako pomocnika Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). Ten wpis w blogu przez Mike'a Pope przedstawia sposób tworzenia menu poziomie jako pomoc przy użyciu znaczników, CSS i kod.
+[Menu poziome jako pomocnik Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). Ten wpis w blogu według Jan Pope pokazuje, jak utworzyć poziome menu jako pomocnika przy użyciu znaczników, CSS i kodu.
 
-[Korzystanie z języka HTML5 we wzorcu ASP.NET Web Pages pomocników dla programu WebMatrix i wzorca ASP.NET MVC 3](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx). Ten wpis w blogu przez Sam Abraham pokazuje pomocnika, który renderuje HTML5 `Canvas` elementu.
+Korzystanie [z HTML5 w ASP.NET stronach sieci Web pomocników dla WebMatrix i ASP.NET MvC3](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx). Ten wpis w blogu Abraham sam pokazuje pomocnika, który renderuje element HTML5 `Canvas`.
 
-[Różnica między @Helpers i @Functions w programie WebMatrix](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix). W tym artykule opisano ten wpis w blogu przez Mike'a Brind `@helper` składni i `@function` składni i kiedy należy używać każdego.
+[Różnica między @Helpers i @Functions w programie WebMatrix](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix). Ten wpis w blogu według Jan solance zawiera opis składni `@helper` i składni `@function` i kiedy należy używać każdego z nich.

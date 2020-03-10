@@ -1,26 +1,26 @@
 ---
 uid: tutorials
-title: Samouczki platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Samouczki ASP.NET | Microsoft Docs
 author: tdykstra
-description: Lista przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
+description: Lista przewodników krok po kroku służących do tworzenia aplikacji ASP.NET.
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113192"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558171"
 ---
-# <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
+# <a name="aspnet-tutorials"></a>Samouczki ASP.NET
 
 [!INCLUDE[](~/includes/rp.md)]
 
 Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
 
 > [!NOTE]
-> Szukasz samouczki platformy ASP.NET Core?  Znajdź je [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/).
+> Szukasz samouczków ASP.NET Core?  Znajdź je [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Formularze sieci Web
 
@@ -60,7 +60,7 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Wprowadzenie do korzystania z interfejsu Web API 2 (C#)](web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 * [Korzystanie z interfejsu Web API we wzorcu ASP.NET Web Forms](web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
 * [Tworzenie stron pomocy interfejsu Web API](web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-* [Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+* [Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 * [Tworzenie interfejsu API REST z routingiem atrybutów w interfejsie Web API 2](web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md)
 * [Używanie interfejsu Web API 2 z programem Entity Framework 6](web-api/overview/data/using-web-api-with-entity-framework/index.md)
 * [Wywołanie interfejsu Web API z aplikacji Windows Phone 8 (C#)](web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
@@ -78,8 +78,8 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Hostowanie interfejsu Web API 2 w roli procesu roboczego platformy Azure](web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md)
 * [Wstrzykiwanie zależności w interfejsie Web API 2](web-api/overview/advanced/dependency-injection.md)
 * [Wywoływanie interfejsu Web API z klienta programu .NET (C#)](web-api/overview/advanced/calling-a-web-api-from-a-net-client.md)
-* [Wysyłanie danych formularza HTML w interfejsie Web API: Dane zakodowane](web-api/overview/advanced/sending-html-form-data-part-1.md)
-* [Wysyłanie danych formularza HTML w interfejsie Web API: Przekazywanie pliku i wieloczęściowej wiadomości MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
+* [Wysyłanie danych formularza HTML w interfejsie Web API: dane zakodowane jako adres URL](web-api/overview/advanced/sending-html-form-data-part-1.md)
+* [Wysyłanie danych formularza HTML w interfejsie Web API: przekazywanie pliku i wieloczęściowej wiadomości MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
 ## <a name="web-pages"></a>Model Web Pages
 
@@ -110,13 +110,13 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Analizowanie ruchu](web-pages/overview/performance-and-traffic/14-analyzing-traffic.md)
 * [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
 
-## <a name="aspnet-signalr"></a>ASP.NET SignalR
+## <a name="aspnet-signalr"></a>Biblioteka SignalR platformy ASP.NET
 
-* [Samouczek: Wprowadzenie do SignalR 2](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
-* [Samouczek: Wprowadzenie do SignalR 2 i MVC 5](signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
-* [Samouczek: Wysoka częstotliwość Realtime z SignalR 2](signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
-* [Samouczek: Emisje serwera z użyciem SignalR 2](signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-* [Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
+* [Samouczek: wprowadzenie do korzystania z SignalR 2](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
+* [Samouczek: wprowadzenie do korzystania z SignalR 2 i MVC 5](signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+* [Samouczek: wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2](signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
+* [Samouczek: emisje serwera z użyciem SignalR 2](signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md)
+* [Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem SignalR](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
 * [Testowanie jednostkowe aplikacji SignalR](signalr/overview/testing-and-debugging/unit-testing-signalr-applications.md)
 * [Włączanie śledzenia SignalR](signalr/overview/testing-and-debugging/enabling-signalr-tracing.md)
 * [SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus](signalr/overview/performance/scaleout-with-windows-azure-service-bus.md)
@@ -124,14 +124,14 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [SignalR — skalowanie w poziomie z użyciem programu SQL Server](signalr/overview/performance/scaleout-with-sql-server.md)
 * [Testowanie gęstości połączenia SignalR za pomocą funkcji Crank](signalr/overview/performance/signalr-connection-density-testing-with-crank.md)
 * [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
-* [Samouczek: Host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
+* [Samouczek: host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
 * [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
 * [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 * [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-* [ASP.NET Identity: Używanie usługi MySQL Storage przy użyciu dostawcy MySQL programu EntityFramework (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+* [ASP.NET Identity: używanie usługi MySQL Storage z dostawcą MySQL programu EntityFramework (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 * [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#)](identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 * [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 * [Implementowanie niestandardowego dostawcy magazynu MySQL dla produktu ASP.NET Identity](identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)

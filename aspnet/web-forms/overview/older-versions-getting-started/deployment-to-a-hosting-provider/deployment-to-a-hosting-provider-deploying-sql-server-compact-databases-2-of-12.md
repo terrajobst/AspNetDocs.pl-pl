@@ -9,11 +9,11 @@ ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 56ceabc79947967846d342354fd033510be5f05a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625541"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568118"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: wdrażanie SQL Server Compact baz danych — 2 z 12
 
@@ -73,11 +73,11 @@ Skompiluj projekt, a następnie w **Eksplorator rozwiązań** kliknij pozycję *
 
 Rozwiń folder **bin** , aby wyświetlić foldery **amd64** i **x86** , a następnie wybierz te foldery, kliknij prawym przyciskiem myszy, a następnie wybierz opcję **Dołącz do projektu**.
 
-![amd64_and_x86_in_Solution_Explorer. png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
 Ikony folderu zmieniają się, aby pokazać, że folder został uwzględniony w projekcie.
 
-![Solution_Explorer_amd64_included. png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Konfigurowanie Migracje Code First wdrażania bazy danych aplikacji
 
@@ -108,7 +108,7 @@ Następnie Włącz Migracje Code First.
 
 Pierwszym krokiem jest upewnienie się, że projekt ContosoUniversity jest ustawiony jako projekt startowy. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity i wybierz pozycję **Ustaw jako projekt startowy**. Migracje Code First będzie wyglądać w projekcie startowym w celu znalezienia parametrów połączenia z bazą danych.
 
-W menu **Narzędzia** kliknij pozycję **Menedżer pakietów NuGet** , a następnie **konsolę Menedżera pakietów**.
+W menu **Narzędzia** kliknij pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **Konsola menedżera pakietów**.
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
@@ -192,7 +192,7 @@ W **Eksplorator rozwiązań**Zmień nazwę pliku *ASPNET. sdf* w folderze *\_dan
 
 W **Eksplorator rozwiązań**upewnij się, że wybrano projekt sieci Web (ContosoUniversity, a nie CONTOSOUNIVERSITY. dal). Następnie w menu **projekt** wybierz pozycję **Konfiguracja ASP.NET** , aby uruchomić **Narzędzie do administrowania witryną sieci Web**(Wat).
 
-Wybierz kartę **zabezpieczenia** .
+Wybierz kartę **Zabezpieczenia**.
 
 [![WAT_Security_tab](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image19.png)
 
@@ -204,9 +204,9 @@ Przejdź z powrotem do karty **zabezpieczenia** , kliknij pozycję **Utwórz uż
 
 [![WAT_Create_User](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image24.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image23.png)
 
-Zamknij przeglądarkę. W **Eksplorator rozwiązań**kliknij przycisk Odśwież, aby wyświetlić nowy plik *ASPNET. sdf* .
+Zamknij okno przeglądarki. W **Eksplorator rozwiązań**kliknij przycisk Odśwież, aby wyświetlić nowy plik *ASPNET. sdf* .
 
-![New_aspnet. sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
+![New_aspnet.sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
 
 Kliknij prawym przyciskiem myszy pozycję **ASPNET. sdf** i wybierz pozycję **include w projekcie**.
 
@@ -216,7 +216,7 @@ W tej sekcji zmienisz nazwy baz danych tak, aby wersje deweloperskie były Schoo
 
 W **Eksplorator rozwiązań**kliknij przycisk **Odśwież** i rozwiń folder dane\_aplikacji, aby zobaczyć utworzoną wcześniej bazę danych szkoły. kliknij go prawym przyciskiem myszy, a następnie wybierz opcję **Dołącz do projektu**.
 
-![Including_School. sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
+![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 
 Zmień nazwę *ASPNET. sdf* na *ASPNET-prod. sdf*.
 

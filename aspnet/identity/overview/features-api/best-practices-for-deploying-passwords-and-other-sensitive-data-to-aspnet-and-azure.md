@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 8356a90611f791779cc4ff4730038d82cd76242f
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457053"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584323"
 ---
 # <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service
 
@@ -114,7 +114,7 @@ Ponieważ pary klucz-wartość dla **ustawień aplikacji** i **parametrów poł�
 W przypadku wdrażania na lokalnych serwerach sieci Web można zabezpieczyć wpisy tajne, [szyfrując sekcje konfiguracji plików konfiguracji](https://msdn.microsoft.com/library/ff647398.aspx). Alternatywnie można użyć tego samego podejścia zalecanego dla usługi Azure Websites: Zachowaj ustawienia deweloperskie w plikach konfiguracji i użyj wartości zmiennych środowiskowych dla ustawień produkcyjnych. W takim przypadku należy jednak napisać kod aplikacji dla funkcji, które są automatyczne w usłudze Azure Websites: Pobierz ustawienia ze zmiennych środowiskowych i Użyj tych wartości zamiast ustawień pliku konfiguracji lub Użyj ustawień pliku konfiguracji, gdy nie znaleziono zmiennych środowiskowych.
 
 <a id="addRes"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 Przykładowy skrypt programu PowerShell służący do tworzenia aplikacji sieci Web i bazy danych, ustawia parametry połączenia + ustawienia aplikacji, pobiera [New-AzureWebsitewithDB. ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) z [biblioteki skryptów platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure). 
 

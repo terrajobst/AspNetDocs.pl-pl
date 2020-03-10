@@ -10,15 +10,15 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 21baedf6285b411f89627df9ca25d47a2a42e387
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519105"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584414"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
 > ASP.NET Identity to rozszerzalny system, który umożliwia utworzenie własnego dostawcy magazynu i podłączenie go do aplikacji bez konieczności ponownego pracy aplikacji. W tym temacie opisano sposób tworzenia niestandardowego dostawcy magazynu dla ASP.NET Identity. Obejmuje to ważne koncepcje tworzenia własnego dostawcy magazynu, ale nie jest to przewodnik krok po kroku dotyczący wdrażania niestandardowego dostawcy magazynu.
 > 
@@ -263,5 +263,5 @@ Nowy dostawca magazynu został zaimplementowany. Teraz musisz skonfigurować apl
 - [NHibernate. ASPNET. Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) przez Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) [@tourismgeek](https://twitter.com/tourismgeek).
 - [RavenDB. ASPNET. Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) przez [ILMServices](http://www.ilmservice.com/).
-- Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)
+- Redis: [Redis. ASPNET. Identity](https://github.com/aminjam/Redis.AspNet.Identity)
 - Szablony T4 do generowania kodu EF dla magazynu użytkownika "Database First": [ASPNET. Identity. EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)

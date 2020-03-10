@@ -10,11 +10,11 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtim
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 2503e90735d6cfa445ee08c9e43f8443aa106096
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600451"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558626"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Samouczek: Tworzenie aplikacji w czasie rzeczywistym o wysokiej częstotliwości z sygnałem 2
 
@@ -24,7 +24,7 @@ Utworzona aplikacja wyświetla kształt, który użytkownicy mogą przeciągać.
 
 Koncepcje wprowadzone w tym samouczku zawierają aplikacje w czasie rzeczywistym oraz inne aplikacje symulacyjne.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
@@ -40,7 +40,7 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i programowaniem w sieci Web** .
+* Program [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z pakietem roboczym **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych**.
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
@@ -224,7 +224,7 @@ Przenoszenie kształtu w drugim oknie jest mniej Jerky. Aplikacja interpoluje sw
 
 Ten kod przenosi kształt ze starej lokalizacji do nowej. Serwer podaje pozycję kształtu w trakcie interwału animacji. W tym przypadku jest to 100 milisekund. Aplikacja czyści wszystkie poprzednie animacje uruchomione na kształcie przed rozpoczęciem nowej animacji.
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
 [Pobierz ukończony projekt](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
@@ -242,7 +242,7 @@ Aby uzyskać więcej informacji o sygnalizacji, zobacz następujące zasoby:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu

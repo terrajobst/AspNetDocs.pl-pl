@@ -1,80 +1,80 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
-title: Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010 | Dokumentacja firmy Microsoft
+title: Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010 | Microsoft Docs
 author: jrjlee
-description: Tego zestawu samouczków opisano narzędzia i techniki, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstw. Wyjaśniono, jak najlepiej wykorzystać...
+description: Ten zestaw samouczków zawiera opis narzędzi i technik, których można użyć do wdrożenia aplikacji sieci Web w różnych scenariuszach dla przedsiębiorstw. Wyjaśniono, jak najlepiej wykorzystać...
 ms.author: riande
 ms.date: 05/03/2012
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
 ms.openlocfilehash: eb7b82d16079d4d086af1919d092fb28db60d8b3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109232"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574159"
 ---
 # <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Tego zestawu samouczków opisano narzędzia i techniki, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstw. Wyjaśniono, jak najlepiej korzystać z technologii, takich jak Visual Studio 2010, aparatu Microsoft Build Engine (MSBuild), Internet Information Services (IIS) 7.5, narzędzie wdrażania sieci Web usług IIS (Web Deploy), Framework kolektywu serwerów sieci Web (WFF) i narzędzi, takich jak VSDBCMD.exe do Uprość i zarządzanie procesem wdrażania. Zawiera omówienia pojęć i wskazówki zadań, który pomoże Ci:
+> Ten zestaw samouczków zawiera opis narzędzi i technik, których można użyć do wdrożenia aplikacji sieci Web w różnych scenariuszach dla przedsiębiorstw. Wyjaśniono, jak najlepiej wykorzystać technologie takie jak Visual Studio 2010, Microsoft Build Engine (MSBuild), Internet Information Services (IIS) 7,5, narzędzie do wdrażania w sieci Web (Web Deploy) usług IIS, środowisko kolektywu serwerów sieci Web (WFF) i narzędzia, takie jak VSDBCMD. exe, do Uprość proces wdrażania i Zarządzaj nim. Obejmuje to przeglądy koncepcyjne i wskazówki zorientowane na zadania, które ułatwią:
 > 
-> - Przejrzyj i ustanowić wymagania dotyczące wdrażania dla aplikacji sieci web w skali przedsiębiorstwa.
-> - Konfigurowanie testów, przemieszczania i produkcji środowiska serwera sieci web do obsługi wdrażania w Internecie.
-> - Skonfiguruj procesów ciągłej integracji (CI) Team Foundation Server (TFS) do obsługi wdrażania w Internecie automatycznych.
-> - Wdrażanie aplikacji sieci web skali korporacyjnej dla środowisk innym serwerem przy użyciu różnych wymagań i ograniczeń.
-> - Wdrożyć zmiany w aplikacji sieci web, które są uruchomione w środowiskach inny serwer.
+> - Przejrzyj i ustal wymagania dotyczące wdrażania dla aplikacji sieci Web w skali przedsiębiorstwa.
+> - Konfigurowanie środowisk testowych, przejściowych i produkcyjnych serwerów sieci Web do obsługi wdrażania w sieci Web.
+> - Skonfiguruj procesy ciągłej integracji z programem Team Foundation Server (TFS), aby obsługiwać Zautomatyzowane wdrażanie w sieci Web.
+> - Wdrażaj aplikacje sieci Web w skali korporacyjnej w różnych środowiskach serwera z różnymi wymaganiami i ograniczeniami.
+> - Wdrażaj zmiany w aplikacjach sieci Web, które działają w różnych środowiskach serwera.
 > 
 > > [!NOTE]
-> > Gdy w tych samouczkach opisano użycie programu TFS jako serwer ciągłej integracji, na dowolnym serwerze CI łatwo dostosowuje się się ze wskazówkami. Nie musisz szczegółową wiedzę na TFS, aby zrozumieć i korzystać z samouczków.
+> > Chociaż te samouczki opisują użycie programu TFS jako serwera elementu konfiguracji, wskazówki te można łatwo dostosować do dowolnego serwera elementu konfiguracji. Nie potrzebujesz szczegółowej wiedzy na temat TFS, aby zrozumieć i korzystać z samouczków.
 > 
 > 
-> Włoska tłumaczenia w tych samouczkach, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
+> Aby uzyskać włoskie tłumaczenie tych samouczków, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
 
-## <a name="about-the-authors"></a>O autorach
+## <a name="about-the-authors"></a>Informacje o autorze
 
-JASON jest główną technolog z [wzorca zawartości](http://www.contentmaster.com/) gdzie on pracował nad z produktów firmy Microsoft i technologie, szczególnie programu SharePoint i programie ASP.NET: od kilku lat. JASON posiada tytuł doktora w obliczeniowej i jest obecnie MCPD MCTS certyfikat. Może odczytywać firmy Jason blog techniczny w [www.jrjlee.com](http://www.jrjlee.com/).
+Jason Lewandowski to główna technologa ze [wzorcem zawartości](http://www.contentmaster.com/) , w której pracował z produktami i technologiami firmy Microsoft, w szczególności z programem SharePoint i ASP.NET, przez kilka lat. Jason przechowuje doktora w trakcie obliczeń i jest obecnie MCPD i MCTS certyfikowane. Blog techniczny Jason można przeczytać pod adresem [www.jrjlee.com](http://www.jrjlee.com/).
 
-Benjamin Curry jest główną technolog z [wzorca zawartości](http://www.contentmaster.com/) który zapisał oficjalne dokumenty, dokumentacja zestawu SDK, prezentacje programu PowerPoint i szkolenia prowadzone przez instruktorów i w trybie online podczas kariery zawodowej. Oryginalny element członkowski zespół dokumentacji platformy ASP.NET, pracował on za pomocą technologii sieci web firmy Microsoft dla ponad dziesięciu lat.
+Benjamin curry to główna technolog z [wzorcem zawartości](http://www.contentmaster.com/) , który posiada oficjalne dokumenty, dokumentację zestawu SDK, prezentacje programu PowerPoint i szkolenia instruktora i kurs online w trakcie swojej kariery. Oryginalny członek zespołu ds. dokumentacji ASP.NET pracował z technologiami sieci Web firmy Microsoft w ciągu dekady.
 
-## <a name="target-audience"></a>Docelowi odbiorcy
+## <a name="target-audience"></a>Odbiorcy docelowi
 
-Jest tym zestawie samouczków dla deweloperów aplikacji sieci web platformy ASP.NET i architektom rozwiązań, którzy korzystają z programu Visual Studio 2010 do tworzenia aplikacji sieci web w skali przedsiębiorstwa. Aby uzyskać maksymalne korzyści z zawartości, powinien być komfortowo, jednocześnie przy użyciu programu Visual Studio 2010 i masz podstawowe znajomość TFS, razem z świadomości technologii platformy sieci web firmy Microsoft, takich jak ASP.NET MVC 3, Windows Communication Foundation (WCF), usługi IIS, SQL Serwer i projektów bazy danych programu Visual Studio. Jednak nie trzeba znać narzędzia do wdrażania i technologii, lub musi wiedzieć, jak skonfigurować systemy ciągłej integracji.
+Ten zestaw samouczków jest przeznaczony dla deweloperów aplikacji sieci Web ASP.NET i architektów rozwiązań, którzy używają programu Visual Studio 2010 do tworzenia aplikacji sieci Web w skali korporacyjnej. Aby uzyskać największą wartość z zawartości, należy mieć doświadczenie w korzystaniu z programu Visual Studio 2010 i mieć podstawową wiedzę o programie TFS, a także poznać technologie platformy sieci Web firmy Microsoft, takie jak ASP.NET MVC 3, Windows Communication Foundation (WCF), IIS i SQL Serwer i projekty bazy danych programu Visual Studio. Nie trzeba jednak znać narzędzi wdrażania i technologii ani wiedzieć, jak skonfigurować systemy CI.
 
 ## <a name="requirements"></a>Wymagania
 
-Postępuj zgodnie z instrukcji opisanych w przewodnikach i wykonywać zadania, które opisują te samouczki, będą potrzebne do zainstalowania tego oprogramowania na komputerze deweloperskim:
+Aby wykonać czynności opisane w przewodnikach i wykonać zadania opisane w tych samouczkach, należy zainstalować to oprogramowanie na komputerze deweloperskim:
 
-- Visual Studio 2010 Premium lub Ultimate Edition z dodatkiem Service Pack 1
+- Visual Studio 2010 Premium lub Ultimate z dodatkiem Service Pack 1
 - .NET Framework 4.0
-- .NET framework 3.5 z dodatkiem Service Pack 1
+- .NET Framework 3,5 z dodatkiem Service Pack 1
 - ASP.NET MVC 3.0
 - IIS 7.5 Express
 - SQL Server Express 2008 R2
 
-Przeprowadzenie wdrożenia opisane w tych przewodników, musisz mieć dostęp do środowiska wdrażania aplikacji sieci Web przykładowej. Aby uzyskać najlepsze wyniki tych środowisk powinny odzwierciedlać wzorca wdrażania przedsiębiorstwa w Twojej organizacji. Następnie można zmodyfikować wskazówki podane w tej dokumentacji, aby odzwierciedlić środowisk wdrażania i wymagań swojej organizacji.
+Aby wykonać kroki wdrażania opisane w tym przewodniku, musisz mieć dostęp do środowisk wdrażania aplikacji sieci Web. W celu uzyskania najlepszych wyników te środowiska powinny odzwierciedlać wzorzec wdrożenia przedsiębiorstwa w organizacji. Następnie można zmodyfikować instruktaży podane w tej dokumentacji, aby odzwierciedlały środowiska wdrażania i wymagania organizacji.
 
 ## <a name="series-contents"></a>Zawartość serii
 
-W tej sekcji wprowadzające składa się z dwóch dodatkowe tematy. Te są przeznaczone do zapewnienia niektóre szerszym kontekście samouczków, które należy wykonać:
+Ta sekcja wprowadzająca zawiera dwa dalsze tematy. Zostały one zaprojektowane w celu zapewnienia szerszego kontekstu dla samouczków, które są następujące:
 
-- [Enterprise Web Deployment: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md). W tym temacie opisano scenariusz, który stanowi podstawę dla każdego z samouczków w tej serii. Scenariusz koncentruje się na wymagania dotyczące zarządzania cyklem życia aplikacji (ALM) fikcyjnej firmy o nazwie firmy Fabrikam, Inc., ponieważ rozwija aplikację sieci web w skali przedsiębiorstwa.
-- [Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji](application-lifecycle-management-from-development-to-production.md). Ten temat zawiera omówienie wysokiego poziomu, end-to-end procesu wdrażania. Przykład ilustruje sposób Fabrikam, Inc. przechodzi skali korporacyjnej aplikację sieci web ASP.NET za pomocą środowisk testowania, przejściowego i produkcji jako część procesu ciągłego rozwoju.
+- [Wdrażanie w sieci Web dla przedsiębiorstw: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md). W tym temacie opisano scenariusz, który podpisuje poszczególne samouczki w tej serii. Scenariusz koncentruje się na wymaganiach w zakresie zarządzania cyklem życia aplikacji (ALM) fikcyjnej firmy Fabrikam, Inc. podczas opracowywania aplikacji sieci Web w skali przedsiębiorstwa.
+- [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](application-lifecycle-management-from-development-to-production.md). Ten temat zawiera szczegółowe omówienie procesu wdrażania w ramach pełnego poziomu. Ilustruje to, jak Fabrikam, Inc. przenosi aplikację sieci Web ASP.NET w skali przedsiębiorstwa za pomocą środowisk testowych, przejściowych i produkcyjnych w ramach procesu ciągłego tworzenia oprogramowania.
 
-Seria zawiera cztery zestawy samouczka. Każdy koncentruje się na różnych aspektów wdrażania w Internecie:
+Seria zawiera cztery zestawy samouczków. Każdy koncentruje się na różnych aspektach wdrażania w sieci Web:
 
-- [Narzędzie Web Deployment w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera ogólne wprowadzenie do plików projektu MSBuild, potoku publikowania w sieci Web, narzędzie Web Deploy i inne powiązane technologie. Jej wyjaśnia, jak można używać tych narzędzi wspólnie do zarządzania procesami złożonego wdrożenia.
-- [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania serwerów Windows do obsługi różnych scenariuszy wdrażania, w tym wdrażania pakietu sieci web do zdalnego przy użyciu usługi agenta wdrażania sieci Web ("agent zdalny") lub program obsługi wdrażania w sieci Web i wdrożenia zdalnej bazy danych. Zwraca uwagę na wybór metody wdrożenia odpowiednie dla Twojego środowiska i opisano w nim sposób używania WFF replikowanie wdrożonych aplikacji sieci web na wszystkich serwerach sieci web w farmie serwerów.
-- [Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania programu TFS do obsługi różnych scenariuszy wdrażania, w tym zautomatyzowane wdrożenia w ramach procesu ciągłej integracji i ręcznie wyzwolony wdrożeń z konkretnymi kompilacjami.
-- [Zaawansowane wdrażanie w Internecie Enterprise](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). W tym samouczku opisano sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, takich jak dostosowywanie wdrożeń bazy danych w wielu środowiskach, wykluczanie plików i folderów z wdrożenia i przełączania w tryb offline w aplikacjach sieci web podczas procesu wdrażania .
+- [Wdrażanie w sieci Web w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera ogólne wprowadzenie do plików projektów programu MSBuild, potoku publikowania w sieci Web, Web Deploy i innych powiązanych technologii. Wyjaśniono, jak można używać tych narzędzi razem do zarządzania złożonymi procesami wdrażania.
+- [Konfigurowanie środowisk serwera na potrzeby wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania serwerów z systemem Windows w celu obsługi różnych scenariuszy wdrażania, w tym wdrażania zdalnego pakietu sieci Web przy użyciu usługi Deployment Agent sieci Web ("agenta zdalnego") lub obsługi Web Deploy i zdalnego wdrażania bazy danych. Zawiera on wskazówki dotyczące wybierania odpowiedniej metody wdrażania dla własnego środowiska. opisano w nim, jak używać WFF do replikowania wdrożonych aplikacji sieci Web na wszystkich serwerach sieci Web w farmie serwerów.
+- [Konfigurowanie Team Foundation Server wdrażania w sieci Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania TFS w celu obsługi różnych scenariuszy wdrażania, w tym automatycznego wdrażania w ramach procesu CI i ręcznie wyzwalania wdrożeń określonych kompilacji.
+- [Zaawansowane wdrażanie w sieci Web dla przedsiębiorstw](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). W tym samouczku opisano, jak wykonać różne bardziej zaawansowane zadania wdrażania, takie jak Dostosowywanie wdrożeń baz danych dla wielu środowisk, wykluczanie plików i folderów z wdrożenia oraz pobieranie aplikacji sieci Web w trybie offline podczas procesu wdrażania .
 
-## <a name="where-to-start"></a>Gdzie zacząć
+## <a name="where-to-start"></a>Miejsce rozpoczęcia
 
-Tego zestawu samouczków używa przykładowe rozwiązanie z realistyczne stopień złożoności, wraz z fikcyjnego wdrożenia zrealizować scenariusz przedsiębiorstwa, zapewniają implementację referencyjną i wydawanie zadania i wskazówki dotyczące typowych kontekstu. Następny temat [wdrażania sieci Web w przedsiębiorstwie: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md), zawiera wprowadzenie do scenariusza i przykładowe rozwiązanie. W tym miejscu możesz pracować za pomocą samouczków i tematów, które najlepiej odpowiadają potrzebom użytkownika.
+Ten zestaw samouczków korzysta z przykładowego rozwiązania o realistycznym poziomie złożoności, a także fikcyjnego scenariusza wdrażania przedsiębiorstwa, aby zapewnić implementację referencyjną i zadawać zadania i instruktażować wspólny kontekst. W następnym temacie [wdrażanie w sieci Web dla przedsiębiorstw: Omówienie scenariusza](enterprise-web-deployment-scenario-overview.md), wprowadzono scenariusz i przykładowe rozwiązanie. Z tego miejsca można korzystać z samouczków i tematów, które najlepiej pasują do Twoich potrzeb.
 
 > [!div class="step-by-step"]
-> [Next](enterprise-web-deployment-scenario-overview.md)
+> [Dalej](enterprise-web-deployment-scenario-overview.md)

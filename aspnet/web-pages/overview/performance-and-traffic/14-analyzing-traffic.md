@@ -1,88 +1,88 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: Śledzenie informacji odwiedzający (analiza) for an ASP.NET Web Pages (Razor) lokacji | Dokumentacja firmy Microsoft
+title: Śledzenie informacji odwiedzających (analiza) dla witryny ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: Po trafiła do Ciebie witryny sieci Web, pracę, możesz chcieć analizowanie ruchu witryny sieci Web.
+description: Po zakończeniu korzystania z witryny sieci Web warto przeanalizować ruch w witrynie sieci Web.
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
 ms.openlocfilehash: 095a5572c755446e0661c052ca9de82d636429fd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134595"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525187"
 ---
-# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Obiekt odwiedzający informacji (analiza) witrynie ASP.NET Web Pages (Razor) ze śledzenia
+# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Śledzenie informacji odwiedzających (analiza) dla witryny ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano, jak dodać analizy witryn sieci Web do stron w witrynie internetowej ASP.NET Web Pages (Razor) za pomocą pomocnika.
+> W tym artykule opisano sposób dodawania usługi Web Analytics do stron w witrynie sieci Web ASP.NET (Razor) przy użyciu pomocnika.
 > 
 > Zawartość:
 > 
-> - Jak wysyłać informacje o ruchu witryny sieci Web do dostawcy analiz.
+> - Jak wysyłać informacje o ruchu w witrynie sieci Web do dostawcy analizy.
 > 
-> Poniżej przedstawiono funkcje wprowadzone w artykule programowania programu ASP.NET:
+> Są to funkcje programowania ASP.NET wprowadzone w artykule:
 > 
-> - `Analytics` Pomocnika.
+> - Pomocnik `Analytics`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
-> - Biblioteka pomocników sieci Web platformy ASP.NET (pakiet NuGet)
+> - ASP.NET strony sieci Web (Razor) 2
+> - Biblioteka pomocników sieci Web ASP.NET (pakiet NuGet)
 
-Analiza jest ogólnym terminem dla technologii, która mierzy ruch w witrynie sieci Web, aby zrozumieć, jak użytkownicy korzystają z witryny. Wiele usług analizy są dostępne, łącznie z usługami Google, Yahoo, StatCounter i innych.
+Analiza jest ogólnym terminem dla technologii, która mierzy ruch w witrynie sieci Web, dzięki czemu można zrozumieć, jak użytkownicy korzystają z tej witryny. Dostępnych jest wiele usług analitycznych, w tym usług firmy Google, Yahoo, StatCounter i innych.
 
-Analiza sposób, którego działa, można założyć konto za pomocą dostawcy analiz, w której możesz zarejestrować lokację, mają być śledzone. Dostawca wysyła fragment kodu JavaScript, która zawiera identyfikator lub kod konta śledzenia. Dodaj fragment kodu JavaScript do stron sieci web w lokacji, który chcesz śledzić. (Zazwyczaj dodajesz fragment analytics stopki lub układ strony lub innych znaczników HTML, który pojawia się na każdej stronie w witrynie.) Gdy użytkownicy żądają strony, która zawiera jeden z tych fragmentów kodu JavaScript, fragment kodu wysyła informacje o bieżącej strony do dostawcy analiz, który rejestruje szczegółowe informacje o stronie.
+Sposób działania analizy polega na zarejestrowaniu się w celu uzyskania konta u dostawcy analizy, w którym można zarejestrować lokację, którą chcesz śledzić. Dostawca wysyła fragment kodu JavaScript, który zawiera identyfikator lub kod śledzenia dla Twojego konta. Dodaj fragment kodu JavaScript do stron sieci Web w witrynie, która ma być śledzona. (Zazwyczaj można dodać fragment analityczny do stopki lub strony układu lub innego znacznika HTML, który pojawia się na każdej stronie w witrynie). Gdy użytkownicy zażądają strony zawierającej jeden z tych fragmentów kodu JavaScript, fragment kodu wyśle informacje o bieżącej stronie do dostawcy analitycznego, który rejestruje różne szczegółowe informacje o stronie.
 
-Chcesz się jej przyjrzeć statystyk lokacji logujesz się do witryny sieci Web dostawcy analiz. Można wyświetlić różne rodzaje raportów o witrynie, takich jak:
+Aby zapoznać się z statystyką lokacji, należy zalogować się do witryny sieci Web dostawcy analizy. Następnie można wyświetlić wszystkie rodzaje raportów o swojej witrynie, takie jak:
 
-- Liczba wyświetleń stron dla poszczególnych stron. Oznacza to, (około), jak wiele osób odwiedzających witrynę, a które strony w witrynie są najbardziej popularne.
-- Ile osób możesz wydać na określone strony. To może określić, np. czy strona główna może być utrzymywanie zainteresowania osób.
-- Jakie witryn osób były na przed ich odwiedzane witryny. Pomaga to zrozumieć, czy ruch sieciowy pochodzi z łącza z wyszukiwania i tak dalej.
-- Gdy ludzie odwiedzić witrynę i jak długo pozostają.
-- Jakich krajach odwiedzających pochodzą z.
-- Jakie przeglądarki i systemy operacyjne korzystają z odwiedzających.
+- Liczba wyświetleń stron dla poszczególnych stron. Oznacza to, że (w przybliżeniu) liczbę osób odwiedzających witrynę i strony, które są najbardziej popularne.
+- Jak długo ludzie spędzają na określonych stronach. Może to pomóc w zapewnieniu, że Strona główna ma zainteresować osoby.
+- Jakie lokacje znajdowały się przed odwiedzeniem Twojej witryny. Dzięki temu można zrozumieć, czy ruch pochodzi z linków, od wyszukiwań i tak dalej.
+- Osoby odwiedzające witrynę i czas ich pobytu.
+- Kraje, z których pochodzą odwiedzający.
+- Jakich przeglądarek i systemów operacyjnych używają osoby odwiedzające.
 
     ![Ch14traffic-1](14-analyzing-traffic/_static/image1.jpg)
 
-## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Dodawanie analizy do strony przy użyciu Pomocnika
+## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Dodawanie analiz do strony przy użyciu pomocnika
 
-ASP.NET Web Pages obejmuje kilka pomocników analytics (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`, i `Analytics.GetStatCounterHtml`) ułatwia zarządzanie fragmenty kodu JavaScript, używane do analizy. Zamiast ustalenie, jak i gdzie umieścić kod JavaScript wszystko, co należy zrobić, to dodanie pomocnika do strony. Wszystkie informacje potrzebne do zapewnienia jest nazwa konta, identyfikator lub kod śledzenia. (Dla StatCounter, również należy podać kilka dodatkowych wartości.)
+ASP.NET strony sieci Web zawierają kilka pomocników analizy (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`i `Analytics.GetStatCounterHtml`), które ułatwiają zarządzanie fragmentami kodu JavaScript używanymi do analizy. Zamiast postanowić się, jak i gdzie umieścić kod JavaScript, wystarczy dodać pomocnika do strony. Jedyne informacje, które należy podać, to nazwa konta, identyfikator lub kod śledzenia. (W przypadku StatCounter należy również podać kilka dodatkowych wartości).
 
-W tej procedurze utworzysz stronę układu, który używa `GetGoogleHtml` pomocnika. Jeśli masz już konto, przy użyciu jednego z innych dostawców analytics, możesz zamiast tego użyj tego konta i wprowadzić niewielkie korekty, zgodnie z potrzebami.
+W tej procedurze utworzysz stronę układu, która używa pomocnika `GetGoogleHtml`. Jeśli masz już konto z innym dostawcą analitycznym, możesz użyć tego konta zamiast tego w razie konieczności wprowadzić niewielkie korekty.
 
 > [!NOTE]
-> Podczas tworzenia konta usługi analytics, możesz zarejestrować adres URL witryny, która ma być śledzenia. Jeśli testujesz wszystko na komputerze lokalnym, użytkownik nie będzie śledzenia rzeczywisty ruch (tylko ruch jest użytkownik), dzięki czemu nie będzie mógł rejestrowanie i wyświetlanie statystyk witryny. Ale w tej procedurze pokazano, jak dodać pomocnika analytics do strony. Podczas publikowania witryny działającej witryny będzie wysyłać informacje do dostawcy analiz.
+> Podczas tworzenia konta usługi Analytics należy zarejestrować adres URL witryny, która ma być śledzona. Jeśli testujesz wszystko na komputerze lokalnym, nie będziesz śledzić rzeczywistego ruchu (jedynym ruchem), więc nie będzie można rejestrować i wyświetlać statystyk lokacji. Jednak ta procedura pokazuje, jak dodać pomocnika analizy do strony. Gdy publikujesz swoją witrynę, na żywo witryna wyśle informacje do dostawcy analizy.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie został dodany.
-2. Utwórz konto za pomocą usługi Google Analytics i zapisać jego nazwę konta.
-3. Tworzenie układu strony o nazwie *Analytics.cshtml* i Dodaj następujący kod:
+1. Dodaj bibliotekę pomocników sieci Web ASP.NET do witryny internetowej zgodnie z opisem w temacie [Instalowanie pomocników w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie została dodana.
+2. Utwórz konto z usługą Google Analytics i Zapisz nazwę konta.
+3. Utwórz stronę układu o nazwie *Analytics. cshtml* i Dodaj następujące znaczniki:
 
     [!code-cshtml[Main](14-analyzing-traffic/samples/sample1.cshtml)]
 
     > [!NOTE]
-    > Należy umieścić wywołanie `Analytics` pomocnika w treści strony sieci web (przed `</body>` tagu). W przeciwnym razie przeglądarki nie uruchomi skrypt.
+    > Należy umieścić wywołanie pomocnika `Analytics` w treści strony sieci Web (przed tagiem `</body>`). W przeciwnym razie przeglądarka nie uruchomi skryptu.
 
-    Jeśli używasz dostawcy analizy różnych użyć jednej z następujących pomocników:
+    Jeśli używasz innego dostawcy analitycznego, Użyj zamiast niego jednego z następujących pomocników:
 
     - (Yahoo) `@Analytics.GetYahooHtml("myaccount")`
     - (StatCounter) `@Analytics.GetStatCounterHtml("project", "security")`
-4. Zastąp `myaccount` o nazwie konto, identyfikator lub kod śledzenia, który został utworzony w kroku 1.
-5. Uruchom stronę w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.)
-6. W przeglądarce Wyświetl źródło strony. Będzie można wyświetlić kod renderowanych analytics:
+4. Zastąp `myaccount` nazwą konta, identyfikatora lub kodu śledzenia utworzonego w kroku 1.
+5. Uruchom stronę w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem).
+6. W przeglądarce Wyświetl źródło strony. Będzie można zobaczyć renderowany kod analityczny:
 
     [!code-html[Main](14-analyzing-traffic/samples/sample2.html)]
-7. Zaloguj się w witrynie Google Analytics i zbadaj statystyki dla danej witryny. Jeśli korzystasz z stronę w witrynie na żywo, zostanie wyświetlony wpis, który rejestruje odwiedziny na stronę.
+7. Zaloguj się do witryny Google Analytics i sprawdź statystyki dla swojej witryny. Jeśli uruchamiasz stronę w aktywnej witrynie, zobaczysz wpis służący do rejestrowania odwiedzin na stronie.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [Witryna usługi Google Analytics](https://www.google.com/analytics/)
-- [Yahoo! Analiza witrynę sieci Web](http://help.yahoo.com/l/us/yahoo/ywa/)
-- [StatCounter lokacji](http://statcounter.com/)
+- [Witryna usługi Web Analytics dla usługi Yahoo!](http://help.yahoo.com/l/us/yahoo/ywa/)
+- [Witryna StatCounter](http://statcounter.com/)

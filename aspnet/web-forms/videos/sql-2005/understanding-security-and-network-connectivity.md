@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/sql-2005/understanding-security-and-network-connectivity
-title: Objaśnienie zabezpieczeń i łączności sieciowej | Dokumentacja firmy Microsoft
+title: Informacje o zabezpieczeniach i łączności sieciowej | Microsoft Docs
 author: microsoft
-description: Początkujących programu SQL Server będzie Dowiedz się, że odróżnić pliki bazy danych programu SQL Server i procesów programu SQL Server. Poznaj scenariusze dotyczące nawiązywania połączenia z SQL Server E...
+description: SQL Server początkujących zapoznaje się z rozróżnianiem SQL Server plików bazy danych i procesów SQL Server. Eksploruj scenariusze dotyczące łączenia się z SQL Server E...
 ms.author: riande
 ms.date: 03/20/2006
 ms.assetid: 5a0df3fa-07d9-4762-b9db-1824dcd8a31a
 msc.legacyurl: /web-forms/videos/sql-2005/understanding-security-and-network-connectivity
 msc.type: video
 ms.openlocfilehash: 9f4bf5f0e0658c1fc7e883a0a5544b1f0fc96809
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395631"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547965"
 ---
 # <a name="understanding-security-and-network-connectivity"></a>Objaśnienie zabezpieczeń i łączności sieciowej
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-Początkujących programu SQL Server będzie Dowiedz się, że odróżnić pliki bazy danych programu SQL Server i procesów programu SQL Server. Poznaj scenariusze łączenie z bazami danych z programu SQL Server Express, umożliwia włączenie i wyłączenie wystąpień użytkownika, uprawnienia logowania i innych środków ostrożności.
+SQL Server początkujących zapoznaje się z rozróżnianiem SQL Server plików bazy danych i procesów SQL Server. Poznaj scenariusze umożliwiające nawiązywanie połączeń z bazami danych SQL Server Express, Włączanie i wyłączanie wystąpień użytkowników, uprawnień do logowania oraz inne środki ostrożności dotyczące zabezpieczeń.
 
-[&#9654;Obejrzyj film wideo (40 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-security-and-network-connectivity)
+[&#9654;Obejrzyj wideo (40 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-security-and-network-connectivity)
 
 > [!div class="step-by-step"]
 > [Poprzednie](more-structured-query-language.md)

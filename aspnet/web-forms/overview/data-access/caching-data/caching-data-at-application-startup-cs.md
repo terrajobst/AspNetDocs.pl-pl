@@ -9,11 +9,11 @@ ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a0b55b0df1b7843120de284891e16178df23fabe
-ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386563"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576910"
 ---
 # <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
 
@@ -124,7 +124,7 @@ W przypadku tych samouczków wystarczy dodać kod do metody `Application_Start`,
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
-To wszystko. Przy uruchamianiu aplikacji `LoadStaticCache()` Metoda pokryje informacje o dostawcy z LOGIKI biznesowej i zapisze je w statycznej zmiennej składowej (lub dowolnego magazynu pamięci podręcznej, który został zakończony przy użyciu w klasie `StaticCache`). Aby sprawdzić to zachowanie, ustaw punkt przerwania w metodzie `Application_Start` i uruchom aplikację. Należy zauważyć, że punkt przerwania został trafiony podczas uruchamiania aplikacji. Kolejne żądania nie powodują jednak wykonania metody `Application_Start`.
+To wszystko! Przy uruchamianiu aplikacji `LoadStaticCache()` Metoda pokryje informacje o dostawcy z LOGIKI biznesowej i zapisze je w statycznej zmiennej składowej (lub dowolnego magazynu pamięci podręcznej, który został zakończony przy użyciu w klasie `StaticCache`). Aby sprawdzić to zachowanie, ustaw punkt przerwania w metodzie `Application_Start` i uruchom aplikację. Należy zauważyć, że punkt przerwania został trafiony podczas uruchamiania aplikacji. Kolejne żądania nie powodują jednak wykonania metody `Application_Start`.
 
 [![użyć punktu przerwania, aby sprawdzić, czy program obsługi zdarzeń Application_Start jest wykonywany](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
@@ -174,5 +174,5 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Teresa Murphy i Zack Kowalski. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Poprzedni](caching-data-in-the-architecture-cs.md)
-> [Następny](using-sql-cache-dependencies-cs.md)
+> [Poprzednie](caching-data-in-the-architecture-cs.md)
+> [dalej](using-sql-cache-dependencies-cs.md)

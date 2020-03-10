@@ -9,11 +9,11 @@ ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
 ms.openlocfilehash: ac1dcaf1ba911fdcaeb3845c6836ec771733d93e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636820"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78643557"
 ---
 # <a name="ui-and-navigation"></a>Interfejs użytkownika i nawigacja
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku zmodyfikujesz interfejs użytkownika domyślnej aplikacji sieci Web do obsługi funkcji aplikacji Wingtip w sklepie. Ponadto zostanie dodana prosta i powiązana z danymi nawigacja. Ten samouczek kompiluje się w poprzednim samouczku "Tworzenie warstwy dostępu do danych" i jest częścią serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak zmienić interfejs użytkownika, aby obsługiwał funkcje aplikacji Wingtip w sklepie.
 - Jak skonfigurować element HTML5 w taki sposób, aby obejmował nawigację po stronie.
@@ -208,7 +208,7 @@ Ten kod będzie wyświetlał wszystkie kategorie z bazy danych. Kontrolka **List
 
 > [!NOTE] 
 > 
-> **Wyowietlon**
+> **Porada**
 > 
 > Po dodaniu kodu przez wpisanie podczas opracowywania, można mieć pewność, że zostanie znaleziony prawidłowy element członkowski obiektu, ponieważ kontrolki danych z jednoznacznie określonymi typami pokazują dostępne elementy członkowskie w oparciu o technologię IntelliSense. Funkcja IntelliSense oferuje odpowiednie dla kontekstu opcje kodu podczas wpisywania kodu, takiego jak właściwości, metody i obiekty.
 

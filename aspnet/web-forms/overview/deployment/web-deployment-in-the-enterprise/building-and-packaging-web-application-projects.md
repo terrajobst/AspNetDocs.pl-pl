@@ -1,98 +1,98 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
-title: Kompilowanie i tworzenie pakietów projektów aplikacji sieci Web | Dokumentacja firmy Microsoft
+title: Kompilowanie i pakowanie projektów aplikacji sieci Web | Microsoft Docs
 author: jrjlee
-description: Wdrażanie projektu aplikacji sieci web w środowisku serwera zdalnego, należy najpierw jest skompilować projekt i generować pakiety wdrażania sieci web...
+description: Jeśli chcesz wdrożyć projekt aplikacji sieci Web w środowisku serwera zdalnego, pierwsze zadanie polega na skompilowaniu projektu i wygenerowaniu pakietu wdrożeniowego sieci Web...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
 ms.openlocfilehash: 1d0ee0264ce6461d7b0159f1a44de4de31e2d079
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114665"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573921"
 ---
 # <a name="building-and-packaging-web-application-projects"></a>Kompilowanie i tworzenie pakietów projektów aplikacji internetowych
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Wdrażanie projektu aplikacji sieci web w środowisku serwera zdalnego, należy najpierw jest skompilować projekt i wygeneruj pakiet wdrażania sieci web. W tym temacie opisano, jak działa proces kompilacji dla projektów aplikacji sieci web. W szczególności opisano:
+> Jeśli chcesz wdrożyć projekt aplikacji sieci Web w środowisku serwera zdalnego, pierwsze zadanie polega na skompilowaniu projektu i wygenerowaniu pakietu wdrożeniowego sieci Web. W tym temacie opisano, w jaki sposób proces kompilacji działa w przypadku projektów aplikacji sieci Web. W szczególności wyjaśnia:
 > 
-> - Jak Web potok publikowania (WPP) rozszerza procesu kompilacji, aby uwzględnić funkcji wdrażania.
-> - Jak narzędzie Internet Information Services (IIS) Web Deployment (Web Deploy) włącza aplikację sieci web do pakietu wdrożeniowego.
-> - Sposobu działania procesu kompilacji i tworzenie pakietów i jakie pliki są tworzone.
+> - Jak potok publikowania w sieci Web (WPP) rozszerza proces kompilacji w celu uwzględnienia funkcji wdrożenia.
+> - Jak narzędzie Web Deployment Internet Information Services (IIS) (Web Deploy) przekształca aplikację sieci Web w pakiet wdrożeniowy.
+> - Jak działa kompilacja i proces pakowania oraz jakie pliki są tworzone.
 
-W programie Visual Studio 2010 proces kompilowania i wdrażania projektów aplikacji sieci web jest obsługiwana przez potok WPP. Potok WPP zawiera zestaw elementów docelowych aparatu Microsoft Build Engine (MSBuild), które rozszerzają funkcjonalność programu MSBuild i włącz ją zintegrować z narzędzia Web Deploy. W programie Visual Studio zostaną wyświetlone to rozszerzoną funkcjonalność na stronach właściwości projektu aplikacji sieci web. **Pakowaniu/publikowaniu Web** strony wraz z **Pakuj/Publikuj SQL** stronie umożliwia skonfigurowanie sposobu spakowane projektu aplikacji sieci web wdrożenia po zakończeniu procesu kompilacji.
+W programie Visual Studio 2010 proces kompilowania i wdrażania projektów aplikacji sieci Web jest obsługiwany przez WPP. WPP zawiera zestaw elementów docelowych programu Microsoft Build Engine (MSBuild), które zwiększają funkcjonalność programu MSBuild i umożliwiają integrację z Web Deploy. W programie Visual Studio można zobaczyć tę rozszerzoną funkcję na stronach właściwości projektu aplikacji sieci Web. Strona **sieci Web pakowanie/Publish** wraz z **pakietem/publikowaniem SQL** umożliwia skonfigurowanie sposobu pakowania projektu aplikacji sieci Web na potrzeby wdrożenia po zakończeniu procesu kompilacji.
 
 ![](building-and-packaging-web-application-projects/_static/image1.png)
 
-## <a name="how-does-the-wpp-work"></a>Jak działa potok WPP?
+## <a name="how-does-the-wpp-work"></a>Jak działa WPP?
 
-Jeśli zapoznaj się z pliku projektu dla języka C# — projekt aplikacji oparte na sieci web, możesz zobaczyć importuje dwa pliki .targets.
+Jeśli przyjrzyjsz się plikowi projektu dla C#projektu aplikacji sieci Web, możesz zobaczyć, że importuje dwa pliki. targets.
 
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample1.xml)]
 
-Pierwszy **importu** instrukcja jest wspólne dla wszystkich projektów języka Visual C#. Ten plik *Microsoft.CSharp.targets*, zawiera elementy docelowe i zadania, które są określone w Visual C#. Na przykład, kompilator C# (**Csc**) zadanie jest wywoływane w tym miejscu. *Microsoft.CSharp.targets* pliku z osobna Importy *Microsoft.Common.targets* pliku. Określa elementy docelowe, które są wspólne dla wszystkich projektów, takie jak **kompilacji**, **odbudować**, **Uruchom**, **skompilować**, i **wyczyść** . Drugi **importu** instrukcja jest specyficzne dla projektów aplikacji sieci web. *Microsoft.WebApplication.targets* pliku z osobna Importy *Microsoft.Web.Publishing.targets* pliku. *Microsoft.Web.Publishing.targets* pliku zasadniczo *jest* potok WPP. Definiuje obiekty docelowe, takie jak **pakietu** i **MSDeployPublish**, który wywoływanie narzędzia Web Deploy wykonywanie różnych zadań wdrażania.
+Pierwsza instrukcja **importu** jest wspólna dla wszystkich projektów Visual C# . Ten plik, *Microsoft. CSharp. targets*, zawiera elementy docelowe i zadania, które są C#specyficzne dla wizualizacji. Na przykład zadanie C# kompilatora (**CSC**) jest wywoływane w tym miejscu. Plik *Microsoft. CSharp. targets* z kolei importuje plik *Microsoft. Common. targets* . Definiuje elementy docelowe, które są wspólne dla wszystkich projektów, takich jak **Kompilowanie**, ponowne **Kompilowanie**, **Uruchamianie**, **Kompilowanie**i **czyszczenie**. Druga instrukcja **importowania** jest specyficzna dla projektów aplikacji sieci Web. Plik *Microsoft. WebApplication. targets* w programie importuje plik *Microsoft. Web. Publishing. targets* . Plik *Microsoft. Web. Publishing. targets* zasadniczo *jest* WPP. Definiuje ona elementy docelowe, takie jak **Package** i **MSDeployPublish**, które wywołują Web Deploy do wykonywania różnych zadań wdrażania.
 
-Aby dowiedzieć się, jak są używane te dodatkowe obiekty docelowe, w przykładowym rozwiązaniu Contact Manager Otwórz *Publish.proj* plik i przyjrzyj się **BuildProjects** docelowej.
+Aby zrozumieć, jak są używane dodatkowe cele, w przykładowym rozwiązaniu Contact Manager Otwórz plik *Publish. proj* i spójrz na obiekt docelowy **BuildProjects** .
 
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample2.xml)]
 
-Ten element docelowy używa **MSBuild** zadań do tworzenia różnych projektów. Zwróć uwagę **DeployOnBuild** i **DeployTarget** właściwości:
+Ten obiekt docelowy używa zadania **MSBuild** do tworzenia różnych projektów. Zwróć uwagę na właściwości **DeployOnBuild** i **DeployTarget** :
 
-- **DeployOnBuild = true** właściwość oznacza "Chcę, aby wykonać dodatkowe docelowej po pomyślnym zakończeniu kompilacji."
-- **DeployTarget** właściwość identyfikuje nazwę docelowego ma zostać wykonany, kiedy **DeployOnBuild** właściwości jest równa **true**. W tym przypadku określasz, czy chcesz, aby program MSBuild, aby wykonać **pakietu** docelowej po utworzeniu projektu.
+- Właściwość **DeployOnBuild = true** zasadniczo oznacza "Chcę wykonać dodatkowy cel po pomyślnym zakończeniu kompilacji".
+- Właściwość **DeployTarget** identyfikuje nazwę obiektu docelowego, który ma zostać wykonany, gdy właściwość **DeployOnBuild** ma **wartość true**. W takim przypadku należy określić, że program MSBuild ma wykonać element docelowy **pakietu** po skompilowaniu projektu.
 
-**Pakietu** docelowej jest zdefiniowany w *Microsoft.Web.Publishing.targets* pliku. Zasadniczo ten element docelowy pobiera dane wyjściowe kompilacji projektu aplikacji sieci web i konwertuje go na pakiet wdrożeniowy sieci web, który można opublikować na serwerze sieci web usług IIS.
+Element docelowy **pakietu** jest zdefiniowany w pliku *Microsoft. Web. Publishing. targets* . Zasadniczo ten obiekt docelowy pobiera dane wyjściowe kompilacji projektu aplikacji sieci Web i włącza go do pakietu wdrożeniowego sieci Web, który można opublikować na serwerze sieci Web usług IIS.
 
 > [!NOTE]
-> Aby wyświetlić plik projektu (na przykład <em>ContactManager.Mvc.csproj</em>) w programie Visual Studio 2010, należy najpierw Cofnij ładowanie projektu z rozwiązania. W <strong>Eksploratora rozwiązań</strong> , kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Zwolnij projekt</strong>. Ponownie kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Edytuj</strong><em>[plik projektu]</em>). Plik projektu zostanie otwarty w nieprzetworzonej postaci XML. Pamiętaj, aby ponownie załadować projekt, gdy wszystko będzie gotowe.  
-> Aby uzyskać więcej informacji na temat elementów docelowych MSBuild, zadań, a <strong>importu</strong> instrukcje, zobacz [objaśnienie pliku projektu](understanding-the-project-file.md). Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i potok WPP, zobacz [wewnątrz aparatu Microsoft Build Engine: Przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i William Bartholomew, ISBN: 978-0-7356-4524-0.
+> Aby wyświetlić plik projektu (na przykład <em>ContactManager. MVC. csproj</em>) w programie Visual Studio 2010, należy najpierw zwolnić projekt z rozwiązania. W oknie <strong>Eksplorator rozwiązań</strong> kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij polecenie <strong>Zwolnij projekt</strong>. Ponownie kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij polecenie <strong>Edytuj</strong><em>[plik projektu]</em>). Plik projektu zostanie otwarty w jego pierwotnym formacie XML. Pamiętaj, aby ponownie załadować projekt po zakończeniu.  
+> Aby uzyskać więcej informacji na temat obiektów docelowych programu MSBuild, zadań i instrukcji <strong>importu</strong> , zobacz [Omówienie pliku projektu](understanding-the-project-file.md). Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i WPP, zobacz [wewnątrz Microsoft Build Engine: korzystanie z programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) przez Sayed Ibrahim Hashimi i William BARTHOLOMEW, ISBN: 978-0-7356-4524-0.
 
-## <a name="what-is-a-web-deployment-package"></a>Co to jest pakiet wdrażania sieci Web?
+## <a name="what-is-a-web-deployment-package"></a>Co to jest pakiet wdrażania w sieci Web?
 
-Podczas tworzenia i wdrażania projektu aplikacji sieci web za pomocą programu Visual Studio 2010 lub bezpośrednio za pomocą programu MSBuild, efekt jest zazwyczaj *pakiet wdrażania sieci web*. Pakiet wdrażania sieci web jest plikiem zip. Zawiera wszystko, który program IIS i narzędzia Web Deploy niezbędna, aby ponownie utworzyć aplikację sieci web w tym:
+Podczas kompilowania i wdrażania projektu aplikacji sieci Web przy użyciu programu Visual Studio 2010 lub bezpośrednio z poziomu programu MSBuild wynik końcowy jest zwykle *pakietem wdrożeniowym sieci Web*. Pakiet wdrożeniowy sieci Web to plik. zip. Zawiera wszystkie informacje o tym, że usługi IIS i Web Deploy muszą być potrzebne do ponownego utworzenia aplikacji sieci Web, w tym:
 
-- Skompilowane dane wyjściowe aplikacji sieci web, w tym zawartość, pliki zasobów, pliki konfiguracji, JavaScript i kaskadowych zasoby (CSS) arkusze stylów i tak dalej.
-- Zestawy dla projektu aplikacji sieci web i dla każdego odwołania do projektów w rozwiązaniu.
-- Skrypty SQL, aby wygenerować baz danych, które wdrażasz za pomocą aplikacji sieci web.
+- Skompilowane dane wyjściowe aplikacji sieci Web, w tym zawartość, pliki zasobów, pliki konfiguracji, zasoby JavaScript i kaskadowe arkusze stylów (CSS) itd.
+- Zestawy dla projektu aplikacji sieci Web i dla wszystkich projektów, do których istnieją odwołania w rozwiązaniu.
+- Skrypty SQL do generowania wszystkich baz danych, które są wdrażane za pomocą aplikacji sieci Web.
 
-Wygenerowany pakiet wdrażania sieci web można opublikować ją na serwerze sieci web usług IIS na różne sposoby. Na przykład wdrożyć go zdalnie, przeznaczone dla usługi zdalnego agenta narzędzia Web Deploy lub obsługi wdrażania sieci Web na serwerze docelowym lub można użyć Menedżera usług IIS, aby ręcznie zaimportować pakiet na docelowym serwerze sieci web. Aby uzyskać więcej informacji na temat tych metod wdrażania, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md).
+Po wygenerowaniu pakietu wdrożeniowego sieci Web można go opublikować na serwerze sieci Web usług IIS na różne sposoby. Można na przykład wdrożyć ją zdalnie, przeznaczoną dla usługi zdalnego agenta Web Deploy lub obsługi Web Deploy na docelowym serwerze sieci Web. można też użyć Menedżera usług IIS do ręcznego zaimportowania pakietu na docelowym serwerze sieci Web. Aby uzyskać więcej informacji na temat tych podejścia do wdrożenia, zobacz [Wybieranie odpowiedniego podejścia do wdrażania w sieci Web](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md).
 
 ## <a name="how-does-the-build-process-work"></a>Jak działa proces kompilacji?
 
-Pokazuje to, co się stanie, gdy kompilujesz i pakietu projektu aplikacji sieci web:
+Pokazuje to, co się stanie w przypadku kompilowania i pakowania projektu aplikacji sieci Web:
 
 ![](building-and-packaging-web-application-projects/_static/image2.png)
 
-Podczas tworzenia projektu aplikacji sieci web, proces kompilacji generuje plik o nazwie *[Nazwa projektu]. SourceManifest.xml*. Wraz z pliku projektu i dane wyjściowe kompilacji to *. SourceManifest.xml* plik informuje narzędzie Web Deploy to, czego potrzebuje do uwzględnienia w pakiecie wdrożeniowym sieci web. Korzystając z tych danych wejściowych, narzędzie Web Deploy generuje pakiet wdrażania sieci web o nazwie *zip [Nazwa projektu]*.
+Podczas kompilowania projektu aplikacji sieci Web proces kompilacji generuje plik o nazwie *[nazwa projektu]. SourceManifest. XML*. Wraz z plikiem projektu i danymi wyjściowymi kompilacji *. Plik SourceManifest. XML* zawiera Web Deploy informacje o tym, co jest potrzebne do dołączenia do pakietu wdrożeniowego sieci Web. Korzystając z tych danych wejściowych, Web Deploy generuje pakiet wdrożeniowy sieci Web o nazwie *[nazwa projektu]. zip*.
 
-Wraz z pakietu wdrożeniowego sieci web proces kompilacji generuje dwa pliki, które mogą pomóc Ci na użycie pakietu:
+Wraz z pakietem Web Deployment proces kompilacji generuje dwa pliki, które mogą ułatwić korzystanie z pakietu:
 
-- *. Pliku deploy.cmd* plik zawiera zestaw sparametryzowanych poleceń narzędzia Web Deploy (MSDeploy.exe), które publikują pakietu wdrażania sieci web do zdalnego serwera sieci web usług IIS. Uruchamianie *. pliku deploy.cmd* pliku z odpowiednimi parametrami zwykle zapewnia szybciej i łatwiej alternatywne do ręcznego tworzenia MSDeploy.exe polecenia samodzielnie.
-- *SetParameters.xml* plików zawiera zestaw wartości parametrów do polecenia MSDeploy.exe. Wartości te zawierają właściwości, takie jak nazwa aplikacji sieci web usług IIS, do którego ma zostać wdrożony pakiet wartości wszystkie punkty końcowe usługi i parametrów połączenia jest zdefiniowana w *web.config* pliku i dowolnej właściwości wdrożenia wartości zdefiniowane na stronach właściwości projektu.
+- Plik *. deploy. cmd* zawiera zestaw sparametryzowanych poleceń Web Deploy (MSDeploy. exe), które publikują pakiet wdrożeniowy sieci Web na zdalnym serwerze sieci Web usług IIS. Uruchomienie pliku *. deploy. cmd* z odpowiednimi parametrami zwykle zapewnia szybszy i łatwiejszy alternatywę do ręcznego konstruowania poleceń MSDeploy. exe.
+- Plik *SetParameters. XML* zawiera zestaw wartości parametrów dla polecenia MSDeploy. exe. Te wartości obejmują właściwości, takie jak nazwa aplikacji sieci Web usług IIS, do której ma zostać wdrożony pakiet, wartości wszystkich punktów końcowych usługi i parametrów połączenia zdefiniowane w pliku *Web. config* oraz wszystkie wartości właściwości wdrożenia zdefiniowane na stronach właściwości projektu.
 
-*SetParameters.xml* plik ma kluczowe znaczenie dla zarządzania procesu wdrażania. Ten plik jest generowany dynamicznie zgodnie z zawartością projektu aplikacji sieci web. Na przykład dodaj ciąg połączenia usługi *web.config* pliku procesu kompilacji umożliwia automatyczne wykrywanie parametrów połączenia, odpowiednio parametryzacja wdrożenia i utworzyć wpis w  *SetParameters.xml* plików, które umożliwiają modyfikowanie parametrów połączenia w ramach procesu wdrażania. Następny temat [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md), roli tego pliku w bardziej szczegółowo opisano, jak i w tym artykule opisano różne sposoby, w którym można go zmodyfikować podczas kompilowania i wdrażania.
+Plik *SetParameters. XML* jest kluczem do zarządzania procesem wdrażania. Ten plik jest generowany dynamicznie w oparciu o zawartość projektu aplikacji sieci Web. Na przykład, jeśli dodasz parametry połączenia do pliku *Web. config* , proces kompilacji automatycznie wykryje parametry połączenia, Sparametryzuj wdrożenie odpowiednio i utworzysz wpis w pliku *SetParameters. XML* , aby umożliwić modyfikowanie parametrów połączenia w ramach procesu wdrażania. W następnym temacie, [Konfigurowanie parametrów wdrożenia pakietu sieci Web](configuring-parameters-for-web-package-deployment.md), wyjaśniono rolę tego pliku bardziej szczegółowo i opisano różne sposoby ich modyfikacji podczas kompilowania i wdrażania.
 
 > [!NOTE]
-> W programie Visual Studio 2010 potok WPP nie obsługuje prekompilowanie stron w aplikacji sieci web przed pakowania. Następna wersja programu Visual Studio i potok WPP obejmuje możliwość wstępnej kompilacji aplikacji sieci web jako opcja tworzenia pakietów.
+> W programie Visual Studio 2010 WPP nie obsługuje wstępnego kompilowania stron w aplikacji sieci Web przed opakowaniem. Następna wersja programu Visual Studio i WPP będzie zawierać możliwość wstępnego kompilowania aplikacji sieci Web jako opcji pakowania.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie podano omówienie tworzenia i przetwarzania tworzenia pakietów dla projektów aplikacji sieci web w programie Visual Studio 2010. Opisano, jak potok WPP umożliwia wywoływanie narzędzia Web Deploy polecenia programu MSBuild i wyjaśniono, jak działania procesu kompilacji i pakowania w usłudze.
+Ten temat zawiera omówienie procesu kompilowania i tworzenia pakietów dla projektów aplikacji sieci Web w programie Visual Studio 2010. Opisano w nim, jak WPP umożliwia wywoływanie poleceń Web Deploy z programu MSBuild i wyjaśniono, jak działa proces kompilowania i tworzenia pakietów.
 
-Po utworzeniu pakietu wdrożeniowego sieci web, następnym krokiem jest jej wdrożenie. Aby uzyskać więcej informacji na temat tego, zobacz [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md) i [wdrażanie pakietów internetowych](deploying-web-packages.md).
+Po utworzeniu pakietu wdrożeniowego sieci Web następnym krokiem jest jego wdrożenie. Aby uzyskać więcej informacji na ten temat, zobacz [Konfigurowanie parametrów wdrażania pakietów sieci Web](configuring-parameters-for-web-package-deployment.md) i [wdrażanie pakietów internetowych](deploying-web-packages.md).
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Tematy dalej w tym samouczku [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md) i [wdrażanie pakietów internetowych](deploying-web-packages.md), zapewnić wskazówki dotyczące sposobu używania pakietu sieci web został utworzony. Ostatni samouczek z tej serii [zaawansowane wdrażanie w przedsiębiorstwie Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md), znajdują się wskazówki dotyczące sposobu dostosowywania i rozwiązywanie problemów z procesem tworzenia pakietów.
+W następnych tematach w tym samouczku, [konfigurowaniu parametrów wdrażania pakietów sieci Web](configuring-parameters-for-web-package-deployment.md) i [wdrażania pakietów sieci Web](deploying-web-packages.md), należy zapoznać się ze wskazówkami dotyczącymi sposobu korzystania z utworzonego pakietu sieci Web. Ostatni samouczek z tej serii, [zaawansowane wdrażanie w sieci Web dla przedsiębiorstw](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md), zawiera wskazówki dotyczące dostosowywania i rozwiązywania problemów z procesem tworzenia pakietów.
 
-Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i potok WPP, zobacz [wewnątrz aparatu Microsoft Build Engine: Przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i William Bartholomew, ISBN: 978-0-7356-4524-0.
+Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i WPP, zobacz [wewnątrz Microsoft Build Engine: korzystanie z programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) przez Sayed Ibrahim Hashimi i William BARTHOLOMEW, ISBN: 978-0-7356-4524-0.
 
 > [!div class="step-by-step"]
 > [Poprzednie](understanding-the-build-process.md)

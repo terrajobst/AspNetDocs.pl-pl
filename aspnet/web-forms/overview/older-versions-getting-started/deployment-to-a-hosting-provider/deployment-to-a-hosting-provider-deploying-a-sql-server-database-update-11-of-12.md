@@ -9,11 +9,11 @@ ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 0894c0ac24737e66b6960ef3d48aa17f78c6aa1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528127"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: wdrażanie aktualizacji SQL Server Database — 11 z 12
 
@@ -89,7 +89,7 @@ W polu ciąg połączenia dla **DefaultConnection**wprowadź tę samą wartość
 
 Pozostaw wyczyszczone **aktualizacje bazy danych** .
 
-Kliknij przycisk **Publikuj**.
+Kliknij przycisk **Opublikuj**.
 
 Program Visual Studio wdraża zmiany kodu w środowisku testowym i otwiera przeglądarkę na stronie głównej firmy Contoso University.
 
@@ -135,7 +135,7 @@ Wybierz kartę **profil** , kliknij pozycję **Zarządzaj**profilami, a następn
 
 Zamknij profil publikowania, aby zapisać zmiany, a następnie otwórz je ponownie.
 
-Kliknij przycisk **Publikuj**. (W przypadku rzeczywistej produkcyjnej witryny sieci Web należy skopiować *aplikację\_offline. htm* do środowiska produkcyjnego i umieścić ją w folderze projektu przed opublikowaniem, a następnie usunąć ją po zakończeniu wdrażania.)
+Kliknij przycisk **Opublikuj**. (W przypadku rzeczywistej produkcyjnej witryny sieci Web należy skopiować *aplikację\_offline. htm* do środowiska produkcyjnego i umieścić ją w folderze projektu przed opublikowaniem, a następnie usunąć ją po zakończeniu wdrażania.)
 
 Program Visual Studio wdraża zmiany kodu w środowisku testowym i otwiera przeglądarkę na stronie głównej firmy Contoso University.
 

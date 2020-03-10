@@ -9,11 +9,11 @@ ms.assetid: 1afdb14d-6e49-4e1f-aead-2934730d472e
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
 ms.openlocfilehash: bc7e94e59226b739c2948434c1bfecb46b3d7856
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607576"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576399"
 ---
 # <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Przyciski niestandardowe w kontrolkach DataList i Repeater (VB)
 
@@ -145,4 +145,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Dennis Patterson. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](custom-buttons-in-the-datalist-and-repeater-cs.md)
+> [Wstecz](custom-buttons-in-the-datalist-and-repeater-cs.md)

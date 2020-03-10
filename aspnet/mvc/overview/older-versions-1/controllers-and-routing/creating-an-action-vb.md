@@ -1,63 +1,63 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
-title: Tworzenie akcji (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie akcji (VB) | Microsoft Docs
 author: microsoft
-description: Dowiedz się, jak dodać nową akcję do Kontroler składnika ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metodę jako akcję.
+description: Dowiedz się, jak dodać nową akcję do kontrolera ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metody jako akcji.
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: c8d93e11-ef78-4a30-afbc-f30419000a60
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
 ms.openlocfilehash: b1b53bea899deecef203551b23c087944e3990ab
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123451"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582006"
 ---
 # <a name="creating-an-action-vb"></a>Tworzenie akcji (VB)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak dodać nową akcję do Kontroler składnika ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metodę jako akcję.
+> Dowiedz się, jak dodać nową akcję do kontrolera ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metody jako akcji.
 
-Celem tego samouczka jest wyjaśniają, jak można utworzyć nowej akcji kontrolera. Dowiesz się o wymagania dotyczące metody akcji. Poznasz również sposób zapobiec metody przed przypadkowym jako akcję.
+Celem tego samouczka jest wyjaśnienie, jak można utworzyć nową akcję kontrolera. Dowiesz się więcej na temat wymagań metody akcji. Dowiesz się również, jak zapobiec ujawnieniu metody jako akcji.
 
 ## <a name="adding-an-action-to-a-controller"></a>Dodawanie akcji do kontrolera
 
-Możesz dodać nową akcję do kontrolera, dodając nową metodę do kontrolera. Na przykład kontroler w ofercie 1 zawiera akcję o nazwie indeks() i akcji, o nazwie SayHello(). Obie metody są widoczne jako akcje.
+Dodaj nową akcję do kontrolera, dodając nową metodę do kontrolera. Na przykład kontroler z listą 1 zawiera akcję o nazwie index () i akcję o nazwie SayHello (). Obie metody są udostępniane jako akcje.
 
-**Wyświetlanie listy 1 - Controllers\HomeController.vb**
+**Lista 1 — Controllers\HomeController.vb**
 
 [!code-vb[Main](creating-an-action-vb/samples/sample1.vb)]
 
-Aby można ujawnić modelowi wszechświat jako akcję, metody muszą spełniać określone wymagania:
+Aby można było uwidocznić w programie Universe jako czynność, metoda musi spełniać pewne wymagania:
 
-- Metoda muszą być publiczne.
+- Metoda musi być publiczna.
 - Metoda nie może być metodą statyczną.
 - Metoda nie może być metodą rozszerzenia.
-- Metoda nie może być Konstruktor, metody pobierającej lub ustawiającej.
+- Metoda nie może być konstruktora, metody pobierającej ani metody ustawiającej.
 - Metoda nie może mieć otwartych typów ogólnych.
 - Metoda nie jest metodą klasy bazowej kontrolera.
-- Metoda nie może zawierać **ref** lub **się** parametrów.
+- Metoda nie może zawierać parametrów **ref** ani **out** .
 
-Należy zauważyć, że nie ma żadnych ograniczeń w zwracanym typie akcji kontrolera. Akcja kontrolera może zwracać ciąg, DateTime, wystąpienie klasy Random lub void. Platforma ASP.NET MVC spowoduje Konwertuj zwracany typ, który nie jest wynik akcji na ciąg i renderowania ciąg do przeglądarki.
+Zwróć uwagę, że nie ma żadnych ograniczeń dla zwracanego typu akcji kontrolera. Akcja kontrolera może zwracać ciąg, typ DateTime, wystąpienie klasy losowej lub typ void. Platforma ASP.NET MVC przekonwertuje wszystkie typy zwracane, które nie są wynikiem akcji na ciąg i renderuje ciąg do przeglądarki.
 
-Po dodaniu dowolnej metody, które naruszają tych wymagań z kontrolerem, metoda jest ujawniona jako akcji kontrolera. Należy zachować ostrożność, w tym miejscu. Akcja kontrolera może być wywoływany przez każdy komputer połączony z Internetem. Nie, na przykład utworzyć DeleteMyWebsite() akcji kontrolera.
+Po dodaniu dowolnej metody, która nie narusza tych wymagań dla kontrolera, metoda jest uwidaczniana jako akcja kontrolera. Tutaj należy zachować ostrożność. Akcja kontrolera może być wywoływana przez dowolną osobę, która jest połączona z Internetem. Nie można na przykład utworzyć akcji kontrolera DeleteMyWebsite ().
 
-## <a name="preventing-a-public-method-from-being-invoked"></a>Uniemożliwienie wywoływana przez publiczną metodę
+## <a name="preventing-a-public-method-from-being-invoked"></a>Uniemożliwianie wywołania metody publicznej
 
-Jeśli musisz utworzyć publiczną metodę w klasie kontrolera i nie chcesz ujawniać metody akcji kontrolera, a następnie można zapobiec metodę wywoływaną za pomocą &lt;NonAction&gt; atrybutu. Na przykład kontroler w ofercie 2 zawiera publiczną metodę o nazwie CompanySecrets(), który zostanie nadany &lt;NonAction&gt; atrybutu.
+Jeśli musisz utworzyć metodę publiczną w klasie kontrolera i nie chcesz ujawniać metody jako akcji kontrolera, możesz uniemożliwić wywoływanie metody przy użyciu atrybutu&gt; &lt;nie akcja. Na przykład kontroler na liście 2 zawiera metodę publiczną o nazwie CompanySecrets (), która jest uzupełniona atrybutem&gt; &lt;nie akcja.
 
-**Wyświetlanie listy 2 - Controllers\WorkController.vb**
+**Lista 2 — Controllers\WorkController.vb**
 
 [!code-vb[Main](creating-an-action-vb/samples/sample2.vb)]
 
-Jeśli użytkownik podejmie próbę wywołania akcji kontrolera CompanySecrets(), wpisując /Work/CompanySecrets na pasku adresu przeglądarki następnie otrzymasz komunikat o błędzie na rysunku 1.
+Jeśli spróbujesz wywołać akcję kontrolera CompanySecrets (), wpisując/Work/CompanySecrets na pasku adresu przeglądarki, zostanie wyświetlony komunikat o błędzie na rysunku 1.
 
-[![Wywoływanie metody NonAction](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
+[![wywoływania metody niefunkcjonalnej](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
 
-**Rysunek 01**: Wywoływanie metody NonAction ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-an-action-vb/_static/image2.png))
+**Ilustracja 01**: wywoływanie metody niefunkcjonalnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-an-action-vb/_static/image2.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-a-controller-vb.md)

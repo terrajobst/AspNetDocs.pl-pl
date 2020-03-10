@@ -9,11 +9,11 @@ ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
 ms.openlocfilehash: 805eb84c24764cf921291f89054435601dbac48e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636831"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547741"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie aktualizacji bazy danych
 
@@ -70,7 +70,7 @@ W tej sekcji dodasz kolumnę Data urodzenia do `Person` klasy bazowej dla jednos
     Po załadowaniu strony zobaczysz, że ma ona nowe pole Data urodzenia.
 
     ![Strona instruktorów z dataurodzeniem](deploying-a-database-update/_static/image2.png)
-3. Zamknij przeglądarkę.
+3. Zamknij okno przeglądarki.
 
 ### <a name="deploy-the-database-update"></a>Wdróż aktualizację bazy danych
 
@@ -121,7 +121,7 @@ W tej sekcji dodasz kolumnę *komentarzy* do tabeli *User* w bazie danych człon
 5. Zaloguj się przy użyciu poświadczeń użytkownika *administratora* (hasło to *devpwd*) i Dodaj do użytkownika pewne komentarze, aby sprawdzić, czy strona działa poprawnie.
 
     ![Strona UserInfo](deploying-a-database-update/_static/image6.png)
-6. Zamknij przeglądarkę.
+6. Zamknij okno przeglądarki.
 
 ## <a name="deploy-the-database-update"></a>Wdróż aktualizację bazy danych
 
@@ -129,7 +129,7 @@ Aby wdrożyć program przy użyciu dostawcy dbDacFx, wystarczy wybrać opcję **
 
 1. Otwórz kreatora **publikacji w sieci Web** , klikając prawym przyciskiem myszy projekt ContosoUniversity i klikając polecenie **Publikuj**.
 2. Wybierz profil **testu** .
-3. Kliknij kartę **Ustawienia** .
+3. Kliknij kartę **Ustawienia**.
 4. W obszarze **DefaultConnection**wybierz pozycję **Aktualizuj bazę danych**.
 5. Wyłącz dodatkowe skrypty skonfigurowane do uruchamiania w ramach początkowego wdrożenia:
 

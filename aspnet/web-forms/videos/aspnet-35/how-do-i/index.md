@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/index
-title: Jak mogę | Dokumentacja firmy Microsoft
+title: Jak | Microsoft Docs
 author: rick-anderson
-description: Ta wieloczęściowa seria artykułów wideo pokazuje, jak korzystać z zalet nowych funkcji w programie ASP.NET 3.5 i Visual Studio 2008.
+description: Ta wieloczęściowa seria filmów pokazuje, jak korzystać z nowych funkcji w ASP.NET 3,5 i Visual Studio 2008.
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 6a25069b-c80f-45f3-a901-4548442c37b6
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 73e3191b168b7d7ea92d1ee7d6509d283a9d5b39
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133784"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573011"
 ---
-# <a name="how-do-i"></a>Jak to zrobić
+# <a name="how-do-i"></a>Jak mogę...
 
-> Ta wieloczęściowa seria artykułów wideo pokazuje, jak korzystać z zalet nowych funkcji w programie ASP.NET 3.5 i Visual Studio 2008.
+> Ta wieloczęściowa seria filmów pokazuje, jak korzystać z nowych funkcji w ASP.NET 3,5 i Visual Studio 2008.
 
 - [Tworzenie strony wzorcowej w programie Visual Studio 2008](how-do-i-create-a-master-page-in-visual-studio-2008.md)
 - [Tworzenie zagnieżdżonej strony wzorcowej w programie Visual Studio 2008](how-do-i-create-nested-master-page-in-visual-studio-2008.md)

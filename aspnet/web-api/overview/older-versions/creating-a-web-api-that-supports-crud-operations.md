@@ -10,11 +10,11 @@ ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: a096fd1c54df33b40115907a5c2517b2e3fec5b8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600334"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556204"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD w interfejsie Web API ASP.NET 1
 
@@ -38,20 +38,20 @@ Interfejs API produktów będzie uwidaczniał następujące metody.
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobierz listę wszystkich produktów | Pobierz | /api/products |
-| Pobierz produkt według identyfikatora | Pobierz | *Identyfikator* /API/Products/ |
-| Pobierz produkt według kategorii | Pobierz | /API/Products? Category =*Kategoria* |
-| Utwórz nowy produkt | POUBOJOWEGO | /api/products |
-| Aktualizowanie produktu | Ubrani | *Identyfikator* /API/Products/ |
+| Pobierz listę wszystkich produktów | GET | /api/products |
+| Pobierz produkt według identyfikatora | GET | *Identyfikator* /API/Products/ |
+| Pobierz produkt według kategorii | GET | /API/Products? Category =*Kategoria* |
+| Utwórz nowy produkt | POST | /api/products |
+| Aktualizowanie produktu | PUT | *Identyfikator* /API/Products/ |
 | Usuwanie produktu | DELETE | *Identyfikator* /API/Products/ |
 
 Zwróć uwagę, że niektóre identyfikatory URI zawierają identyfikator produktu w ścieżce. Na przykład aby uzyskać produkt o IDENTYFIKATORze 28, klient wysyła żądanie GET dla `http://hostname/api/products/28`.
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Zasoby
 
 Interfejs API produktów definiuje identyfikatory URI dla dwóch typów zasobów:
 
-| Zasób | {1&gt;URI&lt;1} |
+| Zasób | Identyfikator URI |
 | --- | --- |
 | Lista wszystkich produktów. | /api/products |
 | Pojedynczy produkt. | *Identyfikator* /API/Products/ |
@@ -128,14 +128,14 @@ W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder controllers
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-W kreatorze **dodawania kontrolera** nazwij kontroler &quot;ProductsController&quot;. Z listy rozwijanej **szablon** wybierz pozycję **pusty kontroler interfejsu API**. Następnie kliknij przycisk **Dodaj**.
+W kreatorze **dodawania kontrolera** nazwij kontroler &quot;ProductsController&quot;. Z listy rozwijanej **szablon** wybierz pozycję **pusty kontroler interfejsu API**. Następnie kliknij pozycję **Dodaj**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
 > Nie jest konieczne umieszczenie kontrolerów w folderze o nazwie controllers. Nazwa folderu nie jest ważna. jest to po prostu wygodny sposób organizowania plików źródłowych.
 
-Kreator **dodawania kontrolera** utworzy plik o nazwie ProductsController.cs w folderze controllers. Jeśli ten plik nie jest jeszcze otwarty, kliknij go dwukrotnie, aby go otworzyć. Dodaj następującą instrukcję **using** :
+Kreator **dodawania kontrolera** utworzy plik o nazwie ProductsController.cs w folderze controllers. Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie, aby go otworzyć. Dodaj następującą instrukcję **using** :
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
 
@@ -152,9 +152,9 @@ Interfejs API ProductStore będzie uwidaczniał kilka &quot;operacji odczytu&quo
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobierz listę wszystkich produktów | Pobierz | /api/products |
-| Pobierz produkt według identyfikatora | Pobierz | *Identyfikator* /API/Products/ |
-| Pobierz produkt według kategorii | Pobierz | /API/Products? Category =*Kategoria* |
+| Pobierz listę wszystkich produktów | GET | /api/products |
+| Pobierz produkt według identyfikatora | GET | *Identyfikator* /API/Products/ |
+| Pobierz produkt według kategorii | GET | /API/Products? Category =*Kategoria* |
 
 Aby uzyskać listę wszystkich produktów, należy dodać tę metodę do klasy `ProductsController`:
 

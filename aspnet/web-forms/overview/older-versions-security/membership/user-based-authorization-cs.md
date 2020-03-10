@@ -9,11 +9,11 @@ ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 059dbf42956268884dcfdade696491ac39e32da9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614407"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574341"
 ---
 # <a name="user-based-authorization-c"></a>Autoryzacja oparta na użytkownikach (C#)
 
@@ -121,7 +121,7 @@ Zaktualizuj plik konfiguracji w folderze `Membership`, aby uniemożliwić dostę
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample4.xml)]
 
-To wszystko.
+To wszystko!
 
 Aby przetestować tę zmianę, odwiedź stronę główną w przeglądarce i upewnij się, że nastąpiło wylogowanie. Ponieważ domyślnym zachowaniem aplikacji ASP.NET jest zezwolenie wszystkim odwiedzającym, a ponieważ nie wprowadzono żadnych modyfikacji autoryzacji do pliku `Web.config` katalogu głównego, możemy odwiedzać pliki w katalogu głównym jako anonimowe gościa.
 

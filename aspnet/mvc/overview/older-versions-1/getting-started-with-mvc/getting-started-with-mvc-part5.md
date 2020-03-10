@@ -1,63 +1,63 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
-title: Uzyskiwanie dostępu do danych modelu za pomocą kontrolera | Dokumentacja firmy Microsoft
+title: Uzyskiwanie dostępu do danych modelu z kontrolera | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
 ms.openlocfilehash: 207ed880977d794d81efdc1ea458d17a68d501d8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122896"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543751"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-W tej sekcji użyjemy Utwórz nową klasę MoviesController i pisanie kodu, który pobiera dane filmów i wyświetla go do przeglądarki przy użyciu szablonu widoku.
+W tej sekcji zamierzamy utworzyć nową klasę MoviesController i napisać kod, który pobiera nasze dane filmu i wyświetla go z powrotem do przeglądarki przy użyciu szablonu widoku.
 
-Kliknij prawym przyciskiem folder kontrolery i upewnij MoviesController nowe.
+Kliknij prawym przyciskiem myszy folder controllers i Utwórz nowy MoviesController.
 
-[![Dodawanie kontrolera](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![dodać kontrolera](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
-Spowoduje to utworzenie nowego pliku "MoviesController.cs" poniżej naszej folder \Controllers w projekcie. Zaktualizujmy MovieController można pobrać listy filmów z naszym nowo wypełniania bazy danych.
+Spowoduje to utworzenie nowego pliku "MoviesController.cs" pod naszym folderem \Controllers w naszym projekcie. Zaktualizujmy MovieController, aby pobrać listę filmów z ostatnio wypełnionej bazy danych.
 
 [!code-csharp[Main](getting-started-with-mvc-part5/samples/sample1.cs)]
 
-Będziemy działają zapytanie LINQ, tak, aby tylko Pobieramy filmy wydana po lata 1984 roku. Będziemy potrzebować szablon widoku do renderowania tej listy filmów z powrotem, więc kliknij prawym przyciskiem myszy metodę i wybierz pozycję Dodaj widok, aby go utworzyć.
+Wykonujemy zapytanie LINQ, dzięki czemu pobieramy tylko filmy wydane po dniu 1984. Potrzebujemy szablonu widoku, aby renderować tę listę filmów z powrotem, więc kliknij prawym przyciskiem myszy metodę i wybierz polecenie Dodaj widok, aby je utworzyć.
 
-W oknie dialogowym Dodaj widok firma Microsoft będzie wskazywać, przechodzi listy&lt;Movies.Models.Movie&gt; do naszych szablonu widoku. W przeciwieństwie do poprzednich razy możemy użyć okno dialogowe dodawania widoku i wybrał opcję utworzenia "Pusty" szablon tym razem, firma Microsoft będzie wskazują, że chcemy, aby automatycznie "tworzenia szkieletu" Wyświetl szablon dla nas z niektórych domyślnej zawartości programu Visual Studio. Możemy to zrobić, wybierając pozycję "List" elementu "menu Widok zawartości listy rozwijanej.
+W oknie dialogowym Dodawanie widoku zostanie wyświetlona lista&lt;filmów. models. Movie&gt; do naszego szablonu widoku. W przeciwieństwie do poprzednich przypadków, w których użyto okna dialogowego Dodawanie widoku i wybrano opcję utworzenia szablonu "pusty", ten czas wskazuje, że program Visual Studio ma automatycznie "szkielet" jako szablon widoku dla nas z niestandardową zawartością. W tym celu należy wybrać element "list" w menu rozwijanym "Wyświetl zawartość".
 
-Należy pamiętać, że jeśli masz utworzony nowej klasy, należy skompilować aplikację, aby wyświetlane w oknie dialogowym Dodawanie widoku.
+Należy pamiętać, że w przypadku utworzenia nowej klasy należy skompilować aplikację do wyświetlania w oknie dialogowym Dodawanie widoku.
 
-![Dodawanie widoku](getting-started-with-mvc-part5/_static/image3.png)
+![Dodaj widok](getting-started-with-mvc-part5/_static/image3.png)
 
-Kliknij przycisk Dodaj, a system automatycznie wygeneruje kod dla widoku dla nas wyświetlanych z naszej listy filmów. Jest to dobry moment, aby zmienić &lt;h2&gt; nagłówek na wartość podobną "Moja lista filmu", takie jak były wykonywane wcześniej przy użyciu widoku Hello World.
+Kliknij przycisk Dodaj, a system automatycznie wygeneruje kod dla tego widoku, który wyświetla naszą listę filmów. Jest to dobry moment, aby zmienić nagłówek &lt;H2&gt; na taki, jak "Moja lista filmów", tak jak wcześniej, za pomocą widoku Hello world.
 
-[![Filmy — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![filmów — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
-Uruchom aplikację, a następnie odwiedź /Movies na pasku adresu. Firma Microsoft została teraz pobierane są dane z bazy danych przy użyciu podstawowego zapytania wewnątrz kontrolera i zwrócone dane do widoku, który zna filmy. Ten widok, a następnie uruchamia się za pośrednictwem listy filmów i tworzy tabelę danych dla nas.
+Uruchom aplikację i odwiedź stronę/Movies na pasku adresu. Teraz pobrano dane z bazy danych przy użyciu podstawowego zapytania wewnątrz kontrolera i zwróciło dane do widoku, który wie o filmach. Ten widok umożliwia przechodzenie przez listę filmów i utworzenie tabeli danych dla nas.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[Lista filmów ![— Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
-Firma Microsoft nie będzie zaimplementowana funkcji edycji, szczegółów i usuwania, z tą aplikacją — więc nie potrzebujemy łącza domyślny szablon szkieletu utworzony dla nas. Otwórz plik /Movies/Index.aspx i usuń je.
+Nie będziemy wdrażać funkcji Edytuj, szczegóły i Usuń w tej aplikacji — dlatego nie są potrzebne domyślne linki utworzone dla nas przez szablon szkieletu. Otwórz plik/Movies/Index.aspx i usuń go.
 
-Poniżej przedstawiono kod źródłowy dla naszych zaktualizowany szablon widoku jak powinien wyglądać po możemy wprowadzić te zmiany:
+Oto kod źródłowy, dla którego nasz zaktualizowany szablon widoku powinien wyglądać jak po wprowadzeniu tych zmian:
 
 [!code-aspx[Main](getting-started-with-mvc-part5/samples/sample2.aspx)]
 
-Łączy, które firma Microsoft nie będzie już konieczne, która zostanie utworzona, więc usuniemy je w tym przykładzie Zostanie zachowana, aby nasze Utwórz nowe łącze, ponieważ to jest dalej! Oto jak wygląda naszą aplikację z tej kolumny usunięte.
+Tworzy linki, które nie są potrzebne, więc usuniemy je z tego przykładu. Nasz nowy link zostanie zachowany w tym przypadku. Oto, jak nasza aplikacja zostanie usunięta z tą kolumną.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[Lista filmów ![— Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
-W efekcie powstał prostą listę danych filmu. Jednak po kliknięciu przycisku "Utwórz nowy" link przejdziemy błąd, ponieważ nie jest podłączany! Przejdźmy implementuje metody tworzenia akcji i umożliwić użytkownikowi wprowadzanie nowych filmów w naszej bazie danych.
+Mamy już prostą listę naszych danych filmowych. Jeśli jednak klikniemy link "Utwórz nowy", zostanie wyświetlony komunikat o błędzie, ponieważ nie jest on podłączany. Zaimplementujmy metodę tworzenia akcji i umożliwisz użytkownikowi wprowadzanie nowych filmów w naszej bazie danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part4.md)

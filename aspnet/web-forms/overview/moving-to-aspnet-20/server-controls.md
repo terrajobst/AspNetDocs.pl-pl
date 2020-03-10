@@ -1,135 +1,135 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
-title: Formanty serwera | Dokumentacja firmy Microsoft
+title: Formanty serwera | Microsoft Docs
 author: microsoft
-description: Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre zmiany w architekturze sposób ASP.NET 2.0 i Visual Studio 200...
+description: ASP.NET 2,0 rozszerza kontrolę serwera na wiele sposobów. W tym module omówiono niektóre zmiany architektury w sposób ASP.NET 2,0 i Visual Studio 200...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
 ms.openlocfilehash: c02a633013f061c09141d4f98871848c011a799e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116711"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641443"
 ---
 # <a name="server-controls"></a>Kontrolki serwera
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre architektury zmiany w sposobie ASP.NET 2.0 i Visual Studio 2005 zajmuje się formantów serwera.
+> ASP.NET 2,0 rozszerza kontrolę serwera na wiele sposobów. W tym module zajmiemy się niektórymi zmianami architektury w sposób ASP.NET 2,0 i Visual Studio 2005 z kontrolkami serwera.
 
-Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre architektury zmiany w sposobie ASP.NET 2.0 i Visual Studio 2005 zajmuje się formantów serwera.
+ASP.NET 2,0 rozszerza kontrolę serwera na wiele sposobów. W tym module zajmiemy się niektórymi zmianami architektury w sposób ASP.NET 2,0 i Visual Studio 2005 z kontrolkami serwera.
 
 ## <a name="view-state"></a>Wyświetl stan
 
-Podstawowej zmiany w widoku stanu w programie ASP.NET 2.0 jest znaczną redukcję rozmiaru. Należy wziąć pod uwagę strony za pomocą tylko kontrolki kalendarza na nim. Oto stan widoku w ASP.NET 1.1.
+Podstawowa zmiana stanu widoku w ASP.NET 2,0 to znacząca redukcja rozmiaru. Rozważ użycie na stronie tylko kontrolki Calendar. Oto stan widoku w ASP.NET 1,1.
 
 [!code-css[Main](server-controls/samples/sample1.css)]
 
-Teraz Oto stanu widoku na identyczna strona programu ASP.NET 2.0.
+Teraz jest to stan widoku na identycznej stronie w witrynie ASP.NET 2,0.
 
 [!code-css[Main](server-controls/samples/sample2.css)]
 
-To bardzo istotna zmiana, i biorąc pod uwagę, że stan widoku jest przenoszony i z powrotem przez sieć, ta zmiana umożliwiają deweloperom do znacznego zwiększenia wydajności. Zmniejszenie rozmiaru stan widoku jest głównie ze względu na sposób, w jaki firma Microsoft obsłużyć wewnętrznie. Należy pamiętać, widok stanu jest w formacie Base64 ciąg zakodowany. Aby lepiej zrozumieć zmiany w widoku stanu w programie ASP.NET 2.0, Przyjrzyjmy się przyjrzeć się dekodowane wartości z powyższych przykładach.
+Jest to bardzo znacząca zmiana i biorąc pod uwagę, że stan widoku jest przenoszony i wykonywany za pośrednictwem sieci, ta zmiana może dać deweloperom znaczący wzrost wydajności. Zmniejszenie rozmiaru stanu widoku jest duże ze względu na sposób, w jaki obsługujemy go wewnętrznie. Należy pamiętać, że stan widoku to ciąg szyfrowany algorytmem Base64. Aby lepiej zrozumieć zmianę stanu widoku w ASP.NET 2,0, przyjrzyjmy się zdekodowanym wartościom z powyższych przykładów.
 
-Poniżej przedstawiono stan widoku 1.1 zdekodowany:
+Poniżej znajduje się kod stanu widoku 1,1:
 
 [!code-css[Main](server-controls/samples/sample3.css)]
 
-To mogą wyglądać nieco dziwny, ale występuje wzorzec, w tym miejscu. W programie ASP.NET: 1.x, firma Microsoft umożliwia identyfikowanie typów danych przez pojedyncze znaki i lista wartości, korzystając z &lt; &gt; znaków. W powyższym przykładzie stan widoku "t" reprezentuje trójkę. Trójkę zawiera parę ArrayLists ("g" reprezentuje element ArrayList). Jeden z tych ArrayLists zawiera wartości Int32 ("i") o wartości 1, a drugi zawiera inny trójkę. Trójkę zawiera parę ArrayLists itp. Ważne jest, aby pamiętać jest używamy Triplets, które zawierają pary, możemy zidentyfikować typy danych za pomocą litery i używamy &lt; i &gt; znaków w dwukropki.
+Może to wyglądać podobnie jak informacje, ale w tym miejscu istnieje wzorzec. W ASP.NET 1. x użyto pojedynczych znaków do identyfikowania typów danych i rozdzielonych wartości przy użyciu znaków &lt;&gt;. "T" w powyższym przykładzie widoku reprezentuje element tryplet. Tryplet zawiera parę niezsynchronizowane listy ArrayLists ("l" reprezentuje ArrayList). Jeden z tych niezsynchronizowane listy ArrayLists zawiera element Int32 ("i") o wartości 1, a drugi zawiera inne tryplet. Tryplet zawiera parę niezsynchronizowane listy ArrayLists itp. Ważne jest, aby pamiętać, że korzystamy z Triplets zawierających pary, możemy identyfikować typy danych za pośrednictwem litery i używać &lt; i &gt; znaków jako ograniczników.
 
-W programie ASP.NET 2.0 stan widoku zdekodowany wygląda nieco inna.
+W ASP.NET 2,0, zdekodowany stan widoku wygląda nieco inaczej.
 
 [!code-powershell[Main](server-controls/samples/sample4.ps1)]
 
-Powinno być widocznych ogromna zmiana wyglądu stan zdekodowany widoku. Ta zmiana ma kilka underpinnings architektury. Wyświetl stan w programie ASP.NET: 1.x służący do serializowania danych LosFormatter. W wersji 2.0 używamy nową klasę ObjectStateFormatter. Ta klasa została zaprojektowana specjalnie o ułatwiające serializacji i deserializacji Wyświetl stan i stan kontrolki. (Stan formantu zostanie omówione w następnej sekcji). Istnieje wiele korzyści uzyskiwane dzięki zmiana formy, za pomocą którego serializacja i deserializacja mieć miejsce. Jednym z najbardziej znaczący jest fakt, że w przeciwieństwie do LosFormatter, który używa element TextWriter, ObjectStateFormatter używa BinaryWriter. Dzięki temu ASP.NET 2.0 do przechowywania stanu widoku serię bajtów zamiast ciągów. Podjąć, na przykład liczba całkowita. W ASP.NET 1.1 całkowitą wymagane 4 bajty stan widoku. W programie ASP.NET 2.0 w tej samej liczby całkowitej wymaga tylko 1 bajt. Inne ulepszenia wprowadzono może zmniejszyć ilość stan widoku, który jest przechowywany. Wartości daty/godziny, na przykład, są teraz przechowywane przy użyciu TickCount zamiast ciągu.
+Należy zauważyć ogromną zmianę wyglądu dekodowanego stanu widoku. Ta zmiana ma kilka obprzypinania architektury. Stan widoku w ASP.NET 1. x użył LosFormatter do serializacji danych. W 2,0 korzystamy z nowej klasy ObjectStateFormatter. Ta klasa została specjalnie zaprojektowana w celu ułatwienia serializacji i deserializacji stanu widoku i stanu kontroli. (Stan formantu zostanie uwzględniony w następnej sekcji). Istnieje wiele korzyści uzyskanych przez zmianę metody serializacji i deserializacji. Jedną z najbardziej znaczących jest fakt, że w przeciwieństwie do LosFormatter, który używa elementu TextWriter, ObjectStateFormatter używa BinaryWriter. Dzięki temu ASP.NET 2,0 do przechowywania stanu widoku seria bajtów zamiast ciągów. Zrób na przykład liczbę całkowitą. W ASP.NET 1,1, liczba całkowita wymaga 4 bajtów stanu widoku. W ASP.NET 2,0, ta sama liczba całkowita wymaga 1 bajtu. Wprowadzono inne ulepszenia, aby zmniejszyć ilość widoku, który jest przechowywany. Wartości DateTime, na przykład, są teraz przechowywane przy użyciu właściwości "pozostałej" zamiast ciągu.
 
-Tak, jakby to wszystko nie będzie wystarczająco dużo, został zwrócić szczególną uwagę na fakt, jeden z największych konsumentów stanu widoku w 1.x został DataGrid i podobnych kontrolek. Główną wadą kontrolek, takich jak DataGrid, których dotyczy stan widoku jest, że często zawierają duże ilości danych wielokrotnego. W programie ASP.NET: 1.x, powtarzające informacji po prostu została zapisana, nad oraz nad ponownie skutkuje stanu widoku przeglądarek. W programie ASP.NET 2.0 używamy nową klasę IndexedString do przechowywania tych danych. Jeśli ciąg jest powtarzany, po prostu przechowujemy token IndexedString i indeks w tabeli uruchomionego IndexedString obiektów.
+Tak, jakby wszystkie z nich były niewystarczające, Specjalna uwaga została wypłacona faktem, że jeden z największych odbiorców stanu widoku w 1. x był tym DataGrid i podobną kontrolką. Istotną wadą kontroli, takich jak DataGrid, w której znajduje się stan widoku, jest to, że często zawiera ona duże ilości powtórzonych informacji. W ASP.NET 1. x, te powtórzone informacje były po prostu przechowywane w przedziale i powyżej, co spowoduje wyświetlenie stanu bloated. W ASP.NET 2,0 używamy nowej klasy IndexedString do przechowywania takich danych. Jeśli ciąg powtarza się, po prostu przechowujemy token dla IndexedString i indeks w działającej tabeli obiektów IndexedString.
 
 ## <a name="control-state"></a>Stan formantu
 
-Jedną z głównych gripes, których deweloperzy o stanie widoku był rozmiar dodaną do ładunku HTTP. Jak wcześniej wspomniano, jedną z największych konsumentów stan widoku jest formant DataGrid. Aby uniknąć bardzo duże ilości stan widoku, generowane przez DataGrid, wielu deweloperów po prostu widok stanu wyłączonego dla tej kontrolki. Niestety tego rozwiązania nie zawsze dobrym. Wyświetl stan w programie ASP.NET: 1.x zawiera nie tylko danych niezbędnych poprawne działanie formantu. Zawiera także informacje dotyczące stanu kontrolki interfejsu użytkownika. Oznacza to, że aby umożliwić dzielenia na strony w elemencie DataGrid, należy włączyć stan widoku, nawet jeśli nie potrzebujesz wszystkich danych interfejsu użytkownika, ten widok zawiera stan. Jest to sztywnego scenariusz.
+Jednym z głównych uchwytów, które deweloperzy mieli ze stanem widoku, był rozmiar dodany do ładunku HTTP. Jak wspomniano wcześniej, jeden z największych odbiorców stanu widoku to formant DataGrid. Aby uniknąć ogromnego stanu widoku wygenerowanego przez element DataGrid, wielu deweloperów po prostu wyłączył stan widoku dla tej kontrolki. Niestety, to rozwiązanie nie było zawsze dobrym rozwiązaniem. Stan widoku w ASP.NET 1. x zawiera nie tylko dane niezbędne do poprawnego działania formantu. Zawiera również informacje dotyczące stanu interfejsu użytkownika kontrolki. Oznacza to, że jeśli chcesz zezwolić na stronicowanie w elemencie DataGrid, musisz włączyć stan widoku nawet wtedy, gdy nie są potrzebne wszystkie informacje o interfejsie użytkownika, które zawierają stan widoku. Jest to scenariusz wszystko-lub-Nothing.
 
-W programie ASP.NET 2.0 stan formantu rozwiązuje ten problem, dobrze za pośrednictwem wprowadzenie stan formantu. Stan formantu zawiera dane, które jest bezwzględnie konieczne, aby zapewnić prawidłowe funkcjonowanie formantu. W przeciwieństwie do stanu widoku nie można wyłączyć stan kontrolki. Dlatego jest ważne, że dane są przechowywane w stan formantu jest starannie kontrolowany.
+W programie ASP.NET 2,0 stan kontroli rozwiązuje ten problem dobrze przez wprowadzenie stanu sterowania. Stan formantu zawiera dane, które są absolutnie niezbędne do prawidłowego działania formantu. W przeciwieństwie do stanu widoku, nie można wyłączyć stanu formantu. W związku z tym ważne jest, aby dane przechowywane w stanie kontroli były starannie kontrolowane.
 
 > [!NOTE]
-> Stan formantu jest trwały oraz stanu widoku w \_ \_VIEWSTATE ukrytego pola formularza.
+> Stan formantu jest utrwalany wraz ze stanem widoku w polu ukryty formularz \_\_stan wyświetlania.
 
-To wideo jest przewodnik Wyświetl stan i stan kontrolki.
+Ten film wideo jest przewodnikiem stanu widoku stanu i kontroli.
 
 ![](server-controls/_static/image1.png)
 
-[Otwórz wideo pełnego ekranu](server-controls/_static/state1.wmv)
+[Otwórz wideo pełnoekranowe](server-controls/_static/state1.wmv)
 
-Dla kontrolki serwera do odczytu i zapisu do kontrolowania stanu, należy wykonać trzy czynności.
+Aby formant serwera mógł odczytywać i zapisywać informacje o stanie kontroli, należy wykonać trzy czynności.
 
-## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>Krok 1. Wywołaj metodę RegisterRequiresControlState
+## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>Krok 1. wywoływanie metody RegisterRequiresControlState
 
-Metoda RegisterRequiresControlState informuje ASP.NET, czy formant ma zostać zachowany stan formantu. Trwa jeden argument typu formantu, co jest formantem, który jest rejestrowany.
+Metoda RegisterRequiresControlState informuje ASP.NET, że kontrolka musi utrwalać stan kontroli. Przyjmuje jeden argument kontrolki typu, który jest zarejestrowanym formantem.
 
-Należy pamiętać, rejestracja nie jest trwały do innego żądania. W związku z tym ta metoda musi zostać wywołana na każde żądanie, jeśli formant znajduje się na utrwalanie stanu kontrolki. Zaleca się, że w metody OnInit można wywołać metody.
+Należy pamiętać, że rejestracja nie jest zachowywana na żądanie żądania. W związku z tym ta metoda musi być wywoływana dla każdego żądania, jeśli formant ma zachować stan kontroli. Zaleca się, aby metoda została wywołana w funkcji OnInit.
 
 [!code-csharp[Main](server-controls/samples/sample5.cs)]
 
-## <a name="step-2-override-savecontrolstate"></a>Krok 2. Zastąp SaveControlState
+## <a name="step-2-override-savecontrolstate"></a>Krok 2. zastępowanie SaveControlState
 
-Metoda SaveControlState zapisuje kontroli zmian stanu kontrolki od ostatni wpis ponownie. Zwraca obiekt reprezentujący stan formantu.
+Metoda SaveControlState zapisuje zmiany stanu formantu od momentu ostatniego wyksięgowania z powrotem. Zwraca obiekt reprezentujący stan kontrolki.
 
-## <a name="step-3-override-loadcontrolstate"></a>Krok 3. Zastąp LoadControlState
+## <a name="step-3-override-loadcontrolstate"></a>Krok 3. zastępowanie LoadControlState
 
-Metoda LoadControlState ładuje zapisanego stanu w formancie. Ta metoda przyjmuje jeden argument typu obiektu, który przechowuje zapisany stan kontrolki.
+Metoda LoadControlState ładuje zapisany stan do kontrolki. Metoda przyjmuje jeden argument typu Object, który przechowuje zapisany stan dla kontrolki.
 
-## <a name="full-xhtml-compliance"></a>XHTML pełnej zgodności
+## <a name="full-xhtml-compliance"></a>Pełna zgodność XHTML
 
-Każdy deweloper sieci Web wie znaczenie standardów w aplikacjach sieci Web. Aby zachować środowisko programistyczne oparte na standardach, ASP.NET 2.0 jest w pełni zgodne XHTML. Dlatego wszystkie tagi są renderowanych zgodnie ze standardami XHTML w przeglądarkach obsługujących język HTML 4.0 lub nowszej.
+Każdy deweloper sieci Web wie o znaczeniu standardów w aplikacjach sieci Web. Aby można było zarządzać środowiskiem programistycznym opartym na standardach, ASP.NET 2,0 jest w pełni zgodny ze standardem XHTML. W związku z tym wszystkie Tagi są renderowane zgodnie ze standardami XHTML w przeglądarkach, które obsługują język HTML 4,0 lub nowszy.
 
-Definicja typu dokumentu w ASP.NET 1.1 zakończyło się w następujący sposób:
+Definicja DOCTYPE w ASP.NET 1,1 była następująca:
 
 [!code-html[Main](server-controls/samples/sample6.html)]
 
-W programie ASP.NET 2.0 definicji typu dokumentu domyślnego, jest następujący:
+W ASP.NET 2,0 domyślna definicja DOCTYPE jest następująca:
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-Jeśli wybierzesz, można zmienić domyślne XHTML zgodności za pośrednictwem węzła xhtmlConformance w pliku konfiguracji. Na przykład następujący węzeł w pliku web.config będzie Zmień zgodności XHTML XHTML 1.0 Strict:
+W przypadku wybrania tej opcji można zmienić domyślną zgodność XHTML za pośrednictwem węzła xhtmlConformance w pliku konfiguracji. Na przykład następujący węzeł w pliku Web. config zmieni zgodność XHTML na XHTML 1,0 Strict:
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 
-Jeśli wybierzesz, możesz również skonfigurować ASP.NET do korzystania z konfiguracji starszej wersji, używane w programie ASP.NET: 1.x w następujący sposób:
+W przypadku wybrania tej opcji można również skonfigurować ASP.NET tak, aby korzystała z starszej konfiguracji używanej w ASP.NET 1. x w następujący sposób:
 
 [!code-xml[Main](server-controls/samples/sample9.xml)]
 
-## <a name="adaptive-rendering-using-adapters"></a>Adaptacyjne, renderowanie przy użyciu karty
+## <a name="adaptive-rendering-using-adapters"></a>Renderowanie adaptacyjne przy użyciu kart
 
-W programie ASP.NET 1.x i plik konfiguracji zawiera &lt;browserCaps&gt; wypełnione obiektu HttpBrowserCapabilities sekcji. Ten obiekt może zatem programistą, aby określić, jakiego urządzenia osiąga poszczególnych żądań i renderować kod odpowiednio. W programie ASP.NET 2.0 model tworzony i udoskonalany i używa teraz nową klasę ControlAdapter. Klasa ControlAdapter przesłania zdarzenia w cyklu życia formantu i steruje renderowaniem kontrolek, w zależności od możliwości agenta użytkownika. Możliwości określonego agenta użytkownika są definiowane przez plik definicji przeglądarki (plik z rozszerzeniem pliku .browser) przechowywane w c:\windows\microsoft.net\framework\v2.0. \* \* \* \*\CONFIG\Browsers folderu.
+W ASP.NET 1. x plik konfiguracyjny zawiera sekcję &lt;browserCaps&gt;, która wypełnił obiekt HttpBrowserCapabilities. Ten obiekt umożliwia deweloperowi określenie, jakie urządzenie wprowadza konkretne żądanie i odpowiednio renderuje kod. W ASP.NET 2,0 Model został ulepszony i teraz używa nowej klasy ControlAdapter. Klasa ControlAdapter zastępuje zdarzenia w cyklu życia kontrolki i kontroluje renderowanie formantów na podstawie możliwości agenta użytkownika. Możliwości określonego agenta użytkownika są definiowane przy użyciu pliku definicji przeglądarki (pliku z rozszerzeniem przeglądarki) przechowywanego w c:\Windows\Microsoft.NET\Framework\v2.0.\*\*\*\*folderze \CONFIG\Browsers.
 
 > [!NOTE]
 > Klasa ControlAdapter jest klasą abstrakcyjną.
 
-Podobnie jak &lt;browserCaps&gt; sekcji 1.x, plik definicji przeglądarki korzysta z wyrażenia regularnego, aby przeanalizować ciąg agenta użytkownika w celu zidentyfikowania przeglądarki. Jego ich definiuje konkretnymi możliwościami dla tego agenta użytkownika. ControlAdapter renderuje kontrolkę za pomocą metody renderowania. W związku z tym jeśli zastąpienie metody renderowania, nie powinien wywoływać renderowania w klasie bazowej. Może to spowodować renderowania występuje dwa razy, jeden raz dla karty i jeden raz dla samego formantu.
+Podobnie jak w przypadku &lt;browserCaps&gt; sekcji 1. x plik definicji przeglądarki używa wyrażenia regularnego do analizowania ciągu agenta użytkownika w celu zidentyfikowania przeglądarki żądającej. Definiuje ona określone możliwości dla tego agenta użytkownika. ControlAdapter renderuje kontrolkę za pomocą metody Render. W związku z tym w przypadku zastąpienia metody renderowania nie należy wywoływać renderowania w klasie bazowej. Wykonanie tej operacji może spowodować, że renderowanie występuje dwa razy, raz dla karty i jeden raz dla samego formantu.
 
-## <a name="developing-a-custom-adapter"></a>Tworzenie karty niestandardowej
+## <a name="developing-a-custom-adapter"></a>Tworzenie adaptera niestandardowego
 
-Aby opracować niestandardowe karty, dziedziczenie z ControlAdapter. Ponadto może dziedziczyć z klasy abstrakcyjnej PageAdapter w przypadkach, gdy potrzebne są karty strony. Mapowanie kontrolki do karty niestandardowej odbywa się za pośrednictwem &lt;controlAdapters&gt; elementu w pliku definicji przeglądarki. Na przykład następujący kod XML z pliku definicji przeglądarki mapuje klasy MenuAdapter formant Menu:
+Możesz opracować własną kartę niestandardową, dziedziczących z ControlAdapter. Ponadto można dziedziczyć z klasy abstrakcyjnej PageAdapter w przypadkach, gdy karta jest wymagana dla strony. Mapowanie formantów do karty niestandardowej jest realizowane za pośrednictwem &lt;controlAdapters&gt; elementu w pliku definicji przeglądarki. Na przykład poniższy kod XML z pliku definicji przeglądarki mapuje formant menu na klasę MenuAdapter:
 
 [!code-html[Main](server-controls/samples/sample10.html)]
 
-Przy użyciu tego modelu, staje się bardzo łatwe deweloperowi kontroli pod kątem określonego urządzenia lub przeglądarki. Jest również bardzo proste, deweloper ma pełną kontrolę nad jak renderowania stron na każdym urządzeniu.
+Korzystanie z tego modelu ułatwia deweloperom kontroli przekierowanie do określonego urządzenia lub przeglądarki. Deweloper może również mieć pełną kontrolę nad sposobem renderowania stron na każdym urządzeniu.
 
 ## <a name="per-device-rendering"></a>Renderowanie na urządzenie
 
-Właściwości kontrolek serwera ASP.NET w wersji 2.0 może być określony na poziomie urządzenia przy użyciu prefiksu specyficzne dla przeglądarki. Na przykład poniższy kod zmieni tekst etykiety, w zależności od urządzenia, które jest używane do przeglądania strony.
+Właściwości kontrolek serwera w ASP.NET 2,0 można określić dla poszczególnych urządzeń przy użyciu prefiksu specyficznego dla przeglądarki. Na przykład poniższy kod zmieni tekst etykiety w zależności od tego, które urządzenie jest używane do przeglądania strony.
 
 [!code-aspx[Main](server-controls/samples/sample11.aspx)]
 
-Podczas przeglądania strony zawierających tę etykietę z programu Internet Explorer, etykiety będą wyświetlane tekst informujący o tym, "Po przejściu z programu Internet Explorer." Podczas przeglądania strony w przeglądarce Firefox, etykiety będą wyświetlane tekst "Po przejściu w przeglądarce Firefox." Podczas przeglądania strony za pomocą innego urządzenia, wyświetli "Po przejściu z nieznanego urządzenia." Można określić dowolną właściwość przy użyciu tej składni specjalne.
+Gdy strona zawierająca tę etykietę zostanie wyświetlona z przeglądarki Internet Explorer, etykieta wyświetli tekst mówiący "przeglądasz program Internet Explorer". Po przejściu strony z przeglądarki Firefox etykieta wyświetli tekst "przeglądasz z przeglądarki Firefox". Gdy strona zostanie przeszukana z dowolnego innego urządzenia, zostanie wyświetlona wartość "przeglądasz z nieznanego urządzenia". Każdą właściwość można określić przy użyciu tej specjalnej składni.
 
-## <a name="setting-focus"></a>Ustawienie fokusu
+## <a name="setting-focus"></a>Ustawianie fokusu
 
-Deweloperów 1.x platformy ASP.NET — często zadawane jak ustawić początkowy fokus określonego formantu. Na przykład na stronie logowania, warto mieć ważniejsze, jeśli strona ładuje się najpierw polu tekstowym identyfikator użytkownika. W programie ASP.NET: 1.x, spowoduje to wymagane, zapisywania niektórych skryptu po stronie klienta. Mimo że utworzenia takiego skryptu jest prostym zadaniem, nie jest już konieczne w programie ASP.NET 2.0, dzięki metody SetFocus. Metoda SetFocus przyjmuje jeden argument wskazujący formant, który powinien zostać wyświetlony fokus. Ten argument może być identyfikator klienta kontrolki w postaci ciągu lub nazwę kontrolki serwera jako obiekt formantu. Na przykład, aby ustawić początkowy fokus do kontrolki TextBox wywołać txtUserID, jeśli strona ładuje się najpierw, Dodaj następujący kod do strony\_obciążenia:
+ASP.NET 1. x deweloperzy często pytają, jak ustawić początkowy fokus dla konkretnej kontrolki. Na przykład na stronie logowania przydatne jest, aby pole tekstowe identyfikatora użytkownika miało fokus podczas pierwszego ładowania strony. W ASP.NET 1. x wykonaj te czynności, pisząc jakiś skrypt po stronie klienta. Mimo że taki skrypt to zadanie proste, nie jest już konieczne w ASP.NET 2,0, dzięki czemu Metoda SetFocus. Metoda SetFocus przyjmuje jeden argument wskazujący, że formant powinien otrzymać fokus. Ten argument może być IDENTYFIKATORem klienta kontrolki jako ciąg lub nazwą formantu serwera jako obiektem sterowania. Na przykład, aby ustawić początkowy fokus na kontrolkę TextBox o nazwie txtUserID podczas pierwszego ładowania strony, Dodaj następujący kod do strony\_obciążenie:
 
 [!code-csharp[Main](server-controls/samples/sample12.cs)]
 
@@ -137,163 +137,163 @@ Deweloperów 1.x platformy ASP.NET — często zadawane jak ustawić początkowy
 
 [!code-csharp[Main](server-controls/samples/sample13.cs)]
 
-Platformy ASP.NET 2.0 używa obsługi Webresource.axd (omówionych wcześniej) do renderowania po stronie klienta — funkcja, która ustawia fokus. Nazwa funkcji po stronie klienta jest formularz sieci Web\_AutoFocus, jak pokazano poniżej:
+ASP.NET 2,0 używa procedury obsługi WebResource. axd (omówionej wcześniej) do renderowania funkcji po stronie klienta, która ustawia fokus. Nazwa funkcji po stronie klienta to WebForm,\_autofocus, jak pokazano poniżej:
 
 [!code-html[Main](server-controls/samples/sample14.html)]
 
-Alternatywnie można użyć metody koncentracji uwagi dla formantu można ustawić początkowy fokus do tego formantu. Metoda fokus pochodzi z klasy kontrolek i jest dostępny dla wszystkich kontrolek ASP.NET 2.0. Istnieje również możliwość ustawić fokus na określonej kontrolki, gdy wystąpi błąd sprawdzania poprawności. Które zostały omówione w nowszym module.
+Alternatywnie można użyć metody focus dla kontrolki, aby ustawić początkowy fokus dla tej kontrolki. Metoda Focus dziedziczy z klasy Control i jest dostępna dla wszystkich kontrolek ASP.NET 2,0. Możliwe jest również ustawienie fokusu na konkretną kontrolę w przypadku wystąpienia błędu walidacji. Zostanie ono omówione w późniejszym module.
 
-## <a name="new-server-controls-in-aspnet-20"></a>Nowe formanty serwera w programie ASP.NET 2.0
+## <a name="new-server-controls-in-aspnet-20"></a>Nowe kontrolki serwera w ASP.NET 2,0
 
-Poniżej przedstawiono nowe formanty serwera ASP.NET w wersji 2.0. Firma Microsoft zaczną się bardziej szczegółowo na niektórych z nich w późniejszym modułów.
+Poniżej przedstawiono nowe kontrolki serwera w programie ASP.NET 2,0. W późniejszych modułach przejdziemy do bardziej szczegółowych informacji na temat niektórych z nich.
 
-## <a name="imagemap-control"></a>Kontrolka ImageMap
+## <a name="imagemap-control"></a>ImageMap — formant
 
-Kontrolka ImageMap zezwala na dodawanie obszarów nadmiernej aktywności do obrazu, który można zainicjować post ponownie lub przejdź do adresu URL. Istnieją trzy typy obszarów nadmiernej aktywności dostępne; CircleHotSpot RectangleHotSpot i PolygonHotSpot. Punkty aktywne są dodawane przy użyciu edytora kolekcji, w programie Visual Studio lub programowo w kodzie. Brak dostępnej bez interfejsu użytkownika dla rysowania hotspotami obrazu. Deklaratywne należy podać współrzędne i rozmiar lub radius punktem największej aktywności. Istnieje również nie wizualnej reprezentacji punkt aktywny w projektancie. Jeśli punkt aktywny jest skonfigurowany do przejdź do adresu URL, adres URL jest określony za pomocą właściwości NavigateUrl punktu aktywnego. W przypadku wpis Utwórz kopię informacji o hotspotach, PostBackValue Właściwość pozwala przekazać ciąg we wpisie Wstecz, który można pobrać w kodzie po stronie serwera.
+Kontrolka ImageMap umożliwia dodanie punktów aktywności do obrazu, który może inicjować ogłoszenie zwrotne lub przejść do adresu URL. Dostępne są trzy typy hotspotów; CircleHotSpot, RectangleHotSpot i PolygonHotSpot. Hotspoty są dodawane za pośrednictwem edytora kolekcji w programie Visual Studio lub programowo w kodzie. Brak dostępnego interfejsu użytkownika do rysowania hotspotów na obrazie. Współrzędne i rozmiar lub promień punktu aktywnego muszą być określone deklaratywnie. Nie istnieje również wizualna reprezentacja elementu hotspot w projektancie. Jeśli hotspot jest skonfigurowany pod kątem nawigowania do adresu URL, adres URL jest określany za pośrednictwem właściwości NavigateUrl elementu hotspot. W przypadku hotspotu z powrotem Właściwość PostBackValue umożliwia przekazywanie ciągu w ogłoszeniu zwrotnym, który można pobrać w kodzie po stronie serwera.
 
-![Punkt aktywny Edytor kolekcji w programie Visual Studio](server-controls/_static/image1.jpg)
+![Edytor kolekcji HotSpotów w programie Visual Studio](server-controls/_static/image1.jpg)
 
-**Rysunek 1**: Punkt aktywny Edytor kolekcji w programie Visual Studio
+**Rysunek 1**: Edytor kolekcji hotspotów w programie Visual Studio
 
-## <a name="bulletedlist-control"></a>Kontrolka BulletedList
+## <a name="bulletedlist-control"></a>BulletedList — formant
 
-Kontrolka BulletedList jest listę punktowaną, które mogą być łatwo powiązane z danymi. Lista może zostać określona (numerowana) lub nieuporządkowane za pomocą właściwości BulletStyle. Każdy element na liście jest reprezentowany przez obiekt elementu listy.
+Formant BulletedList jest listą punktowaną, która może łatwo być powiązana z danymi. Lista może być uporządkowana (numerowana) lub nieuporządkowana za pośrednictwem właściwości bullet. Każdy element na liście jest reprezentowany przez obiekt ListItem.
 
-![BulletedList sterowania w programie Visual Studio](server-controls/_static/image1.gif)
+![Kontrolka BulletedList w programie Visual Studio](server-controls/_static/image1.gif)
 
-**Rysunek 2**: BulletedList sterowania w programie Visual Studio
+**Rysunek 2**. kontrolka BulletedList w programie Visual Studio
 
-## <a name="hiddenfield-control"></a>HiddenField Control
+## <a name="hiddenfield-control"></a>HiddenField — formant
 
-Kontrolka formant HiddenField dodaje ukryte pole formularza do strony, którego wartość jest dostępna w kodzie po stronie serwera. Wartość ukrytego pola formularza zazwyczaj powinien nie ulega zmianie między post tworzy kopię. Jednak jest możliwe, że złośliwy użytkownik może zmienić przed wartość do opublikowania Wstecz. W takim przypadku kontrolka formant HiddenField zgłosi zdarzeń ValueChanged. Jeśli masz poufnych informacji w formancie pole ukryte, i chce mieć pewność, że pozostaje niezmieniony, powinna obsługiwać zdarzenia ValueChanged w kodzie.
+Kontrolka HiddenField dodaje ukryte pole formularza do strony, wartość, która jest dostępna w kodzie po stronie serwera. Wartość pola ukrytego formularza powinna być zwykle niezmieniona między wpisami z powrotem. Jednak złośliwy użytkownik może zmienić wartość przed opublikowaniem. W takim przypadku formant HiddenField zgłosi zdarzenie ValueChanged. Jeśli masz poufne informacje w kontrolce HiddenField i chcesz się upewnić, że pozostanie niezmienione, należy obsłużyć zdarzenie ValueChanged w kodzie.
 
-## <a name="fileupload-control"></a>Kontrolka fileUpload
+## <a name="fileupload-control"></a>FileUpload — formant
 
-Kontrolka FileUpload w programie ASP.NET 2.0 umożliwia przekazywanie plików na serwerze sieci Web za pośrednictwem strony ASP.NET. Ten formant jest podobna do klasy HtmlInputFile 1.x platformy ASP.NET z pewnymi wyjątkami. W programie ASP.NET: 1.x, zalecano, że właściwość PostedFile można sprawdzić wartość null w celu ustalenia, czy istniały odpowiednie dobre pliku. Kontrolka FileUpload w programie ASP.NET 2.0 dodaje nową właściwość HasFile, można użyć w tym samym celu i nieco bardziej wydajne.
+Kontrolka FileUpload w ASP.NET 2,0 umożliwia przekazywanie plików na serwer sieci Web za pośrednictwem strony ASP.NET. Ta kontrolka jest bardzo podobna do klasy ASP.NET 1. x HtmlInputFile z kilkoma wyjątkami. W ASP.NET 1. x zaleca się, aby Właściwość PostedFile była sprawdzana pod kątem wartości null, aby określić, czy masz dobry plik. Kontrolka FileUpload w ASP.NET 2,0 dodaje nową właściwość HasFile, której można użyć do tego samego celu i jest nieco bardziej wydajna.
 
-Właściwość PostedFile jest wciąż dostępna na potrzeby dostępu do obiektu HttpPostedFile, ale niektóre funkcje HttpPostedFile jest teraz dostępna wewnętrznie za pomocą kontrolki FileUpload. Na przykład, aby zapisać przekazanego pliku w programie ASP.NET: 1.x, wywołujesz metody Zapisz jako obiektu HttpPostedFile. Za pomocą kontrolki FileUpload programu ASP.NET 2.0, może wywołać metodę Zapisz jako w samej kontrolce FileUpload.
+Właściwość PostedFile jest nadal dostępna dla dostępu do obiektu HttpPostedFile, ale niektóre funkcje HttpPostedFile są teraz dostępne wewnętrznie z kontrolką FileUpload. Na przykład, aby zapisać przekazany plik w ASP.NET 1. x, należy wywołać metodę SaveAs dla obiektu HttpPostedFile. Przy użyciu formantu FileUpload w ASP.NET 2,0, należy wywołać metodę SaveAs na samej kontrolce FileUpload.
 
-Inna ważna różnica w zachowanie 2.0 (i prawdopodobnie najbardziej znaczące zmiany) to, że nie jest już konieczne załadowanie całego pliku przekazanego do pamięci przed zapisaniem zmian. W 1.x, dowolny plik, który został przekazany zostanie zapisany w całości w pamięci przed zapisywana na dysku. Ta architektura zapobiega przekazywanie dużych plików.
+Inna znacząca zmiana w zachowaniu 2,0 (i prawdopodobnie najbardziej znacząca zmiana) polega na tym, że nie jest już konieczne załadowanie całego przekazanego pliku do pamięci przed jego zapisaniem. W 1. x każdy przekazany plik jest zapisywany całkowicie do pamięci przed zapisaniem na dysku. Ta architektura uniemożliwia przekazywanie dużych plików.
 
-W programie ASP.NET 2.0 atrybut requestLengthDiskThreshold elementu httpRuntime można skonfigurować liczbę kilobajtów są przechowywane w buforze pamięci przed zapisywana na dysku.
+W ASP.NET 2,0 atrybut requestLengthDiskThreshold elementu httpRuntime umożliwia skonfigurowanie, ile kilobajtów jest przechowywanych w buforze w pamięci przed zapisaniem na dysku.
 
-**WAŻNE**: Dokumentacja MSDN (i dokumentacji w innym miejscu) określa, że ta wartość jest w bajtach (nie w kilobajtach) i że wartość domyślna to 256. Wartość jest faktycznie określić w kilobajtach, a wartość domyślna to 80. Dzięki k 80 wartości domyślnej, Upewniamy się, że bufor nie znajdą się na stosie dużego obiektu.
+**Ważne**: dokumentacja MSDN (i dokumentacja w innym miejscu) określa, że ta wartość jest wyrażona w bajtach (nie kilobajtach) i że wartością domyślną jest 256. Wartość jest w rzeczywistości określona w kilobajtach, a wartość domyślna to 80. Mając wartość domyślną 80K, firma Microsoft gwarantuje, że bufor nie kończy się na stertie dużego obiektu.
 
-## <a name="wizard-control"></a>Kreator kontrolki
+## <a name="wizard-control"></a>Kontrolka Kreatora
 
-Jest to dość często występują deweloperów platformy ASP.NET się próby zebrania informacji z serii "strony" przy użyciu paneli, lub przez przeniesienie między stronami. Więcej często niż nie pozwala jest irytujące i jest czasochłonne. Nowy formant kreatora rozwiązuje problemy, umożliwiając dla liniowych i nieliniowych kroków interfejs kreatora, który zna użytkowników. Formant Kreator przedstawia wejściowych formularzy w serii kroków. Każdy krok jest określonego typu określonego przez właściwość StepType formantu. Typy kroku dostępne są następujące:
+Dość często spotyka się, aby napotkać ASP.NET deweloperzy zoptymalizowaniem przy próbie zebrania informacji w serii "stron" przy użyciu paneli lub transferu z strony do strony. Częściej niż nie, Endeavor jest frustrujące i jest czasochłonna. Nowa kontrolka kreatora rozwiązuje problemy, umożliwiając stosowanie liniowych i nieliniowych kroków w interfejsie Kreatora, z którym użytkownicy znają. Kontrolka kreatora przedstawia formularze wejściowe w szeregu kroków. Każdy krok jest określonego typu określonego przez właściwość StepType kontrolki. Dostępne są następujące typy kroków:
 
-| **Typ kroku** | **Explanation** |
+| **Typ kroku** | **Wyjaśnienie** |
 | --- | --- |
-| Auto | Kreator automatycznie określi typ kroku, w zależności od jego pozycja w ramach hierarchii kroku. |
-| Uruchamianie | Pierwszym krokiem, często używany do wyświetlania zawartości instrukcji wprowadzających. |
-| Krok | Normalne krok. |
-| Zakończ | Ostatnim krokiem, zwykle używany do wyświetlania przycisku, aby zakończyć pracę kreatora. |
-| Wykonaj | Przedstawia informacje o wiadomości, komunikacja powodzenia lub niepowodzenia. |
+| Auto | Kreator automatycznie określa typ kroku w zależności od jego pozycji w hierarchii kroków. |
+| Początek | Pierwszy krok, często używany do prezentowania instrukcji wprowadzającej. |
+| Krok | Normalny krok. |
+| Zakończ | Ostatni krok, zazwyczaj używany do prezentowania przycisku, aby zakończyć pracę kreatora. |
+| Pełne | Przedstawia komunikat informujący o powodzeniu lub niepowodzeniu. |
 
 > [!NOTE]
-> Formant kreatora przechowuje informacje o stanie przy użyciu stanu kontrolki ASP.NET. W związku z tym można ustawić właściwości EnableViewState na wartość false, bez żadnych szczegółów.
+> Kontrolka kreatora śledzi swój stan przy użyciu stanu kontrolki ASP.NET. W związku z tym Właściwość EnableViewState można ustawić na wartość false bez żadnego szkody.
 
-To wideo jest przewodnik formantu kreatora.
+Ten film wideo to przewodnik po kontrolce kreatora.
 
 ![](server-controls/_static/image2.png)
 
-[Otwórz wideo pełnego ekranu](server-controls/_static/wizard1.wmv)
+[Otwórz wideo pełnoekranowe](server-controls/_static/wizard1.wmv)
 
 ## <a name="localize-control"></a>Lokalizowanie formantu
 
-Kontrolka Lokalizuj przypomina formancie Literal. Jednak formant Lokalizuj ma **tryb** właściwość, która określa sposób renderowania kodu znaczników, który jest dodawany do niego. Właściwość trybu obsługuje następujące wartości:
+Zlokalizowany formant jest podobny do kontrolki literału. Jednak formant lokalizuje ma właściwość **mode** , która kontroluje sposób, w jaki jest renderowany znacznik dodawany do niego. Właściwość Mode obsługuje następujące wartości:
 
-| **Tryb** | **Explanation** |
+| **Wyst** | **Wyjaśnienie** |
 | --- | --- |
-| Transformacja | Kod znaczników jest przekształcane zgodnie z protokołem przeglądarki wysyłającego żądanie. |
-| Przekazywanie | Kod znaczników jest renderowane jako-to. |
-| Kodowanie | Kod znaczników, który jest dodawany do kontrolki są kodowane przy użyciu HtmlEncode. |
+| Przekształcanie | Znaczniki są przekształcane zgodnie z protokołem przeglądarki wysyłającej żądanie. |
+| Kazują | Znaczniki są renderowane jako-is. |
+| Kodowanie | Znaczniki dodawane do formantu są kodowane przy użyciu narzędzia HtmlEncode. |
 
-## <a name="multiview-and-view-controls"></a>MultiView i kontrolki widoku
+## <a name="multiview-and-view-controls"></a>Widoku wielu elementów i kontrolki widoku
 
-Kontrolki widoku wielu elementów działa jako kontener dla kontrolki widoku, a kontrolka widoku działa jako kontener (podobnie jak w Panelu sterowania) dla innych kontrolek. Każdy widok w kontrolki widoku wielu elementów jest reprezentowany przez jeden formant widoku. Na pierwszy formant MultiView widok jest widokiem 0, druga widoku 1, itp. Możesz przełączać widoki, określając wartość ActiveViewIndex kontrolki widoku wielu elementów.
+Kontrolka widoku wielu elementów działa jako kontener dla kontrolek widok, a kontrolka widoku działa jako kontener (podobnie jak kontrolka panel) dla innych kontrolek. Każdy widok w kontrolce widoku wielu elementów jest reprezentowany przez pojedynczy formant widoku. Pierwszy formant widoku w widoku wielu elementów to 0, drugi jest widokiem 1 itd. Możesz przełączyć widoki, określając ActiveViewIndex kontrolki widoku wielu elementów.
 
-## <a name="substitution-control"></a>Kontrolki zastępczej
+## <a name="substitution-control"></a>Formant podstawiania
 
-Kontrolki zastępczej jest używany w połączeniu z pamięci podręcznej programu ASP.NET. W przypadkach, gdy chcesz móc korzystać z pamięci podręcznej, ale masz części strony, które muszą być aktualizowane na każde żądanie (innymi słowy, części strony, którzy są wykluczeni z pamięci podręcznej) składnik podstawienia zapewnia doskonałe rozwiązanie. Kontrolka faktycznie nie renderuje żadnych danych wyjściowych samodzielnie. Zamiast tego jest on powiązany z metody w kodzie po stronie serwera. Gdy strona jest pobierana, metoda jest wywoływana i zwracany kod znaczników jest renderowany zamiast kontrolki zastępczej.
+Formant podstawienia jest używany w połączeniu z pamięcią podręczną ASP.NET. W przypadkach, w których chcesz korzystać z buforowania, ale masz fragmenty strony, które należy zaktualizować dla każdego żądania (innymi słowy, fragmenty strony, które są wykluczone z buforowania), składnik podstawiania udostępnia doskonałe rozwiązanie. Kontrolka nie renderuje w rzeczywistości żadnych danych wyjściowych. Zamiast tego jest on powiązany z metodą w kodzie po stronie serwera. Gdy żądaną stroną, wywoływana jest metoda, a zwracana Adiustacja jest renderowana zamiast formantu podstawiania.
 
-Metoda, z którym powiązany jest kontrolki zastępczej jest określony za pośrednictwem **MethodName** właściwości. Ta metoda musi spełniać następujące kryteria:
+Metoda, z którą jest powiązana kontrolka podstawienia, jest określana za pomocą właściwości **MethodName** . Ta metoda musi spełniać następujące kryteria:
 
-- Musi być metodą statyczną (udostępniony w języku VB).
-- Przyjmuje jeden parametr typu HttpContext.
-- Zwraca ciąg reprezentujący kod znaczników, który należy zastąpić formantu na stronie.
+- Musi być to metoda statyczna (współdzielona w języku VB).
+- Akceptuje jeden parametr typu HttpContext.
+- Zwraca ciąg reprezentujący znacznik, który powinien zastąpić formant na stronie.
 
-Kontrolki zastępczej nie ma uprawnienia do modyfikowania dowolnej innej kontrolki na stronie, ale on mieć dostęp do bieżącego obiektu HttpContext przez jego parametr.
+Kontrolka podstawienia nie ma możliwości modyfikacji żadnej innej kontrolki na stronie, ale ma dostęp do bieżącego obiektu HttpContext za pośrednictwem jego parametru.
 
-## <a name="gridview-control"></a>Kontrolki GridView
+## <a name="gridview-control"></a>Formant GridView
 
-W kontrolce GridView jest zastępczych dla formantu DataGrid. Ten formant zostały omówione bardziej szczegółowo w nowszym module.
+Formant GridView jest zamiennikiem formantu DataGrid. Ten formant zostanie szczegółowo omówiony w późniejszym module.
 
-## <a name="detailsview-control"></a>Kontrolce DetailsView
+## <a name="detailsview-control"></a>Formant DetailsView
 
-W kontrolce DetailsView pozwala wyświetlić pojedynczy rekord ze źródła danych, a także edytować lub usunąć. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka DetailsView umożliwia wyświetlenie pojedynczego rekordu ze źródła danych oraz jego edytowanie lub usuwanie. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="formview-control"></a>Formant widoku FormView
+## <a name="formview-control"></a>Kontrolka FormView
 
-Formant widoku FormView jest używany w pojedynczy rekord ze źródła danych można skonfigurować interfejsu. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formant FormView służy do wyświetlania pojedynczego rekordu ze źródła danych w konfigurowalnym interfejsie. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="accessdatasource-control"></a>Kontrolka AccessDataSource
+## <a name="accessdatasource-control"></a>AccessDataSource — formant
 
-Kontrolka AccessDataSource jest używany do bazy danych programu Access powiązanie danych. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formant AccessDataSource służy do tworzenia powiązań danych z bazą danych programu Access. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="objectdatasource-control"></a>ObjectDataSource Control
+## <a name="objectdatasource-control"></a>ObjectDataSource — formant
 
-Kontrolka ObjectDataSource jest używana do obsługi architekturze trójwarstwowej, tak aby formantów może być powiązany z danymi obiektu biznesowego warstwy środkowej, w przeciwieństwie do modelu dwuwarstwowym gdzie wiązania kontrolek bezpośrednio ze źródłem danych. Jego zostanie dokładnie omówione bardziej szczegółowo w nowszym module.
+Kontrolka ObjectDataSource służy do obsługi architektury trójwarstwowej, dzięki czemu formanty mogą być powiązane z danymi do obiektu biznesowego warstwy środkowej, a nie z modelem dwuwarstwowym, w którym formanty są powiązane bezpośrednio ze źródłem danych. Zostanie ona omówiona bardziej szczegółowo w późniejszym module.
 
-## <a name="xmldatasource-control"></a>XmlDataSource Control
+## <a name="xmldatasource-control"></a>Formant XmlDataSource
 
-Kontrolki elementu XmlDataSource służy do tworzenia powiązań danych źródła danych XML. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formant XmlDataSource jest używany do tworzenia powiązań danych ze źródłem danych XML. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="sitemapdatasource-control"></a>Kontrolka SiteMapDataSource
+## <a name="sitemapdatasource-control"></a>SiteMapDataSource — Formant
 
-Formant SiteMapDataSource zapewnia wiązania danych w witrynie nawigacji bazując na mapy witryny sieci Web. Jego zostanie dokładnie omówione bardziej szczegółowo w nowszym module.
+Kontrolka SiteMapDataSource zapewnia powiązanie danych dla kontrolek nawigacyjnych lokacji w oparciu o mapę witryny. Zostanie ona omówiona bardziej szczegółowo w późniejszym module.
 
 ## <a name="sitemappath-control"></a>SiteMapPath Control
 
-Kontrolki ścieżki mapy witryny prezentuje serię łączy nawigacji, często określana jako linki do stron nadrzędnych. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka ścieżki mapy witryny wyświetla szereg linków nawigacyjnych, które są często określane jako nawigacyjne. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="menu-control"></a>Formant menu
+## <a name="menu-control"></a>Kontrolka menu
 
-Formant Menu wyświetla menu dynamiczne, za pomocą DHTML. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka menu wyświetla dynamiczne menu przy użyciu języka DHTML. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
 ## <a name="treeview-control"></a>TreeView — Formant
 
-TreeView — kontrolka jest używana do wyświetlania hierarchicznym widoku drzewa danych. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formant TreeView służy do wyświetlania hierarchicznego widoku drzewa danych. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="login-control"></a>Kontrolka Login
+## <a name="login-control"></a>Kontrola logowania
 
-Kontrolka Login udostępnia mechanizm do zalogowania się do witryny sieci Web. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka logowania zapewnia mechanizm logowania do witryny sieci Web. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="loginview-control"></a>Kontrolki widoku logowania
+## <a name="loginview-control"></a>Widoku logowania — formant
 
-Kontrolki widoku logowania umożliwia wyświetlanie różne szablony, w zależności od stanu logowania użytkownika. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formant widoku logowania umożliwia wyświetlanie różnych szablonów na podstawie stanu logowania użytkownika. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="passwordrecovery-control"></a>Kontrolka PasswordRecovery
+## <a name="passwordrecovery-control"></a>PasswordRecovery — formant
 
-Kontrolka PasswordRecovery służy do pobierania zapomniane hasła przez użytkowników aplikacji platformy ASP.NET. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka PasswordRecovery służy do pobierania zapomnianych haseł przez użytkowników aplikacji ASP.NET. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
-## <a name="loginstatus"></a>LoginStatus
+## <a name="loginstatus"></a>Stanu logowania
 
-Kontrolki stanu logowania Wyświetla stan logowania użytkownika. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka stanu logowania wyświetla stan logowania użytkownika. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
 ## <a name="loginname"></a>LoginName
 
-Kontrolki nazwy logowania Wyświetla nazwy użytkownika, po którego jest się zalogowanym aplikacji ASP.NET. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka LoginName wyświetla nazwę użytkownika po zalogowaniu się do aplikacji ASP.NET. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
 ## <a name="createuserwizard"></a>CreateUserWizard
 
-CreateUserWizard jest można skonfigurować kreatora, który zapewnia użytkownikom możliwość tworzenia konta usługi członkostwa ASP.NET, do użycia w aplikacji ASP.NET. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Formancie CreateUserWizard to konfigurowalny Kreator, który umożliwia użytkownikom tworzenie konta członkowstwa ASP.NET do użycia w aplikacji ASP.NET. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
 ## <a name="changepassword"></a>ChangePassword
 
-Kontrolka ChangePassword umożliwia użytkownikom zmianę hasła dla aplikacji ASP.NET. Jego zostało opisane bardziej szczegółowo w nowszym module.
+Kontrolka ChangePassword umożliwia użytkownikom zmianę hasła dla aplikacji ASP.NET. Jest ono omówione bardziej szczegółowo w późniejszym module.
 
 ## <a name="various-webparts"></a>Różne składniki Web Part
 
-Program ASP.NET 2.0 jest dostarczany z różnych składników Web Part. Te będzie można zostały szczegółowo opisane w nowszym module.
+ASP.NET 2,0 jest dostarczany z różnymi składniki Web Part. Zostaną one szczegółowo omówione w późniejszym module.

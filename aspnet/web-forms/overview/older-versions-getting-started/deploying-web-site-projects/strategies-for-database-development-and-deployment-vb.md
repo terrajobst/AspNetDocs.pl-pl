@@ -9,11 +9,11 @@ ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 1ea4ade32fb05b9e69647ece7d1a4c400fe9fb21
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74616135"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546551"
 ---
 # <a name="strategies-for-database-development-and-deployment-vb"></a>Strategie projektowania i wdrażania baz danych (VB)
 
@@ -91,7 +91,7 @@ Istnieją różne narzędzia do porównywania baz danych innych firm oferowane p
 > [!NOTE]
 > W momencie zapisania aktualnej wersji programu SQL Compare w wersji 7,1, która stanowi $395 koszt wersji Standard. Możesz kontynuować pracę, pobierając bezpłatną 14-dniową wersję próbną.
 
-Po uruchomieniu programu SQL Compare zostanie otwarte okno dialogowe projekty porównawcze zawierające zapisane projekty porównywania SQL. Utwórz nowy projekt. Spowoduje to uruchomienie Kreatora konfiguracji projektu, który wyświetla informacje o bazach danych do porównania (patrz rysunek 1). Wprowadź informacje dotyczące baz danych środowiska programistycznego i produkcyjnego.
+Po uruchomieniu programu SQL Compare zostanie otwarte okno dialogowe projekty porównawcze zawierające zapisane projekty porównywania SQL. Tworzenie nowego projektu. Spowoduje to uruchomienie Kreatora konfiguracji projektu, który wyświetla informacje o bazach danych do porównania (patrz rysunek 1). Wprowadź informacje dotyczące baz danych środowiska programistycznego i produkcyjnego.
 
 [![porównać programistyczne i produkcyjne bazy danych](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
 

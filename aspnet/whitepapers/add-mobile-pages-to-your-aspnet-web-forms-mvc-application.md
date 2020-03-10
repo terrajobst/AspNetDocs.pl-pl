@@ -1,112 +1,112 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: 'Instrukcje: Dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms / MVC aplikacji | Dokumentacja firmy Microsoft'
+title: 'Instrukcje: dodawanie stron mobilnych do aplikacji ASP.NET Web Forms/MVC | Microsoft Docs'
 author: rick-anderson
-description: Ten sposób można w tym artykule opisano różne sposoby, aby obsługiwać strony zoptymalizowane pod kątem urządzeń przenośnych z formularzy sieci Web platformy ASP.NET / aplikacji MVC, a także sugeruje architektury i...
+description: W tym artykule opisano różne sposoby obsługi stron zoptymalizowanych pod kątem urządzeń przenośnych z aplikacji ASP.NET Web Forms/MVC oraz zaproponowanie architektury i...
 ms.author: riande
 ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
 ms.openlocfilehash: 63c555358d06a9506bb5c8c993800c3307108192
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114445"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78572738"
 ---
 # <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Instrukcje: dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms/MVC
 
 > **Dotyczy**
 > 
-> - Formularze sieci Web platformy ASP.NET w wersji 4.0
-> - ASP.NET MVC w wersji 3.0 lub nowszej
+> - ASP.NET Web Forms w wersji 4,0
+> - ASP.NET MVC w wersji 3,0
 > 
 > **Podsumowanie**
 > 
-> Ten sposób można w tym artykule opisano różne sposoby, aby obsługiwać strony zoptymalizowane pod kątem urządzeń przenośnych z formularzy sieci Web platformy ASP.NET / aplikacji MVC i sugeruje architektury i projektowania kwestie do rozważenia przy przeznaczeniu szerokiej gamy urządzeń. W tym dokumencie wyjaśniono również, dlaczego formantów mobilnych ASP.NET z programu ASP.NET 2.0 3.5 są już nieaktualne, a w tym artykule omówiono niektóre nowoczesnych rozwiązań alternatywnych.
+> W tym artykule opisano różne sposoby obsługi stron zoptymalizowanych pod kątem urządzeń przenośnych z aplikacji ASP.NET Web Forms/MVC oraz zaproponowanie problemów dotyczących architektury i projektu, które należy wziąć pod uwagę w przypadku szerokiego zakresu urządzeń. W tym dokumencie wyjaśniono również, dlaczego kontrolki mobilne ASP.NET z ASP.NET 2,0 do 3,5 są już przestarzałe i omawiają niektóre nowoczesne alternatywy.
 
 ## <a name="contents"></a>Spis treści
 
 - Omówienie
 - Opcje architektury
-- Wykrywanie przeglądarki i urządzenia
-- Jak aplikacji formularzy sieci Web programu ASP.NET może powodować mobile specyficznych stron
-- Jak aplikacje programu ASP.NET MVC można przedstawić mobile specyficznych stron
+- Wykrywanie przeglądarki i urządzeń
+- Jak aplikacje ASP.NET Web Forms mogą prezentować strony specyficzne dla urządzeń przenośnych
+- Jak aplikacje ASP.NET MVC mogą przedstawiać strony specyficzne dla urządzeń przenośnych
 - Dodatkowe zasoby
 
-Aby uzyskać przykłady kodu do pobrania, prezentacja technik ten oficjalny dokument dla platformy MVC i formularzy sieci Web ASP.NET, zobacz [Mobile Apps & witryny ASP.NET](https://docs.microsoft.com/aspnet/mobile/overview).
+Przykłady kodu do pobrania przedstawiające techniki tego oficjalnego dokumentu dla ASP.NET Web Forms i MVC można znaleźć w temacie [Mobile Apps & witryny z ASP.NET](https://docs.microsoft.com/aspnet/mobile/overview).
 
 ## <a name="overview"></a>Omówienie
 
-Urządzenia przenośne — smartfony, funkcja telefony i tablety — w dalszym ciągu Zwiększanie popularności jako sposób dostępu do sieci Web. W przypadku wielu programistów sieci web i zorientowane na sieci web firmy oznacza to, że jest coraz ważniejsze zapewnić doskonałe środowisko przeglądania dla gości korzystających z tych urządzeń.
+Urządzenia przenośne — telefony smartphone, telefony funkcji i tablety — Kontynuuj rozwój popularności jako środek do uzyskiwania dostępu do sieci Web. W przypadku wielu deweloperów sieci Web i firmowych sieci Web oznacza to, że coraz częściej jest zapewnienie doskonałego środowiska przeglądania dla Gości korzystających z tych urządzeń.
 
-### <a name="how-earlier-versions-of-aspnet-supported-mobile-browsers"></a>Jak wcześniejszych wersjach programu ASP.NET obsługiwanych przeglądarek dla urządzeń przenośnych
+### <a name="how-earlier-versions-of-aspnet-supported-mobile-browsers"></a>Jak wcześniejsze wersje programu ASP.NET obsługują przeglądarki mobilne
 
-Program ASP.NET w wersji 2.0 do 3.5 uwzględnione *formantów mobilnych ASP.NET*: zestaw formantów serwera dla urządzeń przenośnych w *System.Web.Mobile.dll* zestawu i  *System.Web.UI.MobileControls* przestrzeni nazw. Zestaw jest dostępny w ASP.NET 4, ale jest przestarzały. Deweloperom doradza się przeprowadzić migrację do bardziej nowoczesnego podejścia, takich jak opisane w tym dokumencie.
+ASP.NET wersje 2,0 do 3,5 obejmowały *ASP.net Mobile Controls*: zestaw kontrolek serwera dla urządzeń przenośnych z przestrzeni nazw *System. Web. Mobile. dll* i *System. Web. UI. MobileControls* . Zestaw jest nadal uwzględniony w ASP.NET 4, ale jest przestarzały. Deweloperzy są doradzani do migrowania do bardziej nowoczesnych metod, takich jak opisane w tym dokumencie.
 
-Powód, dlaczego formantów mobilnych ASP.NET została oznaczona jako przestarzała jest, że ich projektu jest zorientowany na wokół telefony komórkowe, które były wspólnego wokół 2005 i wcześniejszych. Formanty przede wszystkim są przeznaczone do renderowania kodu znaczników WML lub cHTML (zamiast regularnego HTML) dla przeglądarek WAP, że ery. Ale WAP, WML i cHTML nie są już odpowiednie dla większości projektów, ponieważ kodu HTML teraz stał się wszechobecne znaczników języka dla przeglądarek mobilnych i klasycznych podobne.
+Powód, dla którego kontrolki mobilne ASP.NET zostały oznaczone jako przestarzałe, są zorientowane na telefony komórkowe, które były wspólne wokół 2005 i wcześniejszych. Kontrolki są przeznaczone głównie do renderowania WML lub cHTML znaczników (zamiast zwykłych HTML) dla przeglądarek WAP tej ery. Jednak WAP, WML i cHTML nie są już potrzebne w przypadku większości projektów, ponieważ język HTML stał się powszechnie wyznacznikiem dla przeglądarek mobilnych i klasycznych.
 
-### <a name="the-challenges-of-supporting-mobile-devices-today"></a>Wyzwania związane z obecnie obsługi urządzeń przenośnych
+### <a name="the-challenges-of-supporting-mobile-devices-today"></a>Wyzwania dotyczące obsługi urządzeń przenośnych dzisiaj
 
-Mimo że teraz przeglądarki dla urządzeń przenośnych obsługują powszechnie HTML, nadal będą występować wiele wyzwań podczas mające na celu tworzenie wspaniałych środowisk przeglądania mobilnych:
+Mimo że przeglądarki mobilne są teraz niemal ogólnie obsługiwane w języku HTML, nadal będziesz mieć wiele wyzwań, gdy chcesz utworzyć wspaniałe środowiska do przeglądania mobilnego:
 
-- ***Rozmiar ekranu*** — urządzeń przenośnych różnią się znacznie w formularzu, a ich ekrany często są znacznie mniejsze niż monitory pulpitu. Dlatego należy do projektowania układów całkowicie różne strony dla nich.
-- ***Dane wejściowe metody*** — niektóre urządzenia mają dominują, niektóre z nich mają styluses, inne osoby za pomocą dotyku. Może być konieczne należy wziąć pod uwagę nawigacji wiele mechanizmów metody i danych wejściowych.
-- ***Zgodność ze standardami*** — wiele przeglądarek dla urządzeń przenośnych nie obsługują najnowszych standardów HTML, CSS i JavaScript.
-- ***Przepustowość*** — wydajność sieci danych komórkowych zmienia się bardzo popularny i niektórzy użytkownicy końcowi znajdują się na taryf, które opłaty wg megabajtów.
+- ***Rozmiar ekranu*** — urządzenia przenośne różnią się znacznie w formie, a ich ekrany często są znacznie mniejsze niż monitory klasyczne. W związku z tym może być konieczne zaprojektowanie zupełnie różnych układów stron.
+- ***Metody wejściowe*** — niektóre urządzenia mają konsole, niektóre mają pióro, inne używają dotyku. Konieczne może być uwzględnienie wielu mechanizmów nawigacji i metod wprowadzania danych.
+- ***Zgodność ze standardami*** — wiele przeglądarek dla urządzeń przenośnych nie obsługuje najnowszych standardów HTML, CSS i JavaScript.
+- ***Przepustowość*** — wydajność sieci komórkowej danych różni się w zależności od siebie, a niektórzy użytkownicy końcowi pobierają opłaty przez megabajty.
 
-Istnieje rozwiązanie opracowanie; Aplikacja musi wyglądały i zachowywały się różnie zgodnie z urządzeń, uzyskiwanie do niej dostępu. W zależności od stopnia obsługę operacji mobilnych, należy to być większe wyzwanie dla deweloperów sieci web niż kiedykolwiek było pulpitu "gwiezdnych przeglądarki".
+Nie istnieje żadne rozwiązanie o rozmiarze jedno-do-wszystkiego. aplikacja będzie musiała wyglądać i zachowywać się inaczej w zależności od urządzenia, do którego uzyskuje dostęp. W zależności od wybranego poziomu pomocy technicznej dla urządzeń przenośnych może to być większe wyzwanie dla deweloperów sieci Web niż w przypadku, gdy kiedykolwiek była "liczba" konfliktów przeglądarki pulpitu ".
 
-Deweloperzy często początkowo zbliża się obsługa przeglądarek mobilnych po raz pierwszy wydaje się, że jest tylko ważne do obsługi smartfonów najnowsze i najbardziej zaawansowane (np. Windows Phone 7, telefonu iPhone lub Android), może być, ponieważ deweloperzy często osobiście takie właścicielem urządzenia. Telefony tańsze nadal są bardzo popularne i ich właścicieli ich używać do przeglądania sieci web — w szczególności w krajach, w których łatwiej niż połączenie szerokopasmowe telefonów komórkowych. Należy wybrać zakres urządzeń na potrzeby obsługi, biorąc pod uwagę jej klientom prawdopodobnie Twojej firmy. Jeśli tworzysz online innej, spa kondycji luksusowe można wprowadzać decyzji biznesowych tylko do docelowych zaawansowane smartfonów, dlatego jeśli tworzysz system rezerwacji biletów dla kin prawdopodobnie trzeba będzie konta dla użytkowników zewnętrznych z mniej zaawansowanych funkcji telefony.
+Deweloperzy, którzy zbliżają się do obsługi przeglądarki mobilnej po raz pierwszy, często uważają, że są jedynie ważne, aby obsługiwać najnowsze i najbardziej zaawansowane telefony smartphone (np. Windows Phone 7, iPhone lub Android), prawdopodobnie ponieważ deweloperzy często są właścicielami urządzeniem. Jednak tańsze telefony są nadal niezwykle popularne, a ich właściciele wykorzystują je do przeglądania sieci Web — zwłaszcza w krajach, w których telefony komórkowe są łatwiejsze do pobrania niż połączenie szerokopasmowe. Firma będzie musiała zdecydować, jakiego zakresu urządzeń należy wspierać, biorąc pod uwagę jego prawdopodobnie klientów. Jeśli tworzysz broszurę online dla Spa możliwość zaprojektowania, możesz podjąć decyzję biznesową tylko dla zaawansowanych telefonów Smartphone, podczas gdy tworzysz system rezerwacji biletów dla kina, prawdopodobnie musisz mieć konto dla odwiedzających z mniejszą zaawansowaną funkcją telefonu.
 
 ## <a name="architectural-options"></a>Opcje architektury
 
-Przed przejściem do szczegółowych informacji technicznych formularzy sieci Web ASP.NET lub MVC, należy zauważyć, że Deweloperzy sieci web w zasadzie trzy główne sposoby, aby obsługa przeglądarek urządzeń przenośnych:
+Przed przekazaniem szczegółowych informacji technicznych ASP.NET Web Forms lub MVC należy zauważyć, że deweloperzy sieci Web ogólnie mają trzy główne opcje obsługi przeglądarek mobilnych:
 
-1. ***Nic nie rób —*** można po prostu utworzyć aplikację sieci web standard, zorientowanych na pulpicie i zależą od przeglądarki dla urządzeń przenośnych do jej akceptowalny sposób renderowania. 
+1. ***Nic nie rób —*** Możesz po prostu utworzyć standardową, zorientowaną na komputerze aplikację sieci Web i polegać na przeglądarkach mobilnych do renderowania zadowalająco IT. 
 
-    - **Zaletą**: To najtańszy opcję, aby zaimplementować i obsługa — działają bez żadnych dodatkowych
-    - **Wadą**: Zapewnia najgorszy środowisko użytkownika końcowego: 
+    - **Zalety**: jest to najtańsza opcja implementowania i konserwowania — brak dodatkowej pracy
+    - **Wadą**: zapewnia najgorszy interfejs użytkownika końcowego: 
 
-        - Najnowsze smartfonów może spowodować HTML równie dobrze jak przeglądarki na komputerze, ale użytkownicy nadal będą zmuszeni do powiększania i być przewijane w poziomie i w pionie do korzystania z zawartości na małym ekranie. To nie jest optymalne.
-        - Starsze urządzenia i telefony funkcji może zakończyć się niepowodzeniem do renderowania znaczników w zadowalający sposób.
-        - Nawet na najnowszych urządzeniach tablet (których ekranach może być tak dużego jak ekranów komputerów przenośnych) interakcji z innej reguły. Oparte na dotyku dane wejściowe sprawdza się najlepiej w przypadku większych przycisków i łączy rozprzestrzeniania się dalej od siebie, a nie istnieje sposób, aby umieść kursor myszy nad menu wysuwanego.
-2. ***Rozwiązuje problem na komputerze klienckim* —** przy użyciu dokładnej CSS i [stopniowym rozszerzaniu funkcji](http://en.wikipedia.org/wiki/Progressive_enhancement) możesz utworzyć kod znaczników, stylów i skrypty, które się do dowolnych przeglądarki je uruchomiono. Na przykład za pomocą [zapytaniami multimediów CSS 3](http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/), można utworzyć układ wielokolumnowych, który jest przekształcany układ jedną kolumnę na urządzeniach, na których ekrany są węższe niż wybrany próg. 
+        - Najnowsze smartfony mogą renderować kod HTML tak samo jak przeglądarka pulpitu, ale użytkownicy nadal będą zmuszeni do powiększania i przewijania w poziomie i w pionie, aby wykorzystać zawartość na małym ekranie. Jest to daleko od optymalnej.
+        - Na starszych urządzeniach i telefonach funkcji może nie być możliwe renderowanie znaczników w zadowalający sposób.
+        - Nawet na najnowszych urządzeniach tabletu (których ekrany mogą być tak duże jak ekrany laptopów), mają zastosowanie różne reguły interakcji. Dane wejściowe oparte na dotyku działają najlepiej z większymi przyciskami i łączami, a także nie ma możliwości przesuwania kursora myszy nad menu rozwijane.
+2. ***Rozwiąż problem na kliencie* —** z starannym użyciem CSS i [ulepszaniem progresywnym](http://en.wikipedia.org/wiki/Progressive_enhancement) można utworzyć znaczniki, style i skrypty, które dostosowują się do dowolnej przeglądarki. Na przykład w przypadku [zapytań o multimedia w języku CSS 3](http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/)można utworzyć układ wielokolumnowy, który przekształci się w jeden układ kolumn na urządzeniach, których ekrany są węższe niż wybrany próg. 
 
-    - **Zaletą**: Optymalizuje renderowania dla określonego urządzenia na użytek, jeszcze nieznanych przyszłych urządzeń zgodnie z dowolnego ekranu i właściwości danych wejściowych mają
-    - **Zaletą**: Pozwala łatwo udostępniać logikę po stronie serwera w przypadku wszystkich typów urządzeń — minimalny powielania kodu lub nakładu pracy
-    - **Wadą**: Urządzenia przenośne tak różnią się od urządzeń komputerowych, że może być naprawdę potrzebujesz swoje stron dla urządzeń przenośnych całkowicie różni się od strony pulpitu przedstawiający różne informacje. Te różnice mogą być mało wydajne i niemożliwe do osiągnięcia niezawodnie za pomocą CSS samodzielnie, szczególnie biorąc pod uwagę sposób niespójnie starszych urządzeń interpretowania reguły CSS. Jest to szczególnie istotne, atrybutów CSS 3.
-    - **Wadą**: Nie obsługuje różnych logiki po stronie serwera i przepływów pracy dla różnych urządzeń. Uproszczone zakupy koszyka wyewidencjonowania przepływ pracy dla użytkowników urządzeń przenośnych nie na przykład zaimplementować przy użyciu CSS samodzielnie.
-    - **Wadą**: Wykorzystanie przepustowości nieefektywne. Serwer może być konieczne przesyłać znaczników i style, które są stosowane do wszystkich możliwych urządzeniach, nawet jeśli urządzenie będzie używać tylko podzbiór tych informacji.
-3. ***Rozwiązuje problem na serwerze* —** Jeśli serwer wie, jakiego urządzenia uzyskuje dostęp do — lub w co najmniej właściwości danego urządzenia, takie jak rozmiar ekranu i metodę wprowadzania i czy jest to urządzenie przenośne — można uruchomić w niej inną logikę i dane wyjściowe różny kod znaczników HTML. 
+    - **Zalety**: Optymalizacja renderowania dla określonego urządzenia w użyciu, nawet w przypadku nieznanych przyszłych urządzeń w zależności od właściwości ekranu i danych wejściowych, które mają
+    - **Zalety**: łatwe udostępnianie logiki po stronie serwera na wszystkich typach urządzeń — minimalne duplikowanie kodu lub nakładu pracy
+    - **Niekorzyść**: urządzenia przenośne są inne niż urządzenia stacjonarne, które mogą naprawdę chcieć, aby strony mobilne były całkowicie różne od stron pulpitu, pokazując różne informacje. Takie wahania mogą być niewydajne lub niemożliwe do niezawodnego korzystania wyłącznie z CSS, szczególnie z uwzględnieniem, jak niespójnie starsze urządzenia interpretują reguły CSS. Jest to szczególnie prawdziwe w przypadku atrybutów CSS 3.
+    - **Wadą**: nie obsługuje różnych logiki po stronie serwera i przepływów pracy dla różnych urządzeń. Nie można na przykład zaimplementować przepływu pracy wyewidencjonowywania koszyka dla użytkowników mobilnych za pomocą samego arkusza CSS.
+    - **Wadą**: niewydajne użycie przepustowości. Może być konieczne przesłanie znaczników i stylów, które mają zastosowanie do wszystkich możliwych urządzeń, nawet jeśli urządzenie docelowe będzie używać tylko podzestawu tych informacji.
+3. ***Rozwiąż problem na serwerze* —** Jeśli serwer wie, które urządzenie uzyskuje do niego dostęp — lub co najmniej cechuje to urządzenie, takie jak rozmiar ekranu i Metoda wejściowa, a także czy jest to urządzenie przenośne — może uruchamiać inną logikę i wyprowadzać różne znaczniki HTML. 
 
-    - **Korzyści:** Aby zapewnić maksymalną elastyczność. Nie ma żadnego limitu, ile różnią się w logice po stronie serwera dla przenośne lub zoptymalizować znaczników dla układu żądaną, specyficzne dla urządzenia.
-    - **Korzyści:** Wykorzystanie przepustowości wydajne. Należy przesyłać znaczników i informacje dotyczące stylu, który zamierza użyć urządzenia docelowego.
-    - **Wady:** Czasami wymusza powtórzenia nakład pracy lub kodu (np. dzięki czemu można tworzyć kopie podobnym, lecz nieco stron formularzy sieci Web lub widoków MVC). Gdzie to możliwe, który będzie wyodrębnić wspólnej logiki do odpowiedniej warstwy lub usługi, ale nadal niektóre części kodu interfejsu użytkownika lub znaczników może mieć zduplikowanych i następnie przechowywane w sposób równoległy.
-    - **Wady:** Wykrywanie urządzeń nie jest proste. On wymaga listy lub bazy danych typów znanych urządzeń i ich właściwości (które nie zawsze są całkowicie aktualne) i nie jest gwarantowana, aby dokładnie dopasować każdego żądania przychodzącego. W tym dokumencie opisano niektóre opcje i ich przeszkody w dalszej części.
+    - **Zalety:** Maksymalna elastyczność. Nie ma żadnego limitu, w jaki sposób można zmienić logikę po stronie serwera dla urządzeń przenośnych lub zoptymalizować adiustację pod kątem żądanego układu określonego dla urządzenia.
+    - **Zalety:** Efektywne wykorzystanie przepustowości. Wystarczy przesłać informacje o znaczniku i stylu, które będą używane przez urządzenie docelowe.
+    - **Wadą:** Czasami wymusza powtarzanie nakładu pracy lub kodu (np. Tworzenie podobnych, ale nieco różnych kopii stron formularzy sieci Web lub widoków MVC). Tam, gdzie to możliwe, zostanie wdrożona wspólna logika do warstwy lub usługi źródłowej, ale nadal niektóre części kodu interfejsu użytkownika lub znaczniki mogą być duplikowane, a następnie obsługiwane równolegle.
+    - **Wadą:** Wykrywanie urządzeń nie jest proste. Wymaga listy lub bazy danych znanych typów urządzeń i ich właściwości (które mogą nie zawsze być idealnie aktualne) i nie gwarantuje dokładnego dopasowania każdego żądania przychodzącego. W tym dokumencie opisano niektóre opcje i ich pułapek w późniejszym czasie.
 
-Aby uzyskać najlepsze wyniki, większość deweloperów Znajdź potrzebne im łączyć opcji (2) i (3). Niewielkie różnice stylistyczne najlepiej są obsługiwane na komputerze klienckim przy użyciu CSS lub nawet języku JavaScript, istotne różnice w danych, przepływ pracy lub znaczników najbardziej efektywne są wdrażane w kodzie po stronie serwera.
+Aby uzyskać najlepsze wyniki, większość deweloperów może znaleźć opcje połączenia (2) i (3). Małe różnice stylistyczne najlepiej nadaje się na kliencie przy użyciu CSS lub nawet w języku JavaScript, a istotne różnice w zakresie danych, przepływu pracy lub znaczników są najbardziej efektywnie zaimplementowane w kodzie po stronie serwera.
 
-### <a name="this-paper-focuses-on-server-side-techniques"></a>Ten dokument zawiera omówienie metod po stronie serwera
+### <a name="this-paper-focuses-on-server-side-techniques"></a>Ten dokument koncentruje się na technikach po stronie serwera
 
-Ponieważ MVC i formularzy sieci Web platformy ASP.NET są obie technologie przede wszystkim po stronie serwera, ten dokument koncentruje się na technik po stronie serwera, które pozwalają tworzyć różny kod znaczników i logikę przeglądarki dla urządzeń przenośnych. Oczywiście można także połączyć to przy użyciu dowolnej techniki po stronie klienta (np. CSS 3 zapytaniami multimediów, rozszerzenie progresywnego JavaScript), ale jest bardziej kwestią projekt sieci web niż projektowanie programu ASP.NET.
+Ponieważ ASP.NET Web Forms i MVC są głównie technologiami po stronie serwera, ten oficjalny dokument koncentruje się na technikach po stronie serwera, które umożliwiają tworzenie różnych znaczników i logiki dla przeglądarek mobilnych. Oczywiście można również połączyć ten element z dowolną techniką po stronie klienta (np. kwerendami z nośnikami CSS 3, udoskonaleniem kodu JavaScript), ale jest to bardziej kwestia projektowania sieci Web niż programowanie ASP.NET.
 
-## <a name="browser-and-device-detection"></a>Wykrywanie przeglądarki i urządzenia
+## <a name="browser-and-device-detection"></a>Wykrywanie przeglądarki i urządzeń
 
-Kluczowe wstępnym dla wszystkich metod po stronie serwera do obsługi urządzeń przenośnych jest wiedzieć, jakiego urządzenia, które korzysta z obiektu odwiedzającego. W rzeczywistości jeszcze lepsze niż wiedza, producent i model liczbę tego urządzenia jest uświadomienie *charakterystyki* urządzenia. Właściwości mogą obejmować:
+Kluczowym wymaganiem wstępnym dla wszystkich technik po stronie serwera w celu obsługi urządzeń przenośnych jest określenie, które urządzenie jest używane przez Gościa. W rzeczywistości jeszcze lepszym rozwiązaniem niż znajomość producenta i numer modelu tego urządzenia jest znajomość *cech charakterystycznych* urządzenia. Cechy mogą obejmować:
 
-- Czy urządzenie przenośne?
-- Metoda wprowadzania (mysz i klawiatura, dotykowe, klawiatury, joystick,...)
+- Czy jest to urządzenie przenośne?
+- Input — Metoda (mysz/klawiatura, dotyk, klawiatura, joystick,...)
 - Rozmiar ekranu (fizycznie i w pikselach)
-- Obsługiwane formaty mediów i danych
+- Obsługiwane formaty multimediów i danych
 - Etc.
 
-Zaleca się decyzje na podstawie charakterystyki niż numer modelu, ponieważ, a następnie będzie lepiej wyposażone w celu obsługi przyszłych urządzeń.
+Lepszym rozwiązaniem jest podejmowanie decyzji na podstawie cech charakterystycznych niż numer modelu, ponieważ następnie lepiej jest obsługiwać przyszłe urządzenia.
 
-### <a name="using-aspnets-built-in-browser-detection-support"></a>Za pomocą stron ASP. Obsługa wykrywania przeglądarki wbudowanej w sieci
+### <a name="using-aspnets-built-in-browser-detection-support"></a>Za pomocą ASP. Wbudowana obsługa wykrywania przeglądarki sieci
 
-Deweloperzy i formularzy sieci Web platformy ASP.NET MVC można natychmiastowego poznania istotne cechy zaproszonych przeglądarki, sprawdzając właściwości *Request.Browser* obiektu. Na przykład zobacz
+ASP.NET Web Forms i deweloperzy MVC mogą natychmiast odnaleźć ważne cechy przeglądarki odwiedzającej, sprawdzając właściwości obiektu *Request. Browser* . Na przykład Zobacz
 
 - Request.Browser.IsMobileDevice
 - Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
@@ -114,249 +114,249 @@ Deweloperzy i formularzy sieci Web platformy ASP.NET MVC można natychmiastowego
 - Request.Browser.SupportsXmlHttp
 - ...a wielu innych
 
-W tle, platforma ASP.NET jest zgodna z przychodzącego *User-Agent* nagłówka HTTP (UA) dla wyrażenia regularne w zestawie plików XML definicji przeglądarki. Domyślnie ta platforma obejmuje definicje wiele wspólnych urządzeń przenośnych, a następnie można dodać niestandardowe pliki definicji przeglądarki dla innych osób, które mają aby rozpoznawał. Aby uzyskać więcej informacji, zobacz stronę MSDN [formanty serwera sieci Web ASP.NET i możliwości przeglądarki](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
+W tle platforma ASP.NET dopasowuje nagłówek HTTP przychodzącego *agenta użytkownika* (UA) do wyrażenia regularnego w zestawie plików XML definicji przeglądarki. Domyślnie platforma zawiera definicje dla wielu popularnych urządzeń przenośnych i można dodawać niestandardowe pliki definicji przeglądarki dla innych, które mają być rozpoznawane. Aby uzyskać więcej informacji, zobacz strony MSDN [ASP.NET Web Server Controls and Browser Capabilities](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
-### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Przy użyciu bazy danych urządzenia WURFL za pośrednictwem 51Degrees.mobi Foundation
+### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Korzystanie z bazy danych urządzeń WURFL za pośrednictwem 51Degrees.mobi Foundation
 
-Podczas gdy ASP. Wsparcie w zakresie wykrywania przeglądarki wbudowanej na NET będą wystarczające dla wielu aplikacji istnieją dwa główne przypadki podczas może nie być wystarczająca:
+Podczas gdy ASP. Wbudowana obsługa wykrywania przeglądarki sieci jest wystarczająca dla wielu aplikacji, jednak istnieją dwa główne przypadki, gdy może to być niewystarczające:
 
-- ***Aby rozpoznać najnowszych urządzeniach***(bez ręcznego tworzenia plików definicji przeglądarki dla nich). Należy pamiętać, że pliki definicji przeglądarki .NET 4 nie są wystarczająco aktualne, rozpoznawał Windows Phone 7, telefony z systemem Android, programie Opera Mobile przeglądarki lub urządzenia Ipad firmy Apple.
-- ***Potrzebujesz bardziej szczegółowe informacje dotyczące możliwości urządzenia***. Musisz wiedzieć o metodę wprowadzania urządzenia (np. dotyk vs klawiatury numerycznej) lub jakie audio formatuje przeglądarka obsługuje. Te informacje są niedostępne w standardowych plikach definicji przeglądarki.
+- ***Chcesz rozpoznać najnowsze urządzenia***(bez ręcznego tworzenia dla nich plików definicji przeglądarki). Należy pamiętać, że pliki definicji przeglądarki .NET 4 nie są wystarczająco aktualne, aby można było rozpoznać Windows Phone 7, telefony z systemem Android, przeglądarki programu Opera Mobile lub Apple iPad.
+- ***Potrzebujesz bardziej szczegółowych informacji na temat możliwości urządzeń***. Może być konieczne poznanie metody wejściowej urządzenia (np. dotknięcie klawiatury) lub formatów dźwięku obsługiwanych przez przeglądarkę. Te informacje nie są dostępne w standardowych plikach definicji przeglądarki.
 
-[ *Uniwersalny plik zasobów sieci bezprzewodowej* projektu (WURFL)](http://wurfl.sourceforge.net/) obsługuje znacznie więcej aktualności i szczegółowych informacji dotyczących urządzeń przenośnych w użyciu już dziś.
+[Projekt WURFL ( *Wireless Universal Resource File* )](http://wurfl.sourceforge.net/) zawiera znacznie bardziej aktualne i szczegółowe informacje o urządzeniach przenośnych używanych obecnie.
 
-Dobra wiadomość dla deweloperów platformy .NET jest ASP. Funkcji wykrywania przeglądarki firmy NET jest rozszerzalny, więc istnieje możliwość rozbudowy, aby wyeliminować te problemy. Na przykład można dodać typu open source [ *51Degrees.mobi Foundation* ](https://github.com/51Degrees/dotNET-Device-Detection) biblioteki do projektu. Jest ASP.NET IHttpModule lub przeglądarki możliwości dostawcy (można go używać w aplikacji MVC i formularzy sieci Web), który bezpośrednio odczytuje dane WURFL i przyczepia go do ASP. Mechanizm wykrywania przeglądarki wbudowanej w sieci. Po zainstalowaniu modułu, *Request.Browser* nagle będzie zawierać znacznie bardziej dokładne i szczegółowe informacje: będzie poprawnie rozpoznać wieloma typami urządzeń wymienionych wcześniej i wyświetlanie listy ich możliwości (w tym dodatkowe funkcje takie jak metoda wprowadzania). W dokumentacji projektu Aby uzyskać więcej informacji.
+Doskonałe wiadomości dla deweloperów platformy .NET to ASP. Funkcja wykrywania przeglądarki sieci jest rozszerzalna, dlatego można ją ulepszyć, aby wyeliminować te problemy. Można na przykład dodać do projektu bibliotekę Open Source [*51Degrees.mobi Foundation*](https://github.com/51Degrees/dotNET-Device-Detection) . Jest to ASP.NET IHttpModule lub dostawca możliwości przeglądarki (można go używać zarówno w przypadku formularzy sieci Web, jak i aplikacji MVC), które bezpośrednio odczytuje dane WURFL i przechwytuje je do ASP. Wbudowany mechanizm wykrywania przeglądarki sieci Web. Po zainstalowaniu modułu *żądanie. przeglądarka* będzie nagle zawierać bardziej dokładne i szczegółowe informacje: będzie poprawnie rozpoznawać wiele wcześniej wymienionych urządzeń i wyświetlać ich możliwości (w tym dodatkowe możliwości, takie jak Metoda wejściowa). Więcej informacji można znaleźć w dokumentacji projektu.
 
-## <a name="how-web-forms-applications-can-present-mobile-specific-pages"></a>Jak aplikacji formularzy sieci Web może powodować mobile specyficznych stron
+## <a name="how-web-forms-applications-can-present-mobile-specific-pages"></a>Jak aplikacje formularzy sieci Web mogą przedstawiać strony z konkretnymi urządzeniami przenośnymi
 
-Domyślnie poniżej przedstawiono sposób wyświetlania zupełnie nowa aplikacja formularzy sieci Web na urządzeniach przenośnych wspólne:
+Domyślnie poniżej przedstawiono sposób wyświetlania nowej aplikacji formularzy sieci Web na typowych urządzeniach przenośnych:
 
 ![](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/_static/image1.png)
 
-Wyraźnie widać ani układu wygląda bardzo przyjazne dla urządzeń przenośnych — ta strona została opracowana dla dużych, zorientowanych na pozioma monitora nie na małym ekranie orientacji pionowej. Dlatego co można zrobić na jego temat?
+Jasno, żaden układ nie wygląda dobrze przyjazny — ta strona została zaprojektowana dla dużego, zorientowanego na poziomie monitora, a nie dla małego ekranu zorientowanego na orientację pionową. Co możesz zrobić?
 
-Jak wspomniano wcześniej w tym dokumencie, istnieje wiele sposobów, aby dostosować strony dla urządzeń przenośnych. Kilka technik są oparte na serwerze, innym uruchomienia na kliencie.
+Zgodnie z opisem we wcześniejszej części tego dokumentu istnieje wiele sposobów dostosowywania stron do urządzeń przenośnych. Niektóre techniki są oparte na serwerze, inne działają na kliencie.
 
-### <a name="creating-a-mobile-specific-master-page"></a>Tworzenie strony wzorcowej specyficzne dla mobile
+### <a name="creating-a-mobile-specific-master-page"></a>Tworzenie strony wzorcowej specyficznej dla urządzeń przenośnych
 
-W zależności od wymagań można użyć tego samego formularzy sieci Web dla wszystkich użytkowników zewnętrznych, ale masz dwa oddzielne strony wzorcowe: jeden dla użytkowników pulpitu, drugie odwiedziny na urządzeniach mobilnych. Zapewnia to elastyczność zmiany stylów CSS lub najwyższego poziomu znaczników HTML do własnych urządzeń przenośnych bez zduplikowane wszelka logika strony.
+W zależności od wymagań można korzystać z tych samych formularzy sieci Web dla wszystkich odwiedzających, ale mają dwie osobne strony główne: jeden dla odwiedzających komputery, drugi dla odwiedzających dla urządzeń przenośnych. Dzięki temu można elastycznie zmieniać arkusz stylów CSS lub znaczniki HTML najwyższego poziomu, aby odpowiadały urządzeniom przenośnym, bez wymuszania duplikowania żadnej logiki strony.
 
-Jest to proste. Na przykład można dodać program obsługi PreInit podobny do następującego formularza sieci Web:
+Jest to bardzo proste. Na przykład można dodać program obsługi przed inicjalizacją, taki jak poniższy, do formularza sieci Web:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample1.cs)]
 
-Teraz Utwórz stronę wzorcową, o nazwie Mobile.Master w folderze najwyższego poziomu w aplikacji i będzie on używany w przypadku wykrycia urządzenia przenośnego. Stronę wzorcową mobilnych można odwoływać arkusz stylów CSS specyficzne dla mobilnych, w razie potrzeby. Goście pulpitu będą również widzieć domyślnej strony głównej, nie przenośnych jeden.
+Teraz Utwórz stronę wzorcową o nazwie Mobile. Master w folderze najwyższego poziomu aplikacji, która będzie używana po wykryciu urządzenia przenośnego. W razie potrzeby Strona wzorcowa urządzenia przenośnego może odwoływać się do arkusza stylów CSS specyficznych dla urządzeń przenośnych. Osoby odwiedzające pulpit nadal będą widzieć domyślną stronę wzorcową, a nie na urządzeniu mobilnym.
 
-### <a name="creating-independent-mobile-specific-web-forms"></a>Tworzenie niezależnych formularzy sieci Web specyficzne dla mobile
+### <a name="creating-independent-mobile-specific-web-forms"></a>Tworzenie niezależnych formularzy sieci Web dla urządzeń przenośnych
 
-Aby zapewnić maksymalną elastyczność możesz znacznie więcej niż tylko posiadanie oddzielnych stron wzorcowych dla różnych typów urządzeń. Można zaimplementować dwa *całkowicie oddzielić zestawów stron formularzy sieci Web* — jednego zestawu, w przypadku przeglądarek komputerowych, innego zestawu dla przenośne. Ten sposób działa najlepiej, jeśli mają być przedstawiane bardzo różne informacje i przepływów pracy do odwiedziny na urządzeniach mobilnych. W pozostałej części tej sekcji opisano tego podejścia szczegółowo.
+W celu zapewnienia maksymalnej elastyczności można znacznie nie tylko mieć osobne strony wzorcowe dla różnych typów urządzeń. Można zaimplementować dwa *całkowicie oddzielne zestawy stron formularzy sieci Web* — jeden zestaw dla przeglądarek klasycznych, inny zestaw dla urządzeń przenośnych. Jest to najlepsze rozwiązanie, jeśli chcesz przedstawić bardzo różne informacje lub przepływy pracy odwiedzającym dla urządzeń przenośnych. Pozostała część tej sekcji opisuje to podejście szczegółowo.
 
-Przy założeniu, że masz już aplikację formularzy sieci Web, przeznaczony dla przeglądarek komputerowych, aby kontynuować najłatwiej Utwórz podfolder o nazwie "wyraz Mobile" w obrębie projektu i twórz swoje stron dla urządzeń przenośnych. Można skonstruować całej lokacji podrzędnych, za pomocą własnej strony wzorcowe, arkusze stylów i strony, przy użyciu tych samych technik, które są używane dla innych aplikacji formularzy sieci Web. Nie jest konieczna utworzyć przenośnych równorzędne do *co* strony w witrynie pulpitu; można wybrać podzbiór funkcji ma sens dla odwiedziny na urządzeniach mobilnych.
+Przy założeniu, że masz już aplikację formularzy sieci Web zaprojektowaną pod kątem przeglądarek klasycznych, najprostszym sposobem, aby to zrobić, jest utworzenie podfolderu o nazwie "Mobile" w projekcie i skompilowanie stron mobilnych w tym miejscu. Można utworzyć całą podwitrynę z własnymi stronami wzorcowymi, arkuszami stylów i stronami przy użyciu wszystkich tych samych technik, które są używane dla innych aplikacji formularzy sieci Web. Nie trzeba tworzyć jeszcze odpowiednika dla *wszystkich* stron w witrynie klasycznej. Możesz wybrać podzbiór funkcji, który ma sens dla odwiedzających mobilnych.
 
-Twoje stron dla urządzeń przenośnych mogą udostępniać typowe zasoby statyczne (takich jak obrazy, JavaScript i CSS plików) za pomocą regularnego strony w razie potrzeby. Ponieważ folderu "wyraz Mobile" będzie *nie* można oznaczyć jako oddzielną aplikację w przypadku hostowania w usługach IIS (jest to prosty podfolder stron formularzy sieci Web), jego również udostępniać te same konfiguracji, dane sesji i innych infrastruktury jako usługi strony pulpitu.
+Twoje strony mobilne mogą udostępniać wspólne zasoby statyczne (takie jak obrazy, pliki JavaScript lub CSS) przy użyciu zwykłych stron, jeśli chcesz. Ponieważ folder "mobilny" *nie* zostanie oznaczony jako oddzielna aplikacja, która jest hostowana w usługach IIS (tylko prosty podfolder stron formularzy sieci Web), będzie również udostępniać wszystkie takie same konfiguracje, dane sesji i inne infrastruktury, jak strony pulpitu.
 
 > [!NOTE]
-> Ponieważ takie podejście zazwyczaj polega na niektórych duplikatów kodu (stron dla urządzeń przenośnych prawdopodobnie może udostępnić pewne podobieństwa stron pulpitu), ważne jest, aby współczynnik żadnych wspólnych firm logiki lub dane kod dostępu do udostępnionej warstwy podstawowej lub usługi. W przeciwnym razie będziesz double nakład pracy podczas tworzenia i obsługi aplikacji.
+> Ponieważ takie podejście zwykle wiąże się z duplikowaniem kodu (strony mobilne są prawdopodobnie takie same ze stronami pulpitu), ważne jest, aby zastanowić się, że wszystkie typowe reguły biznesowe lub dane dostępu do danych zostaną wdrożone w udostępnionej warstwie lub usłudze źródłowej. W przeciwnym razie zostanie podwojony nakład pracy związany z tworzeniem i utrzymywaniem aplikacji.
 
-#### <a name="redirecting-mobile-visitors-to-your-mobile-pages"></a>Przekierowywanie odwiedziny na urządzeniach mobilnych do usługi stron dla urządzeń przenośnych
+#### <a name="redirecting-mobile-visitors-to-your-mobile-pages"></a>Przekierowywanie odwiedzających użytkowników mobilnych do stron mobilnych
 
-Często jest to wygodne przekierować odwiedziny na urządzeniach mobilnych do stron dla urządzeń przenośnych tylko na *pierwszy* żądania w ich sesji przeglądania (a nie na każde żądanie w ich sesji), ponieważ:
+Często wygodnie jest przekierowywać odwiedzających do stron mobilnych tylko na *pierwszym* żądaniu w sesji przeglądania (a nie na każdym żądaniu w swojej sesji), ponieważ:
 
-- Następnie umożliwia łatwe odwiedziny na urządzeniach mobilnych dostępu stron pulpitu, sieci, gdy mają być — po prostu umieść łącze na stronie głównej, która przechodzi do "Wersja pulpitu". Nie można przekierować odwiedzający powrót do strony aplikacji mobilnej, ponieważ nie jest już pierwszego żądania w ich sesji.
-- Takie rozwiązanie pomaga uniknąć ryzyka nie zakłócają żądania wszelkie dynamiczne zasobów udostępnionych między częściami komputerów i urządzeń przenośnych w lokacji (np. w przypadku typowych formularz sieci Web, zarówno komputerów i urządzeń przenośnych części witryny do wyświetlania w IFRAME lub niektórych obsługi technologii Ajax)
+- Następnie możesz łatwo zezwolić odwiedzającym mobilnym na dostęp do stron pulpitu, jeśli chcesz, po prostu umieść link na stronie wzorcowej, który przejdzie do "wersji klasycznej". Gość nie zostanie przekierowany z powrotem do strony mobilnej, ponieważ nie jest to już pierwsze żądanie w swojej sesji.
+- Pozwala to uniknąć ryzyka zakłócania żądań dla wszystkich zasobów dynamicznych współdzielonych między pulpitem i urządzeniami przenośnymi w witrynie (np. Jeśli masz wspólny formularz sieci Web, który jest wyświetlany na komputerze stacjonarnym i urządzeniach przenośnych, w elemencie IFRAME lub niektórych programach obsługi AJAX)
 
-Aby to zrobić, możesz umieścić logikę przekierowania w **sesji\_Start** metody. Na przykład dodaj następującą metodę do pliku Global.asax.cs:
+W tym celu można umieścić logikę przekierowania w **sesji\_metody startowej** . Na przykład Dodaj następującą metodę do pliku Global.asax.cs:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample2.cs)]
 
-#### <a name="configuring-forms-authentication-to-respect-your-mobile-pages"></a>Konfigurowanie uwierzytelniania formularzy do przestrzegania swoje stron dla urządzeń przenośnych
+#### <a name="configuring-forms-authentication-to-respect-your-mobile-pages"></a>Konfigurowanie uwierzytelniania formularzy w celu uwzględnienia stron mobilnych
 
-Należy zwrócić uwagę na to, że uwierzytelnianie formularzy sprawia, że pewne założenia, o której go można skierować użytkowników podczas i po zakończeniu procesu uwierzytelniania:
+Należy pamiętać, że uwierzytelnianie formularzy wykonuje pewne założenia, w których można przekierować odwiedzających w trakcie procesu uwierzytelniania i po nim:
 
-- Po użytkownik wymaga uwierzytelniania, uwierzytelnianie formularzy spowoduje przekierowanie do strony logowania pulpitu, niezależnie od tego, czy są one użytkownikiem komputerze lub urządzeniu przenośnym (ponieważ ma on tylko koncepcji *jeden* adres URL logowania). Przy założeniu, że chcesz do nadawania stylu Twoja strona logowania przenośnych inaczej, należy zwiększyć Twoja strona logowania pulpitu tak, aby użytkownicy urządzeń przenośnych zostanie przekierowany na stronę logowania przenośnych oddzielne. Na przykład, Dodaj następujący kod, aby Twoje **pulpitu** kodem strony logowania: 
+- Gdy użytkownik musi zostać uwierzytelniony, uwierzytelnianie formularzy przekieruje je do strony logowania pulpitu, niezależnie od tego, czy są one komputerem stacjonarnym czy użytkownikiem mobilnym (ponieważ ma tylko pojęcie *jednego* adresu URL logowania). Przy założeniu, że chcesz stylować stronę logowania mobilnego inaczej, musisz rozszerzyć stronę logowania pulpitu, aby przekierować użytkowników mobilnych na osobną stronę logowania do urządzeń przenośnych. Na przykład Dodaj następujący kod na stronie logowania do **pulpitu** : 
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample3.cs)]
-- Po pomyślnym zalogowaniu użytkownika, uwierzytelnianie formularzy będzie domyślnie przekierowanie do strony głównej pulpitu (ponieważ ma on tylko koncepcji *jeden* domyślna strona). Należy poprawić Twoja strona logowania mobilnych tak, aby zostanie przekierowany do strony głównej telefon komórkowy po pomyślnym zalogowaniu się w. Na przykład, Dodaj następujący kod, aby Twoje **przenośnych** kodem strony logowania: 
+- Po pomyślnym zalogowaniu się użytkownika uwierzytelnianie formularzy domyślnie przekieruje je do strony głównej pulpitu (ponieważ ma tylko koncepcję *jednej* strony domyślnej). Musisz wzmocnić swoją stronę logowania do urządzeń przenośnych, aby przekierować ją do strony głównej mobilnej po pomyślnym zalogowaniu. Na przykład Dodaj następujący kod do kodu strony logowania do **urządzeń przenośnych** : 
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
-  Ten kod zakłada, że Twoja strona zawiera formant serwera logowania o nazwie odwoływały, tak jak w domyślnym szablonie projektu.
+  Ten kod zakłada, że strona ma kontrolkę serwer logowania o nazwie LoginUser, jak w domyślnym szablonie projektu.
 
-### <a name="working-with-output-caching"></a>Praca z buforowania danych wyjściowych
+### <a name="working-with-output-caching"></a>Praca z buforowaniem danych wyjściowych
 
-Jeśli używasz, buforowanie danych wyjściowych, należy pamiętać, że domyślnie, możliwe, że pulpitu użytkownika, aby znaleźć niektórych adresu URL (co powoduje jego dane wyjściowe pamięci podręcznej), zostały wykonane przez użytkownika mobilnego, który odbiera pamięci podręcznej danych wyjściowych z pulpitu. To ostrzeżenie dotyczy zarówno one po prostu zmieniającego się Strona wzorcowa według typu urządzenia lub implementacji całkowicie oddzielnych formularzach sieci Web na typ urządzenia.
+Jeśli używasz buforowania danych wyjściowych, uważaj, aby użytkownik pulpitu mógł odwiedzać określony adres URL (powodując, że dane wyjściowe są buforowane), a następnie użytkownika mobilnego, który następnie odbiera zbuforowane dane wyjściowe na pulpicie. To ostrzeżenie ma wpływ na to, czy jesteś w trakcie zmieniania strony wzorcowej według typu urządzenia, czy implementacji całkowicie oddzielnych formularzy sieci Web dla każdego typu urządzenia.
 
-Aby uniknąć tego problemu, możesz wydać polecenie ASP.NET różnicującej wpisu pamięci podręcznej według tego, czy obiekt odwiedzający jest na urządzeniu przenośnym. Dodaj parametr Element VaryByCustom do strony swojego OutputCache deklaracji w następujący sposób:
+Aby uniknąć tego problemu, można polecić ASP.NET w celu zmiany wpisu pamięci podręcznej w zależności od tego, czy osoba odwiedzająca korzysta z urządzenia przenośnego. Dodaj parametr VaryByCustom do deklaracji OutputCache strony w następujący sposób:
 
 [!code-aspx[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample5.aspx)]
 
-Następnie zdefiniuj *isMobileDevice* jako niestandardowy pamięć podręczną parametr, dodając następującą metodę zastąpienie pliku Global.asax.cs:
+Następnie zdefiniuj *isMobileDevice* jako niestandardowy parametr pamięci podręcznej, dodając następujące zastąpienie metody do pliku Global.asax.cs:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample6.cs)]
 
-Pozwoli to zagwarantować, że odwiedziny na urządzeniach mobilnych do strony nie pojawić się dane wyjściowe wcześniej umieścić w pamięci podręcznej przez obiekt odwiedzający pulpitu.
+Dzięki temu osoby odwiedzające nie odbierają danych wyjściowych wcześniej umieszczonych w pamięci podręcznej przez użytkownika pulpitu.
 
-### <a name="a-working-example"></a>Praktyczny przykład
+### <a name="a-working-example"></a>Przykład roboczy
 
-Aby wyświetlić te techniki w działaniu, Pobierz [przykładów kodu w tym oficjalnym dokumencie](https://docs.microsoft.com/aspnet/mobile/overview). Przykładowa aplikacja formularzy sieci Web automatycznie przekierowuje użytkowników urządzeń przenośnych z zestawem mobile specyficznych stron w podfolderze o nazwie Mobile. Znaczniki i stylów tych stron jest lepiej zoptymalizowany pod kątem przeglądarek dla urządzeń przenośnych, jak widać na poniższych zrzutach ekranu:
+Aby zapoznać się z tymi technikami, Pobierz [przykłady kodu tego dokumentu](https://docs.microsoft.com/aspnet/mobile/overview). Aplikacja Przykładowa formularzy sieci Web automatycznie przekierowuje użytkowników mobilnych do zestawu stron dla urządzeń przenośnych w podfolderze o nazwie Mobile. Znaczniki i style tych stron są lepiej zoptymalizowane pod kątem przeglądarek dla urządzeń przenośnych, ponieważ są one widoczne na następujących zrzutach ekranu:
 
 ![](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/_static/image2.png)
 
-Aby uzyskać więcej porad na temat optymalizowania swoje znaczników i arkusze CSS dla przeglądarki dla urządzeń przenośnych zobacz sekcję "Stylu stron dla urządzeń przenośnych dla przeglądarki dla urządzeń przenośnych" w dalszej części tego dokumentu.
+Aby uzyskać więcej porad na temat optymalizowania znaczników i CSS w przeglądarkach dla urządzeń przenośnych, zobacz sekcję "Style mobilne strony dla przeglądarek mobilnych" w dalszej części tego dokumentu.
 
-## <a name="how-aspnet-mvc-applications-can-present-mobile-specific-pages"></a>Jak aplikacje programu ASP.NET MVC można przedstawić mobile specyficznych stron
+## <a name="how-aspnet-mvc-applications-can-present-mobile-specific-pages"></a>Jak aplikacje ASP.NET MVC mogą przedstawiać strony specyficzne dla urządzeń przenośnych
 
-Ponieważ wzorzec Model-View-Controller oddziela logiki aplikacji (w kontrolerach) od logiki prezentacji (w widokach), można za pomocą dowolnego z następujących metod do obsługi obsługę operacji mobilnych w kodzie po stronie serwera:
+Ze względu na to, że wzorzec programu Model-View-Controller oddziela logikę aplikacji (w kontrolerach) z logiki prezentacji (w widokach), można wybrać jedną z następujących metod obsługi urządzeń przenośnych w kodzie po stronie serwera:
 
-1. ***Przy użyciu tego samego kontrolerów i widoków dla przeglądarek, zarówno komputerów i urządzeń przenośnych, ale renderowania widoków przy użyciu różnych układów Razor, w zależności od typu urządzenia*** Ta opcja sprawdza się najlepiej, jeśli jest wyświetlanie danych taka sama na wszystkich urządzeniach, ale po prostu chcesz podać inną arkuszy stylów CSS lub zmienić kilka elementów HTML najwyższego poziomu dla przenośne.
-2. ***Użyj tego samego kontrolerów dla przeglądarek, zarówno komputerów i urządzeń przenośnych, ale renderowania różnych widoków w zależności od typu urządzenia***. Ta opcja działa najlepiej, jeśli jesteś około wyświetlania tych samych danych i zapewniając tym samym przepływów pracy dla użytkowników końcowych, ale ma być renderowany bardzo różny kod znaczników HTML do własnych urządzenie używane.
-3. ***Utwórz oddzielne obszary dla przeglądarek komputerów i urządzeń przenośnych, wdrażanie niezależny kontrolery i widoki dla każdego*** Ta opcja sprawdza się najlepiej, jeśli wyświetlanie bardzo różnych ekranach, zawierające różne informacje i początkowe użytkownika za pomocą różnych przepływów pracy, zoptymalizowane pod kątem ich typ urządzenia. Może oznaczać, że niektóre powtórzenia kodu, ale można zminimalizować, który, uwzględniając limitu wspólnej logiki do warstwy podstawowej lub usługi.
+1. ***używać tych samych kontrolerów i widoków zarówno dla przeglądarek klasycznych, jak i mobilnych, ale renderuje widoki z różnymi układami Razor w zależności od typu urządzenia *.** Ta opcja działa najlepiej, jeśli są wyświetlane identyczne dane na wszystkich urządzeniach, ale po prostu chcą podawać różne arkusze stylów CSS lub zmieniać kilka elementów HTML najwyższego poziomu dla urządzeń przenośnych.
+2. ***Używaj tych samych kontrolerów zarówno dla przeglądarek klasycznych, jak i mobilnych, ale Renderuj różne widoki w zależności od typu urządzenia***. Ta opcja działa najlepiej, jeśli są wyświetlane mniej więcej te same dane i zapewniają te same przepływy pracy dla użytkowników końcowych, ale chcemy renderować bardzo różne znaczniki HTML w celu dopasowania do używanego urządzenia.
+3. ***utworzyć oddzielne obszary dla przeglądarek klasycznych i mobilnych, implementując niezależne kontrolery i widoki dla każdego *.** Ta opcja działa najlepiej, jeśli są wyświetlane różne ekrany zawierające różne informacje i prowadzące użytkownika przez różne przepływy pracy zoptymalizowane pod kątem ich typu urządzenia. Może to oznaczać powtarzanie kodu, ale można zminimalizować to przez rozpowszechnienie typowej logiki do warstwy podstawowej lub usługi.
 
-Jeśli chcesz móc **pierwszy** opcji i różnią się tylko układ Razor na typ urządzenia jest bardzo proste. Po prostu zmodyfikuj swoje \_ViewStart.cshtml pliku w następujący sposób:
+Jeśli chcesz skorzystać z **pierwszej** opcji i różnią się tylko układem Razor dla każdego typu urządzenia, jest to bardzo proste. Zmodyfikuj plik \_ViewStart. cshtml w następujący sposób:
 
 [!code-cshtml[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample7.cshtml)]
 
-Teraz możesz utworzyć układ specyficzne dla mobile, o nazwie \_LayoutMobile.cshtml ze strukturą strony i arkusze CSS reguł, zoptymalizowane pod kątem urządzeń przenośnych.
+Teraz można utworzyć układ specyficzny dla urządzeń przenośnych o nazwie \_LayoutMobile. cshtml z użyciem struktury strony i reguł CSS zoptymalizowanych pod kątem urządzeń przenośnych.
 
-Jeśli chcesz móc **drugi** opcji renderowania widoków zupełnie różne zależnie od typu urządzenia zewnętrznego, zobacz [wpis w blogu Scotta Hanselmana](http://www.hanselman.com/blog/ABetterASPNETMVCMobileDeviceCapabilitiesViewEngine.aspx).
+Jeśli chcesz wykonać **drugą** opcję Renderuj całkowicie różne widoki zgodnie z typem urządzenia gościa, zobacz [wpis w blogu Scott Hanselman](http://www.hanselman.com/blog/ABetterASPNETMVCMobileDeviceCapabilitiesViewEngine.aspx).
 
-Pozostała część ten dokument koncentruje się na **trzeci** opcja — tworzenie oddzielnych kontrolerów *i* widoków dla urządzeń przenośnych — dzięki czemu można kontrolować, dokładnie podzbiór funkcji jest oferowana w przypadku odwiedziny na urządzeniach mobilnych.
+Pozostała część tego dokumentu koncentruje się na **trzeciej** opcji — Tworzenie oddzielnych kontrolerów *i* widoków dla urządzeń przenośnych — dzięki temu można kontrolować, jaki podzestaw funkcji jest oferowany dla odwiedzających mobilnych.
 
-### <a name="setting-up-a-mobile-area-within-your-aspnet-mvc-application"></a>Konfigurowanie mobilnej obszaru w aplikacji ASP.NET MVC
+### <a name="setting-up-a-mobile-area-within-your-aspnet-mvc-application"></a>Konfigurowanie obszaru mobilnego w aplikacji ASP.NET MVC
 
-Można dodać obszaru o nazwie wyraz "Mobile" do istniejącej aplikacji platformy ASP.NET MVC w normalny sposób: kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, a następnie wybierz pozycję Dodaj, a obszar. Następnie można dodać widoków i kontrolerów podobnie jak w przypadku innych obszarów, w ramach aplikacji ASP.NET MVC. Na przykład dodać do usługi mobilnej obszaru nowy kontroler o nazwie HomeController ma działać jako stronę główną dla odwiedziny na urządzeniach mobilnych roboczej.
+Możesz dodać obszar o nazwie "Mobile" do istniejącej aplikacji ASP.NET MVC w zwykły sposób: kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań, a następnie wybierz polecenie Dodaj obszar à. Następnie można dodać kontrolery i widoki w taki sam sposób, jak w przypadku każdego innego obszaru w aplikacji ASP.NET MVC. Na przykład Dodaj do swojego obszaru przenośnego nowy kontroler o nazwie HomeController, który będzie pełnił rolę strony głównej dla odwiedzających mobilnych.
 
-### <a name="ensuring-the-url-mobile-reaches-the-mobile-homepage"></a>Zapewnienie /Mobile adresu URL osiągnie przenośnych strony głównej
+### <a name="ensuring-the-url-mobile-reaches-the-mobile-homepage"></a>Upewnienie się, że adres URL/Mobile dociera do mobilnej strony głównej
 
-Chcąc /Mobile adres URL do osiągnięcia akcji indeksu na HomeController wewnątrz obszaru mobilnych, konieczne będzie wprowadź dwie niewielkich zmian w konfiguracji usługi routingu. Najpierw zaktualizuj klasy MobileAreaRegistration tak, aby HomeController domyślny kontroler w Twojej okolicy przenośne, jak pokazano w poniższym kodzie:
+Jeśli chcesz, aby adres URL/Mobile się do akcji index na HomeController w obszarze przenośnym, musisz wprowadzić dwa małe zmiany w konfiguracji routingu. Najpierw Zaktualizuj swoją klasę MobileAreaRegistration, tak aby HomeController jest domyślnym kontrolerem w obszarze mobilnym, jak pokazano w poniższym kodzie:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample8.cs)]
 
-Oznacza to, przenośne strony głównej teraz powinien znajdować się w /Mobile zamiast/Mobile domowych, ponieważ "Home" jest teraz niejawnie domyślna nazwa kontrolera dla stron dla urządzeń przenośnych.
+Oznacza to, że Strona główna urządzenia przenośnego będzie teraz dostępna w witrynie/Mobile, a nie/Mobile/Home, ponieważ "Strona główna" jest teraz niejawnie domyślną nazwą kontrolera dla stron mobilnych.
 
-Następnie należy pamiętać, że dodając HomeController drugi do aplikacji (czyli mobilnych, oprócz istniejącego pulpitu jeden), będzie Przerwano regularne strona główna pulpitu. Zakończy się niepowodzeniem z powodu błędu "*znaleziono wiele typów zgodnych kontroler o nazwie"Home"* ". Aby rozwiązać ten problem, zaktualizuj konfigurację routingu najwyższego poziomu (w Global.asax.cs) do określenia Twojej pulpitu HomeController powinno zająć priorytet po niejednoznaczności:
+Następnie należy zauważyć, że przez dodanie drugiego HomeController do aplikacji (tj. urządzenia przenośnego, poza istniejącym pulpitem), zostanie uszkodzona zwykła Strona główna pulpitu. Wystąpił błąd "*znaleziono wiele typów zgodnych z kontrolerem o nazwie" Home "* ". Aby rozwiązać ten problem, zaktualizuj konfigurację routingu najwyższego poziomu (w Global.asax.cs), aby określić, że komputer stacjonarny HomeController powinien mieć priorytet w przypadku niejednoznaczności:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Teraz błąd zaczną away i URL http:\/\/*twoja_witryna*/ będzie korzystał z strony głównej pulpitu i http:\/\/*twoja_witryna*będzie /mobile/ Docieraj do większej przenośnych strony głównej.
+Teraz ten błąd zostanie wysunięty, a adres URL http:\/\/*yoursite*/będzie docierał do strony głównej pulpitu, a protokół http:\/\/*yoursite*/Mobile/zostanie osiągnięty na stronie głównej urządzenia przenośnego.
 
-### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Przekierowywanie odwiedziny na urządzeniach mobilnych do usługi mobilnej obszaru
+### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Przekierowywanie odwiedzających urządzenia przenośne do obszaru komórkowego
 
-Istnieje wiele punktów rozszerzeń innej we wzorcu ASP.NET MVC, więc istnieje wiele sposobów możliwych do dodania logiki przekierowania. Jedną z opcji ładnie jest utworzyć atrybutu filtru, [RedirectMobileDevicesToMobileArea], który wykonuje przekierowanie, jeśli są spełnione następujące warunki:
+Istnieje wiele różnych punktów rozszerzalności w ASP.NET MVC, dlatego istnieje wiele możliwych sposobów iniekcji logiki przekierowania. Jedną z opcji zapełniania jest utworzenie atrybutu filtru [RedirectMobileDevicesToMobileArea], który wykonuje przekierowanie w przypadku spełnienia następujących warunków:
 
-1. Pierwsze żądanie jest w sesji użytkownika (czyli Session.IsNewSession jest równa true)
-2. Żądanie pochodzi z przeglądarce dla urządzeń przenośnych (czyli Request.Browser.IsMobileDevice jest równa true)
-3. Użytkownik już nie żąda zasobu, w obszarze przenośnych (czyli *ścieżki* w adresie URL nie rozpoczyna się od /Mobile)
+1. Jest to pierwsze żądanie w sesji użytkownika (tj. Session. IsNewSession jest równe true)
+2. Żądanie pochodzi z przeglądarki mobilnej (tj., żądanie. browser. IsMobileDevice jest równe true)
+3. Użytkownik nie zażądał jeszcze zasobu w obszarze mobilnym (tj. część *ścieżki* adresu URL nie zaczyna się od/Mobile).
 
-Do pobrania próbki, dołączone ten dokument zawiera implementację tę logikę. Są one zaimplementowane jako filtru autoryzacji, pochodzi od klasy AuthorizeAttribute, co oznacza, że jej poprawnego działania nawet wtedy, gdy używasz buforowania danych wyjściowych (w przeciwnym razie, jeśli pulpitu odwiedzający pierwszy uzyskuje dostęp do niektórych adresu URL, pulpitu dane wyjściowe mogą być buforowane i następnie obsłużonych kolejne odwiedziny na urządzeniach mobilnych).
+Przykład do pobrania dołączony do tego oficjalnego dokumentu zawiera implementację tej logiki. Jest ona zaimplementowana jako filtr autoryzacji pochodzący z AuthorizeAttribute, co oznacza, że może działać poprawnie nawet w przypadku używania buforowania danych wyjściowych (w przeciwnym razie, jeśli osoba odwiedzająca komputer najpierw uzyskuje dostęp do określonego adresu URL, dane wyjściowe pulpitu mogą być buforowane, a następnie obsłużone do kolejne osoby odwiedzające Twoje urządzenia przenośne).
 
-Ponieważ jest filtr, możesz wybrać dowolną stosować je do określonych kontrolerów i akcji, np.
+Ponieważ jest to filtr, można wybrać jeden z nich, aby zastosować go do określonych kontrolerów i akcji, na przykład,
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample10.cs)]
 
-… lub można zastosować do wszystkich kontrolerów i akcji jako MVC 3 *filtrów globalnych* w pliku Global.asax.cs:
+… można też zastosować je do wszystkich kontrolerów i akcji jako *Filtr globalny* MVC 3 w pliku Global.asax.cs:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample11.cs)]
 
-Przykład pliku do pobrania ilustruje też sposób tworzenia podklasy tego atrybutu, które przekierowują do określonych lokalizacji w Twojej okolicy mobilnych. Oznacza to, na przykład, możesz:
+Przykład do pobrania pokazuje również, jak można utworzyć podklasy tego atrybutu, który przekierowuje do określonych lokalizacji w obszarze mobilnym. Oznacza to, na przykład, można:
 
-- Zarejestrowanie filtru globalnego jak pokazano powyżej wysyłający odwiedziny na urządzeniach mobilnych na stronie głównej przenośnych domyślnie.
-- Dotyczą również specjalne [RedirectMobileDevicesToMobileProductPage] filtru akcji "Wyświetl produkt", która przyjmuje odwiedziny na urządzeniach mobilnych do mobilnej wersji niezależnie od produktu one miały żądanej strony.
-- Dotyczą również innych specjalnych podklasy filtr konkretne akcje, przekierowywanie odwiedziny na urządzeniach mobilnych do odpowiedniej strony mobilnych
+- Zarejestruj filtr globalny, jak pokazano powyżej, który domyślnie wysyła odwiedzających do mobilnej strony głównej.
+- Zastosuj również specjalny filtr [RedirectMobileDevicesToMobileProductPage] do akcji "Wyświetl produkt", która umożliwia odwiedzającym odwiedzanie urządzeń przenośnych do mobilnej wersji dowolnej strony produktu, której zażądał.
+- Zastosuj również inne specjalne podklasy filtru do określonych akcji, przekierowując odwiedzających mobilnych do odpowiedniej strony mobilnej
 
-### <a name="configuring-forms-authentication-to-respect-your-mobile-pages"></a>Konfigurowanie uwierzytelniania formularzy do przestrzegania swoje stron dla urządzeń przenośnych
+### <a name="configuring-forms-authentication-to-respect-your-mobile-pages"></a>Konfigurowanie uwierzytelniania formularzy w celu uwzględnienia stron mobilnych
 
-Jeśli używasz uwierzytelniania formularzy, należy pamiętać, że gdy użytkownik zechce się zalogować, go automatycznie przekierowuje użytkownika do pojedynczego określonego "Zaloguj" adresu URL, czyli domyślnie **/konta/logowania**. Oznacza to, że użytkownicy urządzeń przenośnych może zostać przekierowany do akcji pulpitu "Zaloguj".
+W przypadku korzystania z uwierzytelniania formularzy należy pamiętać, że gdy użytkownik musi się zalogować, automatycznie przekierowuje użytkownika do pojedynczego adresu URL logowania, który domyślnie jest **/Account/LogOn**. Oznacza to, że użytkownicy mobilni mogą zostać przekierowani do akcji logowania na pulpicie.
 
-Aby uniknąć tego problemu, należy dodać logikę do klasycznych akcji "Zaloguj", aby użytkownicy urządzeń przenośnych zostanie przekierowany ponownie do mobilnych akcji "Zaloguj". Jeśli używasz domyślnego szablonu aplikacji platformy ASP.NET MVC, zaktualizuj działań logowania tego elementu AccountController w następujący sposób:
+Aby uniknąć tego problemu, należy dodać logikę do akcji logowania do komputera stacjonarnego, aby ponownie przekierować użytkowników mobilnych do akcji "Logowanie na urządzeniu przenośnym". Jeśli używasz domyślnego szablonu aplikacji ASP.NET MVC, zaktualizuj akcję logowania elementu AccountController w następujący sposób:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample12.cs)]
 
-… a następnie wdrożyć odpowiedniej akcji "Zaloguj" mobile określonych w kontrolerze o nazwie elementu AccountController w Twojej okolicy mobilnych.
+… a następnie Zaimplementuj odpowiednią akcję "Zaloguj się" dla urządzenia przenośnego na kontrolerze o nazwie elementu AccountController w obszarze mobilnym.
 
-### <a name="working-with-output-caching"></a>Praca z buforowania danych wyjściowych
+### <a name="working-with-output-caching"></a>Praca z buforowaniem danych wyjściowych
 
-Jeśli używasz filtru [OutputCache], należy wymusić wpisu pamięci podręcznej będzie się różnić od typu urządzenia. Na przykład napisać:
+W przypadku korzystania z filtru [OutputCache] należy wymusić, aby wpis pamięci podręcznej był zależny od typu urządzenia. Na przykład Napisz:
 
 [!code-javascript[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample13.js)]
 
-Następnie dodaj następującą metodę do pliku Global.asax.cs:
+Następnie Dodaj następującą metodę do pliku Global.asax.cs:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample14.cs)]
 
-Pozwoli to zagwarantować, że odwiedziny na urządzeniach mobilnych do strony nie pojawić się dane wyjściowe wcześniej umieścić w pamięci podręcznej przez obiekt odwiedzający pulpitu.
+Dzięki temu osoby odwiedzające nie odbierają danych wyjściowych wcześniej umieszczonych w pamięci podręcznej przez użytkownika pulpitu.
 
-### <a name="a-working-example"></a>Praktyczny przykład
+### <a name="a-working-example"></a>Przykład roboczy
 
-Aby wyświetlić te techniki w działaniu, Pobierz [kod ten oficjalny dokument skojarzony przykłady](https://docs.microsoft.com/aspnet/mobile/overview). Przykład obejmuje aplikację ASP.NET MVC 3 (Wersja Release Candidate) ulepszony na potrzeby obsługi urządzeń przenośnych za pomocą metod opisanych powyżej.
+Aby zapoznać się z tymi technikami, Pobierz ten dokument z kodem zawierającym [próbki](https://docs.microsoft.com/aspnet/mobile/overview). Przykład obejmuje aplikację ASP.NET MVC 3 (Release Candidate) ulepszoną w celu obsługi urządzeń przenośnych przy użyciu opisanych powyżej metod.
 
 ## <a name="further-guidance-and-suggestions"></a>Dalsze wskazówki i sugestie
 
-Następujące dyskusji mają zastosowanie zarówno do deweloperów MVC, którzy korzystają z technik w niniejszym dokumencie i formularzy sieci Web.
+Poniższa dyskusja dotyczy zarówno formularzy sieci Web, jak i deweloperów MVC, którzy korzystają z technik opisanych w tym dokumencie.
 
-### <a name="enhancing-your-redirection-logic-using-51degreesmobi-foundation"></a>Udoskonalanie logikę przekierowania za pomocą 51Degrees.mobi Foundation
+### <a name="enhancing-your-redirection-logic-using-51degreesmobi-foundation"></a>Ulepszanie logiki przekierowania przy użyciu programu 51Degrees.mobi Foundation
 
-Logika przekierowania opisane w tym dokumencie może być całkowicie wystarczający dla aplikacji, ale nie będzie działać, jeśli chcesz wyłączyć sesje lub za pomocą przeglądarki dla urządzeń przenośnych, które odrzucić pliki cookie (muszą one nie może być sesji), ponieważ nie będzie wiadomo, czy danego żądania jest pierwsza od tej osoby odwiedzającej.
+Logika przekierowania pokazana w tym dokumencie może być idealnie wystarczająca dla aplikacji, ale nie będzie działać, jeśli konieczne jest wyłączenie sesji lub z przeglądarkami mobilnymi, które odrzucają pliki cookie (nie mogą to być sesje), ponieważ nie będzie wiadomo, czy podane żądanie jest pierwszy z nich.
 
-Wiesz już, jak poprawić dokładność ASP 51Degrees.mobi "open source" Foundation. Wykrywanie przeglądarki przez sieć. Ma wbudowaną funkcję, aby skierować użytkowników mobilnych na określonych lokalizacjach skonfigurowany w pliku Web.config. Jest w stanie działać bez zależności od tego, w sesji programu ASP.NET (i w związku z tym pliki cookie), przechowując dziennika tymczasowych skrótów odwiedzających nagłówków HTTP i adresów IP, dlatego wie czy każdego żądania jest to pierwsza z danym vistor.
+Wiesz już, jak program Open Source 51Degrees.mobi Foundation może poprawić dokładność ASP. Wykrywanie przeglądarki sieci. Ponadto ma wbudowaną możliwość przekierowania odwiedzających urządzenia przenośne do określonych lokalizacji skonfigurowanych w pliku Web. config. W zależności od sesji ASP.NET (i w związku z tym pliki cookie) jest możliwe przechowanie tymczasowego dziennika skrótów dla nagłówków HTTP i adresów IP odwiedzających, dlatego wie, czy każde żądanie jest pierwszym z danego Vistor.
 
-Następujący element dodany do sekcji fiftyOne pliku web.config będzie przekierowywać pierwsze żądanie wykrytego urządzenia przenośnego do strony ~ / Mobile/Default.aspx. Wszystkie żądania do stron w folderze przenośnych będą *nie* przekierowanie, niezależnie od typu urządzenia. Jeśli urządzenie przenośne jest nieaktywny przez okres 20 minut lub większej liczby urządzeń spowoduje usunięcie i kolejnych żądań będzie traktowane jako nowe na potrzeby przekierowywania.
+Następujący element został dodany do sekcji fiftyOne w pliku Web. config przekieruje pierwsze żądanie ze wykrytego urządzenia przenośnego na stronę ~/Mobile/Default.aspx. Wszystkie żądania stron znajdujących się w folderze mobilnym *nie* będą przekierowywane niezależnie od typu urządzenia. Jeśli urządzenie przenośne było nieaktywne przez okres 20 minut lub więcej, urządzenie zostanie zapomniane, a kolejne żądania będą traktowane jako nowe na potrzeby przekierowania.
 
 [!code-xml[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample15.xml)]
 
-Aby uzyskać więcej informacji, zobacz [51degrees.mobi dokumentacji Foundation](https://github.com/51Degrees/dotNET-Device-Detection).
+Aby uzyskać więcej informacji, zobacz [dokumentację programu 51Degrees.mobi Foundation](https://github.com/51Degrees/dotNET-Device-Detection).
 
 > [!NOTE]
-> Możesz *można* Foundation 51Degrees.mobi Użyj funkcji Przekierowanie na aplikacje programu ASP.NET MVC, ale należy zdefiniować konfigurację przekierowania pod względem zwykły adresów URL, nie w zakresie routingu parametrów lub poprzez umieszczenie filtrów platformy MVC w akcji. Jest to spowodowane (w momencie pisania) nie może rozpoznać 51Degrees.mobi Foundation filtry lub routingu.
+> *Możesz* użyć funkcji przekierowywania programu 51Degrees.mobi Foundation w aplikacjach ASP.NET MVC, ale musisz zdefiniować konfigurację przekierowania w postaci zwykłych adresów URL, a nie jako parametrów routingu lub przez umieszczenie filtrów MVC w akcjach. Jest to spowodowane tym, że (w czasie pisania) 51Degrees.mobi Foundation nie rozpoznaje filtrów ani routingu.
 
-### <a name="disabling-transcoders-and-proxy-servers"></a>Wyłączanie Transkoderów i serwerów Proxy
+### <a name="disabling-transcoders-and-proxy-servers"></a>Wyłączanie transkoderów i serwerów proxy
 
-Operatory sieci komórkowej mają dwa cele szerokiego w ich podejście do mobilnych internet.
+Operatorzy sieci mobilnej mają dwa szerokie cele w podejściu do mobilnego Internetu:
 
-1. Podaj jako znacznie odpowiedniej zawartości, jak to możliwe
-2. Zwiększenie liczby klientów, którzy mogą udostępniać radio ograniczonej przepustowości sieci
+1. Podaj możliwie tyle zawartość
+2. Maksymalizuj liczbę klientów, którzy mogą udostępniać ograniczoną przepustowość sieci radiowej
 
-Ponieważ większość stron sieci web zostały zaprojektowane dla dużych ekranów o rozmiarze pulpitu i połączenia szerokopasmowego szybko stała wierszy, użyć wielu operatorów *transkoderów* lub *serwerów proxy* , dynamicznie zmieniać zawartość sieci web. Mogą oni modyfikować swoje kod znaczników HTML i CSS, aby odpowiadały na mniejszych ekranach (szczególnie w przypadku "Funkcja telefony" braku mocy obliczeniowej do obsługi złożonych układów), a ich może ponownie kompresować obrazów (znacznemu ograniczeniu ich jakość) w celu zwiększenia szybkości dostarczania strony.
+Ze względu na to, że większość stron sieci Web została zaprojektowana pod kątem dużych ekranów o rozmiarze stacjonarnym i szybkich połączeń szerokopasmowych, wiele operatorów używa *transkoderów* lub *serwerów proxy* , które dynamicznie zmieniają zawartość sieci Web. Mogą modyfikować znaczniki HTML lub arkusze CSS na mniejszych ekranach (szczególnie w przypadku "telefonów z funkcjami", które nie korzystają z mocy obliczeniowej do obsługi złożonych układów) i mogą rekompresować obrazy (znacznie zmniejszając ich jakość), aby zwiększyć szybkość dostarczania stron.
 
-Ale jeśli wykorzystaliście nakład pracy w celu wygenerowania zoptymalizowanych pod kątem mobile wersji lokacji prawdopodobnie nie chcesz, operatorem sieci kolidować z niego dowolny dalsze. Można dodać następujący wiersz do strony\_załadowane zdarzenie w dowolnej formie sieci Web platformy ASP.NET:
+Ale jeśli podjęto wysiłki w celu utworzenia wersji witryny zoptymalizowanej pod kątem urządzeń przenośnych, prawdopodobnie nie chcesz, aby operator sieci mógł się z nim zakłócać. Możesz dodać następujący wiersz do strony\_zdarzenia ładowania w dowolnym formularzu sieci Web ASP.NET:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample16.cs)]
 
-Lub dla kontroler składnika ASP.NET MVC można dodać następujące zastąpienie metody, tak aby dotyczyła wszystkich akcji na tym kontrolerze:
+Lub w przypadku kontrolera ASP.NET MVC można dodać poniższe przesłonięcie metody, aby odnosił się do wszystkich akcji na tym kontrolerze:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample17.cs)]
 
-Wynikowy komunikatu HTTP informuje transkoderów zgodne W3C i serwery proxy, aby nie zmieniać zawartość. Oczywiście nie ma żadnej gwarancji, Operatorzy sieci komórkowej zachowuje tę wiadomość.
+Wynikowy komunikat HTTP informuje transformacje zgodne ze standardem W3C i serwery proxy, aby nie można było zmieniać zawartości. Oczywiście nie ma gwarancji, że operatorzy sieci komórkowej będą respektują ten komunikat.
 
-### <a name="styling-mobile-pages-for-mobile-browsers"></a>Ustawianie stylów stron dla urządzeń przenośnych dla przeglądarki dla urządzeń przenośnych
+### <a name="styling-mobile-pages-for-mobile-browsers"></a>Style stron mobilnych dla przeglądarek mobilnych
 
-Jest to poza zakres tego dokumentu opisano szczegółowo jakiego rodzaju pracę kod znaczników HTML poprawnie lub które technik projektu sieci web zmaksymalizować użyteczności na poszczególnych urządzeń. Się użytkownikowi w celu znalezienia wystarczająco prostym układzie, optymalizacji dla ekranu o rozmiarze mobile, bez używania zawodnych HTML i CSS, pozycjonowanie wskazówki. Jest jednak jeden ważną technikę warte wskazujące, *okienka ekranu metatag*.
+Ten dokument wykracza poza zakres tego dokumentu w celu opisania szczegółowych informacji o tym, jakie rodzaje znaczników HTML działają poprawnie lub jakie techniki projektowania sieci Web maksymalizują użyteczność na konkretnych urządzeniach. Umożliwia znalezienie wystarczająco prostego układu zoptymalizowanego pod kątem ekranu o rozmiarze mobilnym, bez konieczności korzystania z niezawodnych wskazówek dotyczących pozycjonowania HTML lub CSS. Jedną z ważnych technik oznaczanie, że jest to *tag okienka ekranu*.
 
-Niektóre nowoczesne przeglądarki dla urządzeń przenośnych, na stronach sieci web wyświetlaną nakład pracy przeznaczone dla pulpitu monitorów renderowania strony na kanwie wirtualnych również o nazwie "okienka ekranu" (np. wirtualnych okienko ekranu jest 980 pikseli na urządzeniu iPhone oraz 850 pikseli w programie Opera Mobile domyślnie) i następnie Skaluj wynik w dół w celu dopasowania go do pikselach fizycznych. Użytkownik może, a następnie powiększanie i przesuwanie tego okienka ekranu. Ma tę zaletę, że umożliwia ona przeglądarki wyświetlenia strony w jego zamierzone układ, ale jest również ma wadą wymusza powiększanie i przesuwanie, który jest wygodne, dla użytkownika. Projektując aplikacje mobilne dla zaleca się projektowanie wąskie ekranu tak, aby bez powiększanie i przewijanie w poziomie jest niezbędne.
+Niektóre nowoczesne przeglądarki dla urządzeń przenośnych — w miarę wyświetlania stron sieci Web przeznaczonych dla monitorów stacjonarnych, renderowanie strony na wirtualnej kanwie, nazywanej również "okienkiem ekranu" (np. w przypadku wirtualnego okienka ekranu jest 980 pikseli na telefonie iPhone i 850 pikseli szerokości w programie Opera Mobile — domyślnie), a następnie Skaluj wynik w dół w celu dopasowania do pikseli fizycznych ekranu. Użytkownik może następnie powiększyć i przesunąć wokół tego okienka ekranu. Pozwala to na wyświetlenie strony w przeglądarce w odpowiednim układzie, ale ma także wady, które wymuszają powiększanie i panoramowanie, co jest niewygodne dla użytkownika. Jeśli projektujesz aplikacje dla urządzeń przenośnych, lepiej jest zaprojektować go pod kątem wąskiego ekranu, aby nie było konieczne powiększanie ani przewijanie w poziomie.
 
-Umożliwia informowanie przeglądarce dla urządzeń przenośnych, jak szeroki powinien być okienka ekranu jest za pomocą niestandardowych *okienka ekranu* meta tag. Na przykład, jeśli Dodaj następujący kod do sekcji HEAD na stronie
+Sposób poinformowania przeglądarki mobilnej o szerokości okienka ekranu, który powinien znajdować się za pomocą niestandardowego znacznika *okienka ekranu* . Na przykład, jeśli dodasz Poniższy kod do sekcji nagłówka strony,
 
 [!code-html[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample18.html)]
 
-… następnie Obsługa przeglądarek smartphone będzie układ strony na kanwie szeroki wirtualnego 480 pikseli. Oznacza to, że elementów HTML zdefiniować ich szerokości w ujęciu procentowym, wartości procentowe będą interpretowane względem szerokość piksela 480 ta nie domyślnej szerokości okienka ekranu. W rezultacie użytkownik jest mniej prawdopodobne na powiększanie i przesuwanie poziomo — znacznie ulepszanie mobilnymi przeglądania.
+… następnie Obsługa przeglądarek smartphone spowoduje przetworzenie układu strony na całej kanwie wirtualnej o 480 pikseli. Oznacza to, że jeśli elementy HTML definiują ich szerokość w warunkach procentowych, wartości procentowe będą interpretowane w odniesieniu do szerokości o 480 pikseli, a nie domyślnej szerokości okienka ekranu. W związku z tym użytkownik może mniej powiększać i kadrować w poziomie, znacznie ulepszając środowisko przeglądania mobilnego.
 
-Chcąc szerokość okienka ekranu, aby dopasować pikselach fizycznych urządzeń, można określić następujące czynności:
+Jeśli chcesz, aby szerokość okienka ekranu była zgodna z pikselami fizycznymi urządzenia, możesz określić następujące elementy:
 
 [!code-html[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample19.html)]
 
-Aby to działało poprawnie, należy nie jawnie wymusić elementów przekracza tej szerokości (np. przy użyciu *szerokość* atrybutu lub właściwość CSS), wymuszają przeglądarki do użycia niezależnie od tego, większy okienka ekranu. Zobacz również: [więcej szczegółów na temat tagów niestandardowych okienka ekranu](https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
+Aby ta funkcja działała poprawnie, nie można jawnie wymusić, aby elementy przekroczą tę Szerokość (np. przy użyciu atrybutu *Width* lub właściwości CSS). w przeciwnym razie w przeglądarce zostanie wymuszone użycie większego okienka ekranu niezależnie od siebie. Zobacz również: [więcej informacji na temat niestandardowego znacznika okienka ekranu](https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
 
-Obsługa większości współczesnych smartfonów *podwójną orientacji*: mogą być przechowywane w trybie pionowej lub poziomej. Jest tak, nie należy wprowadzać założeń dotyczących szerokość ekranu w pikselach. Nie nawet przyjęto założenie, że jest stała szerokość ekranu, ponieważ użytkownik może ponownie poznaniu swojego urządzenia, bez przerywania ich na stronie.
+Większość nowoczesnych telefonów Smartphone obsługuje *dwie orientacje*: mogą być przechowywane w trybie pionowym lub poziomym. Dlatego ważne jest, aby nie wprowadzać założeń o szerokości ekranu (w pikselach). Nie zakładaj nawet, że szerokość ekranu jest stała, ponieważ użytkownik może zmienić orientację urządzenia na stronie.
 
-Starsze urządzenia Windows Mobile i Blackberry może również przyjmować następujące tagi meta w nagłówku strony, aby poinformować zawartości zoptymalizowany dla urządzeń przenośnych i dlatego nie powinny zostać przekształcone.
+Starsze urządzenia z systemem Windows Mobile i BlackBerry mogą również akceptować następujące meta tagi w nagłówku strony, aby poinformować o tym, że zawartość została zoptymalizowana pod kątem urządzeń przenośnych i dlatego nie powinna być przekształcona.
 
 [!code-html[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample20.html)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-Aby uzyskać listę urządzeń przenośnych emulatorów i symulatorów, można użyć do testowania mobilnych aplikacji sieci web ASP.NET, zobacz stronę [symulowanie testowanie popularnych urządzeń przenośnych](../mobile/device-simulators.md).
+Aby zapoznać się z listą emulatorów i symulatorów urządzeń przenośnych, których można użyć do testowania aplikacji sieci Web ASP.NET Mobile, zobacz stronę [symulowanie popularnych urządzeń przenośnych do testowania](../mobile/device-simulators.md).
 
-## <a name="credits"></a>Napisy końcowe
+## <a name="credits"></a>Środki
 
-- Głównego autora: Steven sanderson o
-- Recenzenci / dodatkowych składników zapisywania zawartości: James Rosewell, Mikael Söderström, Scott Hanselman, Scott Hunter
+- Autor podstawowy: Steven Sanderson
+- Recenzenci/dodatkowi autorzy zawartości: Kuba Rosewell, Mikael Söderström, Scott Hanselman, Scott myśliwy

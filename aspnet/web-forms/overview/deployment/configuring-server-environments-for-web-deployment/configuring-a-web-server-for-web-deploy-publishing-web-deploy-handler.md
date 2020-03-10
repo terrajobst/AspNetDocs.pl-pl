@@ -9,11 +9,11 @@ ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
 ms.openlocfilehash: baaebd32f08d3c6b861572c5c5a16ec0fb70aaf0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589041"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568566"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74589041"
 
 > W tym temacie opisano sposób konfigurowania serwera sieci Web Internet Information Services (IIS) do obsługi publikowania w sieci Web i wdrażania przy użyciu programu obsługi Web Deploy IIS.
 > 
-> Pracując z Web Deploy 2,0 lub nowszym, istnieją trzy główne podejścia, których można użyć do uzyskania aplikacji lub witryn na serwerze sieci Web. Można:
+> Pracując z Web Deploy 2,0 lub nowszym, istnieją trzy główne podejścia, których można użyć do uzyskania aplikacji lub witryn na serwerze sieci Web. Możesz:
 > 
 > - Użyj *usługi zdalnego agenta Web Deploy*. Takie podejście wymaga mniejszej konfiguracji serwera sieci Web, ale musisz podać poświadczenia administratora serwera lokalnego w celu wdrożenia wszystkich elementów na serwerze.
 > - Użyj *procedury obsługi Web Deploy*. To podejście jest znacznie bardziej złożone i wymaga większego nakładu pracy w celu skonfigurowania serwera sieci Web. Jednak podczas korzystania z tego podejścia można skonfigurować usługi IIS, aby umożliwić użytkownikom niebędącym administratorami wdrażanie. Procedura obsługi Web Deploy jest dostępna tylko w usługach IIS w wersji 7 lub nowszej.
@@ -86,7 +86,7 @@ W takim przypadku należy zainstalować następujące elementy:
 
     > [!NOTE]
     > Teraz można uruchomić Instalatora platformy sieci Web w dowolnym momencie z menu **Start** . W tym celu w menu **Start** kliknij pozycję **Wszystkie programy**, a następnie kliknij pozycję **Instalator platformy Microsoft Web**.
-3. W górnej części okna **Instalatora platformy sieci Web** kliknij pozycję **produkty**.
+3. W górnej części okna **Instalator platformy sieci Web** kliknij opcję **Produkty**.
 4. Po lewej stronie okna w okienku nawigacji kliknij pozycję **struktury**.
 5. W wierszu **Microsoft .NET Framework 4** , jeśli .NET Framework nie jest jeszcze zainstalowany, kliknij przycisk **Dodaj**.
 
@@ -100,7 +100,7 @@ W takim przypadku należy zainstalować następujące elementy:
 9. W wierszu **narzędzia Web Deployment 2,1** kliknij pozycję **Dodaj**.
 10. W programie **IIS: uwierzytelnianie podstawowe** , kliknij przycisk **Dodaj**.
 11. W wierszu **usługi IIS: Management** kliknij pozycję **Dodaj**.
-12. Kliknij przycisk **Instaluj**. W Instalatorze platformy sieci Web zostanie wyświetlona lista&#x2014;produktów wraz ze wszystkimi skojarzonymi zależnościami&#x2014;, które zostaną zainstalowane, i wyświetli monit o zaakceptowanie postanowień licencyjnych.
+12. Kliknij polecenie **Zainstaluj**. W Instalatorze platformy sieci Web zostanie wyświetlona lista&#x2014;produktów wraz ze wszystkimi skojarzonymi zależnościami&#x2014;, które zostaną zainstalowane, i wyświetli monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Zapoznaj się z postanowieniami licencyjnymi, a jeśli wyrażasz zgodę na warunki, kliknij przycisk **Akceptuję**.
@@ -204,7 +204,7 @@ Mimo że nie zatrzymasz wdrożenia zawartości w domyślnej witrynie sieci Web w
     > [!NOTE]
     > W środowisku produkcyjnym prawdopodobnie chcesz hostować witrynę sieci Web na porcie 80 i skonfigurować nagłówek hosta wraz ze zgodnymi rekordami DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówków hosta w usługach IIS 7, zobacz [Konfigurowanie nagłówka hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji na temat roli serwera DNS w systemie Windows Server, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/library/cc770392.aspx) i [serwera DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. W okienku **Akcje** w obszarze **Edytuj witrynę**kliknij pozycję **powiązania**.
-10. W oknie dialogowym **powiązania witryny** kliknij przycisk **Dodaj**.
+10. W oknie dialogowym **Powiązania witryny** kliknij przycisk **Dodaj**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image12.png)
 11. W oknie dialogowym **Dodawanie powiązania witryny** Ustaw **adres IP** i **port** zgodne z istniejącą konfiguracją lokacji.
@@ -214,7 +214,7 @@ Mimo że nie zatrzymasz wdrożenia zawartości w domyślnej witrynie sieci Web w
 
     > [!NOTE]
     > Pierwsze powiązanie witryny umożliwia dostęp do lokacji lokalnie przy użyciu adresu IP i portu lub `http://localhost:85`. Drugie powiązanie witryny pozwala uzyskać dostęp do lokacji z innych komputerów w domenie przy użyciu nazwy komputera (na przykład http://stageweb1:85).
-13. W oknie dialogowym **powiązania witryny** kliknij przycisk **Zamknij**.
+13. W oknie dialogowym **Powiązania witryny** kliknij przycisk **Zamknij**.
 14. W okienku **połączenia** kliknij pozycję **Pule aplikacji**.
 15. W okienku **Pule aplikacji** kliknij prawym przyciskiem myszy nazwę puli aplikacji, a następnie kliknij pozycję **Ustawienia podstawowe**. Domyślnie nazwa puli aplikacji będzie zgodna z nazwą witryny sieci Web (na przykład **DemoSite**).
 16. Na liście **wersja środowiska CLR platformy .NET** wybierz pozycję **.NET CLR v 4.0.30319**, a następnie kliknij przycisk **OK**.
@@ -275,12 +275,12 @@ Domyślnie usługa zarządzania siecią Web usług IIS nasłuchuje na porcie TCP
 
 | Kierunek | Z portu | Do portu | Typ portu |
 | --- | --- | --- | --- |
-| Dotycząc | Dowolne | 8172 | TCP |
-| Wyjściowy | 8172 | Dowolne | TCP |
+| Przychodzący | Dowolne | 8172 | TCP |
+| Wychodzący | 8172 | Dowolne | TCP |
 
 Aby uzyskać więcej informacji na temat konfigurowania reguł w zaporze systemu Windows, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/library/dd448559(WS.10).aspx). W przypadku zapór innych firm zapoznaj się z dokumentacją produktu.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Serwer sieci Web powinien być teraz gotowy do akceptowania zdalnych wdrożeń do programu obsługi Web Deploy za pomocą usługi zarządzania siecią Web. Przed podjęciem próby wdrożenia aplikacji sieci Web na serwerze warto sprawdzić następujące kluczowe punkty:
 

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/index
-title: ASP.NET 3.5 — wprowadzenie do zabezpieczeń | Dokumentacja firmy Microsoft
+title: ASP.NET 3,5 — wprowadzenie do zabezpieczeń | Microsoft Docs
 author: rick-anderson
-description: W tej serii samouczków Eksploruje technik do uwierzytelniania użytkowników za pomocą formularza logowania (uwierzytelnianie formularzy) i autoryzowanie dostępu do poszczególnych stron...
+description: Ta seria samouczków służy do eksplorowania technik uwierzytelniania użytkowników przy użyciu formularza logowania (uwierzytelnianie formularzy) i autoryzowania dostępu do poszczególnych stron w...
 ms.author: riande
 ms.date: 11/04/2011
 ms.assetid: ac5fcd71-317a-41ba-91ac-95121fc68126
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction
 msc.type: chapter
 ms.openlocfilehash: 7481981ad95eab7cd1bd906084f3a979c5a44dd1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132290"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545396"
 ---
 # <a name="aspnet-35---introduction-to-security"></a>ASP.NET 3.5 — wprowadzenie do zabezpieczeń
 
-> W tej serii samouczków odkrywa technik do uwierzytelniania użytkowników za pomocą formularza logowania (uwierzytelnianie formularzy) i autoryzowanie dostępu do poszczególnych stron w aplikacji ASP.NET.
+> W tej serii samouczków przedstawiono techniki uwierzytelniania użytkowników przy użyciu formularza logowania (uwierzytelnianie formularzy) i Autoryzowanie dostępu do poszczególnych stron w aplikacji ASP.NET.
 
 - [Podstawy zabezpieczeń i obsługa platformy ASP.NET (C#)](security-basics-and-asp-net-support-cs.md)
 - [Omówienie uwierzytelniania formularzy (C#)](an-overview-of-forms-authentication-cs.md)

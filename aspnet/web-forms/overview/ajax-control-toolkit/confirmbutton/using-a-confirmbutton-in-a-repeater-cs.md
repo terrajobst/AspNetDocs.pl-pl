@@ -9,11 +9,11 @@ ms.assetid: a973ed3e-400c-4925-ace2-0b086b479301
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 468a830f01c48dc39b22bc5d826f80533df65c1a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574396"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554286"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-c"></a>Używanie kontrolki ConfirmButton w elemencie powtarzanym (C#)
 
@@ -50,4 +50,4 @@ To źródło danych może być następnie używane w ramach wzmacniania. Jak zwy
 Przycisk Potwierdź pojawia się obok każdego wpisu ze źródła danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-a-confirmbutton-in-a-repeater-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](using-a-confirmbutton-in-a-repeater-vb.md)
+> [Dalej](using-a-confirmbutton-in-a-repeater-vb.md)

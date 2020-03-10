@@ -1,74 +1,74 @@
 ---
 uid: whitepapers/ms03-32-issue
-title: Poprawka dla błędu "Aplikacja serwera niedostępna" po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer | Dokumentacja firmy Microsoft
+title: Naprawa błędu "niedostępność aplikacji serwera" po zastosowaniu aktualizacji zabezpieczeń dla programu IE | Microsoft Docs
 author: rick-anderson
-description: W tym dokumencie opisano poprawkę, która rozwiązuje problem z MS03 32 Aktualizacja zabezpieczeń programu Internet Explorer, który wpływa na aplikacje programu ASP.NET 1.0 systemem Wi...
+description: W tym dokumencie opisano poprawkę, która rozwiązuje problem z aktualizacją zabezpieczeń MS03-32 dla programu Internet Explorer, która ma wpływ na aplikacje ASP.NET 1,0 działające w sieci Wi...
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
 ms.openlocfilehash: e0b6776cbfe22e341ac7105f03daac5074b480fc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121545"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574187"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Poprawka rozwiązująca problem powodujący błąd „Aplikacja serwera niedostępna” po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
 
-> W tym dokumencie opisano poprawkę, która rozwiązuje problem z MS03 32 Aktualizacja zabezpieczeń programu Internet Explorer, która ma wpływ na aplikacje programu ASP.NET w wersji 1.0, systemem Windows XP Professional.
+> W tym dokumencie opisano poprawkę, która rozwiązuje problem z aktualizacją zabezpieczeń MS03-32 dla programu Internet Explorer, która ma wpływ na aplikacje ASP.NET 1,0 działające w systemie Windows XP Professional.
 > 
-> Stosuje się do platformy ASP.NET w wersji 1.0 i Windows XP Professional.
+> Dotyczy systemów ASP.NET 1,0 i Windows XP Professional.
 
-Firma Microsoft znalazła wystąpił problem z MS03 32 aktualizacji zabezpieczeń dla poziomu poprawki zabezpieczeń programu Internet Explorer i ASP.NET 1.0 w systemie Windows XP. Ta poprawka można zainstalować ręcznie lub za pomocą uzyskiwanie najnowszych aktualizacji krytycznych z witryny Windows Update.
+Firma Microsoft zidentyfikowała problem z aktualizacją zabezpieczeń MS03-32 dotyczącą poprawek zabezpieczeń programu Internet Explorer i ASP.NET 1,0 działającą w systemie Windows XP. Tę poprawkę można zainstalować ręcznie lub przez uzyskanie najnowszych aktualizacji krytycznych z witryny Windows Update.
 
-Objawem tego problemu jest tym, że po zainstalowaniu poprawki na komputerze Windows XP, wszystkie żądania do aplikacji platformy ASP.NET działających na lokalnym serwerze sieci web usługi IIS 5.1 skutkować komunikat o błędzie informujący o tym, "Serwer aplikacji niedostępna". Nie dotyczy to żądań do serwerów sieci web do zdalnego.
+Symptomem tego problemu jest to, że po zainstalowaniu poprawki na komputerze z systemem Windows XP wszystkie żądania do ASP.NET aplikacji uruchomionych na lokalnym serwerze sieci Web usług IIS 5,1 powodują pojawienie się komunikatu o błędzie mówiącego "aplikacja serwera niedostępna". Nie dotyczy to żądań do zdalnych serwerów sieci Web.
 
-Ten problem ma wpływ tylko na instalacji uruchomionych ASP.NET 1.0 w systemie Windows XP. Nie ma wpływu na maszyny z systemem Windows 2000 lub Windows Server 2003. Ponadto nie ma ona wpływu maszyn z systemem Windows XP przy użyciu platformy ASP.NET 1.1 zainstalowany.
+Ten problem dotyczy tylko instalacji z systemem ASP.NET 1,0 w systemie Windows XP. Nie ma to wpływu na maszyny z systemem Windows 2000 lub Windows Server 2003. Nie ma to również wpływu na maszyny z systemem Windows XP i ASP.NET 1,1.
 
-Należy pamiętać, że ten problem **nie** błędów zabezpieczeń, za pomocą platformy ASP.NET. Jego **nie** otwierają lub zezwalanie na wszystkie złośliwe ataki względem aplikacji ASP.NET lub serwera. Zamiast tego jest wyłącznie funkcjonalności usterka spowodowana przez sam poprawkę.
+Należy pamiętać, że ten problem **nie jest** usterką zabezpieczeń z ASP.NET. Nie **otwiera ani** nie zezwala na złośliwe ataki dla aplikacji lub serwera ASP.NET. Zamiast tego jest czysto funkcjonalną usterką powodowaną przez poprawkę.
 
-Ciężko pracujemy na trwałe rozwiązanie tego problemu. W międzyczasie można wykonywać następujący plik wsadowy, jako obejście dla problemu. Plik wsadowy wykonuje następujące czynności:
+Pracujemy na stałym rozwiązaniu tego problemu. W międzyczasie można wykonać następujący plik wsadowy jako obejście problemu. Plik wsadowy wykonuje następujące czynności:
 
-1. Zatrzymanie usług stanu usług IIS i platformy ASP.NET
-2. Usuwa i odtwarza konto ASPNET znanych hasło tymczasowe
-3. Używa Windows `runas` polecenie, aby uruchomić plik wykonywalny, który tworzy profil użytkownika ASPNET
-4. Re-registers ASP.NET. Spowoduje to utworzenie nowego losowe hasło dla konta i stosuje domyślne ustawienia kontroli dostępu platformy ASP.NET dla niego
+1. Powoduje zatrzymanie usług IIS i usługi stanu ASP.NET
+2. Usuwa i ponownie tworzy konto ASPNET przy użyciu znanego hasła tymczasowego
+3. Używa polecenia `runas` systemu Windows do uruchomienia pliku wykonywalnego, który tworzy profil użytkownika ASPNET
+4. Re-registers ASP.NET. Spowoduje to utworzenie nowego hasła losowego dla konta i zastosowanie domyślnych ustawień kontroli dostępu ASP.NET
 5. Uruchamia ponownie usługę IIS
 
-Plik wsadowy zawiera zapisane na stałe tymczasowe hasło "<strong>1pass\@word</strong>", który będzie wyświetlany monit o wprowadzenie dla polecenia Uruchom jako, po uruchomieniu pliku wsadowego. Po zakończeniu wykonywania polecenia Uruchom jako hasło do konta ASPNET są odtwarzane z silną losową wartość. Należy pamiętać, że plik wsadowy może zakończyć się niepowodzeniem, jeśli hasło zapisane na stałe nie spełnia wymagania dotyczące złożoności hasła w danym środowisku. Jeśli tak jest rzeczywiście, możesz go zmienić na inną wartość, która jest odpowiednia dla użytkowanego środowiska.
+Plik wsadowy zawiera stałe hasło tymczasowe "<strong>1pass\@Word</strong>", którego monit o wprowadzenie do polecenia runas zostanie wyświetlony po uruchomieniu pliku wsadowego. Po zakończeniu wykonywania polecenia runas hasło konta ASPNET zostanie odtworzone przy użyciu silnej losowej wartości. Należy pamiętać, że plik wsadowy może się nie powieść, jeśli hasło stałe nie spełnia wymagań dotyczących złożoności haseł w danym środowisku. W takim przypadku można zmienić na inną wartość, która jest odpowiednia dla danego środowiska.
 
-*> [!IMPORTANT]* Po dodaniu ustawienia kontroli dostępu niestandardowych lub uprawnień konta bazy danych dla konta ASPNET muszą być utworzone ponownie po ukończeniu tego pliku wsadowego. Jest to spowodowane po utworzeniu konta otrzyma nowy identyfikator zabezpieczeń (SID).
+*> [!IMPORTANT]* Jeśli dodano niestandardowe ustawienia kontroli dostępu lub uprawnienia konta bazy danych dla konta ASPNET, należy je ponownie utworzyć po zakończeniu tego pliku wsadowego. Jest to spowodowane tym, że po odtworzeniu konta zostanie wyświetlony nowy identyfikator zabezpieczeń (SID).
 
-*> [!IMPORTANT]* Jeśli korzystasz z procesu roboczego ASP.NET, przy użyciu niestandardowego konta inne niż konto ASPNET, następnie nie należy uruchamiać ten plik wsadowy. Zamiast tego należy zalogować się interaktywnie lub użyć polecenia Uruchom jako przy użyciu tego konta, które spowoduje utworzenie profilu użytkownika dla tego konta.
+*> [!IMPORTANT]* Jeśli uruchamiasz proces roboczy ASP.NET przy użyciu konta niestandardowego innego niż konto ASPNET, nie należy uruchamiać tego pliku wsadowego. Zamiast tego należy zalogować się interaktywnie lub użyć polecenia runas z tym kontem, które spowoduje utworzenie profilu użytkownika dla tego konta.
 
-Plik wsadowy jest zawarte w archiwum samorozpakowujący się poniżej. Aby użyć go:
+Plik wsadowy znajduje się w archiwum samowyodrębniającym się poniżej. Aby go użyć:
 
-1. Użytkownik musi działać jako konto z uprawnieniami administratora
-2. [Pobierz i otwórz samorozpakowujący się plik wykonywalny](ms03-32-issue/_static/fixup1.exe)
+1. Musisz działać jako konto z uprawnieniami administratora
+2. [Pobierz i Otwórz samowyodrębniający się plik wykonywalny](ms03-32-issue/_static/fixup1.exe)
 3. Wyodrębnij zawartość do c:\
-4. Wybierz polecenie Uruchom... z start menu, a następnie wprowadź `cmd.exe`
-5. W oknie polecenia Otwórz typ `c:\fixup.cmd`.
-6. Po wyświetleniu monitu wprowadź <strong>1pass\@word</strong> jako hasło.
-7. W przypadku ustawienia kontroli dostępu niestandardowych wcześniej lub uprawnień konta bazy danych dla konta ASPNET, należy ponownie zastosować te ustawienia teraz.
+4. Wybierz pozycję Uruchom... z menu Start i wprowadź `cmd.exe`
+5. W oknach polecenia Otwórz wpisz `c:\fixup.cmd`.
+6. Po wyświetleniu monitu wprowadź <strong>1pass\@Word</strong> jako hasło.
+7. Jeśli wcześniej określono niestandardowe ustawienia kontroli dostępu lub uprawnienia konta bazy danych dla konta ASPNET, należy ponownie zastosować te ustawienia teraz.
 
-Wiele przeprosinami za niedogodności, który spowodował ten. Firma Microsoft prześle dodatkowe informacje po jej udostępnieniu.
+Wiele przeprosinami dla niedogodności, które to spowodowało. Będziemy ogłaszać dodatkowe informacje, gdy staną się dostępne.
 
-Tabela poniżej szczegółowo platformy i wersje dotyczy ten problem.
+W poniższej macierzy przedstawiono szczegóły platform i wersji, których dotyczy problem.
 
-| .NET Framework | Platforma | Dotyczy |
+| .NET Framework | Platforma | Narażone |
 | --- | --- | --- |
-| W wersji 1.0 | Windows 2000 Professional | Nie |
-| W wersji 1.0 | Windows 2000 Server | Nie |
-| W wersji 1.0 | Windows XP Professional | Tak |
-| W wersji 1.0 | Windows Server 2003 | Nie |
-| W wersji 1.0 | Windows XP Home z Cassini | Nie |
-| W wersji 1.1 | Windows 2000 Professional | Nie |
-| W wersji 1.1 | Windows 2000 Server | Nie |
-| W wersji 1.1 | Windows XP Professional | Nie |
-| W wersji 1.1 | Windows Server 2003 | Nie |
-| W wersji 1.1 | Windows XP Home z Cassini | Nie |
+| Wersja 1,0 | Windows 2000 Professional | Nie |
+| Wersja 1,0 | Windows 2000 Server | Nie |
+| Wersja 1,0 | Windows XP Professional | Tak |
+| Wersja 1,0 | Windows Server 2003 | Nie |
+| Wersja 1,0 | Windows XP Home z Cassini | Nie |
+| Wersja 1,1 | Windows 2000 Professional | Nie |
+| Wersja 1,1 | Windows 2000 Server | Nie |
+| Wersja 1,1 | Windows XP Professional | Nie |
+| Wersja 1,1 | Windows Server 2003 | Nie |
+| Wersja 1,1 | Windows XP Home z Cassini | Nie |
 
 Dziękujemy,   
- Zespół programu ASP.NET
+ Zespół ASP.NET

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender
-title: '[Jak mogę] Użyj rozszerzenie DynamicPopulate ASP.NET AJAX? | Microsoft Docs'
+title: '[Jak:] Korzystasz z rozszerzenia ASP.NET AJAX używanie dynamicpopulate? | Microsoft Docs'
 author: JoeStagner
-description: Obejrzyj pokaz dynamiczne wypełnianie obszar strony sieci web z wynikami asynchronicznego urzędu certyfikacji przy użyciu rozszerzeń ASP.NET AJAX DynamicPopulate...
+description: Obejrzyj demonstrację przy użyciu rozszerzenia ASP.NET AJAX używanie dynamicpopulate do dynamicznego wypełniania obszaru strony sieci Web wynikami asynchronicznego urzędu certyfikacji...
 ms.author: riande
 ms.date: 01/31/2007
 ms.assetid: 1c83e543-3f56-42ed-9d10-ac3f8dd26093
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender
 msc.type: video
 ms.openlocfilehash: 674eabeb5e3678662a0f523899d83ba66a61dbd2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416002"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563736"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender"></a>[Jak mogę] Użyj rozszerzenie DynamicPopulate ASP.NET AJAX?
+# <a name="how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender"></a>[Jak:] Korzystasz z rozszerzenia ASP.NET AJAX używanie dynamicpopulate?
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Obejrzyj pokaz dynamiczne wypełnianie obszar strony sieci web z wynikami asynchroniczne wywołanie metody sieci web za pomocą rozszerzenie DynamicPopulate AJAX programu ASP.NET.
+Obejrzyj pokaz, korzystając z rozszerzenia ASP.NET AJAX używanie dynamicpopulate do dynamicznego wypełniania obszaru strony sieci Web wynikami wywołania asynchronicznego do metody sieci Web.
 
-[&#9654;Obejrzyj film wideo (11 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender)
+[&#9654;Obejrzyj wideo (11 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-use-the-aspnet-ajax-draggable-panel-extender.md)

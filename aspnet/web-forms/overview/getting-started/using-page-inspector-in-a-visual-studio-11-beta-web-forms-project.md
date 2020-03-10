@@ -1,27 +1,27 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: Za pomocą narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms | Dokumentacja firmy Microsoft
+title: Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 w ASP.NET Web Forms | Microsoft Docs
 author: rick-anderson
-description: Narzędzie Page Inspector dla programu Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector...
+description: Page Inspector for Visual Studio 2012 to narzędzie deweloperskie dla sieci Web, które jest zintegrowane z przeglądarką. Zaznacz dowolny element w zintegrowanej przeglądarce i inspektor strony...
 ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
 ms.openlocfilehash: c165bbea505b4cb8eae1312cdd587f4ed36541a0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127945"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575923"
 ---
 # <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms
 
-przez Tim Ammann
+Autor Tim Ammann
 
-> Narzędzie Page Inspector dla programu Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybranie dowolnego elementu w zintegrowanej przeglądarki i narzędzie Page Inspector natychmiast wyróżnia elementu źródłowego i arkusze CSS. Można przeglądać dowolnej strony w aplikacji, szybkie znalezienie źródła renderowanego kodu znaczników i użyj narzędzia przeglądarki bezpośrednio w środowisku Visual Studio.
+> Page Inspector for Visual Studio 2012 to narzędzie deweloperskie dla sieci Web, które jest zintegrowane z przeglądarką. Zaznacz dowolny element w zintegrowanej przeglądarce, a Inspektor strony natychmiast podświetla źródło i kod CSS elementu. Możesz przeglądać dowolną stronę w aplikacji, szybko znajdować źródła renderowanego znacznika i korzystać z narzędzi przeglądarki bezpośrednio w środowisku programu Visual Studio.
 > 
-> W tym samouczku pokazano, jak włączyć tryb inspekcji szybko zlokalizować i edytować reguły CSS i tekstu w projekcie sieci web. W tym samouczku użyto projektu aplikacji formularzy sieci Web, ale można również użyć narzędzia Page Inspector dla projektów witryny sieci Web i [MVC](https://go.microsoft.com/?linkid=9802002) aplikacji.
+> W tym samouczku przedstawiono sposób włączania trybu inspekcji, a następnie szybkiego lokalizowania i edytowania reguł CSS i tekstu w projekcie sieci Web. W tym samouczku jest używany projekt aplikacji formularzy sieci Web, ale można również użyć Inspektora stron dla projektów witryny sieci Web i aplikacji [MVC](https://go.microsoft.com/?linkid=9802002) .
 > 
 > Samouczek zawiera następujące sekcje:
 > 
@@ -29,262 +29,262 @@ przez Tim Ammann
 > 
 > [Tworzenie aplikacji sieci Web](#_2_creating_a)
 > 
-> [Inspektor stron umożliwia wyświetlanie aplikacji](#_3_using_page)
+> [Korzystanie z Inspektora stron do wyświetlania aplikacji](#_3_using_page)
 > 
 > [Włącz tryb inspekcji](#_4_inspection_mode)
 > 
-> [Inspektor stron umożliwia wprowadzać zmiany znaczników](#_5_using_page)
+> [Używanie inspektora strony do wprowadzania zmian w znacznikach](#_5_using_page)
 > 
-> [Tryb inspekcji i w oknie kodu HTML](#_6_inspection_mode)
+> [Tryb inspekcji i okno HTML](#_6_inspection_mode)
 > 
-> [Zmiany arkusza CSS (wersja zapoznawcza) w oknie style](#_7_previewing_css)
+> [Podgląd zmian CSS w oknie stylów](#_7_previewing_css)
 > 
-> [Automatyczna synchronizacja z CSS](#css_auto_sync)
+> [Autosynchronizacja CSS](#css_auto_sync)
 > 
-> [Za pomocą selektora kolorów CSS](#css_color_picker)
+> [Korzystanie z selektora kolorów CSS](#css_color_picker)
 
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
+- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [Visual Studio Express 2012 dla sieci Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
-> Aby uzyskać najnowszą wersję narzędzia Page Inspector, użyj [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) do zainstalowania zestawu Azure SDK dla platformy .NET w wersji 2.0.
+> Aby uzyskać najnowszą wersję inspektora stron, Zainstaluj zestaw Azure SDK dla programu .NET 2,0 przy użyciu [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) .
 
-Narzędzie Page Inspector jest umieszczany w pakietach za pomocą narzędzia Microsoft Web Developer Tools. Najnowsza wersja to 1.3. Aby sprawdzić, która wersja mają, uruchom program Visual Studio i wybierz **Microsoft Visual Studio** z **pomocy** menu.
+Narzędzia Page Inspector są powiązane z Microsoft Web Developer Tools. Najnowsza wersja to 1,3. Aby sprawdzić posiadaną wersję, uruchom program Visual Studio i wybierz pozycję **Informacje o Microsoft Visual Studio** z menu **Pomoc** .
 
 <a id="_creating_a_web"></a><a id="_2_creating_a"></a>
 
 ## <a name="create-a-web-application"></a>Tworzenie aplikacji sieci Web
 
-Najpierw należy utworzyć aplikacji sieci web, którego będziesz używać narzędzia Page Inspector za pomocą. W programie Visual Studio, wybierz **pliku** &gt; **nowy projekt**. Po lewej stronie, rozwiń węzeł **Visual C#**, wybierz opcję **Web**, a następnie wybierz pozycję **aplikacji formularzy sieci Web ASP.NET**.
+Najpierw utworzysz aplikację sieci Web, która będzie używana w programie Page Inspector. W programie Visual Studio wybierz kolejno pozycje **plik** &gt; **Nowy projekt**. Po lewej stronie rozwiń pozycję **C#Wizualizacja**, wybierz pozycję **Sieć Web**, a następnie wybierz pozycję **aplikacja formularzy sieci Web ASP.NET**.
 
 ![Nowa aplikacja formularzy sieci Web](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
 Kliknij przycisk **OK**.
 
-Aplikacja zostanie otwarta w **źródła** widoku.
+Aplikacja zostanie otwarta w widoku **źródła** .
 
 ![Nowa aplikacja formularzy sieci Web w widoku źródła](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image2.png)
 
-Teraz, gdy masz już aplikację, chcesz pracować, można użyć narzędzia Page Inspector do zbadania i zmodyfikowania go.
+Teraz, gdy masz aplikację do współpracy z programem, możesz użyć Inspektora stron do jego sprawdzenia i modyfikacji.
 
 <a id="_starting_page_inspector"></a><a id="_3_starting_page"></a><a id="_3_using_page"></a>
 
-## <a name="use-page-inspector-to-view-the-application"></a>Inspektor stron umożliwia wyświetlanie aplikacji
+## <a name="use-page-inspector-to-view-the-application"></a>Korzystanie z Inspektora stron do wyświetlania aplikacji
 
-Następnie zostaną wyświetlone aplikację za pomocą narzędzia Page Inspector. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, a następnie wybierz **widoku w narzędzia Page Inspector**.
+Następnie zobaczysz aplikację za pomocą Inspektora stron. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Widok w Inspektorze strony**.
 
-![Wyświetl w narzędzia Page Inspector](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image3.png)
+![Wyświetl w Inspektorze strony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image3.png)
 
-Domyślnie gdy narzędzie Page Inspector uruchamia się po raz pierwszy jest zadokowany jako wąskie okno po lewej stronie w środowisku Visual Studio. Pozostaw zadokowane po lewej stronie, a następnie ustaw szerokość, która jest wygodny dla Ciebie, albo zadokować razem w jednym z obszarów narzędzia na górze, dołu lub prawej strony:
+Domyślnie, gdy inspektor strony jest uruchamiany po raz pierwszy, jest zadokowany jako wąskie okno po lewej stronie środowiska programu Visual Studio. Pozostaw to pole zadokowane po lewej stronie i ustaw dla niego szerokość, która jest odpowiednia dla Ciebie, lub Zadokuj ją w jednym z obszarów narzędzi na górze, na dole lub w prawo:
 
-![Narzędzie Page Inspector pozycjach.](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image4.png)
+![Położenie dokowania inspektora stron](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image4.png)
 
-Jeśli można oddokować okno narzędzia Page Inspector, należy go umieścić poza programem Visual Studio lub nawet na drugim monitorze Jeśli nie masz. Jednak aby klawisze ALT + TAB między narzędzia Page Inspector i programu Visual Studio podczas okna narzędzia Page Inspector jest zadokowany, przejdź do **narzędzia** &gt; **opcje** &gt;  **Środowiska** &gt; **karty i Windows**, a następnie w obszarze **kartę dobrze**, wyczyść pole wyboru o nazwie **zawsze w górnej części okna przestawne Okno główne**:
+Jeśli oddokusz okno Inspektora stron, możesz je umieścić poza programem Visual Studio, a nawet na drugim monitorze, jeśli go masz. Jednak aby można było ALT + TAB między inspektorem strony a programem Visual Studio, gdy okno Inspektora strony jest odzadokowane, przejdź do pozycji **narzędzia** &gt; **opcje** &gt; **środowisko** &gt; **karty i okna** **, a**następnie usuń zaznaczenie pola wyboru nazwanego okna **narzędziowego zawsze na wierzchu okna głównego**:
 
-![Wyczyść zmiennoprzecinkowy narzędzie windows pola wyboru ALT + TAB między Visual Studio i niezadokowane okna narzędzia Page Inspector](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
+![Wyczyść pole wyboru przepływającego okna narzędzi, aby ALT + TAB między programem Visual Studio i niezadokowanym oknem inspektora strony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Górne okienko okna narzędzia Page Inspector pokazuje bieżącej strony w oknie przeglądarki. Dolne okienko zawiera strony w kod znaczników HTML po lewej stronie, a niektóre karty po prawej stronie, dzięki którym możesz sprawdzić różne aspekty strony. Dolne okienko jest podobny do [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer. (Jednak w przeciwieństwie do narzędzia dla deweloperów, możesz użyć narzędzia Page Inspector bezpośrednio w programie Visual Studio.)
+Górne okienko okna inspektora stron pokazuje bieżącą stronę w oknie przeglądarki. W dolnym okienku zostanie wyświetlona strona w znaczniku HTML po lewej stronie, a niektóre karty po prawej stronie umożliwiają sprawdzenie różnych aspektów strony. Dolne okienko jest podobne do [Narzędzia deweloperskie F12](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer. (Jednak w przeciwieństwie do narzędzi deweloperskich możesz użyć Inspektora stron bezpośrednio w programie Visual Studio).
 
-![Inspektor strony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
+![{1&gt;Inspektor strony&lt;1}](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
-W tym samouczku użyjesz narzędzia Page Inspector okienku przeglądarki i **HTML** i **style** kart, aby ułatwić szybkie nawigowanie i wprowadzać zmiany w aplikacji.
+W tym samouczku użyjesz okienka przeglądarki stron oraz kart **HTML** i **Style** , które ułatwią Ci szybkie nawigowanie i wprowadzanie zmian w aplikacji.
 
 <a id="_4_inspection_mode"></a>
 ## <a name="enable-inspection-mode"></a>Włącz tryb inspekcji
 
-Następnie zobaczysz, jak działa narzędzie Page Inspector tryb inspekcji. Kliknij w oknie narzędzia Page Inspector **Sprawdź** przycisku.
+Następnie zobaczysz, jak działa tryb inspekcji inspektora strony. W oknie Inspektora stron kliknij przycisk **Zbadaj** .
 
-![Zbadaj Element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image7.png)
+![Zbadaj element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image7.png)
 
-Aby wyświetlić tryb inspekcji w działaniu, przesuń mysz, za pośrednictwem różnych części strony w oknie przeglądarki narzędzia Page Inspector. To zrobisz, kursor zmienia się na znak plus w dużych, a jest wyróżniony element poniżej:
+Aby wyświetlić tryb inspekcji w akcji, Przenieś wskaźnik myszy na różne części strony w oknie przeglądarki strony. Jak to zrobisz, wskaźnik myszy zmieni się na duży znak plus, a element poniżej zostanie wyróżniony:
 
-![Kursor div.content otoki](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
+![Przesuwanie nad blokiem DIV. Content-otoka](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
 
-Podczas przesuwania wskaźnika myszy, należy pamiętać, że
+Podczas przesuwania wskaźnika myszy należy zauważyć, że
 
-- Zawartość **źródła** wyświetlić zmiany, aby pokazać znaczników odpowiadający wybranego elementu na stronie. Odpowiednie znaczników jest wyróżniona. Jeśli źródło jest w innym pliku, ten plik jest otwarty w widoku źródła ze znacznikami odpowiednich wyróżnione.
+- Zawartość w widoku **źródła** zmienia się, aby wyświetlić znaczniki odpowiadające wybranemu elementowi na stronie. Odpowiednie znaczniki są wyróżnione. Jeśli źródło znajduje się w innym pliku, plik zostanie otwarty w widoku źródła z wyróżnionym znacznikiem.
 
-- Znaczniki wyświetlane w **HTML** karcie narzędzie Page Inspector zmienia także odnoszą się do wybranego elementu na stronie. W **HTML** karcie zawarto istotne znaczników.
+- Znaczniki wyświetlane na karcie **HTML** w Inspektorze strony również zmieniają się, aby odpowiadały wybranemu elementowi na stronie. Na karcie **HTML** odpowiednie znaczniki są opisane w opisie.
 
-- **Style** karta zawiera reguły CSS odpowiednie do bieżącego zaznaczenia.
+- Na karcie **Style** są wyświetlane reguły CSS odpowiednie dla bieżącego zaznaczenia.
 
 <a id="_5_using_page"></a>
 
-## <a name="use-page-inspector-to-make-changes-to-markup"></a>Inspektor stron umożliwia wprowadzać zmiany znaczników
+## <a name="use-page-inspector-to-make-changes-to-markup"></a>Używanie inspektora strony do wprowadzania zmian w znacznikach
 
-Teraz zobaczysz, jak można użyć narzędzia Page Inspector można znaleźć i wprowadzać zmiany znaczników lub tekst, którego lokalizacja może nie być od razu oczywista.
+Teraz zobaczysz, jak można użyć Inspektora strony do znajdowania i wprowadzania zmian w znacznikach lub tekstach, których lokalizacja może nie być od razu oczywista.
 
-Umieść narzędzie Page Inspector w trybie inspekcji, a następnie przewiń do dolnej części strony głównej.
+Umieść Inspektor strony w trybie inspekcji, a następnie przewiń w dół strony głównej.
 
-Zaraz po wprowadzeniu stopka obszaru, zostanie otwarte narzędzie Page Inspector *Site.Master* pliku układu **źródła** widoku w karcie tymczasowej na prawo od innych kart i wyróżnienie sekcji wzorca strony, wybrane. To pokazuje jak narzędzie Page Inspector można znaleźć i wyświetlić zawartość na stronie, która faktycznie mogą pochodzić z różnych plików niż ten, który pierwotnie został otwarty.
+Gdy tylko wprowadzisz obszar stopki, inspektor strony otworzy plik *. Master* w widoku **źródła** na karcie tymczasowej z prawej strony innych kart i podświetla wybraną sekcję na stronie wzorcowej. Pokazuje, w jaki sposób Inspektor strony może znaleźć i wyświetlić zawartość na stronie, która może faktycznie pochodzić z innego pliku niż ten, który został pierwotnie otwarty.
 
 ![Najważniejsze stopki w trybie inspekcji](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image9.png)
 
-W oknie przeglądarki, narzędzie Page Inspector, umieść wskaźnik myszy nad wierszem o prawach autorskich <a id="a"> </a>Zwróć uwagę.
+W oknie przeglądarki stron inspektora przesuń wskaźnik myszy nad wiersz z informacją o prawach <a id="a"> </a>autorskich.
 
-W *Site.Master* stronie odpowiednim wierszu zostanie wyróżniony.
+Na stronie *site. Master* zostanie wyróżniony odpowiedni wiersz.
 
-![Stopka wiersz o prawach autorskich wyróżniony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image10.png)
+![Wyróżniono wiersz Copyright](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image10.png)
 
-Dodaj jakiś tekst do końca wiersza w *Site.Master* pliku.
+Dodaj tekst na końcu wiersza w pliku *site. Master* .
 
-&lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; — Moje Rocks aplikacji ASP.NET!&lt; /p&gt;
+&lt;p&gt;&amp;Copy; &lt;%: DateTime. Now. Year%&gt;-my ASP.NET Application Rocks!&lt;/p&gt;
 
-Teraz naciśnij klawisze Ctrl + Alt + Enter lub kliknij pasek aktualizacji, aby wyświetlić wyniki w oknie przeglądarki, narzędzie Page Inspector.
+Teraz naciśnij kombinację klawiszy Ctrl + Alt + Enter lub kliknij pasek aktualizacji, aby wyświetlić wyniki w oknie przeglądarki stron inspektora.
 
-![Moje ASP.NET aplikacji Rocks!](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image11.png)
+![Moja aplikacja ASP.NET Rocks!](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image11.png)
 
-Może mieć uważasz, czy stopka została na *Default.aspx* strony, ale okazała się na stronie układem głównym i narzędzie Page Inspector uznała, że dla Ciebie.
+Być może wiesz, że stopka znajdowała się na stronie *default. aspx* , ale wyłączono ją na stronie układu głównego, a Inspektor strony go wyszukał.
 
 <a id="_6_inspection_mode"></a>
 
-## <a name="inspection-mode-and-the-html-window"></a>Tryb inspekcji i w oknie kodu HTML
+## <a name="inspection-mode-and-the-html-window"></a>Tryb inspekcji i okno HTML
 
-Następnie będziesz mieć rzut oka na oknie HTML oraz sposób mapowania elementów dla Ciebie.
+Następnie będziesz mieć szybki podgląd okna HTML i sposobu, w jaki mapuje elementy.
 
-Narzędzie Page Inspector należy umieścić w trybie inspekcji.
+Umieść Inspektor strony w trybie inspekcji.
 
-![Zbadaj Element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image12.png)
+![Zbadaj element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image12.png)
 
-Kliknij w górnej części strony, który jest wyświetlany komunikat "Twoje logo". To badanie konkretnego elementu bardziej szczegółowo, aby wyświetlana w oknie przeglądarki nie jest już zmienia się po przesunięciu wskaźnika myszy.
+Kliknij górną część strony, w której znajduje się tekst "Twoje logo". Badasz konkretny element bardziej szczegółowo, więc wyświetlanie w oknie przeglądarki nie zmienia się po przesunięciu wskaźnika myszy.
 
-Teraz umieść kursor myszy na **HTML** okna. Podczas przesuwania wskaźnika myszy, narzędzie Page Inspector przedstawia element w obrębie **HTML** okna i odpowiadający mu element w oknie przeglądarki.
+Teraz Przenieś wskaźnik myszy do okna **HTML** . Podczas przesuwania wskaźnika myszy, inspektor strony zawiera element w oknie **HTML** i podświetla odpowiadający element w oknie przeglądarki.
 
-![Okno w formacie HTML](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
+![Okno HTML](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
 
-Jak wcześniej, zostanie otwarte narzędzie Page Inspector *Site.Master* plik w karcie tymczasowej. Kliknij kartę Site.Master i odpowiedni kod znaczników jest wyróżniony na &lt;nagłówka&gt; sekcji:
+Jak wcześniej, inspektor strony otworzy plik *site. Master* dla Ciebie na karcie tymczasowej. Kliknij kartę site. Master, a odpowiednie znaczniki są wyróżnione w sekcji &lt;nagłówek&gt;:
 
-![Wyróżnione znaczników](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image14.png)
+![Wyróżnione adiustacje](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image14.png)
 
 <a id="_using_page_inspector"></a><a id="_7_previewing_css"></a>
 
-## <a name="preview-css-changes-in-the-styles-window"></a>Zmiany arkusza CSS (wersja zapoznawcza) w oknie style
+## <a name="preview-css-changes-in-the-styles-window"></a>Podgląd zmian CSS w oknie stylów
 
-Następnie zobaczysz, jak można użyć narzędzia Page Inspector **style** okna, aby wyświetlić podgląd zmian do arkusza CSS.
+Następnie zobaczysz, jak można użyć okna **stylów** inspektora strony do podglądu zmian w CSS.
 
-Kliknij przycisk **Sprawdź** przycisk, aby umieścić narzędzie Page Inspector w trybie inspekcji.
+Kliknij przycisk **Sprawdź** , aby umieścić inspektora strony w trybie inspekcji.
 
-W oknie przeglądarki, narzędzie Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana.
+W oknie przeglądarki stron inspektora przesuń wskaźnik myszy nad sekcję "Strona główna", aż zostanie wyświetlona etykieta **DIV. Content-otoka** .
 
-![Przenosząc kursor myszy nad elementami](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image15.png)
+![Przesuwanie nad elementami](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image15.png)
 
-Kliknij wewnątrz sekcji otoki div.content jeden raz, a następnie przesuń wskaźnik myszy na **style** okna. W obszarze selektora klasy otoki .content .featured Wyczyść, a następnie zaznacz pole wyboru dla właściwości kolor tła.
+Kliknij jeden z sekcji DIV. Content-otoka, a następnie przesuń wskaźnik myszy do okna **Style** . W selektorze klas. Polecane. Content-otoka Usuń zaznaczenie pola wyboru dla właściwości Background-Color.
 
-![Kolor tła wyczyść](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image16.png)
+![Wyczyść kolor tła](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image16.png)
 
-Zwróć uwagę, jak zmiany zawiera wersje zapoznawcze natychmiast w oknie przeglądarki, narzędzie Page Inspector.
+Zwróć uwagę, jak natychmiast przeglądanie zmian w oknie przeglądarki stron.
 
-Ponownie zaznacz pole wyboru, a następnie kliknij dwukrotnie wartość właściwości i zmień ją na `red`. Zmiana pokazuje natychmiast:
+Zaznacz pole wyboru ponownie, a następnie kliknij dwukrotnie wartość właściwości i zmień ją na `red`. Zmiana zostanie wyświetlona natychmiast:
 
-![Kolor tła czerwony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image17.png)
+![Czerwony kolor tła](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image17.png)
 
-**Style** sprawia, że okna ułatwiają przetestuj i Wyświetl podgląd CSS zmian, zanim zatwierdzenia zmian w stylu arkusz sam.
+Okno **Style** ułatwia testowanie i Podgląd zmian CSS przed zatwierdzeniem zmian w arkuszu stylów.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>Automatyczna synchronizacja z CSS
+## <a name="css-auto-sync"></a>Autosynchronizacja CSS
 
 > [!NOTE]
-> Ta funkcja wymaga w wersji 1.3 narzędzia Page Inspector.
+> Ta funkcja wymaga wersji 1,3 inspektora strony.
 
-Funkcja automatycznej synchronizacji CSS służy do bezpośredniego edytowania pliku CSS i zobaczyć zmiany bezpośrednio w przeglądarce narzędzia Page Inspector.
+Funkcja autosynchronizacji CSS umożliwia bezpośrednie edytowanie pliku CSS i natychmiastowe wyświetlanie zmian w przeglądarce stron.
 
-Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
+Kliknij pozycję **Sprawdź** , aby umieścić Inspektor strony w trybie inspekcji.
 
-W przeglądarce narzędzia Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana. Kliknij raz, aby wybrać ten element.
+W przeglądarce inspektora stron przesuń wskaźnik myszy nad sekcję "Strona główna" do momentu, gdy zostanie wyświetlona etykieta **DIV. Content-otoka** . Kliknij raz, aby zaznaczyć ten element.
 
-**Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
+W oknie **Style** są wyświetlane wszystkie reguły CSS dla tego elementu. Przewiń w dół, aby znaleźć selektor klasy. Polecane. Content-otoka. Kliknij pozycję ". Polecane. Content-otoka". Inspektor strony otwiera plik CSS, który definiuje ten styl (site. CSS) i podświetla odpowiedni styl CSS.
 
 ![Plik CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image18.png)
 
-Teraz Zmień wartość `background-color` do "red". Zmiana pojawi się natychmiast w przeglądarce narzędzia Page Inspector.
+Teraz zmień wartość dla `background-color` na "Red". Zmiana zostanie wyświetlona natychmiast w przeglądarce inspektora stron.
 
-![Narzędzie Page Inspector przeglądarki](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image19.png)
+![Przeglądarka stron inspektora](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image19.png)
 
 <a id="css_color_picker"></a>
 
-## <a name="using-the-css-color-picker"></a>Za pomocą selektora kolorów CSS
+## <a name="using-the-css-color-picker"></a>Korzystanie z selektora kolorów CSS
 
-Następnie dowiesz się, jak używać narzędzia Page Inspector umożliwia szybkie znajdowanie i zmienianie CSS dla wyróżnionego tekstu w domyślnej aplikacji. W tym przykładzie decydujesz nie niebieskie wyróżnienie, takich jak i chcesz je zmienić na inny kolor.
+Następnie dowiesz się, jak za pomocą Inspektora stron szybko znajdować i zmieniać arkusz CSS dla wyróżnionego tekstu w aplikacji domyślnej. W tym przykładzie postanowisz, że nie jest to niebieskie wyróżnianie i chcesz zmienić kolor na inny.
 
-Kliknij przycisk **Sprawdź** przycisku.
+Kliknij przycisk **Zbadaj** .
 
-![Zbadaj Element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image20.png)
+![Zbadaj element](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image20.png)
 
-W oknie przeglądarki, narzędzie Page Inspector, umieść kursor myszy nad wyróżnionego "filmów wideo, samouczki i przykłady" tekst tak, aby etykieta CSS "Oznacz" pojawia się.
+W oknie przeglądarki stron inspektora przesuń wskaźnik myszy nad wyróżniony tekst "wideo, samouczki i przykłady", aby pojawił się etykieta CSS "Mark".
 
-![Przenosząc kursor myszy nad elementem znacznika](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image21.png)
+![Przesuwanie nad elementem znacznika](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image21.png)
 
-Kliknij tekst, aby go zaznaczyć. Odpowiedni selektor CSS w znaku, który pojawia się w dolnej części **style** okna.
+Kliknij tekst, aby go zaznaczyć. Odpowiedni selektor znacznika CSS pojawia się u dołu okna **Style** .
 
-![Selektor znaku w oknie style](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image22.png)
+![Oznacz selektor w oknie stylów](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image22.png)
 
-Kliknij selektor znacznika. Spowoduje to otwarcie *Site.css* pliku dla aplikacji sieci web. Kliknij kartę Site.css i odpowiednie CSS selektora jest wyróżniona:
+Kliknij selektor znacznika. Spowoduje to otwarcie pliku *. css* dla aplikacji sieci Web. Kliknij kartę site. CSS, a odpowiadająca jej CSS selektora zostanie wyróżniona:
 
-![Znacznik wyboru w arkuszu stylów](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image23.png)
+![Oznacz selektor w arkuszu stylów](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image23.png)
 
-Wybierz i Usuń wiersz z właściwością kolor tła.
+Zaznacz i Usuń wiersz z właściwością Background-Color.
 
-Teraz użyjesz próbnika kolorów programu Visual Studio 2012 CSS wybierz nowy kolor dla **oznaczyć** właściwość kolor tła.
+Teraz będziesz używać nowego selektora kolorów CSS programu Visual Studio 2012, aby wybrać nowy kolor dla właściwości tło **znacznika** .
 
 <a id="_using_the_visual"></a>
 
-### <a name="using-the-visual-studio-2012-css-color-picker"></a>Za pomocą programu Visual Studio 2012 CSS próbnika
+### <a name="using-the-visual-studio-2012-css-color-picker"></a>Korzystanie z selektora kolorów CSS programu Visual Studio 2012
 
-Edytor CSS w programie Visual Studio 2012 zawiera selektor kolorów, która pozwala łatwo wybrać i Wstaw kolorów. Ma proste pasek koloru i selektor "pop-down", który zapewnia bardziej precyzyjną kontrolę.
+Edytor CSS w programie Visual Studio 2012 ma selektor kolorów, dzięki czemu można łatwo wybierać i wstawiać kolory. Ma prosty pasek koloru i selektor "podręczny", który oferuje dokładniejszą kontrolę.
 
-Selektor kolorów zawiera standardowe paletę kolorów, obsługuje nazwy kolor standardowy, kody skrótów, kolorów RGB, RGBA, HSL i HSLA i utrzymuje listę kolorów, które zostały ostatnio użyte w dokumencie.
+Selektor kolorów zawiera standardową paletę kolorów, obsługuje standardowe nazwy kolorów, kody skrótów, kolory RGB, RGBA, HSL i HSLA, a także zachowuje listę kolorów używanych ostatnio w dokumencie.
 
-W wierszu, gdzie właściwość kolor tła była wpisz "bc", a jeden raz naciśnij strzałkę w dół.
+W wierszu, w którym zainstalowano Właściwość Background-Color, wpisz "BC" i naciśnij klawisz Strzałka w dół.
 
-Po wpisaniu pierwszym znakiem każdego wyrazu we właściwości łącznikami, takich jak "background-color" IntelliSense filtrów na liście pokazywać tylko właściwości, które odpowiadają:
+Po wpisaniu pierwszego znaku każdego wyrazu w właściwości rozdzielanej łącznikami, takiej jak "Background-Color", IntelliSense filtruje listę, aby wyświetlić tylko pasujące właściwości:
 
-![Funkcja IntelliSense filtrowane wartości](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
+![Przefiltrowane wartości IntelliSense](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Teraz wpisz dwukropek. Po wykonaniu, jest wstawiany nazwę właściwości pełny kolor tła. Typ **#** lub **rgb (**, i zostanie wyświetlony pasek selektora kolorów:
+Teraz wpisz dwukropek. Gdy to zrobisz, zostanie wstawiona pełna nazwa właściwości Background. Typ **#** lub **RGB (** i zostanie wyświetlony pasek selektora kolorów:
 
-![Pasek wyboru koloru CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
+![Pasek selektora kolorów CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 
-Aby zobaczyć, jak działa paska selektora kolorów, kliknij jego kolorów, umieść wskaźnik myszy lub naciśnij klawisz strzałki w dół i użyj klawiszy strzałek lewy i prawy przechodzenia kolorów. Gdy użytkownik odwiedza kolor, jest przeglądany odpowiednie wartości dla właściwości kolor tła:
+Aby zobaczyć, jak działa pasek selektora kolorów, kliknij jego kolory za pomocą wskaźnika myszy lub naciśnij klawisz Strzałka w dół, a następnie użyj klawiszy strzałek w lewo i w prawo, aby przechodzenie między kolorami. Podczas odwiedzania koloru wyświetlana jest odpowiednia wartość właściwości Background-Color:
 
-![wartość właściwości kolor tła podglądu](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image26.png)
+![Podgląd — wartość właściwości koloru w tle](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image26.png)
 
-W tym momencie można naciśnij klawisz Enter, aby wybrać wartość, a następnie średnikami (;), Zakończ wprowadzanie CSS. Teraz przejdź do następnej sekcji, aby zobaczyć, jak działa selektor kolorów w dół pop.
+W tym momencie można nacisnąć klawisz ENTER, aby wybrać wartość, a następnie średnik (;) Aby ukończyć wprowadzanie wpisów CSS. Na razie przejdź do następnej sekcji, aby zobaczyć, jak działa selektor kolorów.
 
-#### <a name="using-the-color-picker-pop-down"></a>Za pomocą selektora kolorów w dół Pop
+#### <a name="using-the-color-picker-pop-down"></a>Korzystanie z okna podręcznego selektora kolorów
 
-Gdy pasek koloru nie dokładny kolor, którego szukasz, można użyć selektora kolorów punktów pop w dół.
+Gdy pasek koloru nie ma dokładnego koloru, którego szukasz, możesz użyć selektora kolorów.
 
-Aby go otworzyć, kliknij cudzysłów ostrokątny double na prawym końcu paska koloru, lub jeden lub dwa razy klawisz Strzałka w dół na klawiaturze.
+Aby go otworzyć, kliknij podwójny cudzysłów ostrokątny na prawym końcu paska kolorów lub naciśnij klawisz Strzałka w dół jeden raz lub dwukrotnie na klawiaturze.
 
-![Selektor koloru CSS Pop — szczegółów](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image27.png)
+![Selektor kolorów CSS — wyskakujące okienko](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image27.png)
 
-Kliknij przycisk koloru z pionowy pasek po prawej stronie. W oknie głównym ten pokazuje gradientu dla tego koloru. Wybierz kolor, bezpośrednio z kreska pionowa, naciskając klawisz Enter lub kliknij dowolnego punktu w głównym oknie, aby wybrać z większą dokładnością.
+Kliknij kolor z pionowego paska po prawej stronie. Spowoduje to wyświetlenie gradientu dla tego koloru w oknie głównym. Wybierz kolor bezpośrednio z paska pionowego, naciskając klawisz ENTER, lub kliknij dowolny punkt w oknie głównym, aby wybrać większą precyzję.
 
-Jeśli jest kolorem na ekranie komputera, którego chcesz używać (nie musi być w interfejsie użytkownika programu Visual Studio), jego wartość można przechwycić za pomocą narzędzia służącego do pobierania w prawym dolnym rogu.
+Jeśli na ekranie komputera istnieje kolor, który ma być używany (nie musi znajdować się w interfejsie użytkownika programu Visual Studio), możesz przechwycić jego wartość za pomocą narzędzia Kroplomierz w prawym dolnym rogu.
 
-Możesz również zmienić przezroczystość koloru za pomocą suwaka u dołu selektora kolorów. Robi zmiany kolor wartości z RGBA, ponieważ RGBA format może reprezentować nieprzezroczystości.
+Możesz również zmienić nieprzezroczystość koloru, przesuwając suwak w dolnej części selektora kolorów. Spowoduje to zmianę wartości koloru na wartości RGBA, ponieważ format RGBA może reprezentować nieprzezroczystość.
 
-Po wybraniu koloru, naciśnij klawisz Enter, a następnie wpisz średnikiem, aby ukończyć kolor tła wejścia w *Site.css* pliku.
+Po wybraniu koloru naciśnij klawisz ENTER, a następnie wpisz średnik, aby zakończyć wprowadzanie koloru tła w pliku *site. css* .
 
 <a id="_the_update_bar"></a>
 
-### <a name="the-page-inspector-update-bar"></a>Na pasku aktualizacji Inspektor strony
+### <a name="the-page-inspector-update-bar"></a>Pasek aktualizacji inspektora stron
 
-Narzędzie Page Inspector natychmiast wykrywa zmiany *Site.css* pliku (lub dowolnego pliku w aplikacji) i wyświetla alert w pasku aktualizacji.
+Inspektor strony natychmiast wykrywa zmiany w pliku *site. css* (lub w dowolnym pliku w aplikacji) i wyświetla alert na pasku aktualizacji.
 
 ![Pasek aktualizacji](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image28.png)
 
-Aby zapisać wszystkie pliki i odświeżyć przeglądarkę, narzędzie Page Inspector, naciśnij klawisze Ctrl + Alt + Enter lub kliknij przycisk na pasku aktualizacji. Zmień kolor wyróżnienia pojawia się w przeglądarce:
+Aby zapisać wszystkie pliki i odświeżyć przeglądarkę inspektora stron, naciśnij kombinację klawiszy Ctrl + Alt + Enter lub kliknij pasek aktualizacji. Zmiana w kolorze wyróżnienia zostanie wyświetlona w przeglądarce:
 
-![Zmienić kolor wyróżnienia](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image29.png)
+![Zmieniono kolor wyróżnienia](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image29.png)
 
-<a id="_using_page_inspector_1"></a>Zwróć uwagę, wygodnie odświeżyć przeglądarkę narzędzia Page Inspector bezpośrednio z programu w środowisku Visual Studio. Za pomocą narzędzia Page Inspector zamiast zewnętrznej przeglądarki umożliwia pozostają w edytorze podczas opracowywania aplikacji sieci web.
+<a id="_using_page_inspector_1"></a>Należy zauważyć, że wygodnie odświeżono przeglądarkę inspektora stron bezpośrednio z poziomu środowiska programu Visual Studio. Korzystanie z narzędzia Page Inspector zamiast zewnętrznej przeglądarki pozwala pozostać w edytorze podczas opracowywania aplikacji sieci Web.
 
 ## <a name="see-also"></a>Zobacz też
 
-[Wprowadzenie do narzędzia Page Inspector](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector) (wideo Channel 9)
+[Wprowadzenie do Inspektora stron](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector) (wideo Channel 9)
 
-[Komunikaty o błędach narzędzia Page Inspector](https://go.microsoft.com/?linkid=9813062) (MSDN)
+[Komunikaty o błędach inspektora stron](https://go.microsoft.com/?linkid=9813062) (MSDN)

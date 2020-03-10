@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/httpclient-message-handlers
-title: Programy obsługi komunikatów HttpClient we wzorcu ASP.NET Web API — ASP.NET 4.x
+title: Programy obsługi komunikatów HttpClient w ASP.NET Web API-ASP.NET 4. x
 author: MikeWasson
-description: Tworzenie programów do obsługi komunikatów niestandardowych dla interfejsu API sieci Web platformy ASP.NET na platformie ASP.NET 4.x
+description: Tworzenie niestandardowych programów obsługi komunikatów dla interfejsu API sieci Web ASP.NET w ASP.NET 4. x
 ms.author: riande
 ms.date: 10/01/2012
 ms.custom: seoapril2019
@@ -10,54 +10,54 @@ ms.assetid: 5a4b6c80-b2e9-4710-8969-d5076f7f82b8
 msc.legacyurl: /web-api/overview/advanced/httpclient-message-handlers
 msc.type: authoredcontent
 ms.openlocfilehash: 265bd9b2f48ed7d1e955f3c4947d10fd589b3e17
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115440"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557646"
 ---
-# <a name="httpclient-message-handlers-in-aspnet-web-api"></a>Programy obsługi komunikatów HttpClient w interfejsie Web API platformy ASP.NET
+# <a name="httpclient-message-handlers-in-aspnet-web-api"></a>Programy obsługi komunikatów HttpClient w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-A *obsługi wiadomości* to klasa, która odbierze żądanie HTTP, a następnie zwraca odpowiedź HTTP.
+*Program obsługi komunikatów* jest klasą, która odbiera żądanie HTTP i zwraca odpowiedź HTTP.
 
-Zazwyczaj szereg programy obsługi komunikatów są połączone. Pierwszego programu obsługi odebrania żądania HTTP, przetwarza je i zapewnia żądania do następnej procedury obsługi. W pewnym momencie odpowiedzi jest tworzony i powraca łańcuch. Ten wzorzec jest nazywany *delegowanie* programu obsługi.
+Zwykle seria programów obsługi komunikatów jest łańcuchowo. Pierwsza procedura obsługi odbiera żądanie HTTP, wykonuje pewne przetwarzanie i przekazuje żądanie do kolejnej procedury obsługi. W pewnym momencie zostanie utworzona odpowiedź i przejdzie tworzenie kopii zapasowej łańcucha. Ten wzorzec jest nazywany programem obsługi *delegowania* .
 
 ![](httpclient-message-handlers/_static/image1.png)
 
-Po stronie klienta **HttpClient** klasa używa obsługi wiadomości do przetwarzania żądań. Domyślny program obsługi jest **HttpClientHandler**, który wysyła żądanie za pośrednictwem sieci i pobiera odpowiedź z serwera. Programy obsługi komunikatów niestandardowych można wstawić do potoku klienta:
+Po stronie klienta Klasa **HttpClient** używa obsługi komunikatów do przetwarzania żądań. Domyślna procedura obsługi to **HttpClientHandler**, która wysyła żądanie przez sieć i pobiera odpowiedź z serwera. Do potoku klienta można wstawić niestandardowe programy obsługi komunikatów:
 
 ![](httpclient-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> Web API platformy ASP.NET używa także procedury obsługi komunikatów po stronie serwera. Aby uzyskać więcej informacji, zobacz [programów obsługi komunikatów HTTP](http-message-handlers.md).
+> Interfejs API sieci Web ASP.NET również używa programów obsługi komunikatów po stronie serwera. Aby uzyskać więcej informacji, zobacz [procedury obsługi komunikatów http](http-message-handlers.md).
 
-## <a name="custom-message-handlers"></a>Programy obsługi komunikatów niestandardowych
+## <a name="custom-message-handlers"></a>Niestandardowe programy obsługi komunikatów
 
-Aby napisać program obsługi komunikatów niestandardowych, pochodzi od **System.Net.Http.DelegatingHandler** i zastąpić **SendAsync** metody. W tym miejscu znajduje się sygnatura metody:
+Aby napisać niestandardową procedurę obsługi komunikatów, pochodzi od **systemu .NET. http. DelegatingHandler** i przesłania metodę **SendAsync** . W tym miejscu znajduje się sygnatura metody:
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample1.cs)]
 
-Ta metoda przyjmuje **HttpRequestMessage** jako dane wejściowe i asynchronicznie zwraca **obiektu HttpResponseMessage**. Typowa implementacja wykonuje następujące czynności:
+Metoda przyjmuje **HttpRequestMessage** jako dane wejściowe i asynchronicznie zwraca **HttpResponseMessage**. Typowa implementacja wykonuje następujące czynności:
 
-1. Przetwarzanie komunikatu żądania.
-2. Wywołaj `base.SendAsync` wysyłać żądania do wewnętrznego programu obsługi.
-3. Wewnętrzny program obsługi zwraca komunikat odpowiedzi. (Ten krok jest asynchroniczne).
-4. Przetworzenie odpowiedzi i zwraca go do obiektu wywołującego.
+1. Przetwórz komunikat żądania.
+2. Wywołaj `base.SendAsync`, aby wysłać żądanie do wewnętrznej procedury obsługi.
+3. Procedura obsługi wewnętrznej zwraca komunikat odpowiedzi. (Ten krok jest asynchroniczny).
+4. Przetwórz odpowiedź i zwróć ją do obiektu wywołującego.
 
-Program obsługi komunikatów, który dodaje niestandardowego nagłówka do żądania wychodzącego można znaleźć w poniższym przykładzie:
+Poniższy przykład pokazuje procedurę obsługi komunikatów, która dodaje niestandardowy nagłówek do żądania wychodzącego:
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample2.cs)]
 
-Wywołanie `base.SendAsync` jest asynchroniczna. Jeśli program obsługi ma wszelkie prace po tym wywołaniu, użyj **await** słowo kluczowe, aby wznowić wykonywanie po zakończeniu działania metody. Program obsługi, który rejestruje kody błędów można znaleźć w poniższym przykładzie. Rejestrowanie, sama nie jest bardzo interesujące, ale w przykładzie pokazano, jak uzyskać w odpowiedzi wewnątrz programu obsługi.
+Wywołanie `base.SendAsync` jest asynchroniczne. Jeśli program obsługi wykonuje wszelką pracę po tym wywołaniu, użyj słowa kluczowego **await** , aby wznowić wykonywanie po zakończeniu metody. Poniższy przykład pokazuje procedurę obsługi, która rejestruje kody błędów. Samo rejestrowanie nie jest bardzo interesujące, ale przykład pokazuje, jak uzyskać odpowiedzi wewnątrz procedury obsługi.
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample3.cs?highlight=10,13)]
 
-## <a name="adding-message-handlers-to-the-client-pipeline"></a>Dodawanie programów obsługi wiadomości do potoku klienta
+## <a name="adding-message-handlers-to-the-client-pipeline"></a>Dodawanie programów obsługi komunikatów do potoku klienta
 
-Aby dodać niestandardowe programy obsługi do **HttpClient**, użyj **HttpClientFactory.Create** metody:
+Aby dodać niestandardowe programy obsługi do **HttpClient**, użyj metody **HttpClientFactory. Create** :
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample4.cs)]
 
-Programy obsługi komunikatów są wywoływane w kolejności, który jest przekazywany do **Utwórz** metody. Ponieważ programy obsługi są zagnieżdżone, komunikat odpowiedzi jest wysyłane w drugą stronę. Ostatnią procedurę obsługi jest pierwszy komunikat odpowiedzi.
+Procedury obsługi komunikatów są wywoływane w kolejności, w jakiej zostały przekazane do metody **Create** . Ponieważ procedury obsługi są zagnieżdżone, komunikat odpowiedzi jest przesyłany w innym kierunku. Oznacza to, że ostatnim programem obsługi jest pierwszy, aby uzyskać komunikat odpowiedzi.

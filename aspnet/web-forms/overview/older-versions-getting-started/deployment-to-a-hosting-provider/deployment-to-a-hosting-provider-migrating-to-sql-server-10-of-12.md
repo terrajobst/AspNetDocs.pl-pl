@@ -9,11 +9,11 @@ ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: c5281a42596d95e725b32e652c75785abe0fd64e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640553"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573466"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: Migrowanie do SQL Server-10 z 12
 
@@ -112,7 +112,7 @@ Karta **pakiet/publikowanie SQL** jest zwykle wyłączona, ponieważ określa st
 
 Kliknij pozycję **Importuj z pliku Web. config**.
 
-![Selecting_Import_from_Web. config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
+![Selecting_Import_from_Web.config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
 
 Program Visual Studio szuka parametrów połączenia w pliku *Web. config* , znajduje jeden dla bazy danych członkostwa i jeden dla bazy danych szkoły i dodaje wiersz odpowiadający poszczególnym parametrom połączenia w tabeli **wpisów bazy danych** . Znalezione parametry połączenia są dla istniejących SQL Server Compact baz danych, a następnym krokiem będzie skonfigurowanie sposobu i miejsca wdrożenia tych baz danych.
 
@@ -252,7 +252,7 @@ Na karcie **Ustawienia** zostanie wyświetlone ostrzeżenie, że została skonfi
 
 Komunikat na karcie **Podgląd** wskazuje, że **nie wybrano żadnych baz danych do opublikowania**, ale oznacza to, że publikowanie bazy danych nie jest skonfigurowane w profilu publikowania.
 
-Kliknij przycisk **Publikuj**.
+Kliknij przycisk **Opublikuj**.
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 

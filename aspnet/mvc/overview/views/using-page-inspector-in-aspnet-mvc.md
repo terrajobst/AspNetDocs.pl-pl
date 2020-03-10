@@ -1,271 +1,271 @@
 ---
 uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
-title: Za pomocą narzędzia Page Inspector we wzorcu ASP.NET MVC | Dokumentacja firmy Microsoft
+title: Korzystanie z narzędzia Page Inspector w ASP.NET MVC | Microsoft Docs
 author: rick-anderson
-description: Narzędzie Page Inspector w programie Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector i...
+description: Narzędzie Page Inspector w programie Visual Studio 2012 jest narzędziem do programowania w sieci Web za pomocą zintegrowanej przeglądarki. Zaznacz dowolny element w zintegrowanej przeglądarce i inspektor strony i...
 ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 5da3e142c52a770f59222c21d9f9a53cbbdbf498
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126354"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78538018"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC
 
-przez Tim Ammann
+Autor Tim Ammann
 
-> Narzędzie Page Inspector w programie Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybranie dowolnego elementu w zintegrowanej przeglądarki i narzędzie Page Inspector natychmiast wyróżnia elementu źródłowego i arkusze CSS. Można przeglądać dowolny widok MVC, szybkie znalezienie źródła renderowanego kodu znaczników i za pomocą narzędzi przeglądarki bezpośrednio w środowisku Visual Studio.
+> Narzędzie Page Inspector w programie Visual Studio 2012 jest narzędziem do programowania w sieci Web za pomocą zintegrowanej przeglądarki. Zaznacz dowolny element w zintegrowanej przeglądarce, a Inspektor strony natychmiast podświetla źródło i kod CSS elementu. Możesz przeglądać dowolny widok MVC, szybko znajdować źródła renderowanego znacznika i korzystać z narzędzi przeglądarki bezpośrednio w środowisku programu Visual Studio.
 > 
 > [Obejrzyj wideo](../../videos/mvc-4/using-page-inspector-in-aspnet-mvc.md)
 > 
-> W tym samouczku pokazano, jak włączyć tryb inspekcji, a następnie szybko Znajdź i Edytuj znaczniki i CSS w projekcie sieci web. W tym samouczku użyto projektu MVC, ale można również użyć narzędzia Page Inspector dla [formularzy sieci Web](https://go.microsoft.com/?linkid=9802001) i inne aplikacje platformy ASP.NET.
+> W tym samouczku pokazano, jak włączyć tryb inspekcji, a następnie szybko zlokalizować i edytować znaczniki i CSS w projekcie sieci Web. Samouczek używa projektu MVC, ale można również użyć Inspektora stron do [formularzy sieci Web](https://go.microsoft.com/?linkid=9802001) i innych aplikacji ASP.NET.
 > 
 > Samouczek zawiera następujące sekcje:
 > 
 > - [Wymagania wstępne](#_1_prerequisites)
 > - [Tworzenie aplikacji sieci Web](#_2_creating_a)
-> - [Inspektor stron do przejdź do widoku](#_3_using_page)
+> - [Użyj Inspektora stron, aby przejść do widoku](#_3_using_page)
 > - [Włącz tryb inspekcji](#_4_inspection_mode)
-> - [Inspektor stron umożliwia wprowadzać zmiany znaczników](#_5_using_page)
-> - [Tryb inspekcji i w oknie kodu HTML](#_6_inspection_mode)
-> - [Zmiany arkusza CSS (wersja zapoznawcza) w oknie style](#_7_previewing_css)
-> - [Automatyczna synchronizacja z CSS](#css_auto_sync)
-> - [Za pomocą selektora kolorów CSS](#css_color_picker)
-> - [Mapowanie elementów strony dynamicznej języka JavaScript](#map_dynamic_elements)
+> - [Używanie inspektora strony do wprowadzania zmian w znacznikach](#_5_using_page)
+> - [Tryb inspekcji i okno HTML](#_6_inspection_mode)
+> - [Podgląd zmian CSS w oknie stylów](#_7_previewing_css)
+> - [Autosynchronizacja CSS](#css_auto_sync)
+> - [Korzystanie z selektora kolorów CSS](#css_color_picker)
+> - [Mapowanie dynamicznych elementów strony na JavaScript](#map_dynamic_elements)
 
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
+- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [Visual Studio Express 2012 dla sieci Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
-> Aby uzyskać najnowszą wersję narzędzia Page Inspector, użyj [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) zainstalować zestaw Windows Azure SDK dla platformy .NET w wersji 2.0.
+> Aby uzyskać najnowszą wersję inspektora stron, użyj [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) w celu zainstalowania zestawu Windows Azure SDK dla programu .NET 2,0.
 
-Narzędzie Page Inspector jest umieszczany w pakietach za pomocą narzędzia Microsoft Web Developer Tools. Najnowsza wersja to 1.3. Aby sprawdzić, która wersja mają, uruchom program Visual Studio i wybierz **Microsoft Visual Studio** z **pomocy** menu.
+Narzędzia Page Inspector są powiązane z Microsoft Web Developer Tools. Najnowsza wersja to 1,3. Aby sprawdzić posiadaną wersję, uruchom program Visual Studio i wybierz pozycję **Informacje o Microsoft Visual Studio** z menu **Pomoc** .
 
 <a id="_creating_a_web"></a><a id="_2_creating_a"></a>
 
 ## <a name="create-a-web-application"></a>Tworzenie aplikacji sieci Web
 
-Najpierw należy utworzyć aplikacji sieci web, którego będziesz używać narzędzia Page Inspector za pomocą. W programie Visual Studio, wybierz **pliku** &gt; **nowy projekt**. Po lewej stronie, rozwiń węzeł **Visual C#**, wybierz opcję **Web**, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC4**.
+Najpierw Utwórz aplikację sieci Web, która będzie używana w programie Page Inspector. W programie Visual Studio wybierz kolejno pozycje **plik** &gt; **Nowy projekt**. Po lewej stronie rozwiń pozycję **C#Wizualizacja**, wybierz pozycję **Sieć Web**, a następnie wybierz pozycję **aplikacja sieci Web ASP.NET MVC4**.
 
-![Nowa aplikacja platformy ASP.NET MVC](using-page-inspector-in-aspnet-mvc/_static/image2.png)
+![Nowa aplikacja ASP.NET MVC](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
 Kliknij przycisk **OK**.
 
-W **nowego projektu programu ASP.NET MVC 4** okno dialogowe, wybierz opcję **aplikacji internetowej**. Pozostaw **Razor** jako domyślny aparat widoku.
+W oknie dialogowym **Nowy projekt ASP.NET MVC 4** wybierz pozycję **aplikacja internetowa**. Pozostaw **Razor** jako domyślny aparat widoku.
 
-![Nowy projekt ASP.NET MVC — aplikacji internetowej](using-page-inspector-in-aspnet-mvc/_static/image4.png)
+![Nowy projekt ASP.NET MVC — aplikacja internetowa](using-page-inspector-in-aspnet-mvc/_static/image4.png)
 
-Aplikacja zostanie otwarta w **źródła** widoku.
+Aplikacja zostanie otwarta w widoku **źródła** .
 
-![Nowa aplikacja platformy ASP.NET MVC w widoku źródła](using-page-inspector-in-aspnet-mvc/_static/image6.png)
+![Nowa aplikacja ASP.NET MVC w widoku źródła](using-page-inspector-in-aspnet-mvc/_static/image6.png)
 
-Teraz, gdy masz już aplikację, chcesz pracować, można użyć narzędzia Page Inspector do zbadania i zmodyfikowania go.
+Teraz, gdy masz aplikację do współpracy z programem, możesz użyć Inspektora stron do jego sprawdzenia i modyfikacji.
 
 <a id="_starting_page_inspector"></a><a id="_3_using_page"></a>
 
-## <a name="use-page-inspector-to-browse-to-a-view"></a>Inspektor stron do przejdź do widoku
+## <a name="use-page-inspector-to-browse-to-a-view"></a>Użyj Inspektora stron, aby przejść do widoku
 
-W programie Visual Studio 2012, możesz kliknąć prawym przyciskiem myszy dowolny widok w projekcie, wybierz opcję **widoku w narzędzia Page Inspector**, i narzędzie Page Inspector będzie ustalenie trasy i wyświetlić stronę.
+W programie Visual Studio 2012 można kliknąć prawym przyciskiem myszy dowolny widok w projekcie, wybrać pozycję **Widok w Inspektorze strony**, a Inspektor strony wystawia trasę i wyświetlić stronę.
 
-W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folder i następnie **Home** folderu. Plik Index.cshtml kliknij prawym przyciskiem myszy i wybierz polecenie **widoku w narzędzia Page Inspector**.
+W **Eksplorator rozwiązań**rozwiń folder **widoki** , a następnie folder **macierzysty** . Kliknij prawym przyciskiem myszy plik index. cshtml i wybierz polecenie **Widok w Inspektorze strony**.
 
-![Wyświetl Index.cshtml w narzędzia Page Inspector](using-page-inspector-in-aspnet-mvc/_static/image8.png)
+![Wyświetl index. cshtml w Inspektorze strony](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Domyślnie narzędzie Page Inspector jest zadokowany jako okno po lewej stronie w środowisku Visual Studio. Jeśli wolisz, możesz go zadokować w innym miejscu lub oddokować okno. Zobacz [jak: Aranżowanie i dokowanie Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
+Domyślnie Inspektor strony jest zadokowany jako okno po lewej stronie środowiska programu Visual Studio. Jeśli wolisz, możesz zadokować ją w innym miejscu lub oddokować okno. Zobacz [How to: porządkowanie i Dokowanie okien](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
-Górne okienko okna narzędzia Page Inspector pokazuje bieżącej strony w oknie przeglądarki. Dolne okienko wyświetla stronę w kod znaczników HTML, wraz z niektórych kart, które pozwalają przeprowadzać inspekcje różne aspekty strony. Dolne okienko jest podobny do [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer.
+Górne okienko okna inspektora stron pokazuje bieżącą stronę w oknie przeglądarki. W dolnym okienku zostanie wyświetlona strona znaczników HTML wraz z niektórymi kartami, które umożliwiają badanie różnych aspektów strony. Dolne okienko jest podobne do [Narzędzia deweloperskie F12](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer.
 
-![Aplikacja platformy ASP.NET MVC w narzędzia Page Inspector](using-page-inspector-in-aspnet-mvc/_static/image10.png)
+![Aplikacja ASP.NET MVC w Inspektorze strony](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 
-W tym samouczku użyjesz **HTML** i **style** karty, aby szybko i wprowadzać zmiany w aplikacji.
+W tym samouczku zostaną użyte karty **HTML** i **Style** umożliwiające szybkie nawigowanie i wprowadzanie zmian w aplikacji.
 
 <a id="_examining_(&quot;decomposing&quot;)_the"></a><a id="_inspection_mode_and"></a><a id="_4_inspection_mode"></a>
 
 ## <a name="enableinspection-mode"></a>Tryb EnableInspection
 
-Aby ustawić narzędzia Page Inspector trybu inspekcji, kliknij przycisk **Sprawdź** przycisku. W trybie inspekcji Jeśli przytrzymasz wskaźnik myszy nad dowolną część renderowanej strony odpowiedni kod źródłowy lub kod zostanie wyróżniona.
+Aby umieścić inspektora stron w trybie inspekcji, kliknij przycisk **Zbadaj** . W trybie inspekcji, gdy przetrzymasz wskaźnik myszy na dowolnej części renderowanej strony, odpowiednie oznakowanie źródłowe lub kod jest wyróżniony.
 
 ![Przełącz tryb inspekcji](using-page-inspector-in-aspnet-mvc/_static/image12.png)
 
-Teraz umieść wskaźnik myszy nad różnych części strony, w ramach narzędzia Page Inspector. To zrobisz, kursor zmienia się na znak plus w dużych, a jest wyróżniony element poniżej:
+Teraz Przenieś wskaźnik myszy na różne części strony w Inspektorze strony. Jak to zrobisz, wskaźnik myszy zmieni się na duży znak plus, a element poniżej zostanie wyróżniony:
 
-![Kursor div.content otoki](using-page-inspector-in-aspnet-mvc/_static/image14.png)
+![Przesuwanie nad blokiem DIV. Content-otoka](using-page-inspector-in-aspnet-mvc/_static/image14.png)
 
-Podczas przesuwania wskaźnika myszy, Visual Studio wyróżnia odpowiedniej składni Razor w pliku źródłowym. Jeśli HTML element pochodzi z innego pliku źródłowego, Visual Studio automatycznie otwiera plik.
+Podczas przesuwania wskaźnika myszy program Visual Studio podświetla odpowiednie składnia Razor w pliku źródłowym. Jeśli element HTML pochodzi z innego pliku źródłowego, program Visual Studio automatycznie otworzy ten plik.
 
-W narzędzia Page Inspector **HTML** karta przedstawia HTML, który został wygenerowany z użyciem składni Razor. Podczas przesuwania wskaźnika myszy, są wyróżnione elementów HTML. **Style** karta zawiera reguły CSS dla elementu.
+W Inspektorze strony karta **HTML** zawiera kod HTML, który został wygenerowany na podstawie składnia Razor. Podczas przesuwania wskaźnika myszy elementy HTML są wyróżniane. Na karcie **Style** są wyświetlane reguły CSS dla elementu.
 
 <a id="_5_using_page"></a>
 
-## <a name="use-page-inspector-to-make-changes-to-markup"></a>Inspektor stron umożliwia wprowadzać zmiany znaczników
+## <a name="use-page-inspector-to-make-changes-to-markup"></a>Używanie inspektora strony do wprowadzania zmian w znacznikach
 
-Narzędzie Page Inspector umożliwia znajdowanie znaczników, którego lokalizacja może nie być oczywista. Następnie można zmodyfikować znaczników i wyświetlić wynikowe zmiany.
+Inspektor strony umożliwia znalezienie znaczników, których lokalizacja może nie być oczywista. Następnie można zmodyfikować znaczniki i zobaczyć wyniki zmian.
 
-Aby to zobaczyć, kliknij przycisk **Sprawdź** a następnie przewiń do dołu strony, w oknie narzędzia Page Inspector.
+Aby to sprawdzić, kliknij pozycję **Inspekcja** , a następnie przewiń w dół strony w oknie Inspektora strony.
 
-Gdy przesuniesz wskaźnik myszy w obszarze stopki, zostanie otwarte narzędzie Page Inspector \_plik Layout.cshtml i wyróżnienie części strony układu, który wybrano. Jak widać, czy stopka jest zdefiniowana w pliku układu, a nie samego widoku.
+Po przesunięciu wskaźnika myszy do obszaru stopka, inspektor strony otwiera plik \_Layout. cshtml i podświetla sekcję strony układu, która została wybrana. Jak widać, stopka jest zdefiniowana w pliku układu, a nie samego widoku.
 
-![Stopka](using-page-inspector-in-aspnet-mvc/_static/image16.png)
+![Stop](using-page-inspector-in-aspnet-mvc/_static/image16.png)
 
-Teraz umieść wskaźnik myszy nad wierszem o prawach autorskich <a id="a"> </a>Zwróć uwagę. W \_Layout.cshtml stronie odpowiednim wierszu zostanie wyróżniony.
+Teraz Przenieś wskaźnik myszy nad wiersz z informacją o prawach autorskich <a id="a"> </a>. Na stronie \_Layout. cshtml zostanie wyróżniony odpowiedni wiersz.
 
-![Stopka wiersz o prawach autorskich wyróżniony](using-page-inspector-in-aspnet-mvc/_static/image18.png)
+![Wyróżniono wiersz Copyright](using-page-inspector-in-aspnet-mvc/_static/image18.png)
 
-Dodaj jakiś tekst do końca wiersza w \_plik Layout.cshtml.
+Dodaj tekst na końcu wiersza w pliku \_Layout. cshtml.
 
-&lt;p&gt;&amp;kopiowania; @DateTime.Now.Year — Moja aplikacja platformy ASP.NET MVC zmieni! &lt;/p&gt;
+&lt;p&gt;&amp;Copy; @DateTime.Now.Year — moja aplikacja ASP.NET MVC Rocks!&lt;/p&gt;
 
-Teraz naciśnij klawisze Ctrl + Alt + Enter lub kliknij pasek aktualizacji, aby wyświetlić wyniki w oknie przeglądarki, narzędzie Page Inspector.
+Teraz naciśnij kombinację klawiszy Ctrl + Alt + Enter lub kliknij pasek aktualizacji, aby wyświetlić wyniki w oknie przeglądarki stron inspektora.
 
-![Moje ASP.NET aplikacji Rocks!](using-page-inspector-in-aspnet-mvc/_static/image20.png)
+![Moja aplikacja ASP.NET Rocks!](using-page-inspector-in-aspnet-mvc/_static/image20.png)
 
-Może mieć uważasz, czy stopka zdefiniowany w Index.cshtml, ale okazała się on znajdować się w \_Layout.cshtml i narzędzie Page Inspector odnaleziona automatycznie.
+Być może wiesz, że stopka zdefiniowana w indeksie index. cshtml, ale wyłączono ją w \_Layout. cshtml, a Inspektor strony go wyszukał.
 
 <a id="_inspection_mode_and_1"></a><a id="_6_inspection_mode"></a>
 
-## <a name="inspection-mode-and-the-html-window"></a>Tryb inspekcji i w oknie kodu HTML
+## <a name="inspection-mode-and-the-html-window"></a>Tryb inspekcji i okno HTML
 
-Następnie będziesz mieć rzut oka na oknie HTML oraz sposób mapowania elementów dla Ciebie.
+Następnie będziesz mieć szybki podgląd okna HTML i sposobu, w jaki mapuje elementy.
 
-Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
+Kliknij pozycję **Sprawdź** , aby umieścić Inspektor strony w trybie inspekcji.
 
-Kliknij w górnej części strony, który jest wyświetlany komunikat "Twoje logo". To badanie konkretnego elementu bardziej szczegółowo, aby wyświetlana w oknie przeglądarki nie jest już zmienia się po przesunięciu wskaźnika myszy.
+Kliknij górną część strony, w której znajduje się tekst "Twoje logo". Badasz konkretny element bardziej szczegółowo, więc wyświetlanie w oknie przeglądarki nie zmienia się po przesunięciu wskaźnika myszy.
 
-Teraz umieść kursor myszy na **HTML** okna. Podczas przesuwania wskaźnika myszy, narzędzie Page Inspector przedstawia element w obrębie **HTML** okna i odpowiadający mu element w oknie przeglądarki.
+Teraz Przenieś wskaźnik myszy do okna **HTML** . Podczas przesuwania wskaźnika myszy, inspektor strony zawiera element w oknie **HTML** i podświetla odpowiadający element w oknie przeglądarki.
 
-![Okno w formacie HTML](using-page-inspector-in-aspnet-mvc/_static/image22.png)
+![Okno HTML](using-page-inspector-in-aspnet-mvc/_static/image22.png)
 
-Jak wcześniej, zostanie otwarte narzędzie Page Inspector \_plik Layout.cshtml dla Ciebie w karcie tymczasowej. Kliknij przycisk \_Layout.cshtml tymczasowe kartę, a odpowiedni kod znaczników zostaną wyróżnione w &lt;nagłówka&gt; sekcji możesz:
+Jak wcześniej, inspektor strony otwiera plik \_Layout. cshtml w karcie tymczasowej. Kliknij kartę tymczasową \_układ. cshtml, a odpowiednie adiustacje zostaną wyróżnione w sekcji&gt; nagłówka &lt;:
 
-![Wyróżnione znaczników](using-page-inspector-in-aspnet-mvc/_static/image24.png)
+![Wyróżnione adiustacje](using-page-inspector-in-aspnet-mvc/_static/image24.png)
 
 <a id="_using_page_inspector"></a><a id="_7_previewing_css"></a>
 
-## <a name="preview-css-changes-in-the-styles-window"></a>Zmiany arkusza CSS (wersja zapoznawcza) w oknie style
+## <a name="preview-css-changes-in-the-styles-window"></a>Podgląd zmian CSS w oknie stylów
 
-Następnie, użyjesz narzędzia Page Inspector **style** okna, aby wyświetlić podgląd zmian do arkusza CSS.
+Następnie użyjesz okna **stylów** inspektora strony do podglądu zmian w CSS.
 
-Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
+Kliknij pozycję **Sprawdź** , aby umieścić Inspektor strony w trybie inspekcji.
 
-W oknie przeglądarki, narzędzie Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana.
+W oknie przeglądarki stron inspektora przesuń wskaźnik myszy nad sekcję "Strona główna", aż zostanie wyświetlona etykieta **DIV. Content-otoka** .
 
-![Kursor div.content otoki](using-page-inspector-in-aspnet-mvc/_static/image26.png)
+![Przesuwanie nad blokiem DIV. Content-otoka](using-page-inspector-in-aspnet-mvc/_static/image26.png)
 
-Kliknij wewnątrz sekcji otoki div.content jeden raz, a następnie przesuń wskaźnik myszy na **style** okna. **Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Teraz usuń zaznaczenie pola wyboru dla właściwości kolor tła.
+Kliknij jeden z sekcji DIV. Content-otoka, a następnie przesuń wskaźnik myszy do okna **Style** . W oknie **Style** są wyświetlane wszystkie reguły CSS dla tego elementu. Przewiń w dół, aby znaleźć selektor klasy. Polecane. Content-otoka. Teraz wyczyść pole wyboru dla właściwości Background-Color.
 
-![Kolor tła wyczyść](using-page-inspector-in-aspnet-mvc/_static/image28.png)
+![Wyczyść kolor tła](using-page-inspector-in-aspnet-mvc/_static/image28.png)
 
-Zwróć uwagę, jak zmiany zawiera wersje zapoznawcze natychmiast w oknie przeglądarki, narzędzie Page Inspector.
+Zwróć uwagę, jak natychmiast przeglądanie zmian w oknie przeglądarki stron.
 
-Ponownie zaznacz pole wyboru, a następnie kliknij dwukrotnie wartość właściwości i zmienić ją na czerwono. Zmiana pokazuje natychmiast:
+Zaznacz pole wyboru ponownie, a następnie kliknij dwukrotnie wartość właściwości i zmień ją na czerwony. Zmiana zostanie wyświetlona natychmiast:
 
-![Kolor tła czerwony](using-page-inspector-in-aspnet-mvc/_static/image30.png)
+![Czerwony kolor tła](using-page-inspector-in-aspnet-mvc/_static/image30.png)
 
-**Style** sprawia, że okna ułatwiają przetestuj i Wyświetl podgląd CSS zmian, zanim zatwierdzenia zmian w stylu arkusz sam.
+Okno **Style** ułatwia testowanie i Podgląd zmian CSS przed zatwierdzeniem zmian w arkuszu stylów.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>Automatyczna synchronizacja z CSS
+## <a name="css-auto-sync"></a>Autosynchronizacja CSS
 
 > [!NOTE]
-> Ta funkcja wymaga w wersji 1.3 narzędzia Page Inspector.
+> Ta funkcja wymaga wersji 1,3 inspektora strony.
 
-Funkcja automatycznej synchronizacji CSS służy do bezpośredniego edytowania pliku CSS i zobaczyć zmiany bezpośrednio w przeglądarce narzędzia Page Inspector.
+Funkcja autosynchronizacji CSS umożliwia bezpośrednie edytowanie pliku CSS i natychmiastowe wyświetlanie zmian w przeglądarce stron.
 
-Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
+Kliknij pozycję **Sprawdź** , aby umieścić Inspektor strony w trybie inspekcji.
 
-W przeglądarce narzędzia Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana. Kliknij raz, aby wybrać ten element.
+W przeglądarce inspektora stron przesuń wskaźnik myszy nad sekcję "Strona główna" do momentu, gdy zostanie wyświetlona etykieta **DIV. Content-otoka** . Kliknij raz, aby zaznaczyć ten element.
 
-**Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
+W oknie **Style** są wyświetlane wszystkie reguły CSS dla tego elementu. Przewiń w dół, aby znaleźć selektor klasy. Polecane. Content-otoka. Kliknij pozycję ". Polecane. Content-otoka". Inspektor strony otwiera plik CSS, który definiuje ten styl (site. CSS) i podświetla odpowiedni styl CSS.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image32.png)
 
-Teraz Zmień wartość `background-color` do "red". Zmiana pojawi się natychmiast w przeglądarce narzędzia Page Inspector.
+Teraz zmień wartość dla `background-color` na "Red". Zmiana zostanie wyświetlona natychmiast w przeglądarce inspektora stron.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image34.png)
 
 <a id="css_color_picker"></a>
-## <a name="using-the-css-color-picker"></a>Za pomocą selektora kolorów CSS
+## <a name="using-the-css-color-picker"></a>Korzystanie z selektora kolorów CSS
 
-Edytor CSS w programie Visual Studio 2012 zawiera selektor kolorów, która pozwala łatwo wybrać i Wstaw kolorów. Selektor kolorów zawiera standardowe paletę kolorów, obsługuje nazwy kolor standardowy, kody skrótów, kolorów RGB, RGBA, HSL i HSLA i utrzymuje listę kolorów, które zostały ostatnio użyte w dokumencie.
+Edytor CSS w programie Visual Studio 2012 ma selektor kolorów, dzięki czemu można łatwo wybierać i wstawiać kolory. Selektor kolorów zawiera standardową paletę kolorów, obsługuje standardowe nazwy kolorów, kody skrótów, kolory RGB, RGBA, HSL i HSLA, a także zachowuje listę kolorów używanych ostatnio w dokumencie.
 
-W poprzedniej sekcji, możesz zmienić wartość `background-color` właściwości. Aby wywołać selektor kolorów, umieść kursor po danej nazwy właściwości oraz typ **#** lub **rgb (**.
+W poprzedniej sekcji zmieniono wartość właściwości `background-color`. Aby wywołać selektor kolorów, umieść punkt wstawiania po nazwie właściwości i wpisz **#** lub **RGB (** .
 
-![Pasek wyboru koloru CSS](using-page-inspector-in-aspnet-mvc/_static/image36.png)
+![Pasek selektora kolorów CSS](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 
-Kliknij kolor, aby go zaznaczyć, lub naciśnij klawisz strzałki w dół, a następnie użyj klawiszy strzałek w lewo i w prawo do przechodzenia kolorów. Gdy użytkownik odwiedza kolor, jest przeglądany odpowiadająca wartość szesnastkowa:
+Kliknij kolor, aby go zaznaczyć, lub naciśnij klawisz Strzałka w dół, a następnie użyj klawiszy strzałek w lewo i w prawo, aby przechodzenie między kolorami. Podczas odwiedzania koloru wyświetlana jest odpowiednia wartość szesnastkowa:
 
-![wartość właściwości kolor tła podglądu](using-page-inspector-in-aspnet-mvc/_static/image38.png)
+![Podgląd — wartość właściwości koloru w tle](using-page-inspector-in-aspnet-mvc/_static/image38.png)
 
-Jeśli pasek koloru nie ma dokładnie odpowiedni kolor, można użyć selektora kolorów w dół pop. Aby go otworzyć, kliknij cudzysłów ostrokątny double na prawym końcu paska koloru, lub jeden lub dwa razy klawisz Strzałka w dół na klawiaturze.
+Jeśli pasek koloru nie ma dokładnego koloru, możesz użyć selektora kolorów. Aby go otworzyć, kliknij podwójny cudzysłów ostrokątny na prawym końcu paska kolorów lub naciśnij klawisz Strzałka w dół jeden raz lub dwukrotnie na klawiaturze.
 
-![Selektor koloru CSS Pop — szczegółów](using-page-inspector-in-aspnet-mvc/_static/image40.png)
+![Selektor kolorów CSS — wyskakujące okienko](using-page-inspector-in-aspnet-mvc/_static/image40.png)
 
-Kliknij przycisk koloru z pionowy pasek po prawej stronie. W oknie głównym ten pokazuje gradientu dla tego koloru. Wybierz kolor, bezpośrednio z kreska pionowa, naciskając klawisz Enter lub kliknij dowolnego punktu w głównym oknie, aby wybrać z większą dokładnością.
+Kliknij kolor z pionowego paska po prawej stronie. Spowoduje to wyświetlenie gradientu dla tego koloru w oknie głównym. Wybierz kolor bezpośrednio z paska pionowego, naciskając klawisz ENTER, lub kliknij dowolny punkt w oknie głównym, aby wybrać większą precyzję.
 
-Jeśli jest kolorem na ekranie komputera, którego chcesz używać (nie musi być w interfejsie użytkownika programu Visual Studio), jego wartość można przechwycić za pomocą narzędzia służącego do pobierania w prawym dolnym rogu.
+Jeśli na ekranie komputera istnieje kolor, który ma być używany (nie musi znajdować się w interfejsie użytkownika programu Visual Studio), możesz przechwycić jego wartość za pomocą narzędzia Kroplomierz w prawym dolnym rogu.
 
-Możesz również zmienić przezroczystość koloru za pomocą suwaka u dołu selektora kolorów. Robi zmiany kolor wartości do wartości RGBA, ponieważ RGBA format może reprezentować nieprzezroczystości.
+Możesz również zmienić nieprzezroczystość koloru, przesuwając suwak w dolnej części selektora kolorów. Spowoduje to zmianę wartości koloru na wartości RGBA, ponieważ format RGBA może reprezentować nieprzezroczystość.
 
-Po wybraniu koloru, naciśnij klawisz Enter, a następnie wpisz średnikiem, aby ukończyć kolor tła wejścia w *Site.css* pliku.
+Po wybraniu koloru naciśnij klawisz ENTER, a następnie wpisz średnik, aby zakończyć wprowadzanie koloru tła w pliku *site. css* .
 
 <a id="_the_update_bar"></a>
 
-### <a name="the-page-inspector-update-bar"></a>Na pasku aktualizacji Inspektor strony
+### <a name="the-page-inspector-update-bar"></a>Pasek aktualizacji inspektora stron
 
-Narzędzie Page Inspector natychmiast wykrywa zmiany *Site.css* pliku i wyświetla alert w pasku aktualizacji.
+Inspektor strony natychmiast wykrywa zmiany w pliku *site. css* i wyświetla alert na pasku aktualizacji.
 
 ![Pasek aktualizacji](using-page-inspector-in-aspnet-mvc/_static/image42.png)
 
-Aby zapisać wszystkie pliki i odświeżyć przeglądarkę, narzędzie Page Inspector, naciśnij klawisze Ctrl + Alt + Enter lub kliknij przycisk na pasku aktualizacji. Zmień kolor wyróżnienia pojawia się w przeglądarce.
+Aby zapisać wszystkie pliki i odświeżyć przeglądarkę inspektora stron, naciśnij kombinację klawiszy Ctrl + Alt + Enter lub kliknij pasek aktualizacji. Zmiana w kolorze wyróżnienia zostanie wyświetlona w przeglądarce.
 
 <a id="map_dynamic_elements"></a>
-## <a name="mapping-dynamic-page-elements-to-javascript"></a>Mapowanie elementów strony dynamicznej języka JavaScript
+## <a name="mapping-dynamic-page-elements-to-javascript"></a>Mapowanie dynamicznych elementów strony na JavaScript
 
-W nowoczesnych aplikacji sieci web elementy na stronie są często generowane dynamicznie przy użyciu języka JavaScript. Oznacza to, że nie ma żadnych znaczników statyczne (HTML lub Razor), która odnosi się do tych elementów strony.
+W nowoczesnych aplikacjach sieci Web elementy na stronie są często generowane dynamicznie przy użyciu języka JavaScript. Oznacza to, że nie istnieje statyczny znacznik (HTML lub Razor) odpowiadający tym elementom strony.
 
-W wersji 1.3 narzędzie Page Inspector można teraz Mapowanie elementów, które zostały dynamicznie dodawane do strony do odpowiedniego kodu JavaScript. Aby zademonstrować tę funkcję, użyjemy [szablonu jednej strony aplikacji (SPA)](../../../single-page-application/overview/introduction/knockoutjs-template.md).
+W wersji 1,3, inspektor strony może teraz mapować elementy, które zostały dynamicznie dodane do strony z powrotem do odpowiedniego kodu JavaScript. Aby zademonstrować tę funkcję, użyjemy [szablonu aplikacji jednostronicowej (Spa)](../../../single-page-application/overview/introduction/knockoutjs-template.md).
 
 > [!NOTE]
-> Szablon SPA wymaga [platformy ASP.NET i Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650) aktualizacji.
+> Szablon SPA wymaga aktualizacji [ASP.NET and Web Tools 2012,2](https://go.microsoft.com/fwlink/?LinkId=282650) .
 
-W programie Visual Studio, wybierz **pliku** &gt; **nowy projekt**. Po lewej stronie, rozwiń węzeł **Visual C#**, wybierz opcję **Web**, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC4**. Kliknij przycisk **OK**.
+W programie Visual Studio wybierz kolejno pozycje **plik** &gt; **Nowy projekt**. Po lewej stronie rozwiń pozycję **C#Wizualizacja**, wybierz pozycję **Sieć Web**, a następnie wybierz pozycję **aplikacja sieci Web ASP.NET MVC4**. Kliknij przycisk **OK**.
 
-W **nowego projektu programu ASP.NET MVC 4** okno dialogowe, wybierz opcję **aplikacji jednostronicowej**.
+W oknie dialogowym **Nowy projekt ASP.NET MVC 4** wybierz pozycję **aplikacja jednostronicowa**.
 
-W Eksploratorze rozwiązań rozwiń **widoków** folder i następnie **Home** folderu. Plik Index.cshtml kliknij prawym przyciskiem myszy i wybierz polecenie **widoku w narzędzia Page Inspector**.
+W Eksplorator rozwiązań rozwiń folder **widoki** , a następnie folder **macierzysty** . Kliknij prawym przyciskiem myszy plik index. cshtml i wybierz polecenie **Widok w Inspektorze strony**.
 
-Po pierwsze, czyli wyświetlonej w przeglądarce narzędzia Page Inspector jest strona logowania. Kliknij przycisk "Zarejestruj", a następnie utwórz nazwę użytkownika i hasło. Po zarejestrowaniu się aplikacji loguje się użytkownik i tworzy listę zadań do wykonania z niektórymi elementami próbki.
+Pierwszy element, który jest wyświetlany w przeglądarce stron, jest stroną logowania. Kliknij pozycję "Utwórz konto" i Utwórz nazwę użytkownika i hasło. Po zarejestrowaniu aplikacja zostanie zarejestrowana w usłudze i zostanie utworzona lista czynności do wykonania z niektórymi Przykładowymi elementami.
 
-Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji. W przeglądarce narzędzia Page Inspector kliknij jeden z elementów do wykonania. Należy zauważyć, że zamiast są wyróżnione na niebiesko, elementu jest wyróżniony kolorem pomarańczowym za pomocą "JS" obok nazwy elementu. Oznacza to, że element został utworzony dynamicznie za pośrednictwem skryptu.
+Kliknij pozycję **Sprawdź** , aby umieścić Inspektor strony w trybie inspekcji. W przeglądarce inspektora stron kliknij jeden z elementów do wykonania. Należy zauważyć, że zamiast wyróżnienia w kolorze niebieskim element jest wyróżniony w pomarańczowym, z "JS" obok nazwy elementu. Oznacza to, że element został utworzony dynamicznie za pomocą skryptu.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image44.png)
 
-Ponadto pomarańczowy podkreślenie pojawia się na **stos wywołań** kartę. Oznacza to, że **stos wywołań** okienko zawiera więcej informacji na temat elementu.
+Ponadto do karty **stosu wywołań** pojawia się pomarańczowe podkreolenie. Oznacza to, że okienko **stosu wywołań** zawiera więcej informacji na temat elementu.
 
-Kliknij pozycję **stos wywołań** kartę. **Stos wywołań** okienko zawiera stos wywołań dla wywołania języka JavaScript, utworzony element. Wywołuje w zewnętrznych bibliotekach np. jQuery są zwinięte, dzięki czemu można łatwo zobaczyć, wywołuje skrypt aplikacji.
+Kliknij kartę **stos wywołań** . W okienku **stos wywołań** jest wyświetlany stos wywołań dla wywołania JavaScript, które utworzyło element. Wywołania bibliotek zewnętrznych, takich jak jQuery, są zwijane, dzięki czemu można łatwo zobaczyć wywołania skryptu aplikacji.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image46.png)
 
-Aby wyświetlić pełny stos, w tym wywołania zewnętrznych bibliotek można rozwinąć węzły z etykietą "Biblioteki zewnętrznej":
+Aby wyświetlić pełny stos, w tym wywołania bibliotek zewnętrznych, można rozwinąć węzły z etykietą "biblioteki zewnętrzne":
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image48.png)
 
-Kliknięcie elementu w stosie wywołań programu Visual Studio otwiera plik kodu i wyróżnienie odpowiadający jej skrypt.
+Po kliknięciu elementu w stosie wywołań program Visual Studio otwiera plik kodu i podświetla odpowiedni skrypt.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image50.png)
 
 ## <a name="see-also"></a>Zobacz też
 
-[Wprowadzenie do platformy ASP.NET MVC 4 w programie Visual Studio](../older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md) (witryny sieci Web platformy ASP.net)
+[Wprowadzenie do ASP.NET MVC 4 za pomocą programu Visual Studio](../older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md) (ASP.NET Web)
 
-[Wprowadzenie do narzędzia Page Inspector](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector/) (wideo Channel 9)
+[Wprowadzenie do Inspektora stron](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector/) (wideo Channel 9)
 
-[Komunikaty o błędach narzędzia Page Inspector](https://go.microsoft.com/?linkid=9813062) (MSDN)
+[Komunikaty o błędach inspektora stron](https://go.microsoft.com/?linkid=9813062) (MSDN)
