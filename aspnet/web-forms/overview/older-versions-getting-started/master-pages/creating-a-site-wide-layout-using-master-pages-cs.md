@@ -9,11 +9,11 @@ ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1a5e85c443a2a3642ec185ab1897c43cdb2ab1f7
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78625392"
 ---
 # <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#)
 
@@ -25,7 +25,7 @@ przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Jeden atrybut dobrze zaprojektowanej witryny sieci Web jest spójnym układem strony w całej lokacji. Zapoznaj się z witryną sieci Web www.asp.net, na przykład. Podczas tego pisania każda strona ma tę samą zawartość u góry i u dołu strony. Jak pokazano na rysunku 1, w górnej części każdej strony jest wyświetlany szary pasek z listą społeczności firmy Microsoft. Poniżej znajduje się logo lokacji, lista języków, do których przeprowadzono translację lokacji, oraz podstawowe sekcje: Strona główna, rozpoczęcie, uczenie, pobieranie i tak dalej. Podobnie, w dolnej części strony znajdują się informacje dotyczące reklamy w www.asp.net, zasady autorskiej i łącze do zasad zachowania poufności informacji.
+Jeden atrybut dobrze zaprojektowanej witryny sieci Web jest spójnym układem strony w całej lokacji. Przyjmować [www.asp.net](www.asp.net) witryny sieci Web, na przykład. Podczas tego pisania każda strona ma tę samą zawartość u góry i u dołu strony. Jak pokazano na rysunku 1, w górnej części każdej strony jest wyświetlany szary pasek z listą społeczności firmy Microsoft. Poniżej znajduje się logo lokacji, lista języków, do których przeprowadzono translację lokacji, oraz podstawowe sekcje: Strona główna, rozpoczęcie, uczenie, pobieranie i tak dalej. Podobnie, w dolnej części strony znajdują się informacje dotyczące reklamy w www.asp.net, zasady autorskiej i łącze do zasad zachowania poufności informacji.
 
 [![witryna sieci Web www.asp.net wykorzystuje spójny wygląd i działanie na wszystkich stronach](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
@@ -255,4 +255,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
-> [Next](multiple-contentplaceholders-and-default-content-cs.md)
+> [Dalej](multiple-contentplaceholders-and-default-content-cs.md)
