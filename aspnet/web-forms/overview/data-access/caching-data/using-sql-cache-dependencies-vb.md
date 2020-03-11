@@ -9,11 +9,11 @@ ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 7d095538bd92d50675e5fce44f5ca68e8ee6c0e8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74603535"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78550212"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>Używanie zależności pamięci podręcznej SQL (VB)
 
@@ -273,4 +273,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci ołowiu dla tego samouczka były Marko zakresem, Teresa Murphy i Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](caching-data-at-application-startup-vb.md)
+> [Wstecz](caching-data-at-application-startup-vb.md)

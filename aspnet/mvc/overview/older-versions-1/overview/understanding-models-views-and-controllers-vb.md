@@ -1,99 +1,99 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
-title: Objaśnienie modeli, widoków i kontrolerów (VB) | Dokumentacja firmy Microsoft
+title: Zrozumienie modeli, widoków i kontrolerów (VB) | Microsoft Docs
 author: StephenWalther
-description: 'Masz wątpliwości dotyczące modeli, widoków i kontrolerów? W tym samouczku Walther Autor: Stephen poznasz różne części aplikacji ASP.NET MVC.'
+description: Nie masz wątpliwości dotyczących modeli, widoków i kontrolerów? W tym samouczku Stephen Walther przedstawia różne części aplikacji ASP.NET MVC.
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: a106374a-5e74-4fd0-9ac0-1a32280e5d0d
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
 msc.type: authoredcontent
 ms.openlocfilehash: cc7988e0c9802e8cd376396eb5da15b5393d6088
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125487"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600451"
 ---
 # <a name="understanding-models-views-and-controllers-vb"></a>Objaśnienie modeli, widoków i kontrolerów (VB)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-> Masz wątpliwości dotyczące modeli, widoków i kontrolerów? W tym samouczku Walther Autor: Stephen poznasz różne części aplikacji ASP.NET MVC.
+> Nie masz wątpliwości dotyczących modeli, widoków i kontrolerów? W tym samouczku Stephen Walther przedstawia różne części aplikacji ASP.NET MVC.
 
-Ten samouczek umożliwia ogólne omówienie platformy ASP.NET MVC modeli, widoków i kontrolerów. Innymi słowy, wyjaśniono M ", V", a C "we wzorcu ASP.NET MVC.
+Ten samouczek zawiera ogólne omówienie modeli, widoków i kontrolerów MVC ASP.NET. Inaczej mówiąc, objaśnia to M ", V" i C "w ASP.NET MVC.
 
-Po przeczytaniu tego samouczka, należy zrozumieć, jak różne części aplikacji ASP.NET MVC współpracują ze sobą. Należy również zrozumieć, jak Architektura aplikacji ASP.NET MVC różni się od aplikacji formularzy sieci Web ASP.NET lub aplikacji Active Server Pages.
+Po przeczytaniu tego samouczka należy zrozumieć, w jaki sposób różne części aplikacji ASP.NET MVC współpracują ze sobą. Należy również zrozumieć, jak architektura aplikacji ASP.NET MVC różni się od aplikacji ASP.NET Web Forms lub aplikacji Active Server Pages.
 
-## <a name="the-sample-aspnet-mvc-application"></a>Przykładowa aplikacja platformy ASP.NET MVC
+## <a name="the-sample-aspnet-mvc-application"></a>Przykładowa aplikacja MVC ASP.NET
 
-Domyślny szablon programu Visual Studio do tworzenia aplikacji sieci Web programu ASP.NET MVC zawiera bardzo prostą przykładowej aplikacji, która może służyć do zrozumienia różne części aplikacji ASP.NET MVC. Firma Microsoft może korzystać z tej prostej aplikacji, w tym samouczku.
+Domyślny szablon programu Visual Studio służący do tworzenia aplikacji sieci Web ASP.NET MVC zawiera bardzo prostą przykładową aplikację, której można użyć do zrozumienia różnych części aplikacji ASP.NET MVC. Korzystamy z tej prostej aplikacji w tym samouczku.
 
-Tworzenie nowej aplikacji platformy ASP.NET MVC za pomocą szablonu MVC, uruchamiając program Visual Studio 2008 i wybranie opcji menu Plik, nowy projekt (patrz rysunek 1). W oknie dialogowym Nowy projekt, wybierz ulubionym języku programowania w ramach typów projektu (Visual Basic lub C#) i ustaw **aplikacji sieci Web programu ASP.NET MVC** w obszarze Szablony. Kliknij przycisk OK.
+Tworzenie nowej aplikacji ASP.NET MVC z szablonem MVC przez uruchomienie programu Visual Studio 2008 i wybranie pliku opcji menu, nowy projekt (patrz rysunek 1). W oknie dialogowym Nowy projekt Wybierz ulubiony język programowania w obszarze typy projektu (Visual Basic lub C#), a następnie wybierz pozycję **aplikacja sieci Web ASP.NET MVC** w obszarze Szablony. Kliknij przycisk OK.
 
-[![Okno dialogowe nowego projektu](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
+[Okno dialogowe ![nowego projektu](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
 
-**Rysunek 01**: Okno dialogowe nowego projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image2.png))
+**Ilustracja 01**. okno dialogowe Nowy projekt ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image2.png))
 
-Podczas tworzenia nowej aplikacji platformy ASP.NET MVC, **Tworzenie projektu testu jednostkowego** zostanie wyświetlone okno dialogowe (patrz rysunek 2). To okno dialogowe umożliwia utworzenie oddzielnego projektu w rozwiązaniu do testowania aplikacji ASP.NET MVC. Wybierz opcję **nie twórz projektu testu jednostkowego** i kliknij przycisk **OK** przycisku.
+Podczas tworzenia nowej aplikacji ASP.NET MVC zostanie wyświetlone okno dialogowe **Tworzenie projektu testu jednostkowego** (patrz rysunek 2). To okno dialogowe pozwala utworzyć oddzielny projekt w rozwiązaniu do testowania aplikacji ASP.NET MVC. Wybierz opcję **nie, nie twórz projektu testów jednostkowych** i kliknij przycisk **OK** .
 
-[![Tworzenie testów jednostkowych w oknie dialogowym](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
+[Okno dialogowe Tworzenie testu jednostkowego ![](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
 
-**Rysunek 02**: Tworzenie okna dialogowego testów jednostkowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image4.png))
+**Ilustracja 02**. okno dialogowe Tworzenie testu jednostkowego ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image4.png))
 
-Aplikacja zostanie utworzona po nowe platformy ASP.NET MVC. Pojawi się kilka folderów i plików w oknie Eksploratora rozwiązań. W szczególności zostaną wyświetlone trzy foldery o nazwie modeli, widoków i kontrolerów. Jak może odgadnięcia nazw folderów te foldery zawierają pliki dotyczące wdrażania modeli, widoków i kontrolerów.
+Po utworzeniu nowej aplikacji ASP.NET MVC. W oknie Eksplorator rozwiązań zobaczysz kilka folderów i plików. W szczególności zobaczysz trzy foldery o nazwie modele, widoki i kontrolery. Ponieważ nazwy folderów mogą być odgadnąć, te foldery zawierają pliki do implementowania modeli, widoków i kontrolerów.
 
-Po rozwinięciu folderze kontrolery powinien zostać wyświetlony plik o nazwie AccountController.vb i plik o nazwie HomeController.vb. Po rozwinięciu folderze Widoki powinny być widoczne trzy podfoldery o nazwie konto Home i udostępnione. Po rozwinięciu folderu macierzystego zobaczysz dwa dodatkowe pliki o nazwie About.aspx i Index.aspx (zobacz rysunek 3). Te pliki składają się przykładowa aplikacja uwzględniony przy użyciu domyślnego szablonu platformy ASP.NET MVC.
+W przypadku rozszerzenia folderu controllers (kontrolery) powinien zostać wyświetlony plik o nazwie elementu AccountController. vb i plik o nazwie HomeController. vb. W przypadku rozszerzenia folderu widoki powinny zostać wyświetlone trzy podfoldery o nazwie Account, Home i Shared. Po rozszerzeniu folderu macierzystego zobaczysz dwa dodatkowe pliki o nazwie about. aspx i index. aspx (patrz rysunek 3). Te pliki składają się z przykładowej aplikacji dołączonej do domyślnego szablonu ASP.NET MVC.
 
-[![Okno Eksploratora rozwiązań](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
+[![okno Eksplorator rozwiązań](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
 
-**Rysunek 03**: Okno Eksploratora rozwiązań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image6.png))
+**Ilustracja 03**: okno Eksplorator rozwiązań ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image6.png))
 
-Można uruchomić przykładową aplikację, wybierając opcję menu **debugowania i Rozpocznij debugowanie**. Alternatywnie można naciśnij klawisz F5.
+Możesz uruchomić przykładową aplikację, wybierając opcję menu **Debuguj, Rozpocznij debugowanie**. Alternatywnie możesz nacisnąć klawisz F5.
 
-Przy pierwszym uruchomieniu aplikacji ASP.NET, zostanie wyświetlone okno dialogowe na rysunku 4 zaleca, aby włączyć tryb debugowania. Kliknij przycisk OK, a aplikacja zostanie uruchomiona.
+Po pierwszym uruchomieniu aplikacji ASP.NET zostanie wyświetlone okno dialogowe z rysunkiem 4, które zaleca włączenie trybu debugowania. Kliknij przycisk OK, a aplikacja zostanie uruchomiona.
 
-[![Debugowanie nie jest włączone okna dialogowego](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
+[okno dialogowe niewłączone debugowanie ![](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
 
-**Rysunek 04**: Debugowanie nie jest włączone okna dialogowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image8.png))
+**Rysunek 04**: okno dialogowe debugowanie nie jest włączone ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image8.png))
 
-Podczas uruchamiania aplikacji ASP.NET MVC programu Visual Studio uruchamia aplikację w przeglądarce sieci web. Przykładowa aplikacja składa się z tylko dwoma stronami: strony indeksu i na stronie informacje. Po pierwszym uruchomieniu aplikacji zostanie wyświetlona strona indeksu, (zobacz rysunek 5). Można przejść do strony informacje, klikając link menu w prawym górnym rogu aplikacji.
+Po uruchomieniu aplikacji ASP.NET MVC program Visual Studio uruchamia aplikację w przeglądarce sieci Web. Przykładowa aplikacja składa się tylko z dwóch stron: strony indeks oraz strony informacje. Po pierwszym uruchomieniu aplikacji zostanie wyświetlona strona indeks (patrz rysunek 5). Możesz przejść do strony informacje, klikając łącze menu w prawym górnym rogu aplikacji.
 
-[![Strony indeksu](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
+[![strony indeksu](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
 
-**Rysunek 05**: Na stronie indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image10.png))
+**Ilustracja 05**: Strona indeks ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-vb/_static/image10.png))
 
-Zwróć uwagę, adresy URL w pasku adresu przeglądarki. Na przykład po kliknięciu łącza menu informacje, adres URL w pasku adresu przeglądarki zmienia się **/Home/About**.
+Zwróć uwagę na adresy URL na pasku adresu przeglądarki. Na przykład po kliknięciu łącza do menu informacje adres URL na pasku adresu przeglądarki zmieni się na **/Home/about**.
 
-Jeśli Zamknij okno przeglądarki i wróć do programu Visual Studio, nie można odnaleźć pliku przy użyciu główna ścieżka/informacje. Pliki nie istnieją. Jak to możliwe?
+Jeśli zamkniesz okno przeglądarki i wrócisz do programu Visual Studio, nie będzie można znaleźć pliku z ścieżką Home/about. Pliki nie istnieją. Jak to możliwe?
 
-## <a name="a-url-does-not-equal-a-page"></a>Adres URL strony nie równa się
+## <a name="a-url-does-not-equal-a-page"></a>Adres URL nie jest równy stronie
 
-W przypadku tworzenia tradycyjnych aplikacji formularzy sieci Web ASP.NET lub aplikacji Active Server Pages, ma relację między adresu URL i strony. Jeśli zażądasz stronę o nazwie SomePage.aspx z serwera, następnie miał lepiej istnieć strony na dysku o nazwie SomePage.aspx. Jeśli plik SomePage.aspx nie istnieje, otrzymasz fałszywych **404 — Nie można odnaleźć strony** błędu.
+Podczas kompilowania tradycyjnej aplikacji ASP.NET Web Forms lub aplikacji Active Server Pages istnieje taka sama zgodność między adresem URL a stroną. Jeśli zażądasz strony o nazwie SomePage. aspx z serwera, na dysku o nazwie SomePage. aspx powinna być lepsza strona. Jeśli plik SomePage. aspx nie istnieje, otrzymasz komunikat o błędzie nieładnego **404 — nie znaleziono strony** .
 
-Podczas tworzenia aplikacji ASP.NET MVC, z kolei brak zgodności między adres URL, który można wpisać w pasku adresu przeglądarki i pliki, które możesz znaleźć w aplikacji. Adres URL w aplikacji ASP.NET MVC, odnosi się do akcji kontrolera, zamiast strony na dysku.
+W przypadku kompilowania aplikacji ASP.NET MVC nie ma żadnej zgodności między adresem URL wpisanym na pasku adresu przeglądarki a plikami, które znajdują się w aplikacji. W aplikacji ASP.NET MVC adres URL odpowiada akcji kontrolera zamiast strony na dysku.
 
-W tradycyjnych aplikacji ASP.NET i ASP żądania przeglądarki są mapowane na stronach. W aplikacji ASP.NET MVC, natomiast w przeglądarce żądania są mapowane do akcji kontrolera. Aplikacja ASP.NET Web Forms jest skoncentrowane na zawartość. Aplikacji ASP.NET MVC, z kolei jest skoncentrowane na logice aplikacji.
+W tradycyjnej aplikacji ASP.NET lub ASP żądania przeglądarki są mapowane na strony. W aplikacji ASP.NET MVC z kolei żądania przeglądarki są mapowane na akcje kontrolera. Aplikacja formularzy sieci Web ASP.NET jest skoncentrowana na zawartości. Aplikacja ASP.NET MVC, w przeciwieństwie, jest skoncentrowana na logice aplikacji.
 
-## <a name="understanding-aspnet-routing"></a>Opis routingu platformy ASP.NET
+## <a name="understanding-aspnet-routing"></a>Zrozumienie routingu ASP.NET
 
-Żądanie przeglądarki na pobiera mapowany do akcji kontrolera za pośrednictwem funkcji struktury programu ASP.NET o nazwie *routingu platformy ASP.NET*. Routingu platformy ASP.NET jest używany przez platformę ASP.NET MVC w celu *trasy* żądania przychodzące do akcji kontrolera.
+Żądanie przeglądarki jest zamapowane na akcję kontrolera przez funkcję ASP.NET Framework o nazwie *ASP.NET routing*. Routing ASP.NET jest używany przez strukturę ASP.NET MVC do *kierowania* żądań przychodzących do akcji kontrolera.
 
-Routingu platformy ASP.NET używa tabeli tras do obsługi żądań przychodzących. Ta tabela tras jest tworzony podczas pierwszego uruchomienia aplikacji sieci web. Tabela tras jest skonfigurowana w pliku Global.asax. Domyślny plik Global.asax platformy MVC znajduje się w ofercie 1.
+Routing ASP.NET używa tabeli tras do obsługi żądań przychodzących. Ta tabela tras jest tworzona podczas pierwszego uruchomienia aplikacji sieci Web. Tabela tras jest konfiguracją w pliku Global. asax. Domyślny plik Global. asax MVC jest zawarty w liście 1.
 
-**Wyświetlanie listy 1 — w pliku Global.asax**
+**Lista 1 — Global. asax**
 
 [!code-vb[Main](understanding-models-views-and-controllers-vb/samples/sample1.vb)]
 
-Gdy aplikacja ASP.NET pierwszym uruchomieniu, aplikacja\_wywołanie metody Start(). W ofercie 1 Ta metoda wywołuje metodę RegisterRoutes() i metoda RegisterRoutes() tworzy tabela routingu domyślnego.
+Po pierwszym uruchomieniu aplikacji ASP.NET zostaje wywołana metoda Start ()\_aplikacji. W przypadku list 1 Metoda ta wywołuje metodę RegisterRoutes (), a metoda RegisterRoutes () tworzy domyślną tabelę tras.
 
-Tabela routingu domyślnego obejmuje jedną trasę. Ta trasa domyślna przerywa wszystkie żądania przychodzące na trzy segmenty (segment adresu URL to wszystko między ukośniki). Pierwszy segment jest mapowany na nazwę kontrolera, drugi segment jest mapowany na nazwę akcji i końcowego segmentu jest mapowany na parametr przekazywany do akcji o nazwie identyfikatora.
+Domyślna tabela tras składa się z jednej trasy. Ta trasa domyślna przerywa wszystkie żądania przychodzące do trzech segmentów (segment adresu URL zawiera cokolwiek między ukośnikami). Pierwszy segment jest mapowany na nazwę kontrolera, drugi segment jest mapowany na nazwę akcji, a końcowy segment jest mapowany do parametru przesłanego do akcji o nazwie ID.
 
-Na przykład rozważmy następujący adres URL:
+Rozważmy na przykład następujący adres URL:
 
 /Product/Details/3
 
-Ten adres URL jest przekształcany do trzech parametrów następująco:
+Ten adres URL jest analizowany do trzech parametrów, takich jak:
 
 Kontroler = produkt
 
@@ -101,76 +101,76 @@ Akcja = szczegóły
 
 Identyfikator = 3
 
-Trasa domyślna zdefiniowane w pliku Global.asax zawiera wartości domyślne dla wszystkich trzech parametrów. Domyślnie kontrolera jest strona główna, domyślna akcja jest indeksem i domyślny identyfikator jest ciągiem pustym. W tych wartości domyślnych, pamiętając weź pod uwagę sposób następujący adres URL jest analizowany:
+Trasa domyślna zdefiniowana w pliku Global. asax zawiera wartości domyślne dla wszystkich trzech parametrów. Domyślnym kontrolerem jest Strona główna, domyślna akcja to indeks, a domyślny identyfikator jest ciągiem pustym. Z tymi wartościami domyślnymi należy wziąć pod uwagę sposób analizowania następującego adresu URL:
 
 /Employee
 
-Ten adres URL jest przekształcany do trzech parametrów następująco:
+Ten adres URL jest analizowany do trzech parametrów, takich jak:
 
 Kontroler = pracownik
 
 Akcja = indeks
 
-Id = ��
+Identyfikator =
 
-Na koniec możesz otworzyć aplikację ASP.NET MVC bez podawania dowolnego adresu URL (na przykład `http://localhost`), a następnie adres URL jest analizowany w następujący sposób:
+Na koniec, jeśli otworzysz aplikację ASP.NET MVC bez podawania żadnego adresu URL (na przykład `http://localhost`), adres URL jest analizowany w następujący sposób:
 
-Kontroler = strona główna
+Kontroler = Strona główna
 
 Akcja = indeks
 
-Id = ��
+Identyfikator =
 
-Żądanie jest kierowane do akcji indeks() klasy HomeController.
+Żądanie jest kierowane do akcji index () w klasie HomeController.
 
-## <a name="understanding-controllers"></a>Opis kontrolerów
+## <a name="understanding-controllers"></a>Omówienie kontrolerów
 
-Kontroler jest odpowiedzialny za kontrolowanie sposobu, w jaki użytkownik wchodzi w interakcję z aplikacją MVC. Kontroler zawiera logikę kontroli przepływu dla aplikacji ASP.NET MVC. Kontroler Określa, jakie odpowiedzi do odesłania do użytkownika, gdy użytkownik wysyła żądanie przeglądarki.
+Kontroler jest odpowiedzialny za kontrolowanie sposobu, w jaki użytkownik współdziała z aplikacją MVC. Kontroler zawiera logikę sterowania przepływem dla aplikacji ASP.NET MVC. Kontroler określa, która odpowiedź ma zostać wysłana z powrotem do użytkownika, gdy użytkownik wykonuje żądanie przeglądarki.
 
-Kontroler to po prostu klasy (na przykład klasy Visual Basic lub C#). Przykład aplikacji platformy ASP.NET MVC obejmuje kontroler o nazwie HomeController.vb znajduje się w folderze kontrolerów. Zawartość pliku HomeController.vb jest przedstawiony w ofercie 2.
+Kontroler jest tylko klasą (na przykład Visual Basic lub C# klasy). Przykładowa aplikacja ASP.NET MVC obejmuje kontroler o nazwie HomeController. vb znajdujący się w folderze controllers. Zawartość pliku HomeController. vb zostanie wyświetlona na liście 2.
 
-**Wyświetlanie listy 2 - HomeController.cs**
+**Lista 2 — HomeController.cs**
 
 [!code-vb[Main](understanding-models-views-and-controllers-vb/samples/sample2.vb)]
 
-Należy zauważyć, że HomeController ma dwie metody o nazwie indeks() i About(). Te dwie metody odpowiadają dwie akcje udostępnianych przez kontrolera. Adres URL /Home/Index wywołuje metodę HomeController.Index() i /Home adresu URL/o wywołuje metodę HomeController.About().
+Należy zauważyć, że HomeController ma dwie metody o nazwie index () i About (). Te dwie metody odpowiadają dwóm akcjom uwidocznionym przez kontroler. /Home/Index URL wywołuje metodę HomeController. index (), a adres URL/Home/About wywołuje metodę HomeController. about ().
 
-Wszystkie metody publicznej w kontrolerze jest ujawniona jako akcji kontrolera. Należy zachować ostrożność to. Oznacza to, że dowolnej metody publiczne, zawarte w kontrolerze może być wywoływany przez każdy z dostępem do Internetu, wprowadzając właściwego adresu URL do przeglądarki.
+Każda metoda publiczna w kontrolerze jest udostępniana jako akcja kontrolera. Należy zachować ostrożność. Oznacza to, że każda metoda publiczna znajdująca się w kontrolerze może być wywoływana przez każdą osobę mającą dostęp do Internetu, wprowadzając prawidłowy adres URL do przeglądarki.
 
-## <a name="understanding-views"></a>Objaśnienie widoków
+## <a name="understanding-views"></a>Informacje o widokach
 
-Akcje kontrolera dwóch udostępnianych przez klasę HomeController indeks() i About(), oba zwracają widoku. Widok zawiera kod znaczników HTML i zawartości, który jest wysyłany do przeglądarki. Widok jest odpowiednikiem stroną, podczas pracy z aplikacją ASP.NET MVC.
+Dwa akcje kontrolera uwidocznione przez klasy HomeController, index () i About () zwracają widok. Widok zawiera oznaczenie HTML i zawartość, która jest wysyłana do przeglądarki. Widok jest odpowiednikiem strony podczas pracy z aplikacją ASP.NET MVC.
 
-Należy utworzyć widoków we właściwym miejscu. Akcja HomeController.Index() zwraca Widok znajduje się w następującej ścieżce:
+Musisz utworzyć widoki w odpowiedniej lokalizacji. Akcja HomeController. index () zwraca widok znajdujący się w następującej ścieżce:
 
 \Views\Home\Index.aspx
 
-Akcja HomeController.About() zwraca Widok znajduje się w następującej ścieżce:
+Akcja HomeController. about () zwraca widok znajdujący się w następującej ścieżce:
 
 \Views\Home\About.aspx
 
-Ogólnie rzecz biorąc Jeśli chcesz powrócić do widoku dla akcji kontrolera, następnie należy utworzyć podfolder w folderze widoków z taką samą nazwę jak kontroler. W ramach tego podfolderu należy utworzyć plik .aspx z taką samą nazwę jak akcji kontrolera.
+Ogólnie rzecz biorąc, jeśli chcesz zwrócić widok dla akcji kontrolera, należy utworzyć podfolder w folderze widoki o takiej samej nazwie jak kontroler. W podfolderze należy utworzyć plik. aspx o tej samej nazwie co akcja kontrolera.
 
-Plik w ofercie 3 zawiera widok About.aspx.
+Plik w liście 3 zawiera widok informacje o. aspx.
 
-**Wyświetlanie listy 3 - About.aspx**
+**Lista 3 — informacje. aspx**
 
 [!code-aspx[Main](understanding-models-views-and-controllers-vb/samples/sample3.aspx)]
 
-Jeśli zignorujesz pierwszy wiersz w ofercie 3, większość pozostałych Widok składa się z standardowego kodu HTML. Możesz zmodyfikować zawartość widoku, wprowadzając kod HTML, chcesz, aby w tym miejscu.
+Jeśli zignorujesz pierwszy wiersz na liście 3, większość reszty widoku składa się z standardowego kodu HTML. Zawartość widoku można zmodyfikować, wprowadzając kod HTML, który chcesz umieścić w tym miejscu.
 
-Widok jest bardzo podobne do strony Active Server Pages lub formularzy sieci Web ASP.NET. Widok może zawierać zawartość HTML i skryptów. Skrypty można pisać w ulubionej platformy .NET, Programowanie w języku (na przykład C# lub Visual Basic .NET). Skrypty służy do wyświetlania zawartości dynamicznej, takich jak dane z bazy danych.
+Widok jest bardzo podobny do strony w Active Server stronach lub formularzach sieci Web ASP.NET. Widok może zawierać zawartość HTML i skrypty. Skrypty można napisać w ulubionym języku programowania .NET (na przykład C# lub w Visual Basic .NET). Za pomocą skryptów można wyświetlać zawartość dynamiczną, taką jak dane bazy danych.
 
-## <a name="understanding-models"></a>Objaśnienie modeli
+## <a name="understanding-models"></a>Informacje o modelach
 
-Omówiliśmy kontrolery i Omówiliśmy widoków. Ostatni temat, którego potrzebujemy do omówienia jest modeli. Co to jest model MVC?
+Omawiamy kontrolery i omawiamy widoki. Ostatnim tematem, który musimy omówić, są modele. Co to jest model MVC?
 
-Modelu MVC zawiera wszystkie logika aplikacji, który nie jest zawarty w widoku lub kontrolera. Model powinien zawierać wszystkie aplikacji logiki biznesowej, logikę weryfikacji i logiką dostępu do bazy danych. Na przykład jeśli używasz programu Entity Framework Microsoft dostęp do bazy danych, następnie w należy utworzyć Twoich zajęciach Entity Framework (pliku edmx) folderu modeli.
+Model MVC zawiera całą logikę aplikacji, która nie jest zawarta w widoku lub kontrolerze. Model powinien zawierać wszystkie aplikacje logiki biznesowej, logiki walidacji i logiki dostępu do bazy danych. Na przykład jeśli używasz Entity Framework firmy Microsoft w celu uzyskania dostępu do bazy danych, utworzysz klasy Entity Framework (plik. edmx) w folderze modele.
 
-Widok może zawierać tylko logiki związane z generowaniem interfejsu użytkownika. Kontroler powinien zawierać tylko podstawowe czynności logikę wymaganą do zwrotu prawego widoku lub przekierować użytkownika do innej akcji (Sterowanie przepływem). Wszystkie inne elementy powinny być zawarte w modelu.
+Widok powinien zawierać tylko logikę powiązaną z generowaniem interfejsu użytkownika. Kontroler powinien zawierać tylko wartość minimum od zera wymaganą do zwrócenia odpowiedniego widoku lub przekierować użytkownika do innej akcji (sterowanie przepływem). Wszystkie inne elementy powinny być zawarte w modelu.
 
-Ogólnie rzecz biorąc należy dążyć dla modeli fat i szczupły kontrolerów. Metody kontrolera może zawierać tylko kilka wierszy kodu. Jeśli akcja kontrolera pobiera zbyt fat, następnie należy rozważyć przenoszenia logikę do nowej klasy, w tym folderze modeli.
+Ogólnie rzecz biorąc, należy dążyć do modeli FAT i kontrolerów Skinny. Metody kontrolera powinny zawierać tylko kilka wierszy kodu. Jeśli akcja kontrolera jest zbyt za tłuszczem, należy rozważyć przeniesienie logiki do nowej klasy w folderze modele.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku został udostępniony Przegląd wysokiego poziomu różnych części platformy ASP.NET MVC aplikacji sieci web. Przedstawiono sposób routingu platformy ASP.NET mapowania przychodzących żądań przeglądarki określony kontroler akcji. Pokazaliśmy ci, jak kontrolery organizowanie, jak widoki są zwracane do przeglądarki. Na koniec pokazaliśmy ci, jak modele zawierają aplikacji biznesowych, weryfikacji i logiką dostępu do bazy danych.
+Ten samouczek zapewnia ogólne omówienie różnych części aplikacji sieci Web ASP.NET MVC. Wiesz już, jak ASP.NET routing mapuje przychodzące żądania przeglądarki do określonych akcji kontrolera. Wiesz już, jak kontrolery organizują sposób zwrócenia widoków do przeglądarki. Na koniec przedstawiono sposób, w jaki modele zawierają logikę dostępu do bazy danych i aplikacji.

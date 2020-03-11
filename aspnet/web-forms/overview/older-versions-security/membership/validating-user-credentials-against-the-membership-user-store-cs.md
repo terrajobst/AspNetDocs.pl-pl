@@ -9,11 +9,11 @@ ms.assetid: 61aa4e08-aa81-4aeb-8ebe-19ba7a65e04c
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
 ms.openlocfilehash: aaf6df6f52253ef0f7369a7e77211b6786b97db1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74618073"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523829"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (C#)
 
@@ -51,7 +51,7 @@ Interfejs użytkownika strony logowania może pozostawać niezmieniony, ale musi
 
 Ten kod jest niezwykle prosty. Zaczynamy od wywołania metody `Membership.ValidateUser`, przekazując w podanej nazwie użytkownika i haśle. Jeśli ta metoda zwróci wartość true, użytkownik jest zalogowany do lokacji za pomocą metody RedirectFromLoginPage klasy `FormsAuthentication`. (Zgodnie z opisem w <a id="Tutorial2"> </a>temacie Omówienie samouczka [*dotyczącego uwierzytelniania formularzy*](../introduction/an-overview-of-forms-authentication-cs.md) `FormsAuthentication.RedirectFromLoginPage` tworzy bilet uwierzytelniania formularzy, a następnie przekierowuje użytkownika do odpowiedniej strony). Jeśli poświadczenia są nieprawidłowe, jednak zostanie wyświetlona etykieta `InvalidCredentialsMessage`, informujący użytkownika, że jego nazwa użytkownika lub hasło są niepoprawne.
 
-To wszystko.
+To wszystko!
 
 Aby sprawdzić, czy strona logowania działa zgodnie z oczekiwaniami, spróbuj zalogować się przy użyciu jednego z kont użytkowników utworzonych w poprzednim samouczku. Lub, jeśli jeszcze nie utworzono konta, przejdź na stronę `~/Membership/CreatingUserAccounts.aspx`.
 
@@ -230,7 +230,7 @@ Gdy ten kod jest na miejscu, spróbuj zalogować się jako prawidłowy użytkown
 
 ## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>Krok 4. ulepszanie komunikatu o nieprawidłowych poświadczeniach kontrolki logowania
 
-Gdy użytkownik próbuje zalogować się przy użyciu nieprawidłowych poświadczeń, w kontrolce logowania zostanie wyświetlony komunikat z informacją o niepomyślnej próbie logowania. W szczególności formant Wyświetla komunikat określony przez jego [właściwość`FailureText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx), która ma wartość domyślną próby logowania nie powiodło się. Spróbuj ponownie.
+Gdy użytkownik próbuje zalogować się przy użyciu nieprawidłowych poświadczeń, w kontrolce logowania zostanie wyświetlony komunikat z informacją o niepomyślnej próbie logowania. W szczególności formant Wyświetla komunikat określony przez jego [właściwość`FailureText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx), która ma wartość domyślną próby logowania nie powiodło się. Spróbuj ponownie później.
 
 Odwołaj się, że istnieje wiele powodów, dla których poświadczenia użytkownika mogą być nieprawidłowe:
 

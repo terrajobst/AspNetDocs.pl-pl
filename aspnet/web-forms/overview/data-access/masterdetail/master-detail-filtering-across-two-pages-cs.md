@@ -9,11 +9,11 @@ ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ccb3bfa5f215ba6e65b8a10b40041d5c2896c7e3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620014"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78529177"
 ---
 # <a name="masterdetail-filtering-across-two-pages-c"></a>Filtrowanie rekordu głównego/szczegółów na dwóch stronach (C#)
 
@@ -114,7 +114,7 @@ Ostatni krok kreatora konfiguracji źródła danych prosi nas o podanie źródł
 
 **Ilustracja 11**. Wypełnij wartość parametru *`supplierID`* za pomocą wartości `SupplierID` QueryString ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image31.png))
 
-To wszystko. Rysunek 12 przedstawia stronę `ProductsForSupplierDetails.aspx` po odwiedzeniu przez kliknięcie linku dla Warszawy Traders z `SupplierListMaster.aspx`.
+To wszystko! Rysunek 12 przedstawia stronę `ProductsForSupplierDetails.aspx` po odwiedzeniu przez kliknięcie linku dla Warszawy Traders z `SupplierListMaster.aspx`.
 
 [![produkty dostarczone przez handlowców z Warszawy są wyświetlane](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
 

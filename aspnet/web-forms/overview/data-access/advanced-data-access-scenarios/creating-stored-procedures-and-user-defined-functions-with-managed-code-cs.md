@@ -9,11 +9,11 @@ ms.assetid: 213eea41-1ab4-4371-8b24-1a1a66c515de
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c6aec9ca70fe3ab568b3d17fea6bfd56671edc03
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74605403"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78533538"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z kodem zarządzanym (C#)
 
@@ -88,7 +88,7 @@ Projekt SQL Server jest powiązany z określoną bazą danych. W związku z tym 
 
 **Rysunek 5**. kojarzenie projektu SQL Server z bazą danych Northwind
 
-Aby debugować zarządzane procedury składowane i UDF, które zostaną utworzone w ramach tego projektu, musimy włączyć obsługę debugowania SQL/CLR dla tego połączenia. Za każdym razem, gdy kojarzy projekt SQL Server z nową bazą danych (jak pokazano na rysunku 5), program Visual Studio monituje nas, jeśli chcemy włączyć debugowanie SQL/CLR dla połączenia (zobacz rysunek 6). Kliknij przycisk Tak.
+Aby debugować zarządzane procedury składowane i UDF, które zostaną utworzone w ramach tego projektu, musimy włączyć obsługę debugowania SQL/CLR dla tego połączenia. Za każdym razem, gdy kojarzy projekt SQL Server z nową bazą danych (jak pokazano na rysunku 5), program Visual Studio monituje nas, jeśli chcemy włączyć debugowanie SQL/CLR dla połączenia (zobacz rysunek 6). kliknij przycisk Tak.
 
 ![Włącz debugowanie SQL/CLR](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image10.png)
 
@@ -190,7 +190,7 @@ Wiele zapytań i procedur składowanych utworzonych w ramach tych samouczków ma
 
 Aby utworzyć zarządzaną procedurę składowaną, która akceptuje parametry wejściowe, wystarczy określić te parametry w definicji metody s. Aby to zilustrować, należy dodać kolejną zarządzaną procedurę składowaną do projektu `ManagedDatabaseConstructs` o nazwie `GetProductsWithPriceLessThan`. Ta zarządzana procedura składowana przyjmie parametr wejściowy określający cenę i zwróci wszystkie produkty, których `UnitPrice` pole jest mniejsze niż wartość parametru s.
 
-Aby dodać nową procedurę składowaną do projektu, kliknij prawym przyciskiem myszy nazwę projektu `ManagedDatabaseConstructs` i wybierz opcję dodania nowej procedury składowanej. Nadaj plikowi nazwę `GetProductsWithPriceLessThan.cs`. Jak opisano w kroku 3, spowoduje to utworzenie nowego C# pliku klasy z metodą o nazwie `GetProductsWithPriceLessThan` umieszczoną w klasie `partial` `StoredProcedures`.
+Aby dodać nową procedurę składowaną do projektu, kliknij prawym przyciskiem myszy nazwę projektu `ManagedDatabaseConstructs` i wybierz opcję dodania nowej procedury składowanej. Nazwij plik `GetProductsWithPriceLessThan.cs`. Jak opisano w kroku 3, spowoduje to utworzenie nowego C# pliku klasy z metodą o nazwie `GetProductsWithPriceLessThan` umieszczoną w klasie `partial` `StoredProcedures`.
 
 Zaktualizuj definicję `GetProductsWithPriceLessThan` metody s tak, aby akceptowała [`SqlMoney`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) parametr wejściowy o nazwie `price` i napisać kod do wykonania i zwrócić wyniki zapytania:
 

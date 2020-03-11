@@ -9,11 +9,11 @@ ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a3e9562035cb24987b01fcdff5fbfb5fa8a1f894
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74629752"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78590000"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-c"></a>Efektywne stronicowanie dużych ilości danych (C#)
 
@@ -300,10 +300,10 @@ Artykuł kopalni, [niestandardowe stronicowanie w ASP.NET 2,0 z SQL Server 2005]
 
 |  | **Średni czas trwania (s)** | **Odczytywan** |
 | --- | --- | --- |
-| **Domyślny Profiler SQL stronicowania** | 1,411 | 383 |
-| **Profiler SQL stronicowania niestandardowego** | 0,002 | dnia |
-| **Domyślny ślad ASP.NET stronicowania** | 2,379 | *NIE DOTYCZY* |
-| **Niestandardowe stronicowanie ASP.NET śledzenia** | 0,029 | *NIE DOTYCZY* |
+| **Domyślny Profiler SQL stronicowania** | 1.411 | 383 |
+| **Profiler SQL stronicowania niestandardowego** | 0.002 | 29 |
+| **Domyślny ślad ASP.NET stronicowania** | 2.379 | *Nie dotyczy* |
+| **Niestandardowe stronicowanie ASP.NET śledzenia** | 0.029 | *Nie dotyczy* |
 
 Jak widać, pobieranie określonej strony danych wymaga 354 mniej odczytów średnio i zakończonych w części czasu. Na stronie ASP.NET niestandardowa strona była w stanie renderować w pobliżu o 1/100% czasu, jaki zajęło<sup>Korzystanie z domyślnego</sup> stronicowania. Zobacz [mój artykuł](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx) , aby uzyskać więcej informacji na temat tych wyników wraz z kodem i bazą danych, którą można pobrać, aby odtworzyć te testy w Twoim środowisku.
 

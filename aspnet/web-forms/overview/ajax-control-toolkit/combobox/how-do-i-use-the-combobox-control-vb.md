@@ -1,155 +1,155 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
-title: Jak używać kontrolki ComboBox? (VB) | Microsoft Docs
+title: Jak mogę użyć kontrolki ComboBox? (VB) | Microsoft Docs
 author: microsoft
-description: Pole kombi to formant ASP.NET AJAX, który łączy elastyczność pole tekstowe z listy opcji, z których użytkownicy mogą wybrać.
+description: Pole kombi jest ASP.NETą kontrolką AJAX, która łączy elastyczność pola tekstowego z listą opcji, z których mogą wybierać użytkownicy.
 ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: e887e7b2-a6e7-4a28-a134-ba334494badb
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 468063a72253cce55a02bfaef1219bff03d06418
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119775"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554489"
 ---
-# <a name="how-do-i-use-the-combobox-control-vb"></a>Jak używać kontrolki ComboBox? (VB)
+# <a name="how-do-i-use-the-combobox-control-vb"></a>Jak mogę użyć kontrolki ComboBox? (VB)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Pole kombi to formant ASP.NET AJAX, który łączy elastyczność pole tekstowe z listy opcji, z których użytkownicy mogą wybrać.
+> Pole kombi jest ASP.NETą kontrolką AJAX, która łączy elastyczność pola tekstowego z listą opcji, z których mogą wybierać użytkownicy.
 
-Celem tego samouczka jest wyjaśnić formantu Toolkit ComboBox kontrolka AJAX. Pola kombi działa jak połączenie między standard kontrolki ASP.NET DropDownList i formant pola tekstowego. Możesz wybrać z listy istniejących elementów lub wprowadzić nowy element.
+Celem tego samouczka jest wyjaśnienie kontrolki ComboBox zestawu narzędzi AJAX Control Toolkit. Pole kombi działa jak kombinacja między standardową kontrolką ASP.NET DropDownList i kontrolką TextBox. Można wybrać jedną z istniejących list elementów lub wprowadzić nowy element.
 
-Pola kombi jest podobne do rozszerzeń kontrolki autouzupełniania, ale formanty są używane w różnych scenariuszach. Rozszerzenie autouzupełniania wysyła zapytanie do usługi sieci web, aby uzyskać pasujące wpisy. ComboBox — formant, z kolei jest inicjowany z zbiór elementów. Za pomocą Autouzupełnianie ułatwia extender sensie podczas pracy z dużym zestawem danych (w milionach części samochodowych) podczas korzystania z formantu ComboBox sens, kiedy praca wprowadzaj w małej grupie danych (dziesiątek, jak części samochodowych).
+Pole kombi jest podobne do rozszerzenia kontrolki autouzupełniania, ale kontrolki są używane w różnych scenariuszach. Rozszerzenie Autouzupełnianie wysyła zapytanie do usługi sieci Web, aby uzyskać pasujące wpisy. Kontrolka ComboBox, w przeciwieństwie, zostanie zainicjowana z zestawem elementów. Przy użyciu rozszerzenia Autouzupełnianie ma sens, gdy pracujesz z dużym zestawem danych (miliony części samochodu), podczas gdy przy użyciu kontrolki ComboBox ma sens, że pracujesz z niewielkim zestawem danych (dziesiątki części samochodu).
 
-## <a name="selecting-from-a-static-list-of-items"></a>Wybranie z listy statycznych elementów
+## <a name="selecting-from-a-static-list-of-items"></a>Wybieranie z statycznej listy elementów
 
-Pozwól s uruchomić przy użyciu prostego przykładu użycia kontrolki ComboBox. Wyobraź sobie, chcesz wyświetlić listę statycznych elementów na liście rozwijanej. Jednak mają pozostanie otwarte, możliwość lista nie jest pełny. Chcesz umożliwić użytkownikowi wprowadź wartość niestandardową do listy.
+Niech s zaczyna od prostej próbki przy użyciu kontrolki ComboBox. Załóżmy, że chcesz wyświetlić statyczną listę elementów na liście rozwijanej. Należy jednak pozostawić otwarte możliwości, aby lista nie została ukończona. Chcesz zezwolić użytkownikowi na wprowadzanie niestandardowej wartości na listę.
 
-Firma Microsoft ll Tworzenie nowej strony ASP.NET Web Forms i korzystanie z kontrolki ComboBox na stronie. Dodawanie nowej strony programu ASP.NET do projektu, a następnie przełączyć do widoku projektu.
+Utworzymy nową stronę formularzy sieci Web ASP.NET i używasz kontrolki ComboBox na stronie. Dodaj nową stronę ASP.NET do projektu i Przełącz się do widok Projekt.
 
-Jeśli chcesz użyć kontrolki ComboBox na stronie formantu ScriptManager należy dodać do strony. Przeciągnij formantu ScriptManager from beneath na karcie rozszerzenia AJAX na powierzchni projektanta. Należy dodać formantu ScriptManager w górnej części strony; można dodać w bezpośrednio poniżej po stronie serwera otwierania &lt;formularza&gt; tagu.
+Jeśli chcesz użyć kontrolki ComboBox na stronie, musisz dodać kontrolkę ScriptManager do strony. Przeciągnij formant ScriptManager z karty rozszerzenia AJAX na powierzchnię projektanta. W górnej części strony należy dodać kontrolkę ScriptManager. Możesz dodać je bezpośrednio poniżej otwierającego&gt; &lt;formularza po stronie serwera.
 
-Następnie przeciągnij formant pola kombi na stronę. W przyborniku z innych kontrolek zestawu narzędzi AJAX Control Toolkit i rozszerzeń (patrz rysunek 1) można znaleźć kontrolki ComboBox.
+Następnie przeciągnij kontrolkę ComboBox na stronę. Kontrolkę ComboBox można znaleźć w przyborniku przy użyciu innych kontrolek zestawu narzędzi AJAX Control i rozszerzeń formantów (zobacz rysunek 1).
 
-[![Prosty formularz do tworzenia wizytówkę](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
+[![prosty formularz do tworzenia karty biznesowej](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
 
-**Rysunek 01**: Wybranie kontrolki ComboBox w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image2.png))
+**Ilustracja 01**: wybranie kontrolki ComboBox z przybornika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image2.png))
 
-Firma Microsoft ll umożliwia wyświetlanie statyczną listę opcji kontrolki ComboBox. Użytkownik może wybrać określonego poziomu spiciness ich ds listę trzy opcje: Łagodne, średni i gorąco (patrz rysunek 2).
+Używamy kontrolki ComboBox do wyświetlania statycznej listy opcji. Użytkownik może wybrać określony poziom spiciness dla swojej żywności z listy trzech opcji: łagodny, średni i gorąca (patrz rysunek 2).
 
-[![Wybranie z listy statycznych elementów](how-do-i-use-the-combobox-control-vb/_static/image2.jpg)](how-do-i-use-the-combobox-control-vb/_static/image3.png)
+[![wybór ze statycznej listy elementów](how-do-i-use-the-combobox-control-vb/_static/image2.jpg)](how-do-i-use-the-combobox-control-vb/_static/image3.png)
 
-**Rysunek 02**: Wybranie z listy statycznych elementów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image4.png))
+**Ilustracja 02**. Zaznaczanie statycznej listy elementów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image4.png))
 
-Istnieją dwa sposoby, że te opcje można dodawać do kontrolki ComboBox. Najpierw wybierz opcję zadania opcje edytowania, po umieszczeniu wskaźnika myszy nad kontrolką w widoku Projekt i otworzyć Edytor elementu (zobacz rysunek 3).
+Istnieją dwa sposoby dodawania tych opcji do kontrolki ComboBox. Najpierw należy wybrać opcję Edytuj opcje zadania po umieszczeniu wskaźnika myszy nad kontrolką w widok Projekt i otworzyć edytora elementów (patrz rysunek 3).
 
-[![Edytowanie elementów ComboBox](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
+[![edycji elementów ComboBox](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
 
-**Rysunek 03**: Edytowanie elementów ComboBox ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image6.png))
+**Ilustracja 03**: edytowanie elementów ComboBox ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image6.png))
 
-Drugą opcją jest dodanie listę elementów między otwierającym i zamykającym &lt;asp: ComboBox&gt; tagów w widoku źródła. Na stronie w ofercie 1 zawiera zaktualizowane pola kombi, która ma na liście elementów.
+Druga opcja polega na dodaniu listy elementów między tagiem otwierającym i zamykającym &lt;ASP: ComboBox&gt; w widoku źródła. Strona z listą 1 zawiera zaktualizowane pole kombi, które ma listę elementów.
 
-**Wyświetlanie listy 1 - Static.aspx**
+**Lista 1-statyczna. aspx**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample1.aspx)]
 
-Po otwarciu strony w ofercie 1 można wybrać jedną z istniejących opcji z pola kombi. Innymi słowy pola kombi działa jak formant DropDownList.
+Po otwarciu strony na liście 1 można wybrać jedną z istniejących opcji z pola kombi. Innymi słowy, ComboBox działa podobnie jak kontrolka DropDownList.
 
-Jednak masz również możliwość wprowadzania nowych wybór (na przykład Super Spicy), który nie znajduje się w istniejącej listy. Dlatego pola kombi również działa jak formant TextBox.
+Istnieje również możliwość wprowadzenia nowego wyboru (na przykład Spicy), które nie znajduje się na istniejącej liście. Tak więc ComboBox działa również podobnie jak kontrolka TextBox.
 
-Niezależnie od tego, czy wybrać istniejącą wstępnie element lub możesz wprowadzić niestandardowego elementu po przesłaniu formularza, wybór wyświetlany w kontrolce etykiety. Po przesłaniu formularza btnSubmit\_kliknij program obsługi wykonuje i aktualizuje etykietę (zobacz rysunek 4).
+Bez względu na to, czy wybierasz wstępnie istniejący element, czy wprowadzasz element niestandardowy, podczas przesyłania formularza wybór zostanie wyświetlony w kontrolce etykieta. Po przesłaniu formularza btnSubmit\_kliknij pozycję obsługa i aktualizuje etykietę (zobacz rysunek 4).
 
-[![Wyświetlanie wybranego elementu](how-do-i-use-the-combobox-control-vb/_static/image4.jpg)](how-do-i-use-the-combobox-control-vb/_static/image7.png)
+[![wyświetlania wybranego elementu](how-do-i-use-the-combobox-control-vb/_static/image4.jpg)](how-do-i-use-the-combobox-control-vb/_static/image7.png)
 
-**Rysunek 04**: Wyświetlanie wybranego elementu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image8.png))
+**Rysunek 04**: wyświetlanie wybranego elementu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image8.png))
 
-Pola kombi obsługuje te same właściwości co kontrolki DropDownList pobierania wybranego elementu po przesłaniu formularza:
+Pole kombi obsługuje te same właściwości, co formant DropDownList do pobierania wybranego elementu po przesłaniu formularza:
 
-- SelectedItem.Text - Wyświetla wartość właściwości tekstu zaznaczonego elementu.
-- SelectedItem.Value - Wyświetla wartość właściwości wartość zaznaczonego elementu lub wyświetla tekst wpisany w pola kombi.
-- SelectedValue — taka sama jak SelectedItem.Value z tą różnicą, że ta właściwość umożliwia określenie domyślnego (początkową) wybranego elementu.
+- SelectedItem. Text — wyświetla wartość właściwości text wybranego elementu.
+- SelectedItem. Value — wyświetla wartość właściwości wartość wybranego elementu lub wyświetla tekst w polu kombi.
+- SelectedValue — taka sama jak SelectedItem. Value, z wyjątkiem tego, że ta właściwość umożliwia określenie domyślnego (początkowego) wybranego elementu.
 
-Jeśli wpiszesz niestandardowy wybór w ComboBox następnie niestandardowy wybór jest przypisany do właściwości SelectedItem.Text i SelectedItem.Value.
+W przypadku wpisania niestandardowego wyboru do pola kombi, wybór niestandardowy jest przypisany do właściwości SelectedItem. Text i SelectedItem. Value.
 
-## <a name="selecting-the-list-of-items-from-the-database"></a>Wybierając listę elementów z bazy danych
+## <a name="selecting-the-list-of-items-from-the-database"></a>Wybieranie listy elementów z bazy danych
 
-Możesz pobrać listę elementów, które wyświetla pola kombi z bazy danych. Na przykład do kontrolki SqlDataSource, kontrolka ObjectDataSource, pokud lub EntityDataSource można powiązać kontrolki ComboBox.
+Możesz pobrać listę elementów wyświetlanych przez element ComboBox z bazy danych. Na przykład można powiązać ComboBox z kontrolką kontrolki SqlDataSource, kontrolką ObjectDataSource, formantem LinqDataSource lub obiektem EntityDataSource.
 
-Wyobraź sobie, że chcesz wyświetlić listę filmów w ComboBox. Chcesz pobrać listę filmów z tabeli bazy danych filmów. Wykonaj następujące kroki:
+Załóżmy, że chcesz wyświetlić listę filmów w kontrolce ComboBox. Chcesz pobrać listę filmów z tabeli bazy danych filmów. Wykonaj następujące kroki:
 
-1. Utwórz stronę o nazwie Movies.aspx
-2. Dodawanie formantu ScriptManager do strony, przeciągając ScriptManager jest dostępna na karcie rozszerzenia AJAX w przyborniku na stronę.
-3. Na stronie Dodaj kontrolki ComboBox, przeciągając pola kombi na stronie.
-4. W widoku Projekt, umieść kursor nad formantu ComboBox, a następnie wybierz pozycję **wybierz źródło danych** zadań opcji (zobacz rysunek 5). Zostanie uruchomiony Kreator konfiguracji źródła danych.
-5. W **vybrat Zdroj dat** kroku, wybierz pozycję &lt;nowe źródło danych&gt; opcji.
-6. W **wybierz typ źródła danych** kroku, wybierz bazę danych.
-7. W **wybierz połączenie danych** kroku, wybierz bazę danych (na przykład MoviesDB.mdf).
-8. W **Zapisz parametry połączenia do pliku konfiguracji aplikacji** kroku, wybierz opcję, aby zapisać parametry połączenia.
-9. W **skonfigurować instrukcji Select** krok, wybierz tabelę bazy danych filmów i zaznacz wszystkie kolumny.
-10. W **Testovat dotaz** kroku, kliknij przycisk Zakończ.
-11. Ponownie **wybierz źródło danych** kroku, wybierz tytuł kolumny dla pola, aby wyświetlić i kolumny identyfikatora dla danych pola (patrz rysunek).
+1. Utwórz stronę o nazwie filmy. aspx
+2. Dodaj kontrolkę ScriptManager do strony, przeciągając element ScriptManager z karty rozszerzenia AJAX w przyborniku na stronę.
+3. Dodaj kontrolkę ComboBox do strony, przeciągając pole ComboBox na stronę.
+4. W widok Projekt przesuń wskaźnik myszy nad kontrolkę ComboBox i wybierz opcję zadanie **Wybierz źródło danych** (patrz rysunek 5). Zostanie uruchomiony Kreator konfiguracji źródła danych.
+5. W kroku **Wybierz źródło danych** wybierz opcję &lt;nowe źródło danych&gt;.
+6. W kroku **Wybierz typ źródła danych** wybierz pozycję baza danych.
+7. W kroku **Wybierz połączenie danych** wybierz swoją bazę danych (na przykład MoviesDB. mdf).
+8. W kroku **Zapisz parametry połączenia do pliku konfiguracji aplikacji** wybierz opcję zapisania parametrów połączenia.
+9. W kroku **Konfigurowanie instrukcji SELECT** wybierz tabelę bazy danych filmów i zaznacz wszystkie kolumny.
+10. W kroku **zapytania testowego** kliknij przycisk Zakończ.
+11. Wróć do kroku **Wybierz źródło danych** , wybierz kolumnę tytuł dla pola, które ma być wyświetlane, oraz kolumnę identyfikator dla pola dane (zobacz rysunek).
 12. Kliknij przycisk OK, aby zamknąć kreatora.
 
 [![Wybieranie źródła danych](how-do-i-use-the-combobox-control-vb/_static/image5.jpg)](how-do-i-use-the-combobox-control-vb/_static/image9.png)
 
-**Rysunek 05**: Wybieranie źródła danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image10.png))
+**Ilustracja 05**. Wybieranie źródła danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image10.png))
 
 [![Wybieranie pól tekstu i wartości danych](how-do-i-use-the-combobox-control-vb/_static/image6.jpg)](how-do-i-use-the-combobox-control-vb/_static/image11.png)
 
-**Rysunek 06**: Wybieranie pól tekstu i wartości danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image12.png))
+**Ilustracja 06**. Wybieranie pól tekstu i wartości danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image12.png))
 
-Po wykonaniu powyższych kroków, pola kombi jest powiązany z kontrolką SqlDataSource reprezentujący filmy z tabeli bazy danych filmów. Źródło strony wyglądają jak lista 2 (I oczyszczone nieco formatowanie).
+Po wykonaniu powyższych czynności pole kombi jest powiązane z kontrolką kontrolki SqlDataSource, która reprezentuje filmy z tabeli bazy danych filmów. Źródło strony wygląda jak lista 2 (po wyczyszczeniu formatowania przez chwilę).
 
-**Wyświetlanie listy 2 - Movies.aspx**
+**Lista 2 — filmy. aspx**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample2.aspx)]
 
-Należy zauważyć, że kontrolka ComboBox ma właściwość DataSourceID, który wskazuje na użyciu kontrolki SqlDataSource. Po otwarciu strony w przeglądarce zostanie wyświetlona lista filmów z bazy danych (zobacz rysunek 7). Możesz Wybierz film z listy lub wprowadź nowy film wpisując film do pola kombi.
+Zauważ, że formant ComboBox ma właściwość DataSourceID, która wskazuje na kontrolkę kontrolki SqlDataSource. Po otwarciu strony w przeglądarce zostanie wyświetlona lista filmów z bazy danych (patrz rysunek 7). Możesz wybrać film z listy lub wprowadzić nowy film, wpisując go w polu kombi.
 
-[![Wyświetlanie filmów](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
+[![wyświetlania listy filmów](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
 
-**Rysunek 07**: Wyświetlanie filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image14.png))
+**Ilustracja 07**. Wyświetlanie listy filmów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image14.png))
 
-## <a name="setting-the-dropdownstyle"></a>Ustawienie DropDownStyle
+## <a name="setting-the-dropdownstyle"></a>Ustawianie listy rozwijanej
 
-Właściwość ComboBox DropDownStyle służy do zmiany zachowania kontrolki ComboBox. Ta właściwość akceptuje istnieje dopuszczalne wartości:
+Aby zmienić zachowanie kontrolki ComboBox, można użyć właściwości menu rozwijanego ComboBox. Ta właściwość akceptuje możliwe wartości:
 
-- Lista rozwijana — wyświetla pola kombi (wartość domyślna), listę rozwijaną listę po kliknięciu strzałki i można wprowadzić wartość niestandardową.
-- Proste — pola kombi automatycznie wyświetla listę rozwijaną i można wprowadzić wartość niestandardową.
-- Metody DropDownList — pola kombi działa jak formant DropDownList.
+- Lista rozwijana — (wartość domyślna) pole kombi wyświetla listę rozwijaną po kliknięciu strzałki i można wprowadzić wartość niestandardową.
+- Prosty — ComboBox Wyświetla listę rozwijaną automatycznie i można wprowadzić wartość niestandardową.
+- DropDownList — pole kombi działa podobnie jak w przypadku kontrolki DropDownList.
 
-Różnic między listy rozwijanej i proste jest, gdy zostanie wyświetlona lista elementów. W przypadku prostego zostanie wyświetlona lista, natychmiast, gdy użytkownik przenosi fokus do pola kombi. W przypadku listy rozwijanej możesz kliknąć strzałkę, aby wyświetlić listę elementów.
+Różne listy rozwijane i proste są wyświetlane, gdy zostanie wyświetlona lista elementów. W przypadku prostej lista jest wyświetlana natychmiast po przeniesieniu fokusu do pola kombi. W przypadku listy rozwijanej, należy kliknąć strzałkę, aby wyświetlić listę elementów.
 
-Wartość kontrolki DropDownList powoduje, że działają podobnie jak standardowy kontrolki DropDownList formant pola kombi. Jednak jest to istotna różnica. Starsze wersje programu Internet Explorer wyświetlane kontrolki DropDownList przy użyciu nieskończonej indeks więc kontrolki pojawią się przed dowolną kontrolkę umieszczony przed jej. Ponieważ pola kombi powoduje wyświetlenie kodu HTML &lt;div&gt; znaczników zamiast kodu HTML &lt;wybierz&gt; tagu kontrolki ComboBox poprawnie szanuje kolejności z.
+Wartość DropDownList powoduje, że kontrolka ComboBox będzie działać tak samo jak standardowa kontrolka DropDownList. Istnieje jednak ważna różnica w tym miejscu. W starszych wersjach programu Internet Explorer jest wyświetlana kontrolka DropDownList z nieograniczoną indeksem z. dzięki temu kontrolka będzie wyświetlana przed każdą kontrolką umieszczoną przed nią. Ponieważ ComboBox renderuje tag HTML &lt;DIV&gt; zamiast HTML &lt;Wybierz tag&gt;, pole kombi prawidłowo przestrzega porządku osi z.
 
-## <a name="setting-the-autocompletemode"></a>Ustawienie parametr AutoCompleteMode
+## <a name="setting-the-autocompletemode"></a>Ustawianie AutoCompleteMode
 
-Właściwość parametr ComboBox AutoCompleteMode umożliwia określenie, co się dzieje, gdy użytkownik wpisze tekst do kontrolki ComboBox. Ta właściwość akceptuje następujące możliwe wartości:
+Aby określić, co się dzieje, gdy ktoś wpisze tekst do pola kombi, użyj właściwości ComboBox AutoCompleteMode. Ta właściwość akceptuje następujące możliwe wartości:
 
-- Brak — (wartość domyślna) podane przez pola kombi nie każde zachowanie automatycznego uzupełniania.
-- Zaproponuj — umożliwia wyświetlenie listy pola kombi i jego wyróżnia pasujący element na liście (patrz rysunek 8).
-- Dołącz — pola kombi nie wyświetla listy i dołącza go pasujący element z listy na wpisany (patrz rysunek 9).
-- SuggestAppend — pola kombi umożliwia wyświetlenie listy i dołącza pasujący element z listy na wpisany (zobacz rysunek 10).
+- Brak — (wartość domyślna) pole kombi nie zapewnia żadnego zachowania autouzupełniania.
+- Sugeruj — pole ComboBox Wyświetla listę i wyróżnia pasujący element na liście (patrz rysunek 8).
+- Append-ComboBox nie wyświetla listy i dołącza pasujący element z listy do wpisanych informacji (zobacz rysunek 9).
+- SuggestAppend — ComboBox Wyświetla listę i dołącza pasujący element z listy do wpisanych informacji (Zobacz Rysunek 10).
 
-[![Pola kombi sprawia, że sugestię](how-do-i-use-the-combobox-control-vb/_static/image8.jpg)](how-do-i-use-the-combobox-control-vb/_static/image15.png)
+[![ComboBox wykonuje sugestię](how-do-i-use-the-combobox-control-vb/_static/image8.jpg)](how-do-i-use-the-combobox-control-vb/_static/image15.png)
 
-**Rysunek 08**: Pola kombi sprawia, że sugestię ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image16.png))
+**Ilustracja 08**: element ComboBox wykonuje sugestię ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image16.png))
 
-[![Pole kombi dołącza pasujący tekst](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
+[Pole kombi ![dołącza pasujący tekst](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
 
-**Rysunek 09**: Pole kombi dołącza pasujący tekst ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image18.png))
+**Ilustracja 09**. pole kombi dołącza pasujący tekst ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image18.png))
 
-[![Pola kombi sugeruje i dołącza](how-do-i-use-the-combobox-control-vb/_static/image10.jpg)](how-do-i-use-the-combobox-control-vb/_static/image19.png)
+[![pole kombi sugeruje i dołącza](how-do-i-use-the-combobox-control-vb/_static/image10.jpg)](how-do-i-use-the-combobox-control-vb/_static/image19.png)
 
-**Na rysunku nr 10**: Pola kombi sugeruje i dołącza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image20.png))
+**Ilustracja 10**. pole kombi sugeruje i dołącza ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](how-do-i-use-the-combobox-control-vb/_static/image20.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono sposób wyświetlania ustalony zestaw elementów przy użyciu kontrolki ComboBox. Firma Microsoft powiązane kontrolki ComboBox, zarówno zestaw elementów statycznych i tabelę bazy danych. Na koniec pokazaliśmy ci, jak zmodyfikować zachowanie pola kombi, ustawiając jej właściwości, a parametr AutoCompleteMode DropDownStyle.
+W tym samouczku przedstawiono sposób używania kontrolki ComboBox do wyświetlania stałego zestawu elementów. Formant ComboBox jest związany ze statycznym zestawem elementów i tabelą bazy danych. Na koniec dowiesz się, jak zmodyfikować zachowanie kontrolki ComboBox, ustawiając jej listę rozwijaną i właściwości AutoCompleteMode.
 
 > [!div class="step-by-step"]
-> [Poprzednie](how-do-i-use-the-combobox-control-cs.md)
+> [Wstecz](how-do-i-use-the-combobox-control-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: b4ac129d-1b8e-41ca-a38f-9b19d7c7bb0e
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 97623e7c13ab7799b9dadbb8e52be8e0cd99e252
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594993"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575335"
 ---
 # <a name="creating-the-membership-schema-in-sql-server-c"></a>Tworzenie schematu członkostwa w programie SQL Server (C#)
 
@@ -206,9 +206,9 @@ Tabela 1 ilustruje, jak te trzy kolumny mogą wyglądać podobnie do różnych t
 
 | **Technika magazynu&lt;\_o3a\_p/&gt;** | **Hasło&lt;\_o3a\_p/&gt;** | **PasswordFormat&lt;\_o3a\_p/&gt;** | **PasswordSalt&lt;\_o3a\_p/&gt;** |
 | --- | --- | --- | --- |
-| Wyczyść | Hasło! | 0 | tTnkPlesqissc2y2SMEygA = = |
-| Skrótu | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1 | wFgjUfhdUFOCKQiI61vtiQ = = |
-| Szyfrowane | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/AA/oqAXGLHJNBw = = |
+| Clear | Hasło! | 0 | tTnkPlesqissc2y2SMEygA== |
+| Skrótu | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
+| Zaszyfrowane | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **Tabela 1**: przykładowe wartości pól związanych z hasłem podczas zapisywania hasła.
 
@@ -250,7 +250,7 @@ Oprócz atrybutów `name` i `type`, element `<add>` zawiera atrybuty, które def
 | `commandTimeout` | Określa wartość limitu czasu polecenia SQL (w sekundach). Wartość domyślna to 30. |
 | `connectionStringName` | Nazwa parametrów połączenia w elemencie `<connectionStrings>`, który ma zostać użyty do nawiązania połączenia z bazą danych magazynu użytkownika. Ta wartość jest wymagana. |
 | `description` | Zapewnia przyjazny dla człowieka opis zarejestrowanego dostawcy. |
-| `enablePasswordRetrieval` | Określa, czy użytkownicy mogą pobierać zapomniane hasło. Wartość domyślna to `false`. |
+| `enablePasswordRetrieval` | Określa, czy użytkownicy mogą pobierać zapomniane hasło. Wartością domyślną jest `false`. |
 | `enablePasswordReset` | Wskazuje, czy użytkownicy mogą resetować swoje hasła. Wartość domyślna to `true`. |
 | `maxInvalidPasswordAttempts` | Maksymalna liczba nieudanych prób logowania, które mogą wystąpić dla danego użytkownika w określonym `passwordAttemptWindow` przed zablokowaniem użytkownika. Wartość domyślna to 5. |
 | `minRequiredNonalphanumericCharacters` | Minimalna liczba znaków innych niż alfanumeryczne, które muszą występować w haśle użytkownika. Ta wartość musi należeć do zakresu od 0 do 128; wartość domyślna to 1. |
@@ -259,8 +259,8 @@ Oprócz atrybutów `name` i `type`, element `<add>` zawiera atrybuty, które def
 | `passwordAttemptWindow` | Liczba minut, przez które są śledzone nieudane próby logowania. Jeśli użytkownik poda nieprawidłowe poświadczenia logowania `maxInvalidPasswordAttempts` razy w tym określonym oknie, są one zablokowane. Wartość domyślna to 10. |
 | `PasswordFormat` | Format przechowywania haseł: `Clear`, `Hashed`lub `Encrypted`. Wartość domyślna to `Hashed`. |
 | `passwordStrengthRegularExpression` | Jeśli ta wartość jest określona, to wyrażenie regularne służy do oszacowania siły hasła wybranego przez użytkownika podczas tworzenia nowego konta lub zmiany hasła. Wartością domyślną jest ciąg pusty. |
-| `requiresQuestionAndAnswer` | Określa, czy użytkownik musi odpowiedzieć na swoje pytanie zabezpieczające podczas pobierania lub resetowania hasła. Wartość domyślna to `true`. |
-| `requiresUniqueEmail` | Wskazuje, czy wszystkie konta użytkowników w danej partycji aplikacji muszą mieć unikatowy adres e-mail. Wartość domyślna to `true`. |
+| `requiresQuestionAndAnswer` | Określa, czy użytkownik musi odpowiedzieć na swoje pytanie zabezpieczające podczas pobierania lub resetowania hasła. Wartością domyślną jest `true`. |
+| `requiresUniqueEmail` | Wskazuje, czy wszystkie konta użytkowników w danej partycji aplikacji muszą mieć unikatowy adres e-mail. Wartością domyślną jest `true`. |
 | `type` | Określa typ dostawcy. Ta wartość jest wymagana. |
 
 **Tabela 2**. ustawienia konfiguracji członkostwa i `SqlMembershipProvider`
@@ -340,4 +340,4 @@ Scott Mitchell, autor wielu książek ASP/ASP. NET Books i założyciel of 4Guys
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Alicja Maziarz. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4guysfromrolla.com).
 
 > [!div class="step-by-step"]
-> [Next](creating-user-accounts-cs.md)
+> [Dalej](creating-user-accounts-cs.md)
