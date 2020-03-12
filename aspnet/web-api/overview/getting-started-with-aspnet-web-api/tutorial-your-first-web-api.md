@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 2717d93f47be9d4a6548731d8deeca312b25f39f
+ms.sourcegitcommit: 9e3ca74997a67c18589729d4b7303799905473eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78556799"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79084055"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do usługi ASP.NET Web API 2 (C#)
 
@@ -137,7 +137,7 @@ Istnieje kilka sposobów uzyskania biblioteki jQuery. W tym przykładzie użyto 
 
 Aby uzyskać listę produktów, Wyślij żądanie HTTP GET w celu &quot;&quot;/API/Products.
 
-Funkcja jQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) wysyła żądanie AJAX. W przypadku odpowiedzi zawiera tablicę obiektów JSON. Funkcja `done` określa wywołanie zwrotne, które jest wywoływane, jeśli żądanie zakończy się pomyślnie. W wywołaniu zwrotnym aktualizujemy model DOM informacjami o produkcie.
+Funkcja jQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) wysyła żądanie AJAX. Odpowiedź zawiera tablicę obiektów JSON. Funkcja `done` określa wywołanie zwrotne, które jest wywoływane, jeśli żądanie zakończy się pomyślnie. W wywołaniu zwrotnym aktualizujemy model DOM informacjami o produkcie.
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample4.html)]
 
@@ -165,7 +165,7 @@ W przypadku wprowadzenia nieprawidłowego identyfikatora serwer zwróci błąd H
 
 ## <a name="using-f12-to-view-the-http-request-and-response"></a>Używanie klawisza F12 do wyświetlania żądania i odpowiedzi HTTP
 
-W przypadku korzystania z usługi HTTP bardzo przydatne może być wyświetlenie żądania HTTP i jego komunikatów. Można to zrobić w programie Internet Explorer 9 przy użyciu narzędzi deweloperskich uruchamianych za pomocą klawisza F12. W programie Internet Explorer 9 Naciśnij klawisz **F12** , aby otworzyć narzędzia. Kliknij kartę **Sieć** , a następnie naciśnij pozycję **Rozpocznij przechwytywanie**. Teraz wróć do strony sieci Web, a następnie naciśnij klawisz **F5** , aby ponownie załadować stronę sieci Web. Program Internet Explorer będzie przechwytywać ruch HTTP między przeglądarką a serwerem internetowym. Widok podsumowania pokazuje cały ruch sieciowy dla strony:
+Podczas pracy z usługą HTTP może być bardzo przydatne, aby wyświetlić żądania HTTP i komunikaty odpowiedzi. Można to zrobić w programie Internet Explorer 9 przy użyciu narzędzi deweloperskich uruchamianych za pomocą klawisza F12. W programie Internet Explorer 9 Naciśnij klawisz **F12** , aby otworzyć narzędzia. Kliknij kartę **Sieć** , a następnie naciśnij pozycję **Rozpocznij przechwytywanie**. Teraz wróć do strony sieci Web, a następnie naciśnij klawisz **F5** , aby ponownie załadować stronę sieci Web. Program Internet Explorer będzie przechwytywać ruch HTTP między przeglądarką a serwerem internetowym. Widok podsumowania pokazuje cały ruch sieciowy dla strony:
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
